@@ -26,7 +26,7 @@ def load_rotmod(path: Path) -> Tuple[np.ndarray, np.ndarray]:
                 vbul = float(row[5])
             except ValueError:
                 continue
-            vb = math.sqrt(max(vgas, 0.0) ** 2 + max(vdisk, 0.0) ** 2 + max(vbul, 0.0) ** 2)
+            vb = math.sqrt(vgas * vgas + vdisk * vdisk + vbul * vbul)
             v_obs.append(vobs)
             v_bary.append(vb)
     return np.array(v_bary, float), np.array(v_obs, float)
@@ -72,8 +72,13 @@ def verify_sparc(artefact: Path, sparc_dir: Path, tol: float = 0.05) -> bool:
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--sparc-dir", required=True)
+    ap.add_argument(
+        "--artefact",
+        type=Path,
+        default=ROOT / "data" / "internal" / "sparc_p5_current.json",
+        help="Path to SPARC artefact JSON (default: sparc_p5_current.json)",
+    )
     ap.add_argument("--tol", type=float, default=0.05)
     args = ap.parse_args()
-    artefact_path = ROOT / "data" / "internal" / "sparc_p5_industrial.json"
-    if not verify_sparc(artefact_path, Path(args.sparc_dir), args.tol):
+    if not verify_sparc(args.artefact, Path(args.sparc_dir), args.tol):
         raise SystemExit(1)

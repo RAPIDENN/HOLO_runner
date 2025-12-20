@@ -1,6 +1,6 @@
 | Paper Section | Claim/Figure | Artefact | Verification Script |
 | --- | --- | --- | --- |
-| Sec.3 SPARC P5 | Table metrics | data/internal/sparc_p5_industrial.json | tools/verify_sparc_metrics.py |
+| Sec.3 SPARC P5 (current) | Table metrics | data/internal/sparc_p5_current.json | tools/verify_sparc_metrics.py |
 | Sec.3 SPARC P3 | Table metrics | data/internal/sparc_predictive.json | tools/verify_sparc_metrics.py |
 | Sec.3 Newton baseline | JSON ed_fixed_ic_sparc_eval.json | tools/verify_sparc_metrics.py |
 | Sec.6 Ricci | lock5_ricci_results.json | tools/verify_lock5_ricci.py |

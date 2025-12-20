@@ -10,7 +10,8 @@ and frozen artefacts. It does **not** regenerate the solver output.
 
 ## Frozen artefacts
 Located in `data/internal/` and `figures/`.
-- SPARC summaries: `sparc_p5_industrial.json`, `sparc_predictive.json`, `ed_fixed_ic_sparc_eval.json`
+- SPARC summaries (current & legacy): `sparc_p5_current.json`, `sparc_p5_preprint_frozen.json`, `sparc_predictive.json`, `ed_fixed_ic_sparc_eval.json`
+- Early SPARC mismatches were resolved by aligning the verification metric with the pipeline definition of baryonic velocity.
 - Ricci lock: `lock5_ricci_results.json`
 - Bullet Cluster: `bullet_cluster_ed.json`
 - Additional tables: `ed_vs_mond_eval.json`

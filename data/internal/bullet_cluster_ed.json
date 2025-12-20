@@ -1,4 +1,8 @@
 {
+  "summary": {
+    "status": "frozen",
+    "note": "Bullet Cluster lensing artefact as used in the preprint."
+  },
   "params": {
     "separation_kpc": 720.0,
     "gas_offset_kpc": 150.0,

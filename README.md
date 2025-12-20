@@ -6,6 +6,7 @@ recompute only the reported summary metrics using public data (SPARC, Bullet Clu
 Planck 2018). It does **not** contain the private solver or any internal pipelines.
 The exact snapshot packaged here is also archived at Zenodo (DOI:
 [10.5281/zenodo.18001392](https://doi.org/10.5281/zenodo.18001392)) for long-term reference.
+For SPARC verification details (definition alignment that resolved early mismatches), see `docs/SPARC_VERIFICATION_NOTE.md`.
 
 ## Repository layout
 
