@@ -8,6 +8,17 @@ The exact snapshot packaged here is also archived at Zenodo (DOI:
 [10.5281/zenodo.18001392](https://doi.org/10.5281/zenodo.18001392)) for long-term reference.
 For SPARC verification details (definition alignment that resolved early mismatches), see `docs/SPARC_VERIFICATION_NOTE.md`.
 
+## Preview (frozen figure)
+
+![RAR comparison HOLO vs Newton (frozen output)](figures/rar_comparison.png)
+![Rotation curves HOLO vs MOND (frozen output)](figures/rotation_curves_mond_vs_holo.png)
+
+## Repository metadata (for GitHub settings)
+
+- Description: Verification pack for the HOLO preprint: frozen artefacts + summary-metric reruns (SPARC, Bullet Cluster, Planck).
+- Website: https://doi.org/10.5281/zenodo.18001392
+- Topics (enter separately, lowercase): cosmology, sparc, reproducibility, verification, holography, python
+
 ## Repository layout
 
 - `data/internal/` – frozen JSON summaries (SPARC, cosmology, Ricci, Bullet Cluster)
