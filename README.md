@@ -4,8 +4,9 @@ This public repository is a **verification-only pack** for the holographic prepr
 It ships **frozen artefacts** (JSON aggregates and final figures) plus scripts that
 recompute only the reported summary metrics using public data (SPARC, Bullet Cluster,
 Planck 2018). It does **not** contain the private solver or any internal pipelines.
-The exact snapshot packaged here is also archived at Zenodo (DOI:
-[10.5281/zenodo.18001392](https://doi.org/10.5281/zenodo.18001392)) for long-term reference.
+The exact snapshot packaged here is also archived at Zenodo for long-term reference:
+- HOLO runner verification pack: [10.5281/zenodo.18001392](https://doi.org/10.5281/zenodo.18001392)
+- EDHS passive bulk spectroscopy preprint: [10.5281/zenodo.18063497](https://doi.org/10.5281/zenodo.18063497)
 For SPARC verification details (definition alignment that resolved early mismatches), see `docs/SPARC_VERIFICATION_NOTE.md`.
 
 ## Preview (frozen figure)

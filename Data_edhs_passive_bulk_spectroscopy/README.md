@@ -7,6 +7,7 @@ This folder is a **frozen artefact pack** for a numerical note on passive operat
 - `edhs_passive_bulk_spectroscopy_preprint.pdf` — the preprint PDF.
 - `figures/` — frozen figures referenced by the PDF (S1–S7).
 - `artifacts/` — supplementary JSON datasets referenced by the PDF.
+- Zenodo DOI (this version): [10.5281/zenodo.18063497](https://doi.org/10.5281/zenodo.18063497)
 
 ## Notes
 
