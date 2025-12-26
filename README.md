@@ -25,6 +25,11 @@ For SPARC verification details (definition alignment that resolved early mismatc
 - `figures/` – final figures from the preprint (frozen outputs)
 - `tools/` – verification scripts (no generation)
 - `repro/` – traceability map and reproduction instructions
+- `Data_edhs_passive_bulk_spectroscopy/` – frozen artefact pack for the EDHS passive bulk spectroscopy note (PDF + figures + JSON)
+
+## Additional pack
+
+- `Data_edhs_passive_bulk_spectroscopy/` – operator-level passive bulk spectroscopy pack (Phase A + supplementary Phase B maps).
 
 ## Usage
 
