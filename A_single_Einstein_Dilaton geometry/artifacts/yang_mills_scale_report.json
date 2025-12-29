@@ -1,0 +1,28 @@
+{
+  "trace": "data/internal/holo_physics_trace_ed_industrial.json",
+  "z_star": 2.0,
+  "A_z_star": -2.109533186116954,
+  "exp_2A_z_star": 0.01471237397564573,
+  "alpha_prime_GeV2": 0.011527088518514993,
+  "sigma_eff_GeV2": 0.203134298750248,
+  "sigma_eff_sqrt_MeV": 450.7042253521127,
+  "c_m0_over_sqrt_sigma": 3.55,
+  "m0_MeV": 1600.0,
+  "m0_window_GeV": [
+    1.5,
+    1.7
+  ],
+  "alpha_prime_required_GeV2_for_window": [
+    0.010210846576954457,
+    0.013115265158843727
+  ],
+  "notes": {
+    "z_star_selection": "end_of_space (z_end)",
+    "meta_dictionary": "exponential",
+    "meta_z_minmax": [
+      0.01,
+      2.0
+    ],
+    "interpretation": "Using sigma_eff = (1/(2*pi*alpha')) exp(2A(z_star)) with z_star at the IR turning point. For monotone exp(2A) on a finite domain, z_star is taken at z_end (hard end-of-space)."
+  }
+}

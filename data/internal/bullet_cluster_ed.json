@@ -1,0 +1,53 @@
+{
+  "summary": {
+    "status": "frozen",
+    "note": "Bullet Cluster lensing artefact as used in the preprint."
+  },
+  "params": {
+    "separation_kpc": 720.0,
+    "gas_offset_kpc": 150.0,
+    "M_gas_Msun": 100000000000000.0,
+    "M_stars_Msun": 20000000000000.0,
+    "M_lensing_obs_Msun": 1000000000000000.0
+  },
+  "components": {
+    "gas": {
+      "delta_ED": 1.2272184960762877,
+      "M_bary_Msun": 100000000000000.0,
+      "M_eff_Msun": 222721849607628.78,
+      "amplification": 2.2272184960762877
+    },
+    "galaxies": {
+      "delta_ED": 19.635495937220604,
+      "M_bary_Msun": 20000000000000.0,
+      "M_eff_Msun": 412709918744412.06,
+      "amplification": 20.635495937220604
+    }
+  },
+  "lensing": {
+    "M_eff_total_Msun": 635431768352040.9,
+    "x_centroid_kpc": 0.0,
+    "x_peak_kpc": -143.1,
+    "offset_from_gas_peak_kpc": 143.1,
+    "gas_fraction": 0.3505047444908936,
+    "galaxy_fraction": 0.6494952555091064
+  },
+  "tests": {
+    "galaxy_dominates": true,
+    "offset_nonzero": true,
+    "mass_matches": true,
+    "n_pass": 3
+  },
+  "ed_params": {
+    "lambda_galactic_kpc": 65.0,
+    "L_IR_kpc": 600.0,
+    "sigma_crit_Msun_pc2": 30.0,
+    "potential_alpha": 4.0,
+    "cluster_boost": 14.142135623730951
+  },
+  "assumptions": {
+    "eigenmode_scaling": "sqrt(2)*10 from f0\u2192L_IR",
+    "scope": "global",
+    "tuning": "none"
+  }
+}

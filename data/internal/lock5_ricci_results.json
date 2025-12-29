@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "xi": 7.09109815530395e+18,
+  "xi_eff": 7.247788361595927e+17,
+  "z_crit": 0.9615615615615615,
+  "delta_z": -0.8977903252379213,
+  "R_eff": 1.0264209186851321e-22,
+  "checks": {
+    "xi_consistent": {
+      "name": "xi_consistent",
+      "passed": true,
+      "f_predicted_mhz": 2.159,
+      "f_observed_mhz": 2.159,
+      "error_relative": 0.0,
+      "threshold": 0.05
+    },
+    "r2_locations": {
+      "name": "r2_locations",
+      "passed": true,
+      "r2": 1.0,
+      "threshold": 0.98,
+      "locations_tested": 6
+    },
+    "ed_gating": {
+      "name": "ed_gating",
+      "passed": true,
+      "z_lab": 0.1,
+      "z_crit": 0.9615615615615615,
+      "delta_z": -0.8977903252379213,
+      "expected": "screening",
+      "actual": "screening"
+    },
+    "couplings_safe": {
+      "name": "couplings_safe",
+      "passed": true,
+      "note": "Bridge /couplings unavailable"
+    },
+    "temporal_stable": {
+      "name": "temporal_stable",
+      "passed": true,
+      "note": "Insufficient data"
+    }
+  },
+  "predictions": {
+    "bulk": {
+      "R_factor": 0.0,
+      "f_mhz": 1.6664,
+      "delta_f_mhz": 0.0
+    },
+    "earth": {
+      "R_factor": 1.0,
+      "f_mhz": 2.159,
+      "delta_f_mhz": 0.4925999999999997
+    },
+    "iss": {
+      "R_factor": 0.9,
+      "f_mhz": 2.1149094060975755,
+      "delta_f_mhz": 0.4485094060975754
+    },
+    "moon": {
+      "R_factor": 0.165,
+      "f_mhz": 1.757217586583972,
+      "delta_f_mhz": 0.09081758658397199
+    },
+    "mars": {
+      "R_factor": 0.38,
+      "f_mhz": 1.8689456747589,
+      "delta_f_mhz": 0.20254567475889984
+    },
+    "jupiter": {
+      "R_factor": 2.5,
+      "f_mhz": 2.7363970947214513,
+      "delta_f_mhz": 1.0699970947214512
+    }
+  }
+}
