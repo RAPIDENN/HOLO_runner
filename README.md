@@ -7,7 +7,7 @@ Planck 2018). It does **not** contain the private solver or any internal pipelin
 The exact snapshot packaged here is also archived at Zenodo for long-term reference:
 - HOLO runner verification pack: [10.5281/zenodo.18001392](https://doi.org/10.5281/zenodo.18001392)
 - EDHS passive bulk spectroscopy preprint: [10.5281/zenodo.18063497](https://doi.org/10.5281/zenodo.18063497)
-- A single Einstein–Dilaton geometry (QCD, SPARC, growth): [10.5281/zenodo.18086173](https://doi.org/10.5281/zenodo.18086173)
+- A single Einstein–Dilaton geometry (QCD, SPARC, growth): [10.5281/zenodo.18097449](https://doi.org/10.5281/zenodo.18097449)
 For SPARC verification details (definition alignment that resolved early mismatches), see `docs/SPARC_VERIFICATION_NOTE.md`.
 
 ## Preview (frozen figure)
@@ -45,7 +45,7 @@ flowchart TD
     subgraph Zenodo DOIs
         Z1["10.5281/zenodo.18001392<br/>(HOLO runner pack)"]
         Z2["10.5281/zenodo.18063497<br/>(EDHS passive)"]
-        Z3["10.5281/zenodo.18086173<br/>(Einstein–Dilaton geometry)"]
+        Z3["10.5281/zenodo.18097449<br/>(Einstein–Dilaton geometry)"]
     end
     A --> Z1
     B --> Z2
@@ -55,7 +55,7 @@ flowchart TD
     click D "https://github.com/RAPIDENN/HOLO_runner/tree/master/A_single_Einstein_Dilaton%20geometry" "Open on GitHub"
     click Z1 "https://doi.org/10.5281/zenodo.18001392" "Open Zenodo"
     click Z2 "https://doi.org/10.5281/zenodo.18063497" "Open Zenodo"
-    click Z3 "https://doi.org/10.5281/zenodo.18086173" "Open Zenodo"
+    click Z3 "https://doi.org/10.5281/zenodo.18097449" "Open Zenodo"
 ```
 
 ## Usage

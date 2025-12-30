@@ -4,7 +4,7 @@ This folder contains **machine-readable verification artifacts** (JSON) supporti
 
 Repository: https://github.com/RAPIDENN/HOLO_runner
 
-Zenodo record (DOI): https://doi.org/10.5281/zenodo.18086173  
+Zenodo record (DOI): https://doi.org/10.5281/zenodo.18097449  
 Local PDF: `A_single_Einstein-Dilaton_geometry.pdf`
 
 ## What is included
@@ -54,10 +54,6 @@ The key point is separation: bulk eigenmodes are geometric observables, while la
 ### `artifacts/yang_mills_scale_report.json`
 - Verifies the **Wilson-loop string-tension estimate** from the IR warp factor and the implied absolute mass scale.
 - Uses the convention stated in the preprint: σ_eff = exp(2A(z_*)) / (2π α′).
-
-## Manifest
-
-See `MANIFEST.md` for an explicit list of the figures and artifacts included in this folder.
 
 ## Verification (local)
 
