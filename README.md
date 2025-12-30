@@ -17,7 +17,7 @@ For SPARC verification details (definition alignment that resolved early mismatc
 
 ## Repository metadata (for GitHub settings)
 
-- Description: Verification pack for the HOLO preprint: frozen artefacts + summary-metric reruns (SPARC, Bullet Cluster, Planck).
+- Description: Verification-only pack for the HOLO preprint: frozen artefacts + scripts to recompute reported summary metrics (SPARC, growth/BOSS, Ricci, Bullet Cluster). Zenodo: 10.5281/zenodo.18001392 | 10.5281/zenodo.18063497 | 10.5281/zenodo.18097449
 - Website: https://doi.org/10.5281/zenodo.18001392
 - Topics (enter separately, lowercase): cosmology, sparc, reproducibility, verification, holography, python
 
