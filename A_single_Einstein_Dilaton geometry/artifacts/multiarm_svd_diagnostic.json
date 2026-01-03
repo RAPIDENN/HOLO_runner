@@ -1,0 +1,675 @@
+{
+  "schema": {
+    "name": "phase_v2_multiarm_svd_diagnostic",
+    "version": "v2.0"
+  },
+  "type": "multiarm_svd_diagnostic",
+  "status": "exploratory",
+  "no_inversion": true,
+  "created_at_utc": "2026-01-02T22:37:19.897090+00:00",
+  "git_commit": "2313451563a93a86dfdf3f4858c52188084c0bfe",
+  "common_basis": {
+    "type": "bulk_eigenmodes",
+    "artifact": "data/internal/bulk_eigenmodes_derived.json",
+    "modes": 10
+  },
+  "normalization": {
+    "arm_block_scaling": "J_arm_norm = J_arm / (||J_arm||_F / sqrt(n_out_arm))",
+    "goal": "remove arm-unit scaling and output-count dependence (diagnostic only)",
+    "note": "This normalization is applied only for SVD diagnostics; operators themselves are unchanged."
+  },
+  "arms": {
+    "GROWTH_BOSS": {
+      "label": "GROWTH_BOSS",
+      "operator_path": "data/internal/response_operator_R_nontoy.json",
+      "operator_arm": null,
+      "operator_observable": null,
+      "R_shape": [
+        10,
+        3
+      ],
+      "J_shape": [
+        3,
+        10
+      ],
+      "normalization": {
+        "method": "per_output_rms_frobenius",
+        "definition": "scale = ||J||_F / sqrt(n_out); J_norm = J / scale",
+        "n_out": 3,
+        "frobenius_norm": 1.23087783779938,
+        "scale": 0.7106476509930166
+      }
+    },
+    "DESI": {
+      "label": "DESI",
+      "operator_path": "data/internal/response_operator_R_desi_nontoy.json",
+      "operator_arm": {
+        "name": "DESI",
+        "observable": "\u0394f\u03c38(z_bins) residual vector from data/internal/desi_residual.json",
+        "z_bins": [
+          0.15,
+          0.35,
+          0.55,
+          0.75,
+          0.95,
+          1.15
+        ]
+      },
+      "operator_observable": "\u0394f\u03c38(z_bins) residual vector from data/internal/desi_residual.json",
+      "R_shape": [
+        10,
+        6
+      ],
+      "J_shape": [
+        6,
+        10
+      ],
+      "normalization": {
+        "method": "per_output_rms_frobenius",
+        "definition": "scale = ||J||_F / sqrt(n_out); J_norm = J / scale",
+        "n_out": 6,
+        "frobenius_norm": 12.41182093560479,
+        "scale": 5.067104678504241
+      }
+    },
+    "SPARC": {
+      "label": "SPARC",
+      "operator_path": "data/internal/response_operator_R_sparc_nontoy.json",
+      "operator_arm": {
+        "name": "SPARC",
+        "observable": "chi2_holo per galaxy (chi2_rank-style; see tools/final_eval/eval_sparc_fixed_ic.py)",
+        "galaxy_count": 175
+      },
+      "operator_observable": "chi2_holo per galaxy (chi2_rank-style; see tools/final_eval/eval_sparc_fixed_ic.py)",
+      "R_shape": [
+        10,
+        175
+      ],
+      "J_shape": [
+        175,
+        10
+      ],
+      "normalization": {
+        "method": "per_output_rms_frobenius",
+        "definition": "scale = ||J||_F / sqrt(n_out); J_norm = J / scale",
+        "n_out": 175,
+        "frobenius_norm": 48.36566812393199,
+        "scale": 3.656100852840227
+      }
+    },
+    "ZETA": {
+      "label": "ZETA",
+      "operator_path": "data/internal/response_operator_R_zeta_nontoy.json",
+      "operator_arm": {
+        "name": "ZETA",
+        "observable": "report.ratio_m1_over_m0",
+        "canonical_artifact": "qg_scaffold/output/invariant_flux_spectrum_canonical.json"
+      },
+      "operator_observable": "report.ratio_m1_over_m0",
+      "R_shape": [
+        10,
+        1
+      ],
+      "J_shape": [
+        1,
+        10
+      ],
+      "normalization": {
+        "method": "per_output_rms_frobenius",
+        "definition": "scale = ||J||_F / sqrt(n_out); J_norm = J / scale",
+        "n_out": 1,
+        "frobenius_norm": 13344.349269254068,
+        "scale": 13344.349269254068
+      }
+    },
+    "LAB_UV": {
+      "label": "LAB_UV",
+      "operator_path": "data/internal/response_operator_R_lab_uv_nontoy.json",
+      "operator_arm": {
+        "name": "LAB_UV",
+        "screening": "UV_SCREENED",
+        "observable": "mean_frequency_shift = mean_t(y_pred(t)) on reference grid",
+        "reference_json": "tools/electromagnetics/output/nist_comparison_uv.json"
+      },
+      "operator_observable": "mean_frequency_shift = mean_t(y_pred(t)) on reference grid",
+      "R_shape": [
+        10,
+        1
+      ],
+      "J_shape": [
+        1,
+        10
+      ],
+      "normalization": {
+        "method": "per_output_rms_frobenius",
+        "definition": "scale = ||J||_F / sqrt(n_out); J_norm = J / scale",
+        "n_out": 1,
+        "frobenius_norm": 0.00847899894654649,
+        "scale": 0.00847899894654649
+      }
+    }
+  },
+  "J_multi_shape": [
+    186,
+    10
+  ],
+  "singular_values": [
+    13.589794450062316,
+    0.9149130242468269,
+    0.6676244664595238,
+    0.18459342726293007,
+    0.024931283469740717,
+    0.001271850702953624,
+    0.000775780743194475,
+    0.00010551176731195508,
+    4.103387786445889e-05,
+    1.9054333732573184e-05
+  ],
+  "energy_fraction": [
+    0.9929167376072285,
+    0.004500353988905778,
+    0.0023963571409428156,
+    0.0001831974913369605,
+    3.3417682550998204e-06,
+    8.696796831202298e-09,
+    3.2356761371579136e-09,
+    5.985340344780726e-11,
+    9.052575981695318e-12,
+    1.951976526840195e-12
+  ],
+  "cumulative_energy_fraction": [
+    0.9929167376072285,
+    0.9974170915961343,
+    0.9998134487370771,
+    0.9999966462284141,
+    0.9999999879966692,
+    0.9999999966934661,
+    0.9999999999291422,
+    0.9999999999889957,
+    0.9999999999980482,
+    1.0000000000000002
+  ],
+  "condition_number": 713212.7861721402,
+  "arm_component_energy": {
+    "GROWTH_BOSS": [
+      0.015244444273563378,
+      0.06506103428897222,
+      0.2846333695474737,
+      0.09401862678243378,
+      0.13664726185724965,
+      0.5422614972661548,
+      0.6642769664913053,
+      0.08037740523666341,
+      0.0315840606099869,
+      0.0025974698520294425
+    ],
+    "DESI": [
+      0.032293340639619035,
+      0.011919197497810643,
+      0.055651097991015086,
+      0.034060180590609376,
+      0.06747258285394928,
+      0.025658468211685867,
+      0.033323585642400524,
+      0.27991373098425026,
+      0.2766062977480214,
+      0.06194243557022504
+    ],
+    "SPARC": [
+      0.9464688567093165,
+      0.05695666244654586,
+      0.2897670395645183,
+      0.7831035551514982,
+      0.3799942480854467,
+      0.19754040436200682,
+      0.2848803383756762,
+      0.6396619808102075,
+      0.6917979244299856,
+      0.9353396190194738
+    ],
+    "ZETA": [
+      0.0012673331875613573,
+      0.8214482902557373,
+      0.17571184493996833,
+      0.0005933376687548415,
+      0.0007864787953023886,
+      0.0001908045204548581,
+      8.132355217371789e-07,
+      5.137832488413172e-07,
+      1.524047000736143e-08,
+      2.666340146694991e-09
+    ],
+    "LAB_UV": [
+      0.004726025189940274,
+      0.04461481551093413,
+      0.1942366479570241,
+      0.08822429980670383,
+      0.41509942840805236,
+      0.23434882563969756,
+      0.017518296255096294,
+      4.6369185630153904e-05,
+      1.1701971536703897e-05,
+      0.00012047289193260353
+    ]
+  },
+  "top_components": [
+    {
+      "k": 0,
+      "sigma": 13.589794450062316,
+      "energy_fraction": 0.9929167376072285,
+      "cumulative_energy_fraction": 0.9929167376072285,
+      "dominant_modes": [
+        {
+          "mode_index": 9,
+          "loading": 0.6297847951159492
+        },
+        {
+          "mode_index": 8,
+          "loading": 0.5156640783221826
+        },
+        {
+          "mode_index": 7,
+          "loading": -0.4216849773981165
+        },
+        {
+          "mode_index": 6,
+          "loading": -0.3080020961845849
+        },
+        {
+          "mode_index": 5,
+          "loading": 0.21536883026139922
+        }
+      ],
+      "arm_energy_fraction": {
+        "GROWTH_BOSS": 0.015244444273563378,
+        "DESI": 0.032293340639619035,
+        "SPARC": 0.9464688567093165,
+        "ZETA": 0.0012673331875613573,
+        "LAB_UV": 0.004726025189940274
+      }
+    },
+    {
+      "k": 1,
+      "sigma": 0.9149130242468269,
+      "energy_fraction": 0.004500353988905778,
+      "cumulative_energy_fraction": 0.9974170915961343,
+      "dominant_modes": [
+        {
+          "mode_index": 5,
+          "loading": 0.5720720756128217
+        },
+        {
+          "mode_index": 8,
+          "loading": -0.5501716584999666
+        },
+        {
+          "mode_index": 6,
+          "loading": -0.3559360586286238
+        },
+        {
+          "mode_index": 4,
+          "loading": 0.3127756016418951
+        },
+        {
+          "mode_index": 7,
+          "loading": 0.3004111452813984
+        }
+      ],
+      "arm_energy_fraction": {
+        "GROWTH_BOSS": 0.06506103428897222,
+        "DESI": 0.011919197497810643,
+        "SPARC": 0.05695666244654586,
+        "ZETA": 0.8214482902557373,
+        "LAB_UV": 0.04461481551093413
+      }
+    },
+    {
+      "k": 2,
+      "sigma": 0.6676244664595238,
+      "energy_fraction": 0.0023963571409428156,
+      "cumulative_energy_fraction": 0.9998134487370771,
+      "dominant_modes": [
+        {
+          "mode_index": 9,
+          "loading": 0.6091718931369726
+        },
+        {
+          "mode_index": 3,
+          "loading": 0.44172374229951644
+        },
+        {
+          "mode_index": 4,
+          "loading": -0.38425685202007137
+        },
+        {
+          "mode_index": 7,
+          "loading": 0.31409351579334016
+        },
+        {
+          "mode_index": 2,
+          "loading": -0.2942566486477039
+        }
+      ],
+      "arm_energy_fraction": {
+        "GROWTH_BOSS": 0.2846333695474737,
+        "DESI": 0.055651097991015086,
+        "SPARC": 0.2897670395645183,
+        "ZETA": 0.17571184493996833,
+        "LAB_UV": 0.1942366479570241
+      }
+    },
+    {
+      "k": 3,
+      "sigma": 0.18459342726293007,
+      "energy_fraction": 0.0001831974913369605,
+      "cumulative_energy_fraction": 0.9999966462284141,
+      "dominant_modes": [
+        {
+          "mode_index": 2,
+          "loading": -0.4970281349892266
+        },
+        {
+          "mode_index": 3,
+          "loading": 0.4167519622898619
+        },
+        {
+          "mode_index": 9,
+          "loading": -0.38859469957276593
+        },
+        {
+          "mode_index": 6,
+          "loading": -0.3790050332684851
+        },
+        {
+          "mode_index": 1,
+          "loading": -0.3326923668738607
+        }
+      ],
+      "arm_energy_fraction": {
+        "GROWTH_BOSS": 0.09401862678243378,
+        "DESI": 0.034060180590609376,
+        "SPARC": 0.7831035551514982,
+        "ZETA": 0.0005933376687548415,
+        "LAB_UV": 0.08822429980670383
+      }
+    },
+    {
+      "k": 4,
+      "sigma": 0.024931283469740717,
+      "energy_fraction": 3.3417682550998204e-06,
+      "cumulative_energy_fraction": 0.9999999879966692,
+      "dominant_modes": [
+        {
+          "mode_index": 1,
+          "loading": 0.5265619681744012
+        },
+        {
+          "mode_index": 4,
+          "loading": -0.4587730319985084
+        },
+        {
+          "mode_index": 0,
+          "loading": 0.38449610727141464
+        },
+        {
+          "mode_index": 6,
+          "loading": -0.3713840249105182
+        },
+        {
+          "mode_index": 2,
+          "loading": 0.3074578413217398
+        }
+      ],
+      "arm_energy_fraction": {
+        "GROWTH_BOSS": 0.13664726185724965,
+        "DESI": 0.06747258285394928,
+        "SPARC": 0.3799942480854467,
+        "ZETA": 0.0007864787953023886,
+        "LAB_UV": 0.41509942840805236
+      }
+    },
+    {
+      "k": 5,
+      "sigma": 0.001271850702953624,
+      "energy_fraction": 8.696796831202298e-09,
+      "cumulative_energy_fraction": 0.9999999966934661,
+      "dominant_modes": [
+        {
+          "mode_index": 0,
+          "loading": -0.570996296724645
+        },
+        {
+          "mode_index": 4,
+          "loading": -0.5435290801344361
+        },
+        {
+          "mode_index": 2,
+          "loading": 0.39160324174596006
+        },
+        {
+          "mode_index": 7,
+          "loading": 0.22712698570152368
+        },
+        {
+          "mode_index": 3,
+          "loading": -0.21512180835283512
+        }
+      ],
+      "arm_energy_fraction": {
+        "GROWTH_BOSS": 0.5422614972661548,
+        "DESI": 0.025658468211685867,
+        "SPARC": 0.19754040436200682,
+        "ZETA": 0.0001908045204548581,
+        "LAB_UV": 0.23434882563969756
+      }
+    },
+    {
+      "k": 6,
+      "sigma": 0.000775780743194475,
+      "energy_fraction": 3.2356761371579136e-09,
+      "cumulative_energy_fraction": 0.9999999999291422,
+      "dominant_modes": [
+        {
+          "mode_index": 7,
+          "loading": -0.6187477080989376
+        },
+        {
+          "mode_index": 8,
+          "loading": -0.5942701567932678
+        },
+        {
+          "mode_index": 3,
+          "loading": -0.2865073073461209
+        },
+        {
+          "mode_index": 5,
+          "loading": -0.2702526638162924
+        },
+        {
+          "mode_index": 0,
+          "loading": -0.1956955542991151
+        }
+      ],
+      "arm_energy_fraction": {
+        "GROWTH_BOSS": 0.6642769664913053,
+        "DESI": 0.033323585642400524,
+        "SPARC": 0.2848803383756762,
+        "ZETA": 8.132355217371789e-07,
+        "LAB_UV": 0.017518296255096294
+      }
+    },
+    {
+      "k": 7,
+      "sigma": 0.00010551176731195508,
+      "energy_fraction": 5.985340344780726e-11,
+      "cumulative_energy_fraction": 0.9999999999889957,
+      "dominant_modes": [
+        {
+          "mode_index": 5,
+          "loading": -0.6454356470829313
+        },
+        {
+          "mode_index": 6,
+          "loading": -0.6425785624961227
+        },
+        {
+          "mode_index": 7,
+          "loading": 0.25973876003413515
+        },
+        {
+          "mode_index": 4,
+          "loading": 0.2431964089111782
+        },
+        {
+          "mode_index": 1,
+          "loading": -0.17797232852743844
+        }
+      ],
+      "arm_energy_fraction": {
+        "GROWTH_BOSS": 0.08037740523666341,
+        "DESI": 0.27991373098425026,
+        "SPARC": 0.6396619808102075,
+        "ZETA": 5.137832488413172e-07,
+        "LAB_UV": 4.6369185630153904e-05
+      }
+    }
+  ],
+  "Vt": [
+    [
+      -0.0048884847416900135,
+      -0.004953303292368791,
+      0.010057041454655248,
+      -0.054270871627541566,
+      0.1236912350038375,
+      0.21536883026139922,
+      -0.3080020961845849,
+      -0.4216849773981165,
+      0.5156640783221826,
+      0.6297847951159492
+    ],
+    [
+      0.010654046308899975,
+      0.025214914778141046,
+      0.03467371474408285,
+      -0.09061412848681914,
+      0.3127756016418951,
+      0.5720720756128217,
+      -0.3559360586286238,
+      0.3004111452813984,
+      -0.5501716584999666,
+      0.21240595108900062
+    ],
+    [
+      -0.03814081229997111,
+      -0.11626436155296647,
+      -0.2942566486477039,
+      0.44172374229951644,
+      -0.38425685202007137,
+      -0.17705082554708143,
+      0.14228992122073383,
+      0.31409351579334016,
+      -0.18528129965413573,
+      0.6091718931369726
+    ],
+    [
+      -0.1693483377055767,
+      -0.3326923668738607,
+      -0.4970281349892266,
+      0.4167519622898619,
+      -0.11436935013851762,
+      0.2308231418609774,
+      -0.3790050332684851,
+      -0.28089949700886563,
+      -0.001705939184017777,
+      -0.38859469957276593
+    ],
+    [
+      0.38449610727141464,
+      0.5265619681744012,
+      0.3074578413217398,
+      0.28133223472987856,
+      -0.4587730319985084,
+      0.012346053911538842,
+      -0.3713840249105182,
+      -0.172714354852186,
+      -0.12825144285606713,
+      -0.07991990875495836
+    ],
+    [
+      -0.570996296724645,
+      -0.18950289344854487,
+      0.39160324174596006,
+      -0.21512180835283512,
+      -0.5435290801344361,
+      0.19557280548740635,
+      -0.16872569772634002,
+      0.22712698570152368,
+      0.15066626911124112,
+      -0.04464811948368449
+    ],
+    [
+      -0.1956955542991151,
+      -0.15464646412246838,
+      0.049073820162288805,
+      -0.2865073073461209,
+      -0.1287023332319489,
+      -0.2702526638162924,
+      0.00894391641557911,
+      -0.6187477080989376,
+      -0.5942701567932678,
+      0.16615207528392215
+    ],
+    [
+      -0.020786599291825022,
+      -0.17797232852743844,
+      0.10505358026324942,
+      -0.0030714550047083243,
+      0.2431964089111782,
+      -0.6454356470829313,
+      -0.6425785624961227,
+      0.25973876003413515,
+      0.0261984514144788,
+      0.0076563616427225405
+    ],
+    [
+      0.385137472989091,
+      -0.027423796892924013,
+      -0.5035077729859052,
+      -0.6368586312818405,
+      -0.37010640269024925,
+      0.007848020205788123,
+      -0.17009878604278242,
+      0.14728054469236734,
+      0.06348186461351861,
+      -0.01061248518318226
+    ],
+    [
+      -0.5556935124729501,
+      0.7110678335711862,
+      -0.38758825063969027,
+      -0.08325673344523268,
+      0.08691453149759217,
+      -0.11677788348262978,
+      -0.07897936011602917,
+      0.03089069361002169,
+      0.0068957807766764695,
+      -0.0004296897196390708
+    ]
+  ],
+  "inputs_sha256": {
+    "data/internal/response_operator_R_nontoy.json": "276f1f17fc431135c1edd82de25d8b702aceeb1bc174b4f0611332bd2dc94e7c",
+    "data/internal/response_operator_R_desi_nontoy.json": "6ec1a38d41be39da99b4c07fcfb1788acb337bb73ed21fa271f5812125149d06",
+    "data/internal/response_operator_R_sparc_nontoy.json": "a949019e200df8f41de8e7ce4b5b3311e739a2b1aebba6ed891378caf405721b",
+    "data/internal/response_operator_R_zeta_nontoy.json": "c7e9137236e977e3d633faa00365209350b9fc9cb0e4f871e080d2e7374fd6f6",
+    "data/internal/response_operator_R_lab_uv_nontoy.json": "d23ec9710a1243fd60ce81471f879634aba7f0bf7e7cbd99b97b8539606a11cd"
+  },
+  "outputs": {
+    "json": "data/internal/multiarm_svd_diagnostic.json",
+    "figure": "tools/phase_v2/output/multiarm_svd_diagnostic.png"
+  },
+  "notes": [
+    "Diagnostic only: constructed from existing non-toy operators; no solver run; no recomputation; no residuals used.",
+    "No inversion/fit/regularization is performed or claimed.",
+    "SVD is applied to the stacked normalized map \u03b4y_multi = J_multi \u00b7 \u03b4a, with J_multi built from J_arm = R_arm^T."
+  ]
+}

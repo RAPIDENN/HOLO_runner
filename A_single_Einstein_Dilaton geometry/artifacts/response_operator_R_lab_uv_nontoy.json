@@ -1,0 +1,846 @@
+{
+  "operator": "Non-toy UV-screened lab response operator R_L[n] = d(mean_frequency_shift)/d a_n (mean of y_pred on the nist_comparison_uv reference grid)",
+  "toy_model": false,
+  "status": "COMPUTED_NUMERICAL",
+  "arm": {
+    "name": "LAB_UV",
+    "screening": "UV_SCREENED",
+    "observable": "mean_frequency_shift = mean_t(y_pred(t)) on reference grid",
+    "reference_json": "tools/electromagnetics/output/nist_comparison_uv.json"
+  },
+  "basis": {
+    "kind": "certified_bulk_eigenmodes",
+    "artifact": "data/internal/bulk_eigenmodes_derived.json",
+    "mode_count": 10,
+    "mode_indexing": "n=0..modes-1",
+    "psi_normalization": "projection uses discrete weighted coefficients on the solver z-grid; see diagnostics.per_mode[].projection.discrete"
+  },
+  "construction": {
+    "perturbation": "\u03b4\u03c6(z)=\u00b1\u03b5 \u03c8_n(z); \u03b4A from linearized Hamiltonian constraint; gauge \u03b4A(z_min)=0",
+    "epsilon_base": 0.001,
+    "epsilon_min": 1e-06,
+    "epsilon_per_mode": [
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001,
+      0.001
+    ],
+    "finite_difference": "central",
+    "linearity_check": {
+      "enabled": true,
+      "epsilon_2": "2\u00d7epsilon_per_mode[n] (per mode)",
+      "tolerance_rel_err": 0.05,
+      "slope_floor": 1e-12
+    },
+    "screening_gate": {
+      "enabled": true,
+      "max_abs_delta": 0.0005,
+      "max_rel_delta": 0.001,
+      "limit_used_baseline_scale": 0.0005,
+      "baseline_scale": 0.34065021270035384
+    }
+  },
+  "inputs": {
+    "baseline_trace": "data/internal/holo_physics_trace_ed_industrial.json",
+    "uv_reference_json": "tools/electromagnetics/output/nist_comparison_uv.json",
+    "tau_json": "qg_scaffold/output/tau_from_dictionary.json",
+    "em_observables_json": "tools/electromagnetics/output/em_observables.json",
+    "forward_model_chain": [
+      "tools/electromagnetics/uv_projector.py"
+    ],
+    "workdir": "tools/phase_v1_l/output_adaptive",
+    "provenance": {
+      "generated_at_utc": "2026-01-02T21:23:09.127379+00:00",
+      "argv": [
+        "tools/phase_v1_l/derive_response_operator_lab_uv_nontoy.py",
+        "--workdir",
+        "tools/phase_v1_l/output_adaptive",
+        "--modes",
+        "10",
+        "--epsilon",
+        "1e-3",
+        "--epsilon-min",
+        "1e-6",
+        "--epsilon-max",
+        "1e-2",
+        "--linearity-tol",
+        "0.05",
+        "--linearity-slope-floor",
+        "1e-12",
+        "--screening-max-abs-delta",
+        "5e-4",
+        "--screening-max-rel-delta",
+        "1e-3",
+        "--baseline-match-tol",
+        "1e-10"
+      ],
+      "project_root": "REDACTED_LOCAL_PATH",
+      "git_commit": "ddade6ddeae49c7b575008907d421e52f666a7d8",
+      "sha256_inputs": {
+        "data/internal/holo_physics_trace_ed_industrial.json": "e1c4b9d8495a563be31c36ceeeea7575b1d46afae74b45394edb77a8ffb06725",
+        "data/internal/bulk_eigenmodes_derived.json": "9a4e15cdad95080af98cfccdc1958965b1e0097718120e08c0c236112a829f69",
+        "tools/electromagnetics/output/nist_comparison_uv.json": "248ffcb7ed3ea211ac281d1ad60571542c1788ee3ee391d1d37669cc4968577e",
+        "qg_scaffold/output/tau_from_dictionary.json": "19c014232bcca90d08fd946106cda85923fe1b003a0ec7841e2636cf7a891d30",
+        "tools/electromagnetics/output/em_observables.json": "0a1931f5396ad50144935023a0756afd2a00914f3226a654baa17863cdfff237"
+      }
+    }
+  },
+  "diagnostics": {
+    "notes": [
+      "This is an explicitly UV-screened lab arm. A near-zero response is interpreted as a positive screening/no-detection result.",
+      "Fail-fast screening gate triggers if the scalar observable moves beyond configured tolerances under bulk perturbations.",
+      "Projection pass/fail uses the discrete solver-grid inner product; continuous coefficients are recorded for transparency only."
+    ],
+    "baseline_match": {
+      "reference_mean_frequency_shift": -0.34065021270035384,
+      "computed_mean_frequency_shift": -0.34065021270035384,
+      "diff": 0.0,
+      "tolerance": 1e-10
+    },
+    "reference_metrics": {
+      "sigma_hat": 0.27438471408852355,
+      "chi2_over_n": 22.590156199688852,
+      "n": 595
+    },
+    "per_mode": [
+      {
+        "mode_index": 0,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.3406501523402022,
+        "O_minus": -0.34065027306053824,
+        "delta_plus": 6.036015165467035e-08,
+        "delta_minus": 6.036018440624957e-08,
+        "screening_limit": 0.0005,
+        "central_slope": 6.036016803045996e-05,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              0.0009999999999999998,
+              4.680511430936339e-18,
+              -1.043032728838986e-18,
+              5.609726761622718e-19,
+              2.2932234404092224e-19,
+              8.804803976493215e-19,
+              4.487463999414552e-19,
+              1.1556532512571533e-18,
+              3.3896862235808783e-19,
+              1.008687943291798e-18
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 2.1684043449710089e-16,
+            "leak_rel_max": 4.68051143093634e-15
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              0.0009999999999999998,
+              0.0007901971745869735,
+              7.767422064238108e-05,
+              0.00029667503386729193,
+              3.0245387450488847e-05,
+              0.00019846047687003412,
+              5.597901625508932e-05,
+              0.0001436895329716979,
+              5.734095715311333e-05,
+              0.00011077439433344424
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": 6.0360168058215535e-05,
+          "rel_err": 4.598326430910449e-10,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.001909528434314838,
+          "delta_A_l2": 1.0352015006394923e-06,
+          "deltaH_lin_linf": 1.0842021724855044e-19,
+          "deltaH_lin_l2": 8.899095572520772e-21,
+          "constraint_abs_linf": 1.8131729140059374
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.001909528434314838,
+          "delta_A_l2": 1.0352015006394923e-06,
+          "deltaH_lin_linf": 1.0842021724855044e-19,
+          "deltaH_lin_l2": 8.899095572520772e-21,
+          "constraint_abs_linf": 1.8131729140059356
+        }
+      },
+      {
+        "mode_index": 1,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.34065027733567077,
+        "O_minus": -0.34065014806508986,
+        "delta_plus": 6.463531693201574e-08,
+        "delta_minus": 6.463526397437747e-08,
+        "screening_limit": 0.0005,
+        "central_slope": -6.46352904531966e-05,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              5.302071327479357e-18,
+              0.0010000000000000005,
+              1.5338716600573324e-18,
+              3.838234100057649e-19,
+              6.115262507757926e-19,
+              -7.810713204953658e-19,
+              5.44380878617503e-19,
+              1.53158864624442e-19,
+              3.606049174022211e-21,
+              -2.7635286117583507e-19
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 4.3368086899420177e-16,
+            "leak_rel_max": 5.302071327479355e-15
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              0.0007901971745869733,
+              0.001,
+              0.0005140566081923891,
+              9.63455780562473e-05,
+              -0.00011121220697021033,
+              7.031175554421538e-05,
+              -4.250069045349557e-05,
+              5.0502897755963935e-05,
+              -1.8522092792500005e-05,
+              3.6760115404944844e-05
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": -6.463528993971845e-05,
+          "rel_err": 7.944238283588316e-09,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.0033726352515820123,
+          "delta_A_l2": 1.013113376044415e-06,
+          "deltaH_lin_linf": 4.336808689942018e-19,
+          "deltaH_lin_l2": 3.062304121431845e-20,
+          "constraint_abs_linf": 1.8131544503453547
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.0033726352515820123,
+          "delta_A_l2": 1.013113376044415e-06,
+          "deltaH_lin_linf": 4.336808689942018e-19,
+          "deltaH_lin_l2": 3.062304121431845e-20,
+          "constraint_abs_linf": 1.8131544503453583
+        }
+      },
+      {
+        "mode_index": 2,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.3406508124531391,
+        "O_minus": -0.3406496129526103,
+        "delta_plus": 5.997527852685813e-07,
+        "delta_minus": 5.997477435237819e-07,
+        "screening_limit": 0.0005,
+        "central_slope": -0.0005997502643961816,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              -9.292289955376193e-19,
+              1.1580646839430118e-18,
+              0.001,
+              -2.9524877692751144e-19,
+              -2.140341877715274e-19,
+              -2.272207477804701e-19,
+              3.1632942946692745e-19,
+              7.240237236791804e-19,
+              1.4424196696088844e-20,
+              2.0726464588187631e-19
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 0.0,
+            "leak_rel_max": 1.1580646839430117e-15
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              7.767422064238112e-05,
+              0.0005140566081923891,
+              0.001,
+              -0.0005838316963633773,
+              -9.593191228746614e-05,
+              -0.00020095262466514026,
+              -7.343395568162178e-05,
+              -0.00012393916438723003,
+              -6.117513954263397e-05,
+              -8.99028718907072e-05
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": -0.0005997502644655706,
+          "rel_err": 1.1569638756375346e-10,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.005828454906963213,
+          "delta_A_l2": 1.1427093919832294e-05,
+          "deltaH_lin_linf": 8.673617379884035e-19,
+          "deltaH_lin_l2": 7.145898286058063e-20,
+          "constraint_abs_linf": 1.8130696129310184
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.005828454906963213,
+          "delta_A_l2": 1.1427093919832294e-05,
+          "deltaH_lin_linf": 8.673617379884035e-19,
+          "deltaH_lin_l2": 7.145898286058063e-20,
+          "constraint_abs_linf": 1.8130696129310238
+        }
+      },
+      {
+        "mode_index": 3,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.34064868636800194,
+        "O_minus": -0.34065173907538243,
+        "delta_plus": 1.5263323518976968e-06,
+        "delta_minus": 1.5263750285932076e-06,
+        "screening_limit": 0.0005,
+        "central_slope": 0.0015263536902454522,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              4.919447623434454e-19,
+              3.1364251856789903e-19,
+              -4.294840648160531e-19,
+              0.001,
+              -6.115262507757925e-20,
+              -9.088829911218804e-19,
+              -6.473718556532468e-19,
+              5.012471933163557e-19,
+              7.933308182848864e-19,
+              -2.4180875352885573e-19
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 0.0,
+            "leak_rel_max": 9.088829911218803e-16
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              0.0002966750338672919,
+              9.63455780562473e-05,
+              -0.0005838316963633773,
+              0.0009999999999999998,
+              -0.0004936239648558813,
+              7.831828371526358e-05,
+              -0.0001189164488016686,
+              4.1151661442579886e-05,
+              -5.651087387002158e-05,
+              2.798920909631265e-05
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": 0.001526353691105875,
+          "rel_err": 5.637113135036887e-10,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.007712838328126349,
+          "delta_A_l2": 3.4213352022442655e-05,
+          "deltaH_lin_linf": 1.3010426069826053e-18,
+          "deltaH_lin_l2": 2.3716450280550554e-19,
+          "constraint_abs_linf": 1.812913824803701
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.007712838328126349,
+          "delta_A_l2": 3.4213352022442655e-05,
+          "deltaH_lin_linf": 1.3010426069826053e-18,
+          "deltaH_lin_l2": 2.3716450280550554e-19,
+          "constraint_abs_linf": 1.8129138248036991
+        }
+      },
+      {
+        "mode_index": 4,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.3406526701164003,
+        "O_minus": -0.3406477554344978,
+        "delta_plus": 2.457416046486305e-06,
+        "delta_minus": 2.457265856015134e-06,
+        "screening_limit": 0.0005,
+        "central_slope": -0.0024573409512507194,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              2.0497698430976893e-19,
+              4.704637778518485e-19,
+              -2.607581822097465e-19,
+              -5.904975538550229e-20,
+              0.001,
+              -1.7041556083535255e-19,
+              -9.122057966023023e-19,
+              8.354119888605927e-19,
+              5.12058982711154e-19,
+              -3.039881472934186e-19
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 0.0,
+            "leak_rel_max": 9.122057966023022e-16
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              3.0245387450488833e-05,
+              -0.00011121220697021033,
+              -9.593191228746614e-05,
+              -0.0004936239648558814,
+              0.001,
+              0.0005759666627418762,
+              8.584906382977425e-05,
+              0.00019473608951014313,
+              6.023661620508197e-05,
+              0.00011989639536890627
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": -0.002457340958467169,
+          "rel_err": 2.9366904235238758e-09,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.008584418930449351,
+          "delta_A_l2": 6.540014024962066e-05,
+          "deltaH_lin_linf": 2.6020852139652106e-18,
+          "deltaH_lin_l2": 4.5947679904719695e-19,
+          "constraint_abs_linf": 1.8127568987886065
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.008584418930449351,
+          "delta_A_l2": 6.540014024962066e-05,
+          "deltaH_lin_linf": 2.6020852139652106e-18,
+          "deltaH_lin_l2": 4.5947679904719695e-19,
+          "constraint_abs_linf": 1.8127568987886065
+        }
+      },
+      {
+        "mode_index": 5,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.34065340442286496,
+        "O_minus": -0.3406470213347079,
+        "delta_plus": 3.1917225111199876e-06,
+        "delta_minus": 3.1913656459159334e-06,
+        "screening_limit": 0.0005,
+        "central_slope": -0.0031915440785179605,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              8.472382018137116e-19,
+              -6.755377323000902e-19,
+              -2.1474203240802654e-19,
+              -1.003845841553539e-18,
+              -2.44610500310317e-19,
+              0.001,
+              4.1196390814297526e-19,
+              4.1770599443029636e-19,
+              3.4618072070613224e-19,
+              7.254262605865671e-19
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 0.0,
+            "leak_rel_max": 1.003845841553539e-15
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              0.00019846047687003401,
+              7.031175554421537e-05,
+              -0.00020095262466514018,
+              7.831828371526357e-05,
+              0.0005759666627418759,
+              0.001,
+              -0.0005335990922802778,
+              3.675248281824732e-05,
+              -0.00014603750948347544,
+              1.290054520619799e-05
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": -0.003191544107397637,
+          "rel_err": 9.04881006066063e-09,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.008891067921462383,
+          "delta_A_l2": 0.00010267104836003751,
+          "deltaH_lin_linf": 4.7704895589362195e-18,
+          "deltaH_lin_l2": 9.472399209023665e-19,
+          "constraint_abs_linf": 1.8126241738732727
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.008891067921462383,
+          "delta_A_l2": 0.00010267104836003751,
+          "deltaH_lin_linf": 4.7704895589362195e-18,
+          "deltaH_lin_l2": 9.472399209023665e-19,
+          "constraint_abs_linf": 1.8126241738732727
+        }
+      },
+      {
+        "mode_index": 6,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.3406467084738534,
+        "O_minus": -0.34065371753042695,
+        "delta_plus": 3.5042265004170403e-06,
+        "delta_minus": 3.5048300731088666e-06,
+        "screening_limit": 0.0005,
+        "central_slope": 0.0035045282867629535,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              4.1678653476319685e-19,
+              4.101479088964833e-19,
+              3.297824069123265e-19,
+              -6.495473092405252e-19,
+              -9.17289376163689e-19,
+              3.976363086158226e-19,
+              0.001,
+              1.6708239777211854e-18,
+              -1.7309036035306612e-18,
+              1.2435878752912578e-19
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 0.0,
+            "leak_rel_max": 1.730903603530661e-15
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              5.5979016255089296e-05,
+              -4.250069045349556e-05,
+              -7.343395568162177e-05,
+              -0.0001189164488016686,
+              8.584906382977419e-05,
+              -0.0005335990922802778,
+              0.001,
+              0.0005842224880795592,
+              6.94177732600293e-05,
+              0.00019364342156200575
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": 0.003504528356901293,
+          "rel_err": 2.0013631632506075e-08,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.008622483645414255,
+          "delta_A_l2": 0.00013603635788594638,
+          "deltaH_lin_linf": 4.7704895589362195e-18,
+          "deltaH_lin_l2": 9.938076874875177e-19,
+          "constraint_abs_linf": 1.8125699404190012
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.008622483645414255,
+          "delta_A_l2": 0.00013603635788594638,
+          "deltaH_lin_linf": 4.7704895589362195e-18,
+          "deltaH_lin_l2": 9.938076874875177e-19,
+          "constraint_abs_linf": 1.812569940419003
+        }
+      },
+      {
+        "mode_index": 7,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.3406464750259855,
+        "O_minus": -0.34065395133016463,
+        "delta_plus": 3.737674368342603e-06,
+        "delta_minus": 3.738629810789984e-06,
+        "screening_limit": 0.0005,
+        "central_slope": 0.0037381520895662934,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              1.1342059798473882e-18,
+              1.3269491170180342e-19,
+              7.822745466292395e-19,
+              5.314477984695206e-19,
+              9.325775324330837e-19,
+              4.2603890208838135e-19,
+              1.8244115932046045e-18,
+              0.001,
+              -1.096238948902752e-18,
+              -3.426775478580355e-18
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 0.0,
+            "leak_rel_max": 3.426775478580355e-15
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              0.0001436895329716979,
+              5.0502897755963975e-05,
+              -0.00012393916438723006,
+              4.115166144257984e-05,
+              0.00019473608951014318,
+              3.6752482818247395e-05,
+              0.0005842224880795594,
+              0.001,
+              -0.000555430158464185,
+              2.0835775249902922e-05
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": 0.003738152242124815,
+          "rel_err": 4.081121139266068e-08,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.008618081595458606,
+          "delta_A_l2": 0.00017458479512848465,
+          "deltaH_lin_linf": 9.107298248878237e-18,
+          "deltaH_lin_l2": 1.5826157458615505e-18,
+          "constraint_abs_linf": 1.8124900954124428
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.008618081595458606,
+          "delta_A_l2": 0.00017458479512848465,
+          "deltaH_lin_linf": 9.107298248878237e-18,
+          "deltaH_lin_l2": 1.5826157458615505e-18,
+          "constraint_abs_linf": 1.8124900954124428
+        }
+      },
+      {
+        "mode_index": 8,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.3406538758322448,
+        "O_minus": -0.3406465508076745,
+        "delta_plus": 3.663131890985216e-06,
+        "delta_minus": 3.6618926793630102e-06,
+        "screening_limit": 0.0005,
+        "central_slope": -0.003662512285174113,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              3.4162830718294824e-19,
+              -3.01579344776826e-20,
+              -2.3008074900859987e-20,
+              7.676468200115298e-19,
+              5.427295475635159e-19,
+              2.9822723146186696e-19,
+              -1.7655596063270368e-18,
+              -1.0581885192234175e-18,
+              0.001,
+              -4.974351501165031e-19
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 0.0,
+            "leak_rel_max": 1.7655596063270367e-15
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              5.7340957153113315e-05,
+              -1.8522092792499975e-05,
+              -6.117513954263394e-05,
+              -5.6510873870021565e-05,
+              6.023661620508197e-05,
+              -0.00014603750948347544,
+              6.94177732600293e-05,
+              -0.0005554301584641848,
+              0.001,
+              0.0005865029452657741
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": -0.0036625125313105578,
+          "rel_err": 6.720426004148636e-08,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.008247716252460477,
+          "delta_A_l2": 0.0002027604091524686,
+          "deltaH_lin_linf": 9.324138683375338e-18,
+          "deltaH_lin_l2": 1.8413799237996047e-18,
+          "constraint_abs_linf": 1.8124852527475461
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.008247716252460477,
+          "delta_A_l2": 0.0002027604091524686,
+          "deltaH_lin_linf": 9.324138683375338e-18,
+          "deltaH_lin_l2": 1.8413799237996047e-18,
+          "constraint_abs_linf": 1.812485252747548
+        }
+      },
+      {
+        "mode_index": 9,
+        "epsilon": 0.001,
+        "epsilon_base": 0.001,
+        "epsilon_min": 1e-06,
+        "epsilon_attempt": 0,
+        "observable_baseline": -0.34065021270035384,
+        "O_plus": -0.340653860731993,
+        "O_minus": -0.34064656630339435,
+        "delta_plus": 3.6480316391585e-06,
+        "delta_minus": 3.6463969594890955e-06,
+        "screening_limit": 0.0005,
+        "central_slope": -0.0036472142993237977,
+        "projection": {
+          "discrete": {
+            "definition": "c_m = \u03a3 w_i \u03b4\u03c6_i \u03c8_{m,i} / \u03a3 w_i \u03c8_{m,i}^2, using i>=1 (discrete grid inner product)",
+            "coeffs_c_m": [
+              9.70224392399573e-19,
+              -1.9301078065716863e-19,
+              2.1474203240802654e-19,
+              -2.2143658269563357e-19,
+              -3.210512816572911e-19,
+              7.242661335502484e-19,
+              1.4712996719391975e-19,
+              -3.4530362206237833e-18,
+              -4.61574294274843e-19,
+              0.0010000000000000002
+            ],
+            "expected_c_n": 0.001,
+            "target_rel_err": 2.1684043449710089e-16,
+            "leak_rel_max": 3.4530362206237824e-15
+          },
+          "continuous": {
+            "definition": "c_m = \u222b dz w(z) \u03b4\u03c6(z) \u03c8_m(z) / \u222b dz w(z) \u03c8_m(z)^2 (trapz on the non-uniform z grid)",
+            "coeffs_c_m": [
+              0.00011077439433344427,
+              3.6760115404944844e-05,
+              -8.99028718907072e-05,
+              2.7989209096312665e-05,
+              0.00011989639536890624,
+              1.2900545206197993e-05,
+              0.0001936434215620058,
+              2.083577524990292e-05,
+              0.0005865029452657742,
+              0.001
+            ]
+          }
+        },
+        "linearity": {
+          "enabled": true,
+          "epsilon_2": 0.002,
+          "central_slope_2eps": -0.003647214703084156,
+          "rel_err": 1.1070375378206448e-07,
+          "tolerance": 0.05,
+          "slope_floor": 1e-12
+        },
+        "trace_plus_diag": {
+          "delta_phi_l2": 0.008251322762281568,
+          "delta_A_l2": 0.00023739648507975793,
+          "deltaH_lin_linf": 1.9949319973733282e-17,
+          "deltaH_lin_l2": 3.1025807492968554e-18,
+          "constraint_abs_linf": 1.8124292330385803
+        },
+        "trace_minus_diag": {
+          "delta_phi_l2": 0.008251322762281568,
+          "delta_A_l2": 0.00023739648507975793,
+          "deltaH_lin_linf": 1.9949319973733282e-17,
+          "deltaH_lin_l2": 3.1025807492968554e-18,
+          "constraint_abs_linf": 1.8124292330385785
+        }
+      }
+    ]
+  },
+  "matrix": [
+    6.036016803045996e-05,
+    -6.46352904531966e-05,
+    -0.0005997502643961816,
+    0.0015263536902454522,
+    -0.0024573409512507194,
+    -0.0031915440785179605,
+    0.0035045282867629535,
+    0.0037381520895662934,
+    -0.003662512285174113,
+    -0.0036472142993237977
+  ],
+  "baseline": {
+    "mean_frequency_shift": -0.34065021270035384,
+    "reference_grid": {
+      "t_lab_rel_len": 595,
+      "t_lab_rel_minmax": [
+        0.0,
+        594.0
+      ]
+    }
+  }
+}

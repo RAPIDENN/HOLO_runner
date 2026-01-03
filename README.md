@@ -7,7 +7,7 @@ Planck 2018). It does **not** contain the private solver or any internal pipelin
 The exact snapshot packaged here is also archived at Zenodo for long-term reference:
 - HOLO runner verification pack: [10.5281/zenodo.18001392](https://doi.org/10.5281/zenodo.18001392)
 - EDHS passive bulk spectroscopy preprint: [10.5281/zenodo.18109545](https://doi.org/10.5281/zenodo.18109545)
-- A single Einstein–Dilaton geometry (QCD, SPARC, growth): [10.5281/zenodo.18097449](https://doi.org/10.5281/zenodo.18097449)
+- A single Einstein–Dilaton geometry (QCD, SPARC, growth): [10.5281/zenodo.18141795](https://doi.org/10.5281/zenodo.18141795) (v3)
 For SPARC verification details (definition alignment that resolved early mismatches), see `docs/SPARC_VERIFICATION_NOTE.md`.
 
 ## Preview (frozen figure)
@@ -17,7 +17,7 @@ For SPARC verification details (definition alignment that resolved early mismatc
 
 ## Repository metadata (for GitHub settings)
 
-- Description: Verification-only pack for the HOLO preprint: frozen artefacts + scripts to recompute reported summary metrics (SPARC, growth/BOSS, Ricci, Bullet Cluster). Zenodo: 10.5281/zenodo.18001392 | 10.5281/zenodo.18109545 | 10.5281/zenodo.18097449
+- Description: Verification-only pack for the HOLO preprint: frozen artefacts + scripts to recompute reported summary metrics (SPARC, growth/BOSS, Ricci, Bullet Cluster). Zenodo: 10.5281/zenodo.18001392 | 10.5281/zenodo.18109545 | 10.5281/zenodo.18141795
 - Website: https://doi.org/10.5281/zenodo.18001392
 - Topics (enter separately, lowercase): cosmology, sparc, reproducibility, verification, holography, python
 
@@ -45,7 +45,7 @@ flowchart TD
     subgraph Zenodo DOIs
         Z1["10.5281/zenodo.18001392<br/>(HOLO runner pack)"]
         Z2["10.5281/zenodo.18109545<br/>(EDHS passive)"]
-        Z3["10.5281/zenodo.18097449<br/>(Einstein–Dilaton geometry)"]
+        Z3["10.5281/zenodo.18141795<br/>(Einstein–Dilaton geometry, v3)"]
     end
     A --> Z1
     B --> Z2
@@ -55,7 +55,7 @@ flowchart TD
     click D "https://github.com/RAPIDENN/HOLO_runner/tree/master/A_single_Einstein_Dilaton%20geometry" "Open on GitHub"
     click Z1 "https://doi.org/10.5281/zenodo.18001392" "Open Zenodo"
     click Z2 "https://doi.org/10.5281/zenodo.18109545" "Open Zenodo"
-    click Z3 "https://doi.org/10.5281/zenodo.18097449" "Open Zenodo"
+    click Z3 "https://doi.org/10.5281/zenodo.18141795" "Open Zenodo"
 ```
 
 ## Usage
