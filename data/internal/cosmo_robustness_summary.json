@@ -1,0 +1,118 @@
+{
+  "summary": {
+    "status": "frozen",
+    "note": "Robustness sweep artefact as used in the preprint."
+  },
+  "initial_condition_sweep": [
+    {
+      "phi0": 0.3,
+      "dphi_dN0": 0.05,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_IC_phi0.30_dphi0.05.json"
+    },
+    {
+      "phi0": 0.3,
+      "dphi_dN0": 0.1,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_IC_phi0.30_dphi0.10.json"
+    },
+    {
+      "phi0": 0.3,
+      "dphi_dN0": 0.15,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_IC_phi0.30_dphi0.15.json"
+    },
+    {
+      "phi0": 0.35,
+      "dphi_dN0": 0.05,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_IC_phi0.35_dphi0.05.json"
+    },
+    {
+      "phi0": 0.35,
+      "dphi_dN0": 0.1,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_IC_phi0.35_dphi0.10.json"
+    },
+    {
+      "phi0": 0.35,
+      "dphi_dN0": 0.15,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_IC_phi0.35_dphi0.15.json"
+    },
+    {
+      "phi0": 0.4,
+      "dphi_dN0": 0.05,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_IC_phi0.40_dphi0.05.json"
+    },
+    {
+      "phi0": 0.4,
+      "dphi_dN0": 0.1,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_IC_phi0.40_dphi0.10.json"
+    },
+    {
+      "phi0": 0.4,
+      "dphi_dN0": 0.15,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_IC_phi0.40_dphi0.15.json"
+    }
+  ],
+  "lambda_sweep": [
+    {
+      "phi0": 0.85,
+      "dphi_dN0": 1e-06,
+      "lambda": 50.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_LAM_50.json"
+    },
+    {
+      "phi0": 0.85,
+      "dphi_dN0": 1e-06,
+      "lambda": 65.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_LAM_65.json"
+    },
+    {
+      "phi0": 0.85,
+      "dphi_dN0": 1e-06,
+      "lambda": 80.0,
+      "w_plateau": -1.0,
+      "abs1plusw": 0.0,
+      "stable": true,
+      "curve_file": "data/internal/cosmo_robustness/run_LAM_80.json"
+    }
+  ]
+}

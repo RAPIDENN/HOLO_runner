@@ -1,0 +1,1237 @@
+{
+  "phase": "P3",
+  "description": "SPARC Predictive (sin v_obs)",
+  "total_galaxies": 175,
+  "holo_wins": 135,
+  "success_rate": 77.14285714285714,
+  "uses_v_obs": false,
+  "formula": "v_holo\u00b2 = v_bary\u00b2 \u00d7 (1 + \u03b4(r))",
+  "dictionary": "linear",
+  "galaxies": [
+    {
+      "name": "NGC4138",
+      "chi2_holo": 0.18572912584280946,
+      "chi2_newton": 0.27110752961270257,
+      "holo_wins": true,
+      "mean_delta": 0.6875845562494198
+    },
+    {
+      "name": "NGC4068",
+      "chi2_holo": 0.47960771723398604,
+      "chi2_newton": 0.44019650046878417,
+      "holo_wins": false,
+      "mean_delta": 0.6555319383642328
+    },
+    {
+      "name": "UGC05750",
+      "chi2_holo": 0.8854951797351714,
+      "chi2_newton": 1.2756106239694738,
+      "holo_wins": true,
+      "mean_delta": 0.2376239656069967
+    },
+    {
+      "name": "NGC5985",
+      "chi2_holo": 1.1593143561837016,
+      "chi2_newton": 2.6285942112419236,
+      "holo_wins": true,
+      "mean_delta": 0.46647080251560163
+    },
+    {
+      "name": "UGC05829",
+      "chi2_holo": 1.2152652639305783,
+      "chi2_newton": 2.194934071976756,
+      "holo_wins": true,
+      "mean_delta": 0.6442911052107175
+    },
+    {
+      "name": "UGC07323",
+      "chi2_holo": 0.22756988166325334,
+      "chi2_newton": 0.17849495486627887,
+      "holo_wins": false,
+      "mean_delta": 0.6507733032754411
+    },
+    {
+      "name": "F567-2",
+      "chi2_holo": 0.11817845066812768,
+      "chi2_newton": 0.26181597294953046,
+      "holo_wins": true,
+      "mean_delta": 0.7285936509392593
+    },
+    {
+      "name": "UGC05999",
+      "chi2_holo": 0.25251534858439956,
+      "chi2_newton": 0.8086990979312637,
+      "holo_wins": true,
+      "mean_delta": 0.7841604244172744
+    },
+    {
+      "name": "NGC6195",
+      "chi2_holo": 2.6647491063078244,
+      "chi2_newton": 0.8206276879102785,
+      "holo_wins": false,
+      "mean_delta": 0.3661166350043845
+    },
+    {
+      "name": "NGC0247",
+      "chi2_holo": 1.3211465433308107,
+      "chi2_newton": 3.40709263622661,
+      "holo_wins": true,
+      "mean_delta": 0.6254488728604356
+    },
+    {
+      "name": "UGC04483",
+      "chi2_holo": 0.1914497390418218,
+      "chi2_newton": 0.832575468209759,
+      "holo_wins": true,
+      "mean_delta": 0.6368585340087818
+    },
+    {
+      "name": "UGC06628",
+      "chi2_holo": 2.812830565198844,
+      "chi2_newton": 0.26069553915074306,
+      "holo_wins": false,
+      "mean_delta": 0.684360623467015
+    },
+    {
+      "name": "NGC3949",
+      "chi2_holo": 1.9708587791875298,
+      "chi2_newton": 0.34377712195083615,
+      "holo_wins": false,
+      "mean_delta": 0.7531909401567861
+    },
+    {
+      "name": "UGC07261",
+      "chi2_holo": 0.21253672532128146,
+      "chi2_newton": 0.7477875253772407,
+      "holo_wins": true,
+      "mean_delta": 0.6838280396932301
+    },
+    {
+      "name": "UGC07559",
+      "chi2_holo": 0.025512307468076263,
+      "chi2_newton": 0.3680389545094961,
+      "holo_wins": true,
+      "mean_delta": 0.6832632800777076
+    },
+    {
+      "name": "NGC3741",
+      "chi2_holo": 5.995038064748582,
+      "chi2_newton": 7.571961787742844,
+      "holo_wins": true,
+      "mean_delta": 0.4670424268088483
+    },
+    {
+      "name": "ESO116-G012",
+      "chi2_holo": 0.42928654113897563,
+      "chi2_newton": 1.5895189467722102,
+      "holo_wins": true,
+      "mean_delta": 0.5450350706769079
+    },
+    {
+      "name": "NGC3769",
+      "chi2_holo": 0.6447868488390222,
+      "chi2_newton": 1.3908519866344258,
+      "holo_wins": true,
+      "mean_delta": 0.4298537841417767
+    },
+    {
+      "name": "F568-1",
+      "chi2_holo": 2.288987988546703,
+      "chi2_newton": 3.2514047851759393,
+      "holo_wins": true,
+      "mean_delta": 0.4661405621806793
+    },
+    {
+      "name": "NGC4010",
+      "chi2_holo": 0.5108758660373436,
+      "chi2_newton": 0.36011189443887043,
+      "holo_wins": false,
+      "mean_delta": 0.6382287293531604
+    },
+    {
+      "name": "UGC07089",
+      "chi2_holo": 0.05736339270879141,
+      "chi2_newton": 0.49644204847493767,
+      "holo_wins": true,
+      "mean_delta": 0.7087924580193606
+    },
+    {
+      "name": "F561-1",
+      "chi2_holo": 1.2439764999232201,
+      "chi2_newton": 0.09385143075212031,
+      "holo_wins": false,
+      "mean_delta": 0.7041896648658943
+    },
+    {
+      "name": "UGC12732",
+      "chi2_holo": 2.118583960917845,
+      "chi2_newton": 3.748122118063513,
+      "holo_wins": true,
+      "mean_delta": 0.6198779795154109
+    },
+    {
+      "name": "F568-V1",
+      "chi2_holo": 3.380490568065119,
+      "chi2_newton": 4.249436163803433,
+      "holo_wins": true,
+      "mean_delta": 0.3122620041170863
+    },
+    {
+      "name": "ESO079-G014",
+      "chi2_holo": 0.26123826493003993,
+      "chi2_newton": 0.5734147967015047,
+      "holo_wins": true,
+      "mean_delta": 0.46173234268873303
+    },
+    {
+      "name": "UGC00191",
+      "chi2_holo": 0.6737739613046914,
+      "chi2_newton": 1.094400315318241,
+      "holo_wins": true,
+      "mean_delta": 0.34382583846756076
+    },
+    {
+      "name": "NGC3992",
+      "chi2_holo": 0.041423797714164524,
+      "chi2_newton": 0.396614536039788,
+      "holo_wins": true,
+      "mean_delta": 0.7203423437630094
+    },
+    {
+      "name": "UGC09037",
+      "chi2_holo": 3.516036480994126,
+      "chi2_newton": 2.6110903429676866,
+      "holo_wins": false,
+      "mean_delta": 0.6353991249703056
+    },
+    {
+      "name": "NGC0024",
+      "chi2_holo": 2.61625620084863,
+      "chi2_newton": 3.4459718941073065,
+      "holo_wins": true,
+      "mean_delta": 0.17712817280275844
+    },
+    {
+      "name": "D512-2",
+      "chi2_holo": 0.16014627870051434,
+      "chi2_newton": 0.5499785425429392,
+      "holo_wins": true,
+      "mean_delta": 0.7710130448213246
+    },
+    {
+      "name": "UGCA444",
+      "chi2_holo": 6.154500936681392,
+      "chi2_newton": 9.760159232059538,
+      "holo_wins": true,
+      "mean_delta": 0.6042629920959878
+    },
+    {
+      "name": "UGC06786",
+      "chi2_holo": 0.9237367428524598,
+      "chi2_newton": 2.53646799918222,
+      "holo_wins": true,
+      "mean_delta": 0.2441557533389403
+    },
+    {
+      "name": "NGC5033",
+      "chi2_holo": 0.6253554966035064,
+      "chi2_newton": 1.927856562773911,
+      "holo_wins": true,
+      "mean_delta": 0.5436066496352853
+    },
+    {
+      "name": "F563-1",
+      "chi2_holo": 4.449401983028297,
+      "chi2_newton": 5.945798870108199,
+      "holo_wins": true,
+      "mean_delta": 0.5181925634549716
+    },
+    {
+      "name": "NGC3877",
+      "chi2_holo": 6.3667196725017705,
+      "chi2_newton": 3.261599226586222,
+      "holo_wins": false,
+      "mean_delta": 0.632679879946031
+    },
+    {
+      "name": "D631-7",
+      "chi2_holo": 1.9465513886907484,
+      "chi2_newton": 3.5668674492871544,
+      "holo_wins": true,
+      "mean_delta": 0.6215430254266513
+    },
+    {
+      "name": "NGC0300",
+      "chi2_holo": 1.661936629353921,
+      "chi2_newton": 4.150379000269643,
+      "holo_wins": true,
+      "mean_delta": 0.6278584723492437
+    },
+    {
+      "name": "DDO064",
+      "chi2_holo": 1.4434693408222588,
+      "chi2_newton": 2.4915217183439875,
+      "holo_wins": true,
+      "mean_delta": 0.5137785764855669
+    },
+    {
+      "name": "NGC5371",
+      "chi2_holo": 2.844862174135287,
+      "chi2_newton": 0.452363113544361,
+      "holo_wins": false,
+      "mean_delta": 0.5243942655351308
+    },
+    {
+      "name": "DDO154",
+      "chi2_holo": 1.9486524748559169,
+      "chi2_newton": 3.252343090650631,
+      "holo_wins": true,
+      "mean_delta": 0.6386932791902568
+    },
+    {
+      "name": "UGC07151",
+      "chi2_holo": 0.11852749620301097,
+      "chi2_newton": 0.550775341684823,
+      "holo_wins": true,
+      "mean_delta": 0.6430710919854415
+    },
+    {
+      "name": "NGC0289",
+      "chi2_holo": 0.9253755697672721,
+      "chi2_newton": 2.924968275127938,
+      "holo_wins": true,
+      "mean_delta": 0.5093579258545379
+    },
+    {
+      "name": "UGC03205",
+      "chi2_holo": 0.2998027893219265,
+      "chi2_newton": 1.248004169221451,
+      "holo_wins": true,
+      "mean_delta": 0.22339787198832659
+    },
+    {
+      "name": "UGC00128",
+      "chi2_holo": 3.743398129501117,
+      "chi2_newton": 5.989724830702114,
+      "holo_wins": true,
+      "mean_delta": 0.5965763669929397
+    },
+    {
+      "name": "NGC3726",
+      "chi2_holo": 0.5515539253365945,
+      "chi2_newton": 0.6732200309305105,
+      "holo_wins": true,
+      "mean_delta": 0.5266118574846419
+    },
+    {
+      "name": "UGC05986",
+      "chi2_holo": 0.5337614072903457,
+      "chi2_newton": 1.8985670237849623,
+      "holo_wins": true,
+      "mean_delta": 0.6258004997643017
+    },
+    {
+      "name": "NGC4100",
+      "chi2_holo": 0.2625576678401334,
+      "chi2_newton": 0.7066297065871302,
+      "holo_wins": true,
+      "mean_delta": 0.6515007217387195
+    },
+    {
+      "name": "UGC03546",
+      "chi2_holo": 2.9043203713120396,
+      "chi2_newton": 3.0431828517134862,
+      "holo_wins": true,
+      "mean_delta": 0.297221648942089
+    },
+    {
+      "name": "UGC05721",
+      "chi2_holo": 3.4166959410560027,
+      "chi2_newton": 5.092994410353815,
+      "holo_wins": true,
+      "mean_delta": 0.421450135468887
+    },
+    {
+      "name": "NGC2841",
+      "chi2_holo": 1.7494162169933551,
+      "chi2_newton": 4.675647910278278,
+      "holo_wins": true,
+      "mean_delta": 0.37487527674857096
+    },
+    {
+      "name": "F565-V2",
+      "chi2_holo": 1.4017125256759178,
+      "chi2_newton": 2.209313181804809,
+      "holo_wins": true,
+      "mean_delta": 0.684418919595099
+    },
+    {
+      "name": "NGC0801",
+      "chi2_holo": 1.0388465066682886,
+      "chi2_newton": 0.6810122689184273,
+      "holo_wins": false,
+      "mean_delta": 0.4350123177266455
+    },
+    {
+      "name": "NGC5585",
+      "chi2_holo": 0.7414602427337585,
+      "chi2_newton": 2.103306225598523,
+      "holo_wins": true,
+      "mean_delta": 0.4160064459822681
+    },
+    {
+      "name": "UGC04305",
+      "chi2_holo": 6.645219989131609,
+      "chi2_newton": 1.5983319352180834,
+      "holo_wins": false,
+      "mean_delta": 0.6093636556630402
+    },
+    {
+      "name": "NGC6503",
+      "chi2_holo": 1.2634095323912065,
+      "chi2_newton": 4.0457773246149875,
+      "holo_wins": true,
+      "mean_delta": 0.6000309178373764
+    },
+    {
+      "name": "UGC09992",
+      "chi2_holo": 0.21861859070778916,
+      "chi2_newton": 0.17533620549083734,
+      "holo_wins": false,
+      "mean_delta": 0.7302543837780141
+    },
+    {
+      "name": "UGC11820",
+      "chi2_holo": 1.2350416347722055,
+      "chi2_newton": 1.9047689353315866,
+      "holo_wins": true,
+      "mean_delta": 0.4184708099380611
+    },
+    {
+      "name": "NGC3953",
+      "chi2_holo": 1.6307395177385138,
+      "chi2_newton": 0.0604669319579475,
+      "holo_wins": false,
+      "mean_delta": 0.7418726842126974
+    },
+    {
+      "name": "F574-2",
+      "chi2_holo": 2.4659380535699214,
+      "chi2_newton": 0.8752879098943508,
+      "holo_wins": false,
+      "mean_delta": 0.7278393114240013
+    },
+    {
+      "name": "UGC08837",
+      "chi2_holo": 0.5159420152206604,
+      "chi2_newton": 0.6309647178399235,
+      "holo_wins": true,
+      "mean_delta": 0.6699478037916885
+    },
+    {
+      "name": "NGC4217",
+      "chi2_holo": 10.472128711880787,
+      "chi2_newton": 8.521874529316252,
+      "holo_wins": false,
+      "mean_delta": 0.6075265758749004
+    },
+    {
+      "name": "UGC05764",
+      "chi2_holo": 2.6316214977832537,
+      "chi2_newton": 3.719017070761172,
+      "holo_wins": true,
+      "mean_delta": 0.651740762560419
+    },
+    {
+      "name": "DDO161",
+      "chi2_holo": 1.0181129855503959,
+      "chi2_newton": 3.5601009405663833,
+      "holo_wins": true,
+      "mean_delta": 0.5481142851401668
+    },
+    {
+      "name": "DDO170",
+      "chi2_holo": 0.690306528240793,
+      "chi2_newton": 1.5512970471868737,
+      "holo_wins": true,
+      "mean_delta": 0.6880740245790409
+    },
+    {
+      "name": "UGC12632",
+      "chi2_holo": 1.703167252589921,
+      "chi2_newton": 3.127723459347992,
+      "holo_wins": true,
+      "mean_delta": 0.6254771379208716
+    },
+    {
+      "name": "UGC02023",
+      "chi2_holo": 0.2660562935458276,
+      "chi2_newton": 0.16329654258152637,
+      "holo_wins": false,
+      "mean_delta": 0.7299467792888444
+    },
+    {
+      "name": "UGC02953",
+      "chi2_holo": 3.3007887570428425,
+      "chi2_newton": 6.596287858290962,
+      "holo_wins": true,
+      "mean_delta": 0.23089853178797773
+    },
+    {
+      "name": "UGC05918",
+      "chi2_holo": 1.2935125610467606,
+      "chi2_newton": 2.141477893096365,
+      "holo_wins": true,
+      "mean_delta": 0.6697467343796493
+    },
+    {
+      "name": "UGC08490",
+      "chi2_holo": 4.152233422212132,
+      "chi2_newton": 7.2344414807559145,
+      "holo_wins": true,
+      "mean_delta": 0.5996402039789372
+    },
+    {
+      "name": "NGC4088",
+      "chi2_holo": 3.8138535626326284,
+      "chi2_newton": 1.3561236489139539,
+      "holo_wins": false,
+      "mean_delta": 0.6157170566150952
+    },
+    {
+      "name": "UGC08699",
+      "chi2_holo": 0.8141819051421115,
+      "chi2_newton": 1.8132156654898477,
+      "holo_wins": true,
+      "mean_delta": 0.24558432087203255
+    },
+    {
+      "name": "UGC08286",
+      "chi2_holo": 2.1280652334664887,
+      "chi2_newton": 3.8714080907354074,
+      "holo_wins": true,
+      "mean_delta": 0.619117951714854
+    },
+    {
+      "name": "NGC4085",
+      "chi2_holo": 3.9923521486895397,
+      "chi2_newton": 2.1182434016235,
+      "holo_wins": false,
+      "mean_delta": 0.6890068590276119
+    },
+    {
+      "name": "F571-8",
+      "chi2_holo": 7.814424168634113,
+      "chi2_newton": 8.417866211115799,
+      "holo_wins": true,
+      "mean_delta": 0.3255433668071853
+    },
+    {
+      "name": "F583-1",
+      "chi2_holo": 5.703728504271536,
+      "chi2_newton": 6.704672924967185,
+      "holo_wins": true,
+      "mean_delta": 0.2300381958437716
+    },
+    {
+      "name": "NGC4051",
+      "chi2_holo": 2.303717391692862,
+      "chi2_newton": 0.331878706809137,
+      "holo_wins": false,
+      "mean_delta": 0.685857020441668
+    },
+    {
+      "name": "UGC06667",
+      "chi2_holo": 3.0126086553168245,
+      "chi2_newton": 3.998261438123222,
+      "holo_wins": true,
+      "mean_delta": 0.6603144581642008
+    },
+    {
+      "name": "NGC2683",
+      "chi2_holo": 0.10258942777416206,
+      "chi2_newton": 0.4435226992681852,
+      "holo_wins": true,
+      "mean_delta": 0.6006093117544277
+    },
+    {
+      "name": "NGC5907",
+      "chi2_holo": 0.08613430832530809,
+      "chi2_newton": 0.7595514278710929,
+      "holo_wins": true,
+      "mean_delta": 0.6447422158812688
+    },
+    {
+      "name": "NGC6674",
+      "chi2_holo": 0.3007987573990595,
+      "chi2_newton": 1.5125735647025642,
+      "holo_wins": true,
+      "mean_delta": 0.6064734455596938
+    },
+    {
+      "name": "UGCA281",
+      "chi2_holo": 0.20570741945494744,
+      "chi2_newton": 0.5879080111239549,
+      "holo_wins": true,
+      "mean_delta": 0.6357506761621792
+    },
+    {
+      "name": "UGC04499",
+      "chi2_holo": 0.20797794143918222,
+      "chi2_newton": 0.9090508693528265,
+      "holo_wins": true,
+      "mean_delta": 0.6599036123367106
+    },
+    {
+      "name": "PGC51017",
+      "chi2_holo": 1.7853584388579105,
+      "chi2_newton": 0.3104739847210671,
+      "holo_wins": false,
+      "mean_delta": 0.6550743976725847
+    },
+    {
+      "name": "UGC07524",
+      "chi2_holo": 2.3295126377422446,
+      "chi2_newton": 4.844201435836055,
+      "holo_wins": true,
+      "mean_delta": 0.5988898112082913
+    },
+    {
+      "name": "NGC5055",
+      "chi2_holo": 2.3651204580767056,
+      "chi2_newton": 2.8962950370907135,
+      "holo_wins": true,
+      "mean_delta": 0.4186310416912518
+    },
+    {
+      "name": "NGC2955",
+      "chi2_holo": 1.7918647019747649,
+      "chi2_newton": 0.7359317442765181,
+      "holo_wins": false,
+      "mean_delta": 0.31750817042001594
+    },
+    {
+      "name": "UGC06399",
+      "chi2_holo": 0.411145677154724,
+      "chi2_newton": 1.2441036653713042,
+      "holo_wins": true,
+      "mean_delta": 0.6603144581642008
+    },
+    {
+      "name": "ESO444-G084",
+      "chi2_holo": 1.8377103765727232,
+      "chi2_newton": 2.406215724672769,
+      "holo_wins": true,
+      "mean_delta": 0.49881313484010054
+    },
+    {
+      "name": "NGC7814",
+      "chi2_holo": 0.2225542151495802,
+      "chi2_newton": 1.0346066835952954,
+      "holo_wins": true,
+      "mean_delta": 0.6023526399566218
+    },
+    {
+      "name": "NGC4389",
+      "chi2_holo": 13.443846570382185,
+      "chi2_newton": 8.036017652491894,
+      "holo_wins": false,
+      "mean_delta": 0.7083800385769105
+    },
+    {
+      "name": "UGC07608",
+      "chi2_holo": 1.5635016028343003,
+      "chi2_newton": 2.467945703134805,
+      "holo_wins": true,
+      "mean_delta": 0.6697920345364118
+    },
+    {
+      "name": "UGCA442",
+      "chi2_holo": 1.3643123507967911,
+      "chi2_newton": 2.2166200266904026,
+      "holo_wins": true,
+      "mean_delta": 0.6342862575979528
+    },
+    {
+      "name": "NGC2366",
+      "chi2_holo": 0.8445507012079349,
+      "chi2_newton": 2.9194634427231674,
+      "holo_wins": true,
+      "mean_delta": 0.5930655036016655
+    },
+    {
+      "name": "CamB",
+      "chi2_holo": 6.412721075385828,
+      "chi2_newton": 4.047260037454457,
+      "holo_wins": false,
+      "mean_delta": 0.5772266804746651
+    },
+    {
+      "name": "NGC0055",
+      "chi2_holo": 0.1950176244732195,
+      "chi2_newton": 1.5259721838059588,
+      "holo_wins": true,
+      "mean_delta": 0.6383713967019837
+    },
+    {
+      "name": "UGC07399",
+      "chi2_holo": 1.8354353672295645,
+      "chi2_newton": 2.9449271009701965,
+      "holo_wins": true,
+      "mean_delta": 0.6516607008698447
+    },
+    {
+      "name": "UGC01230",
+      "chi2_holo": 1.3278175997822834,
+      "chi2_newton": 1.9922409614846561,
+      "holo_wins": true,
+      "mean_delta": 0.39544407209646426
+    },
+    {
+      "name": "UGC06787",
+      "chi2_holo": 2.6839632115163967,
+      "chi2_newton": 5.15013582080152,
+      "holo_wins": true,
+      "mean_delta": 0.23506052266656566
+    },
+    {
+      "name": "F568-3",
+      "chi2_holo": 1.4588257638529276,
+      "chi2_newton": 2.444451221069357,
+      "holo_wins": true,
+      "mean_delta": 0.36208575102955287
+    },
+    {
+      "name": "NGC2915",
+      "chi2_holo": 13.380769627090494,
+      "chi2_newton": 16.328754335083346,
+      "holo_wins": true,
+      "mean_delta": 0.5997752274220631
+    },
+    {
+      "name": "F571-V1",
+      "chi2_holo": 0.5589266804687912,
+      "chi2_newton": 1.3222535007010952,
+      "holo_wins": true,
+      "mean_delta": 0.6851077841760069
+    },
+    {
+      "name": "UGC07125",
+      "chi2_holo": 0.15387719892412552,
+      "chi2_newton": 0.7314936000583286,
+      "holo_wins": true,
+      "mean_delta": 0.6349564365616097
+    },
+    {
+      "name": "NGC6015",
+      "chi2_holo": 0.6555829409269035,
+      "chi2_newton": 3.4023022456805183,
+      "holo_wins": true,
+      "mean_delta": 0.4775360650498664
+    },
+    {
+      "name": "UGC06923",
+      "chi2_holo": 0.18391765347656727,
+      "chi2_newton": 0.27720848899707734,
+      "holo_wins": true,
+      "mean_delta": 0.7674623815930527
+    },
+    {
+      "name": "F563-V1",
+      "chi2_holo": 1.0793292801477388,
+      "chi2_newton": 0.032717603059312525,
+      "holo_wins": false,
+      "mean_delta": 0.702063572806871
+    },
+    {
+      "name": "NGC4013",
+      "chi2_holo": 0.49452128663588735,
+      "chi2_newton": 1.7715748360378558,
+      "holo_wins": true,
+      "mean_delta": 0.6984959993855436
+    },
+    {
+      "name": "NGC2903",
+      "chi2_holo": 19.163504357464767,
+      "chi2_newton": 19.57395850188109,
+      "holo_wins": true,
+      "mean_delta": 0.4627647829516404
+    },
+    {
+      "name": "UGC05253",
+      "chi2_holo": 1.5123451488405393,
+      "chi2_newton": 2.5683096732426027,
+      "holo_wins": true,
+      "mean_delta": 0.14676525753935551
+    },
+    {
+      "name": "NGC4183",
+      "chi2_holo": 0.6239333499433374,
+      "chi2_newton": 2.250476285750377,
+      "holo_wins": true,
+      "mean_delta": 0.5780049135587527
+    },
+    {
+      "name": "NGC3521",
+      "chi2_holo": 3.453442824974214,
+      "chi2_newton": 2.683492666515655,
+      "holo_wins": false,
+      "mean_delta": 0.17813547053704984
+    },
+    {
+      "name": "NGC3917",
+      "chi2_holo": 0.44100952653082537,
+      "chi2_newton": 0.9094888180844171,
+      "holo_wins": true,
+      "mean_delta": 0.6176665368028695
+    },
+    {
+      "name": "NGC4214",
+      "chi2_holo": 1.1586225427610348,
+      "chi2_newton": 2.5481545971870334,
+      "holo_wins": true,
+      "mean_delta": 0.6093334361213432
+    },
+    {
+      "name": "UGC07690",
+      "chi2_holo": 0.04090376678498347,
+      "chi2_newton": 0.3550268623131504,
+      "holo_wins": true,
+      "mean_delta": 0.6840887255937714
+    },
+    {
+      "name": "UGC02455",
+      "chi2_holo": 20.062933898921205,
+      "chi2_newton": 11.794605963539393,
+      "holo_wins": false,
+      "mean_delta": 0.6691690896654628
+    },
+    {
+      "name": "UGC06446",
+      "chi2_holo": 2.4880740190478643,
+      "chi2_newton": 4.171844567967587,
+      "holo_wins": true,
+      "mean_delta": 0.5963809427194748
+    },
+    {
+      "name": "NGC2976",
+      "chi2_holo": 3.4406896711882986,
+      "chi2_newton": 1.260653493872069,
+      "holo_wins": false,
+      "mean_delta": 0.4773582645703251
+    },
+    {
+      "name": "F563-V2",
+      "chi2_holo": 1.952116520362811,
+      "chi2_newton": 2.847684383703552,
+      "holo_wins": true,
+      "mean_delta": 0.5703750298863717
+    },
+    {
+      "name": "UGC07866",
+      "chi2_holo": 0.1321631985794139,
+      "chi2_newton": 0.5377978833565416,
+      "holo_wins": true,
+      "mean_delta": 0.6883461464345606
+    },
+    {
+      "name": "NGC6789",
+      "chi2_holo": 0.4668338258829483,
+      "chi2_newton": 0.9137132246938267,
+      "holo_wins": true,
+      "mean_delta": 0.697034131418839
+    },
+    {
+      "name": "UGC07577",
+      "chi2_holo": 1.652116240072581,
+      "chi2_newton": 0.26191265055731916,
+      "holo_wins": false,
+      "mean_delta": 0.6624989071143628
+    },
+    {
+      "name": "NGC3893",
+      "chi2_holo": 0.4026899111780806,
+      "chi2_newton": 0.41756879710808825,
+      "holo_wins": true,
+      "mean_delta": 0.6270378703540226
+    },
+    {
+      "name": "UGC06614",
+      "chi2_holo": 0.3145844265406275,
+      "chi2_newton": 0.8529235387190177,
+      "holo_wins": true,
+      "mean_delta": 0.33825549222129303
+    },
+    {
+      "name": "NGC7331",
+      "chi2_holo": 4.777628696442893,
+      "chi2_newton": 2.968981303773935,
+      "holo_wins": false,
+      "mean_delta": 0.5658844471343297
+    },
+    {
+      "name": "NGC5005",
+      "chi2_holo": 4.079056300664515,
+      "chi2_newton": 0.9725437502078816,
+      "holo_wins": false,
+      "mean_delta": 0.5077038393430059
+    },
+    {
+      "name": "NGC3972",
+      "chi2_holo": 0.2517587041561628,
+      "chi2_newton": 0.3563529154895159,
+      "holo_wins": true,
+      "mean_delta": 0.6517645939732909
+    },
+    {
+      "name": "UGC09133",
+      "chi2_holo": 1.7336205312894721,
+      "chi2_newton": 4.328872113992545,
+      "holo_wins": true,
+      "mean_delta": 0.27774637208794756
+    },
+    {
+      "name": "UGC08550",
+      "chi2_holo": 1.2789349859508825,
+      "chi2_newton": 2.456246855013249,
+      "holo_wins": true,
+      "mean_delta": 0.6439665597529038
+    },
+    {
+      "name": "UGC05716",
+      "chi2_holo": 1.9521883848327892,
+      "chi2_newton": 3.248724620088411,
+      "holo_wins": true,
+      "mean_delta": 0.639987453748002
+    },
+    {
+      "name": "UGC00731",
+      "chi2_holo": 3.1779437750998505,
+      "chi2_newton": 4.401419306987613,
+      "holo_wins": true,
+      "mean_delta": 0.6381780998716928
+    },
+    {
+      "name": "DDO168",
+      "chi2_holo": 0.3881130528679273,
+      "chi2_newton": 1.3499018387717894,
+      "holo_wins": true,
+      "mean_delta": 0.651097104239289
+    },
+    {
+      "name": "UGC05414",
+      "chi2_holo": 0.015237169451068535,
+      "chi2_newton": 0.30767232268722006,
+      "holo_wins": true,
+      "mean_delta": 0.7018972065952549
+    },
+    {
+      "name": "NGC2998",
+      "chi2_holo": 0.42385366665489316,
+      "chi2_newton": 0.6243027207275602,
+      "holo_wins": true,
+      "mean_delta": 0.43583360729875315
+    },
+    {
+      "name": "NGC2403",
+      "chi2_holo": 2.132006430613703,
+      "chi2_newton": 6.033701609545476,
+      "holo_wins": true,
+      "mean_delta": 0.34474788235529386
+    },
+    {
+      "name": "ESO563-G021",
+      "chi2_holo": 8.039917661291435,
+      "chi2_newton": 9.018292632499195,
+      "holo_wins": true,
+      "mean_delta": 0.5044529893221987
+    },
+    {
+      "name": "NGC0891",
+      "chi2_holo": 4.896265124189642,
+      "chi2_newton": 1.9533976721097936,
+      "holo_wins": false,
+      "mean_delta": 0.6353907294863711
+    },
+    {
+      "name": "UGC00891",
+      "chi2_holo": 0.3962618902909909,
+      "chi2_newton": 0.983864631683306,
+      "holo_wins": true,
+      "mean_delta": 0.7323881657494
+    },
+    {
+      "name": "NGC1090",
+      "chi2_holo": 2.712917778235582,
+      "chi2_newton": 2.7772257049792524,
+      "holo_wins": true,
+      "mean_delta": 0.5972038657264153
+    },
+    {
+      "name": "UGC10310",
+      "chi2_holo": 0.33925417881144826,
+      "chi2_newton": 0.8608778960449097,
+      "holo_wins": true,
+      "mean_delta": 0.6834891809549111
+    },
+    {
+      "name": "NGC7793",
+      "chi2_holo": 5.587150737649689,
+      "chi2_newton": 5.668138684165093,
+      "holo_wins": true,
+      "mean_delta": 0.26874985125723433
+    },
+    {
+      "name": "UGC05005",
+      "chi2_holo": 0.681688810145519,
+      "chi2_newton": 1.4690055897327605,
+      "holo_wins": true,
+      "mean_delta": 0.44189929670725214
+    },
+    {
+      "name": "NGC4157",
+      "chi2_holo": 1.4119318380758208,
+      "chi2_newton": 1.0195562542741494,
+      "holo_wins": false,
+      "mean_delta": 0.6195268602546177
+    },
+    {
+      "name": "F574-1",
+      "chi2_holo": 1.0451295422353177,
+      "chi2_newton": 2.2975465985353813,
+      "holo_wins": true,
+      "mean_delta": 0.6144655954714765
+    },
+    {
+      "name": "F579-V1",
+      "chi2_holo": 1.5051892616429587,
+      "chi2_newton": 2.2459170752763846,
+      "holo_wins": true,
+      "mean_delta": 0.43434857523708204
+    },
+    {
+      "name": "UGC12506",
+      "chi2_holo": 1.777370668355337,
+      "chi2_newton": 3.9962925588252713,
+      "holo_wins": true,
+      "mean_delta": 0.58990452173044
+    },
+    {
+      "name": "NGC4559",
+      "chi2_holo": 0.44874903608776195,
+      "chi2_newton": 1.425014628879611,
+      "holo_wins": true,
+      "mean_delta": 0.5970298360298851
+    },
+    {
+      "name": "UGC04278",
+      "chi2_holo": 1.4012071617692519,
+      "chi2_newton": 3.68743374701473,
+      "holo_wins": true,
+      "mean_delta": 0.6061902260251957
+    },
+    {
+      "name": "UGC04325",
+      "chi2_holo": 0.8302343722016826,
+      "chi2_newton": 1.5485677386115453,
+      "holo_wins": true,
+      "mean_delta": 0.6694278743029647
+    },
+    {
+      "name": "UGC07232",
+      "chi2_holo": 0.05489612826932215,
+      "chi2_newton": 0.18869338826842652,
+      "holo_wins": true,
+      "mean_delta": 0.7737460836012247
+    },
+    {
+      "name": "NGC1003",
+      "chi2_holo": 3.639728091744089,
+      "chi2_newton": 7.290873777675485,
+      "holo_wins": true,
+      "mean_delta": 0.6041866853251562
+    },
+    {
+      "name": "UGC11455",
+      "chi2_holo": 4.548010738201957,
+      "chi2_newton": 3.1987289263924987,
+      "holo_wins": false,
+      "mean_delta": 0.3593503353273242
+    },
+    {
+      "name": "UGC02259",
+      "chi2_holo": 1.0593389085786724,
+      "chi2_newton": 1.9154570245035942,
+      "holo_wins": true,
+      "mean_delta": 0.6707088203510583
+    },
+    {
+      "name": "UGC06983",
+      "chi2_holo": 1.0767165060338357,
+      "chi2_newton": 2.746977788756645,
+      "holo_wins": true,
+      "mean_delta": 0.6547105894536437
+    },
+    {
+      "name": "UGC02916",
+      "chi2_holo": 1.6653805686553746,
+      "chi2_newton": 1.6203618259676198,
+      "holo_wins": false,
+      "mean_delta": 0.2045559604184954
+    },
+    {
+      "name": "KK98-251",
+      "chi2_holo": 0.4281065190256733,
+      "chi2_newton": 1.2987242849697018,
+      "holo_wins": true,
+      "mean_delta": 0.4998575657862853
+    },
+    {
+      "name": "UGC02885",
+      "chi2_holo": 0.03279901707130107,
+      "chi2_newton": 1.0589992917112525,
+      "holo_wins": true,
+      "mean_delta": 0.6123873670304225
+    },
+    {
+      "name": "IC4202",
+      "chi2_holo": 11.609034764266953,
+      "chi2_newton": 10.568026818026402,
+      "holo_wins": false,
+      "mean_delta": 0.5541398015557198
+    },
+    {
+      "name": "UGC06973",
+      "chi2_holo": 5.628431990805979,
+      "chi2_newton": 2.4029316360747504,
+      "holo_wins": false,
+      "mean_delta": 0.819367447972754
+    },
+    {
+      "name": "UGC11914",
+      "chi2_holo": 4.2082195672488165,
+      "chi2_newton": 0.4186369801910025,
+      "holo_wins": false,
+      "mean_delta": 0.3432405430349048
+    },
+    {
+      "name": "UGC11557",
+      "chi2_holo": 25.96221345919353,
+      "chi2_newton": 23.884111536866133,
+      "holo_wins": false,
+      "mean_delta": 0.4470978776015068
+    },
+    {
+      "name": "D564-8",
+      "chi2_holo": 0.5221625996863287,
+      "chi2_newton": 1.2071275239185375,
+      "holo_wins": true,
+      "mean_delta": 0.701259126709247
+    },
+    {
+      "name": "F583-4",
+      "chi2_holo": 0.4908171926089135,
+      "chi2_newton": 1.4528325684437406,
+      "holo_wins": true,
+      "mean_delta": 0.7034400695156101
+    },
+    {
+      "name": "UGC03580",
+      "chi2_holo": 8.834263437491266,
+      "chi2_newton": 10.15877661469073,
+      "holo_wins": true,
+      "mean_delta": 0.1949122420102878
+    },
+    {
+      "name": "NGC6946",
+      "chi2_holo": 4.905383300683886,
+      "chi2_newton": 1.86911833369966,
+      "holo_wins": false,
+      "mean_delta": 0.5813034150442696
+    },
+    {
+      "name": "UGC00634",
+      "chi2_holo": 0.41487510365650815,
+      "chi2_newton": 0.9156943905427357,
+      "holo_wins": true,
+      "mean_delta": 0.7693768587975801
+    },
+    {
+      "name": "UGC06930",
+      "chi2_holo": 0.20595356722774227,
+      "chi2_newton": 0.9276884953425032,
+      "holo_wins": true,
+      "mean_delta": 0.6929896130976584
+    },
+    {
+      "name": "NGC1705",
+      "chi2_holo": 2.573645915707625,
+      "chi2_newton": 4.0129968726571,
+      "holo_wins": true,
+      "mean_delta": 0.6085539326168424
+    },
+    {
+      "name": "UGC06917",
+      "chi2_holo": 0.1639777501081006,
+      "chi2_newton": 1.0012619094675113,
+      "holo_wins": true,
+      "mean_delta": 0.6960146542165345
+    },
+    {
+      "name": "UGC07603",
+      "chi2_holo": 0.931161985506433,
+      "chi2_newton": 2.1828767708893273,
+      "holo_wins": true,
+      "mean_delta": 0.6366221339618813
+    },
+    {
+      "name": "NGC0100",
+      "chi2_holo": 0.5860474507495815,
+      "chi2_newton": 2.2830590252115623,
+      "holo_wins": true,
+      "mean_delta": 0.6000843312075053
+    },
+    {
+      "name": "UGC06818",
+      "chi2_holo": 0.3511718555358291,
+      "chi2_newton": 0.8344776811580397,
+      "holo_wins": true,
+      "mean_delta": 0.6709451155178705
+    },
+    {
+      "name": "UGC01281",
+      "chi2_holo": 9.721554229291069,
+      "chi2_newton": 11.507335490712055,
+      "holo_wins": true,
+      "mean_delta": 0.41564101548225535
+    },
+    {
+      "name": "IC2574",
+      "chi2_holo": 1.385769383921032,
+      "chi2_newton": 4.402854067765601,
+      "holo_wins": true,
+      "mean_delta": 0.6313354938099882
+    },
+    {
+      "name": "UGC02487",
+      "chi2_holo": 0.3834493993477986,
+      "chi2_newton": 1.7362646709025644,
+      "holo_wins": true,
+      "mean_delta": 0.5866022374269872
+    },
+    {
+      "name": "NGC3198",
+      "chi2_holo": 4.411658804695188,
+      "chi2_newton": 6.324870793054375,
+      "holo_wins": true,
+      "mean_delta": 0.317706453053757
+    },
+    {
+      "name": "NGC3109",
+      "chi2_holo": 5.551153882366706,
+      "chi2_newton": 8.131605346553679,
+      "holo_wins": true,
+      "mean_delta": 0.6047063367116071
+    }
+  ]
+}

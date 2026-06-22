@@ -1,0 +1,151 @@
+{
+  "ok": true,
+  "total": 24,
+  "successes": 24,
+  "results": [
+    {
+      "galaxy": "DDO185",
+      "chi2_holo": 1.2132149585411276,
+      "chi2_newton": 2.0590167884795143,
+      "holo_better": true
+    },
+    {
+      "galaxy": "DDO189",
+      "chi2_holo": 1.4135970126201078,
+      "chi2_newton": 4.08781847947,
+      "holo_better": true
+    },
+    {
+      "galaxy": "DDO47",
+      "chi2_holo": 0.8471438254854348,
+      "chi2_newton": 3.496118711347603,
+      "holo_better": true
+    },
+    {
+      "galaxy": "DDO52",
+      "chi2_holo": 1.5622622452414525,
+      "chi2_newton": 6.854369817523519,
+      "holo_better": true
+    },
+    {
+      "galaxy": "DDO64",
+      "chi2_holo": 1.474815002295037,
+      "chi2_newton": 5.742887861926725,
+      "holo_better": true
+    },
+    {
+      "galaxy": "IC2233",
+      "chi2_holo": 2.7867464871352343,
+      "chi2_newton": 20.1464642243989,
+      "holo_better": true
+    },
+    {
+      "galaxy": "LSBCF563-1",
+      "chi2_holo": 1.1799774879165186,
+      "chi2_newton": 3.1106761793394573,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC100",
+      "chi2_holo": 2.4716490782391682,
+      "chi2_newton": 20.97181432110857,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC1560",
+      "chi2_holo": 6.888308410336647,
+      "chi2_newton": 15.776305018281645,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2366",
+      "chi2_holo": 3.395481762891696,
+      "chi2_newton": 6.224753976983677,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3274",
+      "chi2_holo": 2.969461880870211,
+      "chi2_newton": 8.751049686758197,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4395",
+      "chi2_holo": 6.058186695633928,
+      "chi2_newton": 24.008484455530738,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4455",
+      "chi2_holo": 1.8704702335082826,
+      "chi2_newton": 4.215932162773563,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC5023",
+      "chi2_holo": 3.8139742123701823,
+      "chi2_newton": 24.12323331582662,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC10310",
+      "chi2_holo": 1.7906825388018073,
+      "chi2_newton": 8.285467238897173,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC1230",
+      "chi2_holo": 1.8482418854460072,
+      "chi2_newton": 3.876525777340461,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC1281",
+      "chi2_holo": 2.8040525154795786,
+      "chi2_newton": 24.570003780588216,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC3137",
+      "chi2_holo": 4.258247396133902,
+      "chi2_newton": 28.97097447320697,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC3371",
+      "chi2_holo": 1.6590382835876436,
+      "chi2_newton": 6.546939586614072,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC4173",
+      "chi2_holo": 0.8743863242720207,
+      "chi2_newton": 1.7639012419477216,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC4325",
+      "chi2_holo": 1.6538271608420665,
+      "chi2_newton": 5.621237469525209,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC5005",
+      "chi2_holo": 1.4691290612534864,
+      "chi2_newton": 3.271028239917989,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC5750",
+      "chi2_holo": 0.2348450975716276,
+      "chi2_newton": 0.5085310949828551,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC711",
+      "chi2_holo": 2.40034727688902,
+      "chi2_newton": 20.95828423531142,
+      "holo_better": true
+    }
+  ]
+}

@@ -1,0 +1,1653 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>HOLO-TRANSDUCER v3.0 // PUBLIC VALIDATION DEMO</title>
+    <style>
+      :root {
+        --bg-color: #020402;
+        --panel-bg: rgba(0, 10, 0, 0.95);
+        --primary: #00ff41; /* green: active manifold */
+        --secondary: #0077ff; /* blue for frames */
+        --alert: #ff3333;
+        --warn: #ffcc00;
+        --dim: #004080; /* dark blue */
+        --font-mono: "Courier New", monospace;
+      }
+      * {
+        box-sizing: border-box;
+        user-select: none;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg-color);
+        color: #ffffff;
+        font-family: var(--font-mono);
+        overflow: hidden;
+        height: 100vh;
+        width: 100vw;
+      }
+
+      #viewport {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .hud-panel {
+        position: absolute;
+        background: var(--panel-bg);
+        border: 1px solid #0077ff;
+        padding: 10px;
+        font-size: 12px;
+        z-index: 10;
+        box-shadow: 0 0 10px rgba(0, 119, 255, 0.2);
+        backdrop-filter: blur(4px);
+      }
+
+      /* Layout Grid */
+      #header {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-bottom: 1px solid var(--secondary);
+        background: linear-gradient(
+          90deg,
+          var(--bg-color) 0%,
+          var(--dim) 50%,
+          var(--bg-color) 100%
+        );
+      }
+
+      /* Left Stack: Controls (Top) -> FFT -> Telemetry */
+
+      /* 1. Controls / disclosure */
+      #controls {
+        top: 50px;
+        left: 20px;
+        width: 300px;
+        text-align: left;
+        z-index: 100;
+        pointer-events: auto;
+      }
+
+      /* 2. FFT Panel - Pushed down below Controls */
+      #fft-panel {
+        top: 140px; /* Controls height approx 80px + gap */
+        left: 20px;
+        width: 400px;
+        height: 200px;
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 20px;
+      }
+      #fft-panel h2 {
+        margin-top: 0;
+        padding-top: 0;
+      }
+
+      /* 3. Telemetry - Bottom Left */
+      #telemetry {
+        bottom: 20px;
+        left: 20px;
+        width: 300px;
+      }
+
+      /* Right Stack: History 3D -> Phase Space */
+
+      #history-panel {
+        position: absolute;
+        bottom: 340px; /* 300px (graphs) + 20px (margin) + 20px (gap) */
+        right: 20px;
+        width: 450px;
+        height: 250px;
+        background: rgba(0, 10, 0, 0.95);
+        border: 1px solid #0077ff;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #graphs {
+        bottom: 20px;
+        right: 20px;
+        width: 450px;
+        height: 300px;
+      }
+
+      /* Typography & Components */
+      h1 {
+        font-size: 14px;
+        margin: 0;
+        letter-spacing: 2px;
+        color: #fff;
+      }
+      h2 {
+        font-size: 12px;
+        margin: 0 0 8px 0;
+        border-bottom: 1px solid #0077ff;
+        padding-bottom: 4px;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+
+      .data-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 4px;
+      }
+      .data-label {
+        opacity: 0.7;
+        color: #ffffff;
+      }
+      .data-val {
+        font-weight: bold;
+        color: #fff;
+      }
+      .unit {
+        font-size: 10px;
+        opacity: 0.6;
+        margin-left: 4px;
+      }
+
+      .status-led {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #333;
+        margin-right: 6px;
+      }
+      .status-led.on {
+        background: var(--primary);
+        box-shadow: 0 0 8px var(--primary);
+      }
+      .status-led.warn {
+        background: var(--warn);
+        box-shadow: 0 0 8px var(--warn);
+      }
+      .status-led.alert {
+        background: var(--alert);
+        box-shadow: 0 0 8px var(--alert);
+      }
+
+      canvas.graph {
+        width: 100%;
+        height: 100%;
+        background: #000000;
+        border: 1px solid #0077ff;
+      }
+
+      /* Event Log Styling */
+      #event-log {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background: rgba(0, 0, 0, 0.8);
+        border-top: 1px solid #0077ff;
+        font-size: 10px;
+        overflow-y: auto;
+        padding: 5px;
+        font-family: "Courier New", monospace;
+        pointer-events: auto;
+      }
+      .log-entry {
+        margin-bottom: 2px;
+        color: #aaa;
+      }
+      .log-entry.alert {
+        color: #ff3333;
+        font-weight: bold;
+      }
+      .log-entry.info {
+        color: #00ff41;
+      }
+
+      /* Animation specific */
+      @keyframes pulse-warn {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.4;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .blink {
+        animation: pulse-warn 1s infinite;
+      }
+
+      .lock-indicator {
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        padding: 5px;
+        margin-top: 5px;
+        border: 1px solid #333;
+        color: #555;
+        background: #000;
+      }
+      .lock-indicator.locked {
+        color: var(--primary);
+        border-color: var(--primary);
+        background: rgba(0, 255, 65, 0.1);
+      }
+
+      /* Interactive Button */
+      .hud-btn {
+        background: rgba(0, 20, 0, 0.6);
+        border: 1px solid var(--dim);
+        color: var(--dim);
+        padding: 6px 10px;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        cursor: pointer;
+        margin-top: 8px;
+        width: 100%;
+        text-align: center;
+        transition: all 0.2s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .hud-btn:hover {
+        background: rgba(0, 119, 255, 0.2);
+        color: #fff;
+        border-color: var(--secondary);
+      }
+      .hud-btn.active {
+        background: var(--warn);
+        color: #000;
+        border-color: var(--warn);
+        font-weight: bold;
+        box-shadow: 0 0 8px var(--warn);
+      }
+    </style>
+    <!-- Three.js (CDN stable) -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"
+      integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"
+      integrity="sha384-wagZhIFgY4hD+7awjQjR4e2E294y6J2HSnd8eTNc15ZubTeQeVRZwhQJ+W6hnBsf"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <!-- 3D Viewport -->
+    <div id="viewport"></div>
+
+    <!-- UI Header -->
+    <div id="header">
+      <div style="display: flex; align-items: center">
+        <span class="status-led on" id="sys-led"></span>
+        <h1>
+          HOLO-TRANSDUCER <span style="color: var(--secondary)">v3.0</span> //
+          PUBLIC [MODE: DEMO]
+        </h1>
+      </div>
+      <div style="font-size: 11px; opacity: 0.8">
+        EFOLDS/S: 460.0 |
+        <span id="connection-status">PUBLIC VALIDATION DEMO</span>
+      </div>
+    </div>
+
+    <!-- Telemetry Panel -->
+    <div id="telemetry" class="hud-panel">
+      <h2>Validation State</h2>
+      <div class="data-row">
+        <span class="data-label">N (e-folds)</span>
+        <span class="data-val" id="val-N">0.00</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">φ (Field)</span>
+        <span class="data-val" id="val-phi">0.0000</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">dφ/dN</span>
+        <span class="data-val" id="val-dphi">0.0000</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Velocity |dφ/φ|</span>
+        <span class="data-val" id="val-vel">0.0000</span>
+      </div>
+
+      <div style="margin: 10px 0; border-top: 1px solid var(--dim)"></div>
+
+      <h2>
+        Validation Metrics
+        <span
+          id="mode-label"
+          style="font-size: 9px; float: right; opacity: 0.7"
+        ></span>
+      </h2>
+      <div class="data-row">
+        <span class="data-label">β (Fractal)</span>
+        <span class="data-val" id="val-beta">0.00000</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">μ_k (Index)</span>
+        <span class="data-val" id="val-mu">0.00000</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">q_eff</span>
+        <span class="data-val" id="val-q">0.00000</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Target Freq</span>
+        <span class="data-val" id="val-freq-target">1.7314</span
+        ><span class="unit">mHz</span>
+      </div>
+
+      <div class="data-row">
+        <span class="data-label">μ_k (med)</span>
+        <span class="data-val" id="val-mu-med">0.00000</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">q_eff (med)</span>
+        <span class="data-val" id="val-q-med">0.00000</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">f_peak (med)</span>
+        <span class="data-val" id="val-f-med">0.0000</span
+        ><span class="unit">mHz</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Δf</span>
+        <span class="data-val" id="val-f-delta">0.0000</span
+        ><span class="unit">mHz</span>
+      </div>
+
+      <div id="lock-display" class="lock-indicator">SCANNING...</div>
+    </div>
+
+    <!-- History / Waterfall Panel -->
+    <div id="history-panel" class="hud-panel">
+      <h2>Spectral History (3D Waterfall)</h2>
+      <!-- 3D Canvas Container -->
+      <div
+        id="waterfall-container"
+        style="flex: 1; position: relative; overflow: hidden"
+      ></div>
+      <!-- Event Log Overlay -->
+      <div id="event-log">
+        <div class="log-entry info">
+          [SYSTEM] Public validation demo initialized.
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls / Info -->
+    <div
+      id="controls"
+      class="hud-panel"
+      style="background: transparent; border: none; box-shadow: none"
+    >
+      <div style="color: var(--primary); font-size: 10px">
+        PUBLIC VALIDATION SURFACE<br />
+        READ-ONLY DEMO BUILD<br />
+        TEST CONDITIONS ONLY
+      </div>
+      <button id="sim-toggle" class="hud-btn active">SIMULATION ACTIVE</button>
+    </div>
+
+    <!-- FFT & Spectrum -->
+    <div id="fft-panel" class="hud-panel">
+      <h2>Real-time FFT (Hz window)</h2>
+      <canvas id="fft-canvas" class="graph"></canvas>
+      <div
+        id="peak-detect"
+        style="
+          position: absolute;
+          top: 5px;
+          right: 8px;
+          font-size: 10px;
+          color: var(--warn);
+          max-width: 95%;
+          white-space: nowrap;
+        "
+      >
+        PEAK: 0.00 mHz
+      </div>
+    </div>
+
+    <!-- Time Series Graphs -->
+    <div id="graphs" class="hud-panel">
+      <h2>Phase Space Trajectory (φ, dφ)</h2>
+      <canvas id="traj-canvas" class="graph"></canvas>
+      <div
+        id="phase-regime"
+        style="
+          text-align: center;
+          margin-top: 5px;
+          font-size: 10px;
+          opacity: 0.6;
+        "
+      >
+        PHASE REGIME: WARM-UP
+      </div>
+    </div>
+
+    <script>
+      /**
+       * HOLO TRANSDUCER V3.0 - PUBLIC VALIDATION DEMO
+       * Read-only frontend with local simulation only.
+       */
+
+      // --- CONFIGURATION MODE ---
+      const MODE = "DEMO"; // Public build only
+
+      // --- PUBLIC BUILD FLAGS ---
+      const READ_ONLY_PUBLIC_DEMO = true;
+      const DATA_BASE = "./";
+
+      // Rendering Configuration
+      const CB_DEMO = 1.2;
+      const OMEGA_DEMO = 1.0;
+      const DECAY_DEMO = 0.1;
+
+      // --- CONSTANTS ---
+      const CONFIG = {
+        N_START: -10.0,
+        PHI_START: 3.2,
+        DPHI_START: -0.008,
+        CB: CB_DEMO,
+        LOCK_OMEGA: 0.8, // Internal angular freq
+        EFOLDS_SEC: 460, // Simulation speed relative to real time
+        DT: 0.001, // Integration step (Precision),
+        FFT_SIZE: 2048, // Samples for FFT
+        DEMO_MODE: true, // Public build runs local simulation by default
+        HD_MODE: false, // High Definition Rendering (Heavy CPU load)
+      };
+
+      // --- MATH HELPERS ---
+      function spectralPower(fftData, startBin, endBin) {
+        let sum = 0;
+        for (let i = startBin; i < endBin && i < fftData.length; i++) {
+          sum += fftData[i];
+        }
+        return sum / (endBin - startBin + 1);
+      }
+
+      // Approximate Real Spherical Harmonics (Visual shape factors)
+      // y: cos(theta), p: phi (azimuth)
+      function Y_lm_approx(l, m, y, p) {
+        const sinTheta = Math.sqrt(Math.max(0, 1 - y * y));
+
+        // Legendre Polynomials P_l^m(y) approximations for visual use
+        let P = 0;
+        if (l === 2 && m === 2) P = 3 * sinTheta * sinTheta;
+        else if (l === 3 && m === 1)
+          P = 1.5 * y * (5 * y * y - 1) * sinTheta; // rough mix
+        else if (l === 3 && m === 3) P = 15 * Math.pow(sinTheta, 3);
+        else if (l === 4 && m === 0)
+          P = (35 * y * y * y * y - 30 * y * y + 3) / 8;
+        else if (l === 4 && m === 4) P = 105 * Math.pow(sinTheta, 4);
+        else P = Math.pow(sinTheta, m) * Math.pow(y, l - m); // Fallback generic shape
+
+        // Azimuthal part: cos(m*phi)
+        return P * Math.cos(m * p);
+      }
+
+      // --- SIMULATION CORE (PURE LOGIC) ---
+      class PrecisionSimulator {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.N = CONFIG.N_START;
+          this.phi = CONFIG.PHI_START;
+          this.dphi = CONFIG.DPHI_START;
+          this.beta = 0;
+          this.mu_k = 0;
+          this.phase = "SLOW_ROLL";
+          this.history_beta = []; // For max beta detection in lock
+        }
+
+        // Run exactly one micro-step of physics (dt = 0.001)
+        step() {
+          this.N += CONFIG.DT;
+
+          // DEMO MODE OVERRIDE: Visual Signal Injection
+          // Only active if we are in explicit Visual Demo Mode
+          if (CONFIG.DEMO_MODE && MODE === "DEMO") {
+            this.phase = "SIM_DEMO";
+            // Sweep + Pulse
+            const freq = 2.0 + 1.5 * Math.sin(this.N * 0.2);
+            const amp = 0.8 + 0.2 * Math.sin(this.N * 1.5);
+
+            this.phi = amp * Math.sin(freq * this.N * 10.0);
+            this.dphi = amp * freq * 10.0 * Math.cos(freq * this.N * 10.0);
+            this.beta = 0.6 + 0.35 * Math.sin(this.N * 0.5);
+            this.mu_k = 0.28 + 0.05 * Math.sin(this.N * 0.1);
+            this.velocity = Math.abs(this.dphi / (Math.abs(this.phi) + 1e-9));
+
+            return {
+              N: this.N,
+              phi: this.phi,
+              dphi: this.dphi,
+              beta: this.beta,
+              mu_k: this.mu_k,
+              velocity: this.velocity,
+              phase: this.phase,
+            };
+          }
+
+          // 1. Phase State Logic (Redacted Equation)
+          if (this.N < 8) {
+            this.phase = "SLOW_ROLL";
+            this.dphi = -this.phi / 120;
+            this.phi += this.dphi * CONFIG.DT;
+          } else if (this.N < 28) {
+            this.phase = "OSCILLATION";
+            const t = this.N - 8;
+            const omega = OMEGA_DEMO;
+            const decay = DECAY_DEMO;
+
+            const e = Math.exp(-decay * t);
+            const c = Math.cos(omega * t);
+            const s = Math.sin(omega * t);
+
+            this.phi = 0.6 * e * c;
+            this.dphi = -0.6 * (decay * e * c + omega * e * s);
+          } else {
+            this.phase = "RESONANCE_LOCK";
+            // Forced lock solution
+            const arg = CONFIG.LOCK_OMEGA * this.N + 1.2;
+            this.phi = 0.012 * Math.sin(arg);
+            this.dphi = 0.012 * CONFIG.LOCK_OMEGA * Math.cos(arg);
+          }
+
+          // 2. Calculate Metrics
+          const denom = Math.abs(this.phi) < 1e-10 ? 1e-10 : Math.abs(this.phi);
+          this.velocity = Math.abs(this.dphi / denom);
+
+          this.beta = Math.min(CB_DEMO * Math.pow(this.velocity, 1.0), 0.98);
+
+          if (this.phase === "RESONANCE_LOCK") {
+            this.history_beta.push(this.beta);
+            if (this.history_beta.length > 5000) this.history_beta.shift();
+
+            const maxBeta = Math.max(...this.history_beta);
+            if (maxBeta > 0) this.mu_k = 0.5 * Math.log(maxBeta / CB_DEMO);
+          } else {
+            this.mu_k = 0;
+          }
+
+          return {
+            N: this.N,
+            phi: this.phi,
+            dphi: this.dphi,
+            beta: this.beta,
+            mu_k: this.mu_k,
+            velocity: this.velocity,
+            phase: this.phase,
+          };
+        }
+      }
+
+      // --- FFT UTILS ---
+      class SimpleFFT {
+        constructor(size) {
+          this.size = size;
+          this.real = new Float32Array(size);
+          this.imag = new Float32Array(size);
+          this.rev = new Uint16Array(size);
+
+          // Precompute bit reversal table
+          for (let i = 0; i < size; i++) {
+            let j = 0,
+              val = i;
+            for (let k = 0; k < Math.log2(size); k++) {
+              j = (j << 1) | (val & 1);
+              val >>= 1;
+            }
+            this.rev[i] = j;
+          }
+        }
+
+        process(inputBuffer) {
+          // Reset
+          for (let i = 0; i < this.size; i++) {
+            this.real[i] = inputBuffer[i] || 0;
+            this.imag[i] = 0;
+          }
+
+          // Bit reverse
+          for (let i = 0; i < this.size; i++) {
+            if (i < this.rev[i]) {
+              const tr = this.real[i];
+              const ti = this.imag[i];
+              this.real[i] = this.real[this.rev[i]];
+              this.imag[i] = this.imag[this.rev[i]];
+              this.real[this.rev[i]] = tr;
+              this.imag[this.rev[i]] = ti;
+            }
+          }
+
+          // Cooley-Tukey
+          let k = 1;
+          while (k < this.size) {
+            const step = k << 1;
+            for (let m = 0; m < k; m++) {
+              const theta = (-Math.PI * m) / k;
+              const wr = Math.cos(theta);
+              const wi = Math.sin(theta);
+              for (let i = m; i < this.size; i += step) {
+                const j = i + k;
+                const tr = wr * this.real[j] - wi * this.imag[j];
+                const ti = wr * this.imag[j] + wi * this.real[j];
+                this.real[j] = this.real[i] - tr;
+                this.imag[j] = this.imag[i] - ti;
+                this.real[i] += tr;
+                this.imag[i] += ti;
+              }
+            }
+            k = step;
+          }
+
+          // Magnitude
+          const mag = new Float32Array(this.size / 2);
+          for (let i = 0; i < this.size / 2; i++) {
+            mag[i] = Math.sqrt(
+              this.real[i] * this.real[i] + this.imag[i] * this.imag[i],
+            );
+          }
+          return mag;
+        }
+      }
+
+      // --- PUBLIC STATUS BRIDGE ---
+      async function loadTnsieStatus() {
+        const el = document.getElementById("connection-status");
+        if (!el) return;
+        el.textContent =
+          "PUBLIC VALIDATION DEMO | READ-ONLY | LOCAL SIMULATION";
+        el.title =
+          "This public build exposes only the test conditions required to validate or refute the results.";
+      }
+
+      // --- DISABLED INTERNAL DATA BRIDGE ---
+      async function loadHoloStatus() {
+        if (READ_ONLY_PUBLIC_DEMO) {
+          loadTnsieStatus();
+          const cs = document.getElementById("connection-status");
+          if (cs) {
+            cs.style.color = "#ffcc00";
+          }
+          const lockEl = document.getElementById("lock-display");
+          if (lockEl) {
+            lockEl.innerText = "LOCAL SIMULATION";
+            lockEl.classList.add("locked");
+          }
+          return;
+        }
+      }
+      // Poll status every 5 seconds
+      setInterval(loadHoloStatus, 5000);
+
+      // --- MAIN APPLICATION ---
+      const simulator = new PrecisionSimulator();
+      const fft = new SimpleFFT(CONFIG.FFT_SIZE);
+
+      // Buffers
+      const fftBuffer = [];
+      const traceBuffer = [];
+      const phaseBuffer = [];
+
+      // Calibration buffers (lock regime)
+      const lockCalibSamples = [];
+      const LOCK_CALIB_SIZE = 256;
+      let lastPeakFreq_mHz = 0;
+      let calibMuMed = 0,
+        calibMuDelta = 0;
+      let calibQMed = 0,
+        calibQDelta = 0;
+      let calibFMed = 0,
+        calibFDelta = 0;
+      let betaLockMin = 0,
+        betaLockMax = 0;
+      let phaseRegimeState = "WARM-UP";
+
+      // 3D Scene Variables
+      let scene, camera, renderer, manifold, beam;
+      // Secondary 3D Scene (Waterfall)
+      let wScene, wCamera, wRenderer, wMesh;
+      let visual3DReady = false;
+      const HIST_X = 64; // Freq bins
+      const HIST_Y = 64; // Time steps
+      const wData = new Float32Array(HIST_X * HIST_Y);
+
+      function init3D() {
+        try {
+          // --- MAIN SCENE ---
+          scene = new THREE.Scene();
+          scene.background = new THREE.Color(0x020402);
+
+          // Camera
+          camera = new THREE.PerspectiveCamera(
+            60,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            100,
+          );
+          camera.position.set(0, 4, 14);
+
+          // Renderer
+          renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          document.getElementById("viewport").appendChild(renderer.domElement);
+
+          // Controls
+          const controls = new THREE.OrbitControls(camera, renderer.domElement);
+          controls.enableDamping = true;
+          controls.autoRotate = true;
+          controls.autoRotateSpeed = 0.5;
+
+          const geometry = new THREE.SphereGeometry(3.4, 128, 128);
+          const material = new THREE.MeshBasicMaterial({
+            color: 0x0077ff,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.15,
+          });
+          manifold = new THREE.Mesh(geometry, material);
+          manifold.geometry.userData = {
+            originalPositions: geometry.attributes.position.array.slice(),
+          };
+          scene.add(manifold);
+
+          const coreGeo = new THREE.IcosahedronGeometry(1, 2);
+          const coreMat = new THREE.MeshBasicMaterial({
+            color: 0x00aa55,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.25,
+          });
+          const core = new THREE.Mesh(coreGeo, coreMat);
+          scene.add(core);
+          core.position.set(0, 0, 0);
+
+          const polarGrid = new THREE.PolarGridHelper(
+            8,
+            16,
+            8,
+            64,
+            0x004411,
+            0x002200,
+          );
+          polarGrid.position.y = -3.4;
+          polarGrid.rotation.x = Math.PI / 2;
+          scene.add(polarGrid);
+
+          const beamGeo = new THREE.CylinderGeometry(0.05, 0.05, 20, 8);
+          const beamMat = new THREE.MeshBasicMaterial({
+            color: 0x004400,
+            transparent: true,
+            opacity: 0.5,
+          });
+          beam = new THREE.Mesh(beamGeo, beamMat);
+          scene.add(beam);
+
+          const ambient = new THREE.AmbientLight(0x404040);
+          scene.add(ambient);
+
+          window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+          });
+
+          initWaterfall();
+          visual3DReady = true;
+        } catch (err) {
+          visual3DReady = false;
+          console.warn("3D initialization failed, continuing in 2D mode.", err);
+        }
+      }
+
+      function initWaterfall() {
+        if (!renderer) return;
+        const container = document.getElementById("waterfall-container");
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+
+        wScene = new THREE.Scene();
+        // Darker background for instrument feel
+        wScene.background = new THREE.Color(0x000500);
+
+        wCamera = new THREE.PerspectiveCamera(50, w / h, 0.1, 100);
+        wCamera.position.set(0, 20, 20);
+        wCamera.lookAt(0, 0, 0);
+
+        wRenderer = new THREE.WebGLRenderer({ antialias: true });
+        wRenderer.setSize(w, h);
+        container.appendChild(wRenderer.domElement);
+
+        // Plane Mesh: X=Freq, Y=Time (Z in geometry local)
+        // width=10, height=10, segments = HIST_X-1, HIST_Y-1
+        const geo = new THREE.PlaneGeometry(20, 20, HIST_X - 1, HIST_Y - 1);
+        geo.rotateX(-Math.PI / 2); // Lay flat
+
+        const mat = new THREE.MeshLambertMaterial({
+          vertexColors: true, // Enable Heatmap
+          wireframe: true,
+          side: THREE.DoubleSide,
+        });
+
+        wMesh = new THREE.Mesh(geo, mat);
+
+        // Initialize Color Buffer
+        const count = geo.attributes.position.count;
+        geo.setAttribute(
+          "color",
+          new THREE.BufferAttribute(new Float32Array(count * 3), 3),
+        );
+
+        wScene.add(wMesh);
+
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(0, 10, 10);
+        wScene.add(light);
+        wScene.add(new THREE.AmbientLight(0x222222));
+      }
+
+      function updateWaterfall(newSpectrumRow) {
+        if (!wMesh) return;
+
+        // Shift data in buffer
+        // We drop the oldest row (last HIST_X elements)
+        // And unshift the new row (first HIST_X elements)
+        // Since TypedArrays are fixed, we copy.
+
+        // Move existing data back by one row
+        // (Oldest is at end? Or beginning? Let's say Index 0 is "Now", Index Max is "Old")
+        // Actually typical waterfall: Row 0 = Now.
+        // Shift everything else down.
+        for (let y = HIST_Y - 1; y > 0; y--) {
+          for (let x = 0; x < HIST_X; x++) {
+            wData[y * HIST_X + x] = wData[(y - 1) * HIST_X + x];
+          }
+        }
+
+        // Insert new row at 0
+        // newSpectrumRow length might be > HIST_X (2048 vs 64). We downsample.
+        const step = Math.floor(newSpectrumRow.length / 2 / HIST_X); // Use only first half (positive freq)
+        for (let x = 0; x < HIST_X; x++) {
+          // Simple subsample or average
+          let sum = 0;
+          for (let k = 0; k < step; k++) sum += newSpectrumRow[x * step + k];
+          wData[x] = sum / step;
+        }
+
+        // Update Geometry Vertices & Colors
+        const positions = wMesh.geometry.attributes.position.array;
+        const colors = wMesh.geometry.attributes.color.array;
+
+        let i = 0;
+        for (let y = 0; y < HIST_Y; y++) {
+          for (let x = 0; x < HIST_X; x++) {
+            const zVal = wData[y * HIST_X + x]; // Amplitude
+
+            // Scale amplitude for visual height
+            const height = Math.log(1 + zVal) * 2.0;
+
+            // Update Y component (index + 1)
+            positions[i * 3 + 1] = height;
+
+            // Heatmap Coloring (HSL)
+            // Map height/amp to Hue: 0.7 (Blue) -> 0.0 (Red)
+            const maxAmp = 5.0; // approximate max expected log val
+            let norm = height / maxAmp;
+            if (norm > 1) norm = 1;
+
+            // Turbo-ish Hue Map: Blue(0.66) -> Cyan(0.5) -> Green(0.33) -> Yellow(0.16) -> Red(0.0)
+            const hue = 0.66 * (1.0 - norm);
+            const color = new THREE.Color().setHSL(hue, 1.0, 0.5);
+
+            colors[i * 3] = color.r;
+            colors[i * 3 + 1] = color.g;
+            colors[i * 3 + 2] = color.b;
+
+            i++;
+          }
+        }
+        wMesh.geometry.attributes.position.needsUpdate = true;
+        wMesh.geometry.attributes.color.needsUpdate = true;
+
+        // Colorize based on height? (Optional, requires vertex colors)
+      }
+
+      function logEvent(msg, type = "info") {
+        const log = document.getElementById("event-log");
+        const entry = document.createElement("div");
+        entry.className = `log-entry ${type}`;
+        const time = new Date().toLocaleTimeString("en-US", { hour12: false });
+        entry.innerText = `[${time}] ${msg}`;
+        log.prepend(entry);
+
+        // Limit log size
+        if (log.children.length > 50) log.lastChild.remove();
+      }
+
+      function betaVisual(beta) {
+        if (betaLockMax <= betaLockMin) return 0;
+        let norm = (beta - betaLockMin) / (betaLockMax - betaLockMin);
+        if (norm < 0) norm = 0;
+        if (norm > 1) norm = 1;
+        const gamma = 1.8;
+        return Math.pow(norm, gamma);
+      }
+
+      // --- VISUALIZATION UPDATE LOOP ---
+      function updateManifold(beta, fftData, time) {
+        if (!manifold || !beam) return;
+        const positions = manifold.geometry.attributes.position;
+        const originals = manifold.geometry.userData.originalPositions;
+        const arr = positions.array;
+
+        // 1. Spectral Powers (FFT bands)
+        let ampL2 = 0,
+          ampL3 = 0,
+          ampL4 = 0;
+
+        if (fftData && fftData.length > 0) {
+          // Normalize amplitudes. FFT values can be 0..100+ depending on signal.
+          ampL2 = Math.min(
+            2.0,
+            Math.log(1 + spectralPower(fftData, 1, 10)) * 0.3,
+          );
+          ampL3 = Math.min(
+            1.5,
+            Math.log(1 + spectralPower(fftData, 10, 60)) * 0.2,
+          );
+          ampL4 = Math.min(
+            1.0,
+            Math.log(1 + spectralPower(fftData, 60, 200)) * 0.15,
+          );
+        }
+
+        // Global Phase for rotation (slow drift)
+        const phase = time * 0.5;
+
+        for (let i = 0; i < arr.length; i += 3) {
+          const x = originals[i];
+          const y = originals[i + 1];
+          const z = originals[i + 2];
+
+          // Spherical Coords
+          const r0 = Math.sqrt(x * x + y * y + z * z);
+          const ny = y / r0; // cos(theta)
+          const nx = x / r0;
+          const nz = z / r0;
+          const azimuth = Math.atan2(nz, nx); // phi
+
+          // --- BASE DEFORMATION (The "Egg") ---
+          const cosSq = ny * ny;
+          const Y20 = 3 * cosSq - 1;
+          const Y40 = 35 * (cosSq * cosSq) - 30 * cosSq + 3;
+          let deltaR = 0.25 * beta * (0.5 * Y20 + 0.05 * Y40); // Base beta breathing
+
+          // --- HOLOGRAPHIC MODE SCANNER (FFT Injection) ---
+          if (ampL2 > 0.05) {
+            deltaR += 0.15 * ampL2 * Y_lm_approx(2, 2, ny, azimuth + phase);
+          }
+          if (ampL3 > 0.05) {
+            deltaR +=
+              0.1 * ampL3 * Y_lm_approx(3, 3, ny, azimuth - phase * 1.5);
+          }
+          if (ampL4 > 0.05) {
+            deltaR +=
+              0.05 * ampL4 * Y_lm_approx(4, 4, ny, azimuth + phase * 2.0);
+          }
+
+          // Apply
+          const rNew = r0 * (1 + deltaR);
+
+          arr[i] = (x / r0) * rNew;
+          arr[i + 1] = (y / r0) * rNew;
+          arr[i + 2] = (z / r0) * rNew;
+        }
+        positions.needsUpdate = true;
+
+        // Pulse opacity/color with total energy
+        const totalEnergy = beta + ampL2 + ampL3;
+        const betaVis = Math.min(1, totalEnergy);
+        manifold.material.opacity = 0.2 + betaVis * 0.6;
+        manifold.material.color.setHSL(
+          0.33 - betaVis * 0.15,
+          1.0,
+          0.4 + betaVis * 0.2,
+        ); // Green -> Yellowish
+      }
+
+      // --- CANVAS DRAWING HELPERS ---
+      function drawGraph(canvasId, data, color, rangeY) {
+        const c = document.getElementById(canvasId);
+        const ctx = c.getContext("2d");
+        const w = (c.width = c.offsetWidth);
+        const h = (c.height = c.offsetHeight);
+
+        ctx.clearRect(0, 0, w, h);
+        ctx.beginPath();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 1.5;
+
+        const len = data.length;
+        const stepX = w / len;
+
+        // Normalize Y
+        // If rangeY is null, auto scale
+        let min = -rangeY,
+          max = rangeY;
+        if (!rangeY) {
+          min = Math.min(...data);
+          max = Math.max(...data);
+          const pad = (max - min) * 0.1;
+          min -= pad;
+          max += pad;
+        }
+        const range = max - min || 1;
+
+        for (let i = 0; i < len; i++) {
+          const val = data[i];
+          const x = i * stepX;
+          const y = h - ((val - min) / range) * h;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.stroke();
+      }
+
+      // Phase-space renderer: (phi, dphi)
+      function drawPhaseSpace(canvasId, points, color, rangeX, rangeY) {
+        const c = document.getElementById(canvasId);
+        const ctx = c.getContext("2d");
+        const w = (c.width = c.offsetWidth);
+        const h = (c.height = c.offsetHeight);
+
+        ctx.fillStyle = "#000800";
+        ctx.fillRect(0, 0, w, h);
+
+        const count = points.length;
+        if (!count) return;
+
+        let minX = Infinity,
+          maxX = -Infinity;
+        let minY = Infinity,
+          maxY = -Infinity;
+        let sumR2 = 0;
+        const radii = new Array(count);
+
+        for (let i = 0; i < count; i++) {
+          const p = points[i];
+          if (p.phi < minX) minX = p.phi;
+          if (p.phi > maxX) maxX = p.phi;
+          if (p.dphi < minY) minY = p.dphi;
+          if (p.dphi > maxY) maxY = p.dphi;
+
+          const r2 = p.phi * p.phi + p.dphi * p.dphi;
+          radii[i] = Math.sqrt(r2);
+          sumR2 += r2;
+        }
+
+        if (rangeX != null) {
+          minX = -rangeX;
+          maxX = rangeX;
+        }
+        if (rangeY != null) {
+          minY = -rangeY;
+          maxY = rangeY;
+        }
+
+        const padX = (maxX - minX) * 0.1 || 1;
+        const padY = (maxY - minY) * 0.1 || 1;
+        minX -= padX;
+        maxX += padX;
+        minY -= padY;
+        maxY += padY;
+
+        const dx = maxX - minX || 1;
+        const dy = maxY - minY || 1;
+
+        const R_rms = Math.sqrt(sumR2 / count);
+        let varR = 0;
+        for (let i = 0; i < count; i++) {
+          const diff = radii[i] - R_rms;
+          varR += diff * diff;
+        }
+        const relSpread = Math.sqrt(varR / count) / (R_rms + 1e-9);
+
+        let regime = "WARM-UP";
+        if (count >= 20) {
+          if (relSpread < 0.15) regime = "LOCK";
+          else if (relSpread < 0.4) regime = "WARM-UP";
+          else regime = "CHAOTIC";
+        }
+
+        // Log state change
+        if (regime !== phaseRegimeState) {
+          logEvent(`Regime Change: ${phaseRegimeState} -> ${regime}`, "alert");
+          phaseRegimeState = regime;
+        }
+
+        const regimeEl = document.getElementById("phase-regime");
+        if (regimeEl) {
+          regimeEl.innerText = `PHASE REGIME: ${regime}`;
+        }
+
+        const xs = new Array(count);
+        const ys = new Array(count);
+        for (let i = 0; i < count; i++) {
+          const p = points[i];
+          xs[i] = ((p.phi - minX) / dx) * w;
+          ys[i] = h - ((p.dphi - minY) / dy) * h;
+        }
+
+        for (let i = 1; i < count; i++) {
+          const p = points[i];
+          const beta = p.beta != null ? p.beta : 0;
+          const betaNorm = betaVisual(beta);
+          const hue = 120 - 60 * betaNorm; // green to yellow
+          const light = 40 + 20 * betaNorm;
+
+          ctx.strokeStyle = `hsl(${hue}, 100%, ${light}%)`;
+          ctx.lineWidth = 0.5 + 2.0 * betaNorm;
+          ctx.beginPath();
+          ctx.moveTo(xs[i - 1], ys[i - 1]);
+          ctx.lineTo(xs[i], ys[i]);
+          ctx.stroke();
+        }
+
+        const lastX = xs[count - 1];
+        const lastY = ys[count - 1];
+        ctx.fillStyle = "#00ffff";
+        ctx.beginPath();
+        ctx.arc(lastX, lastY, 3.5, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      function drawFFT(magnitudes) {
+        const c = document.getElementById("fft-canvas");
+        const ctx = c.getContext("2d");
+        const w = (c.width = c.offsetWidth);
+        const h = (c.height = c.offsetHeight);
+
+        ctx.fillStyle = "#001100";
+        ctx.fillRect(0, 0, w, h);
+
+        // Push to Waterfall
+        updateWaterfall(magnitudes);
+
+        const barW = w / (magnitudes.length / 2); // Display first half
+
+        // Find peak
+        let maxMag = 0;
+        let peakIdx = 0;
+
+        // Heatmap Gradient for 2D FFT
+        const gradient = ctx.createLinearGradient(0, h, 0, 0); // Bottom to Top
+        gradient.addColorStop(0.0, "#0000ff"); // Blue (Low)
+        gradient.addColorStop(0.2, "#00ffff"); // Cyan
+        gradient.addColorStop(0.5, "#00ff00"); // Green
+        gradient.addColorStop(0.8, "#ffff00"); // Yellow
+        gradient.addColorStop(1.0, "#ff0000"); // Red (High)
+
+        ctx.beginPath();
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 2; // Slightly thicker for color visibility
+
+        const half = magnitudes.length / 2;
+        for (let i = 0; i < half; i++) {
+          const val = magnitudes[i];
+          if (val > maxMag) {
+            maxMag = val;
+            peakIdx = i;
+          }
+        }
+
+        const eps = 1e-12;
+        for (let i = 0; i < half; i++) {
+          const val = magnitudes[i];
+          const barH = (val / (maxMag + eps)) * h * 0.9; // Normalized by maxMag
+          ctx.moveTo(i * barW, h);
+          ctx.lineTo(i * barW, h - barH);
+        }
+        ctx.stroke();
+
+        // Calculate Physical Frequency from FFT bin
+        // Sample Rate: We push to FFT buffer every Kernel Step?
+        // Kernel runs at logic speed.
+        // If we assume 1 sample per e-fold unit (roughly), bandwidth depends on sampling.
+        // Let's calculate freq purely analytically for display to match prompt strictness.
+        // f = peak_index * resolution
+
+        // Physical peak frequency from FFT bin
+        if (maxMag > 5) {
+          const binFreq = (peakIdx / CONFIG.FFT_SIZE) * CONFIG.EFOLDS_SEC;
+          const f_mHz = ((binFreq * CONFIG.LOCK_OMEGA) / (2 * Math.PI)) * 1000;
+
+          if (Math.abs(f_mHz - lastPeakFreq_mHz) > 0.1 && f_mHz > 0.5) {
+            logEvent(`Signal Detected: ${f_mHz.toFixed(4)} mHz`, "info");
+          }
+          lastPeakFreq_mHz = f_mHz;
+
+          document.getElementById("peak-detect").innerText =
+            `PEAK: ${f_mHz.toFixed(4)} mHz`;
+          document.getElementById("peak-detect").style.color = "#00ff41";
+        } else {
+          document.getElementById("peak-detect").innerText =
+            `SEARCHING SIGNAL...`;
+          document.getElementById("peak-detect").style.color = "#ffcc00";
+          lastPeakFreq_mHz = 0;
+        }
+      }
+
+      function updateCalibration(state, isLocked) {
+        if (isLocked && state.beta > 0.9 && phaseRegimeState === "LOCK") {
+          const A = Math.sqrt(state.phi * state.phi + state.dphi * state.dphi);
+          if (A > 1e-10) {
+            if (lockCalibSamples.length >= LOCK_CALIB_SIZE)
+              lockCalibSamples.shift();
+            lockCalibSamples.push({
+              N: state.N,
+              logA: Math.log(A),
+              mu_k: state.mu_k,
+              beta: state.beta,
+              f_mHz: lastPeakFreq_mHz,
+            });
+          }
+        }
+
+        const n = lockCalibSamples.length;
+        if (n < 10) return;
+
+        let sumN = 0,
+          sumLogA = 0,
+          sumNN = 0,
+          sumNLogA = 0;
+        let sumMu = 0;
+        let sumFreq = 0,
+          freqCount = 0;
+        const betas = new Array(n);
+
+        for (let i = 0; i < n; i++) {
+          const s = lockCalibSamples[i];
+          sumN += s.N;
+          sumLogA += s.logA;
+          sumNN += s.N * s.N;
+          sumNLogA += s.N * s.logA;
+          sumMu += s.mu_k;
+          betas[i] = s.beta;
+          if (s.f_mHz > 0) {
+            sumFreq += s.f_mHz;
+            freqCount++;
+          }
+        }
+
+        const denom = n * sumNN - sumN * sumN;
+        if (Math.abs(denom) > 1e-9) {
+          const slope = (n * sumNLogA - sumN * sumLogA) / denom;
+          calibMuMed = slope;
+        } else {
+          calibMuMed = 0;
+        }
+
+        const MU_TARGET = 0.28317;
+        const Q_TARGET = 0.56634;
+        const F_TARGET_MHZ = 1.7314;
+
+        calibMuDelta = calibMuMed - MU_TARGET;
+        calibQMed = 2 * calibMuMed;
+        calibQDelta = calibQMed - Q_TARGET;
+
+        if (freqCount > 0) {
+          calibFMed = sumFreq / freqCount;
+          calibFDelta = calibFMed - F_TARGET_MHZ;
+        }
+
+        betas.sort((a, b) => a - b);
+        const p5Index = Math.floor(0.05 * (n - 1));
+        const p95Index = Math.floor(0.95 * (n - 1));
+        betaLockMin = betas[p5Index];
+        betaLockMax = betas[p95Index];
+
+        const muMedEl = document.getElementById("val-mu-med");
+        if (muMedEl)
+          muMedEl.innerText = `${calibMuMed.toFixed(5)} (Δ=${calibMuDelta.toFixed(5)})`;
+
+        const qMedEl = document.getElementById("val-q-med");
+        if (qMedEl)
+          qMedEl.innerText = `${calibQMed.toFixed(5)} (Δ=${calibQDelta.toFixed(5)})`;
+
+        const fMedEl = document.getElementById("val-f-med");
+        if (fMedEl) fMedEl.innerText = calibFMed.toFixed(4);
+
+        const fDeltaEl = document.getElementById("val-f-delta");
+        if (fDeltaEl) fDeltaEl.innerText = calibFDelta.toFixed(4);
+      }
+
+      function seedDemoState() {
+        if (!CONFIG.DEMO_MODE) return;
+
+        acquisitionState = "SIM";
+        simulator.reset();
+        traceBuffer.length = 0;
+        phaseBuffer.length = 0;
+        fftBuffer.length = 0;
+
+        const warmupSteps = CONFIG.FFT_SIZE;
+        for (let i = 0; i < warmupSteps; i++) {
+          const step = simulator.step();
+          fftBuffer.push(step.phi);
+
+          if (i % 8 === 0) {
+            if (traceBuffer.length >= traceSize) traceBuffer.shift();
+            traceBuffer.push(step.phi);
+
+            if (phaseBuffer.length >= traceSize) phaseBuffer.shift();
+            phaseBuffer.push({
+              phi: step.phi,
+              dphi: step.dphi,
+              beta: step.beta,
+            });
+          }
+
+          currentState = step;
+        }
+      }
+
+      function renderCurrentState() {
+        document.getElementById("val-N").innerText = currentState.N.toFixed(2);
+        document.getElementById("val-phi").innerText =
+          currentState.phi.toFixed(4);
+        document.getElementById("val-dphi").innerText =
+          currentState.dphi.toFixed(5);
+        document.getElementById("val-vel").innerText =
+          currentState.velocity.toFixed(4);
+        document.getElementById("val-beta").innerText =
+          currentState.beta.toFixed(5);
+        document.getElementById("val-mu").innerText =
+          currentState.mu_k.toFixed(5);
+        document.getElementById("val-q").innerText = (
+          2 * currentState.mu_k
+        ).toFixed(5);
+
+        const modeEl = document.getElementById("mode-label");
+        if (modeEl) {
+          modeEl.innerText = "MODE: PUBLIC DEMO";
+          modeEl.style.color = "#ffcc00";
+        }
+
+        const connStatus = document.getElementById("connection-status");
+        if (connStatus) {
+          connStatus.innerText =
+            "[ O ] PUBLIC VALIDATION DEMO | READ-ONLY | LOCAL SIMULATION";
+          connStatus.style.color = "#ffcc00";
+        }
+
+        const mags = fft.process(fftBuffer);
+        drawFFT(mags);
+        updateCalibration(currentState, true);
+        updateManifold(currentState.beta, fftBuffer, 0);
+        drawGraph("traj-canvas", traceBuffer, "#00ff41", 2.0);
+        drawPhaseSpace("traj-canvas", phaseBuffer, "#00aaff", null, null);
+      }
+
+      // --- OPTIONAL PLAYBACK BRIDGE ---
+      let playbackSeries = null;
+      let playbackIndex = 0;
+      let lastPlaybackTick = 0;
+
+      async function loadPlaybackSeries() {
+        console.log("Public demo build: external trace loading disabled.");
+      }
+
+      // --- MASTER LOOP (STATE MACHINE) ---
+      let lastFrameTime = 0;
+      let acquisitionState = "OFF"; // "OFF", "PLAYBACK", "SIM"
+      let lastPlaybackTime = 0;
+      const DATA_TIMEOUT_MS = 5000;
+
+      // Persist state for freezing
+      let currentState = {
+        N: 0,
+        phi: 0,
+        dphi: 0,
+        velocity: 0,
+        beta: 0,
+        mu_k: 0,
+        phase: "WAITING",
+      };
+
+      const traceSize = 300;
+
+      function loop(timestamp) {
+        requestAnimationFrame(loop);
+
+        // const dtReal = Math.min((timestamp - lastFrameTime) / 1000, 0.1);
+        lastFrameTime = timestamp;
+
+        let incomingData = null;
+
+        // 1. OPTIONAL PLAYBACK SOURCE
+        if (playbackSeries && !CONFIG.DEMO_MODE) {
+          if (timestamp - lastPlaybackTick > 20) {
+            lastPlaybackTick = timestamp;
+            playbackIndex = (playbackIndex + 1) % playbackSeries.phi.length;
+
+            const idx = playbackIndex;
+            const p_dphi = playbackSeries.dphi ? playbackSeries.dphi[idx] : 0.0;
+            const p_vel = playbackSeries.velocity
+              ? playbackSeries.velocity[idx]
+              : 0.0;
+
+            incomingData = {
+              N: playbackSeries.z[idx],
+              phi: playbackSeries.phi[idx],
+              dphi: p_dphi,
+              velocity: p_vel,
+              beta: playbackSeries.beta[idx],
+              mu_k: 0.0,
+              phase: "LOCKED (PLAYBACK)",
+            };
+
+            acquisitionState = "PLAYBACK";
+            lastPlaybackTime = timestamp;
+          }
+        }
+
+        // 2. STATE TRANSITIONS (Watchdog)
+        if (
+          acquisitionState === "PLAYBACK" &&
+          timestamp - lastPlaybackTime > DATA_TIMEOUT_MS
+        ) {
+          acquisitionState = "OFF";
+        }
+
+        // 3. SIMULATION FALLBACK (Explicit Only)
+        if (acquisitionState !== "PLAYBACK" && CONFIG.DEMO_MODE) {
+          acquisitionState = "SIM";
+          const stepsPerFrame = 20;
+          let lastStep = null;
+          // Fast forward simulator state
+          for (let i = 0; i < stepsPerFrame; i++) {
+            lastStep = simulator.step();
+            // In SIM mode, we fill buffers continuously inside the sub-step loop for smooth FFT
+            if (fftBuffer.length >= CONFIG.FFT_SIZE) fftBuffer.shift();
+            fftBuffer.push(lastStep.phi);
+          }
+          if (lastStep) incomingData = lastStep;
+        }
+
+        // 4. UPDATE STATE & BUFFERS (If New Data)
+        if (incomingData) {
+          currentState = incomingData;
+
+          // Push to visual buffers (Trace/Phase)
+          if (traceBuffer.length >= traceSize) traceBuffer.shift();
+          traceBuffer.push(currentState.phi);
+
+          if (phaseBuffer.length >= traceSize) phaseBuffer.shift();
+          phaseBuffer.push({
+            phi: currentState.phi,
+            dphi: currentState.dphi,
+            beta: currentState.beta,
+          });
+
+          // Push to FFT buffer (playback mode)
+          // Note: Sim mode pushes inside the loop above for resolution.
+          if (acquisitionState === "PLAYBACK") {
+            if (fftBuffer.length >= CONFIG.FFT_SIZE) fftBuffer.shift();
+            fftBuffer.push(currentState.phi);
+          }
+        }
+
+        // 5. INDICATOR [ O / I ] LOGIC
+        // I = playback input, O = local simulation/offline
+        const isInput = acquisitionState === "PLAYBACK";
+        const indicatorChar = isInput ? "[ I ]" : "[ O ]";
+
+        // Color logic: Green (Playback), Red (Off), Amber (Sim)
+        let stateColor = "#ff3333"; // Red default
+        if (acquisitionState === "PLAYBACK") stateColor = "#00ff41";
+        else if (acquisitionState === "SIM") stateColor = "#ffcc00";
+
+        const sysLed = document.getElementById("sys-led");
+        if (sysLed) {
+          sysLed.style.backgroundColor = stateColor;
+          sysLed.style.boxShadow = `0 0 8px ${stateColor}`;
+          // Update title attribute for hover info
+          sysLed.title = `STATUS: ${acquisitionState} ${indicatorChar}`;
+        }
+
+        // Prepend indicator to connection status if not present
+        const connStatus = document.getElementById("connection-status");
+        if (connStatus) {
+          let text = connStatus.innerText;
+          // Clean existing indicator if any
+          text = text.replace(/^\[ . \] /, "");
+          connStatus.innerText = `${indicatorChar} ${text}`;
+          connStatus.style.color = stateColor;
+        }
+
+        // 6. UI TEXT UPDATES (Always update with last known currentState)
+        document.getElementById("val-N").innerText = currentState.N.toFixed(2);
+        document.getElementById("val-phi").innerText =
+          currentState.phi.toFixed(4);
+
+        if (currentState.dphi !== undefined) {
+          document.getElementById("val-dphi").innerText =
+            currentState.dphi.toFixed(5);
+        }
+        if (currentState.velocity !== undefined) {
+          document.getElementById("val-vel").innerText =
+            currentState.velocity.toFixed(4);
+        }
+
+        document.getElementById("val-beta").innerText =
+          currentState.beta.toFixed(5);
+        document.getElementById("val-mu").innerText =
+          currentState.mu_k.toFixed(5);
+        document.getElementById("val-q").innerText = (
+          2 * currentState.mu_k
+        ).toFixed(5);
+
+        // Mode Label Update
+        const modeEl = document.getElementById("mode-label");
+        if (modeEl) {
+          modeEl.innerText = "MODE: PUBLIC DEMO";
+          modeEl.style.color = "#ffcc00";
+        }
+
+        // 7. RENDERERS
+
+        // 3D Manifold (Deform based on beta + FFT modes)
+        // Pass normalized time (seconds) for rotation
+        updateManifold(currentState.beta, fftBuffer, timestamp * 0.001);
+
+        // Graphs
+        drawGraph("traj-canvas", traceBuffer, "#00ff41", 2.0);
+        drawPhaseSpace("traj-canvas", phaseBuffer, "#00aaff", null, null);
+
+        // FFT (Always process buffer, even if static)
+        if (Math.floor(timestamp) % 10 === 0) {
+          const mags = fft.process(fftBuffer);
+          drawFFT(mags);
+        }
+
+        if (visual3DReady && renderer && scene && camera) {
+          renderer.render(scene, camera);
+        }
+        if (visual3DReady && wRenderer && wScene && wCamera) {
+          wRenderer.render(wScene, wCamera);
+        }
+      }
+
+      // --- BOOT ---
+      init3D();
+      loadPlaybackSeries();
+      loadHoloStatus();
+      seedDemoState();
+      renderCurrentState();
+
+      // Button Logic
+      document
+        .getElementById("sim-toggle")
+        .addEventListener("click", function () {
+          CONFIG.DEMO_MODE = !CONFIG.DEMO_MODE;
+          const btn = this;
+
+          if (CONFIG.DEMO_MODE) {
+            // FORCE IMMEDIATE TRANSITION
+            acquisitionState = "OFF";
+            simulator.reset();
+
+            btn.innerText = "SIMULATION ACTIVE";
+            btn.classList.add("active");
+            logEvent(
+              "User enabled SIMULATION mode. Signal Injection: ON.",
+              "info",
+            );
+          } else {
+            btn.innerText = "ENABLE LOCAL SIMULATION";
+            btn.classList.remove("active");
+            logEvent(
+              "User disabled SIMULATION mode. Returning to INPUT/OFF.",
+              "info",
+            );
+            // State will naturally drift back to playback if present, or remain offline.
+          }
+        });
+
+      logEvent(
+        "Public validation demo booted. No internal endpoints or private data sources are exposed.",
+        "info",
+      );
+      loop(0);
+    </script>
+  </body>
+</html>

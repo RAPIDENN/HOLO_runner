@@ -1,0 +1,109 @@
+{
+  "bundle": {
+    "bundle_root": "instrument_closure/2026-01-04",
+    "date": "2026-01-04",
+    "name": "instrument_closure",
+    "spec_pdf": "A_single_Einstein_Dilaton geometry/A_single_Einstein-Dilaton_geometry.pdf"
+  },
+  "files": [
+    {
+      "bytes": 75998,
+      "path": "ed_bulk_clock.json",
+      "sha256": "4c4ec6154fa121daa651ff67aff170ff36fb0b26ab1dc825de626bfa87247eca"
+    },
+    {
+      "bytes": 25547,
+      "path": "ed_fixed_ic_sparc_eval.json",
+      "sha256": "1a79c32ec7fcabc62ef217e86d5b634537755113aef20fba3b00fe0f65f1b512"
+    },
+    {
+      "bytes": 47798,
+      "path": "growth_report.json",
+      "sha256": "7bd928afd09f354f8cc9e3e404c78100a6cad1d230bfed787b6b30d4aebd76ef"
+    },
+    {
+      "bytes": 1347,
+      "path": "growth_validation_boss_dr12.json",
+      "sha256": "4865f4f8fa571caff5456cbb059b247446e40d76387395dc8beec3854f1258a1"
+    },
+    {
+      "bytes": 10330,
+      "path": "hkcore_refine_beta2.0_seed777.json",
+      "sha256": "ac2883a8b580a7e70a486ee9ea1f887d6671b747845bad278f07dd3446282851"
+    },
+    {
+      "bytes": 97714,
+      "path": "k_em_uv_projector.json",
+      "sha256": "a435f342414b6cbe7256578adf53e8ee3edb0c48817d645dffc4586fa23723ea"
+    },
+    {
+      "bytes": 72934,
+      "path": "nist_comparison_uv.json",
+      "sha256": "a248da6e86f51cb07128ac0e9a38b07c0554ee04c44f477fc4af4f961779459c"
+    },
+    {
+      "bytes": 474,
+      "path": "wilson_loop_sigma_from_ed_trace.json",
+      "sha256": "36c873e400d3e08e3451036d1a703451f7a0fd89673d30fc2700043cd1287275"
+    }
+  ],
+  "external_channels": [
+    {
+      "name": "QCD_glueball_0pp",
+      "path": "A_single_Einstein_Dilaton geometry/artifacts/invariant_flux_spectrum_u.json",
+      "role": "ratio m1/m0 (0++ spectrum)",
+      "sha256": "6e3b56a805d1dec7634d91d2ac58ec29bd3e979c5c02530fd17dc1eba7a9ccb1"
+    },
+    {
+      "name": "LAB_NIST_inputs",
+      "doi": "10.5281/zenodo.18147532",
+      "zip": "NIST_LAB_INPUTS_mds2-2206_v1.zip",
+      "zip_sha256": "b42d2239875a56e6449bc04f9a1ad78d13434c7f2a154a5c8773a5801b169fb6",
+      "files": [
+        {
+          "name": "NIST_Yb_Clock_phase.csv",
+          "sha256": "c00f2c5c03c3ef0cf346de9917b66800eccd4147cc86af88feae9d02725baad9"
+        },
+        {
+          "name": "NIST_10GHz_phase.csv",
+          "sha256": "9d715e33e8440dc7b84833ee51a48884e7e7091cc632f482ab2812fc466793be"
+        }
+      ],
+      "role": "UV-screened laboratory clock inputs (NIST)"
+    }
+  ],
+  "generated_utc": "2026-01-04T12:25:13Z",
+  "summary": {
+    "growth": {
+      "chi2_holo": 2.268445062716889,
+      "chi2_lcdm": 2.4429961128699653,
+      "delta_chi2": -0.17455105015307648,
+      "delta_fsigma8_percent_z1": -12.339426466887968
+    },
+    "hkcore": {
+      "rule_applied": "ORDEN_015_IR_LMAX",
+      "status": "compatible"
+    },
+    "ricci_clock": {
+      "t_phys_end": 1.804878769985574,
+      "z_max": 2.0,
+      "z_min": 1.0
+    },
+    "sparc": {
+      "median_chi2_holo": 0.5650318424177965,
+      "median_chi2_newton": 1.927856563013772,
+      "successes": 172,
+      "total": 175,
+      "wins_holo_vs_newton": 172
+    },
+    "uv_nist": {
+      "n": 595,
+      "pearson_r": -0.055375790994458114
+    },
+    "wilson_loop": {
+      "m0_GeV": 1.6000061433743422,
+      "sigma_eff_GeV2": 0.20313585866579145,
+      "trace_sha256": "e1c4b9d8495a563be31c36ceeeea7575b1d46afae74b45394edb77a8ffb06725"
+    }
+  }
+}

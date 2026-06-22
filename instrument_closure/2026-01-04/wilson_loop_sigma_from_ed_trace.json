@@ -1,0 +1,13 @@
+{
+  "A_ir": -2.109533186116954,
+  "alpha_prime_GeV-2": 0.011527,
+  "c_scalar": 3.55,
+  "e2A_ir": 0.01471237397564573,
+  "m0_GeV": 1.6000061433743422,
+  "method": "sigma_eff = exp(2A(z_ir)) / (2\u03c0 \u03b1') ; m0 = c * sqrt(sigma_eff)",
+  "sigma_eff_GeV2": 0.20313585866579145,
+  "source": "holo_physics_trace_ed_industrial.json",
+  "sqrt_sigma_GeV": 0.45070595588009643,
+  "trace_sha256": "e1c4b9d8495a563be31c36ceeeea7575b1d46afae74b45394edb77a8ffb06725",
+  "z_ir": 2.0
+}

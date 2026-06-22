@@ -1,0 +1,1057 @@
+{
+  "ok": true,
+  "total": 175,
+  "successes": 172,
+  "results": [
+    {
+      "galaxy": "CamB",
+      "chi2_holo": 0.0784943007312604,
+      "chi2_newton": 4.047260074680274,
+      "holo_better": true
+    },
+    {
+      "galaxy": "D512-2",
+      "chi2_holo": 0.26834355586521313,
+      "chi2_newton": 0.5499785634917592,
+      "holo_better": true
+    },
+    {
+      "galaxy": "D564-8",
+      "chi2_holo": 0.3756343305356907,
+      "chi2_newton": 1.2071275033252635,
+      "holo_better": true
+    },
+    {
+      "galaxy": "D631-7",
+      "chi2_holo": 0.7167868201444982,
+      "chi2_newton": 3.5668674320417026,
+      "holo_better": true
+    },
+    {
+      "galaxy": "DDO064",
+      "chi2_holo": 1.2491552142381521,
+      "chi2_newton": 2.5896412834983247,
+      "holo_better": true
+    },
+    {
+      "galaxy": "DDO154",
+      "chi2_holo": 0.7121315304411047,
+      "chi2_newton": 3.252343069619214,
+      "holo_better": true
+    },
+    {
+      "galaxy": "DDO161",
+      "chi2_holo": 1.1357348180302913,
+      "chi2_newton": 3.5601009371778924,
+      "holo_better": true
+    },
+    {
+      "galaxy": "DDO168",
+      "chi2_holo": 0.474382843942609,
+      "chi2_newton": 1.3499018447115865,
+      "holo_better": true
+    },
+    {
+      "galaxy": "DDO170",
+      "chi2_holo": 0.5218002990538477,
+      "chi2_newton": 1.5512970345496457,
+      "holo_better": true
+    },
+    {
+      "galaxy": "ESO079-G014",
+      "chi2_holo": 0.33181288225501915,
+      "chi2_newton": 0.5734148015157771,
+      "holo_better": true
+    },
+    {
+      "galaxy": "ESO116-G012",
+      "chi2_holo": 0.6888617191249636,
+      "chi2_newton": 1.589834540792205,
+      "holo_better": true
+    },
+    {
+      "galaxy": "ESO444-G084",
+      "chi2_holo": 0.79198708907199,
+      "chi2_newton": 2.4062157578116143,
+      "holo_better": true
+    },
+    {
+      "galaxy": "ESO563-G021",
+      "chi2_holo": 0.8180757258809319,
+      "chi2_newton": 9.018292633572576,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F561-1",
+      "chi2_holo": 0.0005871622128126405,
+      "chi2_newton": 0.09385143472172473,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F563-1",
+      "chi2_holo": 1.7148024479847228,
+      "chi2_newton": 5.94579886240977,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F563-V1",
+      "chi2_holo": 0.0032541412506009782,
+      "chi2_newton": 0.03271759978755848,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F563-V2",
+      "chi2_holo": 1.6037056932276368,
+      "chi2_newton": 2.8476843911924985,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F565-V2",
+      "chi2_holo": 0.5668158107619585,
+      "chi2_newton": 2.2093131551934992,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F567-2",
+      "chi2_holo": 0.15557000393553994,
+      "chi2_newton": 0.2947587924720472,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F568-1",
+      "chi2_holo": 0.9164212447988139,
+      "chi2_newton": 3.273591775639225,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F568-3",
+      "chi2_holo": 1.028074040006212,
+      "chi2_newton": 2.444451224055339,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F568-V1",
+      "chi2_holo": 1.375436408177722,
+      "chi2_newton": 4.254662882377098,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F571-8",
+      "chi2_holo": 0.28568074169418073,
+      "chi2_newton": 8.417866185209233,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F571-V1",
+      "chi2_holo": 0.4484654102152348,
+      "chi2_newton": 1.3222534942269935,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F574-1",
+      "chi2_holo": 0.816598284247851,
+      "chi2_newton": 2.297546586059252,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F574-2",
+      "chi2_holo": 0.0,
+      "chi2_newton": 0.6509277525267139,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F579-V1",
+      "chi2_holo": 1.3707108589308752,
+      "chi2_newton": 2.2532353982752755,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F583-1",
+      "chi2_holo": 2.651364652040225,
+      "chi2_newton": 6.777928295992481,
+      "holo_better": true
+    },
+    {
+      "galaxy": "F583-4",
+      "chi2_holo": 1.1212908141008462,
+      "chi2_newton": 1.4528325825030834,
+      "holo_better": true
+    },
+    {
+      "galaxy": "IC2574",
+      "chi2_holo": 1.5174136862806171,
+      "chi2_newton": 4.402854025767233,
+      "holo_better": true
+    },
+    {
+      "galaxy": "IC4202",
+      "chi2_holo": 0.30559497186614115,
+      "chi2_newton": 10.568026908585864,
+      "holo_better": true
+    },
+    {
+      "galaxy": "KK98-251",
+      "chi2_holo": 0.6551828014665186,
+      "chi2_newton": 1.298724264130256,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC0024",
+      "chi2_holo": 3.178278506179764,
+      "chi2_newton": 3.44597190672878,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC0055",
+      "chi2_holo": 0.6763601932741446,
+      "chi2_newton": 1.5259721819237684,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC0100",
+      "chi2_holo": 0.8454582335518843,
+      "chi2_newton": 2.276934310275311,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC0247",
+      "chi2_holo": 1.662391530149805,
+      "chi2_newton": 3.4070926068837744,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC0289",
+      "chi2_holo": 0.9228999526292136,
+      "chi2_newton": 2.92496826676181,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC0300",
+      "chi2_holo": 1.288003763646153,
+      "chi2_newton": 4.150378996658308,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC0801",
+      "chi2_holo": 0.14052150771450045,
+      "chi2_newton": 0.6810122661696649,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC0891",
+      "chi2_holo": 0.007737298311553611,
+      "chi2_newton": 1.9480034734315057,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC1003",
+      "chi2_holo": 1.6210789959286813,
+      "chi2_newton": 7.290873798371133,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC1090",
+      "chi2_holo": 0.4707670557921517,
+      "chi2_newton": 2.7746116224431967,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC1705",
+      "chi2_holo": 1.1145904979867605,
+      "chi2_newton": 4.012996864397865,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2366",
+      "chi2_holo": 0.9399072816779238,
+      "chi2_newton": 2.9196384678577187,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2403",
+      "chi2_holo": 1.7230014834051512,
+      "chi2_newton": 6.033701629545382,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2683",
+      "chi2_holo": 0.3140439317394681,
+      "chi2_newton": 0.4435226993275749,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2841",
+      "chi2_holo": 1.708329550351947,
+      "chi2_newton": 4.675648999045236,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2903",
+      "chi2_holo": 0.5992780281895606,
+      "chi2_newton": 19.573958565076197,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2915",
+      "chi2_holo": 1.646161262510541,
+      "chi2_newton": 16.328754166930036,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2955",
+      "chi2_holo": 0.0274913296205701,
+      "chi2_newton": 0.7359317460927015,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2976",
+      "chi2_holo": 0.034699103194062206,
+      "chi2_newton": 1.2606536369525636,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC2998",
+      "chi2_holo": 0.9657877672143074,
+      "chi2_newton": 0.6243027176709512,
+      "holo_better": false
+    },
+    {
+      "galaxy": "NGC3109",
+      "chi2_holo": 2.313017130470262,
+      "chi2_newton": 8.131605419179513,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3198",
+      "chi2_holo": 0.9398054210533429,
+      "chi2_newton": 6.324896251832457,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3521",
+      "chi2_holo": 0.17864555840577065,
+      "chi2_newton": 2.6753923989283406,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3726",
+      "chi2_holo": 0.3413475175114079,
+      "chi2_newton": 0.673220028581774,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3741",
+      "chi2_holo": 1.6099880474707515,
+      "chi2_newton": 7.571961826341087,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3769",
+      "chi2_holo": 0.500600917593478,
+      "chi2_newton": 1.390851988228747,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3877",
+      "chi2_holo": 0.0022153748398070577,
+      "chi2_newton": 3.261599224353923,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3893",
+      "chi2_holo": 0.22569578357958847,
+      "chi2_newton": 0.41756879844566,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3917",
+      "chi2_holo": 0.5056868281940462,
+      "chi2_newton": 0.909488817605976,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3949",
+      "chi2_holo": 0.00731336363749536,
+      "chi2_newton": 0.3437771202396585,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3953",
+      "chi2_holo": 0.0,
+      "chi2_newton": 0.06046693070622762,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3972",
+      "chi2_holo": 0.2686346529335232,
+      "chi2_newton": 0.35635291438937455,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC3992",
+      "chi2_holo": 0.3206786171650743,
+      "chi2_newton": 0.3966145333486149,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4010",
+      "chi2_holo": 0.27857161663724916,
+      "chi2_newton": 0.3601118970895395,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4013",
+      "chi2_holo": 1.1277986537545845,
+      "chi2_newton": 1.7715748407297738,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4051",
+      "chi2_holo": 0.0,
+      "chi2_newton": 0.33187870350412185,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4068",
+      "chi2_holo": 0.16505538506573528,
+      "chi2_newton": 0.4401964820147857,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4085",
+      "chi2_holo": 0.0,
+      "chi2_newton": 2.1182434063408464,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4088",
+      "chi2_holo": 0.022078543347158433,
+      "chi2_newton": 1.3561236460130306,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4100",
+      "chi2_holo": 0.5650318424177965,
+      "chi2_newton": 0.7066297078751106,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4138",
+      "chi2_holo": 0.20503089600471736,
+      "chi2_newton": 0.27110753052774117,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4157",
+      "chi2_holo": 0.3381659500662468,
+      "chi2_newton": 1.0195562585117879,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4183",
+      "chi2_holo": 1.2145828809640968,
+      "chi2_newton": 2.25047628771961,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4214",
+      "chi2_holo": 0.9927495676363915,
+      "chi2_newton": 2.5481546029459508,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4217",
+      "chi2_holo": 0.10530921195460716,
+      "chi2_newton": 8.521874508248382,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4389",
+      "chi2_holo": 0.0,
+      "chi2_newton": 8.036017756076355,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC4559",
+      "chi2_holo": 0.7707514214379074,
+      "chi2_newton": 1.4233422385334382,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC5005",
+      "chi2_holo": 0.0,
+      "chi2_newton": 0.9725437503656176,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC5033",
+      "chi2_holo": 0.6512631643305585,
+      "chi2_newton": 1.927856563013772,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC5055",
+      "chi2_holo": 0.4955312056774099,
+      "chi2_newton": 2.8962950346676157,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC5371",
+      "chi2_holo": 0.04952508074753073,
+      "chi2_newton": 0.4523631126721163,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC5585",
+      "chi2_holo": 0.6345530801226521,
+      "chi2_newton": 2.103306221113189,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC5907",
+      "chi2_holo": 0.5939693610987467,
+      "chi2_newton": 0.7595514285135699,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC5985",
+      "chi2_holo": 1.2881403397391804,
+      "chi2_newton": 2.643164350844069,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC6015",
+      "chi2_holo": 1.546174624705865,
+      "chi2_newton": 3.406635667673319,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC6195",
+      "chi2_holo": 0.027122407260230665,
+      "chi2_newton": 0.8206276889579782,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC6503",
+      "chi2_holo": 1.224371302214471,
+      "chi2_newton": 4.045777333320451,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC6674",
+      "chi2_holo": 0.6709766486477937,
+      "chi2_newton": 1.5125735668107876,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC6789",
+      "chi2_holo": 0.40705755834119306,
+      "chi2_newton": 0.9137132093868761,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC6946",
+      "chi2_holo": 0.49505234805046067,
+      "chi2_newton": 1.8691183355199479,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC7331",
+      "chi2_holo": 0.42892857511982907,
+      "chi2_newton": 2.963736193493904,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC7793",
+      "chi2_holo": 0.2699894540588188,
+      "chi2_newton": 5.66813861497268,
+      "holo_better": true
+    },
+    {
+      "galaxy": "NGC7814",
+      "chi2_holo": 0.5310270853836717,
+      "chi2_newton": 1.0344906262343034,
+      "holo_better": true
+    },
+    {
+      "galaxy": "PGC51017",
+      "chi2_holo": 0.22144810280267532,
+      "chi2_newton": 0.31047401156313637,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC00128",
+      "chi2_holo": 1.7503605458110658,
+      "chi2_newton": 5.989724818020325,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC00191",
+      "chi2_holo": 0.864760168438126,
+      "chi2_newton": 1.0944003285440906,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC00634",
+      "chi2_holo": 0.3078985721563062,
+      "chi2_newton": 0.9156944031132572,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC00731",
+      "chi2_holo": 1.1210175207745074,
+      "chi2_newton": 4.401419268418242,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC00891",
+      "chi2_holo": 0.3239054436646708,
+      "chi2_newton": 0.9838646262669468,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC01230",
+      "chi2_holo": 1.0500672220405765,
+      "chi2_newton": 1.9922409555636962,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC01281",
+      "chi2_holo": 1.3641226274787734,
+      "chi2_newton": 4.229556079704346,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC02023",
+      "chi2_holo": 0.16192558738081392,
+      "chi2_newton": 0.1632965432167531,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC02259",
+      "chi2_holo": 0.6737927298931303,
+      "chi2_newton": 1.915457021184792,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC02455",
+      "chi2_holo": 0.0,
+      "chi2_newton": 11.794605921557991,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC02487",
+      "chi2_holo": 0.7353350167314445,
+      "chi2_newton": 1.736937033995202,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC02885",
+      "chi2_holo": 0.6135981890012583,
+      "chi2_newton": 1.0589992907820167,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC02916",
+      "chi2_holo": 0.49402686780108374,
+      "chi2_newton": 1.618933668053997,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC02953",
+      "chi2_holo": 2.0929008401350186,
+      "chi2_newton": 6.590809706617961,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC03205",
+      "chi2_holo": 0.6446029064633148,
+      "chi2_newton": 1.248742346817383,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC03546",
+      "chi2_holo": 0.2833280415569778,
+      "chi2_newton": 3.042896980701967,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC03580",
+      "chi2_holo": 0.6578616007951746,
+      "chi2_newton": 10.158094663460282,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC04278",
+      "chi2_holo": 1.4960022204387629,
+      "chi2_newton": 3.8485056636131874,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC04305",
+      "chi2_holo": 0.013885548300866505,
+      "chi2_newton": 1.5265309049586857,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC04325",
+      "chi2_holo": 0.61143168417523,
+      "chi2_newton": 1.5485677343693336,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC04483",
+      "chi2_holo": 0.4181682059172831,
+      "chi2_newton": 0.8325755159167922,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC04499",
+      "chi2_holo": 0.3941168088693716,
+      "chi2_newton": 0.9068552325658663,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05005",
+      "chi2_holo": 0.5046431009630947,
+      "chi2_newton": 1.4690055925931307,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05253",
+      "chi2_holo": 0.8871216727488186,
+      "chi2_newton": 2.568322578861024,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05414",
+      "chi2_holo": 0.23107514085448697,
+      "chi2_newton": 0.30767232564494723,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05716",
+      "chi2_holo": 1.0011415265366619,
+      "chi2_newton": 3.248724610102834,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05721",
+      "chi2_holo": 1.418435358407427,
+      "chi2_newton": 5.092994387775248,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05750",
+      "chi2_holo": 0.5660519005468798,
+      "chi2_newton": 1.2756107058906285,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05764",
+      "chi2_holo": 0.9257140512274751,
+      "chi2_newton": 3.719017103187321,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05829",
+      "chi2_holo": 0.8798799579705456,
+      "chi2_newton": 2.24099712907896,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05918",
+      "chi2_holo": 0.6687649866666194,
+      "chi2_newton": 2.1414779233415753,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05986",
+      "chi2_holo": 0.7020579762070891,
+      "chi2_newton": 1.9027823640778068,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC05999",
+      "chi2_holo": 0.3138839351735142,
+      "chi2_newton": 0.8086991077559508,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06399",
+      "chi2_holo": 0.5044256728681005,
+      "chi2_newton": 1.2441036808844594,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06446",
+      "chi2_holo": 1.338985626960934,
+      "chi2_newton": 4.171844594089709,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06614",
+      "chi2_holo": 0.24577715019100072,
+      "chi2_newton": 0.8476799546423683,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06628",
+      "chi2_holo": 0.00030886798228805856,
+      "chi2_newton": 0.2608456946184788,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06667",
+      "chi2_holo": 0.8433711725828582,
+      "chi2_newton": 3.998261406044665,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06786",
+      "chi2_holo": 0.9974004726263221,
+      "chi2_newton": 2.536477017277965,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06787",
+      "chi2_holo": 0.9872984041454662,
+      "chi2_newton": 5.1491604610289,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06818",
+      "chi2_holo": 0.3421186123114666,
+      "chi2_newton": 0.834477654812075,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06917",
+      "chi2_holo": 0.4482861199117565,
+      "chi2_newton": 1.0012619075271334,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06923",
+      "chi2_holo": 0.19558905769957927,
+      "chi2_newton": 0.2772084892802987,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06930",
+      "chi2_holo": 0.49457105473187535,
+      "chi2_newton": 0.9276884890139696,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06973",
+      "chi2_holo": 0.0002160882519615951,
+      "chi2_newton": 2.402931636902595,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC06983",
+      "chi2_holo": 0.8831542648629429,
+      "chi2_newton": 2.7469777881346618,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07089",
+      "chi2_holo": 0.40675727593763095,
+      "chi2_newton": 0.4964420428933506,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07125",
+      "chi2_holo": 0.3911541720438677,
+      "chi2_newton": 0.7314935914472541,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07151",
+      "chi2_holo": 0.32769396856203803,
+      "chi2_newton": 0.5546421345221856,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07232",
+      "chi2_holo": 0.19364346259109488,
+      "chi2_newton": 0.18869338184042414,
+      "holo_better": false
+    },
+    {
+      "galaxy": "UGC07261",
+      "chi2_holo": 0.4561634612092449,
+      "chi2_newton": 0.7477875165662808,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07323",
+      "chi2_holo": 0.20148469128156815,
+      "chi2_newton": 0.17876101876136952,
+      "holo_better": false
+    },
+    {
+      "galaxy": "UGC07399",
+      "chi2_holo": 0.7742466859672388,
+      "chi2_newton": 2.944927105626881,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07524",
+      "chi2_holo": 1.8220568806916355,
+      "chi2_newton": 4.848584814366457,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07559",
+      "chi2_holo": 0.24238029848218498,
+      "chi2_newton": 0.36803895314350615,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07577",
+      "chi2_holo": 0.07998524084652368,
+      "chi2_newton": 0.2503038125816185,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07603",
+      "chi2_holo": 0.5991610756099061,
+      "chi2_newton": 2.182876758396701,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07608",
+      "chi2_holo": 0.5842395731979575,
+      "chi2_newton": 2.4679457095744173,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07690",
+      "chi2_holo": 0.24735645185636101,
+      "chi2_newton": 0.3550268533343361,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC07866",
+      "chi2_holo": 0.3467180323054309,
+      "chi2_newton": 0.5377978833749733,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC08286",
+      "chi2_holo": 1.308005033339131,
+      "chi2_newton": 3.8830041992322375,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC08490",
+      "chi2_holo": 2.035592736017826,
+      "chi2_newton": 7.234441510825576,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC08550",
+      "chi2_holo": 0.7900121802292484,
+      "chi2_newton": 2.4562468530129324,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC08699",
+      "chi2_holo": 0.5062296215587692,
+      "chi2_newton": 1.8132156640806034,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC08837",
+      "chi2_holo": 0.2323741220730833,
+      "chi2_newton": 0.5273712414674598,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC09037",
+      "chi2_holo": 0.2851125623879933,
+      "chi2_newton": 2.611090347816782,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC09133",
+      "chi2_holo": 1.2618327259537938,
+      "chi2_newton": 4.328931059468269,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC09992",
+      "chi2_holo": 0.15268764300306892,
+      "chi2_newton": 0.17533620574257383,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC10310",
+      "chi2_holo": 0.43155713758637193,
+      "chi2_newton": 0.8608778923330211,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC11455",
+      "chi2_holo": 0.23870965518561038,
+      "chi2_newton": 3.198728908851772,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC11557",
+      "chi2_holo": 0.0,
+      "chi2_newton": 23.842163060740926,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC11820",
+      "chi2_holo": 1.7248579137314402,
+      "chi2_newton": 1.905394959359202,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC11914",
+      "chi2_holo": 0.07510451069308918,
+      "chi2_newton": 0.41863698160912977,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC12506",
+      "chi2_holo": 2.4787754977342757,
+      "chi2_newton": 3.996292549915983,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC12632",
+      "chi2_holo": 1.1679647620862474,
+      "chi2_newton": 3.127723467475283,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGC12732",
+      "chi2_holo": 1.2713505829579073,
+      "chi2_newton": 3.762631026091361,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGCA281",
+      "chi2_holo": 0.49044979492223884,
+      "chi2_newton": 0.5879080270332082,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGCA442",
+      "chi2_holo": 0.8315635334066814,
+      "chi2_newton": 2.2166200005239514,
+      "holo_better": true
+    },
+    {
+      "galaxy": "UGCA444",
+      "chi2_holo": 3.3644221511145367,
+      "chi2_newton": 9.779228603403332,
+      "holo_better": true
+    }
+  ]
+}

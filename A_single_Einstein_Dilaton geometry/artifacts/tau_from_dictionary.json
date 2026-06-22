@@ -1,0 +1,112 @@
+{
+  "reference": {
+    "z_ref": 0.1,
+    "A_ref": -0.03502707490152664,
+    "phi_ref": 0.000381536985776232
+  },
+  "candidates": {
+    "tau_from_earth_light_crossing": {
+      "tau_seconds": 0.021251368505074267,
+      "assumption": "pure reference: Earth light-crossing time (not derived from trace)"
+    },
+    "tau_from_warp_dr_dz_over_c": {
+      "z_uv": 0.01,
+      "z_end": 2.0,
+      "r_end_units": 6.807187323535672,
+      "dr_dz_at_z_ref": 1.129029230283268,
+      "tau_seconds_per_z_at_z_ref": 116207732775.37003,
+      "assumption": "Uses dr/dz=exp(-A_rec(z)) from the industrial trace. The conversion to seconds assumes the solver z-unit corresponds to kpc-equivalent length."
+    },
+    "tau_from_ricci_density": {
+      "tau_seconds_per_z": 329.23471699917525,
+      "rho_kg_m3": 5500.0,
+      "formula": "tau = 1/sqrt(8\u03c0G\u03c1)  (equivalently 1/(c*sqrt(R)) with R\u22488\u03c0G\u03c1/c^2)",
+      "assumption": "Uses Earth mean density as the curvature scale entering the Ricci readout; does not assume z is a physical length."
+    },
+    "tau_from_ricci_density_2pi": {
+      "tau_seconds_per_z": 2068.642736462647,
+      "rho_kg_m3": 5500.0,
+      "formula": "tau = 2\u03c0/sqrt(8\u03c0G\u03c1)",
+      "assumption": "Same as tau_from_ricci_density but with a 2\u03c0 factor (useful if comparing \u03c9 vs f conventions)."
+    },
+    "tau_from_lock5_xiR": {
+      "z_lab": 0.1,
+      "delta_z_lab": -0.8977903252379213,
+      "R_earth_1_over_m2": 1.0264725635063224e-22,
+      "xi_lock5_units_m2_over_s2": 7.090741381524219e+18,
+      "omega_xiR_per_s": 0.008625127006916885,
+      "tau_seconds": 115.94032171329815,
+      "tau_seconds_2pi": 728.4745258986693,
+      "formula": "omega^2 shift = xi*R*(1+delta); tau=1/omega (or 2\u03c0/omega)",
+      "assumption": "Directly mirrors LOCK5 algebra; xi carries units so that xi*R is 1/s^2."
+    }
+  },
+  "notes": {
+    "non_uniqueness": "Without a specified physical unit for the z-coordinate, tau is not uniquely determined by A(z),phi(z) alone. The candidates here are bookkeeping conversions under explicit assumptions."
+  },
+  "spectrum": {
+    "frequencies_Hz": [
+      0.46591661602094636,
+      0.6208367667878851,
+      0.797431864631723,
+      1.0055603396216306,
+      1.2309348452245916,
+      1.4649583389994723
+    ],
+    "domain": [
+      0.01,
+      2.0
+    ],
+    "constraint_max": null
+  },
+  "tau_required": {
+    "f0": {
+      "path": "qg_scaffold/output/readout_projection_f0.json",
+      "f_hat_assuming_z_seconds_Hz": 0.46591661602094636,
+      "tau_required_seconds_per_z": 279.66183434630636,
+      "target_mhz": 1.666,
+      "kernel": "uniform"
+    },
+    "fearth": {
+      "path": "qg_scaffold/output/readout_projection_fearth.json",
+      "f_hat_assuming_z_seconds_Hz": 0.46591661602094636,
+      "tau_required_seconds_per_z": 215.8020454010868,
+      "target_mhz": 2.159,
+      "kernel": "uniform"
+    }
+  },
+  "comparisons": {
+    "f0": [
+      {
+        "candidate": "tau_from_ricci_density",
+        "tau": 329.23471699917525,
+        "tau_required": 279.66183434630636,
+        "ratio": 1.1772600925998453,
+        "abs_diff": 49.572882652868884
+      },
+      {
+        "candidate": "tau_from_ricci_density_2pi",
+        "tau": 2068.642736462647,
+        "tau_required": 279.66183434630636,
+        "ratio": 7.396943316552227,
+        "abs_diff": 1788.9809021163405
+      }
+    ],
+    "fearth": [
+      {
+        "candidate": "tau_from_ricci_density",
+        "tau": 329.23471699917525,
+        "tau_required": 215.8020454010868,
+        "ratio": 1.5256329771446977,
+        "abs_diff": 113.43267159808846
+      },
+      {
+        "candidate": "tau_from_ricci_density_2pi",
+        "tau": 2068.642736462647,
+        "tau_required": 215.8020454010868,
+        "ratio": 9.585834706144214,
+        "abs_diff": 1852.8406910615602
+      }
+    ]
+  }
+}

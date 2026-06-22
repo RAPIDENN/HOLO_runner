@@ -1,0 +1,88 @@
+{
+  "trace": "data/internal/holo_physics_trace_ed_industrial.json",
+  "assumption": "Trace is in conformal coordinate z with ds^2=e^{2A(z)}(dx_4^2+dz^2), and u is defined by du=e^{A(z)}dz.",
+  "operator": {
+    "canonical_u": "-d^2/du^2 + V\u03b6(u)",
+    "covariant_z": "-d/dz(e^{-A} d/dz) + e^{A} V\u03b6(u(z))  with weight w=e^{A}",
+    "p_z": "exp(-A(z))",
+    "w_z": "exp(A(z))",
+    "q_z": "exp(A(z))*V\u03b6(u(z))"
+  },
+  "bc": {
+    "uv": "dirichlet",
+    "ir": "neumann"
+  },
+  "numerics": {
+    "n_grid": 2000,
+    "modes": 8,
+    "spline_smooth": 1e-12
+  },
+  "u_spectrum": {
+    "coord": "u_domainwall (canonical)",
+    "n_grid": 2000,
+    "domain": [
+      0.0,
+      1.1359929826961972
+    ],
+    "m0_2": 34.05916843067338,
+    "m1_2": 81.34946356621049,
+    "ratio_m1_over_m0": 1.5454691012950306,
+    "eigenvalues_m2": [
+      34.05916843067338,
+      81.34946356621049,
+      143.28043822530697,
+      217.02182415967218,
+      305.1533249387182,
+      403.84692834478307,
+      521.3386301903658,
+      644.9588734393865
+    ]
+  },
+  "z_spectrum": {
+    "coord": "z_conformal (covariant transform)",
+    "n_grid": 2000,
+    "domain": [
+      0.01,
+      2.0
+    ],
+    "m0_2": 34.059175528595226,
+    "m1_2": 81.34949109774561,
+    "ratio_m1_over_m0": 1.545469201778024,
+    "eigenvalues_m2": [
+      34.059175528595226,
+      81.34949109774561,
+      143.28048961990083,
+      217.02189631468457,
+      305.1534609756394,
+      403.84716731837466,
+      521.3391560562288,
+      644.9598320454854
+    ]
+  },
+  "deltas": {
+    "delta_ratio_abs": 1.0048299348142109e-07,
+    "delta_m0_2_abs": 7.097921844945176e-06,
+    "delta_m1_2_abs": 2.753153512458084e-05
+  },
+  "diagnostics": {
+    "u_end": 1.1359929826961972,
+    "V_u_minmax": [
+      -493.7723809783108,
+      41217.93745728322
+    ],
+    "X_u_minmax": [
+      0.00048072739783378146,
+      0.8470029618530268
+    ],
+    "B_u_minmax": [
+      -8.03248046389523,
+      -0.21105108746131263
+    ],
+    "z_grid_minmax": [
+      0.01,
+      2.0
+    ]
+  },
+  "criterion": "Success if delta_ratio_abs < 1e-4 (discretization-level).",
+  "no_knobs_statement": "No parameters, no background tuning, geometry frozen."
+}

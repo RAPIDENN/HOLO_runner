@@ -1,0 +1,233 @@
+{
+  "data_path": "TEST_1/data/nist/Yb_Clock_phase_vs_time.csv",
+  "dat_path": null,
+  "start_mjd": null,
+  "f_target_hz": 0.0021475653776362445,
+  "window_hours": 2.0,
+  "step_hours": 1.0,
+  "fm_tracking": false,
+  "tidal_ref": 1e-06,
+  "site": "PTB",
+  "input_kind": "phase",
+  "channel": "flat",
+  "antenna_kernel": null,
+  "antenna_profile": null,
+  "band_hz": [
+    0.0011475653776362445,
+    0.0031475653776362445
+  ],
+  "records": [
+    {
+      "window_idx": 0,
+      "t_start": 0.0,
+      "t_end": 7199.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 10.150619587176077,
+      "target_mag": 0.20495790020536983,
+      "target_phase_rad": -1.5342838449274767,
+      "target_phase_demod_rad": -1.5342838449274767,
+      "peak_freq": 0.0020833333333333333
+    },
+    {
+      "window_idx": 1,
+      "t_start": 3600.0,
+      "t_end": 10799.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 15.947582165873886,
+      "target_mag": 0.18291409446837062,
+      "target_phase_rad": -2.8202003726758647,
+      "target_phase_demod_rad": -1.1315023323370406,
+      "peak_freq": 0.0020833333333333333
+    },
+    {
+      "window_idx": 2,
+      "t_start": 7200.0,
+      "t_end": 14399.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 16.184000879477015,
+      "target_mag": 0.25438232611849,
+      "target_phase_rad": 1.4073894174464805,
+      "target_phase_demod_rad": -1.4983998090554598,
+      "peak_freq": 0.0020833333333333333
+    },
+    {
+      "window_idx": 3,
+      "t_start": 10800.0,
+      "t_end": 17999.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 14.561993331263668,
+      "target_mag": 0.16186783488035575,
+      "target_phase_rad": -0.32809275543643995,
+      "target_phase_demod_rad": -1.545183941599548,
+      "peak_freq": 0.0022222222222222222
+    },
+    {
+      "window_idx": 4,
+      "t_start": 14400.0,
+      "t_end": 21599.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 12.742179720092661,
+      "target_mag": 0.16645332305303778,
+      "target_phase_rad": -1.5101899484166037,
+      "target_phase_demod_rad": -1.0385830942409053,
+      "peak_freq": 0.0020833333333333333
+    },
+    {
+      "window_idx": 5,
+      "t_start": 18000.0,
+      "t_end": 25199.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 14.020563904883115,
+      "target_mag": 0.14841800806581543,
+      "target_phase_rad": 2.9130767678234872,
+      "target_phase_demod_rad": -1.2098036448415477,
+      "peak_freq": 0.0020833333333333333
+    },
+    {
+      "window_idx": 6,
+      "t_start": 21600.0,
+      "t_end": 28799.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 13.947409208095534,
+      "target_mag": 0.15641902132630664,
+      "target_phase_rad": 1.310466848165745,
+      "target_phase_demod_rad": -1.1237155241604768,
+      "peak_freq": 0.0022222222222222222
+    },
+    {
+      "window_idx": 7,
+      "t_start": 25200.0,
+      "t_end": 32399.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 15.135428568323126,
+      "target_mag": 0.1758250387596875,
+      "target_phase_rad": -0.5731569807492989,
+      "target_phase_demod_rad": -1.3186413127366743,
+      "peak_freq": 0.0020833333333333333
+    },
+    {
+      "window_idx": 8,
+      "t_start": 28800.0,
+      "t_end": 35999.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 10.673411767752576,
+      "target_mag": 0.1630425817031614,
+      "target_phase_rad": -2.3983020221265496,
+      "target_phase_demod_rad": -1.4550883137751205,
+      "peak_freq": 0.0020833333333333333
+    },
+    {
+      "window_idx": 9,
+      "t_start": 32400.0,
+      "t_end": 39599.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 7.609062467714435,
+      "target_mag": 0.09893529912991879,
+      "target_phase_rad": 2.5031388456349735,
+      "target_phase_demod_rad": -1.1481347128544046,
+      "peak_freq": 0.0022222222222222222
+    },
+    {
+      "window_idx": 10,
+      "t_start": 36000.0,
+      "t_end": 43199.0,
+      "f_target_window_hz": 0.0021475653776362445,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 12.942536839796091,
+      "target_mag": 0.18544015202542305,
+      "target_phase_rad": 0.7083040917814565,
+      "target_phase_demod_rad": -1.254271426369075,
+      "peak_freq": 0.0020833333333333333
+    }
+  ],
+  "null_stats": [
+    {
+      "window_idx": 0,
+      "t_start": 0.0,
+      "t_end": 7199.0,
+      "snr_db_mean": -1.4927229268864053,
+      "snr_db_std": 2.6757087563860398
+    },
+    {
+      "window_idx": 1,
+      "t_start": 3600.0,
+      "t_end": 10799.0,
+      "snr_db_mean": -1.7970271207202795,
+      "snr_db_std": 6.2284976838508035
+    },
+    {
+      "window_idx": 2,
+      "t_start": 7200.0,
+      "t_end": 14399.0,
+      "snr_db_mean": -1.5938454179121817,
+      "snr_db_std": 4.850450471995581
+    },
+    {
+      "window_idx": 3,
+      "t_start": 10800.0,
+      "t_end": 17999.0,
+      "snr_db_mean": -2.290511461683871,
+      "snr_db_std": 6.6817533306265
+    },
+    {
+      "window_idx": 4,
+      "t_start": 14400.0,
+      "t_end": 21599.0,
+      "snr_db_mean": -0.05273312345670303,
+      "snr_db_std": 4.97278039390742
+    },
+    {
+      "window_idx": 5,
+      "t_start": 18000.0,
+      "t_end": 25199.0,
+      "snr_db_mean": 0.5121285633120235,
+      "snr_db_std": 4.539584516703796
+    },
+    {
+      "window_idx": 6,
+      "t_start": 21600.0,
+      "t_end": 28799.0,
+      "snr_db_mean": 0.1616231054674782,
+      "snr_db_std": 3.909174963192037
+    },
+    {
+      "window_idx": 7,
+      "t_start": 25200.0,
+      "t_end": 32399.0,
+      "snr_db_mean": -0.8252107529910857,
+      "snr_db_std": 4.51588396932991
+    },
+    {
+      "window_idx": 8,
+      "t_start": 28800.0,
+      "t_end": 35999.0,
+      "snr_db_mean": -3.178880953274689,
+      "snr_db_std": 5.444011941141689
+    },
+    {
+      "window_idx": 9,
+      "t_start": 32400.0,
+      "t_end": 39599.0,
+      "snr_db_mean": -1.8582418334415283,
+      "snr_db_std": 5.505502305091086
+    },
+    {
+      "window_idx": 10,
+      "t_start": 36000.0,
+      "t_end": 43199.0,
+      "snr_db_mean": 0.0502199680136719,
+      "snr_db_std": 4.302981140426881
+    }
+  ],
+  "figure": "TEST_1/out/mode_response_matrix/mode00/nist/eps_p0.02000/Yb_Clock_phase_vs_time/window_sweep_snr.png"
+}

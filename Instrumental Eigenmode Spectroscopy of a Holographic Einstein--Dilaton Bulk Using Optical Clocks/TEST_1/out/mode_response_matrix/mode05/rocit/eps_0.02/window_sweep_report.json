@@ -1,0 +1,43 @@
+{
+  "data_path": "TEST_1/data/converted/rocit/PTB_Yb_CombKnoten-SYRTE_Sr2/2022-03-13_PTB_Yb_CombKnoten-SYRTE_Sr2.csv",
+  "dat_path": null,
+  "start_mjd": null,
+  "f_target_hz": 0.0021594306269852835,
+  "window_hours": 12.0,
+  "step_hours": 6.0,
+  "fm_tracking": false,
+  "tidal_ref": 1e-06,
+  "site": "PTB",
+  "input_kind": "y",
+  "channel": "flat",
+  "antenna_kernel": null,
+  "antenna_profile": null,
+  "band_hz": [
+    0.0011594306269852835,
+    0.0031594306269852835
+  ],
+  "records": [
+    {
+      "window_idx": 0,
+      "t_start": 0.0,
+      "t_end": 61157.030400121585,
+      "f_target_window_hz": 0.0021594306269852835,
+      "tidal_scalar_m_s2": null,
+      "snr_db": 6.46113718709202,
+      "target_mag": 3.920823742570081e-17,
+      "target_phase_rad": 1.7598321855039005,
+      "target_phase_demod_rad": 1.7598321855039005,
+      "peak_freq": 0.0015046541070263052
+    }
+  ],
+  "null_stats": [
+    {
+      "window_idx": 0,
+      "t_start": 0.0,
+      "t_end": 61157.030400121585,
+      "snr_db_mean": 0.12797407968102925,
+      "snr_db_std": 3.720909812982338
+    }
+  ],
+  "figure": "TEST_1/out/mode_response_matrix/mode05/rocit/eps_p0.02000/2022-03-13_PTB_Yb_CombKnoten-SYRTE_Sr2/window_sweep_snr.png"
+}

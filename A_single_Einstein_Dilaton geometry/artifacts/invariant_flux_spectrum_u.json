@@ -1,0 +1,36 @@
+{
+  "no_knobs": true,
+  "note": "Gauge-invariant scalar channel in Schr\u00f6dinger form V=B'^2+B'' with B=3A/2+log X. Coordinate choice is explicit (conformal z vs domain-wall u).",
+  "report": {
+    "trace": "data/internal/holo_physics_trace_ed_industrial.json",
+    "coord": "u_domainwall",
+    "domain": [
+      0.0,
+      1.1359929826961972
+    ],
+    "n_grid": 2000,
+    "bc_uv": "dirichlet",
+    "bc_ir": "neumann",
+    "smooth": 1e-12,
+    "m0_2": 34.05910484374687,
+    "m1_2": 81.34903618298085,
+    "ratio_m1_over_m0": 1.5454664842561099,
+    "gap_m2": 47.28993133923398,
+    "f0_hat_Hz": 0.9288310955936652,
+    "f1_hat_Hz": 1.4354773277748925,
+    "diagnostics": {
+      "X_minmax": [
+        0.00048072739783378146,
+        0.8470029618530268
+      ],
+      "A_prime_minmax": [
+        -17.754983572895142,
+        -0.009671077899871696
+      ],
+      "V_minmax": [
+        -493.7723809783108,
+        41217.93745728322
+      ]
+    }
+  }
+}
