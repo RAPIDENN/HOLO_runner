@@ -8,6 +8,7 @@ flowchart TD
     A --> D["A_single_Einstein_Dilaton geometry<br/>PDF + artifacts"]
     A --> HSD["Holographic Scalar Dynamics Unifying Galactic<br/>Paper PDF"]
     A --> E["Instrumental Eigenmode Spectroscopy<br/>PDF + minimal artifacts"]
+    A --> R["ed_trace_repro<br/>Solver IC + hash reproduction"]
 
     subgraph Zenodo DOIs
         Z1["10.5281/zenodo.18109545<br/>(EDHS passive)"]
@@ -20,11 +21,14 @@ flowchart TD
     E --> Z3
     HSD --> Z4
     Z2 --> IC["Instrument closure 2026-01-04<br/>README (bundle)"]
+    D --> R
+    IC --> R
 
     click B "https://github.com/RAPIDENN/HOLO_runner/tree/master/Data_edhs_passive_bulk_spectroscopy" "Open on GitHub"
     click D "https://github.com/RAPIDENN/HOLO_runner/tree/master/A_single_Einstein_Dilaton%20geometry" "Open on GitHub"
     click HSD "https://github.com/RAPIDENN/HOLO_runner/tree/master/Holographic%20Scalar%20Dynamics%20Unifying%20Galactic" "Open on GitHub"
     click E "https://github.com/RAPIDENN/HOLO_runner/tree/master/Instrumental%20Eigenmode%20Spectroscopy%20of%20a%20Holographic%20Einstein--Dilaton%20Bulk%20Using%20Optical%20Clocks" "Open on GitHub"
+    click R "https://github.com/RAPIDENN/HOLO_runner/tree/master/ed_trace_repro" "Open ED trace reproduction"
     click IC "https://github.com/RAPIDENN/HOLO_runner/blob/master/instrument_closure/2026-01-04/README.md" "Open instrument closure"
     click Z1 "https://doi.org/10.5281/zenodo.18109545" "Open Zenodo"
     click Z2 "https://doi.org/10.5281/zenodo.18224589" "Open Zenodo"
@@ -47,7 +51,10 @@ The UI provides real-time spectral, phase-space, and geometric readout of the fr
 This public repository is a **verification-only pack** for the holographic preprint.
 It ships **frozen artefacts** (JSON aggregates and final figures) plus scripts that
 recompute only the reported summary metrics using public data (SPARC, Bullet Cluster,
-Planck 2018). It does **not** contain the private solver or any internal pipelines.
+Planck 2018). It does **not** contain the solver source or any internal pipelines.
+The `ed_trace_repro/` folder records a minimal external-solver reproduction check:
+given the referenced solver commit and canonical initial conditions, the frozen
+Einstein-Dilaton trace hash is reproduced exactly.
 Associated paper bundles are archived at Zenodo for long-term reference:
 - EDHS passive bulk spectroscopy preprint: [10.5281/zenodo.18109545](https://doi.org/10.5281/zenodo.18109545)
 - A single Einstein–Dilaton geometry (QCD, SPARC, growth): [10.5281/zenodo.18224589](https://doi.org/10.5281/zenodo.18224589)
@@ -67,6 +74,7 @@ For SPARC verification details (definition alignment that resolved early mismatc
 - `figures/` – final figures from the preprint (frozen outputs)
 - `tools/` – verification scripts (no generation)
 - `repro/` – traceability map and reproduction instructions
+- `ed_trace_repro/` – minimal external-solver reproduction check for the frozen ED trace hash
 - `instrument_closure/` – auditable “instrument closure” bundles (Wilson-loop scale → SPARC → growth/BOSS → Ricci clock → UV projection)
 - `Data_edhs_passive_bulk_spectroscopy/` – frozen artefact pack for the EDHS passive bulk spectroscopy note (PDF + figures + JSON)
 - `A_single_Einstein_Dilaton geometry/` – frozen artefact pack + PDF for “A single Einstein–Dilaton geometry linking hadron spectra, galaxy rotation curves, and cosmological growth”
@@ -114,6 +122,20 @@ The script reruns only the verification checks:
 
 All figures referenced in the preprint are provided in `figures/` as frozen outputs;
 no regeneration is attempted here.
+
+## ED trace reproduction bridge
+
+The frozen Einstein-Dilaton trace used across the artifacts can be reproduced
+from the referenced external solver commit and canonical initial conditions:
+
+```bash
+./ed_trace_repro/reproduce_trace.sh
+```
+
+See [`ed_trace_repro/`](./ed_trace_repro/) for the initial-condition file,
+expected SHA256, solver commit, and interpretation notes. This bridge verifies
+computational reproducibility of the frozen trace; it is not a proof of the
+physical model.
 
 ## Frozen figures
 
