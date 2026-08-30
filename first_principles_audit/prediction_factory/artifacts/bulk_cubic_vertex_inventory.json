@@ -1,0 +1,145 @@
+{
+  "action_convention": {
+    "bulk": "S5=(2*kappa5^2)^(-1)*integral sqrt(-G)*[R-(partial chi)^2/2-V(chi)]",
+    "metric_split": "G_AB=Gbar_AB+h_AB; h=Gbar^AB*h_AB",
+    "scalar_split": "chi=chibar+varphi"
+  },
+  "checks": {
+    "all": true,
+    "certified_inputs": true,
+    "densitized_inverse_first_variation_verified": true,
+    "fixed_metric_scalar_derivative_cubic_is_zero": true,
+    "heavy_inverse_mass_squared_moment_is_positive": true,
+    "no_observational_tables_read": true,
+    "potential_cubic_is_derivative_free": true,
+    "seven_stiff_masses_are_positive": true
+  },
+  "classification": "universal_raw_metric_scalar_vertex_derived;gauge_invariant_modal_coefficient_not_yet_computable",
+  "exact_first_variation": {
+    "fixed_metric_result": "Setting h_AB=0 removes every derivative cubic from the canonical scalar kinetic term exactly.",
+    "identity": "delta[sqrt(-G) G^AB]=sqrt(-Gbar)*[h*Gbar^AB/2-h^AB]",
+    "numerical_identity_check": {
+      "central_difference_error_ratio": 16.002019142993284,
+      "largest_step_relative_error": 7.210148522347549e-09,
+      "smallest_step_relative_error": 4.505774213815147e-10
+    },
+    "potential_cubic": "S3_pot=-(12*kappa5^2)^(-1)*integral sqrt(-Gbar)*V'''(chibar)*varphi^3; it can generate sigma_a*pi^2 but not sigma_a*Y.",
+    "raw_derivative_cubic": "S3_kin=-(4*kappa5^2)^(-1)*integral sqrt(-Gbar)*[h*Gbar^AB/2-h^AB]*partial_A(varphi)*partial_B(varphi)"
+  },
+  "inputs": {
+    "files": {
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      },
+      "interface": {
+        "path": "first_principles_audit/artifacts/interface_action_derivation.json",
+        "sha256": "ee56f159c28beba211ffb0838f76dab4e0e2688f9ac56f5fa1a0cb12bd241cf3"
+      },
+      "stiff_force": {
+        "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+        "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "modal_reduction": {
+    "desired_reduced_vertex": "sum_a c_a*sigma_a*Y",
+    "heavy_masses_mu": [
+      1.2241776673747269,
+      1.7254465769300111,
+      2.1883177876729722,
+      2.744424610883392,
+      3.3448911003693316,
+      3.9611288578463113
+    ],
+    "heavy_mode_count": 6,
+    "locality_window": "p*ell << mu_1=1.22417766737",
+    "low_energy_result_if_c_a_were_known": "For L=-P-0.5*sigma*K*sigma+c*sigma*Y: Delta L_exchange=+0.5*Y*c^T*K^(-1)*c*Y and Delta P_exchange=-0.5*Y*c^T*K^(-1)*c*Y",
+    "normalization_warning": "The inverse-mass moment assumes unit overlaps and is not a physical coefficient. The c_a carry the ADM kernels and absolute normalization.",
+    "total_quartic_coefficient": "C_Y2_total=C_Y2_direct_S4-0.5*c^T*M^(-2)*c; its sign cannot be known from S3 alone",
+    "unit_overlap_spectral_moment_sum_mu_inverse_squared": 1.4978789216868098
+  },
+  "next_output_contract": {
+    "calculation_rule": "Use the same seven-mode solve and nested prefixes; compute E_N=0.5*c^T*solve(M2,c), never an explicit inverse. E_N is positive in Delta L and negative in Delta P; combine it with the independently derived direct S4 contact.",
+    "classification_if_all_gates_pass": "finite_gapped_S3_exchange_generates_analytic_Y2_with_negative_P_sign;total_Y2_sign_requires_direct_S4;not_Y_three_halves",
+    "current_status": "BLOCKED_MISSING_PHYSICAL_GAUGE_INVARIANT_CUBIC_VERTEX",
+    "decisive_gate": "No constitutive bulk claim is allowed until the same ADM reducer reproduces S2 before reporting S3.",
+    "forbidden_inputs": [
+      "SPARC",
+      "collector",
+      "RAR",
+      "a0",
+      "galaxy scores"
+    ],
+    "grid_strides": {
+      "coarse": 4,
+      "fine": 1,
+      "medium": 2
+    },
+    "nested_mode_counts": {
+      "N3": "light mode plus 2 heavy modes",
+      "N5": "light mode plus 4 heavy modes",
+      "N7": "light mode plus 6 heavy modes"
+    },
+    "pre_registered_gates": {
+      "C7_minus_C5_over_C7_max": 0.05,
+      "constraint_residual_max": 1e-08,
+      "fine_coarse_c_and_C_relative_change_max": 0.05,
+      "fine_medium_c_and_C_relative_change_max": 0.02,
+      "integration_by_parts_relative_error_max": 1e-05,
+      "local_kernel_at_p_over_m1_0p1_relative_error_max": 0.01,
+      "mixed_derivative_vertex_relative_error_max": 0.0001,
+      "mode_matching_MAC_min": 0.999,
+      "peak_arrays_mib_max": 8.0,
+      "phase_flip_C_relative_error_max": 1e-12,
+      "pure_gauge_overlap_fraction_max": 1e-07,
+      "quadratic_backward_residual_max": 1e-11,
+      "quadratic_gram_max_abs": 1e-09,
+      "solve_vs_diagonalization_relative_error_max": 1e-10
+    },
+    "required_arrays": [
+      "u",
+      "c_a by mode",
+      "integrand decomposition by ADM kernel",
+      "S3 exchange E_N on 3, 5 and 7 mode truncations",
+      "direct S4 contact and total C_Y2 separately",
+      "full, half and quarter grid comparisons"
+    ],
+    "whitelist": [
+      "holo_effective_action.json",
+      "superpotential_boundary_completion.json",
+      "stiff_boundary_force.json",
+      "future gauge-invariant ADM cubic reduction with empty observational inputs"
+    ]
+  },
+  "physical_gates": {
+    "absolute_ell_and_kappa5_normalization_fixed": false,
+    "adm_cubic_action_derived": false,
+    "brane_bending_and_boundary_cubic_terms_included": false,
+    "direct_quartic_contact_operator_computed": false,
+    "lapse_and_shift_solved_through_second_order": false,
+    "modal_and_grid_convergence_of_C_Y2_passed": false,
+    "nonlinear_map_from_stored_h_to_metric_and_delta_chi_derived": false,
+    "physical_cubic_vertex_complete": false,
+    "physical_overlap_coefficients_c_a_computed": false,
+    "quadratic_action_recovered_from_same_adm_variables": false
+  },
+  "projection_obstruction": {
+    "required_reduction_order": [
+      "choose one ADM gauge on the monotonic chi background",
+      "expand Einstein-Hilbert, scalar and boundary actions to cubic order",
+      "solve lapse and shift constraints consistently",
+      "recover the certified quadratic operator and normalization",
+      "project the remaining cubic action onto the same h_n basis"
+    ],
+    "stored_profiles": "seven normalized quadratic profiles h_n(u) representing the reduced Boos scalar g=exp(-2*A_B)*h_44 on the stiff branch",
+    "why_direct_insertion_is_invalid": "The repository does not store the nonlinear reconstruction of h_AB, delta_chi, lapse, shift and brane bending in terms of h_n. Using h_n as any one raw perturbation would mix gauges and invent c_a."
+  },
+  "schema": "holo.bulk-cubic-vertex-inventory.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "title": "First cubic vertex inventory for the HOLO constitutive sector"
+}

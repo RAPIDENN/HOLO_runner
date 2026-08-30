@@ -1,0 +1,164 @@
+{
+  "Darboux_endpoint_derivation": {
+    "bulk_weights": {
+      "p": "e^4A*epsilon",
+      "w": "e^2A*epsilon"
+    },
+    "curvature_map_without_common_factor": "f=e^-2A*(-g+W*g'/chi'^2)",
+    "endpoint_mass_coefficients": {
+      "lower": "-p_-*W_-*e^-2A_-/chi_-'^2",
+      "lower_numeric": -92.99776877877184,
+      "upper": "+p_+*W_+*e^-2A_+/chi_+'^2",
+      "upper_numeric": 0.007544404798378739,
+      "warning": "The partner mass form is indefinite at the lower endpoint. It is a Darboux representation of the positive g action, not by itself a new positivity proof."
+    },
+    "endpoint_use_of_positive_equation": "g''=(chi'^2/3-m^2*e^-2A)*g when g'=0",
+    "induced_boundary_condition": "f'=m^2*[W*e^-2A/chi'^2]*f at both coordinate endpoints",
+    "positive_operator": "-(p_g*g')'+q_g*g=m^2*w_g*g; p_g=e^-2A/chi'^2; q_g=e^-2A/3; w_g=e^-4A/chi'^2",
+    "positive_variable": "g with g'=0 at both stiff endpoints",
+    "weak_partner_problem": "K_f=int p*f'*v'; M_f=int w*f*v + b_-*f_-*v_- + b_+*f_+*v_+; K_f=m^2*M_f"
+  },
+  "checks": {
+    "Boos_and_LS_stiff_spectra_independently_match": true,
+    "all": true,
+    "all_seven_Darboux_modes_satisfy_compact_weak_problem": true,
+    "all_seven_partner_rayleigh_masses_match": true,
+    "background_scalar_and_Israel_junctions": true,
+    "certified_inputs": true,
+    "no_observational_tables_read": true,
+    "stiff_unitary_gauge_pins_linear_bending": true
+  },
+  "classification": "stiff_compact_endpoint_operator_recovered;finite_gamma_bent_brane_action_pending",
+  "covariant_boundary_action": {
+    "action": "S_boundary=kappa5^-2*sum_i integral sqrt(-gamma_hat)*K_hat-(2*kappa5^2)^-1*sum_i integral sqrt(-gamma_hat)*lambda_i(chi_hat)",
+    "background_junction_max_abs": 0.0,
+    "israel_junction": "K_mn-K*gamma_mn+(lambda_i/2)*gamma_mn=0",
+    "orientations": {
+      "lower": -1,
+      "upper": 1
+    },
+    "scalar_junction": "n dot partial(chi)+lambda_i'=0"
+  },
+  "criteria": {
+    "background_junction_max_abs": 1e-12,
+    "independent_stiff_spectrum_relative_max": 0.0001,
+    "transformed_rayleigh_mass_relative_max": 0.0001,
+    "transformed_weak_residual_max": 1e-12
+  },
+  "evidence_boundary": "This recovers the stiff compact endpoint operator and its seven-mode spectrum in two independent representations. It does not derive the finite-gamma bent-brane ADM action or authorize a cubic coupling.",
+  "inputs": {
+    "files": {
+      "adm_bulk_S2": {
+        "path": "first_principles_audit/prediction_factory/artifacts/adm_quadratic_recovery.json",
+        "sha256": "ff9b52174bfe600f4498f60efdca3c6c8114ce84593752d17f710ea2d9527762"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      },
+      "gauge_invariant_route": {
+        "path": "first_principles_audit/prediction_factory/artifacts/gauge_invariant_cubic_route.json",
+        "sha256": "d975c58aeee2a9605b9c09a496fb59481ed745b447fcc9670911e7dcb03d019f"
+      },
+      "junction_spectrum": {
+        "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+        "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
+      },
+      "stiff_action": {
+        "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+        "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "next_decisive_test": "Expand the exact induced metric, inclined normal, scalar junction and Israel tensor on a moving finite-gamma brane, straighten it by a radial diffeomorphism, and require equality through second order before S3.",
+  "physical_gates": {
+    "compact_ADM_S2_endpoint_action_derived_directly_from_GHY_and_brane": false,
+    "finite_gamma_ADM_S2_with_bending_recovered": false,
+    "inclined_brane_geometry_expanded_and_verified": false,
+    "physical_finite_gamma_S3_endpoint_ready": false,
+    "stiff_Darboux_endpoint_operator_recovered": true,
+    "stiff_background_brane_action_junctions_recovered": true,
+    "stiff_compact_S2_spectrum_two_representation_verified": true,
+    "stiff_linear_bending_pinned_in_unitary_gauge": true
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "schema": "holo.compact-brane-S2-backward.v1",
+  "stiff_bending_reduction": {
+    "consequence": "chi_bar' is strictly positive on the certified interval, so xi1=0. The stiff linear endpoint can be checked on a fixed brane.",
+    "finite_gamma_warning": "At finite gamma, Q1 and xi1 need not vanish; this simplification cannot be used for the cubic eta deformation assay.",
+    "gauge": "delta_chi=0 in the bulk",
+    "physical_pullback": "Q1=delta_chi+chi_bar'*xi1",
+    "stiff_condition": "Q1=0"
+  },
+  "title": "Stiff two-brane S2 backward check in the ADM/BMP bulk variable",
+  "verification": {
+    "independent_Boos_LS_mass_relative": [
+      7.111817922744734e-05,
+      5.519612093718429e-06,
+      3.6685153814719484e-06,
+      4.167249216813218e-06,
+      4.893761059387991e-06,
+      5.112066696288942e-06,
+      5.24089458464605e-06
+    ],
+    "maximum_independent_Boos_LS_mass_relative": 7.111817922744734e-05,
+    "maximum_partner_rayleigh_mass_relative": 7.586971836770484e-05,
+    "maximum_weak_residual": 5.0678176674209e-14,
+    "mode_rows": [
+      {
+        "input_mass_squared": 0.08437958323925882,
+        "mode": 0,
+        "partner_rayleigh_mass_squared": 0.08438148513926437,
+        "rayleigh_relative_error": 2.2539812743138654e-05,
+        "weak_residual": 5.9373140648542795e-15
+      },
+      {
+        "input_mass_squared": 1.4986109612990275,
+        "mode": 1,
+        "partner_rayleigh_mass_squared": 1.4986111829290545,
+        "rayleigh_relative_error": 1.4789030156059368e-07,
+        "weak_residual": 1.4588928577794382e-15
+      },
+      {
+        "input_mass_squared": 2.977165889839493,
+        "mode": 2,
+        "partner_rayleigh_mass_squared": 2.976940013101897,
+        "rayleigh_relative_error": 7.586971836770484e-05,
+        "weak_residual": 9.72311946430871e-15
+      },
+      {
+        "input_mass_squared": 4.788734739845932,
+        "mode": 3,
+        "partner_rayleigh_mass_squared": 4.788376222344648,
+        "rayleigh_relative_error": 7.486685330482246e-05,
+        "weak_residual": 2.4344204370104182e-14
+      },
+      {
+        "input_mass_squared": 7.531866444822457,
+        "mode": 4,
+        "partner_rayleigh_mass_squared": 7.531628037568594,
+        "rayleigh_relative_error": 3.1653144092480545e-05,
+        "weak_residual": 3.341631206719413e-14
+      },
+      {
+        "input_mass_squared": 11.188296473329958,
+        "mode": 5,
+        "partner_rayleigh_mass_squared": 11.18817542814483,
+        "rayleigh_relative_error": 1.081891111998079e-05,
+        "weak_residual": 4.2124270888219927e-14
+      },
+      {
+        "input_mass_squared": 15.690541828462823,
+        "mode": 6,
+        "partner_rayleigh_mass_squared": 15.69053555066892,
+        "rayleigh_relative_error": 4.001005172726835e-07,
+        "weak_residual": 5.0678176674209e-14
+      }
+    ],
+    "transformed_profiles_not_exported": "Profiles are used only for the backward residual to avoid duplicating the existing source-of-truth arrays."
+  }
+}

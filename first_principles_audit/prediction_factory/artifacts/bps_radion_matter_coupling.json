@@ -1,0 +1,174 @@
+{
+  "actual_background": {
+    "A_u_upper": -2.115099529631583,
+    "A_uu_upper_from_flow": -2.0008045080096055,
+    "E_over_F_lower": 1.1656022161192094,
+    "E_over_F_upper": 0.019749944925427886,
+    "F_R0": 0.807960077896542,
+    "exp_2A_endpoints": [
+      0.9417600573320585,
+      0.015957167040401128
+    ],
+    "minimum_lower_log_selector_derivative": 0.019749944925427886,
+    "minimum_upper_log_selector_derivative": 2.4584296229644034,
+    "samples": 1979,
+    "u_domain": [
+      0.01023316578330245,
+      1.980980980980981
+    ]
+  },
+  "analytic_stationarity_theorem": {
+    "consequence": "Neither minimally induced endpoint matter metric has an extremum anywhere on the certified monotone branch.",
+    "definitions": "E=exp(2A(R))>0; F>0; A'(R)<0",
+    "lower": "C_-=F/F0, so C_-'=E/F0>0",
+    "regular_canonical_reparametrization": "dC/dq=(dC/dR)(dR/dq); finite nonzero dR/dq cannot turn the nonzero first derivative into C_Y'(0)=0 on this slice",
+    "upper": "C_+=(F/F0) exp[-2(A-A0)], so d_R ln C_+=E/F-2A'>0"
+  },
+  "checks": {
+    "all": true,
+    "analytic_first_derivatives_match_local_fit": true,
+    "analytic_quadratic_coefficients_match_local_fit": true,
+    "candidate_single_brane_orthogonal_tangents_close": true,
+    "certified_real_background_used": true,
+    "conditional_functional_BPS_branch_used": true,
+    "einstein_frame_planck_coefficient_is_constant": true,
+    "linear_trace_vertex_nonzero_on_both_endpoints": true,
+    "lower_selector_is_strictly_monotone": true,
+    "minimal_lower_matter_has_nonzero_linear_response": true,
+    "minimal_upper_matter_has_nonzero_linear_response": true,
+    "no_observational_tables_read": true,
+    "two_endpoint_matter_gradients_are_independent": true,
+    "upper_selector_is_strictly_monotone": true
+  },
+  "classification": "declared_separation_slice_has_odd_minimal_matter_response;leading_pure_q2Y_not_derived",
+  "criteria": {
+    "background_samples": 1979,
+    "einstein_frame_identity_max_abs": 5e-15,
+    "linear_selector_derivative_abs_min": 1e-08,
+    "local_fit_first_derivative_relative_max": 1e-05,
+    "local_fit_quadratic_coefficient_relative_max": 2e-05
+  },
+  "endpoint_expansions_in_delta_R": {
+    "convention": "C_i=1+c1*delta_R+c2*delta_R^2+O(delta_R^3)",
+    "lower": {
+      "c1": 0.019749944925427886,
+      "c2": -0.041773099222022186,
+      "local_fit_c1": 0.019750027628443852,
+      "local_fit_c2": -0.0417732740680511
+    },
+    "upper": {
+      "c1": 4.2499490041885934,
+      "c2": 10.989869647727113,
+      "local_fit_c1": 4.249949024190804,
+      "local_fit_c2": 10.989833122245157
+    },
+    "warning": "Because c1 is nonzero and the canonical map q(R) is not yet fixed, c2 is a delta_R diagnostic, not the physical q^2Y coefficient. The nonzero-c1 verdict is invariant."
+  },
+  "evidence_boundary": "This is an exact static-moduli induced-metric result inside the conditional functional-BPS branch, evaluated on the real ED background. It rules out a leading purely even radion coupling for minimally localized endpoint matter along the declared separation slice and shows that geometry does not force C_Y'(0)=0. It does not select the canonical tangent in the full possibly bi-scalar moduli space, compute the full lapse/shift-reduced qY coefficient, select a nonminimal matter metric, or establish an observed force.",
+  "fit_errors": {
+    "lower_first_relative": 4.187506156553838e-06,
+    "lower_quadratic_relative": 4.1856130420899175e-06,
+    "upper_first_relative": 4.706458956289539e-09,
+    "upper_quadratic_relative": 3.323559161947998e-06
+  },
+  "fixed_reduction": {
+    "declared_moduli_slice": "lower endpoint u_- fixed; upper endpoint R slides along the same functional-BPS Einstein--dilaton flow",
+    "einstein_frame_map": "g_E=[F(R)/F(R0)]*g_4",
+    "endpoint_positions": {
+      "lower": "y_-=u_-",
+      "upper": "y_+=R"
+    },
+    "four_dimensional_curvature_coefficient": "F(R)=integral_[u_-,R] exp(2A(u)) du",
+    "induced_matter_metric": "gamma_i=A_i(R)^2*g_E; A_i^2=exp(2A(y_i))*F(R0)/F(R)",
+    "normalized_jordan_selector": "C_i(R)=A_i(R0)^2/A_i(R)^2; C_i(R0)=1"
+  },
+  "full_moduli_space_gate": {
+    "candidate_bulk_zero_modes": 2,
+    "candidate_tangents_with_d_separation_equal_one": {
+      "canonically_normalized": false,
+      "lower_matter_stationary": [
+        0.017546166100469874,
+        1.0175461661004699
+      ],
+      "orthogonality_residuals": [
+        -6.176470508424804e-19,
+        -3.1443119775067795e-16
+      ],
+      "selected_by_current_action": false,
+      "upper_matter_stationary": [
+        -1.3779089370325983,
+        -0.3779089370325983
+      ]
+    },
+    "coordinate_gradients_d_ln_C_d_Yminus_d_Yplus": {
+      "determinant": -4.844653521865894,
+      "lower_matter": [
+        -1.1453488257486863,
+        0.019749944925427886
+      ],
+      "upper_matter": [
+        -1.1656022161192094,
+        4.2499490041885934
+      ]
+    },
+    "finite_endpoint_moduli_metric_derived_here": false,
+    "general_functional_BPS_system_may_be_biscalar": true,
+    "logical_scope": "The nonzero result is a counterexample to geometric necessity and a no-go for the declared separation slice; it is not a no-go for every deliberately selected tangent in a two-dimensional moduli space.",
+    "orthogonal_modulus_fixed_or_stabilized": false,
+    "required_projection": "derive the finite-endpoint positive moduli metric G_ab, fix or stabilize the orthogonal direction, and test e_q^a*partial_a ln(A_m)=0 for the retained canonical tangent",
+    "simultaneous_stationarity": "The two matter gradients have nonzero determinant, so no nonzero tangent makes both endpoint metrics stationary.",
+    "unique_canonical_q_selected": false
+  },
+  "inputs": {
+    "files": {
+      "BPS_certificate": {
+        "path": "first_principles_audit/prediction_factory/artifacts/adm_bmp_tricritical_necessity.json",
+        "sha256": "67efa3eed8c2a3446ed983adb6f5909b3288062cea994958cbcdffd538cde9e1"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "linear_matter_vertex": {
+    "alpha_lower_per_dimensionless_R": -0.009874972462713943,
+    "alpha_upper_per_dimensionless_R": -2.1249745020942967,
+    "four_dimensional_conformal_radiation": "T=0 is an exception and cannot source the requested massive-matter force",
+    "massive_matter_trace": "nonzero linear radion coupling",
+    "physical_units": "alpha_physical=alpha_dimensionless/ell",
+    "variation": "delta S_m=int sqrt(-gamma_i)*alpha_i*T_i*delta R; alpha_i=d_R ln A_i"
+  },
+  "negative_control": {
+    "false_result": "matter on the fixed lower brane then appears independent of R",
+    "missed_log_derivative": 0.019749944925427886,
+    "omission": "drop the Einstein-frame factor F(R0)/F(R)",
+    "why_invalid": "the four-dimensional Ricci coefficient remains F(R), so the putative metric is not in Einstein frame"
+  },
+  "q2Y_gate": {
+    "decision": "Stop before interpreting C_Y'' as the desired vertex: the minimally induced matter metric already contains a nonzero odd response along the declared separation slice.",
+    "declared_separation_slice_minimal_lower_brane_passes": false,
+    "declared_separation_slice_minimal_upper_brane_passes": false,
+    "full_constraint_reduced_qY_coefficient_computed": false,
+    "necessary_even_matter_metric_condition": "C_Y'(0)=0",
+    "pure_leading_q2Y_from_minimal_endpoint_matter": false,
+    "q2Y_derived": false,
+    "q_to_minus_q_symmetry_derived": false,
+    "same_nonzero_tangent_can_kill_both_endpoint_first_jets": false,
+    "some_unselected_two_modulus_tangent_can_kill_one_first_jet": true
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "schema": "holo.bps-radion-matter-coupling.v1",
+  "title": "Real-background BPS radion induced-matter metric test",
+  "what_would_be_new_physics": {
+    "lower_brane_obstruction": "A local function of chi_- is constant while only the upper endpoint slides, so it cannot cancel F'(R)/F(R).",
+    "projection_route": "In a multi-modulus theory an even candidate direction must satisfy e_q^a*partial_a ln(A_m)=0 and every orthogonal mode must be stabilized. The present geometry does not select such a tangent.",
+    "sextic_detuning_relation": "The rho_i*X_i^6 deformation leaves the background and its first five jets unchanged, so it cannot cancel this linear matter response.",
+    "symmetry_route": "An exact brane-exchange or q->-q symmetry could forbid the odd term, but the certified branch is monotone and its two endpoints are not exchange symmetric.",
+    "upper_local_conformal_tuning": "For gamma_m=B(chi_+)^2*gamma_+, stationarity requires d_R ln B^(-2)=2A'-E/F, equivalently cancellation of the displayed upper selector derivative. This function is not selected by the present bulk action."
+  }
+}

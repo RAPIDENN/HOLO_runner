@@ -1,8 +1,56 @@
 {
   "artefacts": {
+    "adm_bmp_bps_radion_flatness": {
+      "path": "first_principles_audit/prediction_factory/artifacts/adm_bmp_tricritical_necessity.json",
+      "sha256": "67efa3eed8c2a3446ed983adb6f5909b3288062cea994958cbcdffd538cde9e1"
+    },
+    "adm_quadratic_recovery": {
+      "path": "first_principles_audit/prediction_factory/artifacts/adm_quadratic_recovery.json",
+      "sha256": "ff9b52174bfe600f4498f60efdca3c6c8114ce84593752d17f710ea2d9527762"
+    },
+    "axisymmetric_collector_prototype": {
+      "path": "first_principles_audit/prediction_factory/artifacts/derive_axisymmetric_collector_certificate.json",
+      "sha256": "7e422d0adcbd5cee99396be755b0b9c26fc1950d6c4daad3790654007421676c"
+    },
+    "axisymmetric_collector_solver": {
+      "path": "first_principles_audit/prediction_factory/artifacts/derive_axisymmetric_collector_solver.json",
+      "sha256": "e3f97c8072e79c26d47c544c51067aa5aedf70b4b921f9dff7afb77718ad5812"
+    },
     "boundary_branches": {
       "path": "first_principles_audit/prediction_factory/artifacts/boundary_branch_catalogue.json",
       "sha256": "3765a5701edfe43dab6d8ae1764c4aeb6478ff5c8fd8277c729e3a4ac08bd7b8"
+    },
+    "bps_biscalar_matter_geometry": {
+      "path": "first_principles_audit/prediction_factory/artifacts/bps_biscalar_matter_geometry.json",
+      "sha256": "8a132ff87ddf1c3b1e01386353c5e8c631c20ab8c3d8cceacacc2e6bf6776359"
+    },
+    "bps_radion_matter_metric": {
+      "path": "first_principles_audit/prediction_factory/artifacts/bps_radion_matter_coupling.json",
+      "sha256": "e414efb8e41996192fa61f6f3c40a27032d95c03eacb15a580639b818dc23324"
+    },
+    "bps_volume_constraint_selector": {
+      "path": "first_principles_audit/prediction_factory/artifacts/bps_volume_constraint_selector.json",
+      "sha256": "43badad202cfc48addee8f2f4009af36bcc4d3b5218b634f7555d3b3405e6c2c"
+    },
+    "breathing_response": {
+      "path": "first_principles_audit/prediction_factory/artifacts/breathing_response.json",
+      "sha256": "4730ec2b2b8fae27b2399a6c0725b20062aa2519f53d04916e07aeaa59d539c2"
+    },
+    "bulk_constitutive_decision_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/bulk_constitutive_decision_gate.json",
+      "sha256": "d0f969450fe076f9fdc6fef5eb6497eaf7ffa743d460b8388a3a431173125a17"
+    },
+    "bulk_cubic_vertex_inventory": {
+      "path": "first_principles_audit/prediction_factory/artifacts/bulk_cubic_vertex_inventory.json",
+      "sha256": "d969c43069fbb7f739b48989b480e46246150bf83ce2153dfceb9415df1f294b"
+    },
+    "collective_spectral_bridge": {
+      "path": "first_principles_audit/prediction_factory/artifacts/collective_spectral_bridge.json",
+      "sha256": "a2fb7b67d91ddf00813bf1821b92f12a787b85a41b6236ca92c6a4cd1a66cdf1"
+    },
+    "cubic_boundary_identifiability": {
+      "path": "first_principles_audit/prediction_factory/artifacts/cubic_boundary_identifiability.json",
+      "sha256": "f99ae783aa998b02718845a9c2eb6801e7bde6756572c04383246487e7d1712d"
     },
     "desi_dr1_diagonal_diagnostic": {
       "path": "first_principles_audit/prediction_factory/desi_dr1_growth_diagnostic.json",
@@ -16,25 +64,93 @@
       "path": "first_principles_audit/prediction_factory/em_spectral_fingerprint.json",
       "sha256": "3cef0b9f600bfee45a207bb846d4f8384775a2da4a43c61f622385e5510cdee7"
     },
+    "force_residual_bridge": {
+      "path": "first_principles_audit/prediction_factory/artifacts/force_residual_bridge.json",
+      "sha256": "dd600d1479baaa8021606bd4f9c8ab7a0218968b4bab10b5abacb8d96af2c7e8"
+    },
+    "gauge_invariant_cubic_route": {
+      "path": "first_principles_audit/prediction_factory/artifacts/gauge_invariant_cubic_route.json",
+      "sha256": "d975c58aeee2a9605b9c09a496fb59481ed745b447fcc9670911e7dcb03d019f"
+    },
+    "holo_collector_embedding_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/holo_collector_embedding_gate.json",
+      "sha256": "8b575e8995eb59c182582a48aa58ab8b9ab633a4d9aac85ad38061c27ab8fc5d"
+    },
+    "holo_nonlinear_route_matrix": {
+      "path": "first_principles_audit/prediction_factory/artifacts/holo_nonlinear_route_matrix.json",
+      "sha256": "92ea91fc5fb5069d30acd50eb5b71428c5a70e9d7583e80dc052228afa3b3498"
+    },
+    "jordan_deep_limit_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/jordan_deep_limit_gate.json",
+      "sha256": "7ae63ba6222b766661c8a7f78e317ff5aa01240aa90a832612d6a6ed4e19990d"
+    },
+    "jordan_selector_embedding": {
+      "path": "first_principles_audit/prediction_factory/artifacts/jordan_selector_embedding.json",
+      "sha256": "831abb8aac414cff930f79c8320661381b02d86973658bde9e9df08363c98b93"
+    },
     "material_fingerprint": {
       "path": "first_principles_audit/prediction_factory/material_predictions.json",
       "sha256": "791a38c5709d8da651ac8c0cbf7230d6166113d1f56672afa58362ba96ecf1b2"
+    },
+    "microscopic_boundary_completion": {
+      "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+      "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
+    },
+    "microscopic_boundary_shooting": {
+      "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_shooting.json",
+      "sha256": "b1448ea20d6117e14b209c2cd475843f76fe7363a0e9cbb9303e4e047fe3b207"
     },
     "nd_shooting": {
       "path": "first_principles_audit/prediction_factory/artifacts/nd_ultralight_shooting.json",
       "sha256": "b747788cdc72f267bd6196471a42e085178d485d8f246653e5fc464e07ce0328"
     },
+    "nonlinear_collector_action": {
+      "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+      "sha256": "6d109eef26cd4f082af6165504905926a52c436bf30275abbce0e6584b65f12b"
+    },
+    "nonlinear_swarm_adjudication": {
+      "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_swarm_adjudication.json",
+      "sha256": "7f15cd5908bddc75cccc5e945838dbc9b58c34e052a23857620422c06369c290"
+    },
     "observational_protocol": {
       "path": "first_principles_audit/prediction_factory/prediction_manifest.json",
       "sha256": "52271e019f70fc41b74e3bc82df61d202b6b6c759f23657e139c5300dcb2e628"
+    },
+    "radial_adm_quartic_seed": {
+      "path": "first_principles_audit/prediction_factory/artifacts/radial_adm_quartic_seed.json",
+      "sha256": "765647ebd00d915bbbacf76dfcec6e31358cdc9f109130624c403cd01f84debc"
     },
     "robin_boundary_family": {
       "path": "first_principles_audit/prediction_factory/artifacts/robin_boundary_family.json",
       "sha256": "70b626e486e5b5abf071a51da7817f291301ca42e4599e56e0cc96a6734a11bf"
     },
-    "sparc_retrospective_cv": {
+    "scale_consistency": {
+      "path": "first_principles_audit/prediction_factory/artifacts/scale_consistency.json",
+      "sha256": "322f62ad245eccb390d28ddf6ced3cb35f108cb7b9954f9532d38c5d50143cd5"
+    },
+    "sparc_finite_disk_yukawa": {
+      "path": "first_principles_audit/prediction_factory/artifacts/sparc_finite_disk_yukawa.json",
+      "sha256": "28d4f6114a24e736da2e9dae3cbd06bbe78747ed562f47a37cd98a6abc11ba8b"
+    },
+    "sparc_legacy_retrospective_cv": {
       "path": "first_principles_audit/prediction_factory/sparc_crossval_report.json",
       "sha256": "e6229adf0d8f0b7894a5ab9252da2940647e709d2548374959a306c1300b8947"
+    },
+    "sparc_physical_input_audit": {
+      "path": "first_principles_audit/prediction_factory/sparc_physical_audit.json",
+      "sha256": "f18c73e05b1b3c20006dc5178932c205d2af128bc010d0f137e0784b5a6e3994"
+    },
+    "stiff_boundary_force": {
+      "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+      "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+    },
+    "tricritical_constitutive_bridge": {
+      "path": "first_principles_audit/prediction_factory/artifacts/tricritical_constitutive_bridge.json",
+      "sha256": "703adf3eec2f3fb3a284058dd352bc7b2cd1736b3f42ad33d3c3bda972112caa"
+    },
+    "universal_residual_collector": {
+      "path": "first_principles_audit/prediction_factory/artifacts/universal_residual_collector.json",
+      "sha256": "16cffb22426657752fc886fb8f5f9dcb2613f522a3b913563e0a4320f743793b"
     },
     "wilson_input_audit": {
       "path": "first_principles_audit/prediction_factory/wilson_data_manifest.json",
@@ -42,6 +158,30 @@
     }
   },
   "current_predictions": {
+    "axisymmetric_collector": {
+      "all_defined_source_solves_converged": true,
+      "classification": "analytic_controls_plus_fail_closed_source_audit_not_holo_derivation",
+      "coarse_to_fine_l2_ratio": 4.00307711777334,
+      "defined_source_classification": "empirical_a0_assumption_defined_source_mixed_newtonian_closure_gates",
+      "defined_source_eligible_galaxies": [
+        "NGC2403",
+        "NGC3198"
+      ],
+      "defined_source_failed_galaxies": [
+        "DDO154",
+        "NGC2841"
+      ],
+      "defined_source_physical_completion": false,
+      "effective_non_pde_test_chi2_per_point": 36.74799108056669,
+      "fine_plummer_l2_residual": 0.002208221998712352,
+      "flattened_normalized_curl": 0.021110690310753105,
+      "ngc2403_chi2_per_point": 237.10418779118092,
+      "ngc3198_chi2_per_point": 10.20100066607065,
+      "passes": true,
+      "physical_sparc_pde_identifiable": false,
+      "resource_peak_array_mib": 6.2890625,
+      "sparc_source_status": "FAIL_CLOSED_MISSING_UNIQUE_3D_BARYON_SOURCE"
+    },
     "boundary_branches": {
       "branches": {
         "DD": {
@@ -156,6 +296,96 @@
       },
       "result": "NN contains the excluded universal unscreened massless mode; ND leaves an ultralight UV-coupled mode; DN and DD decouple an exact UV point probe."
     },
+    "breathing_response": {
+      "absolute_force_residues_available": true,
+      "classification": "derived_dynamic_response_with_microscopic_stiff_candidate_not_detection",
+      "ell_fixed": false,
+      "minimum_first_zero_duration_over_T1": 0.6276055686399126,
+      "physical_boundary_selected": false,
+      "source_occupation_fixed": false,
+      "stiff_static_slice_recovered": true,
+      "threshold_frequency_ratios": [
+        1.0,
+        4.214026615174831,
+        5.939549897459517,
+        7.532907333989447,
+        9.447216220136815,
+        11.514222774114565,
+        13.635518949171043
+      ]
+    },
+    "bulk_constitutive_decision_gate": {
+      "ADM_S2_backward_max_relative": 3.4348389840423926e-11,
+      "ADM_quartic_jet_generator_implemented": true,
+      "BPS_Planck_normalized_kinetic_metric_eigenvalues": [
+        0.12526921808272248,
+        2.0031668643534846
+      ],
+      "BPS_candidate_bulk_zero_mode_count": 2,
+      "BPS_finite_endpoint_physical_moduli_count": 2,
+      "BPS_lower_conditional_q2Y_coefficient": -0.1654885830040268,
+      "BPS_lower_silent_covariant_selector_curvature": -0.3309771660080536,
+      "BPS_matter_Y_operator_identified": false,
+      "BPS_minimal_separation_slice_pure_q2Y": false,
+      "BPS_physical_q2Y_selector_derived": false,
+      "BPS_positive_local_p2_or_p6_selects_silent_tangent": false,
+      "BPS_raw_action_max_relative": 1.5108157067570028e-08,
+      "BPS_same_tangent_stationary_for_both_matter_brane_metrics": false,
+      "BPS_separation_slice_lower_selector_c1": 0.019749944925427886,
+      "BPS_separation_slice_upper_selector_c1": 4.2499490041885934,
+      "BPS_unique_canonical_q_selected": false,
+      "BPS_unselected_one_brane_orthogonal_tangent_exists": true,
+      "BPS_upper_conditional_q2Y_coefficient": -0.1289105494877548,
+      "BPS_upper_silent_covariant_selector_curvature": -0.2578210989755096,
+      "BPS_volume_constraint_F_level_q2Y_coefficient": 0.002274809815128509,
+      "BPS_volume_constraint_exact_alignment_on_background": false,
+      "BPS_volume_constraint_lower_kernel_angle_degrees": 0.06862724410195854,
+      "BPS_volume_constraint_lower_selector_residual": 0.0009694421504060508,
+      "BPS_volume_constraint_physical_q2Y_derived": false,
+      "BPS_volume_constraint_present_in_action": false,
+      "bmp_holographic_three_point_kernel_identified": true,
+      "bulk_ADM_S2_compact_support_recovered": true,
+      "classification": "exact_exponent_mechanism_found;bulk_force_prediction_not_yet_derived",
+      "compact_S3_endpoint_terms_derived": false,
+      "compact_bulk_S3_action_derived": false,
+      "compact_master_ADM_S2_including_endpoints_recovered": false,
+      "conditional_functional_BPS_m2_zero": true,
+      "conditional_functional_BPS_positive_q6": false,
+      "conditional_functional_BPS_q2Y_derived": false,
+      "conditional_functional_BPS_u4_zero": true,
+      "conditional_positive_q6_from_sixth_order_brane_detuning": true,
+      "cubic_boundary_jet_nonidentifiability_proved": true,
+      "direct_quartic_contact_computed": false,
+      "exact_radial_ADM_bulk_density_derived": true,
+      "fixed_metric_scalar_derivative_cubic_zero": true,
+      "formal_fixed_brane_GHY_and_potential_jet_convolution_verified": true,
+      "full_second_order_junction_source_derived": false,
+      "functional_BPS_branch_selected_by_bulk": false,
+      "gapped_exchange_contribution_to_P": "For L=-P-0.5*sigma*K*sigma+c*sigma*Y: Delta L_exchange=+0.5*Y*c^T*K^(-1)*c*Y and Delta P_exchange=-0.5*Y*c^T*K^(-1)*c*Y",
+      "gauge_invariant_S2_operator_match": true,
+      "m2_u4_zero_from_bulk_alone": false,
+      "minimal_radial_characteristic_ratio": 2.0,
+      "natural_fixed_jet_stiff_path_defined": true,
+      "new_source_mass_exponent": 0.5,
+      "nonlinear_swarm_current_score": 34,
+      "nonlinear_swarm_physical_c000": false,
+      "nonlinear_swarm_winner": "hybrid_ADM_plus_BMP_oracle",
+      "old_source_mass_exponent": 1.0,
+      "old_three_halves_crossover_width_dex": 0.21001750145845488,
+      "passes": true,
+      "physical_compact_S3_complete": false,
+      "physical_completion": false,
+      "physical_overlap_coefficients_computed": false,
+      "prospective_test_can_run": false,
+      "quartic_stiff_eta_squared_uniformity_rule": "eta^2/gamma^5 must vanish independently of eta/gamma^3",
+      "raw_metric_scalar_vertex_derived": true,
+      "sixth_order_brane_detuning_selected_by_bulk": false,
+      "stiff_mode_map_max_rms_relative": 0.0002423467369904557,
+      "stiff_to_gauge_invariant_mode_map": true,
+      "synthetic_fixture_used_as_BPS_physical_evidence": false,
+      "total_Y2_coefficient": "C_Y2_total=C_Y2_direct_S4-0.5*c^T*M^(-2)*c; its sign cannot be known from S3 alone",
+      "tricritical_selector": "s=sqrt(Y)"
+    },
     "desi_dr1_growth": {
       "classification": "external_diagonal_diagnostic_not_confirmatory_likelihood",
       "delta_chi2_holo_minus_lcdm": 0.27285713171660975,
@@ -244,6 +474,18 @@
         "wins_uncertainty_ed_over_newton": 149
       }
     },
+    "holo_collector_embedding_gate": {
+      "classification": "conditional_no_go_for_current_linearized_canonical_stiff_sector;full_nonlinear_holo_completion_unresolved",
+      "collector_deep_dlog_F_dlog_X": 1.4999994855459637,
+      "collector_deep_mass_exponent_range": [
+        0.5000002499999583,
+        0.5000249153844767
+      ],
+      "current_dlog_F_dlog_X": 1.0,
+      "current_linearized_sector_can_embed": false,
+      "current_mass_exponent": 1.0,
+      "full_nonlinear_completion_resolved": false
+    },
     "material_fingerprint": {
       "anchor_responses": [
         {
@@ -294,7 +536,42 @@
       ],
       "physical_units_available": false,
       "positive_mode_count": 6,
+      "status": "legacy NN trace benchmark, superseded as physical candidate",
       "sum_alpha": 7.202299861734871e-05
+    },
+    "nonlinear_collector_action": {
+      "a0_m_s2": 1.1441421135374019e-10,
+      "classification": "phenomenological_nonrelativistic_action_reconstruction_not_derived_from_current_holo_bulk",
+      "constitutive_inversion_closure_max_relative_error": 3.4635229699445326e-10,
+      "degenerately_elliptic_at_zero": true,
+      "milky_way_transition_radius_kpc": 8.549633098664486,
+      "minimum_longitudinal_elliptic_eigenvalue": 1.9999980000015e-06,
+      "minimum_transverse_elliptic_eigenvalue": 9.999995000001667e-07,
+      "passes": true,
+      "per_galaxy_parameters": 0,
+      "plummer_pde_max_relative_residual": 1.2620245939556202e-05,
+      "sun_transition_radius_au": 7199.411305050283,
+      "transition_mass_at_0p6_kpc_msun": 295500891.715177,
+      "transition_mass_at_600_kpc_msun": 295500891715177.0,
+      "uniformly_elliptic": false
+    },
+    "nonlinear_route_matrix": {
+      "classification": "theory_only_route_generation_with_falsifiers_not_a_new_force_claim",
+      "conformal_power_in_t": -0.4999994881129038,
+      "direct_full_planck_selector_completion": false,
+      "direct_jordan_selector_status": "exact_frame_identity_rejected_as_direct_full_planck_selector",
+      "leading_research_hypotheses": [
+        "derivative_constitutive_scalar",
+        "tricritical_collective_amplitude",
+        "gapless_spectral_continuum",
+        "critical_ir_soft_mode",
+        "breathing_legendre_condensate"
+      ],
+      "passes": true,
+      "physical_completion": false,
+      "selector_definition": "s(phi)=A_m(phi)^(-2)",
+      "selector_power_in_t": 0.9999989762258076,
+      "surviving_architecture_status": "surviving_architecture_operator_not_microscopically_derived"
     },
     "robin_boundary_family": {
       "C_p": 0.0006883632917406481,
@@ -310,19 +587,116 @@
         ]
       ]
     },
+    "scale_consistency": {
+      "classification": "conditional_scale_no_go_not_measurement",
+      "ell_galaxy_over_ell_qcd": 8.613249688650596e+40,
+      "galaxy_boundary_frequency_hz": 4.491681748233456e-18,
+      "galaxy_boundary_period_year": 7054838163.120446,
+      "orders_of_magnitude_in_ell": 40.9351670371188,
+      "single_scale_viable": false
+    },
     "sparc": {
-      "classification": "retrospective_cross_validation_not_blind_confirmation",
+      "baryonic_contract": {
+        "bulge_mass_to_light_msun_per_lsun_3p6um": 0.7,
+        "disk_mass_to_light_msun_per_lsun_3p6um": 0.5,
+        "formula": "Vbar2=Vgas*abs(Vgas)+0.5*Vdisk2+0.7*Vbul2; Vbar=sqrt(max(Vbar2,0))",
+        "legacy_formula_rejected": "sqrt(Vgas2+Vdisk2+Vbul2)",
+        "max_absolute_vbar_change_kms": 109.21886073513866,
+        "median_absolute_vbar_change_kms": 24.690047501854963,
+        "negative_total_vbar2_points_clipped_to_zero": 2,
+        "primary_reference": "Lelli, McGaugh & Schombert 2016, AJ 152 157",
+        "velocity_points_changed_from_legacy_vbar": 3391,
+        "velocity_points_total": 3391
+      },
+      "classification": "retrospective_input_repair_not_holo_confirmation",
+      "collector_classification": "retrospective_train_frozen_empirical_target_not_action_derivation",
+      "collector_fraction_above_rigid_ceiling": 0.9433461197993508,
+      "collector_required_nu_max": 23.919199482297774,
+      "collector_rigid_nu_ceiling": 1.1067650789797858,
+      "collector_test_chi2_per_point": 36.747991080566734,
+      "disk_cancellation_rescues_stiff_candidate": false,
+      "ell_600_kpc_stiff_chi2_per_point": 371.72315662201675,
+      "finite_disk_best_at_upper_boundary": true,
+      "finite_disk_best_global_ell_kpc": 100000.0,
+      "finite_disk_test_chi2_per_point": 371.5790573727359,
+      "finite_scale_identified": false,
+      "holo_acceleration_law_status": "action_derived_stiff_force_available_but_empirically_insufficient",
+      "legacy_p5_accepted": false,
       "p5_optimizer_success": false,
-      "result": "The current P5 refit improves on baryons-only Newton on the retrospective test split but is decisively worse than the one-parameter RAR baseline.",
+      "p5_parameters_at_bounds": [
+        {
+          "bound": 0.8,
+          "parameter": "A",
+          "side": "upper"
+        },
+        {
+          "bound": 0.5,
+          "parameter": "n",
+          "side": "lower"
+        },
+        {
+          "bound": 0.3,
+          "parameter": "m",
+          "side": "lower"
+        },
+        {
+          "bound": 0.2,
+          "parameter": "gamma",
+          "side": "lower"
+        },
+        {
+          "bound": 0.8,
+          "parameter": "Sigma0",
+          "side": "upper"
+        }
+      ],
+      "p6_corrected_benchmark_status": "evaluated_exact_long_range_convolution_envelope",
+      "p6_current_curve_replaces_legacy_p5": true,
+      "p6_maximum_fractional_velocity_boost": 3.601085091786693e-05,
+      "radius_0p6_kpc_stiff_chi2_per_point": 390.8486846614468,
+      "rar_g_dagger_m_s2": 1.1441421135374019e-10,
+      "rar_median_absolute_fractional_velocity_error": 0.144582962137798,
+      "result": "The physical SPARC input contract is repaired. The action-derived stiff force improves on baryons, but the geometry-matched scale scan runs to the long-range boundary and remains far from RAR. P6 and P5 are numerical genealogy only; the empirical residual is a target for new microscopic physics, not a fitted force.",
       "split_galaxies": {
         "test": 27,
         "train": 122,
         "validation": 26
       },
-      "test_p5_minus_newton_delta_loglike_per_point": 25.521445504508577,
-      "test_p5_minus_rar_delta_loglike_per_point": -71.13282789028452,
-      "test_p5_vs_newton_galaxy_win_fraction": 0.8148148148148148,
-      "test_p5_vs_rar_galaxy_win_fraction": 0.2962962962962963
+      "test_chi2_per_point": {
+        "legacy_p5_refit": 290.98021691425674,
+        "newton": 414.2292724496211,
+        "p6_corrected_long_range_envelope": 414.1983107105997,
+        "rar": 36.747991080566734,
+        "stiff_boundary_long_range_envelope": 371.5790515096818
+      },
+      "test_rar_vs_p5_galaxy_win_fraction": 0.8148148148148148,
+      "zero_residual_crossing_gbar_m_s2": 6.257187358290796e-10
+    },
+    "stiff_boundary_force": {
+      "classification": "prospective_stiff_boundary_force_not_detection",
+      "ell_fixed": false,
+      "masses_mu": [
+        0.29048164010701055,
+        1.2241776673747269,
+        1.7254465769300111,
+        2.1883177876729722,
+        2.744424610883392,
+        3.3448911003693316,
+        3.9611288578463113
+      ],
+      "maximum_circular_speed_multiplier": 1.052029029532829,
+      "mode_count": 7,
+      "physical_boundary_selected": false,
+      "strengths_alpha": [
+        0.0010175340592039452,
+        0.007083327917285003,
+        0.031476261081589046,
+        0.03162676778729975,
+        0.017637438207272108,
+        0.010702435904301536,
+        0.007221314022834425
+      ],
+      "sum_alpha": 0.10676507897978581
     },
     "wilson_loops": {
       "classification": "blocked_missing_link_configurations",
@@ -335,7 +709,7 @@
       }
     }
   },
-  "freeze_date_utc": "2026-08-29",
+  "freeze_date_utc": "2026-08-30",
   "global_classification": "executable prediction programme; no new physical detection and no clean confirmatory holdout in this checkout",
   "hard_rules": [
     "No boundary condition is selected from observational performance.",
@@ -362,14 +736,14 @@
     },
     {
       "evidence": {
-        "path": "first_principles_audit/prediction_factory/artifacts/boundary_branch_catalogue.json",
-        "sha256": "3765a5701edfe43dab6d8ae1764c4aeb6478ff5c8fd8277c729e3a4ac08bd7b8"
+        "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+        "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
       },
       "from": "boundary_action",
-      "gate": "blocked_missing_boundary_action",
+      "gate": "blocked_finite_boundary_curvatures_not_derived",
       "id": "boundary_selects_spectrum",
-      "meaning": "NN, ND, DN and DD are numerical alternatives; data may not select one after the fact.",
-      "status": "conditional_unselected",
+      "meaning": "Minimal superpotential matching forces a massless scalar and is rejected for a finite-range force. Positive endpoint curvatures stabilize it, but the bulk does not select their values; the stiff limit is a declared candidate, not a detection.",
+      "status": "derived_microscopic_family_unselected",
       "to": "scalar_carrier"
     },
     {
@@ -385,24 +759,52 @@
       "to": "robin_phase_map"
     },
     {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+        "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+      },
       "from": "scalar_carrier",
-      "gate": "conditional",
+      "gate": "passed_for_declared_stiff_candidate",
       "id": "carrier_to_matter_coupling",
-      "meaning": "beta_n=sqrt(I_g/3) f_n on the declared UV probe slice.",
-      "status": "derived_given_compact_interval_and_uv_probe",
+      "meaning": "The quadratic gauge-invariant scalar action and UV matter vertex fix seven positive residues without reusing NN trace couplings.",
+      "status": "derived_canonical_stiff_limit",
       "to": "matter_probe"
     },
     {
       "evidence": {
-        "path": "first_principles_audit/prediction_factory/material_predictions.json",
-        "sha256": "791a38c5709d8da651ac8c0cbf7230d6166113d1f56672afa58362ba96ecf1b2"
+        "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+        "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
       },
       "from": "matter_probe",
-      "gate": "passed_as_benchmark_not_physical_branch",
+      "gate": "passed_dimensionless_force_scale_unfixed",
       "id": "matter_to_dimensionless_force",
-      "meaning": "A frozen correlated Yukawa force and gradient fingerprint versus x=r/ell.",
-      "status": "derived_for_positive_nn_benchmark_modes",
+      "meaning": "The stiff candidate predicts a frozen seven-mode Yukawa comb with sum(alpha)=0.106765; ell remains independent.",
+      "status": "derived_for_stiff_boundary_candidate",
       "to": "material_force"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/breathing_response.json",
+        "sha256": "4730ec2b2b8fae27b2399a6c0725b20062aa2519f53d04916e07aeaa59d539c2"
+      },
+      "from": "material_force",
+      "gate": "passed_for_unselected_stiff_candidate",
+      "id": "material_force_to_breathing_response",
+      "meaning": "The stiff force is the zero-frequency slice. A harmonic source is evanescent below each threshold and launches an outgoing massive wave above it; all threshold ratios are correlated.",
+      "status": "derived_linear_space_time_transfer",
+      "to": "breathing_response"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/breathing_response.json",
+        "sha256": "4730ec2b2b8fae27b2399a6c0725b20062aa2519f53d04916e07aeaa59d539c2"
+      },
+      "from": "breathing_response",
+      "gate": "missing_selected_boundary_independent_clock_source_coherence_and_detector",
+      "id": "breathing_response_to_lab_signal",
+      "meaning": "A measured mode frequency could fix ell, but an interaction still requires an independent source or ambient occupation, causal propagation, coherence, and a calibrated detector.",
+      "status": "blocked_dimensional_and_source_readout",
+      "to": "laboratory_signal"
     },
     {
       "from": "material_force",
@@ -462,15 +864,135 @@
     },
     {
       "evidence": {
-        "path": "first_principles_audit/prediction_factory/sparc_crossval_report.json",
-        "sha256": "e6229adf0d8f0b7894a5ab9252da2940647e709d2548374959a306c1300b8947"
+        "path": "first_principles_audit/prediction_factory/artifacts/sparc_finite_disk_yukawa.json",
+        "sha256": "28d4f6114a24e736da2e9dae3cbd06bbe78747ed562f47a37cd98a6abc11ba8b"
       },
       "from": "frozen_trace",
-      "gate": "retrospective_cross_validation_only",
+      "gate": "missing_state_dependent_sector_and_unique_source_density",
       "id": "trace_to_galaxy_readout",
-      "meaning": "Five global parameters are fitted on train galaxies; this is not a field-equation derivation.",
-      "status": "phenomenological_dictionary",
+      "meaning": "After repairing signed gas and stellar mass-to-light factors, the stiff force improves on baryons but remains far worse than the empirical RAR target. The effective-disk finite-range scan runs to the long-range boundary; disk cancellation does not rescue it. Public tables do not identify the unique 3D source.",
+      "status": "action_derived_candidate_tested_negative",
       "to": "galaxy_readout"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/universal_residual_collector.json",
+        "sha256": "16cffb22426657752fc886fb8f5f9dcb2613f522a3b913563e0a4320f743793b"
+      },
+      "from": "galaxy_readout",
+      "gate": "missing_action_derived_nonlinear_or_ultralight_sector",
+      "id": "galaxy_residual_to_universal_collector",
+      "meaning": "One train-fitted acceleration scale maps the signed residual without per-galaxy parameters. It beats the rigid force on the frozen test split, but remains an empirical target rather than a HOLO prediction.",
+      "status": "retrospective_universal_target_derived_from_train_data",
+      "to": "galaxy_residual_target"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+        "sha256": "6d109eef26cd4f082af6165504905926a52c436bf30275abbce0e6584b65f12b"
+      },
+      "from": "galaxy_residual_target",
+      "gate": "missing_microscopic_holo_and_relativistic_completion",
+      "id": "universal_collector_to_nonlinear_action",
+      "meaning": "The collector defines a single-valued, locally elliptic scalar action with the correct deep and Newtonian limits, but the operator degenerates as the field tends to zero. Its transition is set by acceleration, so the corresponding radius depends on source mass; this action is reconstructed from the empirical target rather than derived from the current HOLO bulk.",
+      "status": "phenomenological_nonrelativistic_action_reconstruction",
+      "to": "nonlinear_collector_action"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/holo_collector_embedding_gate.json",
+        "sha256": "8b575e8995eb59c182582a48aa58ab8b9ab633a4d9aac85ad38061c27ab8fc5d"
+      },
+      "from": "scalar_carrier",
+      "gate": "failed_source_scaling_and_operator_class",
+      "id": "current_holo_to_nonlinear_collector",
+      "meaning": "The current positive canonical carrier and its source-independent Yukawa tower scale as M and have F proportional to X near vacuum. The collector requires sqrt(M) and F proportional to X^(3/2). Regular boundary potentials or field redefinitions cannot bridge that mismatch; nonperturbative or new derivative sectors remain open.",
+      "status": "conditional_no_go_current_linearized_regular_sector",
+      "to": "nonlinear_collector_action"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/holo_nonlinear_route_matrix.json",
+        "sha256": "92ea91fc5fb5069d30acd50eb5b71428c5a70e9d7583e80dc052228afa3b3498"
+      },
+      "from": "nonlinear_collector_action",
+      "gate": "no_route_is_yet_a_microscopic_force_prediction",
+      "id": "collector_target_to_nonlinear_route_matrix",
+      "meaning": "The exact Legendre envelope and shell residual generate candidate mechanisms. Fixed Yukawa poles, gapped tree elimination and the direct full-Planck Jordan selector are negative controls rather than promoted explanations.",
+      "status": "theory_only_route_generation_with_falsifiers",
+      "to": "nonlinear_route_matrix"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/jordan_deep_limit_gate.json",
+        "sha256": "7ae63ba6222b766661c8a7f78e317ff5aa01240aa90a832612d6a6ed4e19990d"
+      },
+      "from": "scalar_carrier",
+      "gate": "missing_bulk_derived_PY_a0_causality_slip_and_lensing",
+      "id": "matter_interface_to_derivative_constitutive_scalar",
+      "meaning": "The exact matter-frame transformation diagnoses why early linearization returns a mass-linear Yukawa response. Directly using s as the full Jordan Planck coefficient is singular as s tends to zero. The surviving route keeps the tensor Einstein-Hilbert term nondegenerate and places s in a separate collective scalar-gradient sector.",
+      "status": "surviving_architecture_operator_not_derived",
+      "to": "derivative_constitutive_scalar"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/tricritical_constitutive_bridge.json",
+        "sha256": "703adf3eec2f3fb3a284058dd352bc7b2cd1736b3f42ad33d3c3bda972112caa"
+      },
+      "from": "scalar_carrier",
+      "gate": "missing_q2Y_vertex_critical_selection_and_controlled_gradients",
+      "id": "quadratic_carrier_to_critical_constitutive_bridge",
+      "meaning": "A tricritical collective amplitude gives exactly P(Y)=2Y^(3/2)/3 and changes the deep source exponent from one to one half. The current certified action reaches only the positive quadratic carrier and does not yet select the required q^2Y vertex or vanishing quadratic and quartic relevant couplings.",
+      "status": "exact_exponent_mechanism_bulk_vertex_not_derived",
+      "to": "critical_constitutive_bridge"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bps_biscalar_matter_geometry.json",
+        "sha256": "8a132ff87ddf1c3b1e01386353c5e8c631c20ab8c3d8cceacacc2e6bf6776359"
+      },
+      "from": "scalar_carrier",
+      "gate": "silent_tangent_exists_but_is_not_selected",
+      "id": "bps_moduli_to_even_matter_selector",
+      "meaning": "The Einstein-frame induced metrics on the real functional-BPS background are not stationary along the declared relative-separation slice. The full finite-endpoint reduction resolves two physical moduli with a positive kinetic metric. Each single-brane selector has a covariant stationary direction with a nonzero even jet, but no common direction exists and the BPS, positive local quadratic, and positive local sextic completions select none. The inverse-selector matter expansion has the required negative candidate sign after its standard term is separated, but its Y operator and normalization are unidentified. The physical q^2Y vertex remains unproved.",
+      "status": "covariant_biscalar_jets_derived_physical_selector_open",
+      "to": "bps_moduli_matter_metric"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bps_volume_constraint_selector.json",
+        "sha256": "43badad202cfc48addee8f2f4009af36bcc4d3b5218b634f7555d3b3405e6c2c"
+      },
+      "from": "bps_moduli_matter_metric",
+      "gate": "constraint_absent_exact_alignment_absent_and_level_set_sign_wrong",
+      "id": "bps_volume_constraint_to_selected_even_mode",
+      "meaning": "A fixed warped-volume tangent is only 0.0686 degrees from the lower-brane silent direction, but its residual is nonzero. Exact alignment would require A'_-=0 outside the certified interval. On the actual F-level curve, minimal -Y/C then has the opposite q^2Y sign; obtaining the target requires an additional shifted nonminimal operator. No global-F constraint is present in the current action.",
+      "status": "near_alignment_found_minimal_completion_rejected",
+      "to": "critical_constitutive_bridge"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bulk_constitutive_decision_gate.json",
+        "sha256": "d0f969450fe076f9fdc6fef5eb6497eaf7ffa743d460b8388a3a431173125a17"
+      },
+      "from": "critical_constitutive_bridge",
+      "gate": "unfrozen_boundary_scale_matter_causality_and_lensing_inputs",
+      "id": "critical_constitutive_bridge_to_physical_force",
+      "meaning": "The fixed seven-mode spectrum mimics the three-halves slope for only 0.210 dex. An exact spectral identity needs a gapless constant density and still lacks a healthy local-generation sign. A blind Dirichlet-to-Neumann amplitude scan is pre-registered, but the microscopic inputs required to run it remain unfixed.",
+      "status": "prospective_bulk_test_defined_not_runnable",
+      "to": "derivative_constitutive_scalar"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/derive_axisymmetric_collector_solver.json",
+        "sha256": "e3f97c8072e79c26d47c544c51067aa5aedf70b4b921f9dff7afb77718ad5812"
+      },
+      "from": "nonlinear_collector_action",
+      "gate": "two_of_four_source_closures_fail_and_global_a0_uses_vobs",
+      "id": "nonlinear_action_to_axisymmetric_galaxies",
+      "meaning": "A bounded reconstruction from archived density and metadata profiles gives four converged AQUAL solves. NGC 2403 and NGC 3198 pass the prospective Newtonian component closure; DDO 154 and NGC 2841 fail through gas inversion. The operator still inherits a0 from a Vobs-trained fit.",
+      "status": "defined_source_solves_converged_mixed_source_gates",
+      "to": "axisymmetric_collector"
     },
     {
       "evidence": {
@@ -497,57 +1019,82 @@
       "to": "qcd_scale"
     },
     {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/scale_consistency.json",
+        "sha256": "322f62ad245eccb390d28ddf6ced3cb35f108cb7b9954f9532d38c5d50143cd5"
+      },
       "from": "qcd_scale",
-      "gate": "missing_uv_matching_relation_ell_sqrt_sigma",
+      "gate": "missing_uv_matching_or_separate_ultralight_sector",
       "id": "qcd_scale_to_compactification_length",
-      "meaning": "Setting ell equal to a lattice spacing or QCD length would be an additional physical hypothesis.",
-      "status": "blocked",
+      "meaning": "Forcing the same ell to realize the legacy 1.600 GeV proxy and the SPARC long-range boundary creates a 40.94-order scale mismatch. A UV relation or separate sector is required.",
+      "status": "conditional_single_scale_no_go",
       "to": "material_force"
     }
   ],
   "next_falsifiable_runs": [
     {
+      "freeze_before_data": "S5, boundary actions, kappa5, ell, A_m, Standard-Model localization and two conserved source geometries",
+      "id": "blind_bulk_constitutive_amplitude_scan",
+      "output": "Dirichlet-to-Neumann Pi(g), deep and high-field exponents, fluctuation spectrum, characteristic cone, slip and lensing",
+      "priority": 1
+    },
+    {
       "freeze_before_data": "boundary/junction action and matter slice",
       "id": "physical_boundary_selection",
       "output": "one selected spectrum or an explicit proof that this compactification fails",
-      "priority": 1
+      "priority": 2
+    },
+    {
+      "freeze_before_data": "boundary action, independent clock anchor, source waveform, separation, coherence, detector transfer and noise covariance",
+      "id": "breathing_mode_drive_test",
+      "output": "phase-resolved threshold scan with the complete correlated frequency comb and causal delay",
+      "priority": 3
     },
     {
       "freeze_before_data": "bulk photon localization, ell, electrostatic source geometry, clock species and distance bins",
       "id": "bulk_photon_double_comb_test",
       "output": "joint Coulomb, scalar-force and differential-clock template with shared mass ratios",
-      "priority": 2
+      "priority": 4
     },
     {
       "freeze_before_data": "ell, source geometry, detector transfer and distance bins",
       "id": "dimensional_material_scan",
       "output": "absolute force/displacement curve and null arms",
-      "priority": 3
+      "priority": 5
     },
     {
       "freeze_before_data": "thermalized SU(3) links, action, beta values and blocking plan",
       "id": "wilson_ensemble_export",
       "output": "W(R,T), V_eff, Creutz plateaux and continuum sigma",
-      "priority": 4
+      "priority": 6
     },
     {
       "freeze_before_data": "model, likelihood, masks and nuisance policy",
       "id": "prospective_external_observation",
       "output": "a preserved external holdout result, including a null or failure",
-      "priority": 5
+      "priority": 7
     }
   ],
   "nodes": {
-    "boundary_action": "physical selector not yet supplied",
+    "axisymmetric_collector": "four converged defined-source solves; two pass source closure, global a0 remains observation-trained",
+    "boundary_action": "minimal superpotential matching derived and rejected; stabilized curvatures remain unselected",
+    "bps_moduli_matter_metric": "minimal induced metrics derived on a separation slice; two-modulus canonical projection remains unselected",
+    "breathing_response": "conditional retarded scalar response",
+    "collector_embedding_gate": "conditional no-go for the current regular linearized HOLO sector",
+    "critical_constitutive_bridge": "exact three-halves mechanism; critical bulk realization not derived",
+    "derivative_constitutive_scalar": "surviving architecture; microscopic derivative operator not derived",
     "effective_action": "geometry-preserving inverse completion",
     "em_double_comb": "conditional scalar and photon spectral fingerprint",
     "em_overlap_kernel": "action-derived family containing Eq. 39",
     "frozen_trace": "verified numerical input",
-    "galaxy_readout": "phenomenological radial dictionary",
+    "galaxy_readout": "action-derived stiff force tested; empirically insufficient and unique source convolution unavailable",
+    "galaxy_residual_target": "train-frozen universal signed response; empirical, not action-derived",
     "growth_readout": "phenomenological cosmological dictionary",
     "laboratory_signal": "requires dimensional source and detector",
-    "material_force": "dimensionless six-mode Yukawa fingerprint",
-    "matter_probe": "conditional UV-slice compact-interval probe",
+    "material_force": "current seven-mode stiff Yukawa candidate",
+    "matter_probe": "canonically normalized UV matter vertex in stiff limit",
+    "nonlinear_collector_action": "locally elliptic but degenerate nonrelativistic action target; not HOLO-derived",
+    "nonlinear_route_matrix": "theory-only route generation with explicit killed branches",
     "photon_kk_tower": "bulk-Maxwell compact-interval eigenmodes",
     "photon_localization": "bulk or brane branch not yet selected",
     "qcd_scale": "requires Wilson ensembles and continuum scale setting",

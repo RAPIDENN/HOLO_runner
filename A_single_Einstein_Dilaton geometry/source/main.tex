@@ -66,53 +66,33 @@ $2.04\times10^{-6}$ and $8.54\times10^{-8}$, respectively, while the complete
 field equations close at normalized floating-point residuals below
 $8\times10^{-17}$.  The deformation used by the observational arms is recovered
 with correlation $0.999999905$ and rms difference $6.88\times10^{-4}$.
-On a separately declared compact-interval probe branch, the geometry-fixed
-trace carrier yields the normalized matter coupling
-$\beta_n=\sqrt{I_g/3}\,f_n$.  Explicitly selected Neumann endpoints give
-$\beta_0=0.0542901$ and a conditional unscreened scalar-force fraction
-$2\beta_0^2=5.89483\times10^{-3}$; the corresponding massless scalar-tensor
-branch is incompatible with Solar-System bounds and is not a viable discovery
-claim.  The six positive modes define a correlated material-force template,
-but their ranges still require a physical length.  No observational input
-enters that derivation; the interval interpretation and boundary/junction
-completion remain assumptions.  A Liouville transformation shows that this
-carrier and the gauge-invariant scalar operator are the same local degree of
-freedom under different boundary and physical interpretations, not two towers
-to be added.
-An exhaustive NN/ND/DN/DD endpoint audit then tests the simplest boundary
-alternatives without observational input.  NN retains the excluded massless
-mode; ND produces an independently verified UV-coupled ultralight mode with
-$m\ell=0.00274476$ and $\beta_{\rm UV}=0.0542910$; and UV Dirichlet branches
-decouple an exact point probe.  Thus changing one endpoint is not a
-data-independent rescue, and a physical boundary action remains necessary.
-The existing scalar-spectrum value $m_1/m_0=1.5455$ is retained as an
-operator-level diagnostic pending recomputation on a prospectively frozen
-analytic completion.  The SPARC result is reported as a global in-sample
-calibration against its baryonic Newtonian baseline with no per-galaxy
-parameters, and the growth and laboratory arms
-as explicit dictionary-dependent projections.  A corrected Ricci audit and a
-Wilson-scale audit further show that the legacy clock used a mislabeled radial
-derivative and that the stored ``Wilson-loop'' value is an endpoint proxy with
-external normalization, not a measured area law.  This revision therefore
-preserves the operational shared-background instrument while separating its
-verified computational content, one conditional matter interface, and the
-remaining forward predictions that require additional interface actions or
-held-out validation.
-The electromagnetic audit exposes and corrects a radial-gauge error: the
-historical numerical kernel treated the stored domain-wall grid as a conformal
-coordinate.  A covariant bulk-Maxwell reduction instead gives the same
-probability measure in both gauges, an action-derived scalar--photon vertex,
-and a photon Kaluza--Klein comb.  Together with the scalar carrier, this forms
-a correlated two-sector spectral fingerprint with one still-unfixed physical
-length.  Its central coefficients require no observational fit, but photon
-localization, boundary action, source, scale, and atomic sensitivity remain
-unselected; it is therefore a conditional prediction rather than a detection.
-Finally, a retrospective
-galaxy-level split finds that a train-only five-parameter SPARC refit improves
-on baryons-only Newton but is substantially worse than a train-fitted
-one-parameter radial-acceleration baseline.  A four-bin DESI DR1 marginal
-growth diagnostic gives $\chi^2=2.692$ for the frozen dictionary and $2.419$
-for matched $\LCDM$, providing no preference for the former.
+On a declared compact interval, the carrier gives
+$\beta_n=\sqrt{I_g/3}\,f_n$.  Neumann endpoints yield
+$\beta_0=0.0542901$ and conditional force fraction
+$2\beta_0^2=5.89483\times10^{-3}$, but that massless unscreened branch violates
+Solar-System bounds.  The NN/ND/DN/DD audit finds either the same zero mode, a
+UV-coupled ultralight mode, or point-probe decoupling; no boundary is selected.
+The six positive modes remain a dimensionless template with unfixed length.
+All stronger observational and laboratory readings retain explicit interface
+or dictionary assumptions.
+The electromagnetic audit corrects a radial-gauge error and derives a
+gauge-invariant bulk-Maxwell measure, scalar--photon vertex, and photon KK
+comb; localization, source, scale, and atomic response remain unselected.
+A conditional functional-BPS completion instead leaves a flat bi-scalar
+moduli sector with a positive two-dimensional kinetic metric.  Each endpoint
+matter selector has a covariant stationary direction with a nonzero even jet,
+but no common or dynamically selected direction exists and minimal matter
+couples through the inverse selector; a physical $q^2Y$ vertex is not derived.
+
+The separate stiff completion has seven positive residues with
+$\sum_n\alpha_n=0.106765$.  Recomputed SPARC inputs give test
+$\chi^2/{\rm point}=371.58$, versus 414.23 for baryons and 36.75 for the
+train-only empirical RAR; the geometry-matched finite-range scan reaches its long-range bound,
+so no scale or force law is identified.  The RAR-derived nonlinear action is a
+consistency target, not a bulk prediction, and is not relabelled as a HOLO force
+law.  Likewise, the DESI comparison and
+the P7 breathing kernel are diagnostics without preference, source
+occupation, clock anchor, or detection.
 \end{abstract}
 
 \noindent\textbf{Key words:} gravitation -- holography -- galaxies: kinematics
@@ -128,7 +108,7 @@ Einstein--scalar domain walls provide a controlled language for holographic
 renormalization-group flows and, with an appropriate infrared completion, for
 confining Yang--Mills phenomenology \citep{DeWolfe2000,Gursoy2008,Gursoy2011}.
 The project studied here uses one frozen bulk profile as a shared input for a
-gauge-invariant scalar fluctuation operator, a global SPARC readout, a
+gauge-invariant scalar fluctuation operator, a SPARC input audit, a
 cosmological-growth dictionary, and versioned single-arm response operators.
 That common dependency and the accompanying machine-readable artefacts are an
 operational achievement: every arm can be rerun against the same frozen arrays.
@@ -470,17 +450,30 @@ with UV-slice couplings
 The finite-element result passes mesh, orthonormality, residual, and zero-mode
 checks; a separate shooting solve provides the independent numerical check.
 
-For the six positive modes of the current Neumann basis,
-$\alpha_n=2\beta_n^2$ sums to $7.20230\times10^{-5}$ and the correlated mass
-ratios are
-\begin{equation}
- 1:1.686942:2.334807:2.985996:3.651009:4.327036.
-\end{equation}
-For $x=r/\ell$ they define the material-force templates
+The six positive modes of the Neumann trace basis define the historical P6
+benchmark, with $\sum\alpha_n=7.20230\times10^{-5}$.  They are not transplanted
+into the microscopic boundary problem.  The quadratic gauge-invariant scalar
+action and its UV matter vertex instead canonically normalize the declared
+stiff-boundary candidate.  Its seven masses and force residues are
 \begin{align}
- \frac{a_\varphi}{a_N}&=\sum_{n>0}\alpha_n(1+\mu_nx)e^{-\mu_nx},\\
+ (\mu_0,\ldots,\mu_3)&=(0.290482,1.224178,1.725447,2.188318),\nonumber\\
+ (\mu_4,\ldots,\mu_6)&=(2.744425,3.344891,3.961129),\\
+ (\alpha_0,\ldots,\alpha_2)&=(0.00101753,0.00708333,0.0314763),\nonumber\\
+ (\alpha_3,\alpha_4)&=(0.0316268,0.0176374),\nonumber\\
+ (\alpha_5,\alpha_6)&=(0.0107024,0.00722131).
+ \label{eq:stiffforce}
+\end{align}
+Thus $\sum_n\alpha_n=0.106765$ and the maximum circular-speed multiplier is
+$\sqrt{1+\sum\alpha_n}=1.052029$.  The correlated mass ratios are
+\begin{align}
+ 1:4.214303:5.939951:7.533412:\nonumber\\
+ \hspace{6em}9.447842:11.514983:13.636417.
+\end{align}
+For $x=r/\ell$ they define the current material-force templates
+\begin{align}
+ \frac{a_\varphi}{a_N}&=\sum_{n=0}^{6}\alpha_n(1+\mu_nx)e^{-\mu_nx},\\
  \frac{|\partial_r a_\varphi|}{|\partial_r a_N|}
- &=\sum_{n>0}\alpha_n\left(1+\mu_nx+\frac{\mu_n^2x^2}{2}\right)e^{-\mu_nx}.
+ &=\sum_{n=0}^{6}\alpha_n\left(1+\mu_nx+\frac{\mu_n^2x^2}{2}\right)e^{-\mu_nx}.
  \label{eq:materialtemplate}
 \end{align}
 A mechanical mode with angular frequency $\omega_m$ and quality factor $Q$
@@ -493,6 +486,64 @@ then responds to a source-modulated differential acceleration as
 Equations~(\ref{eq:materialtemplate})--(\ref{eq:mechanicaltransfer}) are a
 transfer law, not a predicted signal: a source trajectory, $\ell$, detector
 geometry, elastic response, noise, and mode occupation must still be supplied.
+
+The stiff force in Eq.~(\ref{eq:stiffforce}) is specifically the static,
+$\Omega=0$ slice.  Restoring the four-dimensional dynamics of each positive
+scalar mode gives
+\begin{equation}
+ \left(\partial_t^2-c^2\nabla^2+\omega_n^2\right)\varphi_n=J_n,
+ \qquad \omega_n=\frac{c\mu_n}{\ell}.
+ \label{eq:breathingmode}
+\end{equation}
+For a harmonic source $J_n\propto e^{-i\Omega t}$ and
+$\nu=\Omega\ell/c$, the outgoing radial Green function is
+\begin{equation}
+ G_n(r,\Omega)\propto\frac{1}{r}
+ \begin{cases}
+  \exp[-r\sqrt{\mu_n^2-\nu^2}/\ell],&\nu<\mu_n,\\
+  \exp[+ir\sqrt{\nu^2-\mu_n^2}/\ell],&\nu>\mu_n.
+ \end{cases}
+ \label{eq:breathinggreen}
+\end{equation}
+Thus the static Yukawa inverse range is reduced as a source approaches the
+rest frequency; above threshold the response propagates with
+$v_g/c=\sqrt{1-(\omega_n/\Omega)^2}$.  We call this observation-free dynamic
+completion P7.  It recovers every stiff-force value at $\Omega=0$ to machine
+precision but is not an amplitude enhancement inserted into SPARC: a static
+galaxy has no source power at the required frequency.
+
+If an independently measured cyclic frequency $f_0$ were prospectively
+identified with the first stiff mode, it would fix
+\begin{align}
+ \ell&=\frac{\mu_0c}{2\pi f_0},\qquad
+ \frac{f_n}{f_0}=\frac{\mu_n}{\mu_0},\nonumber\\
+ \left(\frac{f_0}{f_0},\ldots,\frac{f_6}{f_0}\right)
+  &= (1,4.214303,5.939951,7.533412,\nonumber\\
+  &\hspace{2.7em}9.447842,11.514983,13.636417).
+ \label{eq:breathingclock}
+\end{align}
+The first-mode static-range light-crossing time would then be
+$\lambda_0/c=(2\pi f_0)^{-1}=T_0/(2\pi)$.  A rectangular coherent record
+needs at least $0.628T_0$ merely to place the first spectral zeros between all
+adjacent teeth of this comb.  That is not a detection time: the signal front
+cannot arrive before $r/c$, a propagating packet requires approximately
+$r/v_g$, and a damped resonator has ring-up time $Q/(\pi f)$.  Source
+occupation, phase, coherence or linewidth, boundary action, and detector
+noise remain external physical inputs.
+
+\begin{figure*}
+ \includegraphics[width=\textwidth]{fig_breathing_response.png}
+ \caption{P7 conditional breathing response.  (A) Below the first rest
+ frequency the inverse Yukawa range collapses toward the threshold; above it
+ an outgoing massive packet has subluminal group speed.  (B) The stiff force is
+ the static slice, while time-dependent drives change the radial transfer.
+ (C) The seven stiff thresholds and canonically normalized residues are shown
+ against the old six-mode NN trace benchmark.  (D) Causal
+ and group delays show why a frequency match alone is insufficient.  All axes
+ are dimensionless; no historical mHz value or observational residual is
+ used.}
+ \label{fig:breathingresponse}
+\end{figure*}
 
 \begin{figure*}
  \includegraphics[width=\textwidth]{fig_minimal_probe_completion.png}
@@ -516,30 +567,30 @@ or non-universal coefficients remain separate possible channels
 
 \section{Data and evaluation protocol}
 
-Table~\ref{tab:preservation} records the numerical cross-check against the
-original PDF.  The values are retained; only their evidential interpretation
-is tightened.  In particular, the original SPARC analysis was not benchmarked
-against state-of-the-art dark-matter or modified-gravity fits.  Its declared
-comparator was the baryonic Newtonian baseline under the same evaluation
-protocol, and that comparison scope is not broadened here.
+Table~\ref{tab:preservation} records unaffected numerical cross-checks against
+the original PDF together with the current SPARC adjudication.  The galaxy
+comparators are baryons alone and the empirical RAR under the same evaluation
+protocol; this is not a benchmark against state-of-the-art dark-matter fits.
 
 \begin{table*}
  \centering
- \caption{Cross-check of the principal numerical results against the original
- PDF.  ED/Newton denotes the ED-anchored and baryonic Newtonian readouts;
- dict/$\LCDM$ denotes the dictionary model and its matched flat-$\LCDM$
- reference.}
+ \caption{Current numerical status.  Dict/$\LCDM$ denotes the cosmological
+ dictionary model and its matched flat-$\LCDM$ reference.}
  \label{tab:preservation}
- \begin{tabular}{llll}
+ \begin{tabular}{@{}llll@{}}
   \toprule
   Quantity & Original PDF & Revision & Evidential status\\
   \midrule
   Stored scalar ratio & $1.5455$ & $1.5454665$ & operator diagnostic\\
   IR scale proxy & $0.203\,{\rm GeV}^2$; $451\,{\rm MeV}$; $1.60\,{\rm GeV}$
     & unchanged & external normalization\\
-  SPARC ranking medians (ED/Newton) & $1.86/1.93$ & $1.862/1.928$ & in-sample\\
-  SPARC uncertainty medians (ED/Newton) & $831/906$ & $831/906$ & in-sample\\
-  SPARC wins & $150/175$; $149/175$ & unchanged & same two metrics\\
+  SPARC test $\chi^2$/point (stiff/RAR) & --- & $371.58/36.75$
+    & \shortstack[l]{finite-disk scan reaches\\long-range boundary and misses}\\
+  Historical P5 comparator & --- & $290.98$ & provenance only\\
+  ``600'' audit (radius cut/range) & --- & $390.85/371.72$
+    & stiff force still rejected\\
+  QCD/galaxy $\ell$ ratio & --- & $8.61\times10^{40}$
+    & \shortstack[l]{conditional no-go;\\neither scale measured}\\
   BOSS covariance $\chi^2$ (dict/$\LCDM$) & $2.266/2.443$ & unchanged
     & statistically indistinguishable\\
   High-$z$ growth shift & $\simeq-12$ per cent & unchanged
@@ -548,31 +599,19 @@ protocol, and that comparison scope is not broadened here.
  \end{tabular}
 \end{table*}
 
-\subsection{SPARC rotation curves}
+\subsection{SPARC physical-input contract}
 
-SPARC provides 175 galaxies with $3.6\,\mu$m photometry, gas contributions,
-and resolved rotation curves \citep{Lelli2016}.  The final model curve does not
-read the observed velocity $v_{\rm obs}$ during forward evaluation.  Its five
-global fitted parameters were, however, selected by differential evolution on the
-same 175 curves.  The present result is therefore described as a global
-\emph{in-sample calibration with no per-galaxy parameters}, not as a held-out
-prediction.
-The frozen global vector is
-\begin{align}
- {\cal A}&=0.13983,& n&=2.21605,& m&=1.20433,\\
- \gamma&=0.23356,& \Sigma_0&=0.60488.
-\end{align}
-
-The original ranking loss is retained for exact reproducibility,
+SPARC provides signed gas contributions and resolved rotation curves for 175
+galaxies with $3.6\,\mu$m photometry \citep{Lelli2016}.  The audit uses
 \begin{equation}
- {\cal L}_{\rm rank}=\sum_i
- \frac{[v_{\rm model}(r_i)-v_{\rm obs}(r_i)]^2}
- {v_{\rm obs}(r_i)^2+(1\,\mathrm{km\,s^{-1}})^2},
- \label{eq:rankloss}
+ v_{\rm bar}^2=v_{\rm gas}|v_{\rm gas}|+0.5v_{\rm disk}^2
+ +0.7v_{\rm bul}^2,
+ \label{eq:repairedvbar}
 \end{equation}
-but is no longer denoted $\chi^2$ because its denominator is not an
-observational variance.  The conventional uncertainty-weighted statistic is
-reported separately.
+with negative totals clipped only before taking the square root.  All 3391
+catalogue points are recomputed.  A deterministic 122/26/27 galaxy split is
+used for train, validation, and test; no test velocity enters parameter fitting
+or curve selection.
 
 \subsection{Growth and BOSS DR12}
 
@@ -648,35 +687,693 @@ minimum on the certified interval.  An endpoint tension therefore additionally
 assumes a hard wall.  Even a future lattice result $a^2\sigma$ fixes $\ell$
 only if an independent matching relation $\ell/a$ is derived.
 
-\section{Global SPARC readout}
+The numerical incompatibility is already decisive if one nevertheless forces
+a single scale onto both present interpretations.  Identifying the first stiff
+mode, $\mu_0=0.290482$, with the legacy $1.600006$ GeV proxy would require
+\begin{equation}
+ \ell_{\rm QCD}=\frac{\hbar c\mu_0}{1.600006\ {\rm GeV}}
+ =3.58248\times10^{-17}\ {\rm m},
+\end{equation}
+and an interaction range $1.23329\times10^{-16}$ m.  The SPARC scan instead
+saturates at its upper boundary $\ell_{\rm gal}=10^5$ kpc, where the first
+range is $3.44256\times10^5$ kpc and
+\begin{equation}
+ f_0=\frac{c\mu_0}{2\pi\ell_{\rm gal}}
+ =4.49168\times10^{-18}\ {\rm Hz},\qquad T_0=7.05484\ {\rm Gyr}.
+ \label{eq:scaleconsistency}
+\end{equation}
+Thus $\ell_{\rm gal}/\ell_{\rm QCD}=8.61325\times10^{40}$.  Neither number is
+a measurement---the QCD value is an external endpoint proxy and the galaxy
+value is a saturated grid edge---but one $\ell$ cannot realize both.  A UV
+matching relation that separates effective scales, a distinct ultralight
+sector, or abandonment of one interpretation is compulsory.
 
-Let $x=r/r_{\max}$ and let $\Sigma_{b,\rm norm}$ be the normalized baryonic
-surface-brightness proxy.  The retained readout is
-\begin{align}
- \delta_{\rm tot}&=\operatorname{clip}[(1-w)\delta_{\rm eff}(u(x))
-   +w\delta_{\rm miss},0,0.4],\\
- w&=x^\gamma,\\
- \delta_{\rm miss}&={\cal A}
- \left(1+\frac{\Sigma_{b,\rm norm}}{\Sigma_0}\right)^{-n}x^m,\\
- v_{\rm model}&=v_{\rm bar}\sqrt{1+\delta_{\rm tot}}.
-\end{align}
-All galaxies share the same global parameter vector.  Under the in-sample
-evaluation, the median ranking loss is 1.862 for the ED-anchored readout and
-1.928 for the Newtonian comparator; the corresponding uncertainty-weighted
-medians are 831 and 906.  The ED readout wins in 150/175 galaxies under the
-ranking loss and 149/175 under the uncertainty-weighted statistic.
+\section{SPARC physical input and empirical target}
+
+The deterministic galaxy split remains 122/26/27 for train, validation, and
+test.  Only the training galaxies set the global acceleration scale.  The
+empirical radial-acceleration relation (RAR) is
+\begin{equation}
+ g_{\rm RAR}=\frac{g_{\rm bar}}
+ {1-\exp[-\sqrt{g_{\rm bar}/g_\dagger}]},
+ \qquad g_\dagger=1.14414\times10^{-10}\ {\rm m\,s^{-2}}.
+ \label{eq:rartarget}
+\end{equation}
+No observed test velocity is read to construct its curves.  On all 621 test
+points, Eq.~(\ref{eq:rartarget}) gives $\chi^2/{\rm point}=36.75$ and a median
+absolute velocity error of 14.5 per cent.  The large diagonal statistic is not
+hidden: distance, inclination, stellar mass-to-light uncertainty, intrinsic
+scatter, and covariance have not been marginalized here.
+
+The old six-mode trace benchmark has
+$\sum_n\alpha_n=7.20230\times10^{-5}$ and gives
+$\chi^2/{\rm point}=414.20$ in its exact long-range P6 limit.  It is retained
+for numerical genealogy, not used as the current physical force.  The
+canonically normalized stiff candidate in Eq.~(\ref{eq:stiffforce}) instead
+has $\alpha_+=0.106765$ and therefore
+\begin{equation}
+ V_{\rm stiff,\infty}=V_{\rm bar}\sqrt{1+\alpha_+}.
+ \label{eq:stiffenvelope}
+\end{equation}
+No SPARC datum enters the masses or residues.  Equation~(\ref{eq:stiffenvelope})
+gives $\chi^2/{\rm point}=371.58$ on test: a material improvement over baryons
+alone at 414.23, but still an order of magnitude worse than the empirical RAR
+under the same diagonal statistic.
+
+To test whether disk cancellation could change that conclusion, the finite
+range is applied to an effective axisymmetric thin disk.  If
+$A_1(k)=\int R\,\dd R\,g_{\rm bar}(R)J_1(kR)$, the geometry-matched forward
+operator is
+\begin{equation}
+ g_{\rm stiff}(R)=\int k\,\dd k\,A_1(k)J_1(kR)
+ \left[1+\sum_n\alpha_n\frac{k}{\sqrt{k^2+(\mu_n/\ell)^2}}\right].
+ \label{eq:diskhankel}
+\end{equation}
+A single global $\ell$ is selected on the 122 training galaxies over
+$10^{-3}$--$10^5$ kpc; there are no per-galaxy force parameters.  The training
+objective decreases monotonically to the upper grid boundary, and the same
+result holds after doubling the spectral resolution and varying the outer
+$V^2$ continuation between $R^{-1/2}$ and $R^{-3/2}$.  At the frozen boundary
+value the test score is 371.57906, numerically converged to the exact
+long-range result.  Hence the finite disk does not select a scale or rescue
+the stiff candidate.  This remains an effective-source check: the public
+SPARC mass-model archive provides the component rotation curves and stellar
+surface brightness, but not the gas surface-density map or a vertical-density
+profile, so it cannot identify a unique three-dimensional Yukawa convolution.
+
+The origin-to-destination differential makes the missing shape explicit:
+\begin{equation}
+ \Delta\nu(g_{\rm bar})=\nu_{\rm RAR}(g_{\rm bar})-(1+\alpha_+).
+ \label{eq:forceresidual}
+\end{equation}
+It changes sign at $g_{\rm bar}=6.25719\times10^{-10}\,\mathrm{m\,s^{-2}}$:
+the stiff limit oversupplies the small empirical correction at high
+acceleration and increasingly undersupplies it toward low acceleration.  A
+fixed positive point-Yukawa comb is bounded by $\alpha_+$ and its boost falls
+with radius; Eq.~(\ref{eq:diskhankel}) shows that public-data disk nonlocality
+does not reverse the catalogue-level trend.  The residual is therefore a
+matched-filter target for a new common microscopic source or state-dependent
+coupling, not a term to be fitted and added separately to each galaxy.
+
+The corresponding universal signed collector can be written without any
+per-galaxy coefficient as
+\begin{equation}
+ \begin{aligned}
+ \nu_{\rm col}(g_{\rm bar})&=
+ \left[1-e^{-\sqrt{g_{\rm bar}/g_\dagger}}\right]^{-1},\\
+ \Delta g&=\left[\nu_{\rm col}-(1+\alpha_+)\right]g_{\rm bar}.
+ \end{aligned}
+ \label{eq:universalcollector}
+\end{equation}
+Only the 122 training galaxies determine $g_\dagger$; validation and test are
+frozen, and no object-specific residual is copied.  Across the catalogue's
+sampled domain, $0.08\leq R\leq108.31$ kpc and
+$2.09\times10^{-13}\leq g_{\rm bar}\leq7.34\times10^{-9}\,
+\mathrm{m\,s^{-2}}$, Eq.~(\ref{eq:universalcollector}) requires
+$1.00033\leq\nu_{\rm col}\leq23.9192$.  By contrast, every positive linear
+Yukawa realization of the stiff spectrum obeys
+$1\leq\nu_Y\leq1+\alpha_+=1.106765$: 94.3 per cent of catalogue points require
+more than that ceiling, while the high-acceleration 5.7 per cent require
+screening below it.  Thus tuning a length cannot solve the mismatch.  A future
+completion must derive a nonlinear/state-dependent equation or a genuinely
+distinct infrared sector; modified-Poisson constructions illustrate the type
+of action-level consistency test required, but are not adopted here
+\citep{Milgrom2010}.
+
+The historical ``600'' statement has two possible readings and neither is a
+success.  Keeping only test points with $R\geq0.6$ kpc gives
+$\chi^2/{\rm point}=390.85$ for the stiff limit versus 38.30 for the collector.
+Instead setting the global Yukawa range to $\ell=600$ kpc gives 371.72.  These
+are galactic-domain checks, not evidence that one law works at all physical
+length scales.  Equation~(\ref{eq:universalcollector}) reaches 36.75 on the
+full test split precisely because it is the train-frozen empirical RAR target;
+it is not promoted to an action-derived HOLO prediction or a force detection.
+
+\subsection{Nonlinear action target and mass-dependent transition}
+
+Equation~(\ref{eq:universalcollector}) can nevertheless define a
+nonrelativistic action target.  Let
+\begin{equation}
+ \begin{aligned}
+ S_{\rm col}&=-\int\dd^3x\left[
+ \frac{a_0^2}{8\pi G}{\cal F}(X)+\rho\Phi\right],\\
+ X&=\frac{|\nabla\Phi|^2}{a_0^2},\qquad a_0=g_\dagger .
+ \end{aligned}
+ \label{eq:collectoraction}
+\end{equation}
+Variation gives
+\begin{equation}
+ \nabla\!\cdot\!\left[\mu(|\nabla\Phi|/a_0)\nabla\Phi\right]
+ =4\pi G\rho,\qquad \mu(\sqrt X)={\cal F}'(X).
+ \label{eq:collectorpde}
+\end{equation}
+In spherical symmetry, put $y=g_N/a_0$, $x=g/a_0$, and
+$t=\sqrt y$.  Exact closure of the collector follows from the parametric map
+\begin{equation}
+ \mu=1-e^{-t},\qquad x=\frac{t^2}{1-e^{-t}},\qquad
+ \mu(x)x=y.
+ \label{eq:collectormap}
+\end{equation}
+Numerically integrating ${\cal F}'(X)=\mu$ gives
+${\cal F}\sim(2/3)X^{3/2}$ in the deep regime and ${\cal F}\sim X$ in the
+Newtonian regime.  Both principal coefficients of the field operator,
+$\mu$ and $\mu+x\mu'$, are positive for nonzero field but tend to zero in the
+deep limit.  The equation is therefore degenerately, not uniformly, elliptic;
+no global existence or uniqueness theorem is claimed.  A numerical inversion
+of the reconstructed constitutive table closes to $3.46\times10^{-10}$, and a
+spherical Plummer finite-difference control gives a maximum relative PDE
+residual of $1.26\times10^{-5}$.  These are numerical consistency checks, not
+independent evidence.  The construction belongs to the nonlinear action class introduced by
+\citet{BekensteinMilgrom1984}; a relativistic metric, lensing law, and external
+field treatment remain absent.
+
+The current HOLO scalar sector fails a sharper embedding gate.  Its positive
+quadratic carrier has $p_{\min}=1.14\times10^{-4}$ and
+$w_{\min}=6.83\times10^{-3}$, while the Neumann, positive-Robin, and stiff
+boundary choices alter masses and endpoint conditions but introduce no
+derivative kinetic function.  Consequently, for a rescaled source
+$\rho\rightarrow\lambda\rho$, the regular weak-field branch obeys
+$g_{\rm HOLO}=\lambda g_1+O(\lambda^2)$.  The collector instead requires
+$g_{\rm col}\propto\sqrt{\lambda}$ in the deep limit, equivalently
+${\cal F}(X)\propto X^{3/2}$ rather than $X$.  A regular invertible field
+redefinition cannot change that source exponent.  This is a conditional
+no-go for the present linearized canonical sector and its boundary-potential
+family; it does not exclude a new derivative operator, an IR critical branch,
+or another nonperturbative HOLO completion.  Adding such an operator without
+deriving both its function and $a_0$ would be a new theory input, not a result
+of the existing bulk.
+
+The scale is therefore an acceleration, not a fixed distance.  For an isolated
+source,
+\begin{equation}
+ r_M=\sqrt{\frac{GM}{a_0}}.
+ \label{eq:massdependentscale}
+\end{equation}
+Thus $r_M=0.6$ kpc implies $M=2.955\times10^8M_\odot$, while
+$r_M=600$ kpc implies $M=2.955\times10^{14}M_\odot$.  A
+$6\times10^{10}M_\odot$ baryonic galaxy gives $r_M=8.55$ kpc, and the Sun
+gives $r_M=7199$ au.  The formal isolated high-acceleration correction is
+exponentially negligible at Earth and planetary accelerations, but that is not
+a Solar-System validation because external fields and a relativistic
+completion have not been included.
+
+An axisymmetric finite-volume control makes the nonspherical limitation
+explicit.  In cylindrical coordinates the operator converges at second order
+on a Plummer benchmark: the fine-grid weighted relative $L_2$ residual is
+$2.21\times10^{-3}$ and the coarse-to-fine ratio is $4.00$.  The algebraic
+field $\nu(|\mathbf g_N|/a_0)\mathbf g_N$ is curl-free for the spherical
+control, but a flattened Miyamoto--Nagai source gives normalized curl
+$2.11\times10^{-2}$; it is not the gradient of an AQUAL potential.
+
+A bounded physical-source prototype now combines the archived stellar
+surface-density profiles, Rotmod photometric anchors, a positive projected HI
+reconstruction normalized by $M_{\rm HI}$ and $R_{\rm HI}$, spherical bulges,
+and monopole outer boundaries.  The source is accepted only when a Newtonian
+forward calculation closes each component to a frozen 0.15 tolerance before
+$V_{\rm obs}$ is read.  NGC~2403 and NGC~3198 pass, with total source closure
+0.0501 and 0.0184; DDO~154 and NGC~2841 fail through their gas reconstructions.
+All four nonlinear solves converge to residuals near $3\times10^{-6}$, but
+only the two passing sources may be scored.  They give respectively
+$\chi^2/{\rm point}=237.10$ and 10.20, with median fractional velocity errors
+9.77 and 5.08 per cent.  These are low-resolution diagnostics, not a catalogue
+validation: the global $a_0$ is inherited from the earlier $V_{\rm obs}$-based
+training fit, and the gas inversion and vertical profiles remain modelling
+assumptions.
 
 \begin{figure*}
- \includegraphics[width=\textwidth]{sparc_rotation_curves_forward.png}
- \caption{Representative SPARC curves.  The model curve is forward-evaluated
- from baryonic inputs after the global readout parameters have been calibrated
- on the full sample; observed velocities are overlaid for evaluation.}
- \label{fig:sparc}
+ \includegraphics[width=\textwidth]{fig_nonlinear_collector_action.png}
+ \caption{Nonlinear action target reconstructed from the train-frozen
+ collector.  Left: the required acceleration response exceeds the rigid
+ positive-Yukawa ceiling at low acceleration.  Centre: both local elliptic
+ eigenvalues of Eq.~(\ref{eq:collectorpde}) are positive on the plotted
+ nonzero-field domain but tend to zero in the deep limit.  Right: the same
+ acceleration threshold maps to different radii for different source masses;
+ neither $0.6$ nor $600$ kpc is a universal switch.  The construction is
+ phenomenological and nonrelativistic, not a derivation from the current HOLO
+ bulk action.}
+ \label{fig:collectoraction}
 \end{figure*}
 
-These numbers are reproducible performance measurements of the declared
-readout.  A decisive predictive test requires freezing the complete pipeline
-and evaluating galaxies not used for global parameter selection.
+\subsection{Where the nonlinear selector can and cannot couple}
+
+The exact Legendre envelope rewrites the exposed target as
+\begin{equation}
+ {\cal F}(X)=\sup_{0<s<1}\{sX-W(s)\},\qquad W'(s)=X,
+ \label{eq:legendreselector}
+\end{equation}
+with $W(s)\sim s^3/3$ in the deep limit.  This identity identifies the needed
+constitutive variable but not its microscopic carrier.  A conventional
+three-dimensional soft bosonic determinant has the required cubic power but
+coefficient $-1/(12\pi)$ and leaves an analytic term proportional to $X$;
+the present realization is therefore rejected.  A filled gapped phase-space
+ball gives a positive cubic rest-energy term, but its natural thermodynamic
+conjugate is particle number rather than $s$, and neither its occupation nor
+normalization follows from the HOLO action.
+
+The certified matter interface nevertheless exposes why the previous pole
+sums lost the relevant branch.  In Einstein variables it contains
+$S_m[A_m(\varphi)^2g_E,\Psi]$.  Defining the matter metric and selector by
+\begin{equation}
+ g_J=A_m^2g_E,\qquad s=A_m^{-2},
+\end{equation}
+gives the exact Jordan-frame terms
+\begin{equation}
+ \begin{split}
+ S_J\supset{}&\int\sqrt{-g_J}\left[
+ \frac{M_{\rm Pl}^2}{2}sR_J-\frac12 Z_J(s)(\partial s)^2\right.\\
+ &\left.{}-U_J(s)\right]+S_m[g_J,\Psi],
+ \end{split}
+ \label{eq:jordanselector}
+\end{equation}
+where $U_J=s^2U_E$ and, for
+$\ln A_m=\beta\varphi/M_{\rm Pl}$,
+$Z_J/M_{\rm Pl}^2=[1/(4\beta^2)-3/2]/s$.  This is an exact change of frame,
+not yet the auxiliary AQUAL action.  The correctly normalized target would be
+\begin{equation}
+ S_{\rm target}=-M_{\rm Pl}^2\int\dd^3x
+ \left[s|\nabla\Phi|^2-a_0^2W(s)\right]-\int\dd^3x\,\rho\Phi ,
+ \label{eq:selectorauxiliary}
+\end{equation}
+whose variations give $X=W'(s)$ and
+$\nabla\cdot(s\nabla\Phi)=4\pi G\rho$.  Equation~(\ref{eq:jordanselector})
+cannot be replaced by Eq.~(\ref{eq:selectorauxiliary}) before lapse, shift,
+the second metric potential, and scalar-gradient mixing are eliminated.
+
+Moreover, the direct identification is obstructed in the isolated deep
+limit.  With $t=\sqrt{g_N/a_0}$, the target has
+$s=1-e^{-t}\sim t$.  Hence $A_m=s^{-1/2}\sim t^{-1/2}$ and the full Jordan
+tensor coefficient obeys $M_J^2/M_{\rm Pl}^2=s\to0$.  The frame map becomes
+singular precisely where the deep law is required.  The surviving
+architecture therefore keeps the Einstein--Hilbert tensor term nondegenerate
+and places the selector in a distinct scalar or collective derivative sector,
+schematically
+\begin{equation}
+ S_E\supset\int\sqrt{-g_E}\left[
+ \frac{M_{\rm Pl}^2}{2}R_E-M_{\rm Pl}^2a_0^2{\cal F}(Y)\right]
+ +S_m[A_m^2g_E,\Psi].
+ \label{eq:survivingarchitecture}
+\end{equation}
+Its deep ${\cal F}\sim(2/3)Y^{3/2}$ can produce a scalar response proportional
+to $\sqrt M$ without switching off the tensor graviton.  This operator, its
+$a_0$, its causal covariant completion, and its lensing response have not yet
+been derived from the five-dimensional action.  Expanding $A_m$ and the scalar
+action around $s=1$ before solving freezes the susceptibility and necessarily
+returns the mass-linear massless/Yukawa response; that early linearization is
+the concrete reason the nonlinear branch did not survive the earlier route.
+
+The distinction can now be made quantitative.  The first raw cubic vertex can
+already be isolated directly from the canonical five-dimensional action:
+\begin{equation}
+ \delta(\sqrt{-G}G^{AB})=\sqrt{-\bar G}
+ \left(\frac h2\bar G^{AB}-h^{AB}\right).
+ \label{eq:densitizedinversevariation}
+\end{equation}
+It multiplies $\partial_A\delta\chi\partial_B\delta\chi$ with coefficient
+$-1/(4\kappa_5^2)$.  Therefore the fixed-metric canonical scalar sector has no
+derivative cubic at all; $V'''\delta\chi^3$ is derivative-free.  The needed
+vertex must come from metric--scalar mixing and its constraints.  Let $\pi$
+denote the retained light scalar, $Y=-\partial_\mu\pi\partial^\mu\pi/2$, and
+$\sigma_a$ the six heavier modes.  A gauge-invariant cubic reduction would have
+the form
+\begin{equation}
+ {\cal L}_4=P_0(Y,\pi)-\frac12\sigma_a(M^2-\Box)_{ab}\sigma_b
+ +c_a\sigma_aY+\cdots .
+ \label{eq:bulkcubicreduction}
+\end{equation}
+Eliminating the gapped modes gives, with ${\cal L}\supset-P(Y)$,
+\begin{equation}
+ \Delta{\cal L}_{\rm exch}=\frac12Y\,\mathbf c^{\mathsf T}
+ (M^2-\Box)^{-1}\mathbf c\,Y=-\Delta P_{\rm exch}.
+ \label{eq:gappedanalyticresponse}
+\end{equation}
+Thus a regular finite tower is analytic and keeps the source exponent equal to
+one; retaining the nonlinear equations does not alter this conclusion while
+the Hessian remains invertible.  Its exchange contribution to $P$ has negative
+$Y^2$ coefficient.  The total coefficient also contains a direct quartic
+contact from $S_4$, so neither its value nor sign follows from $S_3$ alone.  The
+local expansion is controlled only for $p\ell\ll\mu_1=1.224$.
+
+The required bulk $S_3$ route can now be made explicit rather than left as an
+unspecified ADM exercise.  The gauge-invariant active-scalar equation of
+\citet{Bianchi2003} maps to the present conventions through
+$\phi_{\rm BMP}=\chi/2$ and $W_{\rm BMP}=W/4$.  Its self-adjoint density is
+\begin{equation}
+ \begin{aligned}
+  \rho_{\rm BMP}&=e^{4A}\left(\frac{W_{{\rm BMP},\phi}}
+  {W_{\rm BMP}}\right)^2
+  =4e^{4A}\frac{\chi'^2}{W^2}=\frac23p,\\
+  \rho_{\rm BMP}e^{-2A}&=\frac23w .
+ \end{aligned}
+ \label{eq:bmpoperatormatch}
+\end{equation}
+Both identities hold pointwise on all 1,979 background samples with maximum
+relative error $7.75\times10^{-16}$; the seven eigenvalues are unchanged to
+$2.15\times10^{-12}$.  Thus this is exactly the already certified local scalar
+operator, not a new phenomenological ansatz.  In comoving gauge its invariant
+obeys $\widetilde a=h_{\rm BMP}/4$.  This $h_{\rm BMP}$ multiplies the
+transverse scalar projector with coefficient $1/3$ and is not normalized as
+the earlier isotropic benchmark trace $h_R$: for that representative
+$h_{\rm BMP}=3h_R/4$ and $\widetilde a=3h_R/16$.  The constant leaves the
+operator unchanged but cannot be dropped from an absolute coupling.  More
+importantly for the stabilized branch, the linear Boos scalar $g$ maps, up to
+its common canonical factor, as
+\begin{equation}
+ \widetilde a_n=e^{-2A}\left[-g_n+\frac{W}{\chi'^2}g_n'\right].
+ \label{eq:stifftobmp}
+\end{equation}
+The transformed seven stiff profiles satisfy the Bianchi--M\"uck--Prisco bulk
+equation with maximum rms relative residual $2.43\times10^{-4}$ and peak
+$1.80\times10^{-3}$.  Their explicitly Bose-symmetric holographic three-point
+kernel therefore supplies an independent bulk EOM/correlator oracle on the
+correct linear profiles; it is not by itself the compact $S_3$ action.
+
+This closes the previous bulk-variable obstruction but not the physical
+coefficients $c_a$.  Equation~(\ref{eq:stifftobmp}) must be combined with the
+finite-endpoint cubic junction/GHY terms and the boundary pieces induced by the
+field redefinition used in the symmetric kernel.  Those terms are microscopic
+data: adding $\eta_i(\chi-\chi_i)^3/6$ to a brane potential changes neither the
+background nor its certified $S_2$ spectrum but changes finite-stiffness $S_3$.
+Consequently a value of $\eta_i$ or a controlled nonlinear stiff limit must be
+frozen before projecting $c_a$.  The direct $S_4$ contact remains a separate
+derivation.
+
+The physical-action route has now passed its required quadratic backward
+test.  In unitary radial gauge, define $q=A+\zeta$,
+$B_{\mu\nu}=D_\mu D_\nu\beta$, $B=B^\mu{}_{\mu}$, and
+$N_\mu=\partial_\mu\beta$.  The Einstein--dilaton action including the
+standard GHY cancellation of radial second derivatives has the exact local
+density
+\begin{equation}
+ \begin{aligned}
+ {\cal L}_{\rm ADM}&=e^{4q}\left\{N[R[q]-V]+\frac{F}{N}\right\},\\
+ F&=12q'^2-6q'B+B^2-B_{\mu\nu}B^{\mu\nu}
+ -\frac12\bar\chi'^2,\\
+ R[q]&=-6e^{-2q}\left[\Box\zeta+(\partial\zeta)^2\right].
+ \end{aligned}
+ \label{eq:exactadmvehicle}
+\end{equation}
+Variation of $N$ gives $N^2=F/(R-V)$ on the continuous positive-lapse
+branch.  At first order the constraints give
+$\alpha_1=\zeta'/A'$ and
+$\Box\beta_1=\Box\zeta/A'+e^{2A}\epsilon\zeta'$.  Substitution and integration
+by parts recover
+\begin{equation}
+ \begin{aligned}
+ S_2&=-\frac{3}{2\kappa_5^2}\int\dd u\dd^4x
+ \left[p\zeta'^2+w\,\partial_\mu\zeta\partial^\mu\zeta\right],\\
+ p&=e^{4A}\epsilon,\qquad w=e^{2A}\epsilon .
+ \end{aligned}
+ \label{eq:admbackwardS2}
+\end{equation}
+Thus its mode equation is exactly $-(pf')'=m^2wf$.  Nine independent compact
+radial/periodic probes reproduce Eq.~(\ref{eq:admbackwardS2}) directly from
+Eq.~(\ref{eq:exactadmvehicle}) with maximum relative discrepancy
+$3.44\times10^{-11}$.  This closes the same-variable bulk $S_2$ gate on
+compactly supported probes before any cubic coefficient is evaluated; the
+finite-endpoint Neumann action and matter residue remain separate gates.
+
+The finite-boundary bookkeeping is also sharper.  In the interval/$Z_2$
+convention used here,
+\begin{equation}
+ S_{\partial M}=\frac1{\kappa_5^2}\sum_i\int_{\Sigma_i}
+ \sqrt{-\hat\gamma}\,\hat K
+ -\frac1{2\kappa_5^2}\sum_i\int_{\Sigma_i}
+ \sqrt{-\hat\gamma}\,\lambda_i(\hat\chi),
+ \label{eq:compactboundaryaction}
+\end{equation}
+which yields $n\cdot\partial\chi+\lambda_i'=0$ and
+$K_{\mu\nu}-K\gamma_{\mu\nu}+\lambda_i\gamma_{\mu\nu}/2=0$.
+These background junctions fix only $\lambda_i(\chi_i)$ and
+$\lambda_{i,\chi}(\chi_i)$; they do not fix a functional brane action.  There
+is, however, one decisive conditional branch.  With outward orientations
+$s_-= -1$, $s_+=+1$, declare
+\begin{equation}
+ \begin{aligned}
+ A'&=-\frac W6,& \chi'&=W_{,\chi},\\
+ V&=\frac12W_{,\chi}^2-\frac13W^2,&
+ \lambda_i(\chi)&=-s_iW(\chi) .
+ \end{aligned}
+ \label{eq:functionalbpsbranes}
+\end{equation}
+as functional identities along the entire monotone flow.  Both junctions then
+hold at every radial position, so the endpoints can slide.  The gauge-invariant
+collective is the proper interbrane distance
+\begin{equation}
+ R(x)=\int_{Y_-(x)}^{Y_+(x)}N(x,u)\,\dd u,qquad
+ \delta R=\xi_+-\xi_-+\int_{u_-}^{u_+}\alpha\,\dd u .
+ \label{eq:radioncollective}
+\end{equation}
+It is not obtained by simply relabelling the lowest finite-$\gamma$ KK
+eigenvector; bending must be retained until Eq.~(\ref{eq:radioncollective}) is
+formed.  In fact $R$ is not the only physical scalar.  Transforming the two
+exact $m^2=0$ solutions to the finite endpoint coordinates
+$y^a=(Y_-,Y_+)$ gives the Planck-normalized Einstein-frame metric
+\begin{equation}
+ \widehat K_{ab}=\frac32
+ \begin{pmatrix}
+ h_-(h_-+2A'_-)&-h_-h_+\\
+ -h_-h_+&h_+(h_+-2A'_+)
+ \end{pmatrix},\qquad h_i=\frac{e^{2A_i}}F .
+ \label{eq:bpsmodulimatrix}
+\end{equation}
+Its eigenvalues are $(0.125269,2.00317)>0$: the endpoint map is invertible and
+there are two physical moduli, not one radion plus a gauge zero mode.  This
+agrees with the independent functional-BPS moduli-space reduction of
+\citet{PalmaDavis2004} after transforming their pre-Weyl equations to endpoint
+coordinates.  A canonical tangent can therefore be called $q$ only after a
+physical mechanism fixes its orthogonal modulus.
+
+The static ADM reduction now closes exactly.  For
+$\Delta=[e^{4A}W]_-^+$, the unsimplified Einstein--scalar action, GHY term and
+the two functional branes give
+\begin{equation}
+ \begin{aligned}
+ S_{\rm bulk}&=\frac{\Delta}{6\kappa_5^2},&
+ S_{\rm GHY}&=-\frac{2\Delta}{3\kappa_5^2},\\
+ S_{\rm brane}&=\frac{\Delta}{2\kappa_5^2},&
+ S_{\rm on\mbox{-}shell}&=0 .
+ \end{aligned}
+ \label{eq:bpsradioncancellation}
+\end{equation}
+This is the Hamilton--Jacobi/fake-BPS identity, not an assumed numerical
+cancellation.  Direct integration of the raw reconstructed density on five
+subintervals of the actual 1,979-point background reproduces it to a maximum
+relative residual $1.51\times10^{-8}$; flipping one brane sign fails the same
+test.  Hence the potential is flat throughout the allowed BPS endpoint-moduli
+patch.  Along every regular canonical direction in that patch,
+\begin{equation}
+ m^2=V_{\rm eff}''=0,\qquad u_4=V_{\rm eff}''''=0,\qquad
+ V_{\rm eff}^{(6)}=0 .
+ \label{eq:bpsflatcoefficients}
+\end{equation}
+Thus the BPS branch proves the two requested zeros, but it also kills the
+positive sextic required by the tricritical selector.  This agrees with the
+known unstabilized radion of two BPS branes \citep{Cynolter2002}.
+
+The earlier finite-$\gamma_i$ spectrum does not contradict this result: adding
+$\gamma_i(\chi-\chi_i)^2/2$ changes the brane theory and pins the endpoint.
+Its Lesgourgues--Sorbo/Boos operator, two finite-element representations and
+target-free shooting have been cross-checked on the real background, but the
+direct one-interval EH+GHY+bending derivation and absolute normalization remain
+open.  The synthetic inclined-brane fixture checks coordinate covariance only
+and is not physical evidence.  A full $S_3$--$S_6$ projection is meaningful
+only after a functional brane theory is selected.  For the minimal BPS branch
+it must reproduce Eq.~(\ref{eq:bpsflatcoefficients}); a nonzero positive $q^6$
+or $q^2Y$ would require additional microscopic structure.
+
+After the orthogonal moduli have been fixed, the invariant pullback
+$X_i=\delta\chi_i+\chi_i'\xi_i=Z_iq+O(q^2)$ makes a cubic brane jet begin at $q^3$
+and generically induces quartic massive-mode exchange; it is not a sextic.
+A clean conditional candidate is instead
+\begin{equation}
+ \begin{aligned}
+ \lambda_i&=-s_iW+\frac{\rho_i}{6!}X_i^6,\\
+ V_E(q)&=g_6q^6+O(q^7),\qquad
+ g_6=\frac1{1440\kappa_5^2}\sum_i {\cal W}_{i0}\rho_iZ_i^6,
+ \end{aligned}
+ \label{eq:localizedsexticdetuning}
+\end{equation}
+where ${\cal W}_{i0}>0$ is the warp/Weyl weight.  Positive $\rho_i$ gives
+$g_6>0$; the first five jets stay BPS and heavy-mode feedback starts at
+$q^{10}$.  However, $\rho_i$ is new brane physics, not a bulk prediction.
+
+This potential does not generate $q^2Y$.  The induced matter metric supplies
+an earlier gate.  Let
+\begin{equation}
+ \begin{aligned}
+ F(Y_-,Y_+)&=\int_{Y_-}^{Y_+}e^{2A}\dd u,&
+ g_E&=\frac{F}{F_0}g_4,\\
+ {\cal A}_i^2&=e^{2A(Y_i)}\frac{F_0}{F}.&&
+ \end{aligned}
+ \label{eq:bpsmattermetric}
+\end{equation}
+Then brane matter is $S_{m,i}[{\cal A}_i^2g_E,\Psi_i]$ and the normalized
+Jordan curvature selector is $C_i={\cal A}_{i0}^2/{\cal A}_i^2$.  On the
+explicit separation slice $Y_-=u_-$, $Y_+=R$,
+\begin{equation}
+ \begin{aligned}
+ C_-'(R_0)&=\frac{e^{2A_+}}{F_0}=0.0197499,\\
+ C_+'(R_0)&=\frac{e^{2A_+}}{F_0}-2A_+'=4.249949 .
+ \end{aligned}
+ \label{eq:bpsmatterodd}
+\end{equation}
+Both are nonzero on the real 1,979-point background; indeed they stay positive
+along the whole monotone slice.  Equivalently,
+$\delta S_{m,i}=\int\sqrt{-\gamma_i}\,\alpha_iT_i\delta R$ has
+$\alpha_-= -0.00987497$ and $\alpha_+=-2.12497450$ per dimensionless radial
+unit.  Thus minimally induced endpoint matter has an odd response before a
+pure $q^2Y$ vertex can lead.  Dropping $F_0/F$ would erase the lower-brane
+term, but would also leave a field-dependent Planck coefficient and is not an
+Einstein-frame calculation.
+
+This slice no-go is not a no-go for every direction.  Using
+Eq.~(\ref{eq:bpsmodulimatrix}) and its Levi--Civita connection, either brane
+separately has a unit tangent $e_q^a$ satisfying $e_q^aC_{i,a}=0$ and
+\begin{equation}
+ e_q^ae_q^b\nabla_a\nabla_bC_i=
+ \begin{cases}-0.330977,&i=-,\\-0.257821,&i=+ .\end{cases}
+ \label{eq:bpscovariantmatterjets}
+\end{equation}
+Thus a nonzero even selector jet exists algebraically on the real geometry.
+It is not yet a physical $q^2Y$ vertex: the two gradients have determinant
+$-4.84465$, so no tangent is silent for matter on both branes; neither the BPS
+action nor positive local diagonal quadratic or sextic brane terms select one
+of the individual silent directions; and a minimally coupled matter scalar
+weights its Einstein-frame kinetic operator by ${\cal A}_i^2\propto1/C_i$,
+not $C_i$.  Separating its standard $-Y$ term leaves the correctly signed
+candidates $-0.165489q^2Y$ and $-0.128911q^2Y$ in the displayed
+Planck-normalized coordinate.  However, the constitutive $Y$ has not been
+identified with that matter operator, and the tangent and absolute
+normalization remain unselected.  Choosing $e_q\perp C_i$ after seeing the
+target would be inverse design.  The sextic detuning can stabilize a chosen
+direction but cannot select it or repair this matter gate.
+
+The nearest target-independent selector tested is a fixed warped volume $F$.
+Its unit tangent is only $0.0686^\circ$ from the lower-brane silent direction,
+but leaves $C_{-,a}e_F^a=9.69\times10^{-4}$; exact alignment is equivalent to
+$A'_-=0$ (or $W_-=0$), outside the certified interval.  More decisively, on
+the actual $F=$constant curve that formal limit gives
+$C_-=1+0.00227481q^2+\cdots$, so minimal $-Y/C_-$ has the wrong positive
+$q^2Y$ sign.  Defining $s=C_--1$ would reverse it, but requires an additional
+nonminimal operator; no global-$F$ constraint is present in the action.
+
+An exact classical half-power mechanism is instead
+\begin{equation}
+ s=q^2\geq0,\qquad
+ {\cal L}_{\rm aux}=-sY+m_2s+\frac{u_4}{2}s^2+\frac13s^3 .
+ \label{eq:tricriticalselector}
+\end{equation}
+At the tricritical point $m_2=u_4=0$, stationarity gives
+$s=\sqrt Y$ and $P(Y)=sY-s^3/3=2Y^{3/2}/3$ exactly.  Any positive $m_2$
+introduces a threshold, and any positive $u_4$ restores $P\propto Y^2$ in the
+deep limit.  Moreover, the stationary curvature is $8Y$, so a propagating $q$
+becomes gapless as $Y\rightarrow0$ and cannot be integrated out uniformly as a
+local auxiliary variable.  The alternative identity
+\begin{equation}
+ \frac23Y^{3/2}=\frac{4}{3\pi}\int_0^\infty
+ \dd m\,\frac{Y^2}{Y+m^2}
+ \label{eq:gaplessspectralidentity}
+\end{equation}
+requires a constant gapless density per mass.  The present seven modes pass
+through logarithmic slope $3/2$ for only $0.210$ dex and are not such a
+continuum.  Equation~(\ref{eq:gaplessspectralidentity}) is also an identity, not
+a healthy generation proof: ordinary stable Gaussian elimination has the
+opposite stationary sign and generally yields a nonlocal momentum kernel.
+
+\begin{table*}
+ \centering
+ \caption{What the previous sector supplied versus the critical constitutive
+ architecture.  ``Exact'' refers to the exponent algebra, not to a physical
+ bulk derivation.}
+ \label{tab:oldversuscritical}
+ \begin{tabular}{p{0.20\textwidth}p{0.34\textwidth}p{0.36\textwidth}}
+  \toprule
+  Test & Previous fixed-pole sector & Critical constitutive sector \\
+  \midrule
+  Carrier & Seven positive, fixed, gapped canonical modes &
+  Nonlinear collective amplitude or a gapless continuum \\
+  Deep source scaling & $g\propto M$ & $g\propto\sqrt M$ exactly \\
+  Small-field action & Analytic $Y+O(Y^2)$ & Nonanalytic
+  $2Y^{3/2}/3$ at the selected critical point \\
+  What is derived & Quadratic carrier, spectrum, and linear residues &
+  Mathematical selector and decisive falsifiers \\
+  What remains & Cubic overlaps $c_a$ and direct $S_4$ contact & $q^2Y$, $m_2=u_4=0$, positive sextic
+  normalization, $a_0$, causal completion, sourcing, slip, and lensing \\
+  \bottomrule
+ \end{tabular}
+\end{table*}
+
+The simplest Lorentz-covariant use of $P\propto Y^{3/2}$ does not yet close
+those gates.  On a spacelike background its longitudinal-to-transverse
+principal coefficient ratio is
+$(P_Y+2YP_{YY})/P_Y=2$, while both coefficients vanish at $Y=0$.
+Furthermore, at linear order a purely conformal matter metric gives
+$\Phi_J=\Phi_E+\alpha\delta\phi$ and
+$\Psi_J=\Psi_E-\alpha\delta\phi$, so the direct scalar contribution cancels
+from $\Phi_J+\Psi_J$.  A scalar acceleration is therefore not by itself a
+lensing prediction.
+
+The next test is now pre-registered rather than inferred from the target.
+After freezing $S_5$, all boundary actions, $\kappa_5$, $\ell$, $A_m$, matter
+localization, and two conserved source geometries, one must solve the nonlinear
+bulk and extract its Dirichlet--to--Neumann flux $\Pi(g)$.  Acceptance requires
+\begin{equation}
+ \begin{aligned}
+  \lim_{g\to0}\frac{\Pi(g)}{g}&=0,&
+  \lim_{g\to0}\frac{\Pi(g)}{g^2}&=\frac1{a_{0,\rm bulk}}>0,\\
+  \lim_{g\to\infty}\frac{\Pi(g)}{g}&=1.&&
+ \end{aligned}
+ \label{eq:prospectivebulkselector}
+\end{equation}
+together with mass slope $1/2$, geometry-independent local constitutive
+response, a stable causal fluctuation operator, and a separately computed
+lensing potential.  The current checkout cannot yet run this physical test
+because the boundary completion, absolute scale, matter localization, and
+Wilson coefficients remain unfixed.  Choosing any of them after revealing the
+galaxy target would be inverse design.
+
+\begin{figure*}
+ \includegraphics[width=\textwidth]{fig_nonlinear_route_map.png}
+ \caption{Generated nonlinear routes and their present gates.  The exact
+ Legendre envelope specifies the required selector cost, not its origin.  The
+ old seven-pole response has the wrong mass exponent and crosses the desired
+ slope for only $0.210$ dex.  A tricritical amplitude and a constant gapless
+ spectral density reproduce the exponent exactly, but neither has yet been
+ generated healthily by the frozen bulk action.  The exact Jordan-frame map
+ diagnoses why using $s$ as the full coefficient of $R_J$ is singular as
+ $s\to0$.  The surviving architecture keeps the tensor Einstein--Hilbert term
+ fixed and seeks a microscopic derivative scalar or collective sector.  The
+ lower-right source gate admits only two of the four bounded axisymmetric
+ prototypes.  Scores are readiness diagnostics, not probabilities or evidence
+ for a new force.}
+ \label{fig:nonlinearroutemap}
+\end{figure*}
+
+For provenance, the five-parameter capped legacy P5 dictionary was also
+refitted on the physical training inputs under its frozen bounds.  It reaches
+all five bounds and gives $\chi^2/{\rm point}=290.98$ on test.  It is rejected
+as a historical comparator and is not used as the current HOLO curve.  A
+nested generalized RAR with
+$\nu_q(y)=[1-\exp(-y^q)]^{-1/(2q)}$ returns $q=0.497$; its 0.13 per cent test
+gain is immaterial and the extra parameter is not selected.  The result is an
+empirical target, not a detection and not an action-derived HOLO galaxy force
+law.  The present action-derived stiff force is available and falsifiable, but
+is empirically insufficient; the additional sector required by
+Eqs.~(\ref{eq:forceresidual})--(\ref{eq:universalcollector}) has not been
+derived.
+
+\begin{figure*}
+ \includegraphics[width=\textwidth]{fig_sparc_physical_audit.png}
+ \caption{Physical-input SPARC audit.  The upper panel shows every point in the
+ frozen test split against the train-frozen universal collector (the empirical
+ RAR target) and the stiff
+ long-range limit selected by the finite-disk scan.  The lower panels
+ show the first four test IDs in the predetermined split order, not selected
+ for visual agreement.  Blue is the empirical collector target; purple is the
+ geometry-matched stiff candidate.  The visible misses are retained rather than
+ disguised by fitting each test galaxy.}
+ \label{fig:sparc}
+\end{figure*}
 
 \section{Dictionary-dependent cosmological growth}
 
@@ -708,13 +1405,14 @@ new checks illustrate the distinction between generating a prediction and
 retrofitting a result.
 
 \paragraph{Boundary branches.}
-All four separated self-adjoint endpoint choices were solved with the same
-bulk coefficients and without observational input.  The NN branch has its
+No observational input enters this step: all four separated self-adjoint
+endpoint choices use the same bulk coefficients.  The NN branch has its
 exact zero mode.  Replacing only the IR condition gives an ND lightest mode
 \begin{equation}
  \mu_{\rm ND,0}=0.00274498,\qquad
  \beta_{\rm UV,0}=0.05429095.
 \end{equation}
+The latter is $0.0542910$ at seven decimal places.
 An independent continuous-shooting calculation gives
 $\mu_{\rm ND,0}=0.0027447613$, a relative difference
 $7.84\times10^{-5}$.  The former zero mode is therefore ultralight rather than
@@ -748,23 +1446,56 @@ is the Hellmann--Feynman link between boundary stiffness, pole motion, and
 material residue.  The map makes the consequences of any prospectively
 selected boundary coefficients falsifiable; it does not select them.
 
-\paragraph{Retrospective SPARC split.}
-A deterministic galaxy-level split assigns 122 galaxies to training, 26 to
-validation, and 27 to test.  The present trace-backed P5 formula was refitted
-on training galaxies only; validation and test were then read once.  On the
-test group (621 velocity points), its diagonal $\chi^2$ per point is 203.26
-versus 254.30 for baryons-only Newton, and P5 wins in 22/27 galaxies.  A
-galaxy-cluster bootstrap nevertheless gives a 95 per cent interval
-$[-15.26,81.65]$ for the P5-minus-Newton log-likelihood improvement per point,
-which crosses zero.  A one-global-parameter radial-acceleration relation
-\citep{McGaugh2016}, fitted on the same training split, obtains
-$\chi^2/{\rm point}=60.99$; P5 wins only 8/27 and its relative log-likelihood
-per point is $-71.13$ with interval $[-199.42,-7.72]$.  Moreover, the P5
-optimizer exhausted its fixed budget and four parameters reached their search
-bounds.  All three models use the same historical unsigned baryonic
-quadrature, so their comparison is aligned, but the very large absolute
-$\chi^2$ values and previously exposed catalogue make this a retrospective
-development diagnostic rather than confirmation.
+\paragraph{Conditional functional superpotential branes.}
+For the reconstructed canonical scalar $\chi$, the background fixes
+$W(\chi(u))=-6A_{,u}$ and $\chi_{,u}=W_{,\chi}$.  It fixes only the value
+and first derivative of each endpoint potential.  If one additionally declares
+the functional ansatz $\lambda_-=W$ and $\lambda_+=-W$, the gauge-invariant scalar boundary
+coefficients then satisfy
+\begin{equation}
+ \frac{g_-}{a}=-\frac{\chi_{,uu}}{\chi_{,u}}+\lambda_{-,\chi\chi}=0,
+ \qquad
+ \frac{g_+}{a}=-\frac{\chi_{,uu}}{\chi_{,u}}-\lambda_{+,\chi\chi}=0.
+ \label{eq:minimaljunctionzero}
+\end{equation}
+The two-brane zero-mode theorem then requires at least one massless
+gauge-invariant scalar \citep{Lesgourgues2004}; the exact action calculation
+above identifies the relative radion and proves its flat potential.  This is a
+conditional brane ansatz, not a brane action uniquely derived from the bulk.
+Adding local positive
+curvatures,
+\begin{equation}
+ \lambda_-=W+\frac{\gamma_-}{2}(\chi-\chi_-)^2,
+ \qquad
+ \lambda_+=-W+\frac{\gamma_+}{2}(\chi-\chi_+)^2,
+\end{equation}
+gives $g_-/a=\gamma_->0$ and $g_+/a=-\gamma_+<0$.  Their values are new
+boundary-sector inputs; they are not determined by the bulk solution.  The
+stiff limit $\gamma_\pm\rightarrow\infty$ is therefore declared as one
+parameter-free limiting candidate rather than inferred from SPARC.  A
+gauge-invariant finite-element solve gives
+\begin{align}
+ (\mu_0,\ldots,\mu_3)&=(0.290502,1.224184,1.725453,2.188327),\nonumber\\
+ (\mu_4,\ldots,\mu_6)&=(2.744438,3.344908,3.961150),
+\end{align}
+while an independent DOP853 shooting calculation agrees to a maximum relative
+mass difference $7.36\times10^{-5}$.  This cross-checks the translated linear
+operator.  The absolute one-interval normalization and physical matter residue
+still require a direct EH+GHY+bending reduction; Eq.~(\ref{eq:stiffforce}) is
+therefore conditional on that unfinished interface step.
+
+\paragraph{SPARC split result.}
+On the 621 fixed test points, the physical-input scores are 371.58 for the
+action-derived stiff force, 414.20 for the old P6 trace limit, 414.23 for
+baryons alone, 290.98 for legacy P5, and 36.75 for RAR.  The RAR test median
+absolute velocity error is 14.5 per cent.  The stiff candidate replaces P6 and
+P5 as the current physical curve, but its fixed residues remain far too small
+and have the wrong acceleration dependence.  Its one-scale finite-disk scan
+selects only the upper boundary, not a finite $\ell$.  The legacy P5 optimizer
+exhausts its budget with all five parameters on bounds, so that trace-backed
+dictionary is retained only as rejected provenance.  Because
+the catalogue has been used during development, this is a retrospective audit,
+not a blind confirmation.
 
 \paragraph{Published DESI DR1 entries.}
 Four published ShapeFit-plus-BAO marginal entries inside the frozen trace
@@ -794,9 +1525,10 @@ Consequently neither $a^2\sigma$ nor a continuum string tension is reported.
  \includegraphics[width=\textwidth]{fig_prediction_factory.png}
  \caption{Prediction-factory diagnostics.  (A) The four endpoint branches:
  filled markers couple to the declared UV point probe, while open markers
- obey UV Dirichlet data; no branch is selected.  (B) Absolute SPARC test-split
- scores show that P5 improves on baryons-only Newton but underperforms the
- train-fitted RAR comparator.  (C) Published DESI DR1 marginal pulls give no
+ obey UV Dirichlet data; no branch is selected.  (B) With the physical SPARC
+ baryonic input, the action-derived stiff force improves on baryons but remains
+ far from the train-fitted empirical RAR; P6 and legacy P5 are shown only as
+ genealogy.  (C) Published DESI DR1 marginal pulls give no
  preference over matched $\LCDM$.  (D) The historical electromagnetic profile
  is compared with the coordinate-correct $Z=1$ domain-wall zero-mode density;
  their disagreement exposes the old radial-gauge substitution.}
@@ -1040,6 +1772,14 @@ kinetic terms would add boundary contributions and require a new derivation.
  \label{fig:nist}
 \end{figure}
 
+The archived Yb-clock and 10-GHz records were produced to demonstrate coherent
+optical-to-microwave phase transfer: the microwave phase deliberately tracks
+the optical-clock phase \citep{Nakamura2020}.  Their mutual coherence is
+therefore an engineering observable with a shared reference, not two
+independent detectors of a universal breathing mode.  P7 instead requires
+separate sites or species, frozen phase and frequency rules, environmental
+vetoes, and a held-out acquisition.
+
 The Anti-Zeno response table can likewise be composed with the protocol-time
 dictionary, but it remains an interface hypothesis until its action, units,
 and independent calibration are specified.
@@ -1084,6 +1824,8 @@ selects those missing inputs.  The remaining forward programme is therefore:
  \item drive the derived material transfer law with a calibrated source and
  test it against a mechanically independent finite-element model and a held-out
  source distance;
+ \item test the P7 breathing comb with an independently anchored frequency,
+ source coherence, causal delays, and detectors without a shared reference;
  \item derive a four-dimensional cosmological interface before promoting the
  current radial dictionary to a growth law;
  \item choose the bulk- or brane-photon realization prospectively, including
@@ -1128,6 +1870,15 @@ stiffness moves both poles and residues through an avoided crossing according
 to the verified Hellmann--Feynman identity.  A boundary action, rather than
 observational performance, must choose the physical realization.
 
+Restoring time dependence supplies the missing distinction between a static
+force and a breathing interaction.  P7 proves that the canonically normalized
+stiff force is the zero-frequency limit and predicts the complete correlated
+set of seven evanescent thresholds, outgoing-wave frequencies, group delays,
+and relative periods.  An independent
+mode frequency would fix $\ell$ through Eq.~(\ref{eq:breathingclock}).  It does
+not, however, provide the source occupation or boundary action, and the
+historical $1/600$ code-unit frequency cannot serve as that independent clock.
+
 The Ricci and Wilson audits close two further provenance gaps.  The corrected
 $\widehat R_5$ supplies a dimensionless curvature cadence but not laboratory
 seconds, and the old Wilson-labelled number is an Einstein-frame endpoint
@@ -1145,37 +1896,48 @@ comb.  Its shared $\ell$ with the scalar tower defines a correlated double-comb
 target rather than two freely aligned spectra.  A brane-localized photon gives
 a different classical result, and neither branch has yet been selected.
 
-The scalar ratio, SPARC performance, BOSS comparison, DESI marginal diagnostic,
-and UV clock projection remain reproducible outputs.  They are now labelled
-according to what the current evidence establishes.  The new retrospective
-SPARC split is better than a weak Newtonian comparator but worse than the
-one-parameter RAR comparator; DESI gives no statistical preference; and the
-Wilson route correctly reports missing input rather than manufacturing a
-string tension.  This sharper separation converts an overextended single-action
-claim into an executable, falsifiable research programme while preserving the
-substantial computational structure already built.
+The cosmological diagnostics and UV projection remain reproducible.  The
+junction audit instead finds a flat BPS potential and resolves two physical
+endpoint moduli with positive kinetic eigenvalues $(0.125269,2.00317)$.  Each
+endpoint matter selector has an algebraically silent tangent and a nonzero
+covariant even jet, but no tangent works for both branes and the existing BPS,
+quadratic and sextic brane terms select none.  A physical $q^2Y$ vertex still
+requires a derived selector, matter operator and full constraint reduction.
+A fixed-$F$ candidate nearly aligns the lower selector but is not exact and
+its true constrained curve gives the wrong minimal-matter sign.
+The independently checked stiff limit remains a separate candidate.  In SPARC
+its action-derived force improves on baryons,
+but the geometry-matched finite-range scan reaches the long-range boundary and
+remains far from the empirical RAR, which is not relabelled as a HOLO force
+law.  P6 and P5 retain only numerical provenance.
+Equation~(\ref{eq:universalcollector}) specifies the missing signed response,
+while Eqs.~(\ref{eq:collectoraction})--(\ref{eq:collectormap}) reconstruct a
+locally elliptic but zero-field-degenerate target with a mass-dependent
+transition radius.  The embedding gate excludes that half-power scaling from
+the present regular linearized sector, not from every possible nonlinear or
+derivative completion.  Completing the force therefore still requires a
+derived state-dependent coupling, a physical selection of the moduli tangent,
+three-dimensional source and boundary data, and independent observation.  A
+single compactification length also cannot represent both the legacy QCD proxy
+and galactic force: their conditional mismatch is 40.94 orders of magnitude.
+The apparent galactic clock is a boundary value, DESI gives no preference, and
+the Wilson route correctly reports missing input.  These distinctions turn the
+overextended claim into an executable, falsifiable research programme.
 
 \section*{Data and code availability}
 
-The machine-readable verification bundle is available at
+Code and machine-readable artefacts are available at
 \url{https://github.com/RAPIDENN/HOLO_runner} and archived under
 \href{https://doi.org/10.5281/zenodo.18224589}{doi:10.5281/zenodo.18224589}.
-The effective reconstruction certificate, tabulated action, sealed audit, and
-exact control flow are included under \path{first_principles_audit/}.  The
-conditional interaction, its zero-input declaration, finite-element spectrum,
-independent shooting comparison, Robin phase map, coordinate-correct
-electromagnetic completion, double-comb fingerprint, Wilson input contract,
-and present-data diagnostics are stored there as machine-readable artefacts.
-Third-party SPARC, BOSS, Planck, DESI, and NIST data remain subject to their
-original distribution policies.  The repository bundle records derived
-metrics and provenance rather than redistributing restricted measurements.
+Certificates and exact controls reside in \path{first_principles_audit/}.
+Third-party data retain their original distribution policies; the bundle
+records derived metrics and provenance, not restricted measurements.
 
 \section*{Acknowledgements}
 
 This work uses publicly released SPARC, BOSS DR12, and Planck products.  The
-author thanks readers who emphasized the need for external refereeing and a
-clear separation between a reusable computational instrument and a physical
-detection claim.
+author thanks readers who requested external refereeing and a clear separation
+between a computational instrument and a physical detection claim.
 
 \begin{thebibliography}{99}
 \bibitem[Alam et al.(2017)]{Alam2017}
@@ -1184,12 +1946,27 @@ Alam S., et al., 2017, MNRAS, 470, 2617
 \bibitem[Arutyunov et al.(2000)]{Arutyunov2000}
 Arutyunov G., Frolov S., Theisen S., 2000, Phys. Lett. B, 484, 295--305
 
+\bibitem[Bianchi et al.(2003)]{Bianchi2003}
+Bianchi M., M\"uck W., Prisco M., 2003, JHEP, 11, 052
+
 \bibitem[Breitenlohner \& Freedman(1982)]{Breitenlohner1982}
 Breitenlohner P., Freedman D. Z., 1982, Ann. Phys., 144, 249
+
+\bibitem[Bekenstein \& Milgrom(1984)]{BekensteinMilgrom1984}
+Bekenstein J., Milgrom M., 1984, ApJ, 286, 7--14
 
 \bibitem[DeWolfe et al.(2000)]{DeWolfe2000}
 DeWolfe O., Freedman D. Z., Gubser S. S., Karch A., 2000,
 Phys. Rev. D, 62, 046008
+
+\bibitem[Cynolter(2002)]{Cynolter2002}
+Cynolter G., 2002, arXiv:hep-th/0209152
+
+\bibitem[Palma \& Davis(2004)]{PalmaDavis2004}
+Palma G. A., Davis A.-C., 2004, Phys. Rev. D, 70, 106003
+
+\bibitem[Lesgourgues \& Sorbo(2004)]{Lesgourgues2004}
+Lesgourgues J., Sorbo L., 2004, Phys. Rev. D, 69, 084010
 
 \bibitem[Bertotti et al.(2003)]{Bertotti2003}
 Bertotti B., Iess L., Tortora P., 2003, Nature, 425, 374--376
@@ -1214,8 +1991,14 @@ Lelli F., McGaugh S. S., Schombert J. M., 2016, AJ, 152, 157
 McGaugh S. S., Lelli F., Schombert J. M., 2016,
 Phys. Rev. Lett., 117, 201101
 
+\bibitem[Milgrom(2010)]{Milgrom2010}
+Milgrom M., 2010, MNRAS, 403, 886--895
+
 \bibitem[Morningstar \& Peardon(1999)]{Morningstar1999}
 Morningstar C. J., Peardon M., 1999, Phys. Rev. D, 60, 034509
+
+\bibitem[Nakamura et al.(2020)]{Nakamura2020}
+Nakamura T., et al., 2020, Science, 368, 889--892
 
 \bibitem[Athenodorou \& Teper(2020)]{Athenodorou2020}
 Athenodorou A., Teper M., 2020, JHEP, 11, 172

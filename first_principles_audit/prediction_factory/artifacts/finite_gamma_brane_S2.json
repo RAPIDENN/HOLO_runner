@@ -1,0 +1,438 @@
+{
+  "checks": {
+    "Boos_and_LS_finite_gamma_modes_match": true,
+    "Boos_and_LS_finite_gamma_spectra_match": true,
+    "all": true,
+    "both_brane_orientations_present": true,
+    "certified_inputs": true,
+    "dimensionless_Boos_norm_identity_verified": true,
+    "finite_gamma_mass_forms_identical": true,
+    "integrated_Boos_LS_bilinear_identity": true,
+    "no_observational_tables_read": true,
+    "pointwise_Boos_LS_bilinear_identity": true,
+    "shooting_roots_are_resolved": true,
+    "target_free_shooting_matches_FEM": true,
+    "three_asymmetric_positive_finite_gamma_pairs": true
+  },
+  "classification": "finite_gamma_published_operator_crosschecked_on_real_background;direct_ADM_EH_GHY_brane_backward_derivation_pending",
+  "conventions": {
+    "Boos_translation": "A_Boos=-A; chi=sqrt(2)*kappa5*phi_Boos; lambda_interval=kappa5^2*lambda_Boos",
+    "brane_potentials": "lambda_-=W+gamma_-(chi-chi_-)^2/2; lambda_+=-W+gamma_+(chi-chi_+)^2/2",
+    "interval_action": "S=(2*kappa5^2)^-1 int_M sqrt(-G)[R-(partial chi)^2/2-V]+kappa5^-2 sum_i int_i sqrt(-gamma)K-(2*kappa5^2)^-1 sum_i int_i sqrt(-gamma)lambda_i",
+    "orientations": {
+      "lower": -1,
+      "upper": 1
+    }
+  },
+  "criteria": {
+    "Boos_LS_mass_relative_max": 0.0002,
+    "Boos_LS_one_minus_MAC_max": 1e-06,
+    "canonical_norm_orthogonality_max_abs": 5e-10,
+    "integrated_bilinear_identity_max_relative": 1e-06,
+    "pointwise_Darboux_bilinear_identity_max_relative": 1e-12,
+    "shooting_mass_relative_max": 0.0002,
+    "shooting_root_residual_relative_max": 1e-08
+  },
+  "direct_second_variation_norm": {
+    "Boos_form": "N_g=(3/2)*int exp(-2A)[g_n*g_m+3*g_n'*g_m'/chi'^2]",
+    "finite_gamma_identity": "For M_g-orthonormal modes, N_g=(9/2)*m_n^2*delta_nm; the endpoint pieces are in M_g through w_g/gamma_i.",
+    "maximum_canonical_orthogonality_error": 1.7278622976846236e-10,
+    "normalization_warning": "The orthogonality identity is dimensionless. Boos integrates the full [-L,L] orbifold, whereas this repository uses one interval copy; an absolute kappa5 normalization must include that factor-of-two translation and is not certified here."
+  },
+  "evidence_boundary": "This closes the finite-gamma two-brane S2 operator, compact spectrum and a dimensionless norm identity by analytic representation maps, two FEM forms and target-free shooting. It does not yet independently rederive the raw EH-GHY cancellation in this repository, freeze cubic brane jets, derive S3, or demonstrate a force.",
+  "finite_gamma_ADM_endpoint_law": {
+    "bulk_identity": "f'=-m^2*exp(-4A)*W*g/chi'^2",
+    "definitions": "f=exp(-2A)*[-g+W*g'/chi'^2]; H_i=W_i*exp(-2A_i)/chi_i'^2; s_-= -1, s_+=+1",
+    "endpoint_H_numeric": {
+      "lower": 0.010829177546943344,
+      "upper": 66.24763214940621
+    },
+    "endpoint_law": "[1-s_i*m^2*H_i/gamma_i]*f'_i=m^2*H_i*f_i",
+    "warning": "This rational eigenvalue dependence is the footprint of the eliminated boundary/bending variable. Treating it as a constant Robin coefficient gives the wrong finite-gamma norm."
+  },
+  "finite_gamma_boundary_conditions": {
+    "Boos_lower": "gamma_-*g'_-+m^2*exp(-2A_-)*g_-=0",
+    "Boos_upper": "gamma_+*g'_+-m^2*exp(-2A_+)*g_+=0",
+    "LS_lower": "gamma_-*exp(2A_-)*D(Psi)_-+m^2*Psi_-=0",
+    "LS_upper": "gamma_+*exp(2A_+)*D(Psi)_+-m^2*Psi_+=0",
+    "LS_weights": "r=exp(2A)/chi'^2; w=1/chi'^2; q=-4r(A''-A'*chi''/chi')",
+    "weak_LS_mass": "int(w*Psi*v)+w_-/gamma_-*Psi_-*v_-+w_+/gamma_+*Psi_+*v_+",
+    "weak_LS_stiffness": "int(r*Psi'*v'+q*Psi*v)-2*r_-*A'_-*Psi_-*v_-+2*r_+*A'_+*Psi_+*v_+"
+  },
+  "finite_gamma_verification": {
+    "gamma_pairs": [
+      [
+        0.7,
+        1.3
+      ],
+      [
+        3.0,
+        5.0
+      ],
+      [
+        20.0,
+        11.0
+      ]
+    ],
+    "independent_global_shooting": {
+      "maximum_Boos_FEM_mass_relative": 2.853077953346439e-05,
+      "maximum_root_residual_over_final_bracket": 2.9361601166725994e-13,
+      "method": "fixed preregistered mu scan followed by simultaneous bracketed RK4 bisection; no FEM target is used to locate a bracket",
+      "rows": [
+        {
+          "Boos_FEM_mass_relative": [
+            2.1392141098530715e-06,
+            3.4717248427185154e-06,
+            3.4188040665128483e-06,
+            1.0257619655895667e-06,
+            7.905701191912584e-06,
+            1.5994849329237226e-05,
+            2.623654674904774e-05
+          ],
+          "gamma_minus": 0.7,
+          "gamma_plus": 1.3,
+          "maximum_Boos_FEM_mass_relative": 2.623654674904774e-05,
+          "root_residual_over_final_bracket": [
+            3.102135725453357e-14,
+            2.453487262619274e-15,
+            1.815486405841767e-13,
+            1.9614639608396996e-13,
+            5.738573061724554e-14,
+            3.335672317125158e-14,
+            3.824856227532451e-14
+          ],
+          "shooting_masses_mu": [
+            0.12661232506902553,
+            0.9180597462102769,
+            1.0158833027034964,
+            1.587880371696885,
+            2.1789286259249576,
+            2.7730107342847723,
+            3.377325316151966
+          ]
+        },
+        {
+          "Boos_FEM_mass_relative": [
+            2.3290076046622588e-06,
+            6.117333474220388e-06,
+            1.1963542814186212e-06,
+            1.061805336100008e-06,
+            7.793414155798928e-06,
+            1.6272932157002096e-05,
+            2.6745122543969657e-05
+          ],
+          "gamma_minus": 3.0,
+          "gamma_plus": 5.0,
+          "maximum_Boos_FEM_mass_relative": 2.6745122543969657e-05,
+          "root_residual_over_final_bracket": [
+            2.0715962727082766e-14,
+            9.602740052362628e-14,
+            1.2844771856343853e-13,
+            2.9361601166725994e-13,
+            1.3612435413379784e-13,
+            1.341672335891463e-13,
+            8.186529117768045e-14
+          ],
+          "shooting_masses_mu": [
+            0.20113410847645885,
+            1.0468267691716082,
+            1.4520334967907387,
+            1.772240311390616,
+            2.3114086118874755,
+            2.8932399721144777,
+            3.488461958174712
+          ]
+        },
+        {
+          "Boos_FEM_mass_relative": [
+            2.4153661436487894e-06,
+            4.433370894840749e-06,
+            1.5683462906146417e-06,
+            1.702474723086489e-06,
+            8.198678783766233e-06,
+            1.7278046720803353e-05,
+            2.853077953346439e-05
+          ],
+          "gamma_minus": 20.0,
+          "gamma_plus": 11.0,
+          "maximum_Boos_FEM_mass_relative": 2.853077953346439e-05,
+          "root_residual_over_final_bracket": [
+            8.649274022525627e-14,
+            0.0,
+            3.130033156064763e-14,
+            1.3809115322789375e-13,
+            3.1482201573880604e-14,
+            2.919529518445985e-13,
+            7.490135350186229e-14
+          ],
+          "shooting_masses_mu": [
+            0.2382517399814949,
+            1.117862121263598,
+            1.5967696487197043,
+            2.00209763945594,
+            2.506571544666072,
+            3.077559034037442,
+            3.6718761649866334
+          ]
+        }
+      ],
+      "scan": {
+        "bisections": 42,
+        "mu_max": 5.0,
+        "mu_min": 1e-05,
+        "points": 1001
+      }
+    },
+    "maximum_Boos_LS_mass_relative": 8.29164729777565e-05,
+    "maximum_Boos_LS_one_minus_MAC": 9.898362796079141e-09,
+    "maximum_generalized_backward_error": 1.1412596281392066e-17,
+    "rows": [
+      {
+        "Boos_backward_error": 1.0618596834669668e-17,
+        "Boos_masses_mu": [
+          0.12661259592047722,
+          0.918056558970514,
+          1.0158798296094038,
+          1.587882000485847,
+          2.178945852019777,
+          2.7730550888831007,
+          3.377413927830374
+        ],
+        "LS_backward_error": 4.876516229474495e-18,
+        "LS_masses_mu": [
+          0.12662309506091718,
+          0.9180635677311555,
+          1.0158892638875976,
+          1.58790143635704,
+          2.1789683442194936,
+          2.773082140863061,
+          3.377446313298534
+        ],
+        "canonical_norm_orthogonality_max_abs": 1.164177598513935e-10,
+        "gamma_minus": 0.7,
+        "gamma_plus": 1.3,
+        "mapped_mode_MAC": [
+          0.999999999987284,
+          0.9999999917867475,
+          0.9999999901016372,
+          0.999999999244864,
+          0.9999999990060215,
+          0.999999998706816,
+          0.9999999983558647
+        ],
+        "mass_relative": [
+          8.29164729777565e-05,
+          7.634286870561446e-06,
+          9.28671906397227e-06,
+          1.2239973305683272e-05,
+          1.0322407746898854e-05,
+          9.755203266959e-06,
+          9.588744026123308e-06
+        ],
+        "maximum_mass_relative": 8.29164729777565e-05,
+        "maximum_one_minus_MAC": 9.898362796079141e-09
+      },
+      {
+        "Boos_backward_error": 1.1412596281392066e-17,
+        "Boos_masses_mu": [
+          0.20113457692041806,
+          1.0468203654223454,
+          1.4520317596463264,
+          1.7722421931668335,
+          2.311426625792461,
+          2.8932870543784244,
+          3.4885552600126424
+        ],
+        "LS_backward_error": 6.183869267518949e-18,
+        "LS_masses_mu": [
+          0.20115050891924982,
+          1.0468344578832212,
+          1.4520393899407271,
+          1.7722587432642036,
+          2.3114504516804746,
+          2.8933157459451784,
+          3.488589100305181
+        ],
+        "canonical_norm_orthogonality_max_abs": 1.7278622976846236e-10,
+        "gamma_minus": 3.0,
+        "gamma_plus": 5.0,
+        "mapped_mode_MAC": [
+          0.9999999999586533,
+          0.999999999480879,
+          0.9999999984782191,
+          0.9999999979894132,
+          0.999999998653119,
+          0.9999999984100527,
+          0.9999999980474303
+        ],
+        "mass_relative": [
+          7.92043675025278e-05,
+          1.3461976504092199e-05,
+          5.254881137117806e-06,
+          9.338420494775512e-06,
+          1.0307764977790512e-05,
+          9.916500400719563e-06,
+          9.700280418689644e-06
+        ],
+        "maximum_mass_relative": 7.92043675025278e-05,
+        "maximum_one_minus_MAC": 2.0105868081543576e-09
+      },
+      {
+        "Boos_backward_error": 9.08017378232494e-18,
+        "Boos_masses_mu": [
+          0.2382523154480713,
+          1.1178571653881764,
+          1.5967671444358764,
+          2.0021010479823675,
+          2.5065920954095042,
+          3.0776122091649807,
+          3.6719809294649832
+        ],
+        "LS_backward_error": 6.467674573388829e-18,
+        "LS_masses_mu": [
+          0.23827051821393436,
+          1.1178688160532744,
+          1.596779938372038,
+          2.002117137559395,
+          2.5066160059900504,
+          3.0776422705741195,
+          3.672016622835128
+        ],
+        "canonical_norm_orthogonality_max_abs": 6.340074816466741e-11,
+        "gamma_minus": 20.0,
+        "gamma_plus": 11.0,
+        "mapped_mode_MAC": [
+          0.9999999999409985,
+          0.9999999996412323,
+          0.9999999989581565,
+          0.999999998416504,
+          0.9999999984494816,
+          0.9999999982616543,
+          0.9999999978967535
+        ],
+        "mass_relative": [
+          7.63953761444558e-05,
+          1.042221138158883e-05,
+          8.01233523428646e-06,
+          8.036281556877967e-06,
+          9.538988217094868e-06,
+          9.767674893912393e-06,
+          9.720372702859414e-06
+        ],
+        "maximum_mass_relative": 7.63953761444558e-05,
+        "maximum_one_minus_MAC": 2.103246465878783e-09
+      }
+    ]
+  },
+  "inputs": {
+    "files": {
+      "LS_boundary_completion": {
+        "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+        "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
+      },
+      "bulk_ADM_S2": {
+        "path": "first_principles_audit/prediction_factory/artifacts/adm_quadratic_recovery.json",
+        "sha256": "ff9b52174bfe600f4498f60efdca3c6c8114ce84593752d17f710ea2d9527762"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      },
+      "stiff_endpoint_backward": {
+        "path": "first_principles_audit/prediction_factory/artifacts/compact_brane_S2_backward.json",
+        "sha256": "1c65875e0218bce61a77f084c011a13279815aba4146f0337f46a086398f0150"
+      }
+    },
+    "observational_tables_read": [],
+    "primary_theory_inputs": [
+      {
+        "arxiv": "hep-th/0310007",
+        "reference": "Lesgourgues and Sorbo (2004)",
+        "role": "gauge-invariant finite-brane junction operator"
+      },
+      {
+        "arxiv": "hep-th/0511185",
+        "reference": "Boos et al. (2006)",
+        "role": "direct second-variation scalar equation and norm"
+      }
+    ]
+  },
+  "linear_gauge_invariants": {
+    "bending": "exp(A_i)*Z_i=xi_i+beta_i; traceless Israel gives Z_i=0",
+    "constraints": "Phi=-2*Psi; -chi'*Delta_chi=6*(Psi'+2A'*Psi)",
+    "definitions": "Psi=zeta-A'*beta; Phi=alpha-beta'; Delta_chi=delta_chi-chi'*beta",
+    "unitary_gauge_reconstruction": "beta=6*D(Psi)/chi'^2; zeta=Psi-W*D(Psi)/chi'^2; D=partial_u+2A'"
+  },
+  "next_decisive_test": "Recompute the raw interval EH+GHY+lambda quadratic density with nonvanishing endpoint profiles and retain the local boundary auxiliary. Its variation must reproduce the rational ADM endpoint law and the Boos norm before any cubic endpoint is accepted.",
+  "physical_gates": {
+    "finite_gamma_ADM_BMP_rational_endpoint_law_derived": true,
+    "finite_gamma_Boos_boundary_operator_recovered_from_S2": true,
+    "finite_gamma_LS_weak_boundary_operator_recovered": true,
+    "finite_gamma_brane_S2_backward_complete": false,
+    "finite_gamma_compact_spectrum_three_route_verified": true,
+    "finite_gamma_dimensionless_norm_identity_verified": true,
+    "finite_gamma_translated_operator_crosscheck_complete": true,
+    "local_same_variable_ADM_boundary_auxiliary_action_recovered": false,
+    "nonlinear_brane_jets_frozen": false,
+    "physical_finite_gamma_S3_endpoint_ready": false,
+    "raw_EH_GHY_normal_derivative_cancellation_rederived_in_repo": false,
+    "single_interval_absolute_canonical_norm_recovered": false,
+    "synthetic_bent_brane_fixture_used_as_physical_evidence": false
+  },
+  "representation_maps": {
+    "ADM_to_BMP": "tilde_a_BMP=3*zeta/2",
+    "Boos_LS_bilinear_identity": "K_g[g=exp(2A)Psi]=K_LS[Psi] after the exact boundary term [2*r*A'*Psi^2]_-^+; M_g=M_LS",
+    "Boos_to_ADM_without_common_factor": "zeta proportional exp(-2A)*[-g+W*g'/chi'^2]",
+    "Boos_to_LS": "Psi=-exp(-2A)*g/[4*sqrt(2*M^3)]",
+    "LS_to_ADM_unitary": "zeta=Psi-W*D(Psi)/chi'^2",
+    "verification": {
+      "maximum_finite_gamma_mass_form_relative": 2.220446049250313e-16,
+      "maximum_integrated_stiffness_relative": 4.2704240765800705e-07,
+      "maximum_pointwise_total_derivative_identity_relative": 2.1510571102112408e-16,
+      "rows": [
+        {
+          "finite_gamma_mass_form_relative": 0.0,
+          "harmonic": 1,
+          "integrated_stiffness_relative": 4.0879446139285847e-07,
+          "pointwise_total_derivative_identity_relative": 2.7755575615628914e-17
+        },
+        {
+          "finite_gamma_mass_form_relative": 2.220446049250313e-16,
+          "harmonic": 2,
+          "integrated_stiffness_relative": 4.2704240765800705e-07,
+          "pointwise_total_derivative_identity_relative": 4.163336342344337e-17
+        },
+        {
+          "finite_gamma_mass_form_relative": 1.1102230246251565e-16,
+          "harmonic": 3,
+          "integrated_stiffness_relative": 4.2627890284308023e-07,
+          "pointwise_total_derivative_identity_relative": 6.938893903907228e-17
+        },
+        {
+          "finite_gamma_mass_form_relative": 1.1102230246251565e-16,
+          "harmonic": 4,
+          "integrated_stiffness_relative": 3.504379688656911e-07,
+          "pointwise_total_derivative_identity_relative": 1.4224732503009818e-16
+        },
+        {
+          "finite_gamma_mass_form_relative": 2.220446049250313e-16,
+          "harmonic": 5,
+          "integrated_stiffness_relative": 2.93383809024661e-07,
+          "pointwise_total_derivative_identity_relative": 1.8735013540549517e-16
+        },
+        {
+          "finite_gamma_mass_form_relative": 0.0,
+          "harmonic": 6,
+          "integrated_stiffness_relative": 2.35288418748425e-07,
+          "pointwise_total_derivative_identity_relative": 2.1510571102112408e-16
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "schema": "holo.finite-gamma-brane-S2.v1",
+  "title": "Finite-curvature two-brane S2 operator, spectrum and norm"
+}

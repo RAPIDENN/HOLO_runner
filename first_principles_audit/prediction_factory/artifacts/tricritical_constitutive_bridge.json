@@ -1,0 +1,102 @@
+{
+  "checks": {
+    "all": true,
+    "certified_inputs": true,
+    "dynamical_amplitude_correlation_length_diverges": true,
+    "no_observational_tables_read": true,
+    "positive_mass_creates_a_threshold": true,
+    "positive_quartic_restores_analytic_y_squared": true,
+    "tricritical_dual_is_two_thirds_y_three_halves": true,
+    "tricritical_log_slope_is_three_halves": true,
+    "tricritical_selector_is_sqrt_y": true
+  },
+  "classification": "exact_classical_deep_exponent_mechanism;tricritical_bulk_realization_not_derived",
+  "current_bulk_boundary": {
+    "conclusion": "The current artefacts fix a healthy quadratic propagating carrier and only the linear matter coefficient. They do not fix the q^2Y vertex or the tricritical cancellations.",
+    "higher_brane_jets_selected": false,
+    "known_interface_order": "beta varphi/M_Pl + O(varphi^2)",
+    "positive_canonical_carrier": true
+  },
+  "decisive_next_calculation": "Perform the gauge-invariant cubic-through-sextic reduction including lapse, shift, brane bending and the matter metric. Project it onto the soft collective coordinate and test prospectively whether m2=u4=0, the q^6 coefficient is positive and q^2Y is nonzero.",
+  "diagnostics": {
+    "deep_density_log_slope": 1.500000000000001,
+    "deep_density_max_relative_error": 4.440892098500626e-16,
+    "maximum_correlation_length_proxy": 353553.3905932738,
+    "minimum_auxiliary_curvature": 8e-12,
+    "samples": 512,
+    "selector_max_relative_error": 0.0
+  },
+  "exact_mechanism": {
+    "auxiliary_density": "L_aux=-s*Y+W(s)",
+    "deep_operator": "P(Y)=s*Y-W(s)=2*Y^(3/2)/3",
+    "potential": "W(s)=m2*s+u4*s^2/2+s^3/3",
+    "q_form": "L_aux=-q^2*Y+m2*q^2+u4*q^4/2+q^6/3",
+    "selector": "s=q^2>=0",
+    "stationarity": "Y=m2+u4*s+s^2",
+    "stationary_q_hessian": "d2L_aux/dq2=8*Y at m2=u4=0",
+    "tricritical_point": "m2=u4=0",
+    "tricritical_solution": "s=sqrt(Y)"
+  },
+  "locality_obstruction": {
+    "correlation_length_proxy": "xi_q=(8*Y)^(-1/2)",
+    "interpretation": "The exact algebraic saddle becomes gapless as Y tends to zero. A canonically propagating q cannot be integrated out uniformly as a local auxiliary field; q must be a genuine constrained variable or its gradient sector must scale away consistently.",
+    "measured_power_in_Y": -0.5000000000000003
+  },
+  "old_vs_new": {
+    "new_collective_coordinate": {
+      "carrier": "nonnegative squared amplitude s=q^2",
+      "gain": "the half-power follows classically at a tricritical sextic point",
+      "operator": "stationary nonlinear constitutive response",
+      "source_mass_exponent_in_deep_spherical_limit": 0.5
+    },
+    "previous_fixed_poles": {
+      "carrier": "finite set of canonical modes with positive fixed masses",
+      "failure": "no finite source-independent pole sum changes M into sqrt(M)",
+      "operator": "quadratic Green functions and additive Yukawa exchange",
+      "source_mass_exponent": 1.0
+    }
+  },
+  "physical_gates": {
+    "a0_matter_normalization_slip_and_lensing_derived": false,
+    "all_order_saturation_to_selector_below_one_derived": false,
+    "collective_amplitude_q_identified_in_bulk_spectrum": false,
+    "physical_completion": false,
+    "positive_sextic_normalization_derived": false,
+    "q_is_auxiliary_or_gradient_terms_are_controlled": false,
+    "q_squared_times_Y_vertex_derived_from_constraint_action": false,
+    "quadratic_relevant_coupling_m2_vanishes_without_data_tuning": false,
+    "quartic_relevant_coupling_u4_vanishes_without_data_tuning": false
+  },
+  "relevant_deformation_tests": {
+    "interpretation": "Any positive u4 changes the asymptotic P power from 3/2 to 2; any positive m2 removes the branch below Y=m2. Both relevant couplings must therefore vanish by a microscopic mechanism, not by fitting the exposed galaxy target.",
+    "mass_threshold_branch_inactive_below_threshold": true,
+    "mass_threshold_test_value": 1e-06,
+    "quartic_contaminated_deep_P_power": 1.9999999386842793,
+    "quartic_test_value": 0.2
+  },
+  "schema": "holo.tricritical-constitutive-bridge.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "collector_envelope": {
+      "path": "first_principles_audit/prediction_factory/artifacts/collector_legendre_envelope.json",
+      "sha256": "7dab0a5dfc092532b78f2e720d40ba26cb5f19c0b068a89ecf2d20e36880aff8"
+    },
+    "effective_action": {
+      "path": "first_principles_audit/artifacts/holo_effective_action.json",
+      "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+    },
+    "interface": {
+      "path": "first_principles_audit/artifacts/interface_action_derivation.json",
+      "sha256": "ee56f159c28beba211ffb0838f76dab4e0e2688f9ac56f5fa1a0cb12bd241cf3"
+    },
+    "observational_inputs_read": [],
+    "soft_scaling": {
+      "path": "first_principles_audit/prediction_factory/artifacts/soft_mode_cubic_scaling.json",
+      "sha256": "d5cc100b793e835ba1f998f97ecc2e60cd0c9ff52a1adef5c583da6f7e8b9ca2"
+    }
+  },
+  "title": "Tricritical collective-amplitude bridge to P(Y)"
+}

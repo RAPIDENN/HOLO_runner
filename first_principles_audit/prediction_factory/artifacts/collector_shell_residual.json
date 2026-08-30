@@ -1,0 +1,439 @@
+{
+  "anchors": [
+    {
+      "W_gap": 3.3333283333385007e-19,
+      "W_interaction": 4.999990000010834e-25,
+      "X": 1.0000010000004166e-12,
+      "epsilon_gap": 1.0000000000005,
+      "epsilon_interaction": 2.0000013332133193e-06,
+      "epsilon_required": 1.0000020000018333,
+      "s": 9.999995000001667e-07
+    },
+    {
+      "W_gap": 1.2445602467696942e-18,
+      "W_interaction": 2.8961452621178497e-24,
+      "X": 2.406723141316875e-12,
+      "epsilon_gap": 1.0000000000012033,
+      "epsilon_interaction": 3.102724213333019e-06,
+      "epsilon_required": 1.0000031027254166,
+      "s": 1.551359298788963e-06
+    },
+    {
+      "W_gap": 4.64679547478336e-18,
+      "W_interaction": 1.6775325597119838e-23,
+      "X": 5.792312247489741e-12,
+      "epsilon_gap": 1.0000000000028961,
+      "epsilon_interaction": 4.813446538687316e-06,
+      "epsilon_required": 1.0000048134494348,
+      "s": 2.4067165114782073e-06
+    },
+    {
+      "W_gap": 1.7349656608042174e-17,
+      "W_interaction": 9.716755612603722e-23,
+      "X": 1.3940488799646768e-11,
+      "epsilon_gap": 1.0000000000069702,
+      "epsilon_interaction": 7.467397444838042e-06,
+      "epsilon_required": 1.000007467404415,
+      "s": 3.7336824585329294e-06
+    },
+    {
+      "W_gap": 6.477802944105279e-17,
+      "W_interaction": 5.628222385792394e-22,
+      "X": 3.355091401397282e-11,
+      "epsilon_gap": 1.0000000000167752,
+      "epsilon_interaction": 1.1584641348427738e-05,
+      "epsilon_required": 1.0000115846581237,
+      "s": 5.792281531711562e-06
+    },
+    {
+      "W_gap": 2.418598851191738e-16,
+      "W_interaction": 3.260023197870494e-21,
+      "X": 8.074789378032481e-11,
+      "epsilon_gap": 1.0000000000403733,
+      "epsilon_interaction": 1.7971993284238152e-05,
+      "epsilon_required": 1.0000179720336575,
+      "s": 8.985902436736146e-06
+    },
+    {
+      "W_gap": 9.059221093089809e-16,
+      "W_interaction": 1.896380118980784e-20,
+      "X": 1.9475421414149265e-10,
+      "epsilon_gap": 1.0000000000973743,
+      "epsilon_interaction": 2.791093836784775e-05,
+      "epsilon_required": 1.0000279110357422,
+      "s": 1.3955241972154232e-05
+    },
+    {
+      "W_gap": 3.3823927646191206e-15,
+      "W_interaction": 1.0984309201450039e-19,
+      "X": 4.687223534145306e-10,
+      "epsilon_gap": 1.000000000234351,
+      "epsilon_interaction": 4.33001494803964e-05,
+      "epsilon_required": 1.0000433003838314,
+      "s": 2.164952790329382e-05
+    },
+    {
+      "W_gap": 1.2628577992963005e-14,
+      "W_interaction": 6.362358550989695e-19,
+      "X": 1.1280966504990125e-09,
+      "epsilon_gap": 1.0000000005640104,
+      "epsilon_interaction": 6.717467622974205e-05,
+      "epsilon_required": 1.0000671752402401,
+      "s": 3.358602202443316e-05
+    },
+    {
+      "W_gap": 4.714987846139549e-14,
+      "W_interaction": 3.685195074946637e-18,
+      "X": 2.7150623799939047e-09,
+      "epsilon_gap": 1.0000000013573898,
+      "epsilon_interaction": 0.00010421342609934214,
+      "epsilon_required": 1.000104214783489,
+      "s": 5.210354555920621e-05
+    },
+    {
+      "W_gap": 1.7603541702729366e-13,
+      "W_interaction": 2.1345095123114458e-17,
+      "X": 6.534581047337948e-09,
+      "epsilon_gap": 1.0000000032667622,
+      "epsilon_interaction": 0.00016167568981617642,
+      "epsilon_required": 1.0001616789565784,
+      "s": 8.083022153798313e-05
+    },
+    {
+      "W_gap": 6.572176400367847e-13,
+      "W_interaction": 1.2363128130800584e-16,
+      "X": 1.5727603953691488e-08,
+      "epsilon_gap": 1.0000000078618299,
+      "epsilon_interaction": 0.00025082473301374364,
+      "epsilon_required": 1.0002508325948436,
+      "s": 0.0001253940187858515
+    },
+    {
+      "W_gap": 2.461468556451075e-12,
+      "W_interaction": 7.191231231258369e-16,
+      "X": 3.793553247451904e-08,
+      "epsilon_gap": 1.0000000189603797,
+      "epsilon_interaction": 0.00038955357454573125,
+      "epsilon_required": 1.0003895725349254,
+      "s": 0.00019473253346084736
+    },
+    {
+      "W_gap": 9.18887918844388e-12,
+      "W_interaction": 4.164898682521874e-15,
+      "X": 9.130998602219061e-08,
+      "epsilon_gap": 1.0000000456274136,
+      "epsilon_interaction": 0.0006043813094376294,
+      "epsilon_required": 1.0006044269368513,
+      "s": 0.0003020841424923484
+    },
+    {
+      "W_gap": 3.429985125988335e-11,
+      "W_interaction": 2.4120050697946957e-14,
+      "X": 2.1979412390710874e-07,
+      "epsilon_gap": 1.000000109794088,
+      "epsilon_interaction": 0.0009377174876059602,
+      "epsilon_required": 1.000937827281694,
+      "s": 0.00046860237740920397
+    },
+    {
+      "W_gap": 1.280153748424089e-10,
+      "W_interaction": 1.3967204038152891e-13,
+      "X": 5.291194924300994e-07,
+      "epsilon_gap": 1.0000002641752694,
+      "epsilon_interaction": 0.001454988762582543,
+      "epsilon_required": 1.001455252937852,
+      "s": 0.0007268772995868279
+    },
+    {
+      "W_gap": 4.776824496735429e-10,
+      "W_interaction": 8.086764816992211e-13,
+      "X": 1.273952719589035e-06,
+      "epsilon_gap": 1.0000006355408189,
+      "epsilon_interaction": 0.00225781636691913,
+      "epsilon_required": 1.002258451907738,
+      "s": 0.0011274227432186005
+    },
+    {
+      "W_gap": 1.7875717239631597e-09,
+      "W_interaction": 4.701031515420746e-12,
+      "X": 3.074522510687953e-06,
+      "epsilon_gap": 1.0000015318840452,
+      "epsilon_interaction": 0.0035078934949432927,
+      "epsilon_required": 1.0035094253789885,
+      "s": 0.0017503629443521383
+    },
+    {
+      "W_gap": 6.664586615034202e-09,
+      "W_interaction": 2.720178643782177e-11,
+      "X": 7.406661170311479e-06,
+      "epsilon_gap": 1.0000036832529515,
+      "epsilon_interaction": 0.0054455253123630865,
+      "epsilon_required": 1.0054492085653146,
+      "s": 0.002714133281422025
+    },
+    {
+      "W_gap": 2.4827736744672606e-08,
+      "W_interaction": 1.5730992011347652e-10,
+      "X": 1.7852471650525552e-05,
+      "epsilon_gap": 1.000008851267561,
+      "epsilon_interaction": 0.008456462858341673,
+      "epsilon_required": 1.0084653141259026,
+      "s": 0.004207447381332376
+    },
+    {
+      "W_gap": 9.237734906715791e-08,
+      "W_interaction": 9.089390790631801e-10,
+      "X": 4.306579985582507e-05,
+      "epsilon_gap": 1.0000212529651773,
+      "epsilon_interaction": 0.013139542800764348,
+      "epsilon_required": 1.0131607957659416,
+      "s": 0.006519691867182677
+    },
+    {
+      "W_gap": 3.4305621368527044e-07,
+      "W_interaction": 5.244767095843182e-09,
+      "X": 0.00010402125031206513,
+      "epsilon_gap": 1.0000509652838259,
+      "epsilon_interaction": 0.020433880819536565,
+      "epsilon_required": 1.0204848461033624,
+      "s": 0.010096195576152378
+    },
+    {
+      "W_gap": 1.2702379151247143e-06,
+      "W_interaction": 3.020036214332055e-08,
+      "X": 0.00025175154049090456,
+      "epsilon_gap": 1.0001219719261076,
+      "epsilon_interaction": 0.03182118151279156,
+      "epsilon_required": 1.0319431534388992,
+      "s": 0.01561917825514541
+    },
+    {
+      "W_gap": 4.6968550308224e-06,
+      "W_interaction": 1.7408074243052202e-07,
+      "X": 0.0006124827858337794,
+      "epsilon_gap": 1.0002916139551616,
+      "epsilon_interaction": 0.04971556805700161,
+      "epsilon_required": 1.0500071820121633,
+      "s": 0.02415187257795936
+    },
+    {
+      "W_gap": 1.719151181719166e-05,
+      "W_interaction": 9.942852190861147e-07,
+      "X": 0.001493974327441908,
+      "epsilon_gap": 1.0006923456687065,
+      "epsilon_interaction": 0.07785656464239032,
+      "epsilon_required": 1.0785489103110968,
+      "s": 0.037217881185498784
+    },
+    {
+      "W_gap": 6.225635531356601e-05,
+      "W_interaction": 5.636894304661075e-06,
+      "X": 0.0036709406376814603,
+      "epsilon_gap": 1.0016313077450931,
+      "epsilon_interaction": 0.12260440805461137,
+      "epsilon_required": 1.1242357157997045,
+      "s": 0.05714259930336917
+    },
+    {
+      "W_gap": 0.00022182792777241354,
+      "W_interaction": 3.160267182499634e-05,
+      "X": 0.009122545439000363,
+      "epsilon_gap": 1.003798203652234,
+      "epsilon_interaction": 0.19482810352837943,
+      "epsilon_required": 1.1986263071806134,
+      "s": 0.08724009201881901
+    },
+    {
+      "W_gap": 0.0007713889012650396,
+      "W_interaction": 0.00017428804511735184,
+      "X": 0.023066155273189205,
+      "epsilon_gap": 1.008679870521193,
+      "epsilon_interaction": 0.31429390950722147,
+      "epsilon_required": 1.3229737800284145,
+      "s": 0.1320419675506639
+    },
+    {
+      "W_gap": 0.0025946467751143537,
+      "W_interaction": 0.0009425457630710776,
+      "X": 0.06002276068015478,
+      "epsilon_gap": 1.0193014117404653,
+      "epsilon_interaction": 0.5207163942993083,
+      "epsilon_required": 1.5400178060397736,
+      "s": 0.1974218021802695
+    },
+    {
+      "W_gap": 0.008250826634778469,
+      "W_interaction": 0.004911178358834777,
+      "X": 0.16216019970163592,
+      "epsilon_gap": 1.0409432128560687,
+      "epsilon_interaction": 0.8996362468900321,
+      "epsilon_required": 1.9405794597461008,
+      "s": 0.28907226153872806
+    },
+    {
+      "W_gap": 0.024278587704191223,
+      "W_interaction": 0.024465222059719502,
+      "X": 0.4646869036227162,
+      "epsilon_gap": 1.0811600161303179,
+      "epsilon_interaction": 1.6699808917538255,
+      "epsilon_required": 2.7511409078841433,
+      "s": 0.41098294426765375
+    },
+    {
+      "W_gap": 0.06379456664094973,
+      "W_interaction": 0.114684130405006,
+      "X": 1.4493633742389862,
+      "epsilon_gap": 1.1461571762841083,
+      "epsilon_interaction": 3.4744134570752103,
+      "epsilon_required": 4.620570633359319,
+      "s": 0.5600680965271639
+    },
+    {
+      "W_gap": 0.14242443260988502,
+      "W_interaction": 0.4938178319122287,
+      "X": 5.076182999559761,
+      "epsilon_gap": 1.2323827773031157,
+      "epsilon_interaction": 8.552703722426287,
+      "epsilon_required": 9.785086499729402,
+      "s": 0.720255031078118
+    },
+    {
+      "W_gap": 0.2555400665453661,
+      "W_interaction": 1.877302635690098,
+      "X": 20.556065693015327,
+      "epsilon_gap": 1.319859407833692,
+      "epsilon_interaction": 26.38265581703165,
+      "epsilon_required": 27.702515224865344,
+      "s": 0.8614109683810071
+    },
+    {
+      "W_gap": 0.3581692062656544,
+      "W_interaction": 5.917839237310234,
+      "X": 97.58675725312328,
+      "epsilon_gap": 1.3817512805326577,
+      "epsilon_interaction": 105.94648112737117,
+      "epsilon_required": 107.32823240790383,
+      "s": 0.9535389877994709
+    },
+    {
+      "W_gap": 0.4081897983808545,
+      "W_interaction": 13.90797437855615,
+      "X": 522.8542821845839,
+      "epsilon_gap": 1.408177895379128,
+      "epsilon_interaction": 530.5072922841549,
+      "epsilon_required": 531.915470179534,
+      "s": 0.9914459062573159
+    },
+    {
+      "W_gap": 0.41928292995997307,
+      "W_interaction": 22.18163212849073,
+      "X": 2980.628937979614,
+      "epsilon_gap": 1.4137755623444375,
+      "epsilon_interaction": 2982.9117250053655,
+      "epsilon_required": 2984.32550056771,
+      "s": 0.9993804784376821
+    },
+    {
+      "W_gap": 0.4201434653310179,
+      "W_interaction": 25.290375177809434,
+      "X": 17243.670778493317,
+      "epsilon_gap": 1.4142061012036424,
+      "epsilon_interaction": 17242.620478760196,
+      "epsilon_required": 17244.0346848614,
+      "s": 0.9999894482851341
+    },
+    {
+      "W_gap": 0.42015836060363076,
+      "W_interaction": 25.553195290890283,
+      "X": 99878.38104858318,
+      "epsilon_gap": 1.4142135489186762,
+      "epsilon_interaction": 99876.97069085858,
+      "epsilon_required": 99878.3849044075,
+      "s": 0.9999999809725784
+    },
+    {
+      "W_gap": 0.4201583875110215,
+      "W_interaction": 25.555603393510072,
+      "X": 581003.1443946322,
+      "epsilon_gap": 1.414213562372372,
+      "epsilon_interaction": 581004.4121850145,
+      "epsilon_required": 581005.8263985768,
+      "s": 0.9999999999989774
+    }
+  ],
+  "asymptotics": {
+    "deep": "epsilon_gap=1+s^2/2+...; epsilon_int=2s+...; W_gap=s^3/3+...; W_int=s^4/2+...",
+    "measured_deep_Wint_quartic_coefficient": 0.500000542335978,
+    "measured_deep_epsilon_power": 1.0000014504165862,
+    "measured_high_barrier_over_t_four": 0.9999856188701669,
+    "newtonian_selector_limit": "epsilon_int~[-log(1-s)]^4 as s->1; the missing interaction must create a divergent selector-saturation slope",
+    "normalization_dependency": "For a physical gapped-sector prefactor A3, the residual begins W_int=(1-A3)*s^3/3+s^4/2+... .  Thus the statement that the first missing term is quartic is conditional on the normalized inverse-design choice A3=1; A3 is not derived by HOLO.  A nontrivial physical selector map can also change later coefficients.  Positivity is conditional too: as s tends to zero the residual shell cost tends to 1-A3."
+  },
+  "checks": {
+    "all": true,
+    "decomposition_recovers_target_action": true,
+    "deep_interaction_starts_quartic": true,
+    "high_selector_cost_has_log_four_barrier": true,
+    "interaction_potential_monotone": true,
+    "interaction_shell_cost_positive": true,
+    "no_observational_table_read": true,
+    "required_shell_cost_identity": true,
+    "selector_is_exact_first_order_saturation_solution": true,
+    "source_certificates_pass": true
+  },
+  "classification": "exact_inverse_design_of_exposed_target;not_a_microscopic_prediction",
+  "decisive_use": "Compare the gauge-invariant cubic, quartic and higher soft-mode vertices against W_int after independently deriving the selector normalization A3.  Conditional on A3=1, the first new target is a positive +s^4/2 term.  A finite polynomial is insufficient near s=1, where the selector slope must diverge.",
+  "derivation": {
+    "decomposition": "W_target=W_gap+W_int",
+    "gapped_energy_per_shell": "epsilon_gap=sqrt(1+s^2)",
+    "interaction_potential": "W_int'=s^2*epsilon_int",
+    "missing_energy_per_shell": "epsilon_int=epsilon_req-epsilon_gap>0",
+    "required_energy_per_shell": "epsilon_req=X/rho_shell=[-log(1-s)/s]^4",
+    "target_conjugate_gradient": "X(s)=[-log(1-s)]^4/s^2",
+    "target_selector": "s=mu=1-exp(-t)",
+    "three_dimensional_shell_density": "rho_shell(s)=s^2"
+  },
+  "diagnostics": {
+    "maximum_missing_shell_cost": 581004.4121850145,
+    "maximum_target_F_relative_error": 7.49999025145995e-07,
+    "minimum_missing_shell_cost": 2.0000013332133193e-06,
+    "samples": 16037
+  },
+  "physical_gates": {
+    "a0_and_normalization_derived": false,
+    "holo_transport_equation_ds_dt_equals_one_minus_s_derived": false,
+    "nonpolynomial_saturation_barrier_from_holo_derived": false,
+    "optical_depth_t_squared_equals_gN_over_a0_derived": false,
+    "physical_completion": false,
+    "physical_selector_s_equals_mu_equals_kmax_over_m_derived": false,
+    "positive_quartic_from_holo_vertex_derived": false,
+    "s_times_X_coupling_derived": false,
+    "stationary_occupation_derived": false
+  },
+  "schema": "holo.collector-shell-residual.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "scipy": "1.15.3"
+  },
+  "sources": {
+    "collector_action": {
+      "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+      "sha256": "6d109eef26cd4f082af6165504905926a52c436bf30275abbce0e6584b65f12b"
+    },
+    "observational_inputs_read": [],
+    "phase_space_bridge": {
+      "path": "first_principles_audit/prediction_factory/artifacts/phase_space_collector_bridge.json",
+      "sha256": "d1c4933caae7dc05486bc6c11d45225cbe05bcea34e44883a344e4b2e5f3f488"
+    }
+  },
+  "title": "Shell-by-shell residual between gapped occupation and collector target",
+  "transport_equivalence": {
+    "collector_parameter": "t=sqrt(g_N/a0)",
+    "equation": "ds/dt=1-s with s(0)=0",
+    "evidence_boundary": "This is an exact reformulation of the exposed interpolation law, not evidence that breathing quanta physically absorb.",
+    "maximum_analytic_transport_residual": 1.1102230246251565e-16,
+    "optical_reading": "s is mathematically identical to the captured fraction after dimensionless optical depth t; equivalently it is the probability of at least one event in a Poisson process",
+    "solution": "s=1-exp(-t)"
+  }
+}

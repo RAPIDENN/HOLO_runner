@@ -56,8 +56,39 @@ ND_SHOOTING = FACTORY_ROOT / "artifacts" / "nd_ultralight_shooting.json"
 EM_KERNEL = FACTORY_ROOT / "em_kernel_completion.json"
 EM_FINGERPRINT = FACTORY_ROOT / "em_spectral_fingerprint.json"
 ROBIN_FAMILY = FACTORY_ROOT / "artifacts" / "robin_boundary_family.json"
+BREATHING_RESPONSE = FACTORY_ROOT / "artifacts" / "breathing_response.json"
 DESI_DIAGNOSTIC = FACTORY_ROOT / "desi_dr1_growth_diagnostic.json"
 SPARC_CROSSVAL = FACTORY_ROOT / "sparc_crossval_report.json"
+SPARC_PHYSICAL = FACTORY_ROOT / "sparc_physical_audit.json"
+UNIVERSAL_COLLECTOR = (
+    FACTORY_ROOT / "artifacts" / "universal_residual_collector.json"
+)
+NONLINEAR_COLLECTOR_ACTION = (
+    FACTORY_ROOT / "artifacts" / "nonlinear_collector_action.json"
+)
+HOLO_COLLECTOR_EMBEDDING = (
+    FACTORY_ROOT / "artifacts" / "holo_collector_embedding_gate.json"
+)
+AXISYMMETRIC_COLLECTOR = (
+    FACTORY_ROOT / "artifacts" / "derive_axisymmetric_collector_certificate.json"
+)
+AXISYMMETRIC_SOLVER = (
+    FACTORY_ROOT / "artifacts" / "derive_axisymmetric_collector_solver.json"
+)
+JORDAN_SELECTOR = FACTORY_ROOT / "artifacts" / "jordan_selector_embedding.json"
+JORDAN_DEEP_GATE = FACTORY_ROOT / "artifacts" / "jordan_deep_limit_gate.json"
+BPS_RADION_MATTER = (
+    FACTORY_ROOT / "artifacts" / "bps_radion_matter_coupling.json"
+)
+BPS_BISCALAR_MATTER = (
+    FACTORY_ROOT / "artifacts" / "bps_biscalar_matter_geometry.json"
+)
+BPS_VOLUME_CONSTRAINT = (
+    FACTORY_ROOT / "artifacts" / "bps_volume_constraint_selector.json"
+)
+NONLINEAR_ROUTE_MATRIX = (
+    FACTORY_ROOT / "artifacts" / "holo_nonlinear_route_matrix.json"
+)
 MASTER_REGISTRY = FACTORY_ROOT / "MASTER_PREDICTION_REGISTRY.json"
 COMPARISON = PAPER_ROOT / "build" / "original_revision_comparison.json"
 
@@ -90,8 +121,21 @@ def main() -> int:
         EM_KERNEL,
         EM_FINGERPRINT,
         ROBIN_FAMILY,
+        BREATHING_RESPONSE,
         DESI_DIAGNOSTIC,
         SPARC_CROSSVAL,
+        SPARC_PHYSICAL,
+        UNIVERSAL_COLLECTOR,
+        NONLINEAR_COLLECTOR_ACTION,
+        HOLO_COLLECTOR_EMBEDDING,
+        AXISYMMETRIC_COLLECTOR,
+        AXISYMMETRIC_SOLVER,
+        JORDAN_SELECTOR,
+        JORDAN_DEEP_GATE,
+        BPS_RADION_MATTER,
+        BPS_BISCALAR_MATTER,
+        BPS_VOLUME_CONSTRAINT,
+        NONLINEAR_ROUTE_MATRIX,
         MASTER_REGISTRY,
         COMPARISON,
         SOURCE / "main.tex",
@@ -108,6 +152,7 @@ def main() -> int:
     ).stdout
     text = TEXT.read_text(encoding="utf-8")
     text_lower = text.lower()
+    text_normalized = re.sub(r"\s+", " ", text_lower)
     log = LOG.read_text(encoding="utf-8", errors="replace")
     tex = (SOURCE / "main.tex").read_text(encoding="utf-8")
     summary = json.loads(SUMMARY.read_text(encoding="utf-8"))
@@ -120,8 +165,37 @@ def main() -> int:
     em_kernel = json.loads(EM_KERNEL.read_text(encoding="utf-8"))
     em_fingerprint = json.loads(EM_FINGERPRINT.read_text(encoding="utf-8"))
     robin_family = json.loads(ROBIN_FAMILY.read_text(encoding="utf-8"))
+    breathing_response = json.loads(BREATHING_RESPONSE.read_text(encoding="utf-8"))
     desi = json.loads(DESI_DIAGNOSTIC.read_text(encoding="utf-8"))
     sparc_crossval = json.loads(SPARC_CROSSVAL.read_text(encoding="utf-8"))
+    sparc_physical = json.loads(SPARC_PHYSICAL.read_text(encoding="utf-8"))
+    universal_collector = json.loads(
+        UNIVERSAL_COLLECTOR.read_text(encoding="utf-8")
+    )
+    nonlinear_collector_action = json.loads(
+        NONLINEAR_COLLECTOR_ACTION.read_text(encoding="utf-8")
+    )
+    holo_collector_embedding = json.loads(
+        HOLO_COLLECTOR_EMBEDDING.read_text(encoding="utf-8")
+    )
+    axisymmetric_collector = json.loads(
+        AXISYMMETRIC_COLLECTOR.read_text(encoding="utf-8")
+    )
+    axisymmetric_solver = json.loads(AXISYMMETRIC_SOLVER.read_text(encoding="utf-8"))
+    jordan_selector = json.loads(JORDAN_SELECTOR.read_text(encoding="utf-8"))
+    jordan_deep_gate = json.loads(JORDAN_DEEP_GATE.read_text(encoding="utf-8"))
+    bps_radion_matter = json.loads(
+        BPS_RADION_MATTER.read_text(encoding="utf-8")
+    )
+    bps_biscalar_matter = json.loads(
+        BPS_BISCALAR_MATTER.read_text(encoding="utf-8")
+    )
+    bps_volume_constraint = json.loads(
+        BPS_VOLUME_CONSTRAINT.read_text(encoding="utf-8")
+    )
+    nonlinear_route_matrix = json.loads(
+        NONLINEAR_ROUTE_MATRIX.read_text(encoding="utf-8")
+    )
     master_registry = json.loads(MASTER_REGISTRY.read_text(encoding="utf-8"))
     comparison = json.loads(COMPARISON.read_text(encoding="utf-8"))
 
@@ -137,24 +211,16 @@ def main() -> int:
         "delta_correlation": "0.999999905",
         "spectrum_value": "1.5455",
         "ir_proxy": "0.203",
-        "sparc_parameter_a": "0.13983",
-        "sparc_parameter_n": "2.21605",
-        "sparc_parameter_m": "1.20433",
-        "sparc_parameter_gamma": "0.23356",
-        "sparc_parameter_sigma": "0.60488",
         "planck_omega": "0.315",
         "planck_hubble": "67.4",
         "planck_sigma8": "0.811",
-        "sparc_wins": "150/175",
-        "sparc_sigma_wins": "149/175",
         "boss_ed": "2.266",
         "boss_lcdm": "2.443",
         "boss_delta": "0.177",
         "nist_null": "22.59",
         "doi": "10.5281/zenodo.18224589",
-        "evidence_label": "global in-sample calibration",
         "forward_boundary": "forward predictive model",
-        "comparison_scope": "not benchmarked",
+        "comparison_scope": "not a benchmark",
         "conditional_interface": "compact-interval matter",
         "derived_beta_zero": "0.0542901",
         "derived_force_fraction": "5.89483",
@@ -182,23 +248,56 @@ def main() -> int:
         "robin_ir_no_go": "0.002744976",
         "robin_avoided_gap": "0.0119229",
         "robin_identity": "Hellmann",
-        "sparc_crossval_split": "122 galaxies",
-        "sparc_rar_score": "60.99",
-        "sparc_rar_wins": "8/27",
+        "sparc_crossval_split": "122/26/27",
+        "sparc_repaired_rar_acceleration": "1.14414",
+        "sparc_repaired_rar_score": "36.75",
+        "sparc_repaired_p5_score": "290.98",
+        "sparc_p6_corrected_score": "414.20",
+        "sparc_stiff_score": "371.58",
+        "sparc_repaired_newton_score": "414.23",
+        "sparc_repaired_rar_velocity_error": "14.5",
+        "sparc_holo_force_gate": "not relabelled as a HOLO force law",
+        "sparc_stiff_is_current": "current physical curve",
+        "sparc_finite_disk": "geometry-matched finite-range scan",
+        "sparc_residual_crossing": "6.25719",
+        "sparc_600_radius_audit": "390.85",
+        "sparc_600_range_audit": "371.72",
+        "sparc_collector_ceiling": "23.9192",
+        "sparc_collector_scope": "one law works at all physical length scales",
+        "collector_action_inversion": "3.46",
+        "collector_action_degeneracy": "degenerately",
+        "collector_embedding_scaling": "regular weak-field branch obeys",
+        "axisymmetric_curl": "2.11",
+        "collector_mass_small": "2.955",
+        "collector_mass_large": "2.955",
+        "collector_milky_way_radius": "8.55",
+        "collector_action_boundary": "not a result of the existing bulk",
+        "axisymmetric_defined_source_gate": "NGC 2403 and NGC 3198 pass",
+        "axisymmetric_solver_score": "237.10",
+        "selector_frame_identity": "gives the exact Jordan-frame terms",
+        "selector_direct_obstruction": "frame map becomes singular",
+        "selector_surviving_architecture": (
+            "tensor term nondegenerate"
+        ),
+        "selector_early_linearization": "concrete reason the nonlinear branch",
         "desi_holo_diagonal": "2.6917",
         "desi_lcdm_diagonal": "2.4189",
         "wilson_fail_closed": "fails closed",
+        "p7_static_recovery": "stiff force in Eq.",
+        "p7_dynamic_kernel": "radial Green function",
+        "p7_frequency_comb": "4.214303",
+        "p7_causal_timing": "signal front cannot arrive before",
+        "nist_shared_reference": "engineering observable with a shared reference",
     }
     for name, needle in required_text.items():
-        record(checks, f"text:{name}", needle.lower() in text_lower, needle)
+        record(checks, f"text:{name}", needle.lower() in text_normalized, needle)
 
-    for number in range(1, 13):
+    for number in range(1, 16):
         marker = f"Figure {number}:"
         record(checks, f"figure_caption:{number}", marker in text, marker)
 
     original_assets = [
         "glueball_ratio.png",
-        "sparc_rotation_curves_forward.png",
         "fig_spectroscopy.pdf",
         "multiarm_svd_diagnostic.png",
         "fig_single_arm_modal_responses.pdf",
@@ -207,6 +306,24 @@ def main() -> int:
     ]
     for asset in original_assets:
         record(checks, f"original_figure:{asset}", asset in tex, asset)
+    record(
+        checks,
+        "new_sparc_physical_figure",
+        "fig_sparc_physical_audit.png" in tex,
+        "fig_sparc_physical_audit.png",
+    )
+    record(
+        checks,
+        "new_nonlinear_collector_action_figure",
+        "fig_nonlinear_collector_action.png" in tex,
+        "fig_nonlinear_collector_action.png",
+    )
+    record(
+        checks,
+        "new_nonlinear_route_map_figure",
+        "fig_nonlinear_route_map.png" in tex,
+        "fig_nonlinear_route_map.png",
+    )
     record(
         checks,
         "new_effective_figure",
@@ -236,6 +353,12 @@ def main() -> int:
         "new_em_double_comb_figure",
         "fig_em_double_comb.png" in tex,
         "fig_em_double_comb.png",
+    )
+    record(
+        checks,
+        "new_breathing_response_figure",
+        "fig_breathing_response.png" in tex,
+        "fig_breathing_response.png",
     )
 
     forbidden_text = [
@@ -311,6 +434,15 @@ def main() -> int:
     )
     record(
         checks,
+        "breathing_response_certificate",
+        breathing_response["passes"]["all"]
+        and breathing_response["passes"]["static_p6_recovered"]
+        and breathing_response["observational_inputs_read"] == []
+        and breathing_response["historical_frequency_values_read"] == [],
+        breathing_response["passes"],
+    )
+    record(
+        checks,
         "desi_diagnostic_certificate",
         desi["passes"]["all"],
         desi["passes"],
@@ -324,9 +456,192 @@ def main() -> int:
     )
     record(
         checks,
+        "sparc_physical_audit_certificate",
+        sparc_physical["passes"]["all"]
+        and not sparc_physical["adjudication"]["legacy_p5_accepted"]
+        and not sparc_physical["adjudication"][
+            "legacy_p5_represents_corrected_completion"
+        ]
+        and sparc_physical["adjudication"]["p6_current_curve_replaces_legacy_p5"]
+        and sparc_physical["adjudication"]["p6_corrected_benchmark_status"]
+        == "evaluated_exact_long_range_convolution_envelope"
+        and sparc_physical["adjudication"]["corrected_completion_test_status"]
+        == "stiff_force_and_effective_disk_scan_complete_no_finite_scale"
+        and sparc_physical["adjudication"]["holo_acceleration_law_status"]
+        == "action_derived_stiff_force_available_but_empirically_insufficient",
+        sparc_physical["adjudication"],
+    )
+    record(
+        checks,
         "master_registry_evidence_label",
         "no new physical detection" in master_registry["global_classification"],
         master_registry["global_classification"],
+    )
+    record(
+        checks,
+        "universal_collector_certificate",
+        universal_collector["passes"]["all"]
+        and "not_action_derivation" in universal_collector["classification"]
+        and universal_collector["train_fit"]["per_galaxy_parameters"] == 0
+        and universal_collector["six_hundred_disambiguation"]
+        ["observed_radius_thresholds_test"][1]["stiff_long_range"]
+        ["chi2_per_point"]
+        > 100.0
+        and universal_collector["six_hundred_disambiguation"]
+        ["global_yukawa_range_test"]["test"][1]["chi2_per_point"]
+        > 100.0,
+        universal_collector["passes"],
+    )
+    record(
+        checks,
+        "nonlinear_collector_action_certificate",
+        nonlinear_collector_action["passes"]["all"]
+        and "not_derived_from_current_holo_bulk"
+        in nonlinear_collector_action["classification"]
+        and nonlinear_collector_action["source"]["per_galaxy_parameters"] == 0
+        and nonlinear_collector_action["action_reconstruction"]["diagnostics"]
+        ["minimum_mu"]
+        > 0.0
+        and nonlinear_collector_action["action_reconstruction"]["diagnostics"]
+        ["minimum_longitudinal_elliptic_eigenvalue"]
+        > 0.0
+        and nonlinear_collector_action["action_reconstruction"]["diagnostics"]
+        ["degenerately_elliptic_as_x_tends_to_zero"]
+        and not nonlinear_collector_action["action_reconstruction"]["diagnostics"]
+        ["uniformly_elliptic_on_x_greater_than_zero"]
+        and nonlinear_collector_action["numerical_consistency_checks"]
+        ["constitutive_inversion_closure_max_relative_error"]
+        < 1.0e-8,
+        nonlinear_collector_action["passes"],
+    )
+    record(
+        checks,
+        "holo_collector_embedding_gate",
+        holo_collector_embedding["passes"]["audit_complete"]
+        and not holo_collector_embedding["passes"]
+        ["linearized_current_sector_can_embed_collector"]
+        and "full_nonlinear_holo_completion_unresolved"
+        in holo_collector_embedding["classification"]
+        and holo_collector_embedding["scope"]
+        ["observational_inputs_read_by_this_gate"]
+        == [],
+        holo_collector_embedding["passes"],
+    )
+    record(
+        checks,
+        "axisymmetric_collector_source_gate",
+        axisymmetric_collector["passes"]["all"]
+        and not axisymmetric_collector["sparc_source_identifiability"]
+        ["physical_axisymmetric_pde_identifiable"]
+        and axisymmetric_collector["sparc_source_identifiability"]["status"]
+        == "FAIL_CLOSED_MISSING_UNIQUE_3D_BARYON_SOURCE"
+        and axisymmetric_collector["analytic_and_numerical_controls"]
+        ["spherical_plummer_cylindrical_finite_volume"]
+        ["coarse_to_fine_l2_ratio"]
+        > 3.5,
+        axisymmetric_collector["passes"],
+    )
+    eligible = axisymmetric_solver["newtonian_source_gate"]["by_galaxy"]
+    record(
+        checks,
+        "axisymmetric_defined_source_solver_certificate",
+        not axisymmetric_solver["passes"]["all"]
+        and axisymmetric_solver["audit_checks"]["all"]
+        and axisymmetric_solver["passes"]["all_galaxy_solves_converged"]
+        and eligible["NGC2403"]
+        and eligible["NGC3198"]
+        and not eligible["DDO154"]
+        and not eligible["NGC2841"]
+        and not axisymmetric_solver["passes"]
+        ["operator_is_independent_of_vobs_genealogy"],
+        axisymmetric_solver["passes"],
+    )
+    record(
+        checks,
+        "jordan_selector_identity_certificate",
+        jordan_selector["checks"]["all"]
+        and not jordan_selector["physical_gates"]["physical_completion"]
+        and not jordan_selector["physical_gates"]
+        ["weak_field_constraint_reduction_equals_local_s_times_X"],
+        jordan_selector["physical_gates"],
+    )
+    record(
+        checks,
+        "jordan_deep_obstruction_certificate",
+        jordan_deep_gate["checks"]["all"]
+        and not jordan_deep_gate["physical_gates"]
+        ["direct_s_as_full_planck_coefficient_completion"]
+        and abs(jordan_deep_gate["diagnostics"]["selector_power_in_t"] - 1.0)
+        < 2.0e-5
+        and abs(jordan_deep_gate["diagnostics"]["conformal_power_in_t"] + 0.5)
+        < 2.0e-5,
+        jordan_deep_gate["physical_gates"],
+    )
+    record(
+        checks,
+        "bps_radion_matter_metric_certificate",
+        bps_radion_matter["checks"]["all"]
+        and not bps_radion_matter["q2Y_gate"]["q2Y_derived"]
+        and not bps_radion_matter["q2Y_gate"]
+        ["declared_separation_slice_minimal_lower_brane_passes"]
+        and not bps_radion_matter["q2Y_gate"]
+        ["declared_separation_slice_minimal_upper_brane_passes"]
+        and not bps_radion_matter["full_moduli_space_gate"]
+        ["unique_canonical_q_selected"],
+        bps_radion_matter["q2Y_gate"],
+    )
+    record(
+        checks,
+        "bps_biscalar_matter_geometry_certificate",
+        bps_biscalar_matter["checks"]["all"]
+        and bps_biscalar_matter["physical_gates"]["physical_moduli_count"] == 2
+        and bps_biscalar_matter["physical_gates"]
+        ["finite_endpoint_physical_mode_count_resolved_here"]
+        and not bps_biscalar_matter["physical_gates"]
+        ["unique_tangent_selected_by_BPS_geometry"]
+        and not bps_biscalar_matter["physical_gates"]
+        ["existing_positive_diagonal_p2_or_p6_completion_selects_silent_tangent"]
+        and not bps_biscalar_matter["physical_gates"]
+        ["matter_Y_convention_fixed"]
+        and not bps_biscalar_matter["physical_gates"]
+        ["physical_q2Y_selector_derived"]
+        and min(
+            bps_biscalar_matter["moduli_metric"]["Khat_eigenvalues"]
+        )
+        > 0.0,
+        bps_biscalar_matter["physical_gates"],
+    )
+    record(
+        checks,
+        "bps_volume_constraint_candidate_certificate",
+        bps_volume_constraint["checks"]["all"]
+        and bps_volume_constraint["selector_kernel_comparison"]["lower"]
+        ["covariant_kernel_angle_degrees"]
+        < 0.1
+        and bps_volume_constraint["selector_kernel_comparison"]["upper"]
+        ["covariant_kernel_angle_degrees"]
+        > 80.0
+        and bps_volume_constraint["lower_exact_alignment_fixed_jet_diagnostic"]
+        ["F_level_set_curve"]["selector_second_derivative"]
+        > 0.0
+        and not bps_volume_constraint["physical_gates"]
+        ["global_F_constraint_present_in_current_repository_action"]
+        and not bps_volume_constraint["physical_gates"]
+        ["minimal_minus_Y_over_C_has_requested_negative_q2Y_sign"]
+        and not bps_volume_constraint["physical_gates"]
+        ["shifted_s_equals_C_minus_1_operator_selected_by_current_action"]
+        and not bps_volume_constraint["physical_gates"]
+        ["physical_q2Y_vertex_derived"],
+        bps_volume_constraint["physical_gates"],
+    )
+    record(
+        checks,
+        "nonlinear_route_matrix_certificate",
+        nonlinear_route_matrix["passes"]["all"]
+        and nonlinear_route_matrix["prototype_selection"]
+        ["leading_research_hypotheses"][0]
+        == "derivative_constitutive_scalar",
+        nonlinear_route_matrix["prototype_selection"],
     )
     record(
         checks,
@@ -407,8 +722,18 @@ def main() -> int:
         "em_kernel_completion_sha256": sha256(EM_KERNEL),
         "em_spectral_fingerprint_sha256": sha256(EM_FINGERPRINT),
         "robin_boundary_family_sha256": sha256(ROBIN_FAMILY),
+        "breathing_response_sha256": sha256(BREATHING_RESPONSE),
         "desi_diagnostic_sha256": sha256(DESI_DIAGNOSTIC),
         "sparc_crossval_sha256": sha256(SPARC_CROSSVAL),
+        "sparc_physical_audit_sha256": sha256(SPARC_PHYSICAL),
+        "axisymmetric_solver_sha256": sha256(AXISYMMETRIC_SOLVER),
+        "jordan_selector_sha256": sha256(JORDAN_SELECTOR),
+        "jordan_deep_gate_sha256": sha256(JORDAN_DEEP_GATE),
+        "bps_biscalar_matter_geometry_sha256": sha256(BPS_BISCALAR_MATTER),
+        "bps_volume_constraint_selector_sha256": sha256(
+            BPS_VOLUME_CONSTRAINT
+        ),
+        "nonlinear_route_matrix_sha256": sha256(NONLINEAR_ROUTE_MATRIX),
         "master_prediction_registry_sha256": sha256(MASTER_REGISTRY),
         "original_revision_comparison_sha256": sha256(COMPARISON),
         "checks": checks,

@@ -1,0 +1,213 @@
+{
+  "checks": {
+    "all": true,
+    "bmp_integrating_factor_identity": true,
+    "bmp_mass_weight_equals_two_thirds_w": true,
+    "bmp_stiffness_weight_equals_two_thirds_p": true,
+    "canonical_speed_identity": true,
+    "certified_inputs": true,
+    "epsilon_superpotential_identity": true,
+    "no_observational_tables_read": true,
+    "stiff_modes_map_to_bmp_bulk_equation": true,
+    "stored_modes_have_bmp_gram_two_thirds_identity": true,
+    "stored_spectrum_is_unchanged": true
+  },
+  "classification": "exact_local_operator_match_and_primary_S3_kernel_identified;compact_boundary_completion_pending",
+  "convention_map": {
+    "bmp_D2_in_repository_variables": "D2=[d_u+2*(W_H,chichi-W_H,chi^2/W_H-W_H/3)]d_u",
+    "bmp_ratio": "W_BMP,phi/W_BMP=2*W_H,chi/W_H",
+    "field": "phi_BMP=chi/2",
+    "potential": "V_BMP=V_H/4",
+    "repository_action": "S5=(2*kappa5^2)^(-1) integral sqrt(-G) [R-(partial chi)^2/2-V_H(chi)]",
+    "repository_background": "chi'=W_H,chi; A'=-W_H/6; V_H=W_H,chi^2/2-W_H^2/3",
+    "superpotential": "W_BMP=W_H/4"
+  },
+  "criteria": {
+    "bmp_gram_max_abs": 1e-12,
+    "canonical_speed_identity_max_relative": 1e-12,
+    "epsilon_identity_max_relative": 1e-12,
+    "integrating_factor_log_derivative_max_relative": 0.001,
+    "spectrum_max_relative": 1e-10,
+    "stiff_map_strong_equation_peak_relative": 0.0025,
+    "stiff_map_strong_equation_rms_relative": 0.0005,
+    "weight_factorization_max_relative": 1e-12
+  },
+  "cubic_calculation": {
+    "available_bulk_result": "BMP Eq. (5.19) gives an explicitly Bose-symmetric radial holographic three-point kernel X_123 built from W, A, external momenta and radial derivatives of three linear profiles. It is an independent bulk EOM/correlator oracle, not by itself the compact cubic action.",
+    "boundary_identifiability": "The background fixes each brane potential and its first derivative; S2 fixes or selects a second-derivative branch. A cubic deformation eta_i*(chi-chi_i)^3/6 leaves all those data unchanged but alters finite-gamma S3. Setting eta_i=0 or taking a controlled stiff limit is an additional microscopic choice, not information encoded by the bulk background.",
+    "correct_execution_order": [
+      "evaluate the unreduced quadratic source J_tilde_a using BMP Eqs. (4.6)-(4.9) on the certified f_n",
+      "use the transformed stiff tilde-a_n profiles, not raw g_n or the conditional Neumann f_n, for the physical stiff candidate",
+      "derive the finite-endpoint cubic GHY or junction completion selected by the stiff compact branch",
+      "verify the endpoint cancellation associated with the BMP field redefinition and integration by parts",
+      "recover the certified S2 normalization in the same variables",
+      "project the complete bulk-plus-boundary source to obtain c_abc with nested mode and grid convergence",
+      "derive S4 independently before assigning the sign of the total Y^2 coefficient"
+    ],
+    "direct_S4_requirement": "C_Y2_total=C_Y2_direct_S4-0.5*c^T*M^(-2)*c; the primary S3 derivation fixes only the exchange term.",
+    "why_it_is_not_yet_a_physical_compact_coupling": "Eq. (5.19) follows after a field redefinition and radial integration by parts. BMP verify cancellation of the induced boundary pieces for holographic GPPZ asymptotics. This repository instead selected two finite Neumann endpoints, so its GHY/junction and field-redefinition endpoint terms must be derived and combined before reporting c_abc."
+  },
+  "evidence_boundary": "This certificate establishes an exact local S2 operator match and identifies a primary gauge-invariant holographic three-point kernel. It is not a compact S3 action, a computed compact cubic coupling, a quartic completion, a force law, or observational evidence for a new interaction.",
+  "inputs": {
+    "files": {
+      "boundary_completion": {
+        "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+        "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
+      },
+      "compact_carrier": {
+        "path": "first_principles_audit/artifacts/minimal_probe_completion.json",
+        "sha256": "7a91f42fad2ca24e57340219a7090f824c801ef3c5ede63fa2100e4e6e83ffa6"
+      },
+      "cubic_inventory": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bulk_cubic_vertex_inventory.json",
+        "sha256": "d969c43069fbb7f739b48989b480e46246150bf83ce2153dfceb9415df1f294b"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      },
+      "stiff_force": {
+        "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+        "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "linear_mode_map": {
+    "bmp_a": "a=varphi+W_BMP,phi*h/(4*W_BMP)+O(fields^2)",
+    "bmp_invariant": "tilde_a=(W_BMP/W_BMP,phi)*a",
+    "comoving_gauge": "varphi=0 implies tilde_a=h_BMP/4 at linear order",
+    "consequence": "The certified Neumann f_n are a direct control of the local BMP operator, but they belong to the earlier conditional trace benchmark, are not the microscopic stabilized two-brane modes, and do not yet supply BMP's absolute normalization.",
+    "normalization_distinction": "BMP decomposes h^i_j with delta^i_j*h_BMP/3 in d=4, whereas the repository benchmark labels the isotropic relative trace h_R. For the isotropic representative, H_BMP=0, h_BMP=3*h_R/4 and tilde_a=3*h_R/16, not h_R/4. The constant leaves the local operator and spectrum unchanged but must be restored before absolute couplings.",
+    "repository_trace": "delta_g_mu_nu=(h_R/4)*gbar_mu_nu and h_R(x,u)=sum_n q_n(x) f_n(u)",
+    "stiff_branch": {
+      "boos_variable": "g=exp(2A)*h_44 in the repository warp convention",
+      "common_normalization": "3/(8*sqrt(2*M^3))",
+      "consequence": "The seven stiff g_n profiles are not inserted raw. After this first-principles linear transform they are valid external tilde-a profiles for the BMP bulk S3 source.",
+      "derivation": "Use the Boos gauge relations h_mu_nu=-eta_mu_nu*g/2 and delta_chi=3*exp(-2A)*g'/(2*sqrt(2*M^3)*chi'), then insert them into the BMP invariant tilde_a.",
+      "map": "tilde_a_n=exp(-2A)*[-g_n+W_H*g_n'/chi'^2]",
+      "strong_equation_check": {
+        "maximum_peak_relative": 0.0017973480480510688,
+        "maximum_rms_relative": 0.0002423467369904557,
+        "mode_checks": [
+          {
+            "mass_squared_mu2": 0.08437958323925882,
+            "mode": 0,
+            "peak_relative": 0.0010099875541395961,
+            "rms_relative": 0.0001445391590078388
+          },
+          {
+            "mass_squared_mu2": 1.4986109612990275,
+            "mode": 1,
+            "peak_relative": 0.0017973480480510688,
+            "rms_relative": 0.0002423467369904557
+          },
+          {
+            "mass_squared_mu2": 2.977165889839493,
+            "mode": 2,
+            "peak_relative": 0.001184637022359429,
+            "rms_relative": 0.00016900705100436497
+          },
+          {
+            "mass_squared_mu2": 4.788734739845932,
+            "mode": 3,
+            "peak_relative": 0.0007948211796236171,
+            "rms_relative": 0.0001244302053786885
+          },
+          {
+            "mass_squared_mu2": 7.531866444822457,
+            "mode": 4,
+            "peak_relative": 0.00048486230966850803,
+            "rms_relative": 8.649984380178199e-05
+          },
+          {
+            "mass_squared_mu2": 11.188296473329958,
+            "mode": 5,
+            "peak_relative": 0.0002736674640516253,
+            "rms_relative": 6.408584316744684e-05
+          },
+          {
+            "mass_squared_mu2": 15.690541828462823,
+            "mode": 6,
+            "peak_relative": 0.00013881642174839347,
+            "rms_relative": 5.86695536338847e-05
+          }
+        ]
+      }
+    }
+  },
+  "physical_gates": {
+    "bmp_holographic_three_point_kernel_identified": true,
+    "bmp_linear_comoving_identity_identified": true,
+    "compact_GHY_or_junction_cubic_completion_derived": false,
+    "compact_bulk_S3_action_derived": false,
+    "compact_endpoint_terms_derived": false,
+    "direct_S4_contact_derived": false,
+    "field_redefinition_boundary_cancellation_verified": false,
+    "linear_stiff_to_gauge_invariant_mode_map_identified": true,
+    "physical_S3_complete": false,
+    "physical_compact_modal_couplings_computed": false,
+    "repository_trace_to_bmp_absolute_normalization_identified": false,
+    "same_local_S2_operator_identified": true,
+    "stiff_mode_map_strong_equation_verified": true
+  },
+  "primary_derivation": {
+    "arxiv": "hep-th/0310129v3",
+    "authors": "Massimo Bianchi, Wolfgang Mueck, Maurizio Prisco",
+    "doi": "10.1088/1126-6708/2003/11/052",
+    "scope": "Einstein equations through second perturbative order, which determine the tree-level active-scalar three-point vertex. The paper does not derive the direct quartic S4 contact required here.",
+    "title": "New Results on Holographic Three-Point Functions",
+    "url": "https://arxiv.org/abs/hep-th/0310129",
+    "used_equations": {
+      "active_scalar_equation": "Eqs. (4.7)-(4.9)",
+      "background": "Eq. (2.5)",
+      "bose_symmetric_cubic_kernel": "Eq. (5.19)",
+      "constraint_solution": "Eq. (4.6)",
+      "gauge_invariants": "Eqs. (3.9)-(3.13)",
+      "integrating_factor_identity": "Eq. (5.18)"
+    }
+  },
+  "quadratic_operator_match": {
+    "bmp_self_adjoint_equation": "-(rho_BMP*f')'=mu^2*rho_BMP*exp(-2A)*f",
+    "domain": [
+      0.01023316578330245,
+      1.980980980980981
+    ],
+    "exact_weight_relations": {
+      "rho_BMP": "(2/3)*p",
+      "rho_BMP_exp_minus_2A": "(2/3)*w"
+    },
+    "mass_squared": [
+      0.0,
+      0.8352113485183839,
+      2.3768226551446805,
+      4.553008332365067,
+      7.446889374808497,
+      11.133258976349298,
+      15.637859822128767
+    ],
+    "metrics": {
+      "bmp_gram_minus_two_thirds_identity_max_abs": 1.2212453270876722e-15,
+      "canonical_speed_identity_max_relative": 3.1894650531932333e-16,
+      "epsilon_identity_max_relative": 6.414786536705835e-16,
+      "integrating_factor_log_derivative_max_relative": 0.0005461935289607352,
+      "mass_weight_factorization_max_relative": 7.742663708401901e-16,
+      "rayleigh_spectrum_max_relative": 2.140083021597162e-12,
+      "stiffness_weight_factorization_max_relative": 6.922529511785591e-16
+    },
+    "mode_count": 7,
+    "repository_equation": "-(p*f')'=mu^2*w*f",
+    "samples": 1979
+  },
+  "schema": "holo.gauge-invariant-cubic-route.v1",
+  "silicon_execution_contract": {
+    "launch_gate": "Do not launch hardware runners until the local bulk-plus-boundary reference calculation passes and its exact input hashes are frozen.",
+    "not_a_derivation": "Neither i5 geometry nor a runner label supplies missing boundary terms, a gauge map, or S4.",
+    "role_of_i5": "Run the already-defined deterministic grid and modal projection with bounded arrays and independent residuals."
+  },
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "title": "Gauge-invariant S2-to-S3 route for the HOLO scalar carrier"
+}

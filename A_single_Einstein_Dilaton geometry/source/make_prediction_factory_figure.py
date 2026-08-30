@@ -26,7 +26,7 @@ def load(path: Path):
 
 def main() -> None:
     boundary = load(FACTORY / "artifacts" / "boundary_branch_catalogue.json")
-    sparc = load(FACTORY / "sparc_crossval_report.json")
+    sparc = load(FACTORY / "sparc_physical_audit.json")
     desi = load(FACTORY / "desi_dr1_growth_diagnostic.json")
     kernel = load(PAPER / "artifacts" / "k_em_uv_projector.json")
     em = load(FACTORY / "em_kernel_completion.json")
@@ -94,27 +94,38 @@ def main() -> None:
         color="#555555",
     )
 
-    # B: held-out development split.  Absolute values are intentionally shown.
+    # B: repaired held-out development split. Absolute values are intentionally shown.
     ax = axes[0, 1]
     test = sparc["results"]["test"]
-    labels = ["P5", "Newton", "RAR"]
-    values = [test["models"][key]["chi2_per_point"] for key in ("p5", "newton", "rar")]
-    colors = ["#0072B2", "#999999", "#009E73"]
-    bars = ax.bar(labels, values, color=colors, width=0.62)
+    labels = ["stiff", "P6 trace", "legacy P5", "baryons", "RAR"]
+    values = [
+        test["models"][key]["chi2_per_point"]
+        for key in (
+            "stiff_boundary_long_range_envelope",
+            "p6_corrected_long_range_envelope",
+            "legacy_p5_refit",
+            "newton",
+            "rar",
+        )
+    ]
+    colors = ["#5E3C99", "#CC79A7", "#D55E00", "#999999", "#0072B2"]
+    bars = ax.bar(labels, values, color=colors, width=0.68)
     for bar, value in zip(bars, values):
         ax.text(bar.get_x() + bar.get_width() / 2, value + 6, f"{value:.1f}", ha="center")
     ax.set_ylim(0, max(values) * 1.18)
     ax.set_ylabel(r"test $\chi^2$/velocity point")
-    ax.set_title("B  SPARC retrospective test split", loc="left", fontweight="bold")
+    ax.set_title(
+        "B  SPARC: stiff force is current", loc="left", fontweight="bold"
+    )
     ax.text(
-        0.03,
-        0.96,
-        "27 galaxies; P5 wins 22 vs Newton, 8 vs RAR\n"
-        "P5 optimizer not converged; not a blind test",
+        0.98,
+        0.98,
+        "finite-disk optimum: upper ell boundary\n"
+        "P6/P5 shown as genealogy",
         transform=ax.transAxes,
-        ha="left",
+        ha="right",
         va="top",
-        fontsize=7.2,
+        fontsize=6.8,
     )
     ax.spines[["top", "right"]].set_visible(False)
 

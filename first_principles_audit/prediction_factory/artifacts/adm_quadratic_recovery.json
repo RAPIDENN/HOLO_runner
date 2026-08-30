@@ -1,0 +1,158 @@
+{
+  "BMP_convention_bridge": {
+    "consequence": "The constant field and weight maps reproduce the same local Sturm-Liouville operator. They do not yet fix a brane matter residue.",
+    "field_map": "zeta=(2/3)*tilde_a",
+    "isotropic_unitary_representative": "delta_gamma_mn=2*zeta*gamma_bar_mn gives h_R=8*zeta, h_BMP=6*zeta and tilde_a=3*zeta/2",
+    "weight_map": "rho_BMP=(2/3)*p; rho_BMP*exp(-2A)=(2/3)*w"
+  },
+  "checks": {
+    "ADM_weights_equal_certified_p_and_w": true,
+    "all": true,
+    "certified_inputs": true,
+    "compact_envelopes_remove_radial_endpoint_terms": true,
+    "no_observational_tables_read": true,
+    "scalar_shift_drops_after_momentum_constraint": true,
+    "unreduced_ADM_S2_equals_reduced_action": true
+  },
+  "classification": "same_variable_bulk_ADM_S2_compact_support_recovered;endpoint_S2_and_nonlinear_constraints_pending",
+  "criteria": {
+    "background_weight_identity_max_relative": 1e-12,
+    "integrated_quadratic_action_max_relative": 1e-09,
+    "shift_independence_max_relative": 1e-12
+  },
+  "evidence_boundary": "This closes the mandatory ADM-to-S2 bulk backward test for compactly supported probes, including the overall bulk normalization in terms of kappa5. It does not rederive the two finite-endpoint Neumann action, independently test the beta reconstruction formula, derive S3, S4 or a force.",
+  "inputs": {
+    "files": {
+      "adm_quartic_seed": {
+        "path": "first_principles_audit/prediction_factory/artifacts/radial_adm_quartic_seed.json",
+        "sha256": "765647ebd00d915bbbacf76dfcec6e31358cdc9f109130624c403cd01f84debc"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      },
+      "gauge_invariant_route": {
+        "path": "first_principles_audit/prediction_factory/artifacts/gauge_invariant_cubic_route.json",
+        "sha256": "d975c58aeee2a9605b9c09a496fb59481ed745b447fcc9670911e7dcb03d019f"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "linear_constraints": {
+    "epsilon_ED": "chi_bar'^2/(6*A'^2)=-A''/A'^2",
+    "hamiltonian": "box(beta1)=box(zeta)/A'+exp(2A)*epsilon_ED*zeta'",
+    "momentum": "alpha1=zeta'/A'",
+    "shift_role": "Once alpha1 satisfies the momentum constraint, beta1 multiplies that constraint and drops from the integrated S2 action. The Hamiltonian equation fixes beta1 for reconstruction."
+  },
+  "next_decisive_test": "Solve alpha2 and beta2, include the second-order transverse/TT closure test, and verify that the ADM cubic bulk source agrees with the independent BMP oracle before adding physical endpoints.",
+  "physical_gates": {
+    "absolute_bulk_normalization_in_terms_of_kappa5_identified": true,
+    "absolute_matter_coupling_normalization_fixed": false,
+    "certified_Sturm_Liouville_operator_recovered": true,
+    "compact_master_ADM_S2_including_endpoints_recovered": false,
+    "linear_lapse_constraint_substituted": true,
+    "linear_scalar_shift_constraint_formula_identified": true,
+    "linear_scalar_shift_constraint_independently_tested": false,
+    "nonlinear_lapse_shift_constraints_solved": false,
+    "physical_S3_projected": false,
+    "same_variable_ADM_S2_master_action_recovered": false,
+    "same_variable_bulk_ADM_S2_action_recovered_on_compact_support": true
+  },
+  "reduced_action": {
+    "canonical_mode_if_integral_w_f2_is_one": "Q_n=sqrt(3)*q_n/kappa5 before restoring the dimensional ell factors",
+    "equation": "-(p*f')'=m^2*w*f",
+    "p": "exp(4A)*epsilon_ED",
+    "result": "S2=-(3/(2*kappa5^2))*integral du d4x [p*(zeta')^2+w*partial_mu(zeta)*partial^mu(zeta)]",
+    "w": "exp(2A)*epsilon_ED"
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "schema": "holo.adm-quadratic-recovery.v1",
+  "title": "Backward recovery of the certified S2 operator from radial ADM",
+  "verification": {
+    "p_weight_max_relative": 3.5080069818143375e-16,
+    "periodic_compact_support_backward_test": {
+      "maximum_relative_error": 3.4348389840423926e-11,
+      "maximum_shift_independence_relative": 2.017082646232652e-15,
+      "periodic_x_samples": 64,
+      "radial_samples": 1979,
+      "rows": [
+        {
+          "envelope_power": 2,
+          "raw_ADM_S2": -11.043963214148755,
+          "reduced_S2": -11.043963213932418,
+          "relative_error": 1.9588726094531194e-11,
+          "shift_independence_relative": 0.0,
+          "wave_number": 1
+        },
+        {
+          "envelope_power": 2,
+          "raw_ADM_S2": -13.343554144041665,
+          "reduced_S2": -13.3435541437013,
+          "relative_error": 2.5507760347027706e-11,
+          "shift_independence_relative": 2.662494295335028e-16,
+          "wave_number": 2
+        },
+        {
+          "envelope_power": 2,
+          "raw_ADM_S2": -17.17620569386319,
+          "reduced_S2": -17.176205693316106,
+          "relative_error": 3.1851177678545956e-11,
+          "shift_independence_relative": 1.4478748214158171e-15,
+          "wave_number": 3
+        },
+        {
+          "envelope_power": 3,
+          "raw_ADM_S2": -4.894956710313333,
+          "reduced_S2": -4.89495671025288,
+          "relative_error": 1.2350053235629053e-11,
+          "shift_independence_relative": 0.0,
+          "wave_number": 1
+        },
+        {
+          "envelope_power": 3,
+          "raw_ADM_S2": -6.41286348822753,
+          "reduced_S2": -6.412863488074562,
+          "relative_error": 2.3853354273096e-11,
+          "shift_independence_relative": 0.0,
+          "wave_number": 2
+        },
+        {
+          "envelope_power": 3,
+          "raw_ADM_S2": -8.942708118084532,
+          "reduced_S2": -8.942708117777364,
+          "relative_error": 3.4348389840423926e-11,
+          "shift_independence_relative": 1.9863746148753138e-15,
+          "wave_number": 3
+        },
+        {
+          "envelope_power": 4,
+          "raw_ADM_S2": -3.465045514122493,
+          "reduced_S2": -3.4650455141157184,
+          "relative_error": 1.9551203205416876e-12,
+          "shift_independence_relative": 0.0,
+          "wave_number": 1
+        },
+        {
+          "envelope_power": 4,
+          "raw_ADM_S2": -4.642499707506951,
+          "reduced_S2": -4.642499707486552,
+          "relative_error": 4.393924620451306e-12,
+          "shift_independence_relative": 0.0,
+          "wave_number": 2
+        },
+        {
+          "envelope_power": 4,
+          "raw_ADM_S2": -6.604923363147724,
+          "reduced_S2": -6.604923363104609,
+          "relative_error": 6.527682859738109e-12,
+          "shift_independence_relative": 2.017082646232652e-15,
+          "wave_number": 3
+        }
+      ]
+    },
+    "w_weight_max_relative": 4.2751208896648087e-16
+  }
+}

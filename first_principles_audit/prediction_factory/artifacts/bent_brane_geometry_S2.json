@@ -1,0 +1,275 @@
+{
+  "checks": {
+    "all": true,
+    "background_extrinsic_curvature_matches_analytic_oracle": true,
+    "background_scalar_and_Israel_junctions": true,
+    "bending_value_gradient_and_hessian_are_nonzero": true,
+    "bent_and_straight_charts_agree_pointwise": true,
+    "bent_and_straight_coefficients_agree_through_O2": true,
+    "brane_jet_sensitivity_identities": true,
+    "first_and_second_order_responses_are_nonzero": true,
+    "fixed_lower_and_upper_outward_orientations": true,
+    "multiple_positive_gamma_values_exercised": true,
+    "no_observational_inputs": true,
+    "normal_covector_transforms_between_charts": true,
+    "unit_normal_and_tangent_orthogonality": true,
+    "wrong_orientation_is_detected_with_fixed_potential": true,
+    "zero_and_nonzero_eta_values_exercised": true
+  },
+  "classification": "restricted_bent_geometry_covariance_verified;total_boundary_action_S2_pending",
+  "evidence_boundary": "This verifies a restricted synthetic one-spatial-direction geometry, fixed endpoint orientations, brane-jet entry and gauge straightening through O(epsilon^2). It does not yet verify the full scalar ADM sector, total action variation, compact spectrum, norm or cubic endpoint.",
+  "geometry": {
+    "brane_jet_sweep": [
+      {
+        "case": "soft_eta_zero",
+        "eta": 0.0,
+        "gamma": 0.25
+      },
+      {
+        "case": "reference_eta_negative",
+        "eta": -0.43,
+        "gamma": 1.37
+      },
+      {
+        "case": "stiff_eta_positive",
+        "eta": 0.9,
+        "gamma": 4.2
+      }
+    ],
+    "embedding": "X^A=(x^mu,u_i+epsilon*xi(x))",
+    "extrinsic_curvature": "K_mn=-n_A*(partial_m partial_n X^A+Gamma^A_BC*partial_m X^B*partial_n X^C)",
+    "fixed_endpoint_potentials": "lambda0 and lambda1 belong to each BraneSpec and are not recomputed when a trial normal orientation is supplied",
+    "induced_metric": "gamma_hat_mn=G_AB*partial_m X^A*partial_n X^B",
+    "israel_tensor": "I_mn=K_mn-K*gamma_hat_mn+(lambda/2)*gamma_hat_mn",
+    "normal": "n_A=s*d_A[u-u_i-epsilon*xi]/sqrt(G^BC*d_BF*d_CF)",
+    "scalar_junction": "B=n^A*partial_A chi+lambda'(chi_hat)",
+    "straightening": "v=u-epsilon*xi(x)"
+  },
+  "inputs": {
+    "observational_tables_read": [],
+    "synthetic_geometry_only": true
+  },
+  "next_decisive_test": "Vary the complete EH+GHY+lambda action on nonvanishing endpoint profiles, recover the linear scalar and Israel junction operators, then reproduce the finite-gamma spectrum and quadratic norm.",
+  "physical_gates": {
+    "EH_GHY_normal_derivative_cancellation_verified": false,
+    "background_scalar_and_Israel_junctions_recovered": true,
+    "exact_bent_extrinsic_curvature_implemented": true,
+    "exact_bent_induced_metric_implemented": true,
+    "exact_inclined_unit_normal_implemented": true,
+    "finite_gamma_bent_brane_S2_complete": false,
+    "finite_gamma_compact_ADM_S2_norm_recovered": false,
+    "finite_gamma_compact_ADM_S2_spectrum_recovered": false,
+    "nonvanishing_endpoint_profile_action_tested": false,
+    "radial_gauge_straightening_verified_through_O2": true,
+    "total_action_variation_reproduces_linear_junctions": false
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "schema": "holo.bent-brane-geometry-S2.v2",
+  "title": "Bent-brane covariance and junction geometry through second order",
+  "verification": {
+    "bending_probe": {
+      "xi": 0.1589781015073678,
+      "xi_x": -0.11450804530966213,
+      "xi_xx": -0.23351822876324116
+    },
+    "endpoints": [
+      {
+        "background_extrinsic_oracle_max_abs": 4.440892098500626e-16,
+        "background_junction_max_abs": 0.0,
+        "coefficient_O0_O1_O2_chart_max_relative": 1.4802985226491927e-12,
+        "endpoint_u": 0.17,
+        "epsilon_values": [
+          -0.02,
+          -0.01,
+          0.0,
+          0.01,
+          0.02
+        ],
+        "eta": 0.0,
+        "gamma": 0.25,
+        "jet_case": "soft_eta_zero",
+        "label": "lower",
+        "lambda0": 5.0514,
+        "lambda1": 0.7253,
+        "nontrivial_O1_coefficient_max_abs": 0.6665639367824199,
+        "nontrivial_O2_coefficient_max_abs": 0.0775704199331336,
+        "normal_covector_transform_max_relative": 2.220446049250313e-16,
+        "normalization_and_orthogonality_max_abs": 3.3306690738754696e-16,
+        "orientation": -1,
+        "pointwise_chart_max_relative": 4.440892098500626e-16,
+        "wrong_orientation_junction_min_abs": 1.4506
+      },
+      {
+        "background_extrinsic_oracle_max_abs": 4.440892098500626e-16,
+        "background_junction_max_abs": 0.0,
+        "coefficient_O0_O1_O2_chart_max_relative": 1.4802985226491927e-12,
+        "endpoint_u": 0.17,
+        "epsilon_values": [
+          -0.02,
+          -0.01,
+          0.0,
+          0.01,
+          0.02
+        ],
+        "eta": -0.43,
+        "gamma": 1.37,
+        "jet_case": "reference_eta_negative",
+        "label": "lower",
+        "lambda0": 5.0514,
+        "lambda1": 0.7253,
+        "nontrivial_O1_coefficient_max_abs": 0.6665639367824199,
+        "nontrivial_O2_coefficient_max_abs": 0.0775704199331336,
+        "normal_covector_transform_max_relative": 2.220446049250313e-16,
+        "normalization_and_orthogonality_max_abs": 3.3306690738754696e-16,
+        "orientation": -1,
+        "pointwise_chart_max_relative": 4.440892098500626e-16,
+        "wrong_orientation_junction_min_abs": 1.4506
+      },
+      {
+        "background_extrinsic_oracle_max_abs": 4.440892098500626e-16,
+        "background_junction_max_abs": 0.0,
+        "coefficient_O0_O1_O2_chart_max_relative": 1.4802967879257167e-12,
+        "endpoint_u": 0.17,
+        "epsilon_values": [
+          -0.02,
+          -0.01,
+          0.0,
+          0.01,
+          0.02
+        ],
+        "eta": 0.9,
+        "gamma": 4.2,
+        "jet_case": "stiff_eta_positive",
+        "label": "lower",
+        "lambda0": 5.0514,
+        "lambda1": 0.7253,
+        "nontrivial_O1_coefficient_max_abs": 0.6805997189007827,
+        "nontrivial_O2_coefficient_max_abs": 0.0775704199331336,
+        "normal_covector_transform_max_relative": 2.220446049250313e-16,
+        "normalization_and_orthogonality_max_abs": 3.3306690738754696e-16,
+        "orientation": -1,
+        "pointwise_chart_max_relative": 4.440892098500626e-16,
+        "wrong_orientation_junction_min_abs": 1.4506
+      },
+      {
+        "background_extrinsic_oracle_max_abs": 4.440892098500626e-16,
+        "background_junction_max_abs": 1.1102230246251565e-16,
+        "coefficient_O0_O1_O2_chart_max_relative": 8.881784197001252e-12,
+        "endpoint_u": 1.13,
+        "epsilon_values": [
+          -0.02,
+          -0.01,
+          0.0,
+          0.01,
+          0.02
+        ],
+        "eta": 0.0,
+        "gamma": 0.25,
+        "jet_case": "soft_eta_zero",
+        "label": "upper",
+        "lambda0": -5.4546,
+        "lambda1": -0.8117,
+        "nontrivial_O1_coefficient_max_abs": 2.691228402606531,
+        "nontrivial_O2_coefficient_max_abs": 0.5102543285503044,
+        "normal_covector_transform_max_relative": 0.0,
+        "normalization_and_orthogonality_max_abs": 2.220446049250313e-16,
+        "orientation": 1,
+        "pointwise_chart_max_relative": 2.4245569092652984e-16,
+        "wrong_orientation_junction_min_abs": 0.5022166339592533
+      },
+      {
+        "background_extrinsic_oracle_max_abs": 4.440892098500626e-16,
+        "background_junction_max_abs": 1.1102230246251565e-16,
+        "coefficient_O0_O1_O2_chart_max_relative": 8.881784197001252e-12,
+        "endpoint_u": 1.13,
+        "epsilon_values": [
+          -0.02,
+          -0.01,
+          0.0,
+          0.01,
+          0.02
+        ],
+        "eta": -0.43,
+        "gamma": 1.37,
+        "jet_case": "reference_eta_negative",
+        "label": "upper",
+        "lambda0": -5.4546,
+        "lambda1": -0.8117,
+        "nontrivial_O1_coefficient_max_abs": 2.691228402606531,
+        "nontrivial_O2_coefficient_max_abs": 0.5102543285503044,
+        "normal_covector_transform_max_relative": 0.0,
+        "normalization_and_orthogonality_max_abs": 2.220446049250313e-16,
+        "orientation": 1,
+        "pointwise_chart_max_relative": 2.4245569092652984e-16,
+        "wrong_orientation_junction_min_abs": 0.5022166339592533
+      },
+      {
+        "background_extrinsic_oracle_max_abs": 4.440892098500626e-16,
+        "background_junction_max_abs": 1.1102230246251565e-16,
+        "coefficient_O0_O1_O2_chart_max_relative": 8.881784197001252e-12,
+        "endpoint_u": 1.13,
+        "epsilon_values": [
+          -0.02,
+          -0.01,
+          0.0,
+          0.01,
+          0.02
+        ],
+        "eta": 0.9,
+        "gamma": 4.2,
+        "jet_case": "stiff_eta_positive",
+        "label": "upper",
+        "lambda0": -5.4546,
+        "lambda1": -0.8117,
+        "nontrivial_O1_coefficient_max_abs": 2.691228402606531,
+        "nontrivial_O2_coefficient_max_abs": 0.5102543285503044,
+        "normal_covector_transform_max_relative": 0.0,
+        "normalization_and_orthogonality_max_abs": 2.220446049250313e-16,
+        "orientation": 1,
+        "pointwise_chart_max_relative": 2.4245569092652984e-16,
+        "wrong_orientation_junction_min_abs": 0.5022166339592533
+      }
+    ],
+    "jet_sensitivities": [
+      {
+        "Q1": 0.16677558603518527,
+        "dB1_dgamma_error_abs": 2.0539125955565396e-15,
+        "dB2_deta_error_abs": 2.2002712152247028e-13,
+        "endpoint_u": 0.17,
+        "expected_dB1_dgamma": 0.16677558603518527,
+        "expected_dB2_deta": 0.013907048048689743,
+        "label": "lower",
+        "measured_dB1_dgamma": 0.16677558603518733,
+        "measured_dB2_deta": 0.01390704804890977,
+        "orientation": -1
+      },
+      {
+        "Q1": 0.21867583916042901,
+        "dB1_dgamma_error_abs": 1.7791323969618134e-14,
+        "dB2_deta_error_abs": 5.403663627667754e-14,
+        "endpoint_u": 1.13,
+        "expected_dB1_dgamma": 0.21867583916042901,
+        "expected_dB2_deta": 0.02390956131625891,
+        "label": "upper",
+        "measured_dB1_dgamma": 0.2186758391604468,
+        "measured_dB2_deta": 0.023909561316312947,
+        "orientation": 1
+      }
+    ],
+    "maxima": {
+      "background_extrinsic_oracle_max_abs": 4.440892098500626e-16,
+      "background_junction_max_abs": 1.1102230246251565e-16,
+      "coefficient_O0_O1_O2_chart_max_relative": 8.881784197001252e-12,
+      "jet_sensitivity_max_abs": 2.2002712152247028e-13,
+      "normal_covector_transform_max_relative": 2.220446049250313e-16,
+      "normalization_and_orthogonality_max_abs": 3.3306690738754696e-16,
+      "pointwise_chart_max_relative": 4.440892098500626e-16
+    },
+    "minimum_nontrivial_O1_coefficient_abs": 0.6665639367824199,
+    "minimum_nontrivial_O2_coefficient_abs": 0.0775704199331336,
+    "minimum_wrong_orientation_junction_abs": 0.5022166339592533
+  }
+}

@@ -1,0 +1,635 @@
+{
+  "actual_background": {
+    "A_u_endpoints": [
+      -0.010126695185261584,
+      -2.115099529631583
+    ],
+    "A_uu_endpoints_from_flow": [
+      -0.9929605555079134,
+      -2.0008045080096055
+    ],
+    "F0": 0.807960077896542,
+    "domain": [
+      0.01023316578330245,
+      1.980980980980981
+    ],
+    "exp_2A_endpoints": [
+      0.9417600573320585,
+      0.015957167040401128
+    ],
+    "samples": 1979
+  },
+  "checks": {
+    "Palma_Davis_Einstein_metric_reconstructed_from_Jordan_plus_Weyl": true,
+    "all": true,
+    "certified_real_background_used": true,
+    "closed_endpoint_metric_matches_transformed_Gram": true,
+    "corrected_Palma_Davis_metric_matches_local_derivation": true,
+    "endpoint_map_is_invertible": true,
+    "endpoint_moduli_metric_is_positive": true,
+    "individual_covariant_projected_curvatures_are_negative": true,
+    "individual_metric_unit_silent_tangents_exist": true,
+    "literal_Palma_Davis_equation_28_is_ghost_mutation": true,
+    "no_common_silent_tangent_for_both_matter_metrics": true,
+    "no_observational_tables_read": true,
+    "real_local_fit_reproduces_metric_derivatives": true,
+    "real_local_fit_reproduces_selector_jets": true,
+    "stored_zero_mode_Gram_recomputed": true,
+    "two_candidate_BPS_zero_modes_retained": true,
+    "two_finite_endpoint_physical_moduli_resolved_here": true
+  },
+  "classification": "two_physical_BPS_moduli_resolved;covariant_biscalar_selector_jets_derived;silent_tangents_exist_but_are_not_dynamically_selected",
+  "coordinates": {
+    "endpoint_moduli": [
+      "u_minus",
+      "u_plus"
+    ],
+    "physical_metric": "Khat_ab=K_ab/M_Pl^2=6I_ab/F in dimensionless endpoint coordinates. The absolute canonical scale still requires kappa5 and the physical length ell.",
+    "selector_expansion": "C_i=1+C_i,a*delta_y^a+0.5*C_i,ab*delta_y^a*delta_y^b",
+    "selector_meaning": "C_i=A_i(reference)^2/A_i(y)^2 is the inverse normalized matter conformal selector. The auxiliary target uses s_i=1-C_i, while a canonical minimally coupled brane scalar has -Y/C_i; after separating its standard -Y term, both have the same candidate quadratic sign on a silent direction."
+  },
+  "criteria": {
+    "background_samples": 1979,
+    "common_covector_gram_determinant_min": 1e-06,
+    "endpoint_map_determinant_abs_min": 1e-06,
+    "endpoint_metric_transform_relative_max": 1e-06,
+    "local_metric_derivative_relative_max": 0.0001,
+    "local_selector_jet_relative_max": 0.0001,
+    "metric_min_eigenvalue": 1e-06,
+    "palma_davis_corrected_relative_max": 1e-12,
+    "palma_davis_literal_max_eigenvalue_negative": -1e-06,
+    "palma_davis_weyl_reconstruction_relative_max": 1e-12,
+    "projected_covariant_curvature_negative_max": -1e-08,
+    "silent_tangent_residual_max": 1e-12,
+    "stored_gram_relative_max": 2e-07
+  },
+  "evidence_boundary": "This is a two-derivative moduli-space result on the real 1,979-point Einstein--dilaton background. It derives covariant selector jets and candidate silent directions, not a dynamically selected collective field, a full mixed ADM vertex, or an observed force.",
+  "inputs": {
+    "files": {
+      "BPS_certificate": {
+        "path": "first_principles_audit/prediction_factory/artifacts/adm_bmp_tricritical_necessity.json",
+        "sha256": "67efa3eed8c2a3446ed983adb6f5909b3288062cea994958cbcdffd538cde9e1"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "joint_selector_gate": {
+    "common_nonzero_silent_tangent_exists": false,
+    "covector_gram": [
+      [
+        0.6550827317184559,
+        0.6666666666666667
+      ],
+      [
+        0.6666666666666667,
+        143.45859428083165
+      ]
+    ],
+    "covector_gram_determinant": 93.53280338553235,
+    "metric_correlation": 0.06876973958479692,
+    "ordinary_gradient_matrix_determinant": -4.844653521865894,
+    "ordinary_gradient_singular_values": [
+      4.4194126649673295,
+      1.096221124646143
+    ]
+  },
+  "moduli_metric": {
+    "Christoffel_Gamma_c_ab": [
+      [
+        [
+          0.28440564874748747,
+          -0.009874972462713946
+        ],
+        [
+          -0.009874972462713946,
+          0.008156574801765855
+        ]
+      ],
+      [
+        [
+          -0.23890191915586556,
+          0.5828011080596046
+        ],
+        [
+          0.5828011080596046,
+          -1.6618292506218064
+        ]
+      ]
+    ],
+    "Einstein_frame_relation": "Khat_ab=6I_ab/F",
+    "Khat_eigenvalues": [
+      0.12526921808272248,
+      2.0031668643534846
+    ],
+    "Khat_equals_6I_over_F": [
+      [
+        2.0025316942833045,
+        -0.03453086935996662
+      ],
+      [
+        -0.03453086935996662,
+        0.12590438815290272
+      ]
+    ],
+    "Planck_normalized_action_derivation": {
+      "absolute_kinetic_metric": "K_abs=[2/(k*F*kappa5^2)]*(6I)",
+      "endpoint_derivative_of_F": [
+        -0.9417600573320585,
+        0.015957167040401128
+      ],
+      "four_dimensional_Planck_mass": "M_Pl^2=2/(k*kappa5^2)",
+      "ratio": "K_abs/M_Pl^2=Khat=6I/F"
+    },
+    "closed_endpoint_Gram_I": [
+      [
+        0.26966094395057216,
+        -0.004649927316318991
+      ],
+      [
+        -0.004649927316318991,
+        0.016954286543255957
+      ]
+    ],
+    "closed_form_I": "I_--=E_-(E_-+2FH_-)/(4F); I_-+=-E_-E_+/(4F); I_++=E_+(E_+-2FH_+)/(4F)",
+    "partial_c_Khat_ab": [
+      [
+        [
+          1.1555616332205296,
+          -0.07979914852401905
+        ],
+        [
+          -0.07979914852401905,
+          0.14743641661824305
+        ]
+      ],
+      [
+        [
+          -0.07979914852401905,
+          0.14743641661824303
+        ],
+        [
+          0.14743641661824303,
+          -0.41902649726607993
+        ]
+      ]
+    ],
+    "real_local_fit_derivative_relative": 2.648243180890678e-07,
+    "real_local_fit_value_relative": 3.554506232397949e-14,
+    "single_interval_Gram_hat_equals_6I": [
+      [
+        1.617965663703433,
+        -0.027899563897913947
+      ],
+      [
+        -0.027899563897913947,
+        0.10172571925953575
+      ]
+    ],
+    "transformed_stored_endpoint_Gram_I": [
+      [
+        0.2696609902230648,
+        -0.004649891782282306
+      ],
+      [
+        -0.004649891782282265,
+        0.016954285332649116
+      ]
+    ],
+    "transformed_vs_closed_relative": 2.5278978975446834e-07
+  },
+  "next_decisive_test": "Derive a microscopic stabilization or symmetry before looking at the target that selects one of the Khat-unit silent tangents, then perform the full lapse/shift/bending matter reduction and identify the constitutive Y with a physical matter operator and verify the q2Y sign and normalization in that same tangent.",
+  "palma_davis_independent_oracle": {
+    "Einstein_metric_relation": "G_endpoint_without_kappa5=(2/k)*Khat, Khat=6I/F",
+    "Jordan_gamma_from_equations_21_to_23": [
+      [
+        0.011680824958068334,
+        -0.00014189441429752572
+      ],
+      [
+        -0.00014189441429752572,
+        0.020878151291041393
+      ]
+    ],
+    "Weyl_reconstructed_gamma_psi": [
+      [
+        0.6722427804996347,
+        -0.008166160861681992
+      ],
+      [
+        -0.008166160861681992,
+        0.02097562716212124
+      ]
+    ],
+    "Weyl_rule": "gamma_E=Omega^-2*gamma_J+8*dlnOmega tensor dlnOmega",
+    "Weyl_vs_closed_corrected_relative": 5.1577320873735526e-18,
+    "closed_corrected_gamma_psi": [
+      [
+        0.6722427804996347,
+        -0.008166160861681992
+      ],
+      [
+        -0.008166160861681992,
+        0.020975627162121237
+      ]
+    ],
+    "convention_map": {
+      "Omega_at_reference": 1.0,
+      "U_B": "2W/3=-4A'",
+      "k": "exp(2A_-)/F0",
+      "psi": "sqrt(2/3)*chi"
+    },
+    "corrected_cross_term": "gamma_12=-2*alpha_1^-1*alpha_2^-1*k^2*A_1^2*A_2^2/(U_B1*U_B2), obtained by transforming Eqs. (21)-(23)",
+    "corrected_endpoint_eigenvalues": [
+      0.2149433423347418,
+      3.437136334594297
+    ],
+    "corrected_endpoint_metric": [
+      [
+        3.4360464772460584,
+        -0.05924983477628364
+      ],
+      [
+        -0.05924983477628365,
+        0.21603319968298024
+      ]
+    ],
+    "corrected_gamma_psi": [
+      [
+        0.6722427804996347,
+        -0.008166160861681992
+      ],
+      [
+        -0.008166160861681992,
+        0.020975627162121237
+      ]
+    ],
+    "corrected_relative_to_expected": 1.2928149937542574e-16,
+    "d_ln_Omega_d_psi": [
+      -0.2873503861885273,
+      0.0034906280072474986
+    ],
+    "expected_positive_scale_relative_to_Khat": 1.715851233243927,
+    "literal_endpoint_eigenvalues": [
+      -14.290971631455374,
+      17.943051308384415
+    ],
+    "literal_endpoint_metric": [
+      [
+        3.4360464772460584,
+        -16.036394150325965
+      ],
+      [
+        -16.036394150325965,
+        0.21603319968298024
+      ]
+    ],
+    "literal_gamma_psi": [
+      [
+        0.6722427804996347,
+        -2.210230201777989
+      ],
+      [
+        -2.210230201777989,
+        0.020975627162121237
+      ]
+    ],
+    "printed_equation_28_mutation": "replace alpha_1^-1*alpha_2^-1 by alpha_1*alpha_2",
+    "reference": {
+      "arxiv": "hep-th/0407036",
+      "authors": "Gonzalo A. Palma and Anne-Christine Davis",
+      "title": "Moduli-Space Approximation for BPS Brane-Worlds",
+      "url": "https://arxiv.org/abs/hep-th/0407036"
+    }
+  },
+  "physical_compatibility": {
+    "individual_result": "For either endpoint inverse normalized matter conformal selector, the two-dimensional moduli space contains a Khat-unit direction with zero linear derivative and negative covariant selector curvature; therefore 1-C has positive quadratic curvature.",
+    "selection_obstruction": "The two physical BPS moduli are resolved, but their geometry does not select one tangent as q. Minimal positive diagonal localized p=2 or p=6 completions do not select either silent direction, and choosing one after seeing q2Y would be inverse design.",
+    "universal_result": "The two selector covectors are independent, so no nonzero direction removes the linear coupling for matter on both branes.",
+    "verdict": "A covariant stationary direction with a nonzero even selector jet exists for each matter-brane choice. This does not yet derive a physical q2Y vertex. The auxiliary s=1-C target and the extra term in minimal brane-scalar -Y/C have the same candidate negative qbar^2*Y sign after separating standard -Y, but the constitutive Y operator, tangent and absolute normalization are not derived."
+  },
+  "physical_gates": {
+    "Levi_Civita_connection_derived": true,
+    "absolute_kappa5_ell_canonical_normalization_fixed": false,
+    "algebraic_silent_direction_exists_for_lower_selector": true,
+    "algebraic_silent_direction_exists_for_upper_selector": true,
+    "constitutive_Y_operator_identification_derived": false,
+    "covariant_C_a_and_C_ab_derived": true,
+    "endpoint_moduli_metric_G_ab_derived": true,
+    "existing_positive_diagonal_p2_or_p6_completion_selects_silent_tangent": false,
+    "finite_endpoint_physical_mode_count_resolved_here": true,
+    "full_lapse_shift_matter_qY_reduction_completed": false,
+    "matter_Y_convention_fixed": false,
+    "matter_localization_selected_by_bulk": false,
+    "negative_selector_curvature_on_each_individual_silent_direction": true,
+    "physical_moduli_count": 2,
+    "physical_q2Y_selector_derived": false,
+    "positive_local_diagonal_stabilizer_selects_silent_tangent": false,
+    "positive_one_minus_C_quadratic_diagnostic_on_each_direction": true,
+    "q2Y_sign_and_normalization_fixed_after_base_subtraction": false,
+    "single_direction_is_silent_for_both_endpoint_selectors": false,
+    "standard_base_minus_Y_algebraically_separated": true,
+    "unique_tangent_selected_by_BPS_geometry": false,
+    "upstream_finite_endpoint_mode_gate_was_resolved": false
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "schema": "holo.bps-biscalar-matter-geometry.v1",
+  "selectors": {
+    "lower": {
+      "C_a": [
+        -1.1453488257486863,
+        0.019749944925427886
+      ],
+      "C_at_reference": 1.0,
+      "conditional_geodesic_mixed_jets": {
+        "coordinate": "qbar is a Khat-unit Riemann-normal coordinate along the displayed silent tangent",
+        "matter_Y_operator_identified_with_constitutive_Y": false,
+        "minimal_canonical_brane_scalar_in_Einstein_frame": {
+          "base_Y_coefficient": -1.0,
+          "lagrangian": "L_minimal=-Y/C(qbar)",
+          "qbar_Y_coefficient_by_construction": 0.0,
+          "qbar_squared_Y_candidate_coefficient": -0.1654885830040268
+        },
+        "non_target_minus_C_times_Y_mutation": {
+          "lagrangian": "L_mutation=-C(qbar)*Y",
+          "qbar_squared_Y_coefficient": 0.1654885830040268
+        },
+        "physical_q2Y_vertex_derived": false,
+        "qbar_Y_numerical_residual": 3.751969234770556e-18,
+        "reason_gate_remains_closed": "the BPS action does not select this tangent, absolute normalization is open, and the constitutive Y has not been identified with the minimal matter operator or trace by a full constraint reduction",
+        "selector_expansion_on_silent_geodesic": {
+          "c2": -0.1654885830040268,
+          "form": "C(qbar)=1+c2*qbar^2+O(qbar^3)"
+        },
+        "selector_identity": "C_i=A_i(reference)^2/A_i(y)^2 is the inverse normalized induced conformal factor, not A_i(y)^2 itself",
+        "target_auxiliary_s_equals_one_minus_C": {
+          "definition": "s(qbar)=1-C(qbar)",
+          "lagrangian": "L_aux=-s(qbar)*Y",
+          "qbar_Y_coefficient_by_construction": 0.0,
+          "qbar_squared_Y_candidate_coefficient": -0.1654885830040268,
+          "s_qbar_squared_coefficient": 0.1654885830040268
+        }
+      },
+      "coordinate_C_ab": [
+        [
+          1.9627239141375186,
+          0.0004000033443710242
+        ],
+        [
+          0.0004000033443710242,
+          -0.08354619844404437
+        ]
+      ],
+      "covariant_nabla_a_nabla_b_C": [
+        [
+          2.293185889712654,
+          -0.022420574556754547
+        ],
+        [
+          -0.022420574556754547,
+          -0.04138303889746475
+        ]
+      ],
+      "definition": "C_-=(F/F0)exp[-2(A_--A_-0)]",
+      "invariants_in_Khat_equals_6I_over_F_units": {
+        "coordinate_projected_curvature_noninvariant": -0.6619543320161072,
+        "covariant_projected_curvature": -0.3309771660080536,
+        "covariant_quadratic_Taylor_coefficient": -0.1654885830040268,
+        "gradient_norm_squared": 0.6550827317184559,
+        "linear_silence_residual": 3.751969234770556e-18,
+        "metric_unit_residual": 0.0,
+        "one_minus_C_quadratic_coefficient": 0.1654885830040268,
+        "unit_silent_tangent": [
+          0.048712123943691885,
+          2.82493820460227
+        ]
+      },
+      "local_diagonal_stabilizer": {
+        "diagonal_sextic_selects_a_unique_linear_tangent_at_origin": false,
+        "fixed_separation_minimizer_for_positive_diagonal_even_p_has_opposite_sign_components": true,
+        "interpretation": "Local positive gamma_i terms either gap both endpoint moduli or leave a coordinate-axis kernel, which is not silent. Positive rho_i X_i^6 stabilizes every nonzero direction when both rho_i are positive, but does not select one tangent through S2. More strongly, minimizing a|dy_-|^p+b|dy_+|^p at fixed separation for p=2 or p=6 and a,b>0 gives endpoint components of opposite sign, while the silent tangent has equal signs. A correlated non-diagonal stabilizer would be additional brane physics.",
+        "localized_quadratic_Hessian_over_kappa5_inverse_squared": "diag(w_-*gamma_-,w_+*gamma_+)",
+        "localized_quadratic_weights": [
+          2.642005913260181,
+          0.0015284016382028924
+        ],
+        "localized_sextic_coefficients_times_rho_over_kappa5_squared": [
+          0.13024701633441807,
+          0.00030592629937415365
+        ],
+        "positive_diagonal_p2_or_p6_completion_can_select_silent_tangent": false,
+        "positive_local_diagonal_quadratic_selects_silent_tangent": false,
+        "positive_local_diagonal_sextic_gives_positive_q6_along_tangent": true,
+        "selector_gradient_has_nonzero_component_on_both_axes": true,
+        "semidefinite_diagonal_kernel_is_coordinate_axis": true,
+        "silent_tangent_has_same_sign_endpoint_components": true,
+        "strictly_positive_diagonal_quadratic_has_massless_direction": false
+      },
+      "local_real_geometry_fit": {
+        "C_a": [
+          -1.145348825638678,
+          0.019750027632780578
+        ],
+        "coordinate_C_ab": [
+          [
+            1.9627233990366062,
+            0.0004000023551854276
+          ],
+          [
+            0.0004000023551854276,
+            -0.08354654385755027
+          ]
+        ],
+        "errors": {
+          "gradient_relative": 7.220082697992132e-08,
+          "hessian_relative": 3.1570080251919054e-07,
+          "value_abs": 6.661338147750939e-16
+        }
+      },
+      "omit_Einstein_Weyl_factor_mutation": {
+        "coordinate_projected_curvature_noninvariant": -0.8192908908809593,
+        "covariant_projected_curvature": 0.0029161927547384802,
+        "covariant_quadratic_Taylor_coefficient": 0.0014580963773692401,
+        "gradient_norm_squared": 0.8107860148534941,
+        "linear_silence_residual": 1.0511651500613195e-17,
+        "metric_unit_residual": 2.220446049250313e-16,
+        "one_minus_C_quadratic_coefficient": -0.0014580963773692401,
+        "unit_silent_tangent": [
+          0.054192865440060356,
+          3.142780145974759
+        ]
+      }
+    },
+    "upper": {
+      "C_a": [
+        -1.1656022161192094,
+        4.2499490041885934
+      ],
+      "C_at_reference": 1.0,
+      "conditional_geodesic_mixed_jets": {
+        "coordinate": "qbar is a Khat-unit Riemann-normal coordinate along the displayed silent tangent",
+        "matter_Y_operator_identified_with_constitutive_Y": false,
+        "minimal_canonical_brane_scalar_in_Einstein_frame": {
+          "base_Y_coefficient": -1.0,
+          "lagrangian": "L_minimal=-Y/C(qbar)",
+          "qbar_Y_coefficient_by_construction": 0.0,
+          "qbar_squared_Y_candidate_coefficient": -0.1289105494877548
+        },
+        "non_target_minus_C_times_Y_mutation": {
+          "lagrangian": "L_mutation=-C(qbar)*Y",
+          "qbar_squared_Y_coefficient": 0.1289105494877548
+        },
+        "physical_q2Y_vertex_derived": false,
+        "qbar_Y_numerical_residual": -6.998149472036274e-17,
+        "reason_gate_remains_closed": "the BPS action does not select this tangent, absolute normalization is open, and the constitutive Y has not been identified with the minimal matter operator or trace by a full constraint reduction",
+        "selector_expansion_on_silent_geodesic": {
+          "c2": -0.1289105494877548,
+          "form": "C(qbar)=1+c2*qbar^2+O(qbar^3)"
+        },
+        "selector_identity": "C_i=A_i(reference)^2/A_i(y)^2 is the inverse normalized induced conformal factor, not A_i(y)^2 itself",
+        "target_auxiliary_s_equals_one_minus_C": {
+          "definition": "s(qbar)=1-C(qbar)",
+          "lagrangian": "L_aux=-s(qbar)*Y",
+          "qbar_Y_coefficient_by_construction": 0.0,
+          "qbar_squared_Y_candidate_coefficient": -0.1289105494877548,
+          "s_qbar_squared_coefficient": 0.1289105494877548
+        }
+      },
+      "coordinate_C_ab": [
+        [
+          0.023607396699809158,
+          -4.930729398102541
+        ],
+        [
+          -4.930729398102541,
+          21.979739295454227
+        ]
+      ],
+      "covariant_nabla_a_nabla_b_C": [
+        [
+          1.3704322245719167,
+          -7.419114676727121
+        ],
+        [
+          -7.419114676727121,
+          29.051936185930728
+        ]
+      ],
+      "definition": "C_+=(F/F0)exp[-2(A_+-A_+0)]",
+      "invariants_in_Khat_equals_6I_over_F_units": {
+        "coordinate_projected_curvature_noninvariant": -0.5156421979510194,
+        "covariant_projected_curvature": -0.2578210989755096,
+        "covariant_quadratic_Taylor_coefficient": -0.1289105494877548,
+        "gradient_norm_squared": 143.45859428083165,
+        "linear_silence_residual": 6.998149472036274e-17,
+        "metric_unit_residual": 0.0,
+        "one_minus_C_quadratic_coefficient": 0.1289105494877548,
+        "unit_silent_tangent": [
+          0.7083366061554899,
+          0.19427026467364186
+        ]
+      },
+      "local_diagonal_stabilizer": {
+        "diagonal_sextic_selects_a_unique_linear_tangent_at_origin": false,
+        "fixed_separation_minimizer_for_positive_diagonal_even_p_has_opposite_sign_components": true,
+        "interpretation": "Local positive gamma_i terms either gap both endpoint moduli or leave a coordinate-axis kernel, which is not silent. Positive rho_i X_i^6 stabilizes every nonzero direction when both rho_i are positive, but does not select one tangent through S2. More strongly, minimizing a|dy_-|^p+b|dy_+|^p at fixed separation for p=2 or p=6 and a,b>0 gives endpoint components of opposite sign, while the silent tangent has equal signs. A correlated non-diagonal stabilizer would be additional brane physics.",
+        "localized_quadratic_Hessian_over_kappa5_inverse_squared": "diag(w_-*gamma_-,w_+*gamma_+)",
+        "localized_quadratic_weights": [
+          2.642005913260181,
+          0.0015284016382028924
+        ],
+        "localized_sextic_coefficients_times_rho_over_kappa5_squared": [
+          0.13024701633441807,
+          0.00030592629937415365
+        ],
+        "positive_diagonal_p2_or_p6_completion_can_select_silent_tangent": false,
+        "positive_local_diagonal_quadratic_selects_silent_tangent": false,
+        "positive_local_diagonal_sextic_gives_positive_q6_along_tangent": true,
+        "selector_gradient_has_nonzero_component_on_both_axes": true,
+        "semidefinite_diagonal_kernel_is_coordinate_axis": true,
+        "silent_tangent_has_same_sign_endpoint_components": true,
+        "strictly_positive_diagonal_quadratic_has_massless_direction": false
+      },
+      "local_real_geometry_fit": {
+        "C_a": [
+          -1.1656022156944743,
+          4.2499490634940535
+        ],
+        "coordinate_C_ab": [
+          [
+            0.02360803437563101,
+            -4.9307275735659415
+          ],
+          [
+            -4.9307275735659415,
+            21.97970585149811
+          ]
+        ],
+        "errors": {
+          "gradient_relative": 1.3457780250829448e-08,
+          "hessian_relative": 1.454915466615843e-06,
+          "value_abs": 1.5090151350705128e-12
+        }
+      },
+      "omit_Einstein_Weyl_factor_mutation": {
+        "coordinate_projected_curvature_noninvariant": -0.6382025697277666,
+        "covariant_projected_curvature": 0.09346035333133486,
+        "covariant_quadratic_Taylor_coefficient": 0.04673017666566743,
+        "gradient_norm_squared": 177.5565380090491,
+        "linear_silence_residual": 4.848314886558151e-17,
+        "metric_unit_residual": 2.220446049250313e-16,
+        "one_minus_C_quadratic_coefficient": -0.04673017666566743,
+        "unit_silent_tangent": [
+          0.7880335997671993,
+          0.2161281722109542
+        ]
+      }
+    }
+  },
+  "title": "Real-background two-modulus matter-selector geometry",
+  "zero_mode_to_endpoint_map": {
+    "basis": [
+      "Psi1=A'*exp(-2A)",
+      "Psi2=1-2*A'*exp(-2A)*integral_from_lower(exp(2A)du)"
+    ],
+    "derivation": "beta=6D(Psi)/chi'^2 and source-free traceless junction xi_i=-beta_i",
+    "determinant": -107.5285624885452,
+    "endpoint_map_delta_y_equals_J_times_c": [
+      [
+        1.0618415935295995,
+        0.0
+      ],
+      [
+        62.66776536638061,
+        -101.26610517404619
+      ]
+    ],
+    "recomputed_bulk_Gram_I": [
+      [
+        66.2689040785888,
+        -107.09394184889071
+      ],
+      [
+        -107.09394184889071,
+        173.8632131005436
+      ]
+    ],
+    "recomputed_relative_error": 0.0,
+    "stored_bulk_Gram_I": [
+      [
+        66.2689040785888,
+        -107.09394184889071
+      ],
+      [
+        -107.09394184889071,
+        173.8632131005436
+      ]
+    ]
+  }
+}

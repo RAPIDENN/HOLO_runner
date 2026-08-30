@@ -38,9 +38,39 @@ action with a strictly positive kinetic function on the certified interval.
 The operational deformation is recovered with correlation `0.9999999` and RMS
 difference below `7e-4`.  Thus the shared-background instrument is retained,
 while its correct action is an inferred effective completion rather than the
-polynomial action previously attached to it.  The galactic fit remains an
-in-sample global calibration, and the cosmological and laboratory layers still
-use extra coordinate and coupling dictionaries.  The positive results are a
+polynomial action previously attached to it.  A microscopic junction audit
+then shows that functional superpotential matching defines an exactly flat
+moduli branch: it forces `m^2=u^4=0`, but also gives a vanishing sextic and is
+not selected by the bulk alone.  The finite-endpoint reduction resolves two
+physical moduli with a positive kinetic metric.  On the declared separation
+slice the minimally induced matter selectors have nonzero linear slopes.
+Each selector separately has a covariantly stationary tangent and a nonzero
+even jet, but no common tangent exists and the current BPS, quadratic and
+sextic brane terms select none.  Minimal scalar matter also carries the inverse
+selector and gives correctly signed candidate coefficients `-0.165489` and
+`-0.128911` after its standard term is separated.  The constitutive `Y`,
+tangent and normalization remain unselected, so a physical `q^2Y` operator is
+not yet derived.  A target-independent `F=constant` candidate nearly aligns
+the lower-brane kernel (`0.0686272` degrees), but is not exact; formal exact
+alignment requires `A'_-=0` outside the certified interval, and the true
+level-curve reduction gives the wrong sign for minimal `-Y/C`.  A shifted
+`s=C-1` operator could reverse it only as additional physics.  The separate stiff stabilized limit gives seven canonically
+normalized positive force residues with `sum(alpha)=0.106765`.  The SPARC input
+is recomputed with signed gas and declared stellar mass-to-light factors.  The
+stiff force improves test `chi2/point` from 414.23 to 371.58, but remains far
+from the empirical RAR at 36.75.  A geometry-matched finite-disk scan with one
+global scale runs to its long-range boundary under all declared sensitivity
+checks; no finite scale is identified.  P6 and P5 are retained only as
+numerical genealogy.  A dedicated `600` audit shows that neither restricting
+the test to `R>=0.6 kpc` (`chi2/point=390.85`) nor setting `ell=600 kpc`
+(`371.72`) rescues the stiff force.  The train-frozen universal signed
+collector reaches `36.75` without per-galaxy parameters, but is exactly the
+empirical response a new action sector must derive, not a HOLO prediction.
+The public tables also omit the gas surface-density and
+vertical-density maps needed for a unique three-dimensional convolution, so
+no complete HOLO galaxy force law is claimed.  The
+cosmological and laboratory layers still use extra
+coordinate and coupling dictionaries.  The positive results are a
 reproducible exact Einstein--dilaton control solution, a healthy effective
 completion of the frozen HOLO geometry, and a falsifiable protocol for deciding
 which future extensions are genuine predictions.
@@ -442,16 +472,70 @@ a full solution with declared boundary conditions.
 ### 7.2. SPARC rotation curves
 
 SPARC contains 175 disk galaxies with photometry and resolved rotation curves
-[5].  The existing final curve function does not read \(v_{\rm obs}\) directly,
-which is a useful separation.  However, its global parameters were selected by
-differential evolution on the same 175 observed curves later used for the
-reported evaluation.  Sharing one parameter vector across galaxies reduces
-model flexibility, but it does not turn training-set performance into an
-out-of-sample prediction.
+[5].  The physical audit constructs
+\(V_{\rm bar}^2=V_{\rm gas}|V_{\rm gas}|+0.5V_{\rm disk}^2+0.7V_{\rm bul}^2\)
+and recomputes all 3391 points.  A deterministic 122/26/27 galaxy split fixes
+the global parameters on train only; validation and test are reported without
+refitting or selecting visually favourable galaxies.
 
-The correct present label is **global in-sample phenomenological calibration**.
-A predictive test requires freezing all transformations and parameters, then
-evaluating untouched galaxies or an external rotation-curve catalogue.
+On the 621 test points, the train-frozen empirical RAR gives
+\(\chi^2/{\rm point}=36.75\) and 14.5% median absolute velocity error.  The
+action-derived stiff force gives 371.58, compared with baryons at 414.23 and
+the old six-mode P6 trace limit at 414.20.  An order-one Hankel operator applies
+the seven Yukawa transfers to each effective disk with one global `ell`; the
+training score improves monotonically to the `1e5 kpc` upper grid boundary and
+the result survives resolution and radial-tail changes.  Thus disk
+cancellation does not rescue the candidate.  The force residual changes sign
+at `gbar=6.25719e-10 m/s^2` and grows toward low acceleration, identifying a
+missing common state-dependent source or coupling.  Fitting that residual
+object by object would reproduce the data by construction and is not evidence.
+The universal collector instead uses one train-fitted `g_dagger` and no
+per-object coefficient.  Over the sampled `0.08--108.31 kpc` domain it demands
+an acceleration multiplier from `1.00033` to `23.9192`; the positive stiff
+Yukawa comb is bounded by `1.106765`.  Thus 94.3% of catalogue points require
+more than its ceiling and 5.7% require screening below it: changing a single
+length cannot solve the mismatch.  This statement is limited to the sampled
+galactic domain, not all physical scales.
+
+The universal response does admit a minimal nonlinear nonrelativistic action
+target.  Writing `X=|grad Phi|^2/a0^2`, the reconstructed field equation is
+`div[mu(sqrt(X)) grad Phi]=4 pi G rho`, with the parametric spherical map
+`t=sqrt(gN/a0)`, `mu=1-exp(-t)`, and
+`g/a0=t^2/[1-exp(-t)]`.  The reconstruction is single-valued and locally
+elliptic for nonzero field, but both principal coefficients tend to zero in
+the deep limit, so it is not uniformly elliptic and no global existence or
+uniqueness result is claimed.  A numerical constitutive inversion closes to
+`3.46e-10`, and a spherical Plummer finite-difference PDE control reaches
+`1.26e-5`.  It also proves that the transition radius is
+mass-dependent: `0.6 kpc` corresponds to `2.955e8 Msun`, `600 kpc` to
+`2.955e14 Msun`, and a `6e10 Msun` baryonic galaxy to `8.55 kpc`.  This action
+was reconstructed from the empirical target; it is not derived from the HOLO
+bulk and has no relativistic, lensing, or external-field completion yet.
+The current canonical HOLO sector cannot hide this collector in its Yukawa
+tower: its regular weak-field response scales as `M` and starts with `F~X`,
+whereas the deep collector scales as `sqrt(M)` and requires `F~X^(3/2)`.
+Positive endpoint potentials change masses and boundary conditions, not that
+operator class.  This is a conditional no-go for the present linearized
+sector, not for a new derivative or nonperturbative completion.
+
+The axisymmetric controls also expose why the algebraic score is not yet a
+disk solution.  A cylindrical Plummer test converges at second order
+(`L2=2.21e-3`, coarse/fine `4.00`), but a flattened Miyamoto--Nagai algebraic
+field has normalized curl `0.0211`.  The local 175-galaxy tables do not identify
+`rho(R,z)`, component thicknesses, or PDE boundary conditions, so the physical
+SPARC PDE fails closed.  The `36.75` score remains a non-PDE mid-plane
+diagnostic.
+The five-parameter legacy P5 refit gives 290.98, reaches all five bounds, and
+is retained only as rejected provenance.  RAR is an empirical target, not
+relabelled as HOLO; a new external holdout remains necessary.
+
+The scale layer supplies an additional conditional no-go.  If the first stiff
+mode is identified with the legacy `1.600006 GeV` endpoint proxy, it requires
+`ell=3.58248e-17 m` and a `1.23329e-16 m` range.  The SPARC scan saturates at
+`ell=1e5 kpc`, which would instead imply `f0=4.49168e-18 Hz`, a `7.05484 Gyr`
+period, and a `3.44256e5 kpc` range.  The lengths differ by `8.61325e40`.
+Neither endpoint is a measurement, but one `ell` cannot support both readings;
+a separate ultralight sector or a derived UV scale map is required.
 
 ### 7.3. Cosmological growth
 

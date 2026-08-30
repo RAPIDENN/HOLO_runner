@@ -1,0 +1,361 @@
+{
+  "boundary_action_convention": {
+    "background_check": "s_i*A'_i=lambda_i/6",
+    "factor_of_two_warning": "Do not switch from the interval/Z2 convention to a doubled orbifold action without translating both bulk and brane factors.",
+    "interval_Z2_action": "S_boundary=kappa5^-2*sum_i integral sqrt(-gamma_hat)*K_hat-(2*kappa5^2)^-1*sum_i integral sqrt(-gamma_hat)*lambda_i(chi_hat)",
+    "israel_junction": "K_mn-K*gamma_mn+(lambda_i/2)*gamma_mn=0",
+    "pure_tension_result": "K_mn=(lambda_i/6)*gamma_mn; K=2*lambda_i/3",
+    "scalar_junction": "n dot partial(chi)+lambda_i'=0"
+  },
+  "boundary_normal_form": {
+    "functional": "F(x;J)=J*x+gamma*x^2/2+eta*x^3/6+zeta*x^4/24",
+    "interpretation": "J denotes the remaining bulk/metric source in the boundary junction and x the boundary scalar displacement. This is a local normal form, not yet the complete gravitational junction equation.",
+    "onshell_response": "F*=-J^2/(2*gamma)-eta*J^3/(6*gamma^3)+(gamma*zeta-3*eta^2)*J^4/(24*gamma^5)+O(J^5)",
+    "solution": "x=-J/gamma-eta*J^2/(2*gamma^3)+(gamma*zeta-3*eta^2)*J^3/(6*gamma^5)+O(J^4)",
+    "stationarity": "J+gamma*x+eta*x^2/2+zeta*x^3/6=0"
+  },
+  "checks": {
+    "all": true,
+    "certified_inputs": true,
+    "cubic_deformation_preserves_background_and_S2_jets": true,
+    "fixed_brane_scalar_junction_expansion_through_second_order": true,
+    "fixed_eta_cubic_response_decays_as_gamma_minus_3": true,
+    "fixed_zeta_quartic_response_decays_as_gamma_minus_4": true,
+    "formal_fixed_brane_GHY_prefactor_and_potential_jet_convolution_through_S4": true,
+    "no_observational_tables_read": true,
+    "onshell_series_matches_exact_stationary_solution": true,
+    "stationarity_series_is_exact_through_J3": true
+  },
+  "classification": "exact_boundary_normal_form_and_stiff_path_gate;full_second_order_junction_pending",
+  "criteria": {
+    "boundary_action_series_max_abs": 1e-12,
+    "fixed_brane_junction_series_max_abs": 1e-12,
+    "fixed_jet_cubic_decay_slope_abs_error": 1e-12,
+    "fixed_jet_quartic_decay_slope_abs_error": 2e-08,
+    "onshell_series_relative_error_max": 2e-08,
+    "stationarity_series_coefficient_max_abs": 1e-12
+  },
+  "endpoint_bulk_jets": {
+    "lower": {
+      "W": 0.060760171111569505,
+      "W_chichi": 2.784201029987366,
+      "W_chichichi": -138.44991924983998,
+      "chi": 0.0,
+      "u": 0.01023316578330245
+    },
+    "role": "The superpotential fixes the minimal matching jets. Extra brane-potential jets beginning at third order remain independent microscopic data. Endpoint W''' values are diagnostic spline derivatives, not fitted parameters.",
+    "upper": {
+      "W": 12.690597177789497,
+      "W_chichi": 4.064003432483275,
+      "W_chichichi": 7.400366307327421,
+      "chi": 4.983414792803092,
+      "u": 1.980980980980981
+    }
+  },
+  "evidence_boundary": "This proves a nonlinear boundary non-identifiability theorem and defines a natural stiff path. It does not yet compute the full junction source, physical S3, S4, a force law or a detection.",
+  "fixed_brane_boundary_density": {
+    "GHY_S3": "s_i*exp(4A)/kappa5^2*[4A'*P3+P2*Theta1+P1*Theta2+Theta3]",
+    "GHY_S4": "s_i*exp(4A)/kappa5^2*[4A'*P4+P3*Theta1+P2*Theta2+P1*Theta3+Theta4]",
+    "GHY_density": "sqrt(-gamma)K=s_i*exp(4A)*exp(4r)/(1+alpha)*[4A'+Theta]",
+    "Theta": "4r'-exp(-2A-2r)*[box(beta)+2 partial(r) dot partial(beta)]",
+    "brane_potential_S3": "-exp(4A)/(2*kappa5^2)*[32lambda0*r^3/3+8lambda1*r^2*Q+2gamma*r*Q^2+eta*Q^3/6]",
+    "brane_potential_S4": "-exp(4A)/(2*kappa5^2)*[32lambda0*r^4/3+32lambda1*r^3*Q/3+4gamma*r^2*Q^2+2eta*r*Q^3/3+zeta4*Q^4/24]",
+    "fields": "gamma_mn=exp(2A+2r)*eta_mn; N=1+alpha; N_m=partial_m beta",
+    "oriented_trace": "K=s_i*N^-1*[4(A'+r')-D_m N^m]",
+    "prefactor_P0_to_P4": [
+      "1",
+      "4r-alpha",
+      "8r^2-4alpha*r+alpha^2",
+      "32r^3/3-8alpha*r^2+4alpha^2*r-alpha^3",
+      "32r^4/3-32alpha*r^3/3+8alpha^2*r^2-4alpha^3*r+alpha^4"
+    ],
+    "series_check": {
+      "GHY_cubic_abs": 0.0,
+      "GHY_quartic_abs": 2.7755575615628914e-17,
+      "brane_potential_cubic_abs": 6.938893903907228e-18,
+      "brane_potential_quartic_abs": 1.734723475976807e-18,
+      "prefactor_max_abs": 1.3877787807814457e-17
+    },
+    "shift_divergence": "D_m N^m=exp(-2A-2r)*[box(beta)+2 partial(r) dot partial(beta)]",
+    "status": "Formal fixed-brane jet identity: Theta_n are independent inputs. This does not derive the inclined normal, bending or the full extrinsic-curvature geometry."
+  },
+  "fixed_brane_scalar_junction": {
+    "background": "s_i*bar_chi'+lambda_i'=0",
+    "cubic_jet_entry": "lambda_i'''=sign_i*W'''+eta_i",
+    "exact": "B_i=s_i*N^-1*(chi'-N^mu*partial_mu chi)+lambda_i'(chi)=0",
+    "first_order": "B1=s_i*(q1'-alpha1*bar_chi')+lambda_i''*q1=0",
+    "moving_brane_pullback": {
+      "Q1": "q1+bar_chi'*xi1",
+      "Q2": "q2+bar_chi'*xi2+xi1*q1'+bar_chi''*xi1^2/2",
+      "status": "The pullback is identified, but the inclined normal, induced metric, trace/traceless Israel junctions and brane bending are not yet combined."
+    },
+    "orientations": "s_minus=-1; s_plus=+1",
+    "perturbation_convention": "chi=bar_chi+q1+q2; N=1+alpha1+alpha2; second-order fields carry no factor 1/2",
+    "second_order": "B2=s_i*[q2'-alpha1*q1'+(alpha1^2-alpha2)*bar_chi'-N1^mu*partial_mu q1]+lambda_i''*q2+lambda_i'''*q1^2/2=0",
+    "series_check_max_abs": 0.0
+  },
+  "inputs": {
+    "files": {
+      "boundary_completion": {
+        "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+        "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      },
+      "gauge_invariant_route": {
+        "path": "first_principles_audit/prediction_factory/artifacts/gauge_invariant_cubic_route.json",
+        "sha256": "d975c58aeee2a9605b9c09a496fb59481ed745b447fcc9670911e7dcb03d019f"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "jet_counterexample": {
+    "consequence": "The background, linear junction condition and S2 spectrum cannot determine the compact S3 boundary vertex.",
+    "first_difference": "lambda_B'''-lambda_A'''=eta",
+    "identical_at_background": [
+      "lambda",
+      "lambda'",
+      "lambda''"
+    ],
+    "potential_A": "lambda_A=s*W+gamma*(chi-chi_i)^2/2",
+    "potential_B": "lambda_B=lambda_A+eta*(chi-chi_i)^3/6"
+  },
+  "metric_and_bending_structure": {
+    "inclined_normal": "n_A=s_i*(-partial_m(xi),1)/sqrt(G^yy-2G^ym*partial_m(xi)+G^mn*partial_m(xi)*partial_n(xi))",
+    "induced_metric_exact": "gamma_hat_mn=gamma_mn(Y)+N_m(Y)*partial_n(xi)+N_n(Y)*partial_m(xi)+[N^2+N_rho*N^rho]_Y*partial_m(xi)*partial_n(xi)",
+    "israel_trace_first_order": "K1=(2/3)*lambda1*Q1",
+    "israel_trace_second_order": "K2=(2/3)*[lambda1*Q2+gamma_i*Q1^2/2]",
+    "israel_traceless": "K_<mn>=0",
+    "status": "The exact sources and right-hand sides are identified, but the inclined normal and induced metric have not yet been expanded and combined with the bulk constraints in executable code."
+  },
+  "metrics": {
+    "boundary_action_series_max_abs": 2.7755575615628914e-17,
+    "fixed_brane_junction_series_max_abs": 0.0,
+    "onshell_series_relative_error_max": 1.1414991753123819e-15,
+    "stationarity_series_coefficient_max_abs": 1.3877787807814457e-17
+  },
+  "next_calculation": {
+    "accepted_branch": "Natural stiff path with fixed analytic higher jets, subject to an explicit uniform-limit check in the full equations.",
+    "objective": "Derive the second-order gauge-invariant junction source and combine it with GHY, induced-metric and brane-bending terms.",
+    "rejection_rule": "Do not tune eta, zeta or higher jets after viewing a desired galactic force law."
+  },
+  "physical_gates": {
+    "GHY_metric_cubic_terms_combined": false,
+    "boundary_action_normalization_and_variational_junctions_identified": true,
+    "boundary_jet_nonidentifiability_proved": true,
+    "brane_bending_through_second_order_included": false,
+    "fixed_brane_scalar_junction_source_derived": true,
+    "formal_fixed_brane_GHY_prefactor_and_potential_jet_convolution_verified": true,
+    "full_second_order_junction_source_derived": false,
+    "metric_junction_right_hand_side_through_second_order_identified": true,
+    "metric_junction_through_second_order_derived": false,
+    "moving_brane_pullback_and_normal_completed": false,
+    "natural_fixed_higher_jet_stiff_limit_defined": true,
+    "physical_compact_S3_boundary_vertex_computed": false,
+    "stiff_limit_uniformity_proved_for_full_field_system": false
+  },
+  "schema": "holo.cubic-boundary-identifiability.v2",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "stiff_limit_paths": {
+    "admissible_freeze_rule": "Freeze the full brane potentials before projection. For the natural stiff candidate require eta/gamma^3 -> 0, zeta/gamma^4 -> 0, eta^2/gamma^5 -> 0 and no compensating singular higher-jet tower. The source J, modal norms, lapse, shift and bending must also remain bounded in the full system.",
+    "junction_scaling": {
+      "cubic_boundary_action": "eta*Q1^3=O(eta/gamma^3)",
+      "eta_part_of_second_order_displacement": "Q2_eta=O(eta/gamma^3)",
+      "linear_boundary_displacement": "Q1=O(gamma^-1)",
+      "quartic_eta_squared_response": "eta^2/gamma^5 must vanish independently of eta/gamma^3",
+      "raw_eta_source_in_second_order_junction": "eta*Q1^2=O(eta/gamma^2)"
+    },
+    "natural_fixed_higher_jets": {
+      "cubic_log_slope": -2.9999999999999996,
+      "eta": 0.7,
+      "mixed_quartic_asymptotic_log_slope": -4.000314895151388,
+      "pure_zeta_quartic_log_slope": -4.0,
+      "result": "C3 vanishes as gamma^-3 and C4 is O(gamma^-4), or faster when the quartic jet vanishes; fixed microscopic higher jets decouple from the scalar boundary displacement in this local normal form.",
+      "rows": [
+        {
+          "C2": -0.05,
+          "C3": -0.00011666666666666667,
+          "C4": -2.2791666666666667e-06,
+          "a1": -0.1,
+          "a2": -0.00035,
+          "a3": -9.116666666666667e-06,
+          "gamma": 10.0
+        },
+        {
+          "C2": -0.015811388300841896,
+          "C3": -3.6893239368631088e-06,
+          "C4": -1.8603561733519807e-08,
+          "a1": -0.03162277660168379,
+          "a2": -1.1067971810589328e-05,
+          "a3": -7.441424693407923e-08,
+          "gamma": 31.622776601683793
+        },
+        {
+          "C2": -0.005,
+          "C3": -1.1666666666666667e-07,
+          "C4": -1.7279166666666665e-10,
+          "a1": -0.01,
+          "a2": -3.5e-07,
+          "a3": -6.911666666666666e-10,
+          "gamma": 100.0
+        },
+        {
+          "C2": -0.00158113883008419,
+          "C3": -3.68932393686311e-09,
+          "C4": -1.6860356173351989e-12,
+          "a1": -0.00316227766016838,
+          "a2": -1.106797181058933e-08,
+          "a3": -6.7441424693407956e-12,
+          "gamma": 316.2277660168379
+        },
+        {
+          "C2": -0.0005,
+          "C3": -1.1666666666666665e-10,
+          "C4": -1.6727916666666668e-14,
+          "a1": -0.001,
+          "a2": -3.5e-10,
+          "a3": -6.691166666666667e-14,
+          "gamma": 1000.0
+        },
+        {
+          "C2": -0.00015811388300841897,
+          "C3": -3.689323936863108e-12,
+          "C4": -1.6686035617335196e-16,
+          "a1": -0.00031622776601683794,
+          "a2": -1.1067971810589325e-11,
+          "a3": -6.674414246934078e-16,
+          "gamma": 3162.2776601683795
+        },
+        {
+          "C2": -5e-05,
+          "C3": -1.1666666666666666e-13,
+          "C4": -1.6672791666666665e-18,
+          "a1": -0.0001,
+          "a2": -3.4999999999999997e-13,
+          "a3": -6.669116666666666e-18,
+          "gamma": 10000.0
+        },
+        {
+          "C2": -1.5811388300841898e-05,
+          "C3": -3.6893239368631094e-15,
+          "C4": -1.6668603561733522e-20,
+          "a1": -3.1622776601683795e-05,
+          "a2": -1.1067971810589329e-14,
+          "a3": -6.667441424693409e-20,
+          "gamma": 31622.776601683792
+        },
+        {
+          "C2": -5e-06,
+          "C3": -1.1666666666666666e-16,
+          "C4": -1.6667279166666664e-22,
+          "a1": -1e-05,
+          "a2": -3.4999999999999997e-16,
+          "a3": -6.666911666666666e-22,
+          "gamma": 100000.0
+        }
+      ],
+      "zeta": -0.4
+    },
+    "nonuniform_eta_proportional_gamma_cubed": {
+      "result": "C3 remains finite, while the eta^2 contribution makes C4 nonuniform without further higher-jet tuning. Gamma to infinity alone therefore does not define a nonlinear boundary theory.",
+      "rows": [
+        {
+          "C2": -0.05,
+          "C3": -0.03333333333333333,
+          "C4": -0.05,
+          "a1": -0.1,
+          "a2": -0.1,
+          "a3": -0.2,
+          "eta": 200.0,
+          "gamma": 10.0
+        },
+        {
+          "C2": -0.015811388300841896,
+          "C3": -0.03333333333333333,
+          "C4": -0.15811388300841905,
+          "a1": -0.03162277660168379,
+          "a2": -0.1,
+          "a3": -0.6324555320336762,
+          "eta": 6324.555320336759,
+          "gamma": 31.622776601683793
+        },
+        {
+          "C2": -0.005,
+          "C3": -0.03333333333333333,
+          "C4": -0.5,
+          "a1": -0.01,
+          "a2": -0.1,
+          "a3": -2.0,
+          "eta": 200000.0,
+          "gamma": 100.0
+        },
+        {
+          "C2": -0.00158113883008419,
+          "C3": -0.03333333333333333,
+          "C4": -1.58113883008419,
+          "a1": -0.00316227766016838,
+          "a2": -0.1,
+          "a3": -6.32455532033676,
+          "eta": 6324555.320336757,
+          "gamma": 316.2277660168379
+        },
+        {
+          "C2": -0.0005,
+          "C3": -0.03333333333333333,
+          "C4": -5.0,
+          "a1": -0.001,
+          "a2": -0.1,
+          "a3": -20.0,
+          "eta": 200000000.0,
+          "gamma": 1000.0
+        },
+        {
+          "C2": -0.00015811388300841897,
+          "C3": -0.03333333333333334,
+          "C4": -15.811388300841902,
+          "a1": -0.00031622776601683794,
+          "a2": -0.1,
+          "a3": -63.245553203367606,
+          "eta": 6324555320.3367605,
+          "gamma": 3162.2776601683795
+        },
+        {
+          "C2": -5e-05,
+          "C3": -0.03333333333333333,
+          "C4": -50.0,
+          "a1": -0.0001,
+          "a2": -0.1,
+          "a3": -200.0,
+          "eta": 200000000000.0,
+          "gamma": 10000.0
+        },
+        {
+          "C2": -1.5811388300841898e-05,
+          "C3": -0.03333333333333333,
+          "C4": -158.11388300841892,
+          "a1": -3.1622776601683795e-05,
+          "a2": -0.1,
+          "a3": -632.4555320336757,
+          "eta": 6324555320336.758,
+          "gamma": 31622.776601683792
+        },
+        {
+          "C2": -5e-06,
+          "C3": -0.03333333333333333,
+          "C4": -499.99999999999994,
+          "a1": -1e-05,
+          "a2": -0.1,
+          "a3": -1999.9999999999998,
+          "eta": 200000000000000.0,
+          "gamma": 100000.0
+        }
+      ]
+    }
+  },
+  "title": "Nonlinear boundary-jet identifiability before compact S3"
+}

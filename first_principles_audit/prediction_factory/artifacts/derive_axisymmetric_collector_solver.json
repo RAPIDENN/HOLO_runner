@@ -1,0 +1,897 @@
+{
+  "analytic_control": {
+    "converged": true,
+    "field": 0.1147900365287526,
+    "final_relative_residual": 1.8959959619841873e-07,
+    "final_relative_update": 1.3435604190488448e-07,
+    "iterations": 9,
+    "maximum_relative_potential_error": 2.3934944690669004e-07,
+    "minimum_mu": 0.5473631906598825,
+    "mu": 0.5473632988700875,
+    "residual_history": [
+      0.13261029628769763,
+      0.0020556913875018168,
+      0.00045587914236831355,
+      0.0001186596218119778,
+      3.2206211368665676e-05,
+      8.857511152866116e-06,
+      2.4486073879521095e-06,
+      6.796740631315775e-07,
+      1.8959959619841873e-07
+    ]
+  },
+  "audit_checks": {
+    "all": true,
+    "all_solves_converge_within_residual_gate": true,
+    "analytic_control_passes": true,
+    "defined_sources_are_finite": true,
+    "mixed_source_gates_preserved": true,
+    "resolution_and_memory_bounds_pass": true,
+    "vobs_a0_genealogy_preserved_as_physical_failure": true,
+    "vobs_exclusion_and_zero_per_galaxy_force_parameters_pass": true
+  },
+  "claim_boundary": "This result demonstrates a reproducible route from archived SPARC profiles to a converged low-resolution AQUAL solve. Positivity, MHI normalization, RHI taper, spherical bulge deprojection and monopole boundaries are frozen modelling assumptions, not newly measured density maps. Per-galaxy Vobs is loaded only after each field solve, but the global a0 is inherited from a Vobs-based SPARC training fit; the operator is not observation-independent.",
+  "classification": "empirical_a0_assumption_defined_source_mixed_newtonian_closure_gates",
+  "equation": "(1/R)d_R[R mu(|grad Phi|/a0)d_R Phi]+d_z[mu(|grad Phi|/a0)d_z Phi]=4*pi*G*rho_b",
+  "galaxies": {
+    "DDO154": {
+      "cells_r_by_z": [
+        40,
+        40
+      ],
+      "name": "DDO154",
+      "newtonian_source_closure": {
+        "components": {
+          "bulge": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.0
+          },
+          "gas": {
+            "passes_0p15_gate": false,
+            "relative_rms_v2_over_component_peak": 0.32039441801611473
+          },
+          "stellar_disk": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.019775760050713107
+          }
+        },
+        "observational_velocity_read": false,
+        "passes_all_component_0p15_gates": false,
+        "passes_total_0p15_gate": false,
+        "relative_rms_v2_over_target_peak": 0.2921258149469977,
+        "target_definition": "Vgas*abs(Vgas)+0.5*Vdisk^2+0.7*Vbul^2"
+      },
+      "prediction_kms": [
+        17.471108569162727,
+        25.845974722755113,
+        31.28865007811428,
+        36.818301485556084,
+        41.33256939943604,
+        45.782417069830586,
+        50.625447410395964,
+        53.39941333673649,
+        54.770699636204135,
+        55.63378690752758,
+        56.21883915592896,
+        56.96329379959752
+      ],
+      "radius_kpc": [
+        0.49,
+        0.99,
+        1.48,
+        1.97,
+        2.47,
+        2.96,
+        3.46,
+        3.95,
+        4.44,
+        4.94,
+        5.43,
+        5.92
+      ],
+      "score_after_prediction_only": {
+        "chi2_per_point": 304.2290382209317,
+        "interpretation": "exploratory_only_source_closure_gate_failed",
+        "median_absolute_fractional_velocity_error": 0.15378150270409147,
+        "source_closure_gate_passes": false,
+        "velocity_points": 12
+      },
+      "solver": {
+        "converged": true,
+        "final_relative_residual": 3.3565634844285587e-06,
+        "final_relative_update": 1.2827325207576964e-05,
+        "iterations": 13,
+        "minimum_mu": 0.06667692526023261,
+        "residual_history": [
+          1.7960984281540775,
+          0.35789208788333604,
+          0.04425883232275086,
+          0.008094492342225552,
+          0.002990539306510305,
+          0.001158339026587475,
+          0.0004394883648086334,
+          0.00017065480067236685,
+          7.10339470159371e-05,
+          3.1876015818967255e-05,
+          1.4937095193717886e-05,
+          7.088598970870068e-06,
+          3.3565634844285587e-06
+        ]
+      },
+      "source": {
+        "bulge_asymptotic_curve_mass_msun": 0.0,
+        "bulge_mass_on_grid_msun": 0.0,
+        "extent_kpc": 7.4,
+        "gas_reconstruction": {
+          "forward_signed_v2_relative_rms_over_peak": 0.2913854116044712,
+          "helium_factor": 1.33,
+          "hi_radius_kpc": 4.96,
+          "positive_projection_normalization": 1.3711704725321208,
+          "raw_negative_sample_fraction": 0.1240234375,
+          "reconstructed_gas_mass_msun": 365750000.00000006,
+          "target_gas_mass_msun": 365750000.0
+        },
+        "gas_sheet_mass_on_grid_msun": 361374162.9339938,
+        "minimum_grid_scale_kpc": 0.0031825,
+        "photometric_rotmod_anchor": {
+          "factor": 0.9254737905843796,
+          "median_absolute_log_ratio_scatter": 0.03196918336974296,
+          "usable_points": 7
+        },
+        "stellar_vertical_scale_height_kpc": 0.10445464626926053,
+        "stellar_volume_mass_on_grid_msun": 25901572.4023031,
+        "total_source_mass_on_grid_msun": 387275735.3362969
+      }
+    },
+    "NGC2403": {
+      "cells_r_by_z": [
+        40,
+        40
+      ],
+      "name": "NGC2403",
+      "newtonian_source_closure": {
+        "components": {
+          "bulge": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.0
+          },
+          "gas": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.12834991226414486
+          },
+          "stellar_disk": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.009346254859598509
+          }
+        },
+        "observational_velocity_read": false,
+        "passes_all_component_0p15_gates": true,
+        "passes_total_0p15_gate": true,
+        "relative_rms_v2_over_target_peak": 0.050098664000372675,
+        "target_definition": "Vgas*abs(Vgas)+0.5*Vdisk^2+0.7*Vbul^2"
+      },
+      "prediction_kms": [
+        20.35762043013093,
+        30.52474438283223,
+        39.44841225159383,
+        47.335499534463295,
+        52.93187958016753,
+        56.6277550516817,
+        59.27786422025544,
+        61.10483362571727,
+        63.306647896681916,
+        65.51298309098578,
+        68.09666984607311,
+        71.36003540086872,
+        73.82333020327401,
+        77.13558726471192,
+        80.01340895462386,
+        82.76877073718137,
+        85.44383115597586,
+        88.58807579418618,
+        91.30739856514398,
+        93.21732823783177,
+        93.887134968264,
+        95.35878197491824,
+        96.63597466944773,
+        97.4823731062108,
+        97.67879999818719,
+        97.0714529677051,
+        96.77837714793013,
+        96.80476640768678,
+        97.16592839634693,
+        97.90340474167961,
+        99.19242536807849,
+        100.74247264436934,
+        101.94167036475655,
+        102.96242607441674,
+        103.7975650240866,
+        104.43917729216743,
+        104.8785038034223,
+        105.11645560896014,
+        105.11014876106094,
+        107.13884948186448,
+        108.68642976624962,
+        110.17014858623688,
+        109.64221984173467,
+        109.86266570125642,
+        110.15775065479812,
+        110.53440113581675,
+        110.97303437065037,
+        111.71405132394052,
+        112.70318855941268,
+        113.48915732896849,
+        114.36943579341958,
+        115.37146976630122,
+        116.64422285565102,
+        117.86517935194556,
+        118.72603770305551,
+        119.2435697045428,
+        119.37513757929871,
+        119.8406097448907,
+        120.4634569362796,
+        120.8676621971917,
+        121.02842963642117,
+        120.93902519524352,
+        120.58324150559115,
+        120.64570549232491,
+        120.76600658470626,
+        120.84990871957766,
+        120.8999825251438,
+        120.92145251646075,
+        120.92049319749549,
+        120.90177196967149,
+        121.25394577891839,
+        121.58494976303133,
+        121.7759472271658
+      ],
+      "radius_kpc": [
+        0.16,
+        0.26,
+        0.36,
+        0.46,
+        0.56,
+        0.66,
+        0.76,
+        0.86,
+        0.96,
+        1.06,
+        1.16,
+        1.27,
+        1.36,
+        1.47,
+        1.57,
+        1.67,
+        1.77,
+        1.87,
+        1.97,
+        2.08,
+        2.18,
+        2.28,
+        2.37,
+        2.47,
+        2.57,
+        2.68,
+        2.78,
+        2.88,
+        2.98,
+        3.08,
+        3.19,
+        3.29,
+        3.39,
+        3.49,
+        3.59,
+        3.69,
+        3.79,
+        3.9,
+        3.99,
+        4.47,
+        4.97,
+        5.47,
+        5.96,
+        6.46,
+        6.96,
+        7.45,
+        7.95,
+        8.45,
+        8.94,
+        9.44,
+        9.94,
+        10.43,
+        10.93,
+        11.43,
+        11.92,
+        12.42,
+        12.92,
+        13.42,
+        13.91,
+        14.41,
+        14.91,
+        15.4,
+        15.9,
+        16.4,
+        16.89,
+        17.39,
+        17.89,
+        18.38,
+        18.88,
+        19.38,
+        19.87,
+        20.37,
+        20.87
+      ],
+      "score_after_prediction_only": {
+        "chi2_per_point": 237.10418779118092,
+        "interpretation": "eligible_low_resolution_AQUAL_diagnostic",
+        "median_absolute_fractional_velocity_error": 0.09774797037558593,
+        "source_closure_gate_passes": true,
+        "velocity_points": 73
+      },
+      "solver": {
+        "converged": true,
+        "final_relative_residual": 2.895989892551071e-06,
+        "final_relative_update": 1.2152982654134674e-05,
+        "iterations": 12,
+        "minimum_mu": 0.09346795115520488,
+        "residual_history": [
+          0.18922243746748701,
+          0.03845827013218983,
+          0.008069024985156348,
+          0.0024416661207498857,
+          0.0009429216857098518,
+          0.00039844381709178486,
+          0.00017343823974090003,
+          7.614213123637873e-05,
+          3.348279450288179e-05,
+          1.4733869628052401e-05,
+          6.504525710748174e-06,
+          2.895989892551071e-06
+        ]
+      },
+      "source": {
+        "bulge_asymptotic_curve_mass_msun": 0.0,
+        "bulge_mass_on_grid_msun": 0.0,
+        "extent_kpc": 26.087500000000002,
+        "gas_reconstruction": {
+          "forward_signed_v2_relative_rms_over_peak": 0.13551973954618843,
+          "helium_factor": 1.33,
+          "hi_radius_kpc": 15.11,
+          "positive_projection_normalization": 0.7269833503078665,
+          "raw_negative_sample_fraction": 0.18359375,
+          "reconstructed_gas_mass_msun": 4254670000.0,
+          "target_gas_mass_msun": 4254670000.0
+        },
+        "gas_sheet_mass_on_grid_msun": 4249034540.228934,
+        "minimum_grid_scale_kpc": 0.01149,
+        "photometric_rotmod_anchor": {
+          "factor": 0.578659836808074,
+          "median_absolute_log_ratio_scatter": 0.0033721110698030467,
+          "usable_points": 61
+        },
+        "stellar_vertical_scale_height_kpc": 0.2414262228976889,
+        "stellar_volume_mass_on_grid_msun": 4976294434.475862,
+        "total_source_mass_on_grid_msun": 9225328974.704796
+      }
+    },
+    "NGC2841": {
+      "cells_r_by_z": [
+        40,
+        40
+      ],
+      "name": "NGC2841",
+      "newtonian_source_closure": {
+        "components": {
+          "bulge": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.015073569279202883
+          },
+          "gas": {
+            "passes_0p15_gate": false,
+            "relative_rms_v2_over_component_peak": 0.42686870045332176
+          },
+          "stellar_disk": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.008977654191041214
+          }
+        },
+        "observational_velocity_read": false,
+        "passes_all_component_0p15_gates": false,
+        "passes_total_0p15_gate": true,
+        "relative_rms_v2_over_target_peak": 0.042420919373312195,
+        "target_definition": "Vgas*abs(Vgas)+0.5*Vdisk^2+0.7*Vbul^2"
+      },
+      "prediction_kms": [
+        248.95279155016559,
+        237.1193045510675,
+        235.57943108067303,
+        235.2143583183101,
+        235.88165243328936,
+        236.26617235284945,
+        236.8812498252672,
+        237.95646723534702,
+        238.39146358511817,
+        239.3983447735749,
+        241.2277477725943,
+        243.7897168612351,
+        247.28535323001591,
+        250.27966218611326,
+        252.3704458369299,
+        253.27112592823278,
+        252.96974621370998,
+        251.691939837823,
+        252.664079012517,
+        253.2649491778037,
+        253.59270802164318,
+        253.62623215266245,
+        253.3766513176556,
+        252.81949451343564,
+        253.79429374268574,
+        247.91838874947075,
+        242.82633362918844,
+        238.23398919712326,
+        235.6828257986236,
+        233.16304333401033,
+        232.70590674186494,
+        230.5758291022275,
+        225.93609969476387,
+        223.56974786608296,
+        221.76551275512386,
+        221.2001539560018,
+        221.96785548675726,
+        222.32110564885932,
+        222.03914834234706,
+        221.05918791359957,
+        219.3733165129682,
+        218.4653757444081,
+        217.81626377645676,
+        217.5090071027952,
+        217.64095338464838,
+        218.2444021081689,
+        219.50232577573843,
+        220.79002160681435,
+        221.62438874809058,
+        221.98375629297112
+      ],
+      "radius_kpc": [
+        3.44,
+        3.77,
+        4.13,
+        4.47,
+        4.8,
+        5.13,
+        5.48,
+        5.83,
+        6.16,
+        6.51,
+        6.86,
+        7.18,
+        7.51,
+        7.85,
+        8.21,
+        8.57,
+        8.9,
+        9.24,
+        9.6,
+        9.93,
+        10.27,
+        10.6,
+        10.93,
+        11.27,
+        12.31,
+        14.35,
+        16.4,
+        18.48,
+        20.57,
+        22.51,
+        24.59,
+        26.68,
+        28.77,
+        30.7,
+        32.79,
+        34.88,
+        36.96,
+        38.9,
+        40.99,
+        43.08,
+        45.16,
+        47.1,
+        49.19,
+        51.27,
+        53.36,
+        55.3,
+        57.38,
+        59.47,
+        61.56,
+        63.64
+      ],
+      "score_after_prediction_only": {
+        "chi2_per_point": 140.01975918838625,
+        "interpretation": "exploratory_only_source_closure_gate_failed",
+        "median_absolute_fractional_velocity_error": 0.21766597469915328,
+        "source_closure_gate_passes": false,
+        "velocity_points": 50
+      },
+      "solver": {
+        "converged": true,
+        "final_relative_residual": 3.2288409633673166e-06,
+        "final_relative_update": 1.603402006232009e-05,
+        "iterations": 11,
+        "minimum_mu": 0.10990134395494096,
+        "residual_history": [
+          0.2503515747421691,
+          0.05067800608068281,
+          0.008566399951638255,
+          0.0022347192642757432,
+          0.0007430364514957111,
+          0.0002735220895292099,
+          0.0001067001195229496,
+          4.3168776052699205e-05,
+          1.790310967720238e-05,
+          7.555785877867068e-06,
+          3.2288409633673166e-06
+        ]
+      },
+      "source": {
+        "bulge_asymptotic_curve_mass_msun": 32365212519.21105,
+        "bulge_mass_on_grid_msun": 31412884963.032024,
+        "extent_kpc": 79.55,
+        "gas_reconstruction": {
+          "forward_signed_v2_relative_rms_over_peak": 0.4281674955384211,
+          "helium_factor": 1.33,
+          "hi_radius_kpc": 45.12,
+          "positive_projection_normalization": 0.2783575852029219,
+          "raw_negative_sample_fraction": 0.15625,
+          "reconstructed_gas_mass_msun": 13000750000.0,
+          "target_gas_mass_msun": 13000750000.0
+        },
+        "gas_sheet_mass_on_grid_msun": 13013923509.871208,
+        "minimum_grid_scale_kpc": 0.0111075,
+        "photometric_rotmod_anchor": {
+          "factor": 0.39593278944272264,
+          "median_absolute_log_ratio_scatter": 0.006495369773697426,
+          "usable_points": 41
+        },
+        "stellar_vertical_scale_height_kpc": 0.44405140364853096,
+        "stellar_volume_mass_on_grid_msun": 69791266746.6911,
+        "total_source_mass_on_grid_msun": 114218075219.59435
+      }
+    },
+    "NGC3198": {
+      "cells_r_by_z": [
+        40,
+        40
+      ],
+      "name": "NGC3198",
+      "newtonian_source_closure": {
+        "components": {
+          "bulge": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.0
+          },
+          "gas": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.04622814181362886
+          },
+          "stellar_disk": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.016718642362456855
+          }
+        },
+        "observational_velocity_read": false,
+        "passes_all_component_0p15_gates": true,
+        "passes_total_0p15_gate": true,
+        "relative_rms_v2_over_target_peak": 0.018393134424963795,
+        "target_definition": "Vgas*abs(Vgas)+0.5*Vdisk^2+0.7*Vbul^2"
+      },
+      "prediction_kms": [
+        50.4516215157005,
+        60.283861362982684,
+        66.07374843129628,
+        70.55447735438051,
+        73.29248780374695,
+        76.1935557973692,
+        79.17110599525255,
+        82.66062813170554,
+        85.81146681897344,
+        87.2765837510864,
+        95.1814030390351,
+        104.18672252373983,
+        110.79327318753026,
+        115.14811783427626,
+        120.41974068302866,
+        125.29735238895972,
+        129.33684436509418,
+        134.91943014262225,
+        139.67990215847462,
+        142.11209849000582,
+        141.882581937027,
+        140.6546850712417,
+        142.40675241878344,
+        142.4365559443352,
+        144.0483018268989,
+        148.83677425138782,
+        152.24770551676158,
+        152.33118217271115,
+        152.0456097858146,
+        150.50095201537866,
+        150.85859587745216,
+        152.0367496977441,
+        153.0529245714206,
+        154.73887277701908,
+        156.3877047054896,
+        157.46504909824543,
+        158.15387152530596,
+        158.49597197799642,
+        159.68838186235558,
+        161.9640873242021,
+        165.07807413203247,
+        167.64737599928418,
+        169.71315827776104
+      ],
+      "radius_kpc": [
+        0.32,
+        0.64,
+        0.96,
+        1.28,
+        1.61,
+        1.93,
+        2.24,
+        2.57,
+        2.89,
+        3.21,
+        3.54,
+        3.85,
+        4.17,
+        4.5,
+        4.82,
+        5.15,
+        5.46,
+        5.78,
+        6.1,
+        6.43,
+        6.74,
+        7.06,
+        8.04,
+        9.04,
+        10.04,
+        11.04,
+        12.05,
+        14.05,
+        16.07,
+        18.13,
+        20.05,
+        22.12,
+        24.03,
+        26.1,
+        28.16,
+        30.08,
+        32.14,
+        34.06,
+        36.12,
+        38.19,
+        40.1,
+        42.17,
+        44.08
+      ],
+      "score_after_prediction_only": {
+        "chi2_per_point": 10.20100066607065,
+        "interpretation": "eligible_low_resolution_AQUAL_diagnostic",
+        "median_absolute_fractional_velocity_error": 0.05077763341697179,
+        "source_closure_gate_passes": true,
+        "velocity_points": 43
+      },
+      "solver": {
+        "converged": true,
+        "final_relative_residual": 3.102526884086401e-06,
+        "final_relative_update": 1.4437400843594907e-05,
+        "iterations": 12,
+        "minimum_mu": 0.08451490257664894,
+        "residual_history": [
+          0.07560214156374948,
+          0.018577341588894687,
+          0.00493917135588415,
+          0.0015578486943247604,
+          0.0006244697458885674,
+          0.00028844297041171667,
+          0.00013802023052537606,
+          6.576855151926369e-05,
+          3.09839101694244e-05,
+          1.4456277529692651e-05,
+          6.704552173840446e-06,
+          3.102526884086401e-06
+        ]
+      },
+      "source": {
+        "bulge_asymptotic_curve_mass_msun": 0.0,
+        "bulge_mass_on_grid_msun": 0.0,
+        "extent_kpc": 55.099999999999994,
+        "gas_reconstruction": {
+          "forward_signed_v2_relative_rms_over_peak": 0.05429349071336971,
+          "helium_factor": 1.33,
+          "hi_radius_kpc": 35.66,
+          "positive_projection_normalization": 0.8583855739918118,
+          "raw_negative_sample_fraction": 0.189453125,
+          "reconstructed_gas_mass_msun": 14455770000.000002,
+          "target_gas_mass_msun": 14455770000.0
+        },
+        "gas_sheet_mass_on_grid_msun": 14334694123.748247,
+        "minimum_grid_scale_kpc": 0.0108725,
+        "photometric_rotmod_anchor": {
+          "factor": 0.4082256906934559,
+          "median_absolute_log_ratio_scatter": 0.002995620265257125,
+          "usable_points": 37
+        },
+        "stellar_vertical_scale_height_kpc": 0.4044012958750498,
+        "stellar_volume_mass_on_grid_msun": 18907192907.41092,
+        "total_source_mass_on_grid_msun": 33241887031.159164
+      }
+    }
+  },
+  "global_frozen_parameters": {
+    "a0_kms2_per_kpc": 3530.453669782511,
+    "a0_m_s2": 1.1441421135374019e-10,
+    "a0_origin": "empirical SPARC training-fit collector control; not predicted by the present HOLO action",
+    "boundary_extent_factor": 1.25,
+    "bulge_mass_to_light_msun_per_lsun": 0.7,
+    "direct_per_galaxy_vobs_read_during_solve": false,
+    "disk_mass_to_light_msun_per_lsun": 0.5,
+    "extra_inclination_correction_applied": false,
+    "fftlog_padding": 1000.0,
+    "fftlog_samples": 1024,
+    "gas_outer_taper_width_in_RHI": 0.5,
+    "helium_factor": 1.33,
+    "minimum_mu_numerical_floor": 1e-06,
+    "operator_uses_vobs_derived_global_a0": true,
+    "per_galaxy_force_parameters": 0,
+    "stellar_height_coefficient_kpc": 0.196,
+    "stellar_height_power": 0.633
+  },
+  "newtonian_source_gate": {
+    "by_galaxy": {
+      "DDO154": false,
+      "NGC2403": true,
+      "NGC2841": false,
+      "NGC3198": true
+    },
+    "eligible_galaxies": [
+      "NGC2403",
+      "NGC3198"
+    ],
+    "failed_galaxies": [
+      "DDO154",
+      "NGC2841"
+    ],
+    "prospective_threshold_relative_rms_v2_over_component_peak": 0.15,
+    "rule": "AQUAL score is eligible only when total and every nonzero gas, stellar-disk and bulge Newtonian closure are below 0.15."
+  },
+  "passes": {
+    "all": false,
+    "all_galaxy_newtonian_source_gates_below_0p15": false,
+    "all_galaxy_solves_converged": true,
+    "conservative_dense_array_budget_below_8_mib": true,
+    "direct_per_galaxy_vobs_excluded_from_solve_and_stopping_rules": true,
+    "galaxy_nonlinear_residual_below_5e5": true,
+    "gas_positive_mass_and_rhi_regularization_frozen": true,
+    "newtonian_source_round_trips_are_finite": true,
+    "no_per_galaxy_force_parameters": true,
+    "no_three_dimensional_mesh": true,
+    "official_profiles_and_metadata_used": true,
+    "operator_is_independent_of_vobs_genealogy": false,
+    "resolution_sentinel_below_15_percent": true,
+    "uniform_sheet_control_converged": true,
+    "uniform_sheet_control_is_accurate": true
+  },
+  "resolution_sentinel": {
+    "coarse": {
+      "cells_r_by_z": [
+        28,
+        28
+      ],
+      "name": "DDO154",
+      "newtonian_source_closure": {
+        "components": {
+          "bulge": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.0
+          },
+          "gas": {
+            "passes_0p15_gate": false,
+            "relative_rms_v2_over_component_peak": 0.3328864090719911
+          },
+          "stellar_disk": {
+            "passes_0p15_gate": true,
+            "relative_rms_v2_over_component_peak": 0.029202980469560408
+          }
+        },
+        "observational_velocity_read": false,
+        "passes_all_component_0p15_gates": false,
+        "passes_total_0p15_gate": false,
+        "relative_rms_v2_over_target_peak": 0.3063201198632179,
+        "target_definition": "Vgas*abs(Vgas)+0.5*Vdisk^2+0.7*Vbul^2"
+      },
+      "score_after_prediction_only": {
+        "chi2_per_point": 317.31233351331247,
+        "interpretation": "exploratory_only_source_closure_gate_failed",
+        "median_absolute_fractional_velocity_error": 0.15338535001707482,
+        "source_closure_gate_passes": false,
+        "velocity_points": 12
+      },
+      "solver": {
+        "converged": true,
+        "final_relative_residual": 6.9603068384267315e-06,
+        "final_relative_update": 1.5268547238348925e-05,
+        "iterations": 13,
+        "minimum_mu": 0.06894096177437842,
+        "residual_history": [
+          1.8669800380679007,
+          0.38352798055887555,
+          0.05669894856650406,
+          0.013539328324511525,
+          0.005128438105284154,
+          0.002092570593997844,
+          0.0008757455175358151,
+          0.0003765462788443928,
+          0.0001660031579731051,
+          7.446956149917624e-05,
+          3.371462882784136e-05,
+          1.5315679135200186e-05,
+          6.9603068384267315e-06
+        ]
+      },
+      "source": {
+        "bulge_asymptotic_curve_mass_msun": 0.0,
+        "bulge_mass_on_grid_msun": 0.0,
+        "extent_kpc": 7.4,
+        "gas_reconstruction": {
+          "forward_signed_v2_relative_rms_over_peak": 0.2913854116044712,
+          "helium_factor": 1.33,
+          "hi_radius_kpc": 4.96,
+          "positive_projection_normalization": 1.3711704725321208,
+          "raw_negative_sample_fraction": 0.1240234375,
+          "reconstructed_gas_mass_msun": 365750000.00000006,
+          "target_gas_mass_msun": 365750000.0
+        },
+        "gas_sheet_mass_on_grid_msun": 360517630.99263597,
+        "minimum_grid_scale_kpc": 0.0031825,
+        "photometric_rotmod_anchor": {
+          "factor": 0.9254737905843796,
+          "median_absolute_log_ratio_scatter": 0.03196918336974296,
+          "usable_points": 7
+        },
+        "stellar_vertical_scale_height_kpc": 0.10445464626926053,
+        "stellar_volume_mass_on_grid_msun": 26305932.045076787,
+        "total_source_mass_on_grid_msun": 386823563.03771275
+      }
+    },
+    "coarse_cells_r_by_z": [
+      28,
+      28
+    ],
+    "fine_cells_r_by_z": [
+      40,
+      40
+    ],
+    "galaxy": "DDO154",
+    "rms_velocity_difference_over_fine_rms": 0.007644740188846358
+  },
+  "resource_bound": {
+    "conservative_dense_array_mib": 0.9765625,
+    "conservative_dense_cell_arrays": 80,
+    "fftlog_work_arrays_are_1d_samples": 1024,
+    "largest_2d_cells": 1600,
+    "three_dimensional_mesh_allocated": false
+  },
+  "schema": "holo.axisymmetric-collector-solver.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "scipy": "1.15.3"
+  },
+  "source_recipe": {
+    "boundary": "Dirichlet spherical AQUAL monopole at equal Rmax=Zmax; potential gauge zero at the outer corner",
+    "bulge": "spherical M(<r)=0.7*r*Vbul^2/G, cumulative-monotone PCHIP and rho=(4*pi*r^2)^-1 dM/dr",
+    "gas_disk": "inverse H1 of Vgas*abs(Vgas), Sigma>=0 projection, fixed RHI Gaussian tail, normalized to 1.33*MHI",
+    "stellar_disk": "official SBdisk(R)*0.5 Msun/Lsun, vertical exponential z_d=0.196*Rdisk^0.633 kpc, fixed radial continuation; file radii and surface brightness used as archived with no extra inclination transform"
+  },
+  "title": "Frozen-source axisymmetric AQUAL feasibility solve"
+}

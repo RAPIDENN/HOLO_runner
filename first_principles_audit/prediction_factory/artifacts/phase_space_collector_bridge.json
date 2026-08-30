@@ -1,0 +1,141 @@
+{
+  "algebra_checks": {
+    "all": true,
+    "certified_inputs": true,
+    "dimension_three_gives_cubic_positive_dual": true,
+    "dimension_three_gives_inverse_radius": true,
+    "dimension_three_gives_sqrt_mass": true,
+    "dimension_three_gives_three_halves_primal": true,
+    "four_dimensional_mode_has_three_spatial_momenta": true,
+    "gapped_legendre_action_has_three_halves_limit": true,
+    "gapped_low_momentum_energy_has_positive_cubic_dual": true,
+    "kept_distinct_from_wrong_sign_vacuum_determinant": true,
+    "matches_exposed_deep_dual": true,
+    "no_observational_tables_read": true,
+    "numerical_envelope_matches_exact": true,
+    "numerical_selector_matches_exact": true,
+    "unsaturated_ultraviolet_is_not_mislabelled_newtonian": true
+  },
+  "classification": "generated_gapped_occupation_ansatz_with_derived_deep_exponent;not_a_force_derivation",
+  "decisive_next_test": "Derive a kinetic/transport equation for breathing-mode occupation from cubic and quartic HOLO overlaps.  Its stationary free energy must create the gapped low-k occupation, retain finite matter coupling, eliminate the linear X term, saturate to the Newtonian branch and fix a0 without observational input.",
+  "dimension_convention": "d labels the candidate phase-space dimension while Gauss law is kept in the observed three spatial dimensions.  For a separate physical dimension D, the radius exponent is -(D-1)(d-1)/(d+1).",
+  "dimension_matrix": [
+    {
+      "dimension": 2,
+      "dual_power_in_s": 2.0,
+      "mu_power_in_x": 2.0,
+      "primal_coefficient": 0.5,
+      "primal_power_in_X": 2.0,
+      "spherical_a0_power": 0.6666666666666666,
+      "spherical_mass_power": 0.3333333333333333,
+      "spherical_radius_power": -0.6666666666666666
+    },
+    {
+      "dimension": 3,
+      "dual_power_in_s": 3.0,
+      "mu_power_in_x": 1.0,
+      "primal_coefficient": 0.6666666666666666,
+      "primal_power_in_X": 1.5,
+      "spherical_a0_power": 0.5,
+      "spherical_mass_power": 0.5,
+      "spherical_radius_power": -1.0
+    },
+    {
+      "dimension": 4,
+      "dual_power_in_s": 4.0,
+      "mu_power_in_x": 0.6666666666666666,
+      "primal_coefficient": 0.75,
+      "primal_power_in_X": 1.3333333333333333,
+      "spherical_a0_power": 0.4,
+      "spherical_mass_power": 0.6,
+      "spherical_radius_power": -1.2
+    },
+    {
+      "dimension": 5,
+      "dual_power_in_s": 5.0,
+      "mu_power_in_x": 0.5,
+      "primal_coefficient": 0.8,
+      "primal_power_in_X": 1.25,
+      "spherical_a0_power": 0.3333333333333333,
+      "spherical_mass_power": 0.6666666666666666,
+      "spherical_radius_power": -1.3333333333333333
+    },
+    {
+      "dimension": 6,
+      "dual_power_in_s": 6.0,
+      "mu_power_in_x": 0.4,
+      "primal_coefficient": 0.8333333333333334,
+      "primal_power_in_X": 1.2,
+      "spherical_a0_power": 0.2857142857142857,
+      "spherical_mass_power": 0.7142857142857143,
+      "spherical_radius_power": -1.4285714285714286
+    }
+  ],
+  "evidence_boundary": "The 3D momentum continuum and its relativistic dispersion exist in the certified breathing equation.  Filling that continuum with a positive stationary bosonic occupation, identifying its momentum radius with s, its normalization and coupling s to X are generated hypotheses, not current consequences of the five-dimensional action.",
+  "gapped_dispersion_check": {
+    "deep_F_log_slope_vs_X": 1.4999997601624477,
+    "deep_F_three_halves_coefficient": 0.66666666666568,
+    "deep_W_cubic_coefficient": 0.33333333333432,
+    "deep_W_log_slope_vs_s": 3.000000959343914,
+    "dispersion": "omega/m=sqrt(1+(k/m)^2)",
+    "dual": "W=int_0^s u^2 sqrt(1+u^2)du",
+    "high_X_F_log_slope": 1.3333345776812797,
+    "high_X_adjudication": "The unsaturated relativistic occupation tends to F~X^(4/3), not Newtonian F~X; a separate selector saturation is required."
+  },
+  "generated_idea": {
+    "carrier": "gapped HOLO breathing mode with k in three spatial dimensions",
+    "collector": "positive local occupation of low-momentum modes inside k/m<=s",
+    "conjugate_warning": "For N=s^3/3 the thermodynamic conjugate is dW/dN, whereas the collector construction uses X=dW/ds.  The required s*X coupling and ensemble are not derived.  At chemical potential equal to the gap, the rest-energy cubic cancels and the next term scales as s^5.",
+    "dimension_three_result": "for s<<1: W=s^3/3+O(s^5), X=s^2+O(s^4), F=2X^(3/2)/3+O(X^(5/2))",
+    "dual_potential": "W_3(s)=integral_0^s u^2 sqrt(1+u^2)du=s^3/3+O(s^5)",
+    "energy_weight_warning": "The cubic follows only in the gapped low-momentum window where omega(k)=m+O(k^2/m).  A gapless or high-momentum population gives s^4, and a physical stationary bosonic occupation distribution has not yet been derived.",
+    "normalization_warning": "Angular phase-space volume, (2*pi)^-3, degeneracy, occupation and the momentum scale multiply W by A3.  A3=1 is a normalized algebraic comparison, not a derived physical coefficient.",
+    "primal_action": "F_d(X)=(d-1)X^(d/(d-1))/d",
+    "selector_equation": "X=W_d'(s)=s^(d-1)",
+    "sign_advantage": "occupied positive-energy gapped modes give positive W; unlike the isolated bosonic vacuum determinant, the low-momentum coefficient has the sign required by convex W",
+    "spherical_result": "mu(g/a0)g=g_N gives g=sqrt(G*M*a0)/r only for d=3"
+  },
+  "numerical_check": {
+    "exposed_dual_cubic_coefficient": 0.33334939176032713,
+    "exposed_dual_log_slope": 3.000134310712828,
+    "maximum_F_relative_error": 4.2167618776030816e-08,
+    "maximum_branch_block_mib": 8.0,
+    "maximum_selector_relative_error": 0.00016766089208144054,
+    "query_points": 512,
+    "selector_points": 32768
+  },
+  "physical_gates": {
+    "a0_and_normalization_derived": false,
+    "analytic_linear_X_term_absent_or_cancelled": false,
+    "finite_matter_coupling_in_critical_limit_derived": false,
+    "gapped_low_momentum_window_selected_without_target": false,
+    "local_s_times_X_coupling_derived": false,
+    "metric_lensing_completion_derived": false,
+    "newtonian_high_acceleration_completion_derived": false,
+    "occupation_cutoff_is_collector_selector_derived": false,
+    "physical_completion": false,
+    "positive_local_occupation_derived": false,
+    "stationary_flat_occupation_distribution_derived": false
+  },
+  "schema": "holo.phase-space-collector-bridge.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "breathing_response": {
+      "path": "first_principles_audit/prediction_factory/artifacts/breathing_response.json",
+      "sha256": "38af08aad75f50994b6767e45e62fcda7a0d1c38b944d49794d816ef5390a1a2"
+    },
+    "collector_envelope": {
+      "path": "first_principles_audit/prediction_factory/artifacts/collector_legendre_envelope.json",
+      "sha256": "7dab0a5dfc092532b78f2e720d40ba26cb5f19c0b068a89ecf2d20e36880aff8"
+    },
+    "observational_inputs_read": [],
+    "soft_mode_bridge": {
+      "path": "first_principles_audit/prediction_factory/artifacts/soft_mode_cubic_bridge.json",
+      "sha256": "1fbc257499715cfc9896240201c1b09df73f3b0f89f2eb7652d597a46375bdd4"
+    }
+  },
+  "title": "Three-dimensional phase-space collector hypothesis"
+}

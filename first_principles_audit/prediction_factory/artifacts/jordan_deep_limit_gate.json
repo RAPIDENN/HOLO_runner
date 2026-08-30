@@ -1,0 +1,68 @@
+{
+  "architecture_implication": {
+    "rejected_direct_reading": "Do not equate the collector susceptibility with the entire Jordan-frame Planck coefficient of the current one-scalar action.",
+    "surviving_route": "Keep a nondegenerate Einstein-Hilbert tensor term and derive a separate nonlinear derivative/constitutive scalar or collective sector whose auxiliary selector multiplies its quasistatic gradient invariant. Couple that sector to matter through the certified A_m interface and derive slip and lensing separately."
+  },
+  "checks": {
+    "all": true,
+    "canonical_field_runs_logarithmically": true,
+    "certified_inputs": true,
+    "collector_deep_acceleration_scales_as_t": true,
+    "collector_deep_selector_scales_as_t": true,
+    "conformal_factor_diverges_as_t_minus_half": true,
+    "deep_series_resolved": true,
+    "einstein_frame_scalar_is_not_a_ghost": true,
+    "no_observational_tables_read": true
+  },
+  "classification": "exact_asymptotic_obstruction_to_direct_sR_identification;derivative_constitutive_route_remains_open",
+  "diagnostics": {
+    "acceleration_power_in_t": 1.0000010237741919,
+    "beta": 0.13,
+    "brans_dicke_omega_for_exponential_map": 13.292899408284022,
+    "conformal_power_in_t": -0.4999994881129038,
+    "field_slope_vs_log_t": -3.8461499085607977,
+    "maximum_deep_s_over_t_error": 4.999833337493431e-05,
+    "samples": 512,
+    "selector_power_in_t": 0.9999989762258076,
+    "two_omega_plus_three": 29.585798816568044
+  },
+  "exact_path": {
+    "collector_parameter": "t=sqrt(g_N/a0)",
+    "deep_limit": "t->0: s~t, x~t, A_m~t^(-1/2), phi/M_Pl~-log(t)/(2*beta), and M_J^2/M_Pl^2->0",
+    "frame_map": "A_m=s^(-1/2), phi/M_Pl=-log(s)/(2*beta)",
+    "jordan_tensor_coefficient": "M_J^2/M_Pl^2=s",
+    "physical_acceleration": "x=g/a0=t^2/s",
+    "selector": "s=1-exp(-t)"
+  },
+  "failure_of_early_linearization": {
+    "consequence": "With a regular invertible quadratic operator the response is analytic in source strength, so the leading force is linear in M (massless or Yukawa), not proportional to sqrt(M).",
+    "domain": "valid only near a finite s=1 background",
+    "expansion": "s=1-2*beta*phi/M_Pl+O(phi^2)",
+    "why_the_target_disappeared": "The required branch is an order-one run from s=1 toward a degenerate s=0 endpoint. Taylor expanding first removes that branch before solving the gravitational constraints."
+  },
+  "physical_gates": {
+    "constraint_reduction_yields_local_aqual_operator": false,
+    "deep_limit_frame_map_is_nonsingular": false,
+    "direct_s_as_full_planck_coefficient_completion": false,
+    "direct_selector_keeps_nonzero_jordan_tensor_kinetic_term": false,
+    "finite_field_excursion_reaches_s_zero": false,
+    "simple_negative_jordan_potential_is_stable": false
+  },
+  "schema": "holo.jordan-deep-limit-gate.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "collector_envelope": {
+      "path": "first_principles_audit/prediction_factory/artifacts/collector_legendre_envelope.json",
+      "sha256": "7dab0a5dfc092532b78f2e720d40ba26cb5f19c0b068a89ecf2d20e36880aff8"
+    },
+    "jordan_embedding": {
+      "path": "first_principles_audit/prediction_factory/artifacts/jordan_selector_embedding.json",
+      "sha256": "831abb8aac414cff930f79c8320661381b02d86973658bde9e9df08363c98b93"
+    },
+    "observational_inputs_read": []
+  },
+  "title": "Deep-limit gate for the direct Jordan gravitational selector"
+}

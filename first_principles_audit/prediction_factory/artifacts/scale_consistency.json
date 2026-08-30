@@ -1,0 +1,78 @@
+{
+  "adjudication": {
+    "allowed_resolutions": [
+      "derive a UV relation that assigns different effective scales to the sectors",
+      "introduce a genuinely separate ultralight galactic sector",
+      "abandon the QCD identification of the stiff carrier",
+      "abandon the galactic-force interpretation"
+    ],
+    "next_independent_input": "a scale-setting observable predicted and measured without using the SPARC residual or the legacy endpoint conversion",
+    "not_allowed": "use the QCD proxy to claim a galactic range or use the SPARC boundary to claim a QCD mass without a new matching relation",
+    "result": "If the same ell sets both the 1.600 GeV proxy and the stiff galaxy force, the two conditional readings are incompatible by more than forty orders of magnitude."
+  },
+  "classification": "conditional_scale_no_go_not_measurement",
+  "comparison": {
+    "ell_galaxy_over_ell_qcd": 8.613249688650596e+40,
+    "orders_of_magnitude_in_ell": 40.9351670371188,
+    "single_ell_can_realize_both_identifications": false
+  },
+  "conditional_galaxy_boundary_reading": {
+    "angular_frequency_rad_s": 2.822206876502717e-17,
+    "cyclic_frequency_hz": 4.491681748233456e-18,
+    "ell_kpc": 100000.0,
+    "ell_m": 3.085677581491367e+24,
+    "interaction_range_kpc": 344255.8364899103,
+    "interaction_range_m": 1.062262516954474e+25,
+    "period_julian_year": 7054838163.120446,
+    "period_s": 2.226337608164898e+17,
+    "rest_energy_ev": 1.857610311103159e-32,
+    "status": "saturated long-range scan boundary, not a measured best-fit scale"
+  },
+  "conditional_qcd_identification": {
+    "angular_frequency_rad_s": 2.4308372500344595e+24,
+    "cyclic_frequency_hz": 3.868797641948938e+23,
+    "ell_m": 3.582477802260006e-17,
+    "interaction_range_m": 1.2332888925235538e-16,
+    "period_julian_year": 8.190681122847724e-32,
+    "period_s": 2.5847823860237933e-24,
+    "rest_energy_ev": 1600006143.3743422
+  },
+  "evidence_boundary": "This is a conditional incompatibility proof, not a measurement of ell. The QCD number is an external legacy proxy and the SPARC value is a saturated grid boundary; neither is promoted to a detection.",
+  "inputs": {
+    "legacy_qcd_proxy": {
+      "path": "first_principles_audit/artifacts/ricci_wilson_interface_audit.json",
+      "scalar_mass_proxy_gev": 1.6000061433743422,
+      "sha256": "8b1b77f3f49fa92db8cf36602769ea90b2eb28457686a69d96080a62bc585435",
+      "status": "external endpoint conversion, not a Wilson measurement"
+    },
+    "sparc_finite_disk": {
+      "best_at_upper_boundary": true,
+      "best_grid_ell_kpc": 100000.0,
+      "finite_scale_identified": false,
+      "path": "first_principles_audit/prediction_factory/artifacts/sparc_finite_disk_yukawa.json",
+      "sha256": "28d4f6114a24e736da2e9dae3cbd06bbe78747ed562f47a37cd98a6abc11ba8b"
+    },
+    "stiff_force": {
+      "mu0": 0.29048164010701055,
+      "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+      "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+    }
+  },
+  "passes": {
+    "all": true,
+    "galaxy_reading_is_ultralight": true,
+    "inputs_certified": true,
+    "qcd_reading_is_subatomic": true,
+    "qcd_scale_is_declared_external_proxy": true,
+    "single_scale_mismatch_exceeds_30_orders": true,
+    "sparc_scale_is_declared_boundary_not_measurement": true,
+    "stiff_force_is_observation_free": true
+  },
+  "scale_law": {
+    "cyclic_frequency": "f_n=c*mu_n/(2*pi*ell)",
+    "interaction_range": "lambda_n=ell/mu_n",
+    "rest_energy": "m_n c^2=hbar*c*mu_n/ell"
+  },
+  "schema": "holo.scale-consistency.v1",
+  "title": "Conditional one-scale QCD--galaxy consistency test"
+}

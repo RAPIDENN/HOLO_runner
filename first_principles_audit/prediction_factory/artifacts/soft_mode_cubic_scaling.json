@@ -1,0 +1,216 @@
+{
+  "classification": "normalization_induced_scaling_proxy_with_underidentified_higher_jets;not_the_physical_cubic_vertex",
+  "decisive_next_calculation": "First derive the complete brane potential beyond quadratic from a microscopic boundary theory and establish smoothing-robust higher background jets.  Then expand to third/fourth gauge-invariant order, solve lapse/shift and brane-bending constraints, and evaluate g000 and lambda0000 along the frozen gamma continuation.",
+  "endpoint_jets": {
+    "W_chi_chi_chi": [
+      -138.44991924983998,
+      7.400366307327421
+    ],
+    "W_chi_chi_chi_chi": [
+      4006.960903232029,
+      -40.89758638122193
+    ],
+    "convergence": {
+      "full": [
+        -138.44991924983998,
+        7.400366307327421
+      ],
+      "half": [
+        -138.44971463971504,
+        7.408995745016205
+      ],
+      "quarter": [
+        -138.44888876372303,
+        7.419842740310673
+      ]
+    },
+    "exp_4A": [
+      0.8869120055860822,
+      0.00025463117995526413
+    ],
+    "half_grid_maximum_relative_error": 0.0011660825059753854,
+    "lambda_minus_chi_chi_chi": -138.44991924983998,
+    "lambda_minus_chi_chi_chi_chi": 4006.960903232029,
+    "lambda_plus_chi_chi_chi": -7.400366307327421,
+    "lambda_plus_chi_chi_chi_chi": 40.89758638122193,
+    "quarter_grid_maximum_relative_error": 0.002631820125439832,
+    "quartic_subsample_convergence": {
+      "full": [
+        4006.960903232029,
+        -40.89758638122193
+      ],
+      "half": [
+        4005.200368743232,
+        -40.404727360102676
+      ],
+      "quarter": [
+        4001.6241141938713,
+        -40.1679783241368
+      ]
+    },
+    "systematic_warning": "Subsampling stability holds only for the frozen reconstructed background.  W''' is one derivative beyond the linear-action certificate and has not been shown robust to its smoothing choice."
+  },
+  "physical_gates": {
+    "Psi_to_delta_chi_gauge_reconstruction_derived_to_third_order": false,
+    "W_third_derivative_robust_to_background_smoothing": false,
+    "brane_bending_cubic_vertex_derived": false,
+    "bulk_cubic_vertex_derived": false,
+    "canonical_physical_g000_derived": false,
+    "finite_nonlinear_matter_response_in_soft_limit_derived": false,
+    "higher_brane_jets_selected_by_microscopic_boundary_theory": false,
+    "physical_completion": false,
+    "physical_source_orientation_and_sign_derived": false,
+    "quartic_stability_derived": false
+  },
+  "proxy_definition": "sum_i exp(4*A_i)*lambda_i'''*Psi0(u_i)^3; scaling diagnostic only, because Psi0 is not the reconstructed delta-chi fluctuation",
+  "quartic_boundary": "The minimal quadratic completion has positive endpoint lambda'''' and a positive proxy scaling as mu0^4, structurally matching a stabilizing quartic.  But adding zeta_i*(chi-chi_i)^4/24 leaves the background and linear spectrum unchanged and shifts it arbitrarily; Psi-to-delta-chi, bulk and bending terms are also missing.",
+  "rows": [
+    {
+      "Psi_ir_over_mu0": 28.264198128967227,
+      "Psi_uv_over_mu0": 0.1326137967360429,
+      "boundary_mass_norm_contributions": [
+        4.4283081885194795e-05,
+        0.9983000596367575
+      ],
+      "brane_cubic_proxy": -7.870524011808056e-05,
+      "brane_cubic_proxy_over_mu0_cubed": -42.83395219040202,
+      "brane_quartic_proxy": 0.00014959431514531936,
+      "brane_quartic_proxy_over_mu0_fourth": 6647.031788008917,
+      "endpoint_Psi0": [
+        0.0016242786753816374,
+        0.34618520416108045
+      ],
+      "endpoint_contributions": [
+        -5.262048763844612e-07,
+        -7.817903524169609e-05
+      ],
+      "endpoint_quartic_contributions": [
+        2.4736474851751274e-08,
+        0.0001495695786704676
+      ],
+      "gamma": 0.01,
+      "mu0": 0.012248187710171917
+    },
+    {
+      "Psi_ir_over_mu0": 28.264187472091276,
+      "Psi_uv_over_mu0": 0.1326728507318474,
+      "boundary_mass_norm_contributions": [
+        4.423796417927885e-05,
+        0.9963945893898655
+      ],
+      "brane_cubic_proxy": -0.00024817779833148624,
+      "brane_cubic_proxy_over_mu0_cubed": -42.83428681282005,
+      "brane_quartic_proxy": 0.0006917073837727541,
+      "brane_quartic_proxy_over_mu0_fourth": 6647.023723870995,
+      "endpoint_Psi0": [
+        0.0023829002158349457,
+        0.5076452194712546
+      ],
+      "endpoint_contributions": [
+        -1.6614635207788596e-06,
+        -0.0002465163348107074
+      ],
+      "endpoint_quartic_contributions": [
+        1.1458270354660228e-07,
+        0.0006915928010692075
+      ],
+      "gamma": 0.021544346900318832,
+      "mu0": 0.017960722202699633
+    },
+    {
+      "Psi_ir_over_mu0": 28.26413979844237,
+      "Psi_uv_over_mu0": 0.1327993088570098,
+      "boundary_mass_norm_contributions": [
+        4.4140813677123625e-05,
+        0.9923105064434633
+      ],
+      "brane_cubic_proxy": -0.0007800018045348436,
+      "brane_cubic_proxy_over_mu0_cubed": -42.83489228222069,
+      "brane_quartic_proxy": 0.0031843574460431335,
+      "brane_quartic_proxy_over_mu0_fourth": 6646.983088921191,
+      "endpoint_Psi0": [
+        0.003493776539413951,
+        0.7435926390312811
+      ],
+      "endpoint_contributions": [
+        -5.236711074378451e-06,
+        -0.0007747650934604651
+      ],
+      "endpoint_quartic_contributions": [
+        5.295124009909623e-07,
+        0.0031838279336421425
+      ],
+      "gamma": 0.046415888336127774,
+      "mu0": 0.026308695199429362
+    },
+    {
+      "Psi_ir_over_mu0": 28.263925414421543,
+      "Psi_uv_over_mu0": 0.13306822806710966,
+      "boundary_mass_norm_contributions": [
+        4.3931780390444754e-05,
+        0.9836086800406386
+      ],
+      "brane_cubic_proxy": -0.0024343082294363432,
+      "brane_cubic_proxy_over_mu0_cubed": -42.83567472387497,
+      "brane_quartic_proxy": 0.014522406638503833,
+      "brane_quartic_proxy_over_mu0_fourth": 6646.790434948952,
+      "endpoint_Psi0": [
+        0.005116005769794304,
+        1.0866486132534345
+      ],
+      "endpoint_contributions": [
+        -1.6442441951634688e-05,
+        -0.0024178657874847085
+      ],
+      "endpoint_quartic_contributions": [
+        2.434555845119125e-06,
+        0.014519972082658714
+      ],
+      "gamma": 0.1,
+      "mu0": 0.03844648601779061
+    }
+  ],
+  "scaling_checks": {
+    "all": true,
+    "brane_cubic_proxy_scales_as_mu0_cubed": true,
+    "certified_inputs": true,
+    "endpoint_W_third_derivatives_subsample_stable_for_frozen_input": true,
+    "endpoint_profiles_scale_linearly_with_mu0": true,
+    "minimal_brane_quartic_proxy_is_positive": true,
+    "minimal_brane_quartic_proxy_scales_as_mu0_fourth": true,
+    "no_observational_inputs_read": true,
+    "scaled_brane_proxy_is_constant": true,
+    "scaled_ir_profile_is_constant": true
+  },
+  "scaling_law": {
+    "Psi_ir_power_in_mu0": 0.9999919758875716,
+    "Psi_uv_power_in_mu0": 1.0029391147351336,
+    "brane_proxy_power_in_mu0": 3.0000353303974117,
+    "brane_quartic_proxy_power_in_mu0": 3.999969865768825,
+    "interpretation": "The canonically generalized-normalized endpoint profiles and the schematic brane cubic vanish, but their ratios to mu0 and mu0^3 approach nonzero constants.  The IR boundary term already supplies almost all of v^T M v=1 at the smallest gamma, so much of this scaling is forced by the 1/gamma boundary norm.  It does not prove a nonlinear fixed point or finite force.",
+    "mean_Psi_ir_over_mu0": 28.264112703480606,
+    "mean_Psi_uv_over_mu0": 0.13278854609800245,
+    "mean_brane_proxy_over_mu0_cubed": -42.83470150232943,
+    "mean_brane_quartic_proxy_over_mu0_fourth": 6646.957258937514,
+    "smallest_gamma_ir_boundary_norm_contribution": 0.9983000596367575
+  },
+  "schema": "holo.soft-mode-cubic-scaling.v1",
+  "sign_boundary": "With Psi0(UV)>0 and the solved same-sign endpoint mode, the brane proxy of the minimal quadratic completion is negative.  Adding eta_i*(chi-chi_i)^3/6 leaves the background, gamma and linear spectrum unchanged while changing lambda_i''' arbitrarily.  Thus neither magnitude nor sign is predicted until a microscopic boundary theory, delta-chi, brane bending, bulk terms and source orientation are combined.",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "scipy": "1.15.3"
+  },
+  "sources": {
+    "boundary_completion": {
+      "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+      "sha256": "d5431da04e27d5dccb4090f647c1e868433f8a83d540209b9fe59406aae166f8"
+    },
+    "effective_action": {
+      "path": "first_principles_audit/artifacts/holo_effective_action.json",
+      "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+    },
+    "observational_inputs_read": []
+  },
+  "title": "Critical scaling of the brane-cubic light-mode proxy"
+}

@@ -1,0 +1,99 @@
+{
+  "checks": {
+    "all": true,
+    "certified_inputs": true,
+    "constant_mass_density_recovers_two_thirds_y_three_halves": true,
+    "cutoff_continuum_has_a_resolved_scaling_window": true,
+    "finite_positive_tower_is_monotone_and_convex": true,
+    "finite_tower_three_halves_is_only_a_narrow_crossover": true,
+    "no_observational_tables_read": true,
+    "stiff_residue_density_is_not_constant": true,
+    "target_transverse_and_longitudinal_coefficients_positive": true
+  },
+  "classification": "exact_positive_stieltjes_representation;not_generated_by_current_finite_gaussian_tower",
+  "current_seven_mode_test": {
+    "closest_log_slope": 1.500100879917909,
+    "closest_three_halves_Y": 3.8864146011308196,
+    "coefficient_of_variation_vs_constant_density": 0.8427872325582592,
+    "conclusion": "The finite tower passes through slope 3/2 only during a narrow crossover and is not a discretization of the required constant gapless density.",
+    "conditional_identification": "Use stiff alpha_n as positive kernel weights only as a shape test; this is not the static Yukawa force formula.",
+    "inferred_weight_over_mass_spacing": [
+      0.0010897915697269966,
+      0.009872475257782154,
+      0.06529395555461842,
+      0.0620754652867163,
+      0.030499472906137422,
+      0.01759250192644015,
+      0.011718389428781771
+    ],
+    "within_0p05_Y_interval": [
+      3.051689745649184,
+      4.9494606958053495
+    ],
+    "within_0p05_log10_width_dex": 0.21001750145845488
+  },
+  "cutoff_continuum_test": {
+    "mass_ir": 0.001,
+    "mass_uv": 1000.0,
+    "within_0p05_Y_interval": [
+      4.722147099225195e-05,
+      21176.807477346036
+    ]
+  },
+  "decisive_next_calculation": "Take a decompactification or critical boundary limit before mode truncation, derive its signed spectral measure and the full nonlinear constraint action, and test whether it produces a local q^2*Y vertex rather than ordinary nonlocal Gaussian exchange.",
+  "exact_representation": {
+    "above_uv_cutoff": "P is proportional to Y",
+    "below_ir_gap": "P is proportional to Y^2",
+    "cutoff_formula": "P_[eps,Lambda]=4/(3*pi)*Y^(3/2)*[atan(Lambda/sqrt(Y))-atan(eps/sqrt(Y))]",
+    "mass_measure": "P(Y)=4/(3*pi)*integral_0^infinity dm*Y^2/(Y+m^2)",
+    "mass_squared_measure": "P(Y)=2/(3*pi)*integral_0^infinity ds*s^(-1/2)*Y^2/(Y+s)",
+    "maximum_full_integral_relative_error": 2.220446049250313e-16,
+    "required_density_per_mass": "rho_m=4/(3*pi), constant",
+    "scaling_window": "eps^2 << Y << Lambda^2"
+  },
+  "generation_sign_and_locality": {
+    "locality_warning": "A continuum over spacetime momentum usually produces a nonlocal fractional operator. P(Y) is local but nonlinear in field amplitude; equating the two requires a collective constraint not present in the current quadratic pole sum.",
+    "sign_warning": "A positive Stieltjes identity is not a healthy bulk-generation proof. Reversing the Gaussian sign requires an imaginary coupling, a ghost, or an independently derived local counterterm.",
+    "tree_gaussian_elimination": "stationary elimination of 1/2*q*K*q-J*q gives -1/2*J*K^-1*J"
+  },
+  "old_vs_new": {
+    "new_requirement": "gapless constant spectral density or a non-Gaussian tricritical collective coordinate; local nonlinear amplitude response",
+    "old": "seven fixed gapped poles; linear superposition; source exponent one"
+  },
+  "physical_gates": {
+    "a0_matter_normalization_and_lensing_derived": false,
+    "constant_positive_density_per_mass_derived": false,
+    "gapless_continuum_present_in_current_compact_spectrum": false,
+    "ir_and_uv_cutoffs_derived_without_target_tuning": false,
+    "momentum_spectral_continuum_reduced_to_local_amplitude_operator": false,
+    "physical_completion": false,
+    "positive_local_stieltjes_kernel_generated_by_healthy_tree_exchange": false
+  },
+  "schema": "holo.collective-spectral-bridge.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "collector_envelope": {
+      "path": "first_principles_audit/prediction_factory/artifacts/collector_legendre_envelope.json",
+      "sha256": "7dab0a5dfc092532b78f2e720d40ba26cb5f19c0b068a89ecf2d20e36880aff8"
+    },
+    "observational_inputs_read": [],
+    "stiff_force": {
+      "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+      "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+    },
+    "tricritical_bridge": {
+      "path": "first_principles_audit/prediction_factory/artifacts/tricritical_constitutive_bridge.json",
+      "sha256": "703adf3eec2f3fb3a284058dd352bc7b2cd1736b3f42ad33d3c3bda972112caa"
+    }
+  },
+  "stability": {
+    "boundary": "both vanish at Y=0, so ellipticity is degenerate",
+    "finite_positive_tower": "P_N'(Y)>0 and P_N''(Y)>0 for Y>0",
+    "target_longitudinal_coefficient": "P'(Y)+2*Y*P''(Y)=2*sqrt(Y)>0",
+    "target_transverse_coefficient": "P'(Y)=sqrt(Y)>0"
+  },
+  "title": "Gapless spectral bridge to the three-halves constitutive power"
+}

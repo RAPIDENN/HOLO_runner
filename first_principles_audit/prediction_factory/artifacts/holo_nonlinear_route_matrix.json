@@ -1,0 +1,638 @@
+{
+  "classification": "theory_only_route_generation_with_falsifiers_not_a_new_force_claim",
+  "derived_constraints": {
+    "breathing_comb": {
+      "absolute_force_residues_available": true,
+      "threshold_frequency_ratios": [
+        1.0,
+        4.214026615174831,
+        5.939549897459517,
+        7.532907333989447,
+        9.447216220136815,
+        11.514222774114565,
+        13.635518949171043
+      ]
+    },
+    "bulk_cubic_vertex_inventory": {
+      "direct_quartic_contact_computed": false,
+      "fixed_metric_derivative_cubic_zero": true,
+      "gapped_exchange_contribution_to_P": "For L=-P-0.5*sigma*K*sigma+c*sigma*Y: Delta L_exchange=+0.5*Y*c^T*K^(-1)*c*Y and Delta P_exchange=-0.5*Y*c^T*K^(-1)*c*Y",
+      "physical_cubic_vertex_complete": false,
+      "physical_overlap_coefficients_computed": false,
+      "raw_derivative_vertex": "S3_kin=-(4*kappa5^2)^(-1)*integral sqrt(-Gbar)*[h*Gbar^AB/2-h^AB]*partial_A(varphi)*partial_B(varphi)",
+      "total_Y2_coefficient": "C_Y2_total=C_Y2_direct_S4-0.5*c^T*M^(-2)*c; its sign cannot be known from S3 alone",
+      "unit_overlap_heavy_inverse_mass_squared_moment": 1.4978789216868098
+    },
+    "bulk_decision_gate": {
+      "minimal_radial_characteristic_ratio": 2.0,
+      "new_source_mass_exponent": 0.5,
+      "old_source_mass_exponent": 1.0,
+      "physical_completion": false,
+      "prospective_test_can_run": false
+    },
+    "finite_stiff_tower": {
+      "alpha_sum": 0.10676507897978581,
+      "masses_mu": [
+        0.29048164010701055,
+        1.2241776673747269,
+        1.7254465769300111,
+        2.1883177876729722,
+        2.744424610883392,
+        3.3448911003693316,
+        3.9611288578463113
+      ],
+      "maximum_linear_multiplier": 1.1067650789797858,
+      "residues_alpha": [
+        0.0010175340592039452,
+        0.007083327917285003,
+        0.031476261081589046,
+        0.03162676778729975,
+        0.017637438207272108,
+        0.010702435904301536,
+        0.007221314022834425
+      ],
+      "source_mass_exponent": 1.0
+    },
+    "gapless_spectral_bridge": {
+      "current_density_coefficient_of_variation": 0.8427872325582592,
+      "current_seven_mode_crossover_width_dex": 0.21001750145845488,
+      "healthy_local_generation_complete": false,
+      "required_density_per_mass": "rho_m=4/(3*pi), constant"
+    },
+    "gapped_occupation_inverse_design": {
+      "deep_F_power": 1.4999997601624477,
+      "deep_W_power": 3.000000959343914,
+      "normalization_warning": "For a physical gapped-sector prefactor A3, the residual begins W_int=(1-A3)*s^3/3+s^4/2+... .  Thus the statement that the first missing term is quartic is conditional on the normalized inverse-design choice A3=1; A3 is not derived by HOLO.  A nontrivial physical selector map can also change later coefficients.  Positivity is conditional too: as s tends to zero the residual shell cost tends to 1-A3.",
+      "normalized_missing_quartic_coefficient": 0.500000542335978,
+      "saturation_transport_equation": "ds/dt=1-s with s(0)=0",
+      "stationary_occupation_derived": false,
+      "transport_is_holo_derived": false,
+      "unsaturated_high_X_F_power": 1.3333345776812797
+    },
+    "jordan_deep_limit_gate": {
+      "conformal_power_in_t": -0.4999994881129038,
+      "direct_full_planck_selector_gate": false,
+      "selector_power_in_t": 0.9999989762258076,
+      "surviving_architecture": "Keep a nondegenerate Einstein-Hilbert tensor term and derive a separate nonlinear derivative/constitutive scalar or collective sector whose auxiliary selector multiplies its quasistatic gradient invariant. Couple that sector to matter through the certified A_m interface and derive slip and lensing separately."
+    },
+    "jordan_selector_embedding": {
+      "constraint_reduction_gate": false,
+      "curvature_term": "sqrt(-g_J)*M_Pl^2*s*R_J/2",
+      "matter_action": "S_m[g_J,Psi]",
+      "physical_completion": false,
+      "selector_definition": "s(phi)=A_m(phi)^(-2)",
+      "target_potential_gate": false
+    },
+    "nonlinear_target_for_comparison_only": {
+      "deep_dlog_F_dlog_X": 1.4999994855459637,
+      "deep_limit": "mu(x)~x and F(X)~(2/3)*X^(3/2)",
+      "newtonian_limit": "mu->1 and F(X)~X+constant"
+    },
+    "positive_bulk_carrier": {
+      "epsilon_min": 0.3067743134956326,
+      "p_min": 0.00011388187854569774,
+      "w_integral": 91.37501027469986,
+      "w_min": 0.006829428712918662
+    },
+    "scale_boundary": {
+      "allowed_acceleration_rule": "a0=xi*c^2/ell=xi*c*omega0/mu0",
+      "orders_of_magnitude_in_ell": 40.9351670371188,
+      "rule": "xi and ell must be predicted independently; neither the collector a0 nor the saturated galaxy scan may select them",
+      "single_ell_viable_for_qcd_and_galaxy_readings": false
+    },
+    "soft_boundary_precursor": {
+      "C_gamma": 0.014962287389557556,
+      "analytic_linear_X_term_gate": false,
+      "current_nonanalytic_coefficient": -0.026525823848649238,
+      "current_positive_W_sign_gate": false,
+      "fit_form": "mu0^2=C_gamma*gamma over the first three frozen scan points",
+      "gamma_values": [
+        0.01,
+        0.021544346900318832,
+        0.046415888336127774
+      ],
+      "higher_brane_jets_microscopically_selected": false,
+      "minimal_brane_proxy_power_in_mu0": 3.0000353303974117,
+      "minimal_brane_quartic_proxy_power_in_mu0": 3.999969865768825,
+      "mu0_values": [
+        0.012248187710171917,
+        0.017960722202699633,
+        0.026308695199429362
+      ],
+      "nonvanishing_matter_residue_gate": false,
+      "relative_spread": 0.006011487132923473
+    },
+    "tricritical_constitutive_bridge": {
+      "bulk_realization_complete": false,
+      "correlation_length_power_in_Y": -0.5000000000000003,
+      "exact_operator": "P(Y)=s*Y-W(s)=2*Y^(3/2)/3",
+      "exact_selector": "s=sqrt(Y)",
+      "quartic_contaminated_deep_power": 1.9999999386842793
+    }
+  },
+  "design_axes": {
+    "carrier": {
+      "backreacted_metric_scalar": "full metric-dilaton configuration",
+      "boundary_trace_value": "gauge-invariant scalar evaluated on a matter brane",
+      "breathing_collective": "positive occupation of the correlated mode comb",
+      "derivative_constitutive_scalar": "nonlinear scalar-gradient sector beside a nondegenerate tensor term",
+      "finite_stiff_tower": "seven positive canonical scalar modes",
+      "gapless_spectral_continuum": "continuous scalar measure extending to zero mass",
+      "matter_frame_planck_coefficient": "field-dependent coefficient s=A_m^-2 multiplying R_J",
+      "soft_boundary_mode": "lowest scalar mode as gamma tends to zero",
+      "tricritical_collective_amplitude": "nonnegative squared amplitude s=q^2 at a sextic critical point"
+    },
+    "coupling": {
+      "boundary_gradient_px": "brane-localized derivative functional",
+      "bulk_mode_overlap": "cubic and quartic overlaps derived from S5",
+      "collective_susceptibility": "positive response Q coupled to X",
+      "conformal_scalar_matter": "nonlinear scalar couples through the existing metric A_m^2*g_E",
+      "conserved_stress_backreaction": "explicit matter stress in all bulk constraints",
+      "fixed_linear_trace": "source-independent masses and trace residues",
+      "nonminimal_curvature": "matter-frame coupling M_Pl^2*s*R_J/2"
+    },
+    "geometry": {
+      "critical_ir_extension": "soft or continuous infrared limit",
+      "finite_compact_interval": "current compact radial interval",
+      "physical_matter_brane": "localized four-dimensional interface",
+      "spherical_quasistatic_bulk": "radial source plus holographic coordinate"
+    },
+    "observable": {
+      "bounded_yukawa_multiplier": "g/gN for a fixed pole tower",
+      "breathing_comb": "correlated thresholds and occupations",
+      "constitutive_flux": "D=mu(|g|/a0)g",
+      "metric_force_and_slip": "dynamical potential and lensing combination"
+    },
+    "selector": {
+      "conformal_matter_factor": "nonlinear matter metric selects s=A_m^-2",
+      "constant_gapless_measure": "rho_m=4/(3*pi) from m=0 to infinity",
+      "critical_gamma_limit": "positive gamma continued toward zero",
+      "finite_mode_elimination": "stationary elimination of massive modes",
+      "fixed_stiff_boundary": "gamma_minus,gamma_plus tend to infinity",
+      "legendre_stationarity": "Q extremizes Q*X-U(Q)",
+      "nonlinear_bulk_boundary_value": "bulk equations select a Dirichlet-to-Neumann map",
+      "prescribed_boundary_functional": "explicit boundary B(X)",
+      "tricritical_stationarity": "Y=m2+u4*s+s^2 with m2=u4=0"
+    }
+  },
+  "evidence_boundary": "The matrix derives constraints and one soft-mode precursor from certified HOLO artefacts. The critical, condensate, boundary-P(X) and collective-backreaction mechanisms are explicit new hypotheses. The tricritical and spectral bridges prove exact mathematical routes to the exponent but not their microscopic generation. No route becomes a prediction until its operator, a0, matter coupling and lensing response follow from frozen microscopic inputs.",
+  "input_contract": {
+    "exposed_empirical_target_for_comparison_only": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+    "inputs": {
+      "boundary_completion": {
+        "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+        "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
+      },
+      "breathing_response": {
+        "path": "first_principles_audit/prediction_factory/artifacts/breathing_response.json",
+        "sha256": "4730ec2b2b8fae27b2399a6c0725b20062aa2519f53d04916e07aeaa59d539c2"
+      },
+      "bulk_cubic_inventory": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bulk_cubic_vertex_inventory.json",
+        "sha256": "d969c43069fbb7f739b48989b480e46246150bf83ce2153dfceb9415df1f294b"
+      },
+      "bulk_decision_gate": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bulk_constitutive_decision_gate.json",
+        "sha256": "d0f969450fe076f9fdc6fef5eb6497eaf7ffa743d460b8388a3a431173125a17"
+      },
+      "collector_action_target": {
+        "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+        "sha256": "6d109eef26cd4f082af6165504905926a52c436bf30275abbce0e6584b65f12b"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      },
+      "interface_action": {
+        "path": "first_principles_audit/artifacts/interface_action_derivation.json",
+        "sha256": "ee56f159c28beba211ffb0838f76dab4e0e2688f9ac56f5fa1a0cb12bd241cf3"
+      },
+      "jordan_deep_gate": {
+        "path": "first_principles_audit/prediction_factory/artifacts/jordan_deep_limit_gate.json",
+        "sha256": "7ae63ba6222b766661c8a7f78e317ff5aa01240aa90a832612d6a6ed4e19990d"
+      },
+      "jordan_selector": {
+        "path": "first_principles_audit/prediction_factory/artifacts/jordan_selector_embedding.json",
+        "sha256": "831abb8aac414cff930f79c8320661381b02d86973658bde9e9df08363c98b93"
+      },
+      "phase_space_bridge": {
+        "path": "first_principles_audit/prediction_factory/artifacts/phase_space_collector_bridge.json",
+        "sha256": "d1c4933caae7dc05486bc6c11d45225cbe05bcea34e44883a344e4b2e5f3f488"
+      },
+      "scale_consistency": {
+        "path": "first_principles_audit/prediction_factory/artifacts/scale_consistency.json",
+        "sha256": "322f62ad245eccb390d28ddf6ced3cb35f108cb7b9954f9532d38c5d50143cd5"
+      },
+      "shell_residual": {
+        "path": "first_principles_audit/prediction_factory/artifacts/collector_shell_residual.json",
+        "sha256": "408a22ef26a7d286e6434f9ede282d0d369e34ff33284f2a640c4a63ec0f29b8"
+      },
+      "soft_mode_bridge": {
+        "path": "first_principles_audit/prediction_factory/artifacts/soft_mode_cubic_bridge.json",
+        "sha256": "1fbc257499715cfc9896240201c1b09df73f3b0f89f2eb7652d597a46375bdd4"
+      },
+      "soft_vertex_scaling": {
+        "path": "first_principles_audit/prediction_factory/artifacts/soft_mode_cubic_scaling.json",
+        "sha256": "d5cc100b793e835ba1f998f97ecc2e60cd0c9ff52a1adef5c583da6f7e8b9ca2"
+      },
+      "spectral_bridge": {
+        "path": "first_principles_audit/prediction_factory/artifacts/collective_spectral_bridge.json",
+        "sha256": "a2fb7b67d91ddf00813bf1821b92f12a787b85a41b6236ca92c6a4cd1a66cdf1"
+      },
+      "stiff_force": {
+        "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+        "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+      },
+      "tricritical_bridge": {
+        "path": "first_principles_audit/prediction_factory/artifacts/tricritical_constitutive_bridge.json",
+        "sha256": "703adf3eec2f3fb3a284058dd352bc7b2cd1736b3f42ad33d3c3bda972112caa"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "passes": {
+    "all": true,
+    "all_five_axes_crossed": true,
+    "bulk_decision_gate_remains_fail_closed": true,
+    "certified_inputs": true,
+    "collector_used_only_as_exposed_target": true,
+    "critical_softening_resolved": true,
+    "discovery_and_control_routes_separated": true,
+    "failed_soft_mode_physical_gates_propagated": true,
+    "finite_yukawa_rejected_for_sqrt_mass": true,
+    "gapped_occupation_hypotheses_propagated": true,
+    "jordan_deep_obstruction_propagated": true,
+    "jordan_embedding_gates_propagated": true,
+    "no_observational_tables_read": true,
+    "raw_cubic_vertex_and_projection_boundary_propagated": true,
+    "route_ids_unique": true,
+    "score_rubric_complete": true,
+    "single_scale_no_go_preserved": true,
+    "spectral_identity_and_generation_warning_propagated": true,
+    "target_has_three_halves_deep_slope": true,
+    "tricritical_exact_algebra_and_open_bulk_gates_propagated": true
+  },
+  "prototype_selection": {
+    "current_failed_realization": "the isolated conventional bosonic soft-mode determinant has the wrong sign, retains an unremoved analytic X term and has no derived finite matter residue; the gapped-occupation route has the desired deep algebra but no derived ensemble, conjugate coupling, normalization or saturation transport; identifying the same selector with the full Jordan Planck coefficient makes that tensor coefficient vanish in the deep limit; the exact tricritical route still lacks a derived q^2*Y vertex and critical selection, while the exact spectral identity lacks healthy local generation",
+    "deferred_full_geometry_route": "collective_bulk_backreaction",
+    "exact_solver_control": "brane_px_exact_control",
+    "first_low_memory_prototype": "freeze the five-dimensional and boundary inputs; derive the gauge-invariant cubic-through-sextic collective action and its Dirichlet-to-Neumann map without the galaxy target; then apply the pre-registered amplitude, stability, causal and lensing gates",
+    "leading_research_hypotheses": [
+      "derivative_constitutive_scalar",
+      "tricritical_collective_amplitude",
+      "gapless_spectral_continuum",
+      "critical_ir_soft_mode",
+      "breathing_legendre_condensate"
+    ],
+    "negative_controls": [
+      "finite_stiff_yukawa",
+      "finite_mode_tree_elimination",
+      "jordan_frame_gravitational_selector"
+    ]
+  },
+  "routes": [
+    {
+      "coordinates": {
+        "carrier": "finite_stiff_tower",
+        "coupling": "fixed_linear_trace",
+        "geometry": "finite_compact_interval",
+        "observable": "bounded_yukawa_multiplier",
+        "selector": "fixed_stiff_boundary"
+      },
+      "falsifier": "Already decisive: a source-independent finite Yukawa tower is linear in M and bounded by 1+sum(alpha_n).",
+      "id": "finite_stiff_yukawa",
+      "minimal_equations": [
+        "g/gN=1+sum_n alpha_n*(1+mu_n*r/ell)*exp(-mu_n*r/ell)",
+        "dlog(g)/dlog(M)=1 at fixed r and ell"
+      ],
+      "new_physics": [],
+      "origin": "Current stiff P7 static slice; retained as a negative control.",
+      "scores": {
+        "derivability": 4,
+        "falsifier_strength": 4,
+        "lensing": 1,
+        "sqrt_mass_scaling": 0,
+        "stability": 4,
+        "total_unweighted": 13
+      },
+      "status": "derived_rejected_as_nonlinear_origin"
+    },
+    {
+      "coordinates": {
+        "carrier": "finite_stiff_tower",
+        "coupling": "bulk_mode_overlap",
+        "geometry": "finite_compact_interval",
+        "observable": "constitutive_flux",
+        "selector": "finite_mode_elimination"
+      },
+      "falsifier": "If all eliminated masses stay positive and finite, the local series begins with X^2 and cannot have leading X^(3/2).",
+      "id": "finite_mode_tree_elimination",
+      "minimal_equations": [
+        "Delta L=(1/2)*sum_n c_n^2*X*(-Box+m_n^2)^(-1)*X",
+        "p<<m_n implies Delta L=sum_n c_n^2*X^2/(2*m_n^2)+..."
+      ],
+      "new_physics": [
+        "cubic and quartic mode overlaps not yet derived"
+      ],
+      "origin": "Expand the existing Einstein-dilaton action beyond quadratic order and eliminate the six heavier modes. The universal raw metric-scalar kinetic vertex is now explicit, but its constrained gauge-invariant projection is not.",
+      "scores": {
+        "derivability": 3,
+        "falsifier_strength": 4,
+        "lensing": 2,
+        "sqrt_mass_scaling": 0,
+        "stability": 3,
+        "total_unweighted": 12
+      },
+      "status": "analytic_control_rejected_if_spectrum_remains_gapped"
+    },
+    {
+      "coordinates": {
+        "carrier": "soft_boundary_mode",
+        "coupling": "bulk_mode_overlap",
+        "geometry": "critical_ir_extension",
+        "observable": "constitutive_flux",
+        "selector": "critical_gamma_limit"
+      },
+      "falsifier": "Reject if the renormalized small-X slope is not 3/2, its coefficient has the wrong sign, the Hessian becomes negative, the analytic Z*X coefficient remains nonzero, or gamma is selected using the target.",
+      "id": "critical_ir_soft_mode",
+      "minimal_equations": [
+        "mu0^2=0.0149622873896*gamma+o(gamma)",
+        "m_eff^2=m0^2+lambda*a0^2*X",
+        "Delta Gamma_static=(1/2) Tr_3 log(-nabla^2+m_eff^2)",
+        "Delta Gamma_nonanalytic=-m_eff^3/(12*pi)",
+        "m0->0 gives the X^(3/2) power but the current sign is wrong"
+      ],
+      "new_physics": [
+        "a microscopic selection rule for the critical endpoint",
+        "the nonlinear mass shift lambda",
+        "a critical mechanism that removes the analytic Z*X term",
+        "an interacting sector that reverses or dominates the determinant sign",
+        "a finite physical matter residue as gamma tends to zero",
+        "an IR state or extension that justifies the static critical sector"
+      ],
+      "origin": "Use the derived softening mu0^2 proportional to gamma as a precursor of an IR-critical or continuous scalar sector.",
+      "scores": {
+        "derivability": 2,
+        "falsifier_strength": 4,
+        "lensing": 2,
+        "sqrt_mass_scaling": 2,
+        "stability": 2,
+        "total_unweighted": 12
+      },
+      "status": "derived_exponent_precursor_with_failed_current_sign_gate"
+    },
+    {
+      "coordinates": {
+        "carrier": "breathing_collective",
+        "coupling": "collective_susceptibility",
+        "geometry": "finite_compact_interval",
+        "observable": "breathing_comb",
+        "selector": "legendre_stationarity"
+      },
+      "falsifier": "Reject if kinetic theory gives zero equilibrium occupation, s^4/s^5 instead of the gapped rest-energy cubic, couples X to number rather than s, lacks saturation, or fits a0 to the target.",
+      "id": "breathing_legendre_condensate",
+      "minimal_equations": [
+        "W(s)=integral_0^s u^2*sqrt(1+u^2)du",
+        "s<<1: W=s^3/3+O(s^5)",
+        "postulated Legendre pair: F=s*X-W, X=W'(s)",
+        "deep: F=2*X^(3/2)/3+O(X^(5/2))",
+        "target saturation map: ds/dt=1-s, t=sqrt(g_N/a0)",
+        "a0=xi*c*omega0=xi*mu0*c^2/ell"
+      ],
+      "new_physics": [
+        "a stationary pumped or interacting bosonic occupation",
+        "a derivation that X is conjugate to s rather than particle number",
+        "an independently normalized selector and susceptibility coupling",
+        "a nonperturbative saturation law yielding ds/dt=1-s",
+        "positive damping and a scale-setting rule for xi and ell"
+      ],
+      "origin": "Fill low-momentum states of a gapped breathing mode and use its positive rest-energy contribution as a candidate dual.",
+      "scores": {
+        "derivability": 1,
+        "falsifier_strength": 4,
+        "lensing": 2,
+        "sqrt_mass_scaling": 3,
+        "stability": 2,
+        "total_unweighted": 12
+      },
+      "status": "generated_gapped_occupation_hypothesis_with_open_ensemble"
+    },
+    {
+      "coordinates": {
+        "carrier": "boundary_trace_value",
+        "coupling": "boundary_gradient_px",
+        "geometry": "physical_matter_brane",
+        "observable": "constitutive_flux",
+        "selector": "prescribed_boundary_functional"
+      },
+      "falsifier": "It fails as a prediction whenever B or a0 is copied from the target; it fails as a healthy control if the full generalized mode norm acquires a negative direction.",
+      "id": "brane_px_exact_control",
+      "minimal_equations": [
+        "S_B=-a0^2/(8*pi*G4)*integral_B sqrt(-gamma)*B(Y)",
+        "Y=h^ab*D_a(Phi)*D_b(Phi)/a0^2",
+        "F_eff(X)=Z_bulk*X+C_B*B(s_B*X)",
+        "B must cancel Z_bulk*X before reproducing F_target(X)"
+      ],
+      "new_physics": [
+        "a brane-localized derivative operator",
+        "a microscopic derivation of B, a0 and the matter metric"
+      ],
+      "origin": "Add a derivative boundary functional to the existing brane interface and use the exposed collector action as a solver target.",
+      "scores": {
+        "derivability": 0,
+        "falsifier_strength": 4,
+        "lensing": 1,
+        "sqrt_mass_scaling": 4,
+        "stability": 2,
+        "total_unweighted": 11
+      },
+      "status": "exact_engineering_control_not_microscopic_derivation"
+    },
+    {
+      "coordinates": {
+        "carrier": "matter_frame_planck_coefficient",
+        "coupling": "nonminimal_curvature",
+        "geometry": "physical_matter_brane",
+        "observable": "metric_force_and_slip",
+        "selector": "conformal_matter_factor"
+      },
+      "falsifier": "The direct identification is already blocked in the isolated deep limit: s tends to zero, so the full Jordan tensor coefficient vanishes, A_m diverges and the frame map is singular.",
+      "id": "jordan_frame_gravitational_selector",
+      "minimal_equations": [
+        "g_J=A_m(phi)^2*g_E; s=A_m(phi)^(-2)",
+        "S_J contains M_Pl^2*s*R_J/2+S_m[g_J,Psi]",
+        "U_J(s)=s^2*U_E(phi(s))",
+        "desired but unproved: L_static=-M_Pl^2*[s*|grad(Phi)|^2-a0^2*W_J(s)]",
+        "only after the full constraints: W_J'(s)=|grad(Phi)|^2/a0^2"
+      ],
+      "new_physics": [
+        "the full nonlinear function A_m(phi) from the five-dimensional interface",
+        "a healthy branch spanning the required selector range",
+        "the lapse, shift, scalar and second-potential constraint reduction",
+        "a microscopic W_J(s) with the required convex dual and normalization a0"
+      ],
+      "origin": "Transform the existing certified scalar--matter interface exactly to the metric followed by matter before linearizing.",
+      "scores": {
+        "derivability": 3,
+        "falsifier_strength": 4,
+        "lensing": 2,
+        "sqrt_mass_scaling": 0,
+        "stability": 1,
+        "total_unweighted": 10
+      },
+      "status": "exact_frame_identity_rejected_as_direct_full_planck_selector"
+    },
+    {
+      "coordinates": {
+        "carrier": "derivative_constitutive_scalar",
+        "coupling": "conformal_scalar_matter",
+        "geometry": "physical_matter_brane",
+        "observable": "metric_force_and_slip",
+        "selector": "legendre_stationarity"
+      },
+      "falsifier": "Reject if the reduced bulk action retains a nonzero canonical Y term in the deep branch, has a ghost or ill-posed characteristic, cannot derive a0 without galaxy data, or fails the independent lensing and Solar-System limits.",
+      "id": "derivative_constitutive_scalar",
+      "minimal_equations": [
+        "S_E contains M_Pl^2*R_E/2-M_Pl^2*a0^2*F(Y)+S_m[A_m(phi)^2*g_E,Psi]",
+        "F(Y)=sup_s[s*Y-W(s)]",
+        "selector equation: Y=W'(s)",
+        "deep F~2*Y^(3/2)/3 gives a scalar gradient proportional to sqrt(M)",
+        "the tensor metric, scalar force, slip and lensing must be combined before comparison"
+      ],
+      "new_physics": [
+        "a derivation of the noncanonical derivative operator from the bulk modes",
+        "the absolute normalization a0 and the scalar matter coefficient",
+        "a healthy causal covariant completion of the quasistatic invariant Y",
+        "the two-potential and lensing response including any additional field"
+      ],
+      "origin": "Keep the tensor Einstein-Hilbert term nondegenerate and place the Legendre selector in a separate collective scalar-gradient sector coupled through the existing matter metric.",
+      "scores": {
+        "derivability": 2,
+        "falsifier_strength": 4,
+        "lensing": 2,
+        "sqrt_mass_scaling": 3,
+        "stability": 2,
+        "total_unweighted": 13
+      },
+      "status": "surviving_architecture_operator_not_microscopically_derived"
+    },
+    {
+      "coordinates": {
+        "carrier": "tricritical_collective_amplitude",
+        "coupling": "collective_susceptibility",
+        "geometry": "critical_ir_extension",
+        "observable": "constitutive_flux",
+        "selector": "tricritical_stationarity"
+      },
+      "falsifier": "Reject if the frozen cubic-through-sextic reduction has no q^2*Y vertex, leaves m2 or u4 nonzero, has an unstable sextic sign, or requires the exposed target to choose the critical point.",
+      "id": "tricritical_collective_amplitude",
+      "minimal_equations": [
+        "s=q^2; L_aux=-s*Y+m2*s+u4*s^2/2+s^3/3",
+        "stationarity: Y=m2+u4*s+s^2",
+        "m2=u4=0 gives s=sqrt(Y) and P(Y)=2*Y^(3/2)/3",
+        "d2L_aux/dq2=8*Y tends to zero in the deep limit"
+      ],
+      "new_physics": [
+        "a gauge-invariant q^2*Y vertex from the nonlinear constraints",
+        "a symmetry or critical mechanism setting m2=u4=0",
+        "positive sextic normalization and controlled q gradients",
+        "an independent a0, matter coefficient and lensing response"
+      ],
+      "origin": "Represent the constitutive selector by a nonnegative collective amplitude and ask whether the reduced bulk action selects its tricritical point prospectively.",
+      "scores": {
+        "derivability": 1,
+        "falsifier_strength": 4,
+        "lensing": 0,
+        "sqrt_mass_scaling": 4,
+        "stability": 1,
+        "total_unweighted": 10
+      },
+      "status": "exact_exponent_mechanism_bulk_realization_not_derived"
+    },
+    {
+      "coordinates": {
+        "carrier": "gapless_spectral_continuum",
+        "coupling": "bulk_mode_overlap",
+        "geometry": "critical_ir_extension",
+        "observable": "constitutive_flux",
+        "selector": "constant_gapless_measure"
+      },
+      "falsifier": "Reject if the spectrum remains gapped, its density is not constant, the sign follows ordinary stable Gaussian elimination, or the result is a nonlocal momentum kernel rather than local P(Y).",
+      "id": "gapless_spectral_continuum",
+      "minimal_equations": [
+        "P(Y)=4/(3*pi)*integral_0^infinity dm*Y^2/(Y+m^2)",
+        "constant rho_m gives P(Y)=2*Y^(3/2)/3",
+        "finite cutoffs give the power only for eps^2<<Y<<Lambda^2",
+        "seven current poles match slope 3/2 for only 0.210 dex"
+      ],
+      "new_physics": [
+        "a derived gapless constant positive density per mass",
+        "a healthy sign rather than ordinary Gaussian exchange",
+        "a reduction from a momentum continuum to a local amplitude operator",
+        "independently fixed IR and UV cutoffs"
+      ],
+      "origin": "Take the critical or decompactified limit before truncating the mode tower and test its signed spectral measure.",
+      "scores": {
+        "derivability": 1,
+        "falsifier_strength": 4,
+        "lensing": 0,
+        "sqrt_mass_scaling": 4,
+        "stability": 1,
+        "total_unweighted": 10
+      },
+      "status": "exact_integral_identity_not_healthy_local_generation"
+    },
+    {
+      "coordinates": {
+        "carrier": "backreacted_metric_scalar",
+        "coupling": "conserved_stress_backreaction",
+        "geometry": "spherical_quasistatic_bulk",
+        "observable": "metric_force_and_slip",
+        "selector": "nonlinear_bulk_boundary_value"
+      },
+      "falsifier": "Reject the regular branch if its Dirichlet-to-Neumann map keeps a nonzero linear coefficient as g tends to zero; reject any critical branch with a negative fluctuation eigenvalue.",
+      "id": "collective_bulk_backreaction",
+      "minimal_equations": [
+        "Pi_i(g)=delta(S5_on_shell)/delta(D_i(Phi))",
+        "D_i Pi_i=4*pi*G4*rho",
+        "required deep limit: Pi_i=|g|*g_i/a0",
+        "required high limit: Pi_i=g_i"
+      ],
+      "new_physics": [
+        "a complete conserved matter/interface action",
+        "a nonlinear branch-selection rule",
+        "a derived relation between the two metric potentials"
+      ],
+      "origin": "Solve the existing metric and dilaton nonlinearly with an explicit conserved matter brane instead of summing fixed poles.",
+      "scores": {
+        "derivability": 2,
+        "falsifier_strength": 3,
+        "lensing": 3,
+        "sqrt_mass_scaling": 2,
+        "stability": 2,
+        "total_unweighted": 12
+      },
+      "status": "secondary_microscopic_route_after_interface_closure"
+    }
+  ],
+  "schema": "holo.nonlinear-route-matrix.v1",
+  "score_rubric": {
+    "meaning": {
+      "derivability": "0 inserted target; 4 already action-derived",
+      "falsifier_strength": "0 vague; 4 immediate decisive test",
+      "lensing": "0 absent; 4 derived two-potential prediction",
+      "sqrt_mass_scaling": "0 impossible; 4 exact algebraic mechanism",
+      "stability": "0 inconsistent; 4 certified positive sector"
+    },
+    "range": [
+      0,
+      4
+    ],
+    "warning": "totals are readiness summaries, not probabilities or evidence weights"
+  },
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "title": "Generative matrix for a microscopic nonlinear HOLO response"
+}

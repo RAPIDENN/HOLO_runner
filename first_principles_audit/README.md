@@ -116,7 +116,24 @@ The executable follow-up is the
 boundary-condition branch audit, an independent shooting check of the
 ultralight ND mode, a frozen dimensionless material fingerprint, an
 action-level completion of the historical Eq. 39 electromagnetic kernel, a
-fail-closed Wilson-loop pipeline, retrospective SPARC cross-validation, and a
-published-DESI marginal diagnostic.  Their physical dependencies and missing
+fail-closed Wilson-loop pipeline, a microscopic superpotential boundary audit,
+a canonically normalized seven-mode stiff force, a repaired SPARC baryonic-
+input audit and geometry-matched finite-disk scan (P6/P5 are genealogy only),
+a universal signed-residual collector that rejects both interpretations of the
+old `600` threshold while remaining explicitly empirical,
+a locally elliptic but zero-field-degenerate nonlinear action reconstruction,
+an executable no-go gate for embedding it in the current regular linearized
+HOLO sector, a real-background BPS moduli/matter-metric certificate resolving
+two physical endpoint moduli and their covariant selector jets (while no
+physical tangent or `q^2Y` matter operator is selected), a fixed-warped-volume
+candidate that nearly aligns one tangent but fails exact alignment and the
+minimal matter-sign test, and
+axisymmetric controls that fail closed on missing 3D SPARC
+source and boundary data,
+a P7 space--time breathing response that recovers the stiff force at zero frequency,
+and a published-DESI marginal diagnostic.  P7 derives the correlated scalar
+thresholds, evanescent-to-propagating transition and causal timing without
+assigning an observational frequency, source occupation or detector signal. Their
+physical dependencies and missing
 links are collected in
 [`MASTER_PREDICTION_REGISTRY.md`](prediction_factory/MASTER_PREDICTION_REGISTRY.md).

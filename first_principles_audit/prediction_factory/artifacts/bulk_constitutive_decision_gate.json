@@ -1,0 +1,152 @@
+{
+  "algebra_checks": {
+    "all": true,
+    "certified_inputs": true,
+    "deep_longitudinal_coefficient_positive": true,
+    "deep_transverse_coefficient_positive": true,
+    "finite_tower_crossover_is_less_than_one_decade": true,
+    "minimal_covariant_radial_characteristic_ratio_is_two": true,
+    "new_deep_constitutive_branch_has_source_exponent_one_half": true,
+    "no_observational_tables_read": true,
+    "old_fixed_tower_has_source_exponent_one": true
+  },
+  "classification": "exact_exponent_mechanism_found;bulk_force_prediction_not_yet_derived",
+  "evidence_boundary": "The comparison is theory-only. It establishes why the old finite linear tower cannot give the required mass exponent and identifies two exact mathematical mechanisms. It does not establish that the current five-dimensional theory generates either mechanism.",
+  "inputs": {
+    "files": {
+      "bulk_cubic_inventory": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bulk_cubic_vertex_inventory.json",
+        "sha256": "d969c43069fbb7f739b48989b480e46246150bf83ce2153dfceb9415df1f294b"
+      },
+      "interface": {
+        "path": "first_principles_audit/artifacts/interface_action_derivation.json",
+        "sha256": "ee56f159c28beba211ffb0838f76dab4e0e2688f9ac56f5fa1a0cb12bd241cf3"
+      },
+      "scale_consistency": {
+        "path": "first_principles_audit/prediction_factory/artifacts/scale_consistency.json",
+        "sha256": "322f62ad245eccb390d28ddf6ced3cb35f108cb7b9954f9532d38c5d50143cd5"
+      },
+      "spectral_bridge": {
+        "path": "first_principles_audit/prediction_factory/artifacts/collective_spectral_bridge.json",
+        "sha256": "a2fb7b67d91ddf00813bf1821b92f12a787b85a41b6236ca92c6a4cd1a66cdf1"
+      },
+      "stiff_force": {
+        "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+        "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+      },
+      "tricritical_bridge": {
+        "path": "first_principles_audit/prediction_factory/artifacts/tricritical_constitutive_bridge.json",
+        "sha256": "703adf3eec2f3fb3a284058dd352bc7b2cd1736b3f42ad33d3c3bda972112caa"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "matter_and_lensing_audit": {
+    "certified_interface": {
+      "B_F": "1 + d_e varphi/M_Pl + O(varphi^2)",
+      "electromagnetism": "-B_F(varphi) F^2/4",
+      "ln_A_m": "beta varphi/M_Pl + O(varphi^2)",
+      "matter": "S_m[A_m(varphi)^2 g, Psi]",
+      "yukawa_potential": "-G m1 m2/r [1 + 2 beta^2 exp(-m_varphi r)]"
+    },
+    "consequence": "A direct conformal scalar acceleration cancels from the lensing sum at linear order. Scalar stress or an additional coupling must be solved before claiming the observed lensing field.",
+    "linear_conformal_map": [
+      "Phi_J=Phi_E+alpha*delta_phi",
+      "Psi_J=Psi_E-alpha*delta_phi",
+      "Phi_J+Psi_J=Phi_E+Psi_E"
+    ],
+    "unfixed_microscopic_choices": [
+      "radial boundary actions and boundary conditions",
+      "five-dimensional gravitational normalization kappa_5",
+      "absolute radial and four-dimensional mass scale",
+      "Standard-Model localization in the radial direction",
+      "universal matter Wilson coefficient beta",
+      "electromagnetic Wilson coefficient d_e",
+      "QCD and fermion-mass coefficients d_g and d_mi"
+    ]
+  },
+  "microscopic_progress": {
+    "current_boundary": "The repository does not store the nonlinear reconstruction of h_AB, delta_chi, lapse, shift and brane bending in terms of h_n. Using h_n as any one raw perturbation would mix gauges and invent c_a.",
+    "direct_S4_contact_computed": false,
+    "fixed_metric_scalar_derivative_cubic": "exactly zero",
+    "gapped_exchange_contribution_to_P": "For L=-P-0.5*sigma*K*sigma+c*sigma*Y: Delta L_exchange=+0.5*Y*c^T*K^(-1)*c*Y and Delta P_exchange=-0.5*Y*c^T*K^(-1)*c*Y",
+    "heavy_unit_overlap_inverse_mass_squared_moment": 1.4978789216868098,
+    "physical_c_a_computed": false,
+    "raw_metric_scalar_derivative_vertex": "S3_kin=-(4*kappa5^2)^(-1)*integral sqrt(-Gbar)*[h*Gbar^AB/2-h^AB]*partial_A(varphi)*partial_B(varphi)",
+    "total_Y2_coefficient": "C_Y2_total=C_Y2_direct_S4-0.5*c^T*M^(-2)*c; its sign cannot be known from S3 alone"
+  },
+  "old_vs_this": {
+    "old_fixed_poles": {
+      "analyticity": "analytic about zero field while the gap stays positive",
+      "lowest_dimensionless_mass": 0.29048164010701055,
+      "number_of_modes": 7,
+      "operator": "finite quadratic Green functions and additive Yukawa exchange",
+      "source_mass_exponent": 1.0,
+      "three_halves_crossover_width_dex": 0.21001750145845488,
+      "verdict": "negative control; cannot generate sqrt(M)"
+    },
+    "this_critical_constitutive_response": {
+      "classical_realization": "s=q^2, W=s^3/3, Y=W'(s)",
+      "cost": "a critical Hessian, an independently selected sextic point, and a controlled covariant completion",
+      "gain": "the required deep exponent is exact rather than a crossover",
+      "operator": "P(Y)=2*Y^(3/2)/3 with P_Y=sqrt(Y)",
+      "source_mass_exponent": 0.5,
+      "spectral_identity": "constant gapless mass density represents the same power but does not by itself provide healthy local generation",
+      "verdict": "viable mathematical architecture; microscopic origin open"
+    }
+  },
+  "physical_gates": {
+    "a0_derived_without_galaxy_data": false,
+    "critical_relevant_couplings_vanish_without_target_tuning": false,
+    "direct_quartic_contact_from_S4_derived": false,
+    "five_dimensional_action_and_boundary_terms_frozen": false,
+    "healthy_causal_covariant_completion_derived": false,
+    "kappa5_ell_and_standard_model_localization_fixed": false,
+    "matter_function_A_m_and_beta_fixed": false,
+    "metric_slip_and_lensing_derived": false,
+    "physical_completion": false,
+    "q_squared_Y_or_equivalent_nonlinear_vertex_derived": false,
+    "scalar_strong_coupling_at_Y_zero_resolved": false,
+    "solar_system_and_high_field_decoupling_derived": false
+  },
+  "principal_symbol_audit": {
+    "Y_probe": 1e-12,
+    "causality_boundary": "For the minimal Lorentz-covariant P(Y) completion on a spacelike gradient, the radial characteristic speed squared relative to the tensor metric is 2. A different healthy completion must be derived, not assumed.",
+    "deep_longitudinal_coefficient_at_probe": 2e-06,
+    "deep_transverse_coefficient_at_probe": 1e-06,
+    "radial_over_transverse_characteristic_ratio": 2.0,
+    "vacuum_limit": "both principal coefficients vanish as Y tends to zero; the minimal scalar operator is degenerate there"
+  },
+  "prospective_bulk_test": {
+    "calculation": "Solve the nonlinear bulk constraints across a blind source-amplitude scan and extract the on-shell Dirichlet-to-Neumann flux Pi(g).",
+    "can_run_with_current_frozen_inputs": false,
+    "current_blocker": "The certified repository fixes the quadratic carrier but leaves the boundary completion, absolute scale, matter localization and Wilson coefficients unfixed.",
+    "fail_closed_rule": "Any inserted W, boundary B(Y), cancelled canonical term or a0 chosen after inspecting the target is inverse design, not a bulk prediction.",
+    "frozen_inputs": [
+      "five-dimensional Einstein-scalar action",
+      "all boundary actions and boundary conditions",
+      "kappa_5 and ell",
+      "A_m and Standard-Model localization",
+      "a conserved matter source family"
+    ],
+    "pre_registered_acceptance_conditions": [
+      "lim_{g->0} Pi(g)/g = 0",
+      "lim_{g->0} Pi(g)/g^2 = 1/a0_bulk > 0",
+      "lim_{g->infinity} Pi(g)/g = 1",
+      "dlog(g)/dlog(source) -> 1/2 in the deep branch",
+      "the same local constitutive map is recovered for at least two source geometries",
+      "the fluctuation operator has no negative modes and has a well-posed causal principal symbol",
+      "the independently computed Phi+Psi passes the revealed lensing test"
+    ]
+  },
+  "scale_audit": {
+    "required_rule": "derive a0 from frozen microscopic parameters before revealing the galaxy target",
+    "scale_mismatch_orders": 40.9351670371188,
+    "single_ell_qcd_galaxy_compatible": false
+  },
+  "schema": "holo.bulk-constitutive-decision-gate.v1",
+  "software": {
+    "python": "3.13.5"
+  },
+  "title": "Old fixed poles versus a critical constitutive response"
+}

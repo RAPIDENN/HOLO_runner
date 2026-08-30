@@ -140,7 +140,14 @@ physical model.
 
 ## Frozen figures
 
-![RAR comparison HOLO vs Newton (frozen output)](figures/rar_comparison.png)
+![Historical SPARC comparison (frozen output; superseded because its baryonic input contract was wrong)](figures/rar_comparison.png)
+
+This frozen figure is provenance only.  The repaired paper figure uses signed
+gas and the published stellar mass-to-light factors.  The canonically
+normalized stiff-boundary force is the current candidate; its geometry-matched
+finite-disk scan selects only the long-range boundary and remains far from the
+empirical RAR.  P6 and P5 are numerical genealogy, and RAR is not relabelled
+as HOLO.
 
 ## Instrument Closure (Zenodo 18224589 specification)
 
@@ -179,6 +186,17 @@ Includes an additional QCD glueball (0⁺⁺, m₁/m₀) verification channel fr
 ### Key outcomes (from the bundle)
 
 - Historical endpoint conversion: σ_proxy = 0.2031359 GeV², m₀ = 1.600006 GeV after external α′ and c choices
-- SPARC (175): successes = 172/175, median χ²_holo = 0.5650, median χ²_newton = 1.9279
+- Historical SPARC bundle only: successes = 172/175 and the quoted medians used
+  the superseded unsigned, unit-weight baryonic construction; they are not
+  current physics results.  The repaired frozen-test scores are RAR `36.75`,
+  current stiff force `371.58`, old P6 `414.20`, legacy P5 `290.98`, and
+  baryons `414.23` in diagonal χ² per velocity point.  The finite-disk scan
+  reaches its long-range boundary without closing the gap; P6/P5 are not the
+  current physical curve.  A conditional embedding gate now excludes the
+  current regular linearized HOLO sector as the origin of the nonlinear
+  collector (`M` versus `sqrt(M)` source scaling).  Axisymmetric controls pass
+  on analytic sources, but the physical SPARC PDE is blocked by missing unique
+  3D density, thickness, and boundary data; `36.75` remains a non-PDE empirical
+  diagnostic rather than a force validation.
 - Growth/BOSS DR12: χ²_HOLO = 2.2684, χ²_ΛCDM = 2.4430, Δχ² = −0.1746; predicted Δfσ₈(z=1) = −12.339%
 - UV-projected lab channel vs NIST: Pearson r = −0.0554 (no detection-level correlation in the UV-screened baseline)

@@ -1,0 +1,99 @@
+{
+  "certificate_checks": {
+    "all": true,
+    "collector_dual_power_is_cubic": true,
+    "critical_and_collector_exponents_match": true,
+    "determinant_coefficient_matches_analytic_value": true,
+    "no_observational_inputs_read": true,
+    "soft_coefficient_stable_on_three_smallest_points": true,
+    "soft_mass_squared_is_linear_in_gamma": true,
+    "source_certificates_pass": true,
+    "three_dimensional_nonanalytic_power_is_cubic": true
+  },
+  "classification": "new_derived_exponent_connection;not_a_complete_force_derivation",
+  "collector_match": {
+    "candidate_identification": "s proportional to mu0",
+    "leading_term_warning": "The determinant calculation explicitly subtracts the analytic term proportional to m^2 and hence X.  The current HOLO sector has not shown that its positive Z*X response vanishes at the critical point; if Z remains nonzero, X dominates X^(3/2) as X tends to zero and the sqrt(M) regime does not emerge.",
+    "matched_feature": "nonanalytic exponent only",
+    "measured_dual_log_slope": 3.000134310712828,
+    "required_deep_dual": "W(s)~s^3/3"
+  },
+  "coupling_proxy_softening": {
+    "ir_generalized_profile_squared": [
+      0.11984419558004895,
+      0.2577036688520183,
+      0.5529300128215052
+    ],
+    "ir_log_slope_vs_gamma": 0.9960797388569809,
+    "uv_generalized_profile_squared": [
+      2.6382812152995265e-06,
+      5.678213438626231e-06,
+      1.2206474507359323e-05
+    ],
+    "uv_log_slope_vs_gamma": 0.9979037447749569,
+    "warning": "These endpoint generalized-profile squares are not absolute matter residues, but both vanish approximately linearly with gamma.  A physical completion must prove that the critical mode does not decouple from matter."
+  },
+  "derived_chain": [
+    "superpotential boundary scan: mu0^2 proportional to gamma near gamma=0+",
+    "choose the soft gap as the candidate local selector: s proportional to mu0",
+    "3D infrared phase space: DeltaGamma_nonanalytic proportional to mu0^3",
+    "therefore candidate dual W(s) has the required cubic exponent",
+    "Legendre saddle of cubic W gives F(X) proportional to X^(3/2)",
+    "only if this is the leading low-X action, AQUAL gives g proportional to sqrt(M)/r"
+  ],
+  "next_decisive_calculation": "Derive the full interacting reduced action of the soft scalar plus brane bending.  It must make the analytic Z*X coefficient vanish at the critical point, reverse or outweigh the determinant sign, retain a finite physical matter residue, fix the normalization and produce a0 without reading SPARC.",
+  "physical_gates": {
+    "a0_derived": false,
+    "analytic_linear_X_term_absent_or_cancelled": false,
+    "metric_lensing_completion_derived": false,
+    "nonvanishing_physical_matter_residue_derived": false,
+    "normalization_derived": false,
+    "physical_completion": false,
+    "required_exponent_generated": true,
+    "required_positive_W_sign_generated_by_bosonic_determinant": false,
+    "selector_identification_derived_from_5d_action": false
+  },
+  "schema": "holo.soft-mode-cubic-bridge.v1",
+  "soft_mode_fit": {
+    "coefficient_of_variation": 0.002507657911951402,
+    "gamma": [
+      0.01,
+      0.021544346900318832,
+      0.046415888336127774
+    ],
+    "log_intercept": -4.217259803406008,
+    "log_slope_mu0_squared_vs_gamma": 0.9960824276986479,
+    "mean_mu0_squared_over_gamma": 0.014962287389557558,
+    "mu0_squared": [
+      0.00015001810218360638,
+      0.0003225875420425476,
+      0.0006921474430964775
+    ],
+    "points": 3
+  },
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "scipy": "1.15.3"
+  },
+  "sources": {
+    "boundary_completion": {
+      "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+      "sha256": "d5431da04e27d5dccb4090f647c1e868433f8a83d540209b9fe59406aae166f8"
+    },
+    "collector_envelope": {
+      "path": "first_principles_audit/prediction_factory/artifacts/collector_legendre_envelope.json",
+      "sha256": "7dab0a5dfc092532b78f2e720d40ba26cb5f19c0b068a89ecf2d20e36880aff8"
+    },
+    "observational_inputs_read": []
+  },
+  "three_dimensional_determinant": {
+    "analytic_coefficient_of_m_cubed": -0.026525823848649224,
+    "definition": "(1/2) integral d^3k/(2pi)^3 [log(1+m^2/k^2)-m^2/k^2]",
+    "log_slope_absolute_value_vs_mu0": 2.9999999999999987,
+    "numerical_coefficient_of_m_cubed": -0.026525823848649238,
+    "quadrature_error_estimate": 2.78972995185753e-15,
+    "sign_result": "negative for the conventional subtracted bosonic determinant; the desired positive convex W is not obtained by this ingredient alone"
+  },
+  "title": "Critical soft-mode exponent bridge to the cubic collector dual"
+}

@@ -1,0 +1,121 @@
+{
+  "action_convention": {
+    "boundary_bookkeeping": "The displayed slab density assumes the conventional EH+GHY cancellation of radial total derivatives. Finite brane potentials, orientations, orbifold factors, bending and junction terms remain an explicit separate gate.",
+    "extrinsic_curvature": "K_mn=(gamma'_mn-D_m N_n-D_n N_m)/(2N)",
+    "five_dimensional_action": "S=(2*kappa5^2)^(-1)*integral sqrt(-G)*[R-(partial chi)^2/2-V(chi)]",
+    "radial_metric": "ds^2=N^2 du^2+gamma_mn(dx^m+N^m du)(dx^n+N^n du)",
+    "scalar_gauge": "chi=chi_bar(u), gamma_mn=exp(2(A+zeta))*eta_mn, N_m=partial_m beta"
+  },
+  "bounded_execution_contract": {
+    "cas_peak_rss_mib_max": 512,
+    "forbidden_dense_object": "N_mode^4 quartic tensor",
+    "numeric_peak_rss_mib_max": 128,
+    "representation": "degree-four coefficient jets with DAG common-subexpression elimination; stream radial quadrature",
+    "required_projection": "only h0^4 and h0^2*ha exchange channels on nested 3/5/7 modes",
+    "this_local_jet_bytes": 40
+  },
+  "checks": {
+    "all": true,
+    "background_hamiltonian_constraint": true,
+    "certified_effective_action_input": true,
+    "extrinsic_curvature_identity": true,
+    "lapse_variation_identity": true,
+    "no_observational_tables_read": true,
+    "quartic_jet_has_nonzero_S2_S3_S4": true,
+    "quartic_truncation_has_fifth_order_remainder": true
+  },
+  "classification": "exact_bulk_ADM_vehicle_derived;physical_compact_S3_S4_not_yet_derived",
+  "constraint_solution_contract": {
+    "generic_lapse_series": {
+      "alpha1": "(f1-d1)/2",
+      "alpha2": "(f2-d2)/2+3*d1^2/8-d1*f1/4-f1^2/8",
+      "definitions": "Q/Q0=1+f1+f2+...; (R4-V)/(R4-V)0=1+d1+d2+..."
+    },
+    "linear_solution": {
+      "alpha1": "zeta'/A'",
+      "box_beta1": "box(zeta)/A'+exp(2A)*epsilon_ED*zeta'",
+      "epsilon_ED": "-A''/A'^2=chi_bar'^2/(6*A'^2)"
+    },
+    "orders_needed": {
+      "S2": "alpha1,beta1",
+      "S3": "alpha1,beta1",
+      "S4": "alpha1,alpha2,beta1,beta2; never alpha3,beta3"
+    },
+    "second_order_closure_falsifier": "Before restricting the shift, project the second-order momentum constraint transversely. If P_T C^(2) is nonzero, add N_m^T. Likewise retain the induced TT metric as an exchange channel, not as a direct scalar contact."
+  },
+  "evidence_boundary": "This certificate derives and checks the exact local bulk ADM vehicle that can generate quartic vertices. It does not yet solve constraints, include the physical finite boundaries, project a compact S3/S4, or support a new-force claim.",
+  "exact_density": {
+    "B^m_n": "exp(-2*Omega)*eta^(mk)*C_kn",
+    "C_mn": "partial_m partial_n beta-zeta_m beta_n-zeta_n beta_m+eta_mn*(partial zeta dot partial beta)",
+    "H": "A'+zeta'",
+    "Omega": "A+zeta",
+    "Q": "12*H^2-6*H*tr(B)+tr(B)^2-tr(B^2)-chi_bar'^2/2",
+    "R4": "exp(-2*Omega)*[-6 box(zeta)-6(partial zeta)^2]",
+    "bulk_lagrangian_after_GHY": "L=sqrt(-gamma)*[N*R4+Q/N-N*V]",
+    "hamiltonian_constraint": "R4-Q/N^2-V=0",
+    "lapse_eliminated_density": "L_onN=2*sqrt(-gamma)*(R4-V)*sqrt(Q/(R4-V)) on the continuous N>0 branch; writing +2*sqrt[Q*(R4-V)] also requires Q and R4-V to be positive",
+    "momentum_constraint": "D_n{N^-1*[3H*delta^n_m+B^n_m-delta^n_m*tr(B)]}=0 in unitary gauge; it remains to be solved for beta before any physical vertex projection",
+    "positive_lapse_branch": "N^2=Q/(R4-V), only where the ratio is positive; do not choose a square-root sign independently across a zero"
+  },
+  "inputs": {
+    "effective_action": {
+      "path": "first_principles_audit/artifacts/holo_effective_action.json",
+      "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+    },
+    "observational_tables_read": []
+  },
+  "next_decisive_test": "Solve lapse and shift consistently, recover the certified S2 operator and normalization in these variables, then compare c000 with the BMP bulk oracle before adding finite-endpoint terms.",
+  "physical_gates": {
+    "compact_physical_S3_coefficients_projected": false,
+    "direct_physical_S4_contact_projected": false,
+    "exact_bulk_ADM_scalar_density_identified": true,
+    "finite_endpoint_GHY_brane_bending_combined": false,
+    "lapse_algebraic_solution_through_second_order_identified": true,
+    "lapse_solution_substituted_through_second_order": false,
+    "physical_compact_S4_complete": false,
+    "quartic_local_jet_generator_implemented": true,
+    "same_variables_recover_certified_S2_master_action": false,
+    "second_gauge_reduction_agrees": false,
+    "shift_constraint_solved_through_second_order": false
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "schema": "holo.radial-adm-quartic-seed.v1",
+  "title": "Exact radial ADM scalar seed with a bounded quartic jet",
+  "verification": {
+    "background_constraint_max_abs": 7.105427357601002e-15,
+    "background_constraint_max_relative": 2.8950940187343333e-16,
+    "background_samples": 1979,
+    "extrinsic_curvature": {
+      "maximum_relative_error": 6.964016239556997e-16,
+      "random_trials": 32
+    },
+    "lapse_variation": {
+      "analytic": -0.168892661792899,
+      "numeric": -0.1688926614562547,
+      "relative_error": 3.3664429577306976e-10
+    },
+    "quartic_jet": {
+      "absolute_remainders_at_epsilon_0p02_0p01_0p005": [
+        4.9631410092843e-12,
+        1.5543122344752192e-13,
+        4.440892098500626e-15
+      ],
+      "coefficient_convention": "L(epsilon)=sum_n L_n epsilon^n",
+      "expected_ratio_for_fifth_order_remainder": 32.0,
+      "halving_remainder_ratios": [
+        31.931428571428572,
+        35.0
+      ],
+      "local_coefficients_L0_to_L4": [
+        -4.987001283138332,
+        -2.725997734801722,
+        -0.7895822877419367,
+        -0.15488716876802822,
+        -0.016850605850929394
+      ]
+    }
+  }
+}

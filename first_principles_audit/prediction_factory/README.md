@@ -95,8 +95,24 @@ python3 first_principles_audit/prediction_factory/verify_nd_ultralight_shooting.
 python3 first_principles_audit/prediction_factory/material_prediction_factory.py
 python3 first_principles_audit/prediction_factory/derive_em_kernel_completion.py
 python3 first_principles_audit/prediction_factory/derive_robin_boundary_family.py
+python3 first_principles_audit/prediction_factory/derive_superpotential_boundary_completion.py
+python3 first_principles_audit/prediction_factory/verify_superpotential_boundary_shooting.py
+python3 first_principles_audit/prediction_factory/derive_stiff_boundary_force.py
+python3 first_principles_audit/prediction_factory/derive_breathing_response.py
+python3 first_principles_audit/prediction_factory/derive_sparc_finite_disk_yukawa.py
+python3 first_principles_audit/prediction_factory/sparc_physical_audit.py
+python3 first_principles_audit/prediction_factory/derive_force_residual_bridge.py
+python3 first_principles_audit/prediction_factory/derive_universal_residual_collector.py
+python3 first_principles_audit/prediction_factory/derive_nonlinear_collector_action.py
+python3 first_principles_audit/prediction_factory/derive_holo_collector_embedding_gate.py
+python3 first_principles_audit/prediction_factory/derive_axisymmetric_collector_prototype.py
+python3 first_principles_audit/prediction_factory/derive_scale_consistency.py
 python3 first_principles_audit/prediction_factory/derive_em_spectral_fingerprint.py
 python3 first_principles_audit/prediction_factory/evaluate_desi_dr1_growth.py
+python3 -m first_principles_audit.prediction_factory.derive_adm_bmp_tricritical_necessity
+python3 -m first_principles_audit.prediction_factory.derive_bps_radion_matter_coupling
+python3 -m first_principles_audit.prediction_factory.derive_bps_biscalar_matter_geometry
+python3 -m first_principles_audit.prediction_factory.derive_bps_volume_constraint_selector
 python3 first_principles_audit/prediction_factory/build_master_prediction_registry.py
 ```
 
@@ -152,14 +168,86 @@ d(mu_n^2)/d b_UV = f_n(UV)^2 = 3 beta_n(UV)^2/I_g.
 The identity is numerically verified, but the microscopic endpoint
 coefficients remain theory inputs and are not selected from observations.
 
+The microscopic junction audit and real-background ADM/GHY reduction show that
+functional superpotential matching has an exactly flat moduli potential:
+`m^2=u^4=0`, but also `q^6=0`.  The finite-endpoint reduction resolves two
+physical moduli with Planck-normalized kinetic eigenvalues
+`(0.125269, 2.00317)`, so the theory has not selected a unique canonical `q`. Along
+the explicit lower-fixed separation slice, minimally induced matter gives
+normalized selector slopes `0.0197499449` and `4.24994900` on the two branes,
+not zero.  It therefore fails the necessary even-coupling gate for leading
+pure `q^2Y` on that slice.  Covariantly, an orthogonal tangent exists for either
+matter brane separately and has selector curvature `-0.330977` or `-0.257821`.
+No tangent is silent for both branes, and neither BPS nor positive local
+diagonal quadratic/sextic terms select one.  Moreover minimal scalar matter
+weights the Einstein-frame kinetic term by the inverse selector.  After its
+standard `-Y` term is separated, the candidate coefficients are correctly
+signed, `-0.165489 q^2Y` and `-0.128911 q^2Y`; identifying the constitutive
+`Y`, selecting the tangent and fixing its normalization remain open.
+The branch is compatible with, not selected by, the bulk.  A localized
+sixth-order brane detuning is a clean conditional route to positive `q^6`; a
+cubic brane jet is not, and the sixth-order coefficient is not fixed by the
+bulk.  The closest target-independent selector tested is `F=constant`: its
+unit tangent is only `0.0686272` degrees from the lower-brane silent kernel,
+but its residual is nonzero.  Exact alignment requires `A'_-=0`, outside the
+certified interval; on the true `F` level curve, minimal `-Y/C` then gives
+`+0.00227481 q^2Y`, the wrong sign.  The shifted choice `s=C-1` repairs the
+sign only by adding a new nonminimal operator.  No global-`F` constraint is in
+the current action.  The separate declared stiff stabilized limit has seven
+positive, canonically normalized residues with `sum(alpha)=0.106765079`; an
+independent shooting calculation verifies its masses.  P7 restores the time
+derivative of this force.  For `nu=Omega*ell/c`, a mode is evanescent below
+`nu=mu_n` and becomes an outgoing massive wave above it.  The stiff force is
+recovered exactly at `Omega=0`; the seven threshold ratios are
+`1:4.214303:5.939951:7.533412:9.447842:11.514983:13.636417`.  An independently identified
+`f0` would imply `ell=mu0*c/(2*pi*f0)`, but the artifact intentionally reads no
+historical frequency or observation.  Source amplitude, coherence, damping,
+causal distance, boundary action and detector response remain required.
+
 ## Retrospective and external checks generated now
 
-- The SPARC galaxy-level 122/26/27 refit improves on baryons-only Newton in
-  22/27 test galaxies, but its cluster-bootstrap improvement crosses zero.
-  More importantly, it is much worse than a one-global-parameter RAR baseline:
-  P5 `chi2/point=203.26` versus RAR `60.99`, and P5 wins only 8/27.  The P5
-  optimizer also exhausted its budget and reached four preregistered bounds.
-  This is retrospective development evidence, not confirmation.
+- The SPARC audit now recomputes all 3391 velocity points with signed gas,
+  disk `M/L=0.5`, and bulge `M/L=0.7`.  On the frozen 27-galaxy test split,
+  the train-frozen empirical RAR gives `chi2/point=36.75` and 14.5% median
+  absolute velocity error.  The current stiff force gives `371.58`, compared
+  with old P6 at `414.20` and baryons at `414.23`.  An axisymmetric effective-
+  disk Hankel scan with one global `ell` improves monotonically to its `1e5`
+  kpc upper boundary under resolution and radial-tail variations, so it finds
+  no finite-scale rescue.  Public SPARC does not provide the gas surface-
+  density or vertical-density maps needed for a unique 3D convolution.  The
+  residual crosses zero at `gbar=6.25719e-10 m/s^2` and requires a new common
+  state-dependent source or coupling; it is not fitted galaxy by galaxy.
+  `derive_universal_residual_collector.py` resolves the old `600` ambiguity:
+  the stiff force scores `390.85` after the `R>=0.6 kpc` cut and `371.72` at
+  `ell=600 kpc`, so neither is a success.  Its one-parameter, no-per-galaxy
+  signed collector scores `36.75`, but is explicitly the empirical RAR target
+  for a future nonlinear or separate ultralight action sector.  The
+  repaired legacy P5 refit gives `290.98`, reaches all five bounds, and remains
+  rejected genealogy.  RAR is an empirical target, not a HOLO prediction.
+  A separate scale-consistency certificate shows that forcing one `ell` to
+  represent both the legacy `1.600006 GeV` QCD proxy and the saturated SPARC
+  boundary creates an `8.61325e40` mismatch.  The boundary would correspond to
+  `f0=4.49168e-18 Hz` and `T0=7.05484 Gyr`, but it is not a measured clock.
+  The earlier `203.26/60.99` comparison is kept
+  only as provenance of the invalid unsigned, unit-weight input contract.
+- `derive_nonlinear_collector_action.py` reconstructs the minimal
+  nonrelativistic scalar action whose spherical equation reproduces the
+  universal collector.  It verifies single-valuedness, local ellipticity for
+  nonzero field, degeneracy at zero field, deep and Newtonian limits, and shows
+  that the transition radius obeys
+  `r_M=sqrt(GM/a0)`: `0.6 kpc` and `600 kpc` correspond to `2.955e8` and
+  `2.955e14 Msun`, not one universal cutoff.  This is an empirical action
+  target, not a microscopic or relativistic HOLO completion.
+- `derive_holo_collector_embedding_gate.py` proves a conditional no-go for the
+  present regular linearized sector: its canonical Yukawa response scales as
+  `M` and starts with `F~X`, whereas the target scales as `sqrt(M)` and needs
+  `F~X^(3/2)`.  New derivative or nonperturbative sectors remain open and must
+  derive `a0` independently.
+- `derive_axisymmetric_collector_prototype.py` verifies second-order
+  cylindrical convergence on a Plummer control and detects the curl obstruction
+  of the algebraic closure for flattened sources.  It blocks the physical SPARC
+  PDE because the local tables do not identify `rho(R,z)`, thicknesses, or
+  boundary conditions; `Vobs` enters only the final non-PDE diagnostic score.
 - A four-bin marginal diagnostic using published DESI DR1 ShapeFit entries
   gives diagonal `chi2=2.6917` for the frozen dictionary curve and `2.4189`
   for matched LCDM.  The small `delta chi2=+0.2729` gives no preference for

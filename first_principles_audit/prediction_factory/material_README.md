@@ -28,6 +28,16 @@ hashes for both its input completion and generator.  The detached
 `material_predictions.sha256` hashes the full rendered JSON.  These are content
 integrity hashes, not a private-key identity signature.
 
+The companion `artifacts/breathing_response.json` promotes this static
+fingerprint to the linear four-dimensional retarded response.  Generate and
+test it with:
+
+```bash
+python3 first_principles_audit/prediction_factory/derive_breathing_response.py
+python3 -m unittest \
+  first_principles_audit.prediction_factory.test_breathing_response -v
+```
+
 ## Evidence boundary
 
 The artifact fixes only shape, relative strength, and normalized transfer.  A

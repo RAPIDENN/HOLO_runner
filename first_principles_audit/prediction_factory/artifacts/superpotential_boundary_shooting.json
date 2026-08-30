@@ -1,0 +1,155 @@
+{
+  "classification": "independent_numerical_verification_not_detection",
+  "criteria": {
+    "bracket_fraction": 0.02,
+    "mass_relative_tolerance": 0.0003,
+    "root_residual_over_bracket_max": 1e-07
+  },
+  "evidence_boundary": "Agreement verifies the stiff-limit dimensionless mass comb by a second numerical method. It does not select the stiff limit, fix a physical scale, derive force residues, or constitute detection.",
+  "inputs": {
+    "background": {
+      "path": "first_principles_audit/artifacts/holo_effective_action.json",
+      "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+    },
+    "fem_target": {
+      "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+      "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
+    }
+  },
+  "maximum_mass_relative_difference": 7.358775465449163e-05,
+  "maximum_root_residual_abs": 1.8992329842149047e-07,
+  "maximum_root_residual_over_bracket": 5.47579688351176e-08,
+  "method": {
+    "bulk_equation": "Psi_uu+(2A_u-2chi_uu/chi_u)Psi_u+[mu^2 exp(-2A)+4(A_uu-A_u chi_uu/chi_u)]Psi=0",
+    "independence": "no finite-element matrices or eigenvectors are reused",
+    "integrator": "DOP853 adaptive shooting",
+    "root_solver": "Brent bracketed root",
+    "stiff_boundaries": "Psi_u+2 A_u Psi=0 at UV and IR"
+  },
+  "modes": [
+    {
+      "bracket_mu_squared": [
+        0.08270375463706507,
+        0.08607941809163917
+      ],
+      "bracket_residual": [
+        3.4399918941625174,
+        -3.468413866726337
+      ],
+      "fem_mu": 0.2905023001016552,
+      "index": 0,
+      "mass_relative_difference": 7.358775465449163e-05,
+      "root_residual_abs": 1.8992329842149047e-07,
+      "root_residual_over_bracket": 5.47579688351176e-08,
+      "shooting_mu": 0.29048092268966874
+    },
+    {
+      "bracket_mu_squared": [
+        1.4686549548396033,
+        1.5286000550371384
+      ],
+      "bracket_residual": [
+        -8.553188473570032,
+        8.068402616781029
+      ],
+      "fem_mu": 1.2241844243978808,
+      "index": 1,
+      "mass_relative_difference": 5.3611964728750294e-06,
+      "root_residual_abs": 6.492301451999083e-08,
+      "root_residual_over_bracket": 7.590504373966225e-09,
+      "shooting_mu": 1.2241778613046626
+    },
+    {
+      "bracket_mu_squared": [
+        2.9176439788470656,
+        3.036731488187762
+      ],
+      "bracket_residual": [
+        6.14700228581799,
+        -5.909729321041349
+      ],
+      "fem_mu": 1.7254529067805398,
+      "index": 2,
+      "mass_relative_difference": 5.659669769619846e-06,
+      "root_residual_abs": 5.185864182521982e-09,
+      "root_residual_over_bracket": 8.436411670915609e-10,
+      "shooting_mu": 1.7254431412868843
+    },
+    {
+      "bracket_mu_squared": [
+        4.692999158761651,
+        4.884550144833556
+      ],
+      "bracket_residual": [
+        -6.81784567418693,
+        6.897657621046786
+      ],
+      "fem_mu": 2.1883269069765614,
+      "index": 3,
+      "mass_relative_difference": 1.0274879871818854e-05,
+      "root_residual_abs": 9.434390157991857e-08,
+      "root_residual_over_bracket": 1.3677672445214954e-08,
+      "shooting_mu": 2.188304422180472
+    },
+    {
+      "bracket_mu_squared": [
+        7.381301360399564,
+        7.682578966946486
+      ],
+      "bracket_residual": [
+        10.505526230111633,
+        -10.711569159824649
+      ],
+      "fem_mu": 2.744438041507409,
+      "index": 4,
+      "mass_relative_difference": 1.8659090327721728e-05,
+      "root_residual_abs": 2.0548748480564427e-08,
+      "root_residual_over_bracket": 1.918369584694986e-09,
+      "shooting_mu": 2.7443868327900938
+    },
+    {
+      "bracket_mu_squared": [
+        10.96464264754585,
+        11.412179082139557
+      ],
+      "bracket_residual": [
+        -15.971632626224933,
+        16.280686796132557
+      ],
+      "fem_mu": 3.344908199763142,
+      "index": 5,
+      "mass_relative_difference": 2.8874967981984412e-05,
+      "root_residual_abs": 6.282345310637538e-09,
+      "root_residual_over_bracket": 3.8587716779429087e-10,
+      "shooting_mu": 3.344811615645971
+    },
+    {
+      "bracket_mu_squared": [
+        15.376892168813002,
+        16.00452042060129
+      ],
+      "bracket_residual": [
+        22.633834251177575,
+        -23.089571737071054
+      ],
+      "fem_mu": 3.9611496178138923,
+      "index": 6,
+      "mass_relative_difference": 4.1282847167534165e-05,
+      "root_residual_abs": 1.2365467405572872e-07,
+      "root_residual_over_bracket": 5.355433849697487e-09,
+      "shooting_mu": 3.9609860902796123
+    }
+  ],
+  "observational_inputs_read": [],
+  "passes": {
+    "all": true,
+    "all_modes_bracketed": true,
+    "background_input_certified": true,
+    "fem_input_certified": true,
+    "mass_agreement": true,
+    "observational_blinding": true,
+    "root_residuals_bounded": true
+  },
+  "schema": "holo.superpotential-boundary-shooting.v1",
+  "title": "Independent stiff-boundary scalar shooting verification"
+}

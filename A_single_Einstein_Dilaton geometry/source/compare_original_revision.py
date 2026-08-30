@@ -49,14 +49,6 @@ def main() -> int:
         ("scalar_ratio", (r"1\.5455",), (r"1\.5455",)),
         ("ir_scale_proxy", (r"0\.203", r"451", r"1\.60"),
          (r"0\.203", r"451", r"1\.60")),
-        ("sparc_ranking_medians", (r"1\.86", r"1\.93"),
-         (r"1\.862", r"1\.928")),
-        ("sparc_uncertainty_medians", (r"831", r"906"), (r"831", r"906")),
-        ("sparc_win_counts", (r"150/175", r"149/175"),
-         (r"150/175", r"149/175")),
-        ("sparc_global_parameters",
-         (r"0\.13983", r"2\.21605", r"1\.20433", r"0\.23356", r"0\.60488"),
-         (r"0\.13983", r"2\.21605", r"1\.20433", r"0\.23356", r"0\.60488")),
         ("planck_reference", (r"0\.315", r"67\.4", r"0\.811"),
          (r"0\.315", r"67\.4", r"0\.811")),
         ("boss_covariance", (r"2\.266", r"2\.443", r"0\.177"),
@@ -75,9 +67,21 @@ def main() -> int:
         })
 
     interpretation_checks = {
-        "newtonian_scope_explicit": has(revision, r"baryonic Newtonian baseline"),
-        "not_state_of_the_art_claim": has(revision, r"not benchmarked"),
-        "sparc_in_sample_label": has(revision, r"in-sample calibration"),
+        "not_state_of_the_art_claim": has(revision, r"not a benchmark"),
+        "sparc_physical_contract": has(
+            revision, r"signed.?gas", r"mass-to-light"
+        ),
+        "sparc_current_scores": has(
+            revision, r"290\.98", r"414\.23", r"36\.75", r"14\.5"
+        ),
+        "sparc_legacy_p5_rejected": has(revision, r"legacy P5", r"rejected"),
+        "sparc_stiff_replaces_p6_p5": has(
+            revision, r"stiff candidate replaces P6", r"finite-disk scan"
+        ),
+        "rar_not_holo": has(revision, r"empirical target", r"not.*HOLO"),
+        "legacy_sparc_scores_absent": not has(
+            revision, r"150/175|149/175|203\.26|60\.99|0\.13983"
+        ),
         "spectrum_diagnostic_label": has(revision, r"operator diagnostic"),
         "boss_dictionary_label": has(revision, r"dictionary model"),
         "clock_null_label": has(revision, r"null/poor-fit"),
@@ -89,7 +93,7 @@ def main() -> int:
         interpretation_checks.values()
     )
     payload = {
-        "schema": "holo-original-revision-comparison.v1",
+        "schema": "holo-original-revision-comparison.v2",
         "passed": passed,
         "original": {"path": str(ORIGINAL), "sha256": sha256(ORIGINAL)},
         "revision": {"path": str(REVISION), "sha256": sha256(REVISION)},

@@ -1,0 +1,72 @@
+{
+  "checks": {
+    "all": true,
+    "canonical_frame_kinetic_identity": true,
+    "certified_inputs": true,
+    "collector_dual_is_convex": true,
+    "matter_metric_identity": true,
+    "no_observational_tables_read": true,
+    "selector_derivative_identity": true,
+    "selector_is_positive": true
+  },
+  "classification": "existing_interface_contains_selector_slot;nonlinear_embedding_not_derived",
+  "collector_embedding": {
+    "matter_source_variation": "div[s*grad(Phi)]=4*pi*G*rho",
+    "physical_meaning": "s is a local gravitational stiffness/constitutive response, not an occupation number; matter still couples through rho*Phi",
+    "required_constraint_reduced_target": "S_target=-M_Pl^2*integral[s*|grad Phi|^2-a0^2*W_J(s)]-integral[rho*Phi], with M_Pl^2=1/(8*pi*G)",
+    "selector_variation_if_auxiliary": "X=W_J'(s), X=|grad Phi|^2/a0^2",
+    "simple_potential_matching": "Because the covariant action contains -U_J while the target contains +M_Pl^2*a0^2*W_J, a direct auxiliary identification would require U_J=-M_Pl^2*a0^2*W_J; stability and constraint contributions must therefore be checked rather than assumed.",
+    "target_relation": "The s*R_J term does not by itself imply the displayed target. The exact collector follows only if the lapse, shift, second potential and scalar constraints reduce the Jordan action to that normalization and sign, yield W_J(s)=W_target(s), control the extra gradient terms, and span the healthy s branch."
+  },
+  "decisive_next_calculation": "Choose or derive a complete nonlinear A_m(phi), transform the five-dimensional light-mode effective action to the matter frame, eliminate lapse/shift and scalar constraints without a weak-field Taylor truncation, and read the resulting W_J(s), slip and lensing.",
+  "failure_diagnosis_of_previous_linear_routes": [
+    "Expanding ln A_m only to beta*phi/M_Pl freezes the constitutive coefficient around one background and produces Yukawa exchange.",
+    "The deep target requires s to approach zero, an order-one departure from s=1; for an exponential frame map this lies at large positive phi and cannot survive a small-field truncation.",
+    "A finite fixed tower remains linear in source mass and therefore cannot generate the deep sqrt(M) law.",
+    "In the soft gamma limit the generalized-normalized endpoint profiles vanish with mu0, so treating each pole as an additive force suppresses rather than collectivizes the response.",
+    "The nonlinear route must derive the full field dependence of A_m and the constraint-reduced metric stiffness before linearizing around a galaxy."
+  ],
+  "frame_derivation": {
+    "curvature_term": "sqrt(-g_J)*M_Pl^2*s*R_J/2",
+    "einstein_matter_metric": "g_J=A_m(phi)^2*g_E",
+    "jordan_kinetic": "Z_J(s)=s*(dphi/ds)^2-(3/2)*M_Pl^2/s; for ln A=beta*phi/M_Pl, Z_J/M_Pl^2=[1/(4 beta^2)-3/2]/s",
+    "jordan_potential": "U_J(s)=s^2*U_E(phi(s))",
+    "matter_action": "S_m[g_J,Psi]",
+    "metric_inverse": "g_E=s*g_J",
+    "selector_definition": "s(phi)=A_m(phi)^(-2)"
+  },
+  "numerical_identity_check": {
+    "canonical_kinetic_identity_max_error": 1.7763568394002505e-15,
+    "samples": 128,
+    "selector_derivative_max_error": 1.112772246514293e-06,
+    "selector_times_A_squared_max_error": 3.3306690738754696e-16,
+    "test_beta": 0.13
+  },
+  "physical_gates": {
+    "a0_and_absolute_normalization_derived": false,
+    "jordan_potential_equals_required_W_of_s": false,
+    "jordan_scalar_gradient_terms_negligible_or_correctly_included": false,
+    "nonlinear_A_m_of_phi_derived": false,
+    "physical_completion": false,
+    "post_newtonian_and_lensing_response_derived": false,
+    "selector_range_zero_to_one_reached_on_healthy_branch": false,
+    "weak_field_constraint_reduction_equals_local_s_times_X": false
+  },
+  "schema": "holo.jordan-selector-embedding.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "collector_envelope": {
+      "path": "first_principles_audit/prediction_factory/artifacts/collector_legendre_envelope.json",
+      "sha256": "7dab0a5dfc092532b78f2e720d40ba26cb5f19c0b068a89ecf2d20e36880aff8"
+    },
+    "interface_action": {
+      "path": "first_principles_audit/artifacts/interface_action_derivation.json",
+      "sha256": "ee56f159c28beba211ffb0838f76dab4e0e2688f9ac56f5fa1a0cb12bd241cf3"
+    },
+    "observational_inputs_read": []
+  },
+  "title": "Jordan-frame embedding of the nonlinear collector selector"
+}

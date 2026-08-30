@@ -4,6 +4,20 @@
 - Artefacts:
   - `data/internal/sparc_p5_current.json` — regenerated with SPARC-current, same pipeline/parameters as the preprint.
   - `data/internal/sparc_p5_preprint_frozen.json` — legacy artefact from the preprint snapshot.
-- Expected differences: With SPARC-current, 7/175 galaxies show small χ² shifts versus the preprint snapshot, but overall HOLO > Newton counts and conclusions are unchanged.
+- Expected differences: the historical verifier reproduces its frozen artefact,
+  but those HOLO/Newton counts are no longer current scientific results.  The
+  physical-input audit recomputes signed gas and stellar mass-to-light factors.
+  The current seven-mode stiff-boundary force is evaluated both in its exact
+  long-range limit and with an effective axisymmetric finite-disk Hankel scan;
+  the latter selects only the upper `ell` boundary.  P6 and P5 are retained as
+  historical numerical genealogy, not as the current physical curve.
+  The nonlinear collector is now separately gated: its local action is
+  zero-field-degenerate, the current regular linearized HOLO sector fails the
+  `M` versus `sqrt(M)` embedding test, and a physical axisymmetric SPARC solve
+  is blocked because the local tables do not identify the required 3D density,
+  thicknesses, and PDE boundary conditions.
 - `run_repro.py` defaults to SPARC-current; use `--mode preprint` to verify against the frozen preprint artefact.
-- SPARC verification note: the earlier 7-galaxy mismatch was due to a baryonic-velocity definition mismatch (pipeline uses raw components squared; the verifier previously clamped each component before squaring). The verifier is now aligned; see `docs/SPARC_VERIFICATION_NOTE.md` for details.
+- SPARC verification note: the earlier 7-galaxy mismatch concerned historical
+  byte-level reproduction.  The pipeline's unit-weight unsigned baryonic
+  construction was subsequently found to be physically wrong; see
+  `docs/SPARC_VERIFICATION_NOTE.md` and the repaired audit for details.

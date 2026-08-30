@@ -1,0 +1,152 @@
+{
+  "analytic_and_numerical_controls": {
+    "algebraic_field_integrability": {
+      "flattened_miyamoto_nagai": {
+        "flattening_a_over_b": 6.0,
+        "grid_points": 25760,
+        "maximum_absolute_curl_dimensionless": 0.048497279970152046,
+        "normalized_weighted_rms_curl": 0.021110690310753105,
+        "radial_points": 160,
+        "vertical_points": 161
+      },
+      "flattened_to_spherical_rms_curl_ratio": 6721099169016481.0,
+      "meaning": "A non-zero curl means nu(|gN|/a0)gN cannot be grad Phi. The flattened problem requires a genuine nonlinear PDE solve.",
+      "spherical_plummer": {
+        "flattening_a_over_b": 0.0,
+        "grid_points": 25760,
+        "maximum_absolute_curl_dimensionless": 6.782733601484282e-18,
+        "normalized_weighted_rms_curl": 3.140958015925585e-18,
+        "radial_points": 160,
+        "vertical_points": 161
+      }
+    },
+    "razor_thin_sheet_jump": {
+      "maximum_relative_jump_error": 6.537088399568954e-16,
+      "sampled_y_max": 10000000000.0,
+      "sampled_y_min": 1e-10
+    },
+    "spherical_plummer_cylindrical_finite_volume": {
+      "coarse": {
+        "maximum_error_over_source_peak": 0.016577263744586648,
+        "radial_cells": 48,
+        "total_cells": 4608,
+        "vertical_cells": 96,
+        "weighted_relative_l2_residual": 0.008839682954009127
+      },
+      "coarse_to_fine_l2_ratio": 4.00307711777334,
+      "fine": {
+        "maximum_error_over_source_peak": 0.004289896286823416,
+        "radial_cells": 96,
+        "total_cells": 18432,
+        "vertical_cells": 192,
+        "weighted_relative_l2_residual": 0.002208221998712352
+      }
+    }
+  },
+  "claim_boundary": "The nonlinear constitutive law passes spherical and razor-thin analytic controls in cylindrical coordinates. The local algebraic collector is not a valid flattened-disk field because it develops curl. Public local SPARC tables do not identify the unique 3D source and boundary data needed to solve the nonlinear axisymmetric PDE; therefore no physical SPARC PDE solution or HOLO-force confirmation is claimed.",
+  "classification": "analytic_controls_plus_fail_closed_source_audit_not_holo_derivation",
+  "effective_midplane_diagnostic": {
+    "frozen_test_score": {
+      "chi2_per_point": 36.74799108056669,
+      "classification": "effective_midplane_algebraic_closure_not_axisymmetric_pde_solution",
+      "galaxies": 27,
+      "median_absolute_fractional_velocity_error": 0.144582962137798,
+      "velocity_points": 621
+    },
+    "observational_parameters": [
+      "prediction_kms",
+      "observed_kms",
+      "uncertainty_kms"
+    ],
+    "operator_parameters": [
+      "radius_kpc",
+      "v_gas_kms",
+      "v_disk_kms",
+      "v_bulge_kms",
+      "a0_m_s2"
+    ],
+    "warning": "This score reproduces only the train-frozen algebraic mid-plane closure. It is not promoted to an axisymmetric PDE prediction."
+  },
+  "equation": {
+    "axisymmetric_form": "(1/R)d_R[R mu(|grad Phi|/a0) d_R Phi] + d_z[mu(|grad Phi|/a0) d_z Phi] = 4*pi*G*rho_b(R,z)",
+    "constitutive_parametric_form": "t=sqrt(gN/a0), mu=1-exp(-t), |grad Phi|/a0=t^2/[1-exp(-t)]"
+  },
+  "frozen_input": {
+    "a0_m_s2": 1.1441421135374019e-10,
+    "collector_path": "first_principles_audit/prediction_factory/artifacts/universal_residual_collector.json",
+    "collector_sha256": "16cffb22426657752fc886fb8f5f9dcb2613f522a3b913563e0a4320f743793b",
+    "fit_origin": "existing frozen SPARC training split",
+    "per_galaxy_parameters": 0,
+    "refit_performed_here": false
+  },
+  "next_required_inputs": [
+    "gas surface-density profiles with sign-safe provenance",
+    "stellar and gas vertical scale-height prescriptions",
+    "mass-to-light assumptions frozen before scoring",
+    "outer and vertical boundary conditions",
+    "an independent galaxy holdout after the PDE pipeline is frozen"
+  ],
+  "passes": {
+    "all": true,
+    "flattened_algebraic_field_has_curl_obstruction": true,
+    "frozen_global_acceleration_scale_loaded_without_refit": true,
+    "frozen_test_scoring_is_finite": true,
+    "memory_budget_below_16_mib": true,
+    "no_per_galaxy_parameters": true,
+    "razor_thin_jump_condition_closes": true,
+    "sparc_source_contract_fails_closed": true,
+    "spherical_algebraic_field_is_curl_free": true,
+    "spherical_axisymmetric_operator_converges": true,
+    "vobs_absent_from_operator_signature": true
+  },
+  "resource_bound": {
+    "conservative_peak_array_bytes": 6594560,
+    "conservative_peak_array_mib": 6.2890625,
+    "conservative_simultaneous_float64_arrays": 32,
+    "largest_grid_points": 25760,
+    "three_dimensional_mesh_allocated": false
+  },
+  "schema": "holo.axisymmetric-collector-prototype.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sparc_source_identifiability": {
+    "available_columns": [
+      "R_kpc",
+      "SBbul",
+      "SBdisk",
+      "Vbar_kms",
+      "Vbul_kms",
+      "Vdisk_kms",
+      "Vgas_kms",
+      "Vobs_kms",
+      "eVobs_kms"
+    ],
+    "available_source_proxies": [
+      "R_kpc",
+      "Vgas_kms",
+      "Vdisk_kms",
+      "Vbul_kms",
+      "Vbar_kms",
+      "SBdisk",
+      "SBbul"
+    ],
+    "physical_axisymmetric_pde_identifiable": false,
+    "reason": "Mid-plane component rotation curves and stellar surface brightness do not uniquely determine rho_b(R,z), the gas surface-density profile, component thicknesses, or PDE boundary conditions. Many 3D sources share the same sampled mid-plane radial force.",
+    "required_but_not_identified": [
+      "Sigma_gas(R)",
+      "rho_stars(R,z) or component scale heights",
+      "rho_gas(R,z) or gas scale height",
+      "vertical and outer boundary conditions"
+    ],
+    "scoring_only_columns": [
+      "Vobs_kms",
+      "eVobs_kms"
+    ],
+    "status": "FAIL_CLOSED_MISSING_UNIQUE_3D_BARYON_SOURCE",
+    "tables": 175,
+    "uniform_header": true
+  },
+  "title": "Axisymmetric nonlinear collector controls and SPARC source gate"
+}

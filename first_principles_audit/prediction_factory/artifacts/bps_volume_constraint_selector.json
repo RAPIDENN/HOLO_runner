@@ -1,0 +1,360 @@
+{
+  "actual_background": {
+    "A_u_endpoints": [
+      -0.010126695185261584,
+      -2.115099529631583
+    ],
+    "E_endpoints": [
+      0.9417600573320585,
+      0.015957167040401128
+    ],
+    "F0": 0.807960077896542,
+    "W_endpoints_equals_minus_6_A_u": [
+      0.060760171111569505,
+      12.690597177789497
+    ],
+    "domain": [
+      0.01023316578330245,
+      1.980980980980981
+    ],
+    "samples": 1979
+  },
+  "candidate_verdict": "Fixing F would nearly align the lower selector at first order on the current background. In the formal exact-alignment limit, however, the F-level curve has positive C curvature, so minimal -Y/C gives a positive qbar^2 Y coefficient rather than the requested negative one. The shifted selector s=C-1 would give -sY the requested sign, but that is an additional nonminimal operator choice, not a consequence of -Y/C or of the F constraint. Thus fixing F alone is insufficient and no force completion follows.",
+  "checks": {
+    "alignment_determinant_identities_close": true,
+    "all": true,
+    "ambient_and_F_level_set_curvatures_have_opposite_sign": true,
+    "covariant_angle_identities_close": true,
+    "dF_endpoint_formula_matches_upstream": true,
+    "lower_F_level_set_curvature_identity_closes": true,
+    "lower_F_level_set_extrinsic_kinematics_close": true,
+    "lower_F_level_set_selector_curvature_is_positive": true,
+    "lower_ambient_geodesic_curvature_is_negative": true,
+    "lower_endpoint_is_near_but_not_exactly_aligned": true,
+    "lower_fixed_jet_alignment_limit_keeps_positive_Khat": true,
+    "lower_linearized_zero_is_outside_certified_interval": true,
+    "no_observational_tables_read": true,
+    "physical_q2Y_gate_remains_closed": true,
+    "selector_residual_identities_close": true,
+    "upper_endpoint_is_strongly_misaligned": true,
+    "upstream_real_BPS_biscalar_certificate_passes": true,
+    "volume_tangent_annihilates_dF": true,
+    "volume_tangent_is_Khat_unit": true
+  },
+  "classification": "lower_volume_tangent_nearly_matches_single_brane_selector_kernel;formal_F_level_curve_has_wrong_minimal_matter_sign;global_constraint_is_new_physics_not_present;physical_q2Y_false",
+  "coordinates": {
+    "endpoint_moduli": [
+      "u_minus",
+      "u_plus"
+    ],
+    "metric": "Khat_ab=6I_ab/F",
+    "normal_covector": "n_F=dF=(-E_-,E_+), E_i=exp(2A_i)>0",
+    "warped_volume": "F=int_[u_minus,u_plus] exp(2A(u)) du"
+  },
+  "criteria": {
+    "alignment_determinant_identity_max": 1e-12,
+    "alignment_limit_curvature_negative_max": -1e-08,
+    "alignment_limit_metric_min_eigenvalue": 1e-06,
+    "angle_identity_max": 1e-12,
+    "level_set_curvature_identity_max": 1e-12,
+    "level_set_curvature_positive_min": 1e-08,
+    "level_set_kinematic_residual_max": 1e-12,
+    "lower_near_alignment_angle_degrees_max": 0.1,
+    "metric_unit_residual_max": 1e-13,
+    "selector_residual_identity_max": 1e-12,
+    "upper_misalignment_angle_degrees_min": 80.0,
+    "volume_tangent_residual_max": 1e-14
+  },
+  "current_theory_vs_new_extension": {
+    "current_theory": "The real functional-BPS branch supplies F, two endpoint moduli, Khat, and C_i. It supplies no top-form or global equation fixing F.",
+    "force_claim": false,
+    "new_extension_hypothesis": "An unspecified new global mechanism could impose F=F0 and retain ker dF. This certificate neither writes nor endorses such an action.",
+    "stress_energy_or_backreaction_computed_here": false,
+    "top_form_action_written_here": false
+  },
+  "evidence_boundary": "This proves endpoint-calculus identities and quantifies a conditional Khat-unit volume tangent on the certified real BPS background. The constraint mechanism, the extrapolated A'=0 point, a reduced action, a physical q^2Y vertex, and any force remain unproved.",
+  "exact_alignment_theorem": {
+    "BPS_flow_convention": "A'=-W/6",
+    "current_lower_endpoint_satisfies_exact_condition": false,
+    "current_upper_endpoint_satisfies_exact_condition": false,
+    "if_and_only_if": "ker(dF)=ker(dC_i) iff A'_i=0 iff W_i=0",
+    "lower_determinant": "det(dF,dC_-)=2E_+ A'_-=-E_+ W_-/3",
+    "positive_endpoint_factors": "E_->0 and E_+>0",
+    "selector_gradient": "dC_i=dF/F-2A'_i dy^i at C_i=1",
+    "upper_determinant": "det(dF,dC_+)=2E_- A'_+=-E_- W_+/3"
+  },
+  "falsifiers": [
+    {
+      "failure": "dF disagrees with the endpoint fundamental theorem",
+      "id": "F1_endpoint_derivative",
+      "test": "finite endpoint variations of F must approach (-E_-,E_+)"
+    },
+    {
+      "failure": "the claimed iff alignment condition fails",
+      "id": "F2_alignment_identity",
+      "test": "det(dF,dC_i) must equal 2 E_other A'_i"
+    },
+    {
+      "failure": "no A'=0 crossing exists there or higher endpoint jets move it outside the stated local regime",
+      "id": "F3_outside_interval_zero",
+      "test": "extend the same certified solution below u_- and evaluate A' near the Taylor estimate"
+    },
+    {
+      "failure": "backreaction changes the background/Khat or the retained tangent, or introduces a ghost/nonlocal inconsistency",
+      "id": "F4_constraint_dynamics",
+      "test": "supply a complete global-constraint action and solve its background, perturbations, stress tensor, and reduced kinetic term"
+    },
+    {
+      "failure": "a qbar*Y term survives, the base -Y term is uncontrolled, or the qbar^2*Y sign differs from the conditional level-set diagnostic",
+      "id": "F5_physical_matter_vertex",
+      "test": "perform the full lapse/shift/bending and matter reduction with a fixed Y convention and canonical normalization"
+    }
+  ],
+  "inputs": {
+    "imported_builder": {
+      "path": "first_principles_audit/prediction_factory/derive_bps_biscalar_matter_geometry.py",
+      "schema": "holo.bps-biscalar-matter-geometry.v1",
+      "sha256": "49696b6f49a50497fbce9fa47287729adf97fbc28555a4832f22223c89da7b3d"
+    },
+    "observational_tables_read": [],
+    "upstream_files": {
+      "BPS_certificate": {
+        "path": "first_principles_audit/prediction_factory/artifacts/adm_bmp_tricritical_necessity.json",
+        "sha256": "67efa3eed8c2a3446ed983adb6f5909b3288062cea994958cbcdffd538cde9e1"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      }
+    }
+  },
+  "lower_A_u_zero_local_extrapolation": {
+    "A_u_lower": -0.010126695185261584,
+    "A_uu_lower_from_flow": -0.9929605555079134,
+    "Taylor_remainder_bounded_from_current_artifact": false,
+    "certified_domain": [
+      0.01023316578330245,
+      1.980980980980981
+    ],
+    "delta_u_root_equals_minus_A_u_over_A_uu": -0.010198486867468402,
+    "distance_below_certified_lower_endpoint": 0.010198486867468402,
+    "estimated_u_at_A_u_zero": 3.467891583404728e-05,
+    "inside_certified_domain": false,
+    "linearized_A_u_at_estimated_root": 0.0,
+    "method": "first-order endpoint Taylor hypothesis A'(u)=A'_--+A''_--*(u-u_-)",
+    "outside_interval_background_evaluated": false,
+    "status": "hypothesis_outside_certified_interval",
+    "zero_confirmed": false
+  },
+  "lower_exact_alignment_fixed_jet_diagnostic": {
+    "F_level_set_curve": {
+      "expansions": {
+        "C": {
+          "qbar_squared_coefficient": 0.002274809815128509,
+          "series": "C=1+(kappa_F/2)qbar^2+O(qbar^3)",
+          "sign": "positive"
+        },
+        "coordinate": "qbar is Khat arclength on the local F level curve",
+        "minus_Y_over_C": {
+          "matches_requested_negative_qbar_squared_Y_sign": false,
+          "qbar_squared_Y_coefficient": 0.002274809815128509,
+          "series": "-Y/C=-Y+(kappa_F/2)qbar^2*Y+O(qbar^3 Y)",
+          "sign": "positive"
+        },
+        "one_minus_C": {
+          "qbar_squared_coefficient": -0.002274809815128509,
+          "series": "1-C=-(kappa_F/2)qbar^2+O(qbar^3)",
+          "sign": "negative"
+        },
+        "physical_q2Y_vertex_derived": false,
+        "shifted_selector_s_equals_C_minus_1": {
+          "matches_requested_sign_conditionally": true,
+          "minus_sY_qbar_squared_Y_coefficient": -0.002274809815128509,
+          "minus_sY_sign": "negative",
+          "s_qbar_squared_coefficient": 0.002274809815128509,
+          "selected_by_current_minimal_matter_action": false,
+          "status": "additional nonminimal operator choice; it does not follow from -Y/C or from fixing F alone"
+        }
+      },
+      "extrinsic_acceleration": {
+        "F_second_derivative_residual": 0.0,
+        "Khat_tangent_projection_residual": 5.861537979907403e-18,
+        "Khat_unit_speed_derivative_residual": 0.0,
+        "ambient_Hessian_plus_extrinsic_term": 0.0045496196302569625,
+        "coordinate_acceleration_d2y_dqbar2": [
+          -0.3499162228584294,
+          13.104013344037789
+        ],
+        "covariant_acceleration": [
+          -0.2879268231539964,
+          0.0
+        ]
+      },
+      "identity": "d2C_i/dqbar2|F=-2A''_i(v_F^i)^2=chi_i'^2(v_F^i)^2/3",
+      "identity_absolute_error": 2.38524477946811e-16,
+      "identity_value": 0.0045496196302567795,
+      "priority": "relevant kinematics if a holonomic F=F0 constraint were derived",
+      "selector_second_derivative": 0.004549619630257018
+    },
+    "Khat_eigenvalues": [
+      0.12528097374213992,
+      2.038566203743781
+    ],
+    "Khat_equals_6I_over_F": [
+      [
+        2.037942789333018,
+        -0.03453086935996662
+      ],
+      [
+        -0.03453086935996662,
+        0.12590438815290272
+      ]
+    ],
+    "Khat_unit_volume_tangent": [
+      0.04786373091521656,
+      2.824821589992421
+    ],
+    "admissible_positive_Khat_fixed_jet_limit": true,
+    "ambient_Khat_geodesic_diagnostic": {
+      "Riemann_normal_expansions": {
+        "C": {
+          "qbar_squared_coefficient": -0.1655292617591025,
+          "series": "C=1+(kappa_C/2)qbar^2+O(qbar^3)",
+          "sign": "negative"
+        },
+        "coordinate": "qbar is Khat-unit and geodesic at the reference point",
+        "minus_C_times_Y_diagnostic": {
+          "qbar_squared_Y_coefficient": 0.1655292617591025,
+          "series": "-C*Y=-Y-(kappa_C/2)qbar^2*Y+O(qbar^3 Y)",
+          "sign": "positive"
+        },
+        "minus_Y_over_C": {
+          "qbar_squared_Y_coefficient": -0.1655292617591025,
+          "series": "-Y/C=-Y+(kappa_C/2)qbar^2*Y+O(qbar^3 Y)",
+          "sign": "negative"
+        },
+        "one_minus_C": {
+          "qbar_squared_coefficient": 0.1655292617591025,
+          "series": "1-C=-(kappa_C/2)qbar^2+O(qbar^3)",
+          "sign": "positive"
+        },
+        "physical_q2Y_vertex_derived": false
+      },
+      "covariant_selector_curvature": -0.331058523518205,
+      "scope": "ambient geodesic only; it is not the trajectory of a holonomic F=constant constraint"
+    },
+    "construction": "formal local endpoint-jet limit A'_i->0, holding E, F, A'', and the opposite endpoint jets fixed; this is not a solved global extension",
+    "covariant_nabla_a_nabla_b_C": [
+      [
+        2.3515890817299256,
+        -0.023020579573311085
+      ],
+      [
+        -0.023020579573311085,
+        -0.04138303889746475
+      ]
+    ],
+    "curvature_scope": "The F-level-set second derivative is the relevant conditional kinematics. Even it is not a physical vertex until a constraint action and the complete reduced matter action are derived.",
+    "dC_equals_dF_over_F": [
+      -1.1656022161192094,
+      0.019749944925427886
+    ],
+    "endpoint": "lower",
+    "selector_residual": 8.556991306553891e-18
+  },
+  "physical_gates": {
+    "F_constraint_physically_selects_ker_dF": false,
+    "candidate_is_physical_completion": false,
+    "constraint_equation_and_backreaction_derived": false,
+    "extrapolated_A_u_zero_confirmed_outside_interval": false,
+    "force_law_derived_or_observed": false,
+    "global_F_constraint_present_in_current_repository_action": false,
+    "lower_alignment_exact_on_certified_background": false,
+    "matter_Y_convention_and_base_term_fixed": false,
+    "minimal_minus_Y_over_C_has_requested_negative_q2Y_sign": false,
+    "nonlinear_constraint_surface_reduced_action_derived": false,
+    "physical_q2Y_vertex_derived": false,
+    "shifted_s_equals_C_minus_1_operator_selected_by_current_action": false,
+    "top_form_present_in_current_repository_theory": false,
+    "warped_volume_F_exists_as_geometric_functional": true
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "schema": "holo.bps-volume-constraint-selector.v1",
+  "selector_kernel_comparison": {
+    "lower": {
+      "A_u_at_endpoint": -0.010126695185261584,
+      "C_a": [
+        -1.1453488257486863,
+        0.019749944925427886
+      ],
+      "W_at_endpoint_equals_minus_6_A_u": 0.060760171111569505,
+      "angle_Pythagorean_residual": 2.220446049250313e-16,
+      "covariant_kernel_angle_degrees": 0.06862724410195854,
+      "covariant_kernel_angle_radians": 0.0011977713661490356,
+      "covariant_kernel_line_cosine_abs": 0.999999282671963,
+      "covariant_misalignment_sine": 0.0011977710797506944,
+      "covector_determinant_det_dF_dC": -0.0003231867332768904,
+      "determinant_identity": "2 E_+ A'_-=-E_+ W_-/3",
+      "determinant_identity_absolute_error": 5.421010862427522e-19,
+      "determinant_identity_expected": -0.0003231867332768899,
+      "directional_residual_C_a_vF_a": 0.0009694421504060508,
+      "exactly_aligned_on_current_background": false,
+      "residual_identity": "C_i,a v_F^a=-2 A'_i v_F^i",
+      "residual_identity_absolute_error": 7.37257477290143e-18,
+      "residual_identity_expected": 0.0009694421504060435,
+      "selector_Khat_unit_kernel_tangent": [
+        0.048712123943691885,
+        2.82493820460227
+      ],
+      "selector_dual_norm": 0.8093718130244318
+    },
+    "upper": {
+      "A_u_at_endpoint": -2.115099529631583,
+      "C_a": [
+        -1.1656022161192094,
+        4.2499490041885934
+      ],
+      "W_at_endpoint_equals_minus_6_A_u": 12.690597177789497,
+      "angle_Pythagorean_residual": 0.0,
+      "covariant_kernel_angle_degrees": 86.12529905073724,
+      "covariant_kernel_angle_radians": 1.5031700377001116,
+      "covariant_kernel_line_cosine_abs": 0.06757475482686236,
+      "covariant_misalignment_sine": 0.9977142138458736,
+      "covector_determinant_det_dF_dC": -3.983832508577698,
+      "determinant_identity": "2 E_- A'_+=-E_- W_+/3",
+      "determinant_identity_absolute_error": 4.440892098500626e-16,
+      "determinant_identity_expected": -3.9838325085776987,
+      "directional_residual_C_a_vF_a": 11.95004236347852,
+      "exactly_aligned_on_current_background": false,
+      "residual_identity": "C_i,a v_F^a=-2 A'_i v_F^i",
+      "residual_identity_absolute_error": 0.0,
+      "residual_identity_expected": 11.95004236347852,
+      "selector_Khat_unit_kernel_tangent": [
+        0.7083366061554899,
+        0.19427026467364186
+      ],
+      "selector_dual_norm": 11.97742018469886
+    }
+  },
+  "title": "Conditional fixed-warped-volume selector geometry",
+  "volume_constraint_candidate": {
+    "Khat_unit_kernel_tangent_vF": [
+      0.047865672495848985,
+      2.824936178194893
+    ],
+    "Khat_unit_residual": 0.0,
+    "dF_vF_residual": 1.2580388723872887e-18,
+    "normal_covector_nF_equals_dF": [
+      -0.9417600573320585,
+      0.015957167040401128
+    ],
+    "physical_selection_by_current_action": false,
+    "raw_kernel_tangent": [
+      0.015957167040401128,
+      0.9417600573320585
+    ]
+  }
+}

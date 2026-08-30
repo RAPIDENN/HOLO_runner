@@ -1,0 +1,326 @@
+{
+  "acceleration_domain": {
+    "all_catalogue": {
+      "collector_nu_max": 23.919199482297774,
+      "collector_nu_min": 1.000332371710611,
+      "fraction_requiring_more_than_rigid_ceiling": 0.9433461197993508,
+      "fraction_requiring_screening_below_rigid_ceiling": 0.05665388020064916,
+      "gbar_max_m_s2": 7.340073789094082e-09,
+      "gbar_min_m_s2": 2.086737784473227e-13,
+      "positive_velocity_points": 3389,
+      "radius_max_kpc": 108.31,
+      "radius_min_kpc": 0.08
+    },
+    "by_split": {
+      "test": {
+        "collector_nu_max": 11.009498723267066,
+        "collector_nu_min": 1.0005201950573572,
+        "fraction_requiring_more_than_rigid_ceiling": 0.9871175523349437,
+        "gbar_max_m_s2": 6.542344653053072e-09,
+        "gbar_min_m_s2": 1.0374614188671098e-12,
+        "positive_velocity_points": 621,
+        "radius_max_kpc": 63.64,
+        "radius_min_kpc": 0.09
+      },
+      "train": {
+        "collector_nu_max": 23.919199482297774,
+        "collector_nu_min": 1.000332371710611,
+        "fraction_requiring_more_than_rigid_ceiling": 0.9418452120682116,
+        "gbar_max_m_s2": 7.340073789094082e-09,
+        "gbar_min_m_s2": 2.086737784473227e-13,
+        "positive_velocity_points": 2287,
+        "radius_max_kpc": 108.31,
+        "radius_min_kpc": 0.08
+      },
+      "validation": {
+        "collector_nu_max": 16.547828726740487,
+        "collector_nu_min": 1.000897885598265,
+        "fraction_requiring_more_than_rigid_ceiling": 0.893970893970894,
+        "gbar_max_m_s2": 5.632541042678228e-09,
+        "gbar_min_m_s2": 4.4455816321280656e-13,
+        "positive_velocity_points": 481,
+        "radius_max_kpc": 62.39,
+        "radius_min_kpc": 0.09
+      }
+    }
+  },
+  "claim_boundary": "The collector is the train-frozen empirical response that a new common galactic sector would have to derive. It is not obtained from the present Einstein-dilaton action, does not prove a new force, and is not licensed outside the sampled galactic acceleration and radius domain.",
+  "classification": "retrospective_train_frozen_empirical_target_not_action_derivation",
+  "frozen_inputs": {
+    "evaluation_splits": [
+      "validation",
+      "test"
+    ],
+    "fit_split": "train",
+    "rigid_long_range_nu_ceiling": 1.1067650789797858,
+    "split_counts_galaxies": {
+      "test": 27,
+      "train": 122,
+      "validation": 26
+    },
+    "split_path": "first_principles_audit/prediction_factory/sparc_split_v1.json",
+    "stiff_force_path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+    "sum_alpha_stiff": 0.10676507897978581
+  },
+  "mathematics": {
+    "collector_multiplier": "nu_col(gbar)=[1-exp(-sqrt(gbar/g_dagger))]^-1",
+    "low_acceleration_limit": "g_collector~sqrt(gbar*g_dagger); nu_collector diverges as sqrt(g_dagger/gbar)",
+    "meaning": "A length-only positive linear Yukawa filter cannot supply the required acceleration-dependent growth. The missing operator must be nonlinear/state-dependent or contain a distinct infrared sector, and it must screen as well as enhance.",
+    "rigid_yukawa_bound": "1<=nu_positive_linear_Yukawa<=1+sum_alpha_stiff",
+    "signed_residual": "Delta_g=[nu_col(gbar)-(1+sum_alpha_stiff)]*gbar"
+  },
+  "metrics": {
+    "collector": {
+      "test": {
+        "chi2": 22820.50246103194,
+        "chi2_per_point": 36.747991080566734,
+        "galaxies": 27,
+        "loglike_per_point": -20.934676292497826,
+        "median_absolute_fractional_velocity_error": 0.144582962137798,
+        "rms_log10_velocity_error_dex": 0.1002646162416269,
+        "velocity_points": 621
+      },
+      "train": {
+        "chi2": 111898.72770630967,
+        "chi2_per_point": 48.88542057942755,
+        "galaxies": 122,
+        "loglike_per_point": -26.854908186607847,
+        "median_absolute_fractional_velocity_error": 0.10011691946693967,
+        "rms_log10_velocity_error_dex": 0.09646465951042395,
+        "velocity_points": 2289
+      },
+      "validation": {
+        "chi2": 35622.6387229541,
+        "chi2_per_point": 74.05953996456154,
+        "galaxies": 26,
+        "loglike_per_point": -39.384429269535524,
+        "median_absolute_fractional_velocity_error": 0.09766739193317263,
+        "rms_log10_velocity_error_dex": 0.10726384884616426,
+        "velocity_points": 481
+      }
+    },
+    "stiff_long_range": {
+      "test": {
+        "chi2": 230750.59098751238,
+        "chi2_per_point": 371.5790515096818,
+        "galaxies": 27,
+        "loglike_per_point": -188.35020650705536,
+        "median_absolute_fractional_velocity_error": 0.3588287223854785,
+        "rms_log10_velocity_error_dex": 0.25347200218939026,
+        "velocity_points": 621
+      },
+      "train": {
+        "chi2": 1140689.710840916,
+        "chi2_per_point": 498.33539136780956,
+        "galaxies": 122,
+        "loglike_per_point": -251.57989358079905,
+        "median_absolute_fractional_velocity_error": 0.38989824833762765,
+        "rms_log10_velocity_error_dex": 0.2531668601160334,
+        "velocity_points": 2289
+      },
+      "validation": {
+        "chi2": 340740.69929808885,
+        "chi2_per_point": 708.400622241349,
+        "galaxies": 26,
+        "loglike_per_point": -356.55497040792926,
+        "median_absolute_fractional_velocity_error": 0.3351935797652229,
+        "rms_log10_velocity_error_dex": 0.21166068193152224,
+        "velocity_points": 481
+      }
+    }
+  },
+  "passes": {
+    "all": true,
+    "catalogue_also_requires_high_acceleration_screening": true,
+    "catalogue_requires_boost_above_rigid_ceiling": true,
+    "collector_beats_stiff_above_0p6_kpc": true,
+    "collector_beats_stiff_on_frozen_test": true,
+    "no_per_galaxy_parameters": true,
+    "one_global_train_fitted_acceleration_scale": true,
+    "rigid_positive_yukawa_has_finite_ceiling": true,
+    "six_hundred_kpc_range_does_not_rescue_rigid_force": true,
+    "validation_and_test_not_used_for_fit": true
+  },
+  "schema": "holo.universal-residual-collector.v1",
+  "scope": {
+    "next_derivation_gate": "derive a common nonlinear or separate ultralight action sector whose field equation produces the signed response without using SPARC observations as its source",
+    "not_supported": [
+      "one force valid at every physical length scale",
+      "laboratory or Solar-System phenomenology",
+      "QCD matching",
+      "cosmological perturbations",
+      "a unique three-dimensional disk solution"
+    ],
+    "supported": "universal empirical response over the SPARC galactic acceleration/radius domain represented by the frozen splits"
+  },
+  "signed_response": {
+    "above_crossing": "negative residual screening of stiff correction required",
+    "below_crossing": "positive residual enhancement required",
+    "stiff_collector_crossing_gbar_m_s2": 6.257187358290796e-10
+  },
+  "six_hundred_disambiguation": {
+    "adjudication": "Neither retaining only R>=0.6 kpc nor setting ell=600 kpc makes the rigid stiff force agree with SPARC. These are different hypotheses and both fail in the frozen test set.",
+    "global_yukawa_range_test": {
+      "interpretation": "This varies the global Yukawa length; it is distinct from cutting the observed rotation-curve points by their galactocentric radius.",
+      "test": [
+        {
+          "chi2": 256464.8238376409,
+          "chi2_per_point": 412.98683387703846,
+          "ell_kpc": 0.6,
+          "galaxies": 27,
+          "loglike_per_point": -209.05409769073373,
+          "median_absolute_fractional_velocity_error": 0.38467514094372723,
+          "rms_log10_velocity_error_dex": 0.2702860447022156,
+          "velocity_points": 621
+        },
+        {
+          "chi2": 230840.08026227241,
+          "chi2_per_point": 371.72315662201675,
+          "ell_kpc": 600.0,
+          "galaxies": 27,
+          "loglike_per_point": -188.4222590632228,
+          "median_absolute_fractional_velocity_error": 0.35883257980701533,
+          "rms_log10_velocity_error_dex": 0.25350823129922284,
+          "velocity_points": 621
+        },
+        {
+          "chi2": 230750.594628469,
+          "chi2_per_point": 371.5790573727359,
+          "ell_kpc": 100000.0,
+          "galaxies": 27,
+          "loglike_per_point": -188.35020943858245,
+          "median_absolute_fractional_velocity_error": 0.3588287225269578,
+          "rms_log10_velocity_error_dex": 0.2534720036741433,
+          "velocity_points": 621
+        }
+      ]
+    },
+    "observed_radius_thresholds_test": [
+      {
+        "collector": {
+          "chi2_per_point": 36.747991080566734,
+          "galaxies": 27,
+          "median_absolute_fractional_velocity_error": 0.144582962137798,
+          "minimum_radius_kpc": 0.0,
+          "velocity_points": 621
+        },
+        "minimum_radius_kpc": 0.0,
+        "stiff_long_range": {
+          "chi2_per_point": 371.5790515096818,
+          "galaxies": 27,
+          "median_absolute_fractional_velocity_error": 0.3588287223854785,
+          "minimum_radius_kpc": 0.0,
+          "velocity_points": 621
+        }
+      },
+      {
+        "collector": {
+          "chi2_per_point": 38.304789171349654,
+          "galaxies": 27,
+          "median_absolute_fractional_velocity_error": 0.1441240715195127,
+          "minimum_radius_kpc": 0.6,
+          "velocity_points": 590
+        },
+        "minimum_radius_kpc": 0.6,
+        "stiff_long_range": {
+          "chi2_per_point": 390.8486846614468,
+          "galaxies": 27,
+          "median_absolute_fractional_velocity_error": 0.3623837731697939,
+          "minimum_radius_kpc": 0.6,
+          "velocity_points": 590
+        }
+      },
+      {
+        "collector": {
+          "chi2_per_point": 35.3324097883783,
+          "galaxies": 27,
+          "median_absolute_fractional_velocity_error": 0.14346028267698863,
+          "minimum_radius_kpc": 1.0,
+          "velocity_points": 570
+        },
+        "minimum_radius_kpc": 1.0,
+        "stiff_long_range": {
+          "chi2_per_point": 403.92480234528733,
+          "galaxies": 27,
+          "median_absolute_fractional_velocity_error": 0.3662772700939757,
+          "minimum_radius_kpc": 1.0,
+          "velocity_points": 570
+        }
+      },
+      {
+        "collector": {
+          "chi2_per_point": 39.09009530755927,
+          "galaxies": 26,
+          "median_absolute_fractional_velocity_error": 0.13482752584955893,
+          "minimum_radius_kpc": 3.0,
+          "velocity_points": 474
+        },
+        "minimum_radius_kpc": 3.0,
+        "stiff_long_range": {
+          "chi2_per_point": 479.45914532534016,
+          "galaxies": 26,
+          "median_absolute_fractional_velocity_error": 0.3695208021635481,
+          "minimum_radius_kpc": 3.0,
+          "velocity_points": 474
+        }
+      },
+      {
+        "collector": {
+          "chi2_per_point": 38.44448980837164,
+          "galaxies": 23,
+          "median_absolute_fractional_velocity_error": 0.11789421483681484,
+          "minimum_radius_kpc": 6.0,
+          "velocity_points": 338
+        },
+        "minimum_radius_kpc": 6.0,
+        "stiff_long_range": {
+          "chi2_per_point": 632.0534840969315,
+          "galaxies": 23,
+          "median_absolute_fractional_velocity_error": 0.366284802823169,
+          "minimum_radius_kpc": 6.0,
+          "velocity_points": 338
+        }
+      },
+      {
+        "collector": {
+          "chi2_per_point": 36.93273095392069,
+          "galaxies": 17,
+          "median_absolute_fractional_velocity_error": 0.10856482003475638,
+          "minimum_radius_kpc": 10.0,
+          "velocity_points": 217
+        },
+        "minimum_radius_kpc": 10.0,
+        "stiff_long_range": {
+          "chi2_per_point": 892.216664126113,
+          "galaxies": 17,
+          "median_absolute_fractional_velocity_error": 0.3710332219290515,
+          "minimum_radius_kpc": 10.0,
+          "velocity_points": 217
+        }
+      }
+    ]
+  },
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "scipy": "1.15.3"
+  },
+  "title": "Universal signed residual response required by SPARC",
+  "train_fit": {
+    "g_dagger_m_s2": 1.1441421135374019e-10,
+    "optimizer": {
+      "algorithm": "scipy.optimize.minimize_scalar_bounded",
+      "bounds_log10_g_dagger_m_s2": [
+        -11.0,
+        -9.0
+      ],
+      "fun": 48.88542057942755,
+      "message": "Solution found.",
+      "nfev": 12,
+      "nit": 12,
+      "objective": "train total diagonal Gaussian chi2 divided by train velocity-point count",
+      "success": true
+    },
+    "per_galaxy_parameters": 0
+  }
+}

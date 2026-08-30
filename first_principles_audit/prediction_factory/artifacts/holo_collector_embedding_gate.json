@@ -1,0 +1,127 @@
+{
+  "amplitude_certificate": {
+    "collector_deep_multiplier": "nu(y)~y^(-1/2), unbounded as y->0",
+    "current_exact_upper_bound": 1.1067650789797858,
+    "current_multiplier_max_over_scan": 1.1067650789797858,
+    "current_multiplier_min_over_scan": 1.0,
+    "sum_alpha": 0.10676507897978581
+  },
+  "candidate_extension_warning": "Cancelling the existing positive X term to expose X^(3/2) would make the weak-field Hessian vanish, create a strongly coupled point, and require a fresh stability and spectrum derivation; it is not a demonstrated healthy route.",
+  "classification": "conditional_no_go_for_current_linearized_canonical_stiff_sector;full_nonlinear_holo_completion_unresolved",
+  "evidence_partition": {
+    "assumed_or_exposed_target": [
+      "the collector constitutive function reconstructed from the SPARC training split",
+      "the acceleration scale a0 fitted once on that exposed training split"
+    ],
+    "blocked": [
+      "a microscopic derivation of the nonanalytic derivative function",
+      "an independent derivation of a0",
+      "a ghost-free relativistic and lensing completion",
+      "a unique nonspherical source solve and genuinely independent holdout"
+    ],
+    "derived": [
+      "positive canonical scalar carrier in the current quadratic reduction",
+      "source-independent stiff Yukawa masses and residues",
+      "source-amplitude exponent one for the current linearized force",
+      "Robin endpoint potentials alter spectra but include no boundary kinetic term"
+    ]
+  },
+  "inputs": {
+    "collector_action_target": {
+      "classification": "phenomenological_nonrelativistic_action_reconstruction_not_derived_from_current_holo_bulk",
+      "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+      "sha256": "6d109eef26cd4f082af6165504905926a52c436bf30275abbce0e6584b65f12b"
+    },
+    "effective_action": {
+      "classification": "inverse_effective_completion_not_forward_prediction",
+      "path": "first_principles_audit/artifacts/holo_effective_action_summary.json",
+      "sha256": "e56bfd2bc52bccdcc7ad2e18b47af86d7fc771eba81a452ff61f75b8a5b01fd1"
+    },
+    "interface_action": {
+      "classification": "bulk_carrier_derived_interface_coefficients_unfixed",
+      "path": "first_principles_audit/artifacts/interface_action_derivation.json",
+      "sha256": "ee56f159c28beba211ffb0838f76dab4e0e2688f9ac56f5fa1a0cb12bd241cf3"
+    },
+    "microscopic_boundary_completion": {
+      "classification": "microscopic_boundary_identifiability_and_stiff_candidate_not_detection",
+      "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+      "sha256": "d5431da04e27d5dccb4090f647c1e868433f8a83d540209b9fe59406aae166f8"
+    },
+    "robin_boundary_family": {
+      "classification": "operator_derived_phase_map_not_boundary_selection",
+      "path": "first_principles_audit/prediction_factory/artifacts/robin_boundary_family.json",
+      "sha256": "70b626e486e5b5abf071a51da7817f291301ca42e4599e56e0cc96a6734a11bf"
+    },
+    "stiff_force": {
+      "classification": "prospective_stiff_boundary_force_not_detection",
+      "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+      "sha256": "522231997e1c4d5a8d06acdf7e89c31f5688929ca5636d186cac4103f841204b"
+    }
+  },
+  "minimal_missing_physics": [
+    "derive rather than fit an acceleration scale a0 from independent HOLO parameters",
+    "derive a noncanonical derivative function whose deep limit is F(X)~(2/3)X^(3/2)",
+    "show a ghost-free relativistic completion and its lensing/matter coupling",
+    "solve the resulting three-dimensional field equation for independently specified source densities"
+  ],
+  "operator_certificate": {
+    "collector_deep_dlog_F_dlog_X": 1.4999994855459637,
+    "collector_deep_gradient_power": "F_target(X) proportional to X^(3/2)",
+    "current_boundary_operator_inventory": {
+      "derivative_kinetic_operator_present": false,
+      "meaning": "Neumann, positive Robin and stiff choices alter masses and endpoint conditions but do not supply mu(|grad Phi|).",
+      "positive_robin_endpoint_potentials": true
+    },
+    "current_dlog_F_dlog_X": 1.0,
+    "current_positive_quadratic_carrier": {
+      "interpretation": "The present reduction has a nonzero positive weak-field Hessian and canonically normalized four-dimensional modes.",
+      "p_min": 0.00011388187854569774,
+      "w_integral": 91.37501027469986,
+      "w_min": 0.006829428712918662
+    },
+    "current_weak_field_gradient_power": "F_current(X) proportional to X",
+    "regular_field_redefinition_no_go": "A regular invertible field redefinition cannot turn an analytic source response g=lambda*g1+O(lambda^2) into g proportional to sqrt(lambda).",
+    "regular_weak_field_expansion": "The existing quadratic fluctuation operator produces integer-order, source-linear response at leading order; the required half-power law is not an operator already present in the certified interface."
+  },
+  "passes": {
+    "audit_complete": true,
+    "collector_has_deep_half_power_source_scaling": true,
+    "collector_target_is_not_mislabelled_as_microscopic_derivation": true,
+    "current_boundary_family_has_no_derivative_kinetic_operator": true,
+    "current_multiplier_is_bounded": true,
+    "current_stiff_force_is_source_linear": true,
+    "input_hashes_present": true,
+    "linearized_current_sector_can_embed_collector": false,
+    "positive_canonical_bulk_hessian": true
+  },
+  "schema": "holo.collector-embedding-gate.v1",
+  "scope": {
+    "excluded": "The presently derived canonical, quadratic, stiff-boundary scalar response with source-independent masses and residues cannot generate the collector's deep-acceleration scaling.",
+    "exposed_empirical_target_read_for_comparison_only": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+    "not_excluded": "A new nonanalytic or strongly nonlinear derivative sector, a nonperturbative infrared completion, or another independently derived HOLO sector.",
+    "observational_inputs_read_by_this_gate": []
+  },
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "scipy": "1.15.3"
+  },
+  "source_scaling_certificate": {
+    "adjudication": "At fixed geometry and radius, a source-independent Yukawa tower is linear in M, whereas the target tends to sqrt(M). Changing ell or adding more fixed linear modes cannot change that exponent.",
+    "collector_deep_exponent_range": [
+      0.5000002499999583,
+      0.5000249153844767
+    ],
+    "collector_fixed_radius_mass_exponent": "1-sqrt(y)/[2*expm1(sqrt(y))], y=g_N/a0",
+    "collector_force": "g=g_N/[1-exp(-sqrt(g_N/a0))]",
+    "collector_high_acceleration_exponent_range": [
+      1.0,
+      1.0
+    ],
+    "current_fixed_radius_mass_exponent": 1.0,
+    "current_numerical_exponent_max_abs_error": 2.2737367544323206e-13,
+    "current_stiff_force": "g(M,r)=G*M/r^2*[1+sum alpha_n*(1+m_n*r)*exp(-m_n*r)]"
+  },
+  "theory_change_boundary": "Adding a brane or bulk P(X) term could realize the target operator, but unless its function and a0 follow from already frozen microscopic data, that is a new theory input rather than a prediction of the present model.",
+  "title": "Current-HOLO to nonlinear-collector embedding gate"
+}

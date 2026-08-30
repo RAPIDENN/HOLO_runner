@@ -1,0 +1,285 @@
+{
+  "anchors": [
+    {
+      "F": 6.75270828349683e-19,
+      "X": 1.008585761218794e-12,
+      "envelope_F": 6.752524235923314e-19,
+      "mu": 1.0042826969581444e-06,
+      "selected_s": 9.999995000001667e-07
+    },
+    {
+      "F": 3.4854460447269764e-18,
+      "X": 3.0123116813924347e-12,
+      "envelope_F": 3.485347880063114e-18,
+      "mu": 1.7355982326210637e-06,
+      "selected_s": 1.7281960276581852e-06
+    },
+    {
+      "F": 1.8457637315810586e-17,
+      "X": 9.151915776374571e-12,
+      "envelope_F": 1.845711420247586e-17,
+      "mu": 3.025204192057843e-06,
+      "selected_s": 3.0123019162398324e-06
+    },
+    {
+      "F": 9.527017417693529e-17,
+      "X": 2.733378204504078e-11,
+      "envelope_F": 9.526747093056195e-17,
+      "mu": 5.228144626536356e-06,
+      "selected_s": 5.205846994468397e-06
+    },
+    {
+      "F": 5.045167014486948e-16,
+      "X": 8.304489932076563e-11,
+      "envelope_F": 5.045023827666493e-16,
+      "mu": 9.112814372262127e-06,
+      "selected_s": 9.073948999649029e-06
+    },
+    {
+      "F": 2.6717454361540456e-15,
+      "X": 2.5230592671535036e-10,
+      "envelope_F": 2.6716696062187202e-15,
+      "mu": 1.5883888427939696e-05,
+      "selected_s": 1.5816145232922123e-05
+    },
+    {
+      "F": 1.3790467121265883e-14,
+      "X": 7.535624185059301e-10,
+      "envelope_F": 1.3790075715651205e-14,
+      "mu": 2.7450337850059916e-05,
+      "selected_s": 2.733326557962659e-05
+    },
+    {
+      "F": 7.303027631619785e-14,
+      "X": 2.2894946771034024e-09,
+      "envelope_F": 7.302820355222496e-14,
+      "mu": 4.784637494290128e-05,
+      "selected_s": 4.764231818795168e-05
+    },
+    {
+      "F": 3.769592684765813e-13,
+      "X": 6.838195699531094e-09,
+      "envelope_F": 3.769485695970047e-13,
+      "mu": 8.268654606711048e-05,
+      "selected_s": 8.233390794985128e-05
+    },
+    {
+      "F": 1.9963273699008006e-12,
+      "X": 2.077685253763732e-08,
+      "envelope_F": 1.9962707107473504e-12,
+      "mu": 0.00014412100568390553,
+      "selected_s": 0.00014350638325901378
+    },
+    {
+      "F": 1.0572652658777315e-11,
+      "X": 6.313029447620481e-08,
+      "envelope_F": 1.0572352595695156e-11,
+      "mu": 0.00025119431359288326,
+      "selected_s": 0.00025012312049737986
+    },
+    {
+      "F": 5.457876183623444e-11,
+      "X": 1.8858364123080812e-07,
+      "envelope_F": 5.457721289241099e-11,
+      "mu": 0.0004340736853243149,
+      "selected_s": 0.00043222278998753406
+    },
+    {
+      "F": 2.8909864653513113e-10,
+      "X": 5.731333176247376e-07,
+      "envelope_F": 2.890904424768213e-10,
+      "mu": 0.0007564830262335639,
+      "selected_s": 0.0007532578917384678
+    },
+    {
+      "F": 1.4928137438249783e-09,
+      "X": 1.7127015871591662e-06,
+      "envelope_F": 1.4927713855556491e-09,
+      "mu": 0.0013069919760111024,
+      "selected_s": 0.0013014213707033182
+    },
+    {
+      "F": 7.911143767157196e-09,
+      "X": 5.20852986764137e-06,
+      "envelope_F": 7.910919335860465e-09,
+      "mu": 0.002277024694953559,
+      "selected_s": 0.002267324353388065
+    },
+    {
+      "F": 4.19476576726959e-08,
+      "X": 1.585119277031999e-05,
+      "envelope_F": 4.194646808243175e-08,
+      "mu": 0.003965572507788235,
+      "selected_s": 0.003948693040100487
+    },
+    {
+      "F": 2.1698440718396293e-07,
+      "X": 4.7479286309267836e-05,
+      "envelope_F": 2.1697825749028004e-07,
+      "mu": 0.006843393822332199,
+      "selected_s": 0.006814306871959048
+    },
+    {
+      "F": 1.1534594519139892e-06,
+      "X": 0.00014498670340973817,
+      "envelope_F": 1.1534267963065262e-06,
+      "mu": 0.011897921125548478,
+      "selected_s": 0.011847479071054328
+    },
+    {
+      "F": 6.1489353351522886e-06,
+      "X": 0.00044441794246424994,
+      "envelope_F": 6.148761583564961e-06,
+      "mu": 0.020646713419986733,
+      "selected_s": 0.02055956804359355
+    },
+    {
+      "F": 3.209812551445632e-05,
+      "X": 0.001347550230910569,
+      "envelope_F": 3.2097221505481655e-05,
+      "mu": 0.03541285948432381,
+      "selected_s": 0.03526452098515967
+    },
+    {
+      "F": 0.00017337021912355974,
+      "X": 0.004204316881695257,
+      "envelope_F": 0.00017336536552395283,
+      "mu": 0.06091122103054198,
+      "selected_s": 0.060659482524673215
+    },
+    {
+      "F": 0.0009251790020013411,
+      "X": 0.013136304685596747,
+      "envelope_F": 0.0009251533770790117,
+      "mu": 0.10291890939290714,
+      "selected_s": 0.10250327596943187
+    },
+    {
+      "F": 0.005189452001085233,
+      "X": 0.04317801065447269,
+      "envelope_F": 0.005189311151058256,
+      "mu": 0.17246938553002686,
+      "selected_s": 0.17180097489441243
+    },
+    {
+      "F": 0.030269952373574,
+      "X": 0.1500800698362307,
+      "envelope_F": 0.030269162346653333,
+      "mu": 0.28105632793340657,
+      "selected_s": 0.2800438391589501
+    },
+    {
+      "F": 0.18249675812405672,
+      "X": 0.5598398438617774,
+      "envelope_F": 0.18249234652603155,
+      "mu": 0.43462002556469903,
+      "selected_s": 0.433243286122769
+    },
+    {
+      "F": 1.2379301681541668,
+      "X": 2.460171725600289,
+      "envelope_F": 1.2379046459090841,
+      "mu": 0.6298983522412521,
+      "selected_s": 0.6283260690947466
+    },
+    {
+      "F": 9.147233425438452,
+      "X": 12.932512231424116,
+      "envelope_F": 9.147096602552445,
+      "mu": 0.8205376069486225,
+      "selected_s": 0.8192179910028654
+    },
+    {
+      "F": 78.6701419379935,
+      "X": 89.06918292967245,
+      "envelope_F": 78.66951312016221,
+      "mu": 0.9499215799342101,
+      "selected_s": 0.950559715559304
+    },
+    {
+      "F": 729.6346602977134,
+      "X": 749.9643463364856,
+      "envelope_F": 729.6322047217013,
+      "mu": 0.9945868849644827,
+      "selected_s": 0.9947065458595036
+    },
+    {
+      "F": 6593.730025032582,
+      "X": 6619.188213011765,
+      "envelope_F": 6593.714644408028,
+      "mu": 0.9998789543554075,
+      "selected_s": 0.9998835413770736
+    },
+    {
+      "F": 61057.51151599773,
+      "X": 61083.344999415574,
+      "envelope_F": 61057.37203037477,
+      "mu": 0.9999998512528874,
+      "selected_s": 0.999999860939186
+    },
+    {
+      "F": 563802.1956928858,
+      "X": 563826.8840062269,
+      "envelope_F": 563800.9082289616,
+      "mu": 0.999999999998743,
+      "selected_s": 0.9999999999988821
+    }
+  ],
+  "classification": "exact_mathematical_envelope_representation_of_exposed_target;microscopic_holo_selector_not_yet_derived",
+  "construction": {
+    "deep_limit": "F~(2/3)X^(3/2), s~sqrt(X), W(s)~s^3/3",
+    "dual": "W(s)=sup_X[s*X-F(X)]",
+    "fixed_state_branch": "F_s(X)=s*X-W(s)",
+    "inverse": "F(X)=sup_(0<s<1)[s*X-W(s)]",
+    "physical_reading": "Each fixed-s branch is a constant-permittivity linear response. A local conjugate state selects their upper envelope and generates the nonlinear collector.",
+    "primal": "F(X)",
+    "selector": "s=F'(X)=mu(sqrt(X))"
+  },
+  "diagnostics": {
+    "deep_dual_cubic_coefficient": 0.33334939176032713,
+    "deep_dual_log_slope": 3.000134310712828,
+    "dual_derivative_maximum_relative_error": 0.00044324699499738906,
+    "interlaced_queries": 2004,
+    "maximum_envelope_relative_error": 2.8382331884538112e-05,
+    "maximum_selector_relative_error": 0.0042649315486077595,
+    "peak_branch_matrix_mib": 1.9580078125,
+    "primal_dual_maximum_relative_error": 2.3302638566835837e-06,
+    "states": 2005
+  },
+  "holo_bridge_hypothesis": {
+    "decisive_test": "Derive the local selector and W(s) without SPARC, then solve the axisymmetric PDE with frozen baryonic sources.",
+    "existing_ingredients": [
+      "a scalar carrier and boundary potentials",
+      "a continuous positive Robin boundary family",
+      "state-dependent breathing-mode transfer functions"
+    ],
+    "idea": "Promote s to a local boundary/order-parameter field whose potential is W(s); couple it to the physical potential through s*X.",
+    "minimal_saddle_action": "S=-a0^2/(8*pi*G) integral [s*X-W(s)] - integral rho*Phi; variation in s imposes X=W'(s)",
+    "new_unproved_link": "No current certificate makes a boundary phase local, couples it as s*X, or derives W(s) and a0 from the five-dimensional action."
+  },
+  "passes": {
+    "all": true,
+    "deep_dual_is_cubic": true,
+    "dual_derivative_recovers_X": true,
+    "dual_is_nonnegative": true,
+    "dual_is_strictly_increasing": true,
+    "dual_reconstructs_primal_action": true,
+    "interlaced_upper_envelope_recovers_F": true,
+    "memory_below_8_mib": true,
+    "no_observational_table_read": true,
+    "selector_recovers_mu": true,
+    "source_action_target_passes": true
+  },
+  "schema": "holo.collector-legendre-envelope.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "scipy": "1.15.3"
+  },
+  "source": {
+    "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+    "raw_sparc_or_vobs_read": false,
+    "sha256": "6d109eef26cd4f082af6165504905926a52c436bf30275abbce0e6584b65f12b"
+  },
+  "title": "Upper-envelope dual of the nonlinear collector"
+}

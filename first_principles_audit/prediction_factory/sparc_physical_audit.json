@@ -1,0 +1,594 @@
+{
+  "adjudication": {
+    "baryonic_preprocessing_repaired": true,
+    "corrected_completion_test_status": "stiff_force_and_effective_disk_scan_complete_no_finite_scale",
+    "empirical_rotation_curve_target_available": true,
+    "generalized_rar_selected": false,
+    "generalized_result": "not selected: the train-only extra shape parameter returns to q near 0.5 and gives no material test improvement",
+    "generalized_shape_returns_to_standard_rar": true,
+    "generalized_test_relative_chi2_gain": 0.0012653735448681443,
+    "holo_acceleration_law_status": "action_derived_stiff_force_available_but_empirically_insufficient",
+    "legacy_p5_accepted": false,
+    "legacy_p5_represents_corrected_completion": false,
+    "legacy_p5_result": "rejected only as a legacy comparator: even after refitting on the repaired baryonic inputs, the capped multiplicative readout is decisively worse than RAR",
+    "p6_corrected_benchmark_result": "does not approach the empirical SPARC target: the derived positive-mode strength changes velocity by at most 3.601e-5 fractionally",
+    "p6_corrected_benchmark_status": "evaluated_exact_long_range_convolution_envelope",
+    "p6_current_curve_replaces_legacy_p5": true,
+    "paper_action": "show the stiff-boundary envelope as the current physical candidate, demote P6 to a trace-only benchmark, retain legacy P5 only as numerical provenance, report that the geometry-matched finite-range scan runs to the long-range boundary, and do not label RAR or an object-by-object residual fit as HOLO",
+    "stiff_boundary_candidate_result": "the action-derived stiff candidate is materially stronger than P6 but remains a bounded correction; its exact retrospective SPARC score is reported without fitting ell",
+    "stiff_boundary_candidate_status": "evaluated_exact_long_range_convolution_envelope",
+    "stiff_boundary_candidate_supersedes_p6_if_declared": true
+  },
+  "baryonic_contract": {
+    "bulge_mass_to_light_msun_per_lsun_3p6um": 0.7,
+    "disk_mass_to_light_msun_per_lsun_3p6um": 0.5,
+    "formula": "Vbar2=Vgas*abs(Vgas)+0.5*Vdisk2+0.7*Vbul2; Vbar=sqrt(max(Vbar2,0))",
+    "legacy_formula_rejected": "sqrt(Vgas2+Vdisk2+Vbul2)",
+    "max_absolute_vbar_change_kms": 109.21886073513866,
+    "median_absolute_vbar_change_kms": 24.690047501854963,
+    "negative_total_vbar2_points_clipped_to_zero": 2,
+    "primary_reference": "Lelli, McGaugh & Schombert 2016, AJ 152 157",
+    "velocity_points_changed_from_legacy_vbar": 3391,
+    "velocity_points_total": 3391
+  },
+  "claim_boundary": "The catalogue and the v1 outcomes were already exposed. This repairs the input contract and supplies a retrospective empirical target; it is not an independent confirmation or a derived HOLO galaxy law.",
+  "classification": "retrospective_input_repair_not_holo_confirmation",
+  "finite_disk_followup": {
+    "best_at_upper_scan_boundary": true,
+    "best_global_ell_kpc": 100000.0,
+    "classification": "retrospective_effective_disk_feasibility_test_not_detection",
+    "disk_cancellation_rescues_stiff_candidate": false,
+    "finite_scale_identified": false,
+    "geometry": "effective axisymmetric razor-thin disk",
+    "missing_data_for_unique_convolution": [
+      "gas surface-density profile for each galaxy",
+      "vertical density model or declared razor-thin physical assumption",
+      "radial source continuation outside the published samples"
+    ],
+    "test_chi2_per_point": 371.5790573727359,
+    "unique_physical_convolution_built": false
+  },
+  "frozen_train_fits": {
+    "generalized_rar_diagnostic": {
+      "formula": "nu_q(y)=[1-exp(-y^q)]^(-1/(2q)); q=0.5 is standard RAR",
+      "g_dagger_m_s2": 1.1374400345043187e-10,
+      "optimizer": {
+        "algorithm": "scipy.optimize.differential_evolution",
+        "bounds": [
+          [
+            -11.0,
+            -9.0
+          ],
+          [
+            0.2,
+            1.0
+          ]
+        ],
+        "fun": 48.88473357759071,
+        "message": "Optimization terminated successfully.",
+        "nfev": 969,
+        "nit": 39,
+        "objective": "train total diagonal Gaussian chi2 divided by train velocity-point count",
+        "seed": 20260830,
+        "success": true
+      },
+      "shape_q": 0.49700381764123536
+    },
+    "legacy_p5_on_repaired_inputs": {
+      "maximum_velocity_boost_from_clip": 0.18321595661992318,
+      "optimizer": {
+        "algorithm": "scipy.optimize.differential_evolution",
+        "bounds": [
+          [
+            0.05,
+            0.8
+          ],
+          [
+            0.5,
+            2.5
+          ],
+          [
+            0.3,
+            2.0
+          ],
+          [
+            0.2,
+            1.0
+          ],
+          [
+            0.1,
+            0.8
+          ]
+        ],
+        "fun": 375.553057692235,
+        "maxiter": 100,
+        "message": "Maximum number of iterations has been exceeded.",
+        "nfev": 6072,
+        "nit": 100,
+        "objective": "train total diagonal Gaussian chi2 divided by train velocity-point count",
+        "popsize": 12,
+        "seed": 20260830,
+        "success": false
+      },
+      "parameters": {
+        "A": 0.8,
+        "Sigma0": 0.8,
+        "gamma": 0.2,
+        "m": 0.3,
+        "n": 0.5
+      },
+      "parameters_at_bounds": [
+        {
+          "bound": 0.8,
+          "parameter": "A",
+          "side": "upper"
+        },
+        {
+          "bound": 0.5,
+          "parameter": "n",
+          "side": "lower"
+        },
+        {
+          "bound": 0.3,
+          "parameter": "m",
+          "side": "lower"
+        },
+        {
+          "bound": 0.2,
+          "parameter": "gamma",
+          "side": "lower"
+        },
+        {
+          "bound": 0.8,
+          "parameter": "Sigma0",
+          "side": "upper"
+        }
+      ]
+    },
+    "p6_corrected_long_range_convolution_envelope": {
+      "finite_ell_parameters_fitted": false,
+      "formula": "V_P6=Vbar*sqrt(1+sum_positive_alpha_n)",
+      "limit": "ell_to_infinity_exact_extended_source_convolution",
+      "maximum_fractional_velocity_boost": 3.601085091786693e-05,
+      "name": "P6 corrected completion benchmark",
+      "observational_inputs_read": [],
+      "positive_mode_count": 6,
+      "positive_mode_masses_mu": [
+        0.9138989815720246,
+        1.54169473474637,
+        2.1337779482329147,
+        2.728898930852606,
+        3.3366538592352217,
+        3.9544733937818783
+      ],
+      "positive_mode_strengths_alpha": [
+        9.94350157607916e-07,
+        4.845470552456976e-06,
+        1.0929034273160898e-05,
+        1.5905542427524888e-05,
+        1.8832750199851983e-05,
+        2.0515851006746042e-05
+      ],
+      "sum_positive_alpha_n": 7.202299861734871e-05
+    },
+    "rar": {
+      "formula": "gobs=gbar/(1-exp(-sqrt(gbar/gdagger)))",
+      "g_dagger_m_s2": 1.1441421135374019e-10,
+      "optimizer": {
+        "algorithm": "scipy.optimize.minimize_scalar_bounded",
+        "bounds_log10_g_dagger_m_s2": [
+          -11.0,
+          -9.0
+        ],
+        "fun": 48.88542057942755,
+        "message": "Solution found.",
+        "nfev": 12,
+        "nit": 12,
+        "objective": "train total diagonal Gaussian chi2 divided by train velocity-point count",
+        "success": true
+      }
+    },
+    "stiff_boundary_long_range_convolution_envelope": {
+      "finite_ell_parameters_fitted": false,
+      "formula": "V_stiff=Vbar*sqrt(1+sum_stiff_alpha_n)",
+      "limit": "ell_to_infinity_exact_extended_source_convolution",
+      "maximum_fractional_velocity_boost": 0.05202902953282895,
+      "name": "canonically normalized stiff-boundary candidate",
+      "observational_inputs_read": [],
+      "positive_mode_count": 7,
+      "positive_mode_masses_mu": [
+        0.29048164010701055,
+        1.2241776673747269,
+        1.7254465769300111,
+        2.1883177876729722,
+        2.744424610883392,
+        3.3448911003693316,
+        3.9611288578463113
+      ],
+      "positive_mode_strengths_alpha": [
+        0.0010175340592039452,
+        0.007083327917285003,
+        0.031476261081589046,
+        0.03162676778729975,
+        0.017637438207272108,
+        0.010702435904301536,
+        0.007221314022834425
+      ],
+      "selection_status": "stiff limit declared as a prospective candidate, not fixed by bulk",
+      "sum_positive_alpha_n": 0.10676507897978581
+    }
+  },
+  "passes": {
+    "all": true,
+    "all_velocity_points_recomputed": true,
+    "corrected_completion_not_misidentified_as_p5": true,
+    "dataset_complete": true,
+    "finite_disk_followup_passes": true,
+    "finite_disk_scan_does_not_select_finite_scale": true,
+    "legacy_p5_failure_preserved": true,
+    "p6_metric_is_finite": true,
+    "p6_replaces_p5_as_current_curve": true,
+    "p6_uses_no_observational_fit": true,
+    "rar_beats_legacy_p5_on_test": true,
+    "standard_rar_identity_at_q_half": true,
+    "stiff_force_uses_no_observational_fit": true,
+    "stiff_metric_is_finite": true
+  },
+  "protocol": {
+    "fit_data": "train only",
+    "per_galaxy_parameters": false,
+    "split_counts": {
+      "test": 27,
+      "train": 122,
+      "validation": 26
+    },
+    "test_curve_ids": [
+      "NGC4157",
+      "IC2574",
+      "NGC4068",
+      "UGC00128"
+    ],
+    "test_curve_selection_rule": "first four galaxy IDs in the frozen test split; no outcome-based selection",
+    "uncertainty_model": "reported eVobs as independent diagonal sigma; distance, inclination, M/L uncertainty and intrinsic scatter are not marginalized",
+    "validation_and_test_use": "reported without refitting"
+  },
+  "provenance": {
+    "contains_absolute_paths": false,
+    "dataset_aggregate_sha256": "0a8cbe336032c4b2c65c8bc8b0f59f0768fb36e7db921b5a5dc85ff02c75b021",
+    "dataset_files": 175,
+    "dataset_label": "HOLO_TRANSDUCTOR_V2:data/external/SPARC/sparc_175",
+    "finite_disk_yukawa_label": "prediction_factory:artifacts/sparc_finite_disk_yukawa.json",
+    "finite_disk_yukawa_sha256": "28d4f6114a24e736da2e9dae3cbd06bbe78747ed562f47a37cd98a6abc11ba8b",
+    "implementation_label": "prediction_factory:sparc_physical_audit.py",
+    "implementation_sha256": "3f2d6c74716cd4d2086329b4ce48db1728c38112b68f1c0eee1f28d9fa12350e",
+    "p6_material_fingerprint_label": "prediction_factory:material_predictions.json",
+    "p6_material_fingerprint_sha256": "791a38c5709d8da651ac8c0cbf7230d6166113d1f56672afa58362ba96ecf1b2",
+    "raw_curve_arrays_serialized": false,
+    "split_label": "prediction_factory:sparc_split_v1.json",
+    "split_sha256": "15ca3107e08dd3c2ae41514a156bc915f5be781ef04ebfa452e907e16e2b2476",
+    "stiff_boundary_force_label": "prediction_factory:artifacts/stiff_boundary_force.json",
+    "stiff_boundary_force_sha256": "522231997e1c4d5a8d06acdf7e89c31f5688929ca5636d186cac4103f841204b",
+    "trace_label": "HOLO_TRANSDUCTOR_V2:data/internal/holo_physics_trace_ed_industrial.json",
+    "trace_sha256": "e1c4b9d8495a563be31c36ceeeea7575b1d46afae74b45394edb77a8ffb06725"
+  },
+  "results": {
+    "test": {
+      "comparisons": {
+        "generalized_rar_vs_rar": {
+          "delta_chi2_per_point_left_minus_right": -0.04649993574039968,
+          "delta_loglike_per_point_left_minus_right": 0.023249967870192734,
+          "left_win_fraction": 0.6666666666666666,
+          "left_wins_galaxies": 18
+        },
+        "p6_corrected_vs_newton": {
+          "delta_chi2_per_point_left_minus_right": -0.030961739021392987,
+          "delta_loglike_per_point_left_minus_right": 0.015480869510696493,
+          "left_win_fraction": 1.0,
+          "left_wins_galaxies": 27
+        },
+        "rar_vs_legacy_p5_refit": {
+          "delta_chi2_per_point_left_minus_right": -254.23222583369,
+          "delta_loglike_per_point_left_minus_right": 127.11611291684504,
+          "left_win_fraction": 0.8148148148148148,
+          "left_wins_galaxies": 22
+        },
+        "rar_vs_newton": {
+          "delta_chi2_per_point_left_minus_right": -377.48128136905433,
+          "delta_loglike_per_point_left_minus_right": 188.7406406845272,
+          "left_win_fraction": 0.8518518518518519,
+          "left_wins_galaxies": 23
+        },
+        "rar_vs_p6_corrected": {
+          "delta_chi2_per_point_left_minus_right": -377.45031963003294,
+          "delta_loglike_per_point_left_minus_right": 188.72515981501647,
+          "left_win_fraction": 0.8518518518518519,
+          "left_wins_galaxies": 23
+        },
+        "rar_vs_stiff_boundary": {
+          "delta_chi2_per_point_left_minus_right": -334.83106042911504,
+          "delta_loglike_per_point_left_minus_right": 167.41553021455752,
+          "left_win_fraction": 0.8518518518518519,
+          "left_wins_galaxies": 23
+        },
+        "stiff_boundary_vs_newton": {
+          "delta_chi2_per_point_left_minus_right": -42.65022093993929,
+          "delta_loglike_per_point_left_minus_right": 21.325110469969644,
+          "left_win_fraction": 1.0,
+          "left_wins_galaxies": 27
+        }
+      },
+      "galaxies": 27,
+      "models": {
+        "generalized_rar": {
+          "chi2": 22791.626000937154,
+          "chi2_per_point": 36.701491144826335,
+          "galaxies": 27,
+          "loglike_per_point": -20.911426324627634,
+          "median_absolute_fractional_velocity_error": 0.14462125199827863,
+          "rms_log10_velocity_error_dex": 0.10024307630289823,
+          "velocity_points": 621
+        },
+        "legacy_p5_refit": {
+          "chi2": 180698.71470375345,
+          "chi2_per_point": 290.98021691425674,
+          "galaxies": 27,
+          "loglike_per_point": -148.05078920934287,
+          "median_absolute_fractional_velocity_error": 0.3084081842673531,
+          "rms_log10_velocity_error_dex": 0.2236881601584968,
+          "velocity_points": 621
+        },
+        "newton": {
+          "chi2": 257236.3781912147,
+          "chi2_per_point": 414.2292724496211,
+          "galaxies": 27,
+          "loglike_per_point": -209.675316977025,
+          "median_absolute_fractional_velocity_error": 0.38829474862726715,
+          "rms_log10_velocity_error_dex": 0.2715803695070759,
+          "velocity_points": 621
+        },
+        "p6_corrected_long_range_envelope": {
+          "chi2": 257217.1509512824,
+          "chi2_per_point": 414.1983107105997,
+          "galaxies": 27,
+          "loglike_per_point": -209.6598361075143,
+          "median_absolute_fractional_velocity_error": 0.3882727206006543,
+          "rms_log10_velocity_error_dex": 0.27156730761989545,
+          "velocity_points": 621
+        },
+        "rar": {
+          "chi2": 22820.50246103194,
+          "chi2_per_point": 36.747991080566734,
+          "galaxies": 27,
+          "loglike_per_point": -20.934676292497826,
+          "median_absolute_fractional_velocity_error": 0.144582962137798,
+          "rms_log10_velocity_error_dex": 0.1002646162416269,
+          "velocity_points": 621
+        },
+        "stiff_boundary_long_range_envelope": {
+          "chi2": 230750.59098751238,
+          "chi2_per_point": 371.5790515096818,
+          "galaxies": 27,
+          "loglike_per_point": -188.35020650705536,
+          "median_absolute_fractional_velocity_error": 0.3588287223854785,
+          "rms_log10_velocity_error_dex": 0.25347200218939026,
+          "velocity_points": 621
+        }
+      },
+      "velocity_points": 621
+    },
+    "train": {
+      "comparisons": {
+        "generalized_rar_vs_rar": {
+          "delta_chi2_per_point_left_minus_right": -0.0006870018368445585,
+          "delta_loglike_per_point_left_minus_right": 0.00034350091842583197,
+          "left_win_fraction": 0.4918032786885246,
+          "left_wins_galaxies": 60
+        },
+        "p6_corrected_vs_newton": {
+          "delta_chi2_per_point_left_minus_right": -0.050102460660355064,
+          "delta_loglike_per_point_left_minus_right": 0.025051230330177532,
+          "left_win_fraction": 0.9672131147540983,
+          "left_wins_galaxies": 118
+        },
+        "rar_vs_legacy_p5_refit": {
+          "delta_chi2_per_point_left_minus_right": -326.6676371128074,
+          "delta_loglike_per_point_left_minus_right": 163.33381855640363,
+          "left_win_fraction": 0.819672131147541,
+          "left_wins_galaxies": 100
+        },
+        "rar_vs_newton": {
+          "delta_chi2_per_point_left_minus_right": -517.3138613863298,
+          "delta_loglike_per_point_left_minus_right": 258.65693069316484,
+          "left_win_fraction": 0.8770491803278688,
+          "left_wins_galaxies": 107
+        },
+        "rar_vs_p6_corrected": {
+          "delta_chi2_per_point_left_minus_right": -517.2637589256694,
+          "delta_loglike_per_point_left_minus_right": 258.63187946283466,
+          "left_win_fraction": 0.8770491803278688,
+          "left_wins_galaxies": 107
+        },
+        "rar_vs_stiff_boundary": {
+          "delta_chi2_per_point_left_minus_right": -449.449970788382,
+          "delta_loglike_per_point_left_minus_right": 224.7249853941912,
+          "left_win_fraction": 0.860655737704918,
+          "left_wins_galaxies": 105
+        },
+        "stiff_boundary_vs_newton": {
+          "delta_chi2_per_point_left_minus_right": -67.86389059794777,
+          "delta_loglike_per_point_left_minus_right": 33.93194529897366,
+          "left_win_fraction": 0.9590163934426229,
+          "left_wins_galaxies": 117
+        }
+      },
+      "galaxies": 122,
+      "models": {
+        "generalized_rar": {
+          "chi2": 111897.15515910514,
+          "chi2_per_point": 48.88473357759071,
+          "galaxies": 122,
+          "loglike_per_point": -26.85456468568943,
+          "median_absolute_fractional_velocity_error": 0.10036180472319785,
+          "rms_log10_velocity_error_dex": 0.09644737430799694,
+          "velocity_points": 2289
+        },
+        "legacy_p5_refit": {
+          "chi2": 859640.9490575258,
+          "chi2_per_point": 375.553057692235,
+          "galaxies": 122,
+          "loglike_per_point": -190.18872674301147,
+          "median_absolute_fractional_velocity_error": 0.3378879227118207,
+          "rms_log10_velocity_error_dex": 0.22565616165596358,
+          "velocity_points": 2289
+        },
+        "newton": {
+          "chi2": 1296030.1564196185,
+          "chi2_per_point": 566.1992819657573,
+          "galaxies": 122,
+          "loglike_per_point": -285.5118388797727,
+          "median_absolute_fractional_velocity_error": 0.41755063059959396,
+          "rms_log10_velocity_error_dex": 0.2706810860372052,
+          "velocity_points": 2289
+        },
+        "p6_corrected_long_range_envelope": {
+          "chi2": 1295915.471887167,
+          "chi2_per_point": 566.149179505097,
+          "galaxies": 122,
+          "loglike_per_point": -285.48678764944253,
+          "median_absolute_fractional_velocity_error": 0.41752965610218534,
+          "rms_log10_velocity_error_dex": 0.27066841755217314,
+          "velocity_points": 2289
+        },
+        "rar": {
+          "chi2": 111898.72770630967,
+          "chi2_per_point": 48.88542057942755,
+          "galaxies": 122,
+          "loglike_per_point": -26.854908186607855,
+          "median_absolute_fractional_velocity_error": 0.10011691946693954,
+          "rms_log10_velocity_error_dex": 0.09646465951042393,
+          "velocity_points": 2289
+        },
+        "stiff_boundary_long_range_envelope": {
+          "chi2": 1140689.710840916,
+          "chi2_per_point": 498.33539136780956,
+          "galaxies": 122,
+          "loglike_per_point": -251.57989358079905,
+          "median_absolute_fractional_velocity_error": 0.38989824833762765,
+          "rms_log10_velocity_error_dex": 0.2531668601160334,
+          "velocity_points": 2289
+        }
+      },
+      "velocity_points": 2289
+    },
+    "validation": {
+      "comparisons": {
+        "generalized_rar_vs_rar": {
+          "delta_chi2_per_point_left_minus_right": -0.37941349911805844,
+          "delta_loglike_per_point_left_minus_right": 0.18970674955904343,
+          "left_win_fraction": 0.7307692307692307,
+          "left_wins_galaxies": 19
+        },
+        "p6_corrected_vs_newton": {
+          "delta_chi2_per_point_left_minus_right": -0.10102120925114377,
+          "delta_loglike_per_point_left_minus_right": 0.05051060462574242,
+          "left_win_fraction": 1.0,
+          "left_wins_galaxies": 26
+        },
+        "rar_vs_legacy_p5_refit": {
+          "delta_chi2_per_point_left_minus_right": -415.88719663492697,
+          "delta_loglike_per_point_left_minus_right": 207.94359831746343,
+          "left_win_fraction": 0.8846153846153846,
+          "left_wins_galaxies": 23
+        },
+        "rar_vs_newton": {
+          "delta_chi2_per_point_left_minus_right": -772.5101653943038,
+          "delta_loglike_per_point_left_minus_right": 386.25508269715203,
+          "left_win_fraction": 0.8846153846153846,
+          "left_wins_galaxies": 23
+        },
+        "rar_vs_p6_corrected": {
+          "delta_chi2_per_point_left_minus_right": -772.4091441850527,
+          "delta_loglike_per_point_left_minus_right": 386.2045720925263,
+          "left_win_fraction": 0.8846153846153846,
+          "left_wins_galaxies": 23
+        },
+        "rar_vs_stiff_boundary": {
+          "delta_chi2_per_point_left_minus_right": -634.3410822767875,
+          "delta_loglike_per_point_left_minus_right": 317.17054113839373,
+          "left_win_fraction": 0.8846153846153846,
+          "left_wins_galaxies": 23
+        },
+        "stiff_boundary_vs_newton": {
+          "delta_chi2_per_point_left_minus_right": -138.16908311751638,
+          "delta_loglike_per_point_left_minus_right": 69.0845415587583,
+          "left_win_fraction": 1.0,
+          "left_wins_galaxies": 26
+        }
+      },
+      "galaxies": 26,
+      "models": {
+        "generalized_rar": {
+          "chi2": 35440.14082987832,
+          "chi2_per_point": 73.6801264654435,
+          "galaxies": 26,
+          "loglike_per_point": -39.194722519976494,
+          "median_absolute_fractional_velocity_error": 0.09760409503743143,
+          "rms_log10_velocity_error_dex": 0.1072056977450245,
+          "velocity_points": 481
+        },
+        "legacy_p5_refit": {
+          "chi2": 235664.38030435398,
+          "chi2_per_point": 489.94673659948853,
+          "galaxies": 26,
+          "loglike_per_point": -247.32802758699896,
+          "median_absolute_fractional_velocity_error": 0.26384985699594493,
+          "rms_log10_velocity_error_dex": 0.18252655385633226,
+          "velocity_points": 481
+        },
+        "newton": {
+          "chi2": 407200.0282776142,
+          "chi2_per_point": 846.5697053588653,
+          "galaxies": 26,
+          "loglike_per_point": -425.63951196668756,
+          "median_absolute_fractional_velocity_error": 0.3680721714209773,
+          "rms_log10_velocity_error_dex": 0.2290790047880084,
+          "velocity_points": 481
+        },
+        "p6_corrected_long_range_envelope": {
+          "chi2": 407151.4370759644,
+          "chi2_per_point": 846.4686841496142,
+          "galaxies": 26,
+          "loglike_per_point": -425.5890013620618,
+          "median_absolute_fractional_velocity_error": 0.3680494151621515,
+          "rms_log10_velocity_error_dex": 0.22906635672289954,
+          "velocity_points": 481
+        },
+        "rar": {
+          "chi2": 35622.63872295411,
+          "chi2_per_point": 74.05953996456155,
+          "galaxies": 26,
+          "loglike_per_point": -39.38442926953554,
+          "median_absolute_fractional_velocity_error": 0.0976673919331728,
+          "rms_log10_velocity_error_dex": 0.10726384884616426,
+          "velocity_points": 481
+        },
+        "stiff_boundary_long_range_envelope": {
+          "chi2": 340740.69929808885,
+          "chi2_per_point": 708.400622241349,
+          "galaxies": 26,
+          "loglike_per_point": -356.55497040792926,
+          "median_absolute_fractional_velocity_error": 0.3351935797652229,
+          "rms_log10_velocity_error_dex": 0.21166068193152224,
+          "velocity_points": 481
+        }
+      },
+      "velocity_points": 481
+    }
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "scipy": "1.15.3"
+  },
+  "schema": "sparc-physical-preprocessing-audit-v4"
+}

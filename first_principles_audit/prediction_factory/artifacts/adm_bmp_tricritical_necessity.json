@@ -1,0 +1,270 @@
+{
+  "actual_background": {
+    "Israel_junction_residuals": [
+      0.0,
+      0.0
+    ],
+    "W_endpoints": [
+      0.060760171111569505,
+      12.690597177789497
+    ],
+    "chi_domain": [
+      0.0,
+      4.983414792803092
+    ],
+    "junction_max_abs": 0.0,
+    "potential_identity_max_abs": 2.1316282072803006e-14,
+    "samples": 1979,
+    "scalar_junction_residuals": [
+      0.0,
+      0.0
+    ],
+    "u_domain": [
+      0.01023316578330245,
+      1.980980980980981
+    ]
+  },
+  "checks": {
+    "Hamilton_Jacobi_square_completion_exact": true,
+    "actual_W_potential_identity": true,
+    "actual_endpoint_junctions": true,
+    "all": true,
+    "analytic_zero_mode_bulk_basis_exact": true,
+    "no_observational_tables_read": true,
+    "raw_actual_action_cancels_on_multiple_intervals": true,
+    "real_reconstructed_background_used": true,
+    "symbolic_bulk_reduction_exact": true,
+    "symbolic_junctions_exact": true,
+    "symbolic_on_shell_action_cancels": true,
+    "synthetic_bent_geometry_not_imported": true,
+    "wrong_brane_sign_is_detected": true,
+    "zero_mode_basis_has_positive_finite_norm": true
+  },
+  "classification": "m2_and_u4_zero_in_conditional_functional_BPS_brane_branch;bulk_alone_does_not_select_that_branch;positive_sextic_absent",
+  "correct_collective_coordinate": {
+    "canonical_projection_gate": "The two exact positive-norm bulk zero-mode candidates must be combined with the finite-endpoint junctions and any stabilization before a unique canonical tangent q is named. It is not automatically the lowest finite-gamma KK eigenvector.",
+    "linear_invariant": "delta R=xi_+-xi_-+integral(alpha du); relative proper separation is gauge invariant",
+    "relative_separation": "R(x)=integral_from_Yminus_to_Yplus N(x,u) du",
+    "two_moduli_warning": "For a general Einstein--dilaton functional-BPS interval, the two boundary scalar values can define a bi-scalar moduli space. A common coordinate translation is a diffeomorphism only when the full fields are pulled back with it; changing both physical boundary scalar values is not thereby gauge."
+  },
+  "criteria": {
+    "junction_max_abs": 2e-12,
+    "mutation_min_relative": 0.0001,
+    "potential_identity_max_abs": 2e-12,
+    "raw_action_relative_max": 3e-08,
+    "zero_mode_gram_min_eigenvalue": 1e-08
+  },
+  "evidence_boundary": "This is an exact classical potential-sector result for the conditional functional BPS brane action on the real reconstructed background. It does not claim that the bulk uniquely selects those branes, that q6 is positive, or that a physical force has been derived.",
+  "fixed_action": {
+    "explicit_branes": {
+      "lower": "lambda_-=W",
+      "upper": "lambda_+=-W"
+    },
+    "flow": "A'=-W/6; chi'=W_chi; V=W_chi^2/2-W^2/3",
+    "functional_BPS_branes": "lambda_i(chi)=-s_i*W(chi)",
+    "interval": "S=(2*kappa5^2)^-1 int sqrt(-G)[R-(partial chi)^2/2-V]+kappa5^-2 sum_i int sqrt(-gamma)K-(2*kappa5^2)^-1 sum_i int sqrt(-gamma)lambda_i",
+    "orientations": {
+      "lower": -1,
+      "upper": 1
+    }
+  },
+  "flatness_theorem": {
+    "canonical_consequence": "along every regular canonical direction in the flat moduli sector, m2=V_eff''=0 and u4=V_eff''''=0",
+    "endpoint_sliding": "both scalar and Israel junctions hold at every point of the flow, so every allowed interbrane separation is a solution",
+    "hypothesis": "lambda_i=-s_i W holds as a functional identity along the whole monotone flow, with no localized detuning",
+    "on_shell_pieces": "for Delta=[exp(4A)W]_-^+: S_bulk=Delta/(6kappa5^2), S_GHY=-2Delta/(3kappa5^2), S_brane=Delta/(2kappa5^2)",
+    "result": "V_eff(R)=0 identically",
+    "stronger_consequence": "V_eff^(n)=0 for every n, including q6=0"
+  },
+  "inputs": {
+    "files": {
+      "conditional_brane_family": {
+        "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+        "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "linear_ADM_BMP_dictionary": {
+    "BMP": "tilde_a_BMP=3*zeta/2",
+    "boundary_role": "brane bending must be retained until delta R is formed; it cannot be certified by a synthetic covariance fixture",
+    "constraints": "Phi=-2*Psi; -chi'*Delta_chi=6*(partial_u+2A')Psi",
+    "gauge_invariants": "Psi=zeta-A'*beta; Phi=alpha-beta'; Delta_chi=delta_chi-chi'*beta",
+    "unitary_reconstruction": "beta=6*D(Psi)/chi'^2; zeta=Psi-W*D(Psi)/chi'^2"
+  },
+  "localized_non_BPS_sextic_candidate": {
+    "BPS_action_through_fifth_order_unchanged": true,
+    "background_junctions_unchanged": true,
+    "clean_local_deformation": "lambda_i=-s_i*W+rho_i*(chi-chi_i_star)^6/6!",
+    "cubic_warning": "Delta_i=eta_i*X_i^3/3! starts at q^3. Integrating a massive mode sourced by q^2*h generically also induces a negative order-eta_i^2 q^4 exchange term; it is not a q^6 completion.",
+    "endpoint_exp4A": {
+      "lower": 0.8869120055860822,
+      "upper": 0.00025463117995526413
+    },
+    "four_dimensional_Einstein_frame_leading_term": "V_E(q)=g6*q^6+O(q^7), with g6=sum_i exp(4A_i)*rho_i*Z_i^6/(1440*kappa5^2), up to the positive background Weyl normalization",
+    "full_S6_lapse_shift_bending_projection_executed": false,
+    "gauge_invariant_brane_pullback": "After all orthogonal moduli are fixed, X_i=delta_chi_i+chi'_i*xi_i=Z_i*q+B_i*q^2+... for the retained regular canonically normalized direction q",
+    "heavy_mode_backreaction_starts_in_potential_at_order_q10": true,
+    "positive_g6_if_all_nonzero_rho_are_positive": true,
+    "q2Y_generated_by_pure_brane_potential": false,
+    "rho_i_selected_by_bulk": false,
+    "status": "valid leading-order local brane candidate, not a bulk prediction or a completed matter-coupled force derivation"
+  },
+  "massless_kernel": {
+    "Gram_eigenvalues": [
+      0.2192972056574547,
+      239.91281997347494
+    ],
+    "basis": {
+      "Q_1": "chi'*exp(-2A)",
+      "Q_2": "-2*chi'*exp(-2A)*integral(exp(2A)du)",
+      "psi_1": "A'*exp(-2A)",
+      "psi_2": "1-2*A'*exp(-2A)*integral(exp(2A)du)"
+    },
+    "candidate_bulk_zero_mode_count": 2,
+    "dimensionless_Gram_I": [
+      [
+        66.2689040785888,
+        -107.09394184889071
+      ],
+      [
+        -107.09394184889071,
+        173.8632131005436
+      ]
+    ],
+    "finite_endpoint_physical_mode_count_resolved": false,
+    "normalizable": true,
+    "single_interval_kinetic_metric": "G_ab=6*I_ab/kappa5^2"
+  },
+  "next_decisive_test": "Either derive a microscopic principle selecting lambda_i=-s_iW plus a first nonzero stable sixth-order deformation, or accept that the present bulk supplies a flat moduli sector rather than the tricritical q^6 selector. Fix the finite-endpoint moduli metric and canonical tangent before deriving q^2Y with the matter metric and constraints.",
+  "raw_actual_interval_action": {
+    "maximum_relative_cancellation": 1.5108157067570028e-08,
+    "method": "Simpson integration of raw reconstructed R-chi_u^2/2-V, combined with independently evaluated GHY and brane endpoints",
+    "minimum_wrong_sign_relative_residual": 0.03491955272032522,
+    "rows": [
+      {
+        "Delta_exp4A_W": -0.05065750348659816,
+        "S_GHY_times_kappa5_squared": 0.033771668991065436,
+        "S_brane_times_kappa5_squared": -0.02532875174329908,
+        "S_bulk_times_kappa5_squared": -0.008442917757994037,
+        "S_total_times_kappa5_squared": -5.102276795510008e-10,
+        "indices": [
+          0,
+          1978
+        ],
+        "proper_static_separation": 1.9707478151976787,
+        "relative_cancellation": 1.5108157067570028e-08,
+        "wrong_upper_brane_sign_relative_residual": 0.09568441064609705
+      },
+      {
+        "Delta_exp4A_W": 0.11079221661552799,
+        "S_GHY_times_kappa5_squared": -0.07386147774368533,
+        "S_brane_times_kappa5_squared": 0.055396108307763994,
+        "S_bulk_times_kappa5_squared": 0.018465369435910286,
+        "S_total_times_kappa5_squared": -1.1046719095020308e-14,
+        "indices": [
+          49,
+          494
+        ],
+        "proper_static_separation": 0.020495787771243404,
+        "relative_cancellation": 1.4955995239297428e-13,
+        "wrong_upper_brane_sign_relative_residual": 2.317365934613973
+      },
+      {
+        "Delta_exp4A_W": 0.46216685660258006,
+        "S_GHY_times_kappa5_squared": -0.3081112377350534,
+        "S_brane_times_kappa5_squared": 0.23108342830129003,
+        "S_bulk_times_kappa5_squared": 0.07702780942670949,
+        "S_total_times_kappa5_squared": -7.053857498107163e-12,
+        "indices": [
+          99,
+          989
+        ],
+        "proper_static_separation": 0.08714390393056705,
+        "relative_cancellation": 2.2893866351518198e-11,
+        "wrong_upper_brane_sign_relative_residual": 1.7201533110715599
+      },
+      {
+        "Delta_exp4A_W": -0.09347954930327654,
+        "S_GHY_times_kappa5_squared": 0.06231969953551769,
+        "S_brane_times_kappa5_squared": -0.04673977465163827,
+        "S_bulk_times_kappa5_squared": -0.015579925393870792,
+        "S_total_times_kappa5_squared": -5.099913685802093e-10,
+        "indices": [
+          396,
+          1780
+        ],
+        "proper_static_separation": 1.5789122578598904,
+        "relative_cancellation": 8.183469631292933e-09,
+        "wrong_upper_brane_sign_relative_residual": 0.68537461525919
+      },
+      {
+        "Delta_exp4A_W": -0.416725989335514,
+        "S_GHY_times_kappa5_squared": 0.277817326223676,
+        "S_brane_times_kappa5_squared": -0.208362994667757,
+        "S_bulk_times_kappa5_squared": -0.06945433206555818,
+        "S_total_times_kappa5_squared": -5.096391919590104e-10,
+        "indices": [
+          890,
+          1899
+        ],
+        "proper_static_separation": 1.751132960707581,
+        "relative_cancellation": 1.834439913760779e-09,
+        "wrong_upper_brane_sign_relative_residual": 0.03491955272032522
+      }
+    ]
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "sympy": "1.13.3"
+  },
+  "schema": "holo.adm-bmp-tricritical-necessity.v2",
+  "scope_boundary": {
+    "bulk_background_does_not_fix": "the functional brane potentials or their second and higher jets",
+    "bulk_background_fixes": "only lambda_i and lambda_i' at the two background endpoints",
+    "finite_gamma_family": "adding gamma_i*(chi-chi_i*)^2/2 changes the brane theory, pins the endpoints and removes the flat radion",
+    "full_BPS_moduli_dimension_resolved_from_finite_endpoints": false,
+    "functional_BPS_branch_selected_by_bulk": false,
+    "m2_u4_zero_from_bulk_alone": false,
+    "therefore": "m2=u4=0 is necessary inside the declared functional BPS brane branch, but is not a consequence of the reconstructed bulk alone",
+    "unique_canonical_radion_selected": false
+  },
+  "symbolic_static_ADM_reduction": {
+    "Hamilton_Jacobi_square_completion_exact": true,
+    "bulk_density_equals_total_derivative": true,
+    "bulk_local_density": "-2*W**2/9 + W_chi**2/3",
+    "lower_Israel_junction_zero": true,
+    "lower_scalar_junction_zero": true,
+    "on_shell_action_cancels": true,
+    "on_shell_action_coefficient_sum": "0",
+    "one_third_exp_minus_4A_d_exp4AW": "-2*W**2/9 + W_chi**2/3",
+    "pieces_in_units_of_Delta_over_kappa5_squared": {
+      "GHY": "-2/3",
+      "branes": "1/2",
+      "bulk": "1/6"
+    },
+    "two_zero_mode_bulk_solutions_exact": true,
+    "upper_Israel_junction_zero": true,
+    "upper_scalar_junction_zero": true,
+    "zero_mode_bulk_equation_residuals": [
+      "0",
+      "0"
+    ]
+  },
+  "title": "Real-background ADM/BMP BPS-radion flatness test",
+  "tricritical_gate": {
+    "conditional_positive_q6_from_sixth_order_brane_detuning": true,
+    "decision": "The minimal BPS branch proves both requested zeros but is too flat to generate the required stabilizing sextic.",
+    "m2_zero": true,
+    "physical_tricritical_mechanism_complete": false,
+    "positive_q6": false,
+    "q2Y_derived": false,
+    "u4_zero": true,
+    "unique_canonical_q_selected": false
+  }
+}

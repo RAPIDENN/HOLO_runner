@@ -1,0 +1,2398 @@
+{
+  "classification": "derived_dynamic_response_with_microscopic_stiff_candidate_not_detection",
+  "correlated_mode_clock": {
+    "adjacent_resolution": {
+      "adjacent_threshold_gaps_over_f1": [
+        3.2140266151748307,
+        1.7255232822846862,
+        1.5933574365299297,
+        1.914308886147368,
+        2.06700655397775,
+        2.1212961750564787
+      ],
+      "minimum_first_zero_duration_over_T1": 0.6276055686399126,
+      "minimum_gap_over_f1": 1.5933574365299297,
+      "warning": "first-zero separation is spectral resolution, not a detection time"
+    },
+    "anchor_definition": "f1 denotes the cyclic rest frequency of the first stiff-boundary mode",
+    "ell_over_c_times_T1": 0.04623487704074363,
+    "modes": [
+      {
+        "alpha_n_2_beta_squared": 0.0010175340592039452,
+        "mode_index": 0,
+        "mu_n": 0.2905023001016552,
+        "period_over_T1": 1.0,
+        "static_range_over_first_mode_range": 1.0,
+        "threshold_frequency_over_f1": 1.0
+      },
+      {
+        "alpha_n_2_beta_squared": 0.007083327917285003,
+        "mode_index": 1,
+        "mu_n": 1.2241844243978808,
+        "period_over_T1": 0.23730272523646892,
+        "static_range_over_first_mode_range": 0.23730272523646892,
+        "threshold_frequency_over_f1": 4.214026615174831
+      },
+      {
+        "alpha_n_2_beta_squared": 0.031476261081589046,
+        "mode_index": 2,
+        "mu_n": 1.7254529067805398,
+        "period_over_T1": 0.16836292602369132,
+        "static_range_over_first_mode_range": 0.16836292602369132,
+        "threshold_frequency_over_f1": 5.939549897459517
+      },
+      {
+        "alpha_n_2_beta_squared": 0.03162676778729975,
+        "mode_index": 3,
+        "mu_n": 2.1883269069765614,
+        "period_over_T1": 0.13275086970576042,
+        "static_range_over_first_mode_range": 0.13275086970576042,
+        "threshold_frequency_over_f1": 7.532907333989447
+      },
+      {
+        "alpha_n_2_beta_squared": 0.017637438207272108,
+        "mode_index": 4,
+        "mu_n": 2.744438041507409,
+        "period_over_T1": 0.10585128747963789,
+        "static_range_over_first_mode_range": 0.10585128747963789,
+        "threshold_frequency_over_f1": 9.447216220136815
+      },
+      {
+        "alpha_n_2_beta_squared": 0.010702435904301536,
+        "mode_index": 5,
+        "mu_n": 3.344908199763142,
+        "period_over_T1": 0.08684910997623974,
+        "static_range_over_first_mode_range": 0.08684910997623974,
+        "threshold_frequency_over_f1": 11.514222774114565
+      },
+      {
+        "alpha_n_2_beta_squared": 0.007221314022834425,
+        "mode_index": 6,
+        "mu_n": 3.9611496178138923,
+        "period_over_T1": 0.07333787615474613,
+        "static_range_over_first_mode_range": 0.07333787615474613,
+        "threshold_frequency_over_f1": 13.635518949171043
+      }
+    ]
+  },
+  "drive_phase_map": {
+    "radius": "x=r/ell=1",
+    "rows": [
+      {
+        "drive_frequency_over_f1": 0.0,
+        "nu_Omega_ell_over_c": 0.0,
+        "responses_at_x_1": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.9651554263932618,
+              "real": 0.9651554263932618
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 0,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.7479032606099133,
+              "real": 0.7479032606099133
+            },
+            "radial_number_times_ell": 0.29048164010701055,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6539068245592601,
+              "real": 0.6539068245592601
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.29399936621568934,
+              "real": 0.29399936621568934
+            },
+            "radial_number_times_ell": 1.2241776673747269,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.48538432420670474,
+              "real": 0.48538432420670474
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.17809350156239342,
+              "real": 0.17809350156239342
+            },
+            "radial_number_times_ell": 1.7254465769300111,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.35742692288410377,
+              "real": 0.35742692288410377
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.11210517479343726,
+              "real": 0.11210517479343726
+            },
+            "radial_number_times_ell": 2.1883177876729722,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.24071138213472953,
+              "real": 0.24071138213472953
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.06428527935509441,
+              "real": 0.06428527935509441
+            },
+            "radial_number_times_ell": 2.744424610883392,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.15321847956277543,
+              "real": 0.15321847956277543
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.035264055191107396,
+              "real": 0.035264055191107396
+            },
+            "radial_number_times_ell": 3.3448911003693316,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09446786542762232,
+              "real": 0.09446786542762232
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.019041606887153503,
+              "real": 0.019041606887153503
+            },
+            "radial_number_times_ell": 3.9611288578463113,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 0.5,
+        "nu_Omega_ell_over_c": 0.14524082005350528,
+        "responses_at_x_1": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.973195660390041,
+              "real": 0.973195660390041
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 0,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.7775833176809508,
+              "real": 0.7775833176809508
+            },
+            "radial_number_times_ell": 0.2515644796656398,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6570211964968116,
+              "real": 0.6570211964968116
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.29655244777585965,
+              "real": 0.29655244777585965
+            },
+            "radial_number_times_ell": 1.2155311865555787,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.4872685159971232,
+              "real": 0.4872685159971232
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.17918744718626478,
+              "real": 0.17918744718626478
+            },
+            "radial_number_times_ell": 1.7193228300786558,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.358612202636751,
+              "real": 0.358612202636751
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.11264741277047799,
+              "real": 0.11264741277047799
+            },
+            "radial_number_times_ell": 2.183492579340749,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.24139073299293975,
+              "real": 0.24139073299293975
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.06453299157200004,
+              "real": 0.06453299157200004
+            },
+            "radial_number_times_ell": 2.7405786887102224,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.15359101257802513,
+              "real": 0.15359101257802513
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.03537548150057645,
+              "real": 0.03537548150057645
+            },
+            "radial_number_times_ell": 3.3417363117876526,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09466897347445985,
+              "real": 0.09466897347445985
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.019092394358020636,
+              "real": 0.019092394358020636
+            },
+            "radial_number_times_ell": 3.958465224383436,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 0.9,
+        "nu_Omega_ell_over_c": 0.2614334760963095,
+        "responses_at_x_1": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.9926295195422123,
+              "real": 0.9926295195422123
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 0,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.8810701670682671,
+              "real": 0.8810701670682671
+            },
+            "radial_number_times_ell": 0.12661801141804102,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6640965367707793,
+              "real": 0.6640965367707793
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.30242068215377693,
+              "real": 0.30242068215377693
+            },
+            "radial_number_times_ell": 1.1959362436498142,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.49153134966491996,
+              "real": 0.49153134966491996
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.18167682616568892,
+              "real": 0.18167682616568892
+            },
+            "radial_number_times_ell": 1.705525850702854,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.3612881174014377,
+              "real": 0.3612881174014377
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.11387599043769339,
+              "real": 0.11387599043769339
+            },
+            "radial_number_times_ell": 2.172645225853069,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.24292200565534972,
+              "real": 0.24292200565534972
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.0650926150498962,
+              "real": 0.0650926150498962
+            },
+            "radial_number_times_ell": 2.731944176296188,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1544297673470636,
+              "real": 0.1544297673470636
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.03562674159214165,
+              "real": 0.03562674159214165
+            },
+            "radial_number_times_ell": 3.3346587547912843,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09512140530801387,
+              "real": 0.09512140530801387
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.01920677550077724,
+              "real": 0.01920677550077724
+            },
+            "radial_number_times_ell": 3.952492171534186,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 0.99,
+        "nu_Omega_ell_over_c": 0.28757682370594045,
+        "responses_at_x_1": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.9991830103487963,
+              "real": 0.9991830103487963
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 0,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.9598507474251763,
+              "real": 0.9598507474251763
+            },
+            "radial_number_times_ell": 0.04097747803929909,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6662733895860906,
+              "real": 0.6662733895860906
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.30424548443992055,
+              "real": 0.30424548443992055
+            },
+            "radial_number_times_ell": 1.189920388835417,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.49283789959441165,
+              "real": 0.49283789959441165
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1824438428480184,
+              "real": 0.1824438428480184
+            },
+            "radial_number_times_ell": 1.7013128637339738,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.362106698446265,
+              "real": 0.362106698446265
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.11425304444435616,
+              "real": 0.11425304444435616
+            },
+            "radial_number_times_ell": 2.1693396023474825,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2433897560262599,
+              "real": 0.2433897560262599
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.06526391268138329,
+              "real": 0.06526391268138329
+            },
+            "radial_number_times_ell": 2.729316034337112,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1546857174463989,
+              "real": 0.1546857174463989
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.03570352089474831,
+              "real": 0.03570352089474831
+            },
+            "radial_number_times_ell": 3.3325059705568663,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09525936764592764,
+              "real": 0.09525936764592764
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.01924168867567571,
+              "real": 0.01924168867567571
+            },
+            "radial_number_times_ell": 3.9506760685900364,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 1.0,
+        "nu_Omega_ell_over_c": 0.29048164010701055,
+        "responses_at_x_1": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 1.0,
+              "real": 1.0
+            },
+            "group_velocity_over_c": 0.0,
+            "mode_index": 0,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 1.0,
+              "real": 1.0
+            },
+            "radial_number_times_ell": 0.0,
+            "regime": "threshold"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6665289172065669,
+              "real": 0.6665289172065669
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.30446029161143107,
+              "real": 0.30446029161143107
+            },
+            "radial_number_times_ell": 1.18921460555266,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.49299111302689436,
+              "real": 0.49299111302689436
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.18253391191455326,
+              "real": 0.18253391191455326
+            },
+            "radial_number_times_ell": 1.700819304511868,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.36220264122356377,
+              "real": 0.36220264122356377
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1142972751114114,
+              "real": 0.1142972751114114
+            },
+            "radial_number_times_ell": 2.1689525482607204,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.24344455852560137,
+              "real": 0.24344455852560137
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.06528399301927187,
+              "real": 0.06528399301927187
+            },
+            "radial_number_times_ell": 2.729008402622315,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.15471569707252494,
+              "real": 0.15471569707252494
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.0357125173555936,
+              "real": 0.0357125173555936
+            },
+            "radial_number_times_ell": 3.3322540254444437,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09527552423908378,
+              "real": 0.09527552423908378
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.01924577836246907,
+              "real": 0.01924577836246907
+            },
+            "radial_number_times_ell": 3.9504635481451498,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 1.01,
+        "nu_Omega_ell_over_c": 0.29338645650808065,
+        "responses_at_x_1": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "force_factor": {
+              "imag": 2.3278513070018603e-05,
+              "magnitude": 1.0008476555515873,
+              "real": 1.0008476552808723
+            },
+            "group_velocity_over_c": 0.14037076117581973,
+            "mode_index": 0,
+            "potential_factor": {
+              "imag": 0.04117123997506691,
+              "magnitude": 1.0,
+              "real": 0.9991521050365232
+            },
+            "radial_number_times_ell": 0.04118288021871581,
+            "regime": "propagating"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6667871961386699,
+              "real": 0.6667871961386699
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.3046775412334993,
+              "real": 0.3046775412334993
+            },
+            "radial_number_times_ell": 1.1885013035065042,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.49314594308688414,
+              "real": 0.49314594308688414
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.18262495789585778,
+              "real": 0.18262495789585778
+            },
+            "radial_number_times_ell": 1.700320639461018,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.36229958595735806,
+              "real": 0.36229958595735806
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.11434197570835426,
+              "real": 0.11434197570835426
+            },
+            "radial_number_times_ell": 2.1685615340551356,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.24349992892144637,
+              "real": 0.24349992892144637
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.06530428374051485,
+              "real": 0.06530428374051485
+            },
+            "radial_number_times_ell": 2.728697643924678,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.15474598567015987,
+              "real": 0.15474598567015987
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.03572160722513025,
+              "real": 0.03572160722513025
+            },
+            "radial_number_times_ell": 3.3319995288816577,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09529184669607059,
+              "real": 0.09529184669607059
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.019249910257447073,
+              "real": 0.019249910257447073
+            },
+            "radial_number_times_ell": 3.950248880210012,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 1.1,
+        "nu_Omega_ell_over_c": 0.31952980411771165,
+        "responses_at_x_1": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "force_factor": {
+              "imag": 0.0007848632586235915,
+              "magnitude": 1.0088209516461504,
+              "real": 1.0088206463340794
+            },
+            "group_velocity_over_c": 0.41659779045053114,
+            "mode_index": 0,
+            "potential_factor": {
+              "imag": 0.13272263073742924,
+              "magnitude": 1.0,
+              "real": 0.9911532188769484
+            },
+            "radial_number_times_ell": 0.1331154103785297,
+            "regime": "propagating"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6692364861500903,
+              "real": 0.6692364861500903
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.30674424802865496,
+              "real": 0.30674424802865496
+            },
+            "radial_number_times_ell": 1.1817409468997528,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.49461256109367235,
+              "real": 0.49461256109367235
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1834887111126067,
+              "real": 0.1834887111126067
+            },
+            "radial_number_times_ell": 1.6956021332022408,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.36321737105229773,
+              "real": 0.36321737105229773
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.11476556005488554,
+              "real": 0.11476556005488554
+            },
+            "radial_number_times_ell": 2.1648638396274325,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.24402390562165077,
+              "real": 0.24402390562165077
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.06549641167701618,
+              "real": 0.06549641167701618
+            },
+            "radial_number_times_ell": 2.7257599213986095,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.15503252596278133,
+              "real": 0.15503252596278133
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.03580763478792716,
+              "real": 0.03580763478792716
+            },
+            "radial_number_times_ell": 3.3295941460800376,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09544623045796685,
+              "real": 0.09544623045796685
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.019289002333207062,
+              "real": 0.019289002333207062
+            },
+            "radial_number_times_ell": 3.9482201727795423,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 1.7,
+        "nu_Omega_ell_over_c": 0.49381878818191793,
+        "responses_at_x_1": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "force_factor": {
+              "imag": 0.020892270750171027,
+              "magnitude": 1.076790328858037,
+              "real": 1.0765876301282218
+            },
+            "group_velocity_over_c": 0.8086898285216189,
+            "mode_index": 0,
+            "potential_factor": {
+              "imag": 0.38881609813007334,
+              "magnitude": 1.0,
+              "real": 0.9213153867351317
+            },
+            "radial_number_times_ell": 0.3993462311355888,
+            "regime": "propagating"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6916554232288282,
+              "real": 0.6916554232288282
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.3262282434629127,
+              "real": 0.3262282434629127
+            },
+            "radial_number_times_ell": 1.120158009272607,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.5078960311102269,
+              "real": 0.5078960311102269
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.19142251418350556,
+              "real": 0.19142251418350556
+            },
+            "radial_number_times_ell": 1.6532721779180932,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.3714871464377001,
+              "real": 0.3714871464377001
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1186150518903102,
+              "real": 0.1186150518903102
+            },
+            "radial_number_times_ell": 2.131871887399539,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.24872729745881758,
+              "real": 0.24872729745881758
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.06723029232844167,
+              "real": 0.06723029232844167
+            },
+            "radial_number_times_ell": 2.6996313543261787,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.157597795350877,
+              "real": 0.157597795350877
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.03658056747453337,
+              "real": 0.03658056747453337
+            },
+            "radial_number_times_ell": 3.3082381228938917,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09682577734026143,
+              "real": 0.09682577734026143
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.019639212542887377,
+              "real": 0.019639212542887377
+            },
+            "radial_number_times_ell": 3.9302270714172947,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 2.4,
+        "nu_Omega_ell_over_c": 0.6971559362568253,
+        "responses_at_x_1": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "force_factor": {
+              "imag": 0.08148931062452525,
+              "magnitude": 1.1839116589589243,
+              "real": 1.1811038516882466
+            },
+            "group_velocity_over_c": 0.9090593428863095,
+            "mode_index": 0,
+            "potential_factor": {
+              "imag": 0.5921756409657346,
+              "magnitude": 1.0,
+              "real": 0.8058089167084349
+            },
+            "radial_number_times_ell": 0.6337561173029195,
+            "regime": "propagating"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.7334513338598697,
+              "real": 0.7334513338598697
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.36557909971630886,
+              "real": 0.36557909971630886
+            },
+            "radial_number_times_ell": 1.0062726081141715,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.5319579717149823,
+              "real": 0.5319579717149823
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.20631845540296895,
+              "real": 0.20631845540296895
+            },
+            "radial_number_times_ell": 1.5783344038515295,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.38626918158764434,
+              "real": 0.38626918158764434
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.12564471572445504,
+              "real": 0.12564471572445504
+            },
+            "radial_number_times_ell": 2.074297071392572,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2570542382104703,
+              "real": 0.2570542382104703
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.07034102154374669,
+              "real": 0.07034102154374669
+            },
+            "radial_number_times_ell": 2.6544001290996664,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.16210950957414966,
+              "real": 0.16210950957414966
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.037952024909183146,
+              "real": 0.037952024909183146
+            },
+            "radial_number_times_ell": 3.271432419273219,
+            "regime": "evanescent"
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09924089470600815,
+              "real": 0.09924089470600815
+            },
+            "group_velocity_over_c": null,
+            "mode_index": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.02025615083780951,
+              "real": 0.02025615083780951
+            },
+            "radial_number_times_ell": 3.899296786473773,
+            "regime": "evanescent"
+          }
+        ]
+      }
+    ]
+  },
+  "equations": {
+    "clock_to_length_if_mode_1_is_fixed": "ell=mu_1*c/(2*pi*f_1)",
+    "damped_ring_up_if_Q_is_supplied": "tau_ring=2Q/omega=Q/(pi*f)",
+    "dimensionless_drive": "nu=Omega*ell/c",
+    "evanescent_below_threshold": "kappa_n*ell=sqrt(mu_n^2-nu^2), G_n proportional exp(-kappa_n*r)/r",
+    "finite_coherence_resolution": "a rectangular duration T has first spectral zero at |Delta f|=1/T",
+    "four_dimensional_mode": "(partial_t^2-c^2 nabla^2+omega_n^2) phi_n = source_n",
+    "group_velocity": "v_g/c=sqrt(1-(omega_n/Omega)^2), Omega>omega_n",
+    "outgoing_above_threshold": "k_n*ell=sqrt(nu^2-mu_n^2), G_n proportional exp(i*k_n*r)/r",
+    "rest_frequency": "omega_n=c*mu_n/ell"
+  },
+  "evidence_boundary": "This certificate proves the linear space-time transfer law, rejects the minimal superpotential boundary through its massless scalar, and adds an independently verified stiff-boundary frequency comb with canonically normalized matter-force residues. It does not select that limit, assign ell or hertz, fix a source occupation, or establish an interaction in observed data.",
+  "historical_frequency_values_read": [],
+  "inputs": {
+    "independent_boundary_shooting": {
+      "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_shooting.json",
+      "sha256": "b1448ea20d6117e14b209c2cd475843f76fe7363a0e9cbb9303e4e047fe3b207"
+    },
+    "material_prediction": {
+      "path": "first_principles_audit/prediction_factory/material_predictions.json",
+      "payload_sha256": "f4cc95caf5b20ae1d3d4097bb97f23f88979e1f34a8c1acf1fd6a7fdb35e1fae",
+      "sha256": "791a38c5709d8da651ac8c0cbf7230d6166113d1f56672afa58362ba96ecf1b2"
+    },
+    "minimal_probe_completion": {
+      "path": "first_principles_audit/artifacts/minimal_probe_completion.json",
+      "sha256": "7a91f42fad2ca24e57340219a7090f824c801ef3c5ede63fa2100e4e6e83ffa6"
+    },
+    "stiff_boundary_force": {
+      "path": "first_principles_audit/prediction_factory/artifacts/stiff_boundary_force.json",
+      "sha256": "a5439550c1d93a7a2c9291c41568e3bdf37b3f41d6426559992c526b6b3c7b62"
+    },
+    "superpotential_boundary_completion": {
+      "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_completion.json",
+      "sha256": "c0a2070a5e84926a13850aad96aa87b6cf69af8001dd26b05b865f095b4049d2"
+    }
+  },
+  "interpretation": {
+    "breathing_effect": "A periodic source changes the spatial inverse range below threshold and launches an outgoing massive wave above threshold; the static SPARC P6 curve does not test this time-dependent channel.",
+    "causal_timing": "The signal front cannot arrive before r/c. A narrow-band propagating packet travels at v_g<c; steady response additionally requires source coherence and, for a damped resonator, its independently measured ring-up time.",
+    "static_relation": "the canonically normalized stiff force is exactly the Omega=0 slice of the current response; legacy P6 is retained separately as a trace-only benchmark"
+  },
+  "legacy_frequency_adjudication": {
+    "old_optical_to_microwave_cross_coherence": "shared-reference engineering observable, not an independent universal-field test and not used",
+    "one_over_600_code_units": "not an SI frequency and not used"
+  },
+  "microscopic_boundary_update": {
+    "minimal_superpotential_matching": {
+      "g_minus_over_a": 0.0,
+      "g_plus_over_a": 0.0,
+      "result": "rejected for a finite-range Yukawa force because a massless gauge-invariant scalar is required"
+    },
+    "provisional_trace_benchmark": "the original P6/P7 NN comb is retained only as a conditional trace-carrier benchmark",
+    "stiff_stabilized_candidate": {
+      "absolute_force_residues_available": true,
+      "clock": {
+        "adjacent_resolution": {
+          "adjacent_threshold_gaps_over_f1": [
+            3.2140266151748307,
+            1.7255232822846862,
+            1.5933574365299297,
+            1.914308886147368,
+            2.06700655397775,
+            2.1212961750564787
+          ],
+          "minimum_first_zero_duration_over_T1": 0.6276055686399126,
+          "minimum_gap_over_f1": 1.5933574365299297,
+          "warning": "first-zero separation is spectral resolution, not a detection time"
+        },
+        "anchor_definition": "f1 denotes the cyclic rest frequency of the first stiff-boundary mode",
+        "ell_over_c_times_T1": 0.04623487704074363,
+        "modes": [
+          {
+            "alpha_n_2_beta_squared": 0.0010175340592039452,
+            "mode_index": 0,
+            "mu_n": 0.2905023001016552,
+            "period_over_T1": 1.0,
+            "static_range_over_first_mode_range": 1.0,
+            "threshold_frequency_over_f1": 1.0
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007083327917285003,
+            "mode_index": 1,
+            "mu_n": 1.2241844243978808,
+            "period_over_T1": 0.23730272523646892,
+            "static_range_over_first_mode_range": 0.23730272523646892,
+            "threshold_frequency_over_f1": 4.214026615174831
+          },
+          {
+            "alpha_n_2_beta_squared": 0.031476261081589046,
+            "mode_index": 2,
+            "mu_n": 1.7254529067805398,
+            "period_over_T1": 0.16836292602369132,
+            "static_range_over_first_mode_range": 0.16836292602369132,
+            "threshold_frequency_over_f1": 5.939549897459517
+          },
+          {
+            "alpha_n_2_beta_squared": 0.03162676778729975,
+            "mode_index": 3,
+            "mu_n": 2.1883269069765614,
+            "period_over_T1": 0.13275086970576042,
+            "static_range_over_first_mode_range": 0.13275086970576042,
+            "threshold_frequency_over_f1": 7.532907333989447
+          },
+          {
+            "alpha_n_2_beta_squared": 0.017637438207272108,
+            "mode_index": 4,
+            "mu_n": 2.744438041507409,
+            "period_over_T1": 0.10585128747963789,
+            "static_range_over_first_mode_range": 0.10585128747963789,
+            "threshold_frequency_over_f1": 9.447216220136815
+          },
+          {
+            "alpha_n_2_beta_squared": 0.010702435904301536,
+            "mode_index": 5,
+            "mu_n": 3.344908199763142,
+            "period_over_T1": 0.08684910997623974,
+            "static_range_over_first_mode_range": 0.08684910997623974,
+            "threshold_frequency_over_f1": 11.514222774114565
+          },
+          {
+            "alpha_n_2_beta_squared": 0.007221314022834425,
+            "mode_index": 6,
+            "mu_n": 3.9611496178138923,
+            "period_over_T1": 0.07333787615474613,
+            "static_range_over_first_mode_range": 0.07333787615474613,
+            "threshold_frequency_over_f1": 13.635518949171043
+          }
+        ]
+      },
+      "force_residues_alpha": [
+        0.0010175340592039452,
+        0.007083327917285003,
+        0.031476261081589046,
+        0.03162676778729975,
+        0.017637438207272108,
+        0.010702435904301536,
+        0.007221314022834425
+      ],
+      "independent_shooting_maximum_mass_relative_difference": 7.358775465449163e-05,
+      "maximum_baryonic_acceleration_multiplier": 1.1067650789797858,
+      "normalization_source": "quadratic gauge-invariant scalar action and UV matter vertex; no historical NN trace residues reused",
+      "selection_status": "parameter-free limiting candidate, not selected by the bulk",
+      "sum_alpha_short_distance": 0.10676507897978582
+    }
+  },
+  "observational_inputs_read": [],
+  "passes": {
+    "all": true,
+    "certified_blind_inputs": true,
+    "evanescent_threshold_propagating_regimes_present": true,
+    "frequency_comb_strictly_ordered": true,
+    "minimal_superpotential_boundary_rejected": true,
+    "six_positive_modes": true,
+    "static_p6_recovered": true,
+    "stiff_boundary_comb_independently_verified": true,
+    "stiff_dynamic_regimes_present": true,
+    "stiff_force_residues_available_and_positive": true,
+    "stiff_static_force_recovered": true
+  },
+  "physical_closure_gates": {
+    "boundary": "minimal superpotential matching is rejected; select or derive finite positive brane curvatures, or prospectively declare the stiff limit, before interpreting a physical branch",
+    "clock": "measure an independent frequency and identify its mode before using ell=mu*c/omega",
+    "detector": "supply a calibrated response and noise covariance from a system without a shared reference channel",
+    "propagation": "supply damping or linewidth and source-detector separation",
+    "source": "supply source modulation or ambient occupation amplitude, phase and coherence time"
+  },
+  "provisional_trace_benchmark": {
+    "clock": {
+      "adjacent_resolution": {
+        "minimum_first_zero_duration_over_T1": 1.5435313157933221,
+        "minimum_gap_over_f1": 0.6478650544812784,
+        "rows": [
+          {
+            "adjacent_threshold_gap_over_f1": 0.6869421739528098,
+            "rectangular_window_first_zero_duration_over_T1": 1.4557266068638495
+          },
+          {
+            "adjacent_threshold_gap_over_f1": 0.6478650544812784,
+            "rectangular_window_first_zero_duration_over_T1": 1.5435313157933221
+          },
+          {
+            "adjacent_threshold_gap_over_f1": 0.6511890204713943,
+            "rectangular_window_first_zero_duration_over_T1": 1.5356524274259142
+          },
+          {
+            "adjacent_threshold_gap_over_f1": 0.6650132461436803,
+            "rectangular_window_first_zero_duration_over_T1": 1.5037294456897836
+          },
+          {
+            "adjacent_threshold_gap_over_f1": 0.6760260674368265,
+            "rectangular_window_first_zero_duration_over_T1": 1.479232899689106
+          }
+        ]
+      },
+      "anchor_definition": "f1 denotes the first positive NN benchmark mode",
+      "ell_over_c_times_T1": 0.1454515404038367,
+      "modes": [
+        {
+          "alpha_n": 9.94350157607916e-07,
+          "mode_index_in_completion": 1,
+          "mu_n": 0.9138989815720246,
+          "period_over_T1": 1.0,
+          "static_range_light_time_over_T1": 0.15915494309189535,
+          "static_range_over_first_mode_range": 1.0,
+          "threshold_frequency_over_f1": 1.0
+        },
+        {
+          "alpha_n": 4.845470552456976e-06,
+          "mode_index_in_completion": 2,
+          "mu_n": 1.54169473474637,
+          "period_over_T1": 0.5927885468989252,
+          "static_range_light_time_over_T1": 0.09434522744722576,
+          "static_range_over_first_mode_range": 0.5927885468989252,
+          "threshold_frequency_over_f1": 1.6869421739528097
+        },
+        {
+          "alpha_n": 1.0929034273160898e-05,
+          "mode_index_in_completion": 3,
+          "mu_n": 2.1337779482329147,
+          "period_over_T1": 0.4283008840394423,
+          "static_range_light_time_over_T1": 0.0681662028255059,
+          "static_range_over_first_mode_range": 0.4283008840394423,
+          "threshold_frequency_over_f1": 2.334807228434088
+        },
+        {
+          "alpha_n": 1.5905542427524888e-05,
+          "mode_index_in_completion": 4,
+          "mu_n": 2.728898930852606,
+          "period_over_T1": 0.33489660288975587,
+          "static_range_light_time_over_T1": 0.05330044977458818,
+          "static_range_over_first_mode_range": 0.33489660288975587,
+          "threshold_frequency_over_f1": 2.9859962489054825
+        },
+        {
+          "alpha_n": 1.8832750199851983e-05,
+          "mode_index_in_completion": 5,
+          "mu_n": 3.3366538592352217,
+          "period_over_T1": 0.27389684999615005,
+          "static_range_light_time_over_T1": 0.04359203757418666,
+          "static_range_over_first_mode_range": 0.27389684999615005,
+          "threshold_frequency_over_f1": 3.6510094950491627
+        },
+        {
+          "alpha_n": 2.0515851006746042e-05,
+          "mode_index_in_completion": 6,
+          "mu_n": 3.9544733937818783,
+          "period_over_T1": 0.2311051031495279,
+          "static_range_light_time_over_T1": 0.036781519540009716,
+          "static_range_over_first_mode_range": 0.2311051031495279,
+          "threshold_frequency_over_f1": 4.327035562485989
+        }
+      ]
+    },
+    "drive_phase_rows": [
+      {
+        "drive_frequency_over_f1": 0.0,
+        "nu_Omega_ell_over_c": 0.0,
+        "responses_at_x_1": [
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.7673928114426987,
+              "real": 0.7673928114426987
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.4009578451274283,
+              "real": 0.4009578451274283
+            },
+            "radial_number_times_ell": 0.9138989815720246,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.5439686525349923,
+              "real": 0.5439686525349923
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.21401809001633457,
+              "real": 0.21401809001633457
+            },
+            "radial_number_times_ell": 1.54169473474637,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.37100540070679605,
+              "real": 0.37100540070679605
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1183891797170887,
+              "real": 0.1183891797170887
+            },
+            "radial_number_times_ell": 2.1337779482329147,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.24346406275437035,
+              "real": 0.24346406275437035
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.06529114016471954,
+              "real": 0.06529114016471954
+            },
+            "radial_number_times_ell": 2.728898930852606,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.15419290837867636,
+              "real": 0.15419290837867636
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.035555733379622007,
+              "real": 0.035555733379622007
+            },
+            "radial_number_times_ell": 3.3366538592352217,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09497111280193418,
+              "real": 0.09497111280193418
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.019168760280583577,
+              "real": 0.019168760280583577
+            },
+            "radial_number_times_ell": 3.9544733937818783,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 0.5,
+        "nu_Omega_ell_over_c": 0.4569494907860123,
+        "responses_at_x_1": [
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.8118587128907846,
+              "real": 0.8118587128907846
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.453182785658268,
+              "real": 0.453182785658268
+            },
+            "radial_number_times_ell": 0.7914597345340999,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.5670984243634934,
+              "real": 0.5670984243634934
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2293698035383242,
+              "real": 0.2293698035383242
+            },
+            "radial_number_times_ell": 1.4724197153037188,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.38367520665368127,
+              "real": 0.38367520665368127
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.12439717942615885,
+              "real": 0.12439717942615885
+            },
+            "radial_number_times_ell": 2.0842757723572642,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2504132547058166,
+              "real": 0.2504132547058166
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.06785588102594294,
+              "real": 0.06785588102594294
+            },
+            "radial_number_times_ell": 2.6903692195828626,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.15796384895756466,
+              "real": 0.15796384895756466
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.036691267165256926,
+              "real": 0.036691267165256926
+            },
+            "radial_number_times_ell": 3.305216504137014,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.09699907014354779,
+              "real": 0.09699907014354779
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.01968331744765764,
+              "real": 0.01968331744765764
+            },
+            "radial_number_times_ell": 3.9279838320694718,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 0.9,
+        "nu_Omega_ell_over_c": 0.8225090834148222,
+        "responses_at_x_1": [
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.9388874318049034,
+              "real": 0.9388874318049034
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6714207223479401,
+              "real": 0.6714207223479401
+            },
+            "radial_number_times_ell": 0.39835933052771955,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6254221603048872,
+              "real": 0.6254221603048872
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.27145576484245293,
+              "real": 0.27145576484245293
+            },
+            "radial_number_times_ell": 1.3039560816395581,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.41449473715780333,
+              "real": 0.41449473715780333
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.13961318199372,
+              "real": 0.13961318199372
+            },
+            "radial_number_times_ell": 1.9688796662226913,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.26700022407445695,
+              "real": 0.26700022407445695
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.0741256896887521,
+              "real": 0.0741256896887521
+            },
+            "radial_number_times_ell": 2.6019931173061557,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.16685760681651404,
+              "real": 0.16685760681651404
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.039411881231732976,
+              "real": 0.039411881231732976
+            },
+            "radial_number_times_ell": 3.2336879540316517,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.10174271478787687,
+              "real": 0.10174271478787687
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.020900358552357917,
+              "real": 0.020900358552357917
+            },
+            "radial_number_times_ell": 3.8679889645433163,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 0.99,
+        "nu_Omega_ell_over_c": 0.9047599917563044,
+        "responses_at_x_1": [
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.9923705264729441,
+              "real": 0.9923705264729441
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.8790431290574562,
+              "real": 0.8790431290574562
+            },
+            "radial_number_times_ell": 0.1289213164512211,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6452477148110458,
+              "real": 0.6452477148110458
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2869946692078004,
+              "real": 0.2869946692078004
+            },
+            "radial_number_times_ell": 1.248291637583867,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.42459433432422566,
+              "real": 0.42459433432422566
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.144790971911767,
+              "real": 0.144790971911767
+            },
+            "radial_number_times_ell": 1.9324641496499226,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.272338513610206,
+              "real": 0.272338513610206
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.07618823245993304,
+              "real": 0.07618823245993304
+            },
+            "radial_number_times_ell": 2.5745482578746954,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1696882661941418,
+              "real": 0.1696882661941418
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.04029025156201267,
+              "real": 0.04029025156201267
+            },
+            "radial_number_times_ell": 3.2116457360154826,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.10324110444409454,
+              "real": 0.10324110444409454
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.021288667501202552,
+              "real": 0.021288667501202552
+            },
+            "radial_number_times_ell": 3.849580390048492,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 1.0,
+        "nu_Omega_ell_over_c": 0.9138989815720246,
+        "responses_at_x_1": [
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 1.0,
+              "real": 1.0
+            },
+            "group_velocity_over_c": 0.0,
+            "mode_index_in_completion": 1,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 1.0,
+              "real": 1.0
+            },
+            "radial_number_times_ell": 0.0,
+            "regime": "threshold"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6476407127025184,
+              "real": 0.6476407127025184
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2889168325843595,
+              "real": 0.2889168325843595
+            },
+            "radial_number_times_ell": 1.2416164088100223,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.4258001912949036,
+              "real": 0.4258001912949036
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1454156679261619,
+              "real": 0.1454156679261619
+            },
+            "radial_number_times_ell": 1.9281589622867412,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.27297268810936814,
+              "real": 0.27297268810936814
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.07643471172669382,
+              "real": 0.07643471172669382
+            },
+            "radial_number_times_ell": 2.571318344019292,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.17002352608713767,
+              "real": 0.17002352608713767
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.0403946824813678,
+              "real": 0.0403946824813678
+            },
+            "radial_number_times_ell": 3.209057124426257,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.10341821191814624,
+              "real": 0.10341821191814624
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.02133468736857504,
+              "real": 0.02133468736857504
+            },
+            "radial_number_times_ell": 3.8474210159027806,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 1.01,
+        "nu_Omega_ell_over_c": 0.9230379713877449,
+        "responses_at_x_1": [
+          {
+            "force_factor": {
+              "imag": 0.0007238326248815985,
+              "magnitude": 1.0083589381292852,
+              "real": 1.0083586783340295
+            },
+            "group_velocity_over_c": 0.14037076117582017,
+            "mode_index_in_completion": 1,
+            "potential_factor": {
+              "imag": 0.12920532227008116,
+              "magnitude": 1.0,
+              "real": 0.9916178622317594
+            },
+            "radial_number_times_ell": 0.12956754263788267,
+            "regime": "propagating"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6500740752050588,
+              "real": 0.6500740752050588
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2908820377970275,
+              "real": 0.2908820377970275
+            },
+            "radial_number_times_ell": 1.2348374623897176,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.42702345479267034,
+              "real": 0.42702345479267034
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1460508067136315,
+              "real": 0.1460508067136315
+            },
+            "radial_number_times_ell": 1.9238007266194344,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2736153202380752,
+              "real": 0.2736153202380752
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.07668479386806415,
+              "real": 0.07668479386806415
+            },
+            "radial_number_times_ell": 2.56805184491764,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.17036303791889665,
+              "real": 0.17036303791889665
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.04050052365492392,
+              "real": 0.04050052365492392
+            },
+            "radial_number_times_ell": 3.2064403752020243,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1035974881251372,
+              "real": 0.1035974881251372
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.021381297054148384,
+              "real": 0.021381297054148384
+            },
+            "radial_number_times_ell": 3.8452387085205992,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 1.1,
+        "nu_Omega_ell_over_c": 1.0052888797292272,
+        "responses_at_x_1": [
+          {
+            "force_factor": {
+              "imag": 0.024058347869858776,
+              "magnitude": 1.0841560695715633,
+              "real": 1.0838890990717793
+            },
+            "group_velocity_over_c": 0.41659779045053097,
+            "mode_index_in_completion": 1,
+            "potential_factor": {
+              "imag": 0.406665481749316,
+              "magnitude": 1.0,
+              "real": 0.9135771373855613
+            },
+            "radial_number_times_ell": 0.4188011260596856,
+            "regime": "propagating"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.6739128705557399,
+              "real": 0.6739128705557399
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 2,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.3107231911709836,
+              "real": 0.3107231911709836
+            },
+            "radial_number_times_ell": 1.168852823685444,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.4388495947759968,
+              "real": 0.4388495947759968
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.15226586901414874,
+              "real": 0.15226586901414874
+            },
+            "radial_number_times_ell": 1.882127147845709,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2797919399979634,
+              "real": 0.2797919399979634
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.07910468496852398,
+              "real": 0.07910468496852398
+            },
+            "radial_number_times_ell": 2.5369831775361167,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.1736150161872383,
+              "real": 0.1736150161872383
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.04151868396902752,
+              "real": 0.04151868396902752
+            },
+            "radial_number_times_ell": 3.1816117369412087,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.10531073352751963,
+              "real": 0.10531073352751963
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.021828052317786544,
+              "real": 0.021828052317786544
+            },
+            "radial_number_times_ell": 3.824559332841043,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 1.7,
+        "nu_Omega_ell_over_c": 1.5536282686724419,
+        "responses_at_x_1": [
+          {
+            "force_factor": {
+              "imag": 0.562455062581109,
+              "magnitude": 1.60578624003936,
+              "real": 1.5040590916837764
+            },
+            "group_velocity_over_c": 0.8086898285216187,
+            "mode_index_in_completion": 1,
+            "potential_factor": {
+              "imag": 0.9509842782305573,
+              "magnitude": 1.0,
+              "real": 0.30923923191973224
+            },
+            "radial_number_times_ell": 1.2564033781790565,
+            "regime": "propagating"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0023576876346746156,
+              "magnitude": 1.0183015968137579,
+              "real": 1.0182988674168632
+            },
+            "group_velocity_over_c": 0.12370589877117719,
+            "mode_index_in_completion": 2,
+            "potential_factor": {
+              "imag": 0.19101195607956645,
+              "magnitude": 1.0,
+              "real": 0.9815877101077916
+            },
+            "radial_number_times_ell": 0.19219298133243237,
+            "regime": "propagating"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.5704143794582953,
+              "real": 0.5704143794582953
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 3,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.23162938246703138,
+              "real": 0.23162938246703138
+            },
+            "radial_number_times_ell": 1.4626166740287552,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.34410040976275824,
+              "real": 0.34410040976275824
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.10609042073596785,
+              "real": 0.10609042073596785
+            },
+            "radial_number_times_ell": 2.2434635226787996,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.20629763862698408,
+              "real": 0.20629763862698408
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.05218920314292784,
+              "real": 0.05218920314292784
+            },
+            "radial_number_times_ell": 2.952879641829509,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.12214619331940248,
+              "real": 0.12214619331940248
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.026344508501785668,
+              "real": 0.026344508501785668
+            },
+            "radial_number_times_ell": 3.6364954317186537,
+            "regime": "evanescent"
+          }
+        ]
+      },
+      {
+        "drive_frequency_over_f1": 2.4,
+        "nu_Omega_ell_over_c": 2.193357555772859,
+        "responses_at_x_1": [
+          {
+            "force_factor": {
+              "imag": 1.730484983819459,
+              "magnitude": 2.2306066481895694,
+              "real": 1.407489871978791
+            },
+            "group_velocity_over_c": 0.9090593428863095,
+            "mode_index_in_completion": 1,
+            "potential_factor": {
+              "imag": 0.9118222008354377,
+              "magnitude": 1.0,
+              "real": -0.410585282327093
+            },
+            "radial_number_times_ell": 1.9938921783655972,
+            "regime": "propagating"
+          },
+          {
+            "force_factor": {
+              "imag": 0.9832971224120493,
+              "magnitude": 1.8531040748757774,
+              "real": 1.5707073188144869
+            },
+            "group_velocity_over_c": 0.7112960224491444,
+            "mode_index_in_completion": 2,
+            "potential_factor": {
+              "imag": 0.9999430779939141,
+              "magnitude": 1.0,
+              "real": 0.010669619114900386
+            },
+            "radial_number_times_ell": 1.560126505230012,
+            "regime": "propagating"
+          },
+          {
+            "force_factor": {
+              "imag": 0.042519474340109886,
+              "magnitude": 1.1215208580765779,
+              "real": 1.1207145619660093
+            },
+            "group_velocity_over_c": 0.23149394267480727,
+            "mode_index_in_completion": 3,
+            "potential_factor": {
+              "imag": 0.48621145361831825,
+              "magnitude": 1.0,
+              "real": 0.8738411883004611
+            },
+            "radial_number_times_ell": 0.5077489882814377,
+            "regime": "propagating"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.517341730348234,
+              "real": 0.517341730348234
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 4,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.19718784536551862,
+              "real": 0.19718784536551862
+            },
+            "radial_number_times_ell": 1.6235984747906749,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.2843457041068471,
+              "real": 0.2843457041068471
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 5,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.08090767566113648,
+              "real": 0.08090767566113648
+            },
+            "radial_number_times_ell": 2.514446581035956,
+            "regime": "evanescent"
+          },
+          {
+            "force_factor": {
+              "imag": 0.0,
+              "magnitude": 0.15976421728071188,
+              "real": 0.15976421728071188
+            },
+            "group_velocity_over_c": null,
+            "mode_index_in_completion": 6,
+            "potential_factor": {
+              "imag": 0.0,
+              "magnitude": 0.037237195017547436,
+              "real": 0.037237195017547436
+            },
+            "radial_number_times_ell": 3.2904471511730553,
+            "regime": "evanescent"
+          }
+        ]
+      }
+    ],
+    "static_maximum_absolute_error": 6.776263578034403e-21,
+    "status": "legacy P6/P7 NN comb retained for numerical genealogy only"
+  },
+  "schema": "holo.breathing-response.v1",
+  "static_recovery": {
+    "force": "canonically normalized stiff-boundary candidate",
+    "maximum_absolute_error": 0.0,
+    "x_values": [
+      0.03,
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0
+    ]
+  },
+  "title": "P7 conditional space-time breathing response"
+}

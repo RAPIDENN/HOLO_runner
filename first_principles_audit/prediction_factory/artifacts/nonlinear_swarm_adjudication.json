@@ -1,0 +1,267 @@
+{
+  "checks": {
+    "all": true,
+    "all_reward_categories_are_bounded": true,
+    "certified_inputs": true,
+    "compact_claim_remains_fail_closed": true,
+    "hybrid_route_wins_current_reward": true,
+    "no_observational_tables_read": true,
+    "scores_do_not_open_physical_claim_gates": true
+  },
+  "claim_gates": {
+    "compact_S3": [
+      "bulk_ADM_S2_compact_support_recovered",
+      "lapse_shift_solved_through_required_order",
+      "finite_boundaries_and_bending_combined",
+      "physical_c000_computed",
+      "sealed_observation_blind_execution"
+    ],
+    "independently_crosschecked": [
+      "total_Y2",
+      "two_independent_routes_agree"
+    ],
+    "new_force_or_observation": "never authorized by this theory-only artifact",
+    "total_Y2": [
+      "compact_S3",
+      "direct_S4_contact_computed"
+    ]
+  },
+  "classification": "hybrid_route_selected_for_next_derivation;no_physical_cubic_or_force_claim",
+  "decisive_assay": {
+    "collaboration_after_blind_compare": "unseal residuals, classify disagreement, share corrections, then rerun both routes from a fresh frozen manifest",
+    "eta_hat_steps": [
+      0.001,
+      0.0005
+    ],
+    "eta_scan": "vary UV and IR cubic boundary jets independently with plus/minus steps while holding the background and S2 fixed",
+    "independence": "routes may share frozen backgrounds and modes, but not cubic kernels, constraint solvers or endpoint-expression code",
+    "nonzero_control": "c011",
+    "phase_alignment": "choose signs so the weighted BMP-ADM modal overlap is positive; also report phase-invariant c^2/m^2",
+    "primary_observable": "canonically normalized c000 at finite gamma"
+  },
+  "evidence_boundary": "This makes the agents cooperate through a shared falsifiable assay and selects the best next route. It is not evidence for a physical cubic coupling, a force law or an observation.",
+  "hard_gates": {
+    "bulk_ADM_S2_compact_support_recovered": true,
+    "direct_S4_contact_computed": false,
+    "finite_boundaries_and_bending_combined": false,
+    "lapse_shift_solved_through_required_order": false,
+    "physical_c000_computed": false,
+    "sealed_observation_blind_execution": false,
+    "two_independent_routes_agree": false
+  },
+  "historical_analogies_as_tests": [
+    {
+      "falsifier": "relative disagreement above 1 percent",
+      "idea": "Einstein covariance",
+      "translation": "the same canonically normalized c000 in two gauges"
+    },
+    {
+      "falsifier": "any normalized constraint residual above 1e-8",
+      "idea": "Ricci and Gauss-Codazzi geometry",
+      "translation": "ADM Hamiltonian, momentum and junction residuals"
+    },
+    {
+      "falsifier": "pure-gauge overlap above 1e-7",
+      "idea": "Noether and Bianchi identities",
+      "translation": "pure-gauge directions and endpoint terms cancel"
+    },
+    {
+      "falsifier": "Bose-permutation relative error above 1e-8",
+      "idea": "Feynman action vertices",
+      "translation": "S3 and S4 are derivatives of one frozen action"
+    },
+    {
+      "falsifier": "5-to-7 exchange tail above 5 percent",
+      "idea": "Wilson mode elimination",
+      "translation": "Schur-complement exchange on nested 3/5/7 modes"
+    }
+  ],
+  "inputs": {
+    "files": {
+      "adm_quadratic_recovery": {
+        "path": "first_principles_audit/prediction_factory/artifacts/adm_quadratic_recovery.json",
+        "sha256": "ff9b52174bfe600f4498f60efdca3c6c8114ce84593752d17f710ea2d9527762"
+      },
+      "adm_quartic_seed": {
+        "path": "first_principles_audit/prediction_factory/artifacts/radial_adm_quartic_seed.json",
+        "sha256": "765647ebd00d915bbbacf76dfcec6e31358cdc9f109130624c403cd01f84debc"
+      },
+      "compact_boundaries": {
+        "path": "first_principles_audit/prediction_factory/artifacts/cubic_boundary_identifiability.json",
+        "sha256": "f99ae783aa998b02718845a9c2eb6801e7bde6756572c04383246487e7d1712d"
+      },
+      "cubic_inventory": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bulk_cubic_vertex_inventory.json",
+        "sha256": "d969c43069fbb7f739b48989b480e46246150bf83ce2153dfceb9415df1f294b"
+      },
+      "gauge_invariant_route": {
+        "path": "first_principles_audit/prediction_factory/artifacts/gauge_invariant_cubic_route.json",
+        "sha256": "d975c58aeee2a9605b9c09a496fb59481ed745b447fcc9670911e7dcb03d019f"
+      }
+    },
+    "observational_tables_read": []
+  },
+  "numeric_contract": {
+    "S2_action_norm_relative_max": 1e-08,
+    "S2_eigenvalue_relative_max": 1e-10,
+    "bose_permutation_relative_max": 1e-08,
+    "constraint_residual_max": 1e-08,
+    "continuum_c000_uncertainty_relative_max": 0.0025,
+    "cross_gauge_c000_relative_max": 0.01,
+    "eta_slope_cross_gauge_relative_max": 0.01,
+    "eta_slope_step_stability_relative_max": 0.005,
+    "integration_by_parts_relative_max": 1e-05,
+    "mode_MAC_min": 0.999,
+    "peak_arrays_mib_max": 8,
+    "peak_rss_hard_mib": 256,
+    "peak_rss_soft_mib": 128,
+    "pure_gauge_overlap_fraction_max": 1e-07
+  },
+  "reward_policy": {
+    "penalties": {
+      "calls_a_kernel_a_physical_action": "zero physical-coupling points",
+      "crosses_hard_RSS_cap": "disqualify that implementation",
+      "shared_omission_between_routes": "zero independent-cross-route points",
+      "uses_observational_target_during_derivation": "disqualify"
+    },
+    "rule": "Award intermediate points only for an artifact, tests, input hashes and a numerical or algebraic residual. Scores never override gates.",
+    "weights": {
+      "S2_canonical": 20,
+      "blinding": 5,
+      "direct_S4": 10,
+      "finite_boundaries": 15,
+      "gauge_constraints": 15,
+      "independent_cross_route": 10,
+      "physical_c000": 20,
+      "resources": 5
+    }
+  },
+  "routes": [
+    {
+      "current_points": {
+        "S2_canonical": 12,
+        "blinding": 3,
+        "direct_S4": 0,
+        "finite_boundaries": 0,
+        "gauge_constraints": 8,
+        "independent_cross_route": 0,
+        "physical_c000": 0,
+        "resources": 3
+      },
+      "current_score": 26,
+      "evidence": {
+        "S2_canonical": [
+          "exact local S2 operator and weight map",
+          "seven mapped bulk profiles",
+          "absolute trace normalization remains open"
+        ],
+        "blinding": [
+          "empty observational input list, not syscall-sealed"
+        ],
+        "direct_S4": [],
+        "finite_boundaries": [],
+        "gauge_constraints": [
+          "linear gauge-invariant active-scalar equation",
+          "no compact nonlinear constraint reduction"
+        ],
+        "independent_cross_route": [],
+        "physical_c000": [],
+        "resources": [
+          "vectorized one-dimensional profile checks"
+        ]
+      },
+      "id": "BMP_only",
+      "theoretical_ceiling": 80,
+      "warning": "score is a workflow reward, not a probability or a physics claim"
+    },
+    {
+      "current_points": {
+        "S2_canonical": 16,
+        "blinding": 3,
+        "direct_S4": 0,
+        "finite_boundaries": 4,
+        "gauge_constraints": 5,
+        "independent_cross_route": 0,
+        "physical_c000": 0,
+        "resources": 3
+      },
+      "current_score": 31,
+      "evidence": {
+        "S2_canonical": [
+          "same-variable ADM action reproduces p,w and normalization",
+          "nine compact periodic probes agree below 1e-9",
+          "absolute matter residue remains open"
+        ],
+        "blinding": [
+          "empty observational input list, not syscall-sealed"
+        ],
+        "direct_S4": [],
+        "finite_boundaries": [
+          "formal fixed-brane GHY prefactor and lambda jets through S4",
+          "bending and full junction system not yet combined"
+        ],
+        "gauge_constraints": [
+          "exact Hamiltonian and momentum constraints identified",
+          "lapse/shift not yet solved and substituted"
+        ],
+        "independent_cross_route": [],
+        "physical_c000": [],
+        "resources": [
+          "degree-four jets; dense N_mode^4 tensor forbidden"
+        ]
+      },
+      "id": "ADM_only",
+      "theoretical_ceiling": 90,
+      "warning": "score is a workflow reward, not a probability or a physics claim"
+    },
+    {
+      "current_points": {
+        "S2_canonical": 16,
+        "blinding": 3,
+        "direct_S4": 0,
+        "finite_boundaries": 4,
+        "gauge_constraints": 8,
+        "independent_cross_route": 0,
+        "physical_c000": 0,
+        "resources": 3
+      },
+      "current_score": 34,
+      "evidence": {
+        "S2_canonical": [
+          "ADM action and independent BMP operator now agree at S2"
+        ],
+        "blinding": [
+          "empty observational input list, not syscall-sealed"
+        ],
+        "direct_S4": [],
+        "finite_boundaries": [
+          "inherits the independent fixed-brane expansion"
+        ],
+        "gauge_constraints": [
+          "best current linear invariant evidence"
+        ],
+        "independent_cross_route": [
+          "earns zero until kernels and endpoint code remain independent"
+        ],
+        "physical_c000": [],
+        "resources": [
+          "bounded ADM jet architecture"
+        ]
+      },
+      "id": "hybrid_ADM_plus_BMP_oracle",
+      "theoretical_ceiling": 100,
+      "warning": "score is a workflow reward, not a probability or a physics claim"
+    }
+  ],
+  "runtime": {
+    "python": "3.13.5"
+  },
+  "schema": "holo.nonlinear-swarm-adjudication.v1",
+  "selection": {
+    "current_score": 34,
+    "immediate_objective": "With the ADM S2 backward test passed, solve the second-order constraint closure and compare the first cubic source with BMP.",
+    "reason": "ADM supplies the physical compact action and direct S4; BMP supplies an independently derived bulk EOM/correlator oracle. Neither alone currently computes a physical c000.",
+    "winner": "hybrid_ADM_plus_BMP_oracle"
+  },
+  "title": "Cooperative adversarial race for compact S3 and S4"
+}

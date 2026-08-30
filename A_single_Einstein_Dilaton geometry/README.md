@@ -18,7 +18,8 @@ Local PDF: `A_single_Einstein-Dilaton_geometry.pdf`
 All figures are copied verbatim from the paper build directory and correspond 1:1 to `\includegraphics{...}` entries in the LaTeX.
 
 - `figures/glueball_ratio.png`
-- `figures/sparc_rotation_curves_forward.png`
+- `figures/fig_sparc_physical_audit.png`
+- `figures/fig_nonlinear_collector_action.png`
 - `figures/multiarm_svd_diagnostic.png`
 - `figures/fig_spectroscopy.pdf`
 - `figures/fig_single_arm_modal_responses.pdf`
@@ -99,6 +100,14 @@ python3 first_principles_audit/prediction_factory/derive_em_kernel_completion.py
 python3 first_principles_audit/prediction_factory/derive_robin_boundary_family.py
 python3 first_principles_audit/prediction_factory/derive_em_spectral_fingerprint.py
 python3 first_principles_audit/prediction_factory/evaluate_desi_dr1_growth.py
+python3 first_principles_audit/prediction_factory/derive_sparc_finite_disk_yukawa.py
+python3 first_principles_audit/prediction_factory/sparc_physical_audit.py
+python3 first_principles_audit/prediction_factory/derive_force_residual_bridge.py
+python3 first_principles_audit/prediction_factory/derive_universal_residual_collector.py
+python3 first_principles_audit/prediction_factory/derive_nonlinear_collector_action.py
+python3 first_principles_audit/prediction_factory/derive_holo_collector_embedding_gate.py
+python3 first_principles_audit/prediction_factory/derive_axisymmetric_collector_prototype.py
+python3 first_principles_audit/prediction_factory/derive_scale_consistency.py
 python3 first_principles_audit/prediction_factory/build_master_prediction_registry.py
 ```
 
@@ -107,8 +116,16 @@ The prediction factory is indexed by
 It includes the four endpoint branches, the positive Robin phase map, the
 scale-free material fingerprint, the coordinate-correct Eq. 39 completion, the
 conditional scalar--photon double comb and photon KK tower, the fail-closed
-Wilson-loop input audit, retrospective SPARC cross-validation, and the DESI DR1
-marginal diagnostic.  None is labelled a new detection or a clean confirmatory
-holdout.
+Wilson-loop input audit, the repaired SPARC physical-input audit, and the DESI
+DR1 marginal diagnostic.  The current action-derived galaxy candidate is the
+seven-mode stiff-boundary force; P6 and P5 are retained only as genealogy.  Its
+finite-disk scan reaches the long-range boundary, and neither `R>=0.6 kpc` nor
+`ell=600 kpc` rescues it.  The universal signed collector identifies the
+missing response without per-galaxy parameters, but is the empirical RAR
+target rather than a HOLO prediction.  The current canonical linearized sector
+fails the `M` versus `sqrt(M)` embedding gate, while a cylindrical control shows
+that the flattened algebraic shortcut has curl and is not an AQUAL solution.
+The physical SPARC PDE remains blocked by non-unique 3D source and boundary
+inputs.  None is labelled a new detection or a clean confirmatory holdout.
 
 ## JSON sanitized
