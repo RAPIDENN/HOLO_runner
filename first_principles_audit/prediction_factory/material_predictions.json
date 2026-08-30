@@ -1,0 +1,2978 @@
+{
+  "integrity": {
+    "algorithm": "sha256",
+    "authenticity_note": "content-integrity hash only; no private-key identity signature is claimed",
+    "canonicalization": "UTF-8 JSON of payload with sort_keys=true, separators=(',', ':'), ensure_ascii=true, allow_nan=false",
+    "payload_sha256": "f4cc95caf5b20ae1d3d4097bb97f23f88979e1f34a8c1acf1fd6a7fdb35e1fae"
+  },
+  "payload": {
+    "classification": "prospective_dimensionless_prediction_not_detection",
+    "dimensionless_curves": {
+      "grid": {
+        "kind": "natural_log_uniform",
+        "samples": 241,
+        "x_max": 20.0,
+        "x_min": 0.001
+      },
+      "samples": [
+        {
+          "force_over_newtonian_force": 7.202264389768929e-05,
+          "potential_over_newtonian_potential": 7.180428226132418e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299821570712e-05,
+          "x_r_over_ell": 0.0010000000000000002
+        },
+        {
+          "force_over_newtonian_force": 7.202261341782298e-05,
+          "potential_over_newtonian_potential": 7.179508380685661e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299816282833e-05,
+          "x_r_over_ell": 0.001042127744669341
+        },
+        {
+          "force_over_newtonian_force": 7.202258032060481e-05,
+          "potential_over_newtonian_potential": 7.178549918029216e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.20229981029901e-05,
+          "x_r_over_ell": 0.001086030236209606
+        },
+        {
+          "force_over_newtonian_force": 7.202254438150017e-05,
+          "potential_over_newtonian_potential": 7.17755122279667e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299803527691e-05,
+          "x_r_over_ell": 0.001131782240703828
+        },
+        {
+          "force_over_newtonian_force": 7.202250535674138e-05,
+          "potential_over_newtonian_potential": 7.176510612555468e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299795865291e-05,
+          "x_r_over_ell": 0.0011794616739614933
+        },
+        {
+          "force_over_newtonian_force": 7.20224629816842e-05,
+          "potential_over_newtonian_potential": 7.175426335065966e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299787194608e-05,
+          "x_r_over_ell": 0.0012291497342094152
+        },
+        {
+          "force_over_newtonian_force": 7.202241696902412e-05,
+          "potential_over_newtonian_potential": 7.17429656543226e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.20229977738303e-05,
+          "x_r_over_ell": 0.0012809310403725774
+        },
+        {
+          "force_over_newtonian_force": 7.202236700686122e-05,
+          "potential_over_newtonian_potential": 7.173119403140785e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299766280523e-05,
+          "x_r_over_ell": 0.0013348937761804252
+        },
+        {
+          "force_over_newtonian_force": 7.202231275659986e-05,
+          "potential_over_newtonian_potential": 7.171892868982672e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299753717334e-05,
+          "x_r_over_ell": 0.0013911298403440461
+        },
+        {
+          "force_over_newtonian_force": 7.202225385067038e-05,
+          "potential_over_newtonian_potential": 7.17061490185565e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299739501412e-05,
+          "x_r_over_ell": 0.0014497350030599609
+        },
+        {
+          "force_over_newtonian_force": 7.202218989005664e-05,
+          "potential_over_newtonian_potential": 7.169283355441217e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299723415462e-05,
+          "x_r_over_ell": 0.0015108090691070756
+        },
+        {
+          "force_over_newtonian_force": 7.202212044161386e-05,
+          "potential_over_newtonian_potential": 7.167895994752705e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299705213661e-05,
+          "x_r_over_ell": 0.0015744560478145428
+        },
+        {
+          "force_over_newtonian_force": 7.202204503515864e-05,
+          "potential_over_newtonian_potential": 7.16645049254965e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299684617888e-05,
+          "x_r_over_ell": 0.0016407843301899732
+        },
+        {
+          "force_over_newtonian_force": 7.202196316031197e-05,
+          "potential_over_newtonian_potential": 7.164944425613902e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299661313505e-05,
+          "x_r_over_ell": 0.0017099068735096702
+        },
+        {
+          "force_over_newtonian_force": 7.202187426307472e-05,
+          "potential_over_newtonian_potential": 7.163375270882705e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299634944556e-05,
+          "x_r_over_ell": 0.0017819413936852363
+        },
+        {
+          "force_over_newtonian_force": 7.202177774211265e-05,
+          "potential_over_newtonian_potential": 7.161740401433902e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299605108358e-05,
+          "x_r_over_ell": 0.0018570105657341354
+        },
+        {
+          "force_over_newtonian_force": 7.202167294472706e-05,
+          "potential_over_newtonian_potential": 7.160037082318289e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299571349374e-05,
+          "x_r_over_ell": 0.0019352422326956512
+        },
+        {
+          "force_over_newtonian_force": 7.202155916248413e-05,
+          "potential_over_newtonian_potential": 7.158262466234082e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299533152275e-05,
+          "x_r_over_ell": 0.0020167696233479786
+        },
+        {
+          "force_over_newtonian_force": 7.202143562647473e-05,
+          "potential_over_newtonian_potential": 7.156413589038351e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299489934121e-05,
+          "x_r_over_ell": 0.0021017315790972627
+        },
+        {
+          "force_over_newtonian_force": 7.202130150217359e-05,
+          "potential_over_newtonian_potential": 7.15448736509013e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299441035485e-05,
+          "x_r_over_ell": 0.0021902727904249625
+        },
+        {
+          "force_over_newtonian_force": 7.202115588386424e-05,
+          "potential_over_newtonian_potential": 7.152480582419912e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299385710452e-05,
+          "x_r_over_ell": 0.0022825440432961896
+        },
+        {
+          "force_over_newtonian_force": 7.202099778859359e-05,
+          "potential_over_newtonian_potential": 7.150389897720104e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299323115286e-05,
+          "x_r_over_ell": 0.002378702475948694
+        },
+        {
+          "force_over_newtonian_force": 7.202082614961666e-05,
+          "potential_over_newtonian_potential": 7.148211831150948e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299252295622e-05,
+          "x_r_over_ell": 0.0024789118464997894
+        },
+        {
+          "force_over_newtonian_force": 7.20206398092892e-05,
+          "potential_over_newtonian_potential": 7.145942760956402e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299172171989e-05,
+          "x_r_over_ell": 0.0025833428118269366
+        },
+        {
+          "force_over_newtonian_force": 7.202043751136196e-05,
+          "potential_over_newtonian_potential": 7.143578917884355e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202299081523449e-05,
+          "x_r_over_ell": 0.002692173218196956
+        },
+        {
+          "force_over_newtonian_force": 7.202021789262711e-05,
+          "potential_over_newtonian_potential": 7.141116379405602e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202298978969084e-05,
+          "x_r_over_ell": 0.002805588404138795
+        },
+        {
+          "force_over_newtonian_force": 7.201997947386287e-05,
+          "potential_over_newtonian_potential": 7.138551063725894e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202298862947089e-05,
+          "x_r_over_ell": 0.0029237815160756144
+        },
+        {
+          "force_over_newtonian_force": 7.201972065001834e-05,
+          "potential_over_newtonian_potential": 7.135878723585457e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202298731691113e-05,
+          "x_r_over_ell": 0.003046953837253786
+        },
+        {
+          "force_over_newtonian_force": 7.201943967957526e-05,
+          "potential_over_newtonian_potential": 7.133094939840355e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202298583203548e-05,
+          "x_r_over_ell": 0.0031753151305288813
+        },
+        {
+          "force_over_newtonian_force": 7.20191346730194e-05,
+          "potential_over_newtonian_potential": 7.130195114820088e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202298415225318e-05,
+          "x_r_over_ell": 0.0033090839955924934
+        },
+        {
+          "force_over_newtonian_force": 7.201880358034745e-05,
+          "potential_over_newtonian_potential": 7.127174465455926e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202298225201742e-05,
+          "x_r_over_ell": 0.003448488241248216
+        },
+        {
+          "force_over_newtonian_force": 7.201844417753042e-05,
+          "potential_over_newtonian_potential": 7.124028016174548e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.20229801024394e-05,
+          "x_r_over_ell": 0.0035937652733707415
+        },
+        {
+          "force_over_newtonian_force": 7.201805405184793e-05,
+          "potential_over_newtonian_potential": 7.120750591551641e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202297767085258e-05,
+          "x_r_over_ell": 0.0037451624992088477
+        },
+        {
+          "force_over_newtonian_force": 7.201763058600037e-05,
+          "potential_over_newtonian_potential": 7.117336808720353e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202297492031983e-05,
+          "x_r_over_ell": 0.0039029377487207082
+        },
+        {
+          "force_over_newtonian_force": 7.201717094089947e-05,
+          "potential_over_newtonian_potential": 7.113781069529552e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202297180907684e-05,
+          "x_r_over_ell": 0.004067359713659145
+        },
+        {
+          "force_over_newtonian_force": 7.201667203702928e-05,
+          "potential_over_newtonian_potential": 7.11007755244721e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202296828990325e-05,
+          "x_r_over_ell": 0.004238708405154537
+        },
+        {
+          "force_over_newtonian_force": 7.201613053426082e-05,
+          "potential_over_newtonian_potential": 7.106220204204395e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202296430941209e-05,
+          "x_r_over_ell": 0.004417275630574676
+        },
+        {
+          "force_over_newtonian_force": 7.20155428099956e-05,
+          "potential_over_newtonian_potential": 7.102202731175739e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202295980724716e-05,
+          "x_r_over_ell": 0.004603365490473623
+        },
+        {
+          "force_over_newtonian_force": 7.201490493550169e-05,
+          "potential_over_newtonian_potential": 7.098018590492576e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.20229547151765e-05,
+          "x_r_over_ell": 0.0047972948964759505
+        },
+        {
+          "force_over_newtonian_force": 7.201421265029729e-05,
+          "potential_over_newtonian_potential": 7.093660980885444e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202294895606829e-05,
+          "x_r_over_ell": 0.00499939411097822
+        },
+        {
+          "force_over_newtonian_force": 7.201346133442378e-05,
+          "potential_over_newtonian_potential": 7.089122833253049e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202294244273449e-05,
+          "x_r_over_ell": 0.0052100073095869125
+        },
+        {
+          "force_over_newtonian_force": 7.201264597843933e-05,
+          "potential_over_newtonian_potential": 7.084396800955458e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202293507662488e-05,
+          "x_r_over_ell": 0.005429493167250589
+        },
+        {
+          "force_over_newtonian_force": 7.20117611509503e-05,
+          "potential_over_newtonian_potential": 7.07947524982984e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.20229267463524e-05,
+          "x_r_over_ell": 0.005658225469084447
+        },
+        {
+          "force_over_newtonian_force": 7.201080096348417e-05,
+          "potential_over_newtonian_potential": 7.07435024792789e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202291732602833e-05,
+          "x_r_over_ell": 0.0058965937469275965
+        },
+        {
+          "force_over_newtonian_force": 7.200975903249261e-05,
+          "potential_over_newtonian_potential": 7.069013554974787e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202290667338272e-05,
+          "x_r_over_ell": 0.0061450039427169935
+        },
+        {
+          "force_over_newtonian_force": 7.20086284382575e-05,
+          "potential_over_newtonian_potential": 7.063456611550597e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202289462764276e-05,
+          "x_r_over_ell": 0.006403879099807867
+        },
+        {
+          "force_over_newtonian_force": 7.200740168045533e-05,
+          "potential_over_newtonian_potential": 7.057670527995889e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202288100713806e-05,
+          "x_r_over_ell": 0.006673660083417895
+        },
+        {
+          "force_over_newtonian_force": 7.20060706301178e-05,
+          "potential_over_newtonian_potential": 7.051646073044638e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.20228656065983e-05,
+          "x_r_over_ell": 0.0069548063314220955
+        },
+        {
+          "force_over_newtonian_force": 7.200462647770635e-05,
+          "potential_over_newtonian_potential": 7.045373662188655e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202284819410364e-05,
+          "x_r_over_ell": 0.007247796636776953
+        },
+        {
+          "force_over_newtonian_force": 7.200305967699826e-05,
+          "potential_over_newtonian_potential": 7.038843345779236e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202282850764415e-05,
+          "x_r_over_ell": 0.007553129962906399
+        },
+        {
+          "force_over_newtonian_force": 7.20013598844594e-05,
+          "potential_over_newtonian_potential": 7.032044796873286e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202280625123836e-05,
+          "x_r_over_ell": 0.007871326293438067
+        },
+        {
+          "force_over_newtonian_force": 7.199951589375596e-05,
+          "potential_over_newtonian_potential": 7.024967298832873e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202278109055525e-05,
+          "x_r_over_ell": 0.008202927517737095
+        },
+        {
+          "force_over_newtonian_force": 7.199751556503204e-05,
+          "potential_over_newtonian_potential": 7.017599732689087e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202275264797665e-05,
+          "x_r_over_ell": 0.008548498353745423
+        },
+        {
+          "force_over_newtonian_force": 7.199534574855388e-05,
+          "potential_over_newtonian_potential": 7.009930564283128e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202272049702963e-05,
+          "x_r_over_ell": 0.008908627309698283
+        },
+        {
+          "force_over_newtonian_force": 7.199299220229373e-05,
+          "potential_over_newtonian_potential": 7.001947831199892e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202268415610912e-05,
+          "x_r_over_ell": 0.009283927686355569
+        },
+        {
+          "force_over_newtonian_force": 7.199043950299676e-05,
+          "potential_over_newtonian_potential": 6.993639129511753e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202264308140208e-05,
+          "x_r_over_ell": 0.009675038621454978
+        },
+        {
+          "force_over_newtonian_force": 7.198767095024298e-05,
+          "potential_over_newtonian_potential": 6.98499160035302e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202259665891215e-05,
+          "x_r_over_ell": 0.010082626178165644
+        },
+        {
+          "force_over_newtonian_force": 7.198466846298402e-05,
+          "potential_over_newtonian_potential": 6.975991916348534e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.20225441954729e-05,
+          "x_r_over_ell": 0.01050738447939581
+        },
+        {
+          "force_over_newtonian_force": 7.198141246799909e-05,
+          "potential_over_newtonian_potential": 6.966626267923093e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202248490862285e-05,
+          "x_r_over_ell": 0.01095003688988638
+        },
+        {
+          "force_over_newtonian_force": 7.197788177967938e-05,
+          "potential_over_newtonian_potential": 6.956880349521967e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202241791520023e-05,
+          "x_r_over_ell": 0.011411337248103375
+        },
+        {
+          "force_over_newtonian_force": 7.197405347051104e-05,
+          "potential_over_newtonian_potential": 6.946739345776586e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202234221849877e-05,
+          "x_r_over_ell": 0.011892071150027212
+        },
+        {
+          "force_over_newtonian_force": 7.196990273158838e-05,
+          "potential_over_newtonian_potential": 6.936187917653649e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202225669380554e-05,
+          "x_r_over_ell": 0.01239305728702519
+        },
+        {
+          "force_over_newtonian_force": 7.196540272244637e-05,
+          "potential_over_newtonian_potential": 6.925210188630458e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202216007212093e-05,
+          "x_r_over_ell": 0.012915148840085489
+        },
+        {
+          "force_over_newtonian_force": 7.196052440946005e-05,
+          "potential_over_newtonian_potential": 6.91378973094409e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202205092183638e-05,
+          "x_r_over_ell": 0.013459234932787143
+        },
+        {
+          "force_over_newtonian_force": 7.195523639201294e-05,
+          "potential_over_newtonian_potential": 6.901909551967394e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202192762811903e-05,
+          "x_r_over_ell": 0.01402624214548026
+        },
+        {
+          "force_over_newtonian_force": 7.194950471559123e-05,
+          "potential_over_newtonian_potential": 6.889552080770371e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202178836972183e-05,
+          "x_r_over_ell": 0.014617136093255398
+        },
+        {
+          "force_over_newtonian_force": 7.194329267091367e-05,
+          "potential_over_newtonian_potential": 6.876699154931708e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202163109290472e-05,
+          "x_r_over_ell": 0.015232923070389065
+        },
+        {
+          "force_over_newtonian_force": 7.193656057815908e-05,
+          "potential_over_newtonian_potential": 6.863332007671783e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202145348211538e-05,
+          "x_r_over_ell": 0.015874651764066113
+        },
+        {
+          "force_over_newtonian_force": 7.192926555530415e-05,
+          "potential_over_newtonian_potential": 6.849431255385473e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202125292703586e-05,
+          "x_r_over_ell": 0.01654341504029739
+        },
+        {
+          "force_over_newtonian_force": 7.192136126953603e-05,
+          "potential_over_newtonian_potential": 6.834976885660736e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202102648555688e-05,
+          "x_r_over_ell": 0.017240351805073953
+        },
+        {
+          "force_over_newtonian_force": 7.191279767065383e-05,
+          "potential_over_newtonian_potential": 6.819948245876974e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202077084218878e-05,
+          "x_r_over_ell": 0.017966648943927715
+        },
+        {
+          "force_over_newtonian_force": 7.190352070532524e-05,
+          "potential_over_newtonian_potential": 6.804324032485829e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202048226136306e-05,
+          "x_r_over_ell": 0.018723543343201185
+        },
+        {
+          "force_over_newtonian_force": 7.189347201101626e-05,
+          "potential_over_newtonian_potential": 6.788082281086276e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.202015653501447e-05,
+          "x_r_over_ell": 0.019512323996468888
+        },
+        {
+          "force_over_newtonian_force": 7.188258858836506e-05,
+          "potential_over_newtonian_potential": 6.77120035741565e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201978892376502e-05,
+          "x_r_over_ell": 0.02033433419969757
+        },
+        {
+          "force_over_newtonian_force": 7.187080245072821e-05,
+          "potential_over_newtonian_potential": 6.753654949388687e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201937409095387e-05,
+          "x_r_over_ell": 0.021190973838883475
+        },
+        {
+          "force_over_newtonian_force": 7.185804024958534e-05,
+          "potential_over_newtonian_potential": 6.735422060327568e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201890602867243e-05,
+          "x_r_over_ell": 0.022083701774062627
+        },
+        {
+          "force_over_newtonian_force": 7.184422287445229e-05,
+          "potential_over_newtonian_potential": 6.716477003537717e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201837797487064e-05,
+          "x_r_over_ell": 0.023014038323754205
+        },
+        {
+          "force_over_newtonian_force": 7.182926502592099e-05,
+          "potential_over_newtonian_potential": 6.696794398396291e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201778232049681e-05,
+          "x_r_over_ell": 0.023983567854067734
+        },
+        {
+          "force_over_newtonian_force": 7.181307476041961e-05,
+          "potential_over_newtonian_potential": 6.676348168133215e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201711050552076e-05,
+          "x_r_over_ell": 0.024993941476883684
+        },
+        {
+          "force_over_newtonian_force": 7.179555300526971e-05,
+          "potential_over_newtonian_potential": 6.655111539498216e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201635290256512e-05,
+          "x_r_over_ell": 0.026046879861702284
+        },
+        {
+          "force_over_newtonian_force": 7.177659304260942e-05,
+          "potential_over_newtonian_potential": 6.633057044521404e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201549868673311e-05,
+          "x_r_over_ell": 0.02714417616594906
+        },
+        {
+          "force_over_newtonian_force": 7.175607996075774e-05,
+          "potential_over_newtonian_potential": 6.61015652458974e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201453569007267e-05,
+          "x_r_over_ell": 0.028287699088727768
+        },
+        {
+          "force_over_newtonian_force": 7.173389007161149e-05,
+          "potential_over_newtonian_potential": 6.586381137077095e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201345023895322e-05,
+          "x_r_over_ell": 0.02947939605322082
+        },
+        {
+          "force_over_newtonian_force": 7.170989029270298e-05,
+          "potential_over_newtonian_potential": 6.561701364781445e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201222697245354e-05,
+          "x_r_over_ell": 0.030721296523157266
+        },
+        {
+          "force_over_newtonian_force": 7.168393749259839e-05,
+          "potential_over_newtonian_potential": 6.536087028439111e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201084863966799e-05,
+          "x_r_over_ell": 0.032015515458995926
+        },
+        {
+          "force_over_newtonian_force": 7.165587779839352e-05,
+          "potential_over_newtonian_potential": 6.509507302602762e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.200929587362655e-05,
+          "x_r_over_ell": 0.03336425691970984
+        },
+        {
+          "force_over_newtonian_force": 7.162554586416305e-05,
+          "potential_over_newtonian_potential": 6.481930735186987e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.200754693930066e-05,
+          "x_r_over_ell": 0.03476981781630564
+        },
+        {
+          "force_over_newtonian_force": 7.159276409935005e-05,
+          "potential_over_newtonian_potential": 6.453325271002597e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.200557745292085e-05,
+          "x_r_over_ell": 0.03623459182347046
+        },
+        {
+          "force_over_newtonian_force": 7.155734185624349e-05,
+          "potential_over_newtonian_potential": 6.423658279618334e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.200336006957169e-05,
+          "x_r_over_ell": 0.03776107345600739
+        },
+        {
+          "force_over_newtonian_force": 7.15190745758925e-05,
+          "potential_over_newtonian_potential": 6.392896587906034e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.200086413574854e-05,
+          "x_r_over_ell": 0.03935186231700225
+        },
+        {
+          "force_over_newtonian_force": 7.147774289204662e-05,
+          "potential_over_newtonian_potential": 6.361006517642651e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.199805530326194e-05,
+          "x_r_over_ell": 0.041009667524955974
+        },
+        {
+          "force_over_newtonian_force": 7.143311169300094e-05,
+          "potential_over_newtonian_potential": 6.327953928559314e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.199489510055826e-05,
+          "x_r_over_ell": 0.04273731232742186
+        },
+        {
+          "force_over_newtonian_force": 7.138492914156671e-05,
+          "potential_over_newtonian_potential": 6.293704267243945e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.199134045719071e-05,
+          "x_r_over_ell": 0.04453773890900536
+        },
+        {
+          "force_over_newtonian_force": 7.13329256537886e-05,
+          "potential_over_newtonian_potential": 6.258222622319245e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.198734317682321e-05,
+          "x_r_over_ell": 0.04641401340191367
+        },
+        {
+          "force_over_newtonian_force": 7.127681283749631e-05,
+          "potential_over_newtonian_potential": 6.221473786332159e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.198284935378387e-05,
+          "x_r_over_ell": 0.04836933110758883
+        },
+        {
+          "force_over_newtonian_force": 7.121628239231575e-05,
+          "potential_over_newtonian_potential": 6.183422324803513e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.197779872780597e-05,
+          "x_r_over_ell": 0.05040702193831611
+        },
+        {
+          "force_over_newtonian_force": 7.115100497338356e-05,
+          "potential_over_newtonian_potential": 6.144032652897424e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.197212397120638e-05,
+          "x_r_over_ell": 0.05253055608807535
+        },
+        {
+          "force_over_newtonian_force": 7.108062902171243e-05,
+          "potential_over_newtonian_potential": 6.103269120178442e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.196574990235875e-05,
+          "x_r_over_ell": 0.05474354994229227
+        },
+        {
+          "force_over_newtonian_force": 7.100477956495305e-05,
+          "potential_over_newtonian_potential": 6.061096103930145e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.195859261892554e-05,
+          "x_r_over_ell": 0.057049772236554414
+        },
+        {
+          "force_over_newtonian_force": 7.092305699320067e-05,
+          "potential_over_newtonian_potential": 6.0174781115111296e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.195055854392755e-05,
+          "x_r_over_ell": 0.05945315047477997
+        },
+        {
+          "force_over_newtonian_force": 7.083503581550434e-05,
+          "potential_over_newtonian_potential": 5.972379892222853e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.194154337735878e-05,
+          "x_r_over_ell": 0.06195777761776939
+        },
+        {
+          "force_over_newtonian_force": 7.074026340386638e-05,
+          "potential_over_newtonian_potential": 5.9257665591575106e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.193143094570851e-05,
+          "x_r_over_ell": 0.06456791905353057
+        },
+        {
+          "force_over_newtonian_force": 7.06382587327739e-05,
+          "potential_over_newtonian_potential": 5.877603721482739e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.192009194144507e-05,
+          "x_r_over_ell": 0.06728801986124837
+        },
+        {
+          "force_over_newtonian_force": 7.052851112369125e-05,
+          "potential_over_newtonian_potential": 5.827857627602447e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.190738254425832e-05,
+          "x_r_over_ell": 0.0701227123812685
+        },
+        {
+          "force_over_newtonian_force": 7.0410479005467e-05,
+          "potential_over_newtonian_potential": 5.7764953196086757e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.18931429156704e-05,
+          "x_r_over_ell": 0.0730768241039882
+        },
+        {
+          "force_over_newtonian_force": 7.0283588703279e-05,
+          "potential_over_newtonian_potential": 5.7234847994073596e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.187719555852437e-05,
+          "x_r_over_ell": 0.07615538589108735
+        },
+        {
+          "force_over_newtonian_force": 7.01472332705571e-05,
+          "potential_over_newtonian_potential": 5.668795206859978e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.185934353287306e-05,
+          "x_r_over_ell": 0.07936364054310212
+        },
+        {
+          "force_over_newtonian_force": 7.000077138029004e-05,
+          "potential_over_newtonian_potential": 5.612397010232646e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.183936851994077e-05,
+          "x_r_over_ell": 0.08270705172793119
+        },
+        {
+          "force_over_newtonian_force": 6.98435262942381e-05,
+          "potential_over_newtonian_potential": 5.554262209183005e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.181702872614957e-05,
+          "x_r_over_ell": 0.0861913132854795
+        },
+        {
+          "force_over_newtonian_force": 6.967478493083537e-05,
+          "potential_over_newtonian_potential": 5.494364550442227e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.179205661972556e-05,
+          "x_r_over_ell": 0.08982235892428526
+        },
+        {
+          "force_over_newtonian_force": 6.949379705496652e-05,
+          "potential_over_newtonian_potential": 5.432679756263533e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.176415649316488e-05,
+          "x_r_over_ell": 0.09360637232664544
+        },
+        {
+          "force_over_newtonian_force": 6.929977461533337e-05,
+          "potential_over_newtonian_potential": 5.369185765608795e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.173300184589113e-05,
+          "x_r_over_ell": 0.09754979767944551
+        },
+        {
+          "force_over_newtonian_force": 6.90918912577706e-05,
+          "potential_over_newtonian_potential": 5.303862987929647e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.169823258282152e-05,
+          "x_r_over_ell": 0.10165935064863105
+        },
+        {
+          "force_over_newtonian_force": 6.886928204560548e-05,
+          "potential_over_newtonian_potential": 5.236694569268418e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.165945202633074e-05,
+          "x_r_over_ell": 0.10594202981600755
+        },
+        {
+          "force_over_newtonian_force": 6.863104342095711e-05,
+          "potential_over_newtonian_potential": 5.16766667025572e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.161622374131961e-05,
+          "x_r_over_ell": 0.1104051285978479
+        },
+        {
+          "force_over_newtonian_force": 6.837623344370052e-05,
+          "potential_over_newtonian_potential": 5.096768755415029e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.156806817581785e-05,
+          "x_r_over_ell": 0.11505624766560377
+        },
+        {
+          "force_over_newtonian_force": 6.810387234763577e-05,
+          "potential_over_newtonian_potential": 5.023993892999129e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.151445912284396e-05,
+          "x_r_over_ell": 0.11990330788987265
+        },
+        {
+          "force_over_newtonian_force": 6.78129434561493e-05,
+          "potential_over_newtonian_potential": 4.9493390643782474e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.145482001317914e-05,
+          "x_r_over_ell": 0.12495456382966666
+        },
+        {
+          "force_over_newtonian_force": 6.75023945022712e-05,
+          "potential_over_newtonian_potential": 4.872805481774817e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.138852005335193e-05,
+          "x_r_over_ell": 0.13021861778995159
+        },
+        {
+          "force_over_newtonian_force": 6.717113940043984e-05,
+          "potential_over_newtonian_potential": 4.7943989128946174e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.131487022855076e-05,
+          "x_r_over_ell": 0.13570443447140101
+        },
+        {
+          "force_over_newtonian_force": 6.681806051940125e-05,
+          "potential_over_newtonian_potential": 4.714130010739239e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.123311919644385e-05,
+          "x_r_over_ell": 0.14142135623730948
+        },
+        {
+          "force_over_newtonian_force": 6.644201150738909e-05,
+          "potential_over_newtonian_potential": 4.632014646600468e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.114244910505869e-05,
+          "x_r_over_ell": 0.1473791190236666
+        },
+        {
+          "force_over_newtonian_force": 6.604182072194204e-05,
+          "potential_over_newtonian_potential": 4.5480742439348015e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.10419713760044e-05,
+          "x_r_over_ell": 0.15358786891948814
+        },
+        {
+          "force_over_newtonian_force": 6.561629531728699e-05,
+          "potential_over_newtonian_potential": 4.462336110497358e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.093072250345856e-05,
+          "x_r_over_ell": 0.16005817944563638
+        },
+        {
+          "force_over_newtonian_force": 6.516422604200903e-05,
+          "potential_over_newtonian_potential": 4.3748337657811015e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.080765992950473e-05,
+          "x_r_over_ell": 0.16680106956156152
+        },
+        {
+          "force_over_newtonian_force": 6.468439279858414e-05,
+          "potential_over_newtonian_potential": 4.2856072604629236e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.067165806760625e-05,
+          "x_r_over_ell": 0.17382802243062392
+        },
+        {
+          "force_over_newtonian_force": 6.41755710141016e-05,
+          "potential_over_newtonian_potential": 4.19470348420605e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.052150455820687e-05,
+          "x_r_over_ell": 0.18115100497595768
+        },
+        {
+          "force_over_newtonian_force": 6.363653886796944e-05,
+          "potential_over_newtonian_potential": 4.1021764578136316e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.03558968535988e-05,
+          "x_r_over_ell": 0.1887824882601793
+        },
+        {
+          "force_over_newtonian_force": 6.306608541739052e-05,
+          "potential_over_newtonian_potential": 4.0080876053766276e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.017343924318831e-05,
+          "x_r_over_ell": 0.19673546872364678
+        },
+        {
+          "force_over_newtonian_force": 6.246301965472797e-05,
+          "potential_over_newtonian_potential": 3.912506001717055e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.997264044495864e-05,
+          "x_r_over_ell": 0.20502349031743947
+        },
+        {
+          "force_over_newtonian_force": 6.182618052235087e-05,
+          "potential_over_newtonian_potential": 3.815508590103141e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.975191190405877e-05,
+          "x_r_over_ell": 0.2136606675687498
+        },
+        {
+          "force_over_newtonian_force": 6.115444789998051e-05,
+          "potential_over_newtonian_potential": 3.717180364914858e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.950956695474033e-05,
+          "x_r_over_ell": 0.22266170961796677
+        },
+        {
+          "force_over_newtonian_force": 6.044675456676622e-05,
+          "potential_over_newtonian_potential": 3.6176145136767344e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.924382101694962e-05,
+          "x_r_over_ell": 0.23204194526839136
+        },
+        {
+          "force_over_newtonian_force": 5.9702099125156764e-05,
+          "potential_over_newtonian_potential": 3.516912512661263e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.895279301329014e-05,
+          "x_r_over_ell": 0.2418173490912351
+        },
+        {
+          "force_over_newtonian_force": 5.891955985597277e-05,
+          "potential_over_newtonian_potential": 3.415184170112358e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.863450820523539e-05,
+          "x_r_over_ell": 0.25200456863036724
+        },
+        {
+          "force_over_newtonian_force": 5.809830945385143e-05,
+          "potential_over_newtonian_potential": 3.312547611058123e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.828690265872368e-05,
+          "x_r_over_ell": 0.26262095275313496
+        },
+        {
+          "force_over_newtonian_force": 5.723763056939799e-05,
+          "potential_over_newtonian_potential": 3.209129197689018e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.790782955781864e-05,
+          "x_r_over_ell": 0.2736845811955378
+        },
+        {
+          "force_over_newtonian_force": 5.633693205898809e-05,
+          "potential_over_newtonian_potential": 3.1050633793862725e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.74950675900826e-05,
+          "x_r_over_ell": 0.2852142953520789
+        },
+        {
+          "force_over_newtonian_force": 5.5395765815351266e-05,
+          "potential_over_newtonian_potential": 3.000492466711048e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.704633162768416e-05,
+          "x_r_over_ell": 0.2972297303627169
+        },
+        {
+          "force_over_newtonian_force": 5.4413844022057264e-05,
+          "potential_over_newtonian_potential": 2.8955663240214454e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.655928592295251e-05,
+          "x_r_over_ell": 0.30975134855157443
+        },
+        {
+          "force_over_newtonian_force": 5.339105664317919e-05,
+          "potential_over_newtonian_potential": 2.790441975886977e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.603156002493039e-05,
+          "x_r_over_ell": 0.3228004742743391
+        },
+        {
+          "force_over_newtonian_force": 5.2327488926195614e-05,
+          "potential_over_newtonian_potential": 2.685283123130598e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.546076760324416e-05,
+          "x_r_over_ell": 0.33639933023371027
+        },
+        {
+          "force_over_newtonian_force": 5.122343866225517e-05,
+          "potential_over_newtonian_potential": 2.5802595651586853e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.484452833607487e-05,
+          "x_r_over_ell": 0.35057107532473325
+        },
+        {
+          "force_over_newtonian_force": 5.007943291404376e-05,
+          "potential_over_newtonian_potential": 2.475546526247633e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.418049297898614e-05,
+          "x_r_over_ell": 0.3653398440744695
+        },
+        {
+          "force_over_newtonian_force": 4.8896243888624595e-05,
+          "potential_over_newtonian_potential": 2.3713238846474745e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.346637167975362e-05,
+          "x_r_over_ell": 0.38073078774317554
+        },
+        {
+          "force_over_newtonian_force": 4.767490360188929e-05,
+          "potential_over_newtonian_potential": 2.2677753047394332e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.269996554023746e-05,
+          "x_r_over_ell": 0.396770117156977
+        },
+        {
+          "force_over_newtonian_force": 4.6416716953948674e-05,
+          "potential_over_newtonian_potential": 2.16508727404142e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.187920134909535e-05,
+          "x_r_over_ell": 0.41348514734499014
+        },
+        {
+          "force_over_newtonian_force": 4.512327281234918e-05,
+          "potential_over_newtonian_potential": 2.0634480485837017e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.10021693184777e-05,
+          "x_r_over_ell": 0.43090434405690464
+        },
+        {
+          "force_over_newtonian_force": 4.379645268398932e-05,
+          "potential_over_newtonian_potential": 1.9630465120596674e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.006716355398145e-05,
+          "x_r_over_ell": 0.44905737224024367
+        },
+        {
+          "force_over_newtonian_force": 4.243843654869081e-05,
+          "potential_over_newtonian_potential": 1.864070956169595e-05,
+          "radial_force_gradient_over_newtonian_gradient": 5.907272487086394e-05,
+          "x_r_over_ell": 0.4679751465598658
+        },
+        {
+          "force_over_newtonian_force": 4.105170542925901e-05,
+          "potential_over_newtonian_potential": 1.7667077916867872e-05,
+          "radial_force_gradient_over_newtonian_gradient": 5.801768544235748e-05,
+          "x_r_over_ell": 0.48768988404573665
+        },
+        {
+          "force_over_newtonian_force": 3.9639040286228324e-05,
+          "potential_over_newtonian_potential": 1.6711402019443055e-05,
+          "radial_force_gradient_over_newtonian_gradient": 5.69012146302202e-05,
+          "x_r_over_ell": 0.5082351589586354
+        },
+        {
+          "force_over_newtonian_force": 3.8203516851926444e-05,
+          "potential_over_newtonian_potential": 1.5775467526177935e-05,
+          "radial_force_gradient_over_newtonian_gradient": 5.572286520668687e-05,
+          "x_r_over_ell": 0.5296459599672271
+        },
+        {
+          "force_over_newtonian_force": 3.674849605940687e-05,
+          "potential_over_newtonian_potential": 1.4860999738075746e-05,
+          "radial_force_gradient_over_newtonian_gradient": 5.4482619035014226e-05,
+          "x_r_over_ell": 0.5519587497338738
+        },
+        {
+          "force_over_newtonian_force": 3.527760977830678e-05,
+          "potential_over_newtonian_potential": 1.3969649324358345e-05,
+          "radial_force_gradient_over_newtonian_gradient": 5.318093113814863e-05,
+          "x_r_over_ell": 0.575211527010671
+        },
+        {
+          "force_over_newtonian_force": 3.379474164250177e-05,
+          "potential_over_newtonian_potential": 1.3102978148003349e-05,
+          "radial_force_gradient_over_newtonian_gradient": 5.181877095799828e-05,
+          "x_r_over_ell": 0.5994438913514376
+        },
+        {
+          "force_over_newtonian_force": 3.2304002843729085e-05,
+          "potential_over_newtonian_potential": 1.2262445406870231e-05,
+          "radial_force_gradient_over_newtonian_gradient": 5.0397659498591824e-05,
+          "x_r_over_ell": 0.6246971105498864
+        },
+        {
+          "force_over_newtonian_force": 3.0809702870697336e-05,
+          "potential_over_newtonian_potential": 1.144939431660873e-05,
+          "radial_force_gradient_over_newtonian_gradient": 4.891970096305805e-05,
+          "x_r_over_ell": 0.6510141909188075
+        },
+        {
+          "force_over_newtonian_force": 2.9316315293380822e-05,
+          "potential_over_newtonian_potential": 1.0665039569469167e-05,
+          "radial_force_gradient_over_newtonian_gradient": 4.738760744534611e-05,
+          "x_r_over_ell": 0.6784399505299519
+        },
+        {
+          "force_over_newtonian_force": 2.782843882517317e-05,
+          "potential_over_newtonian_potential": 9.91045580605531e-06,
+          "radial_force_gradient_over_newtonian_gradient": 4.58047152315612e-05,
+          "x_r_over_ell": 0.7070210955393579
+        },
+        {
+          "force_over_newtonian_force": 2.6350754038394715e-05,
+          "potential_over_newtonian_potential": 9.186567334286412e-06,
+          "radial_force_gradient_over_newtonian_gradient": 4.4174991311026316e-05,
+          "x_r_over_ell": 0.7368062997280769
+        },
+        {
+          "force_over_newtonian_force": 2.4887976257417172e-05,
+          "potential_over_newtonian_potential": 8.494139320784644e-06,
+          "radial_force_gradient_over_newtonian_gradient": 4.2503028801118726e-05,
+          "x_r_over_ell": 0.767846287393783
+        },
+        {
+          "force_over_newtonian_force": 2.3444805303594243e-05,
+          "potential_over_newtonian_potential": 7.833770664165909e-06,
+          "radial_force_gradient_over_newtonian_gradient": 4.0794030158487486e-05,
+          "x_r_over_ell": 0.8001939197344096
+        },
+        {
+          "force_over_newtonian_force": 2.2025872911623423e-05,
+          "potential_over_newtonian_potential": 7.205888737064796e-06,
+          "radial_force_gradient_over_newtonian_gradient": 3.905377728611746e-05,
+          "x_r_over_ell": 0.8339042848709389
+        },
+        {
+          "force_over_newtonian_force": 2.0635688771602512e-05,
+          "potential_over_newtonian_potential": 6.610746154200843e-06,
+          "radial_force_gradient_over_newtonian_gradient": 3.72885879516368e-05,
+          "x_r_over_ell": 0.8690347916626511
+        },
+        {
+          "force_over_newtonian_force": 1.927858626810055e-05,
+          "potential_over_newtonian_potential": 6.04841968769656e-06,
+          "radial_force_gradient_over_newtonian_gradient": 3.550525830442117e-05,
+          "x_r_over_ell": 0.9056452674745882
+        },
+        {
+          "force_over_newtonian_force": 1.7958669080093565e-05,
+          "potential_over_newtonian_potential": 5.518811408797563e-06,
+          "radial_force_gradient_over_newtonian_gradient": 3.371099171041631e-05,
+          "x_r_over_ell": 0.9437980600637544
+        },
+        {
+          "force_over_newtonian_force": 1.6679759866878736e-05,
+          "potential_over_newtonian_potential": 5.021652088047133e-06,
+          "radial_force_gradient_over_newtonian_gradient": 3.1913314602584216e-05,
+          "x_r_over_ell": 0.9835581437575394
+        },
+        {
+          "force_over_newtonian_force": 1.5445352288942476e-05,
+          "potential_over_newtonian_potential": 4.556506835065811e-06,
+          "radial_force_gradient_over_newtonian_gradient": 3.0119980555152663e-05,
+          "x_r_over_ell": 1.0249932301052067
+        },
+        {
+          "force_over_newtonian_force": 1.4258567594169447e-05,
+          "potential_over_newtonian_potential": 4.122782905908935e-06,
+          "radial_force_gradient_over_newtonian_gradient": 2.833886431054602e-05,
+          "x_r_over_ell": 1.0681738831908818
+        },
+        {
+          "force_over_newtonian_force": 1.3122116935216905e-05,
+          "potential_over_newtonian_potential": 3.719739552292289e-06,
+          "radial_force_gradient_over_newtonian_gradient": 2.6577847994134567e-05,
+          "x_r_over_ell": 1.1131736398044054
+        },
+        {
+          "force_over_newtonian_force": 1.2038270471794085e-05,
+          "potential_over_newtonian_potential": 3.346499734744019e-06,
+          "radial_force_gradient_over_newtonian_gradient": 2.4844702215912014e-05,
+          "x_r_over_ell": 1.1600691346747252
+        },
+        {
+          "force_over_newtonian_force": 1.1008834152774147e-05,
+          "potential_over_newtonian_potential": 3.0020634730156515e-06,
+          "radial_force_gradient_over_newtonian_gradient": 2.3146965150489523e-05,
+          "x_r_over_ell": 1.2089402309790849
+        },
+        {
+          "force_over_newtonian_force": 1.0035134870916528e-05,
+          "potential_over_newtonian_potential": 2.68532256392033e-06,
+          "radial_force_gradient_over_newtonian_gradient": 2.1491822978243667e-05,
+          "x_r_over_ell": 1.2598701563502646
+        },
+        {
+          "force_over_newtonian_force": 9.118014443596231e-06,
+          "potential_over_newtonian_potential": 2.3950763611041866e-06,
+          "radial_force_gradient_over_newtonian_gradient": 1.98859952343768e-05,
+          "x_r_over_ell": 1.3129456446135122
+        },
+        {
+          "force_over_newtonian_force": 8.257832605065968e-06,
+          "potential_over_newtonian_potential": 2.1300482848084745e-06,
+          "radial_force_gradient_over_newtonian_gradient": 1.8335628627118262e-05,
+          "x_r_over_ell": 1.3682570834945118
+        },
+        {
+          "force_over_newtonian_force": 7.454478910507462e-06,
+          "potential_over_newtonian_potential": 1.8889027138079392e-06,
+          "radial_force_gradient_over_newtonian_gradient": 1.6846202736485878e-05,
+          "x_r_over_ell": 1.4258986685499855
+        },
+        {
+          "force_over_newtonian_force": 6.707393162412053e-06,
+          "potential_over_newtonian_potential": 1.6702619073300929e-06,
+          "radial_force_gradient_over_newtonian_gradient": 1.5422450685339823e-05,
+          "x_r_over_ell": 1.4859685635830109
+        },
+        {
+          "force_over_newtonian_force": 6.015593689754094e-06,
+          "potential_over_newtonian_potential": 1.4727226122473514e-06,
+          "radial_force_gradient_over_newtonian_gradient": 1.4068297390091158e-05,
+          "x_r_over_ell": 1.5485690678163015
+        },
+        {
+          "force_over_newtonian_force": 5.377712554354581e-06,
+          "potential_over_newtonian_potential": 1.2948720299844443e-06,
+          "radial_force_gradient_over_newtonian_gradient": 1.2786817366304325e-05,
+          "x_r_over_ell": 1.6138067901081072
+        },
+        {
+          "force_over_newtonian_force": 4.79203654041834e-06,
+          "potential_over_newtonian_potential": 1.1353028475852873e-06,
+          "radial_force_gradient_over_newtonian_gradient": 1.1580213313101775e-05,
+          "x_r_over_ell": 1.6817928305074286
+        },
+        {
+          "force_over_newtonian_force": 4.256552614374727e-06,
+          "potential_over_newtonian_potential": 9.926270768516154e-07,
+          "radial_force_gradient_over_newtonian_gradient": 1.0449815868789548e-05,
+          "x_r_over_ell": 1.7526429694577732
+        },
+        {
+          "force_over_newtonian_force": 3.7689964320633915e-06,
+          "potential_over_newtonian_potential": 8.65488492507476e-07,
+          "radial_force_gradient_over_newtonian_gradient": 9.396104065739962e-06,
+          "x_r_over_ell": 1.8264778649716038
+        },
+        {
+          "force_over_newtonian_force": 3.326902424672982e-06,
+          "potential_over_newtonian_potential": 7.525735126692267e-07,
+          "radial_force_gradient_over_newtonian_gradient": 8.418745167459263e-06,
+          "x_r_over_ell": 1.9034232581113302
+        },
+        {
+          "force_over_newtonian_force": 2.9276540152950564e-06,
+          "potential_over_newtonian_potential": 6.526204199693771e-07,
+          "radial_force_gradient_over_newtonian_gradient": 7.516651797926338e-06,
+          "x_r_over_ell": 1.9836101871267289
+        },
+        {
+          "force_over_newtonian_force": 2.5685326018298027e-06,
+          "potential_over_newtonian_potential": 5.644268768655174e-07,
+          "radial_force_gradient_over_newtonian_gradient": 6.688053621963682e-06,
+          "x_r_over_ell": 2.067175210613505
+        },
+        {
+          "force_over_newtonian_force": 2.246764082464109e-06,
+          "potential_over_newtonian_potential": 4.868557414251547e-07,
+          "radial_force_gradient_over_newtonian_gradient": 5.930580346630904e-06,
+          "x_r_over_ell": 2.1542606400730215
+        },
+        {
+          "force_over_newtonian_force": 1.95956188659638e-06,
+          "potential_over_newtonian_potential": 4.1883923793311256e-07,
+          "radial_force_gradient_over_newtonian_gradient": 5.241352516277986e-06,
+          "x_r_over_ell": 2.2450147822692266
+        },
+        {
+          "force_over_newtonian_force": 1.7041656937094573e-06,
+          "potential_over_newtonian_potential": 3.593815781453974e-07,
+          "radial_force_gradient_over_newtonian_gradient": 4.617076481783421e-06,
+          "x_r_over_ell": 2.33959219179556
+        },
+        {
+          "force_over_newtonian_force": 1.477875260465621e-06,
+          "potential_over_newtonian_potential": 3.075601625526648e-07,
+          "radial_force_gradient_over_newtonian_gradient": 4.054140035010289e-06,
+          "x_r_over_ell": 2.4381539342819067
+        },
+        {
+          "force_over_newtonian_force": 1.2780790170293593e-06,
+          "potential_over_newtonian_potential": 2.6252551583719883e-07,
+          "radial_force_gradient_over_newtonian_gradient": 3.5487054938911578e-06,
+          "x_r_over_ell": 2.540867860689881
+        },
+        {
+          "force_over_newtonian_force": 1.1022773230535098e-06,
+          "potential_over_newtonian_potential": 2.2350012662169014e-07,
+          "radial_force_gradient_over_newtonian_gradient": 3.096797469004683e-06,
+          "x_r_over_ell": 2.6479088931635584
+        },
+        {
+          "force_over_newtonian_force": 9.481004796978377e-07,
+          "potential_over_newtonian_potential": 1.8977636898092935e-07,
+          "radial_force_gradient_over_newtonian_gradient": 2.6943830957914394e-06,
+          "x_r_over_ell": 2.7594593229224293
+        },
+        {
+          "force_over_newtonian_force": 8.133217672428672e-07,
+          "potential_over_newtonian_potential": 1.6071368285372647e-07,
+          "radial_force_gradient_over_newtonian_gradient": 2.3374431287024597e-06,
+          "x_r_over_ell": 2.875709120703935
+        },
+        {
+          "force_over_newtonian_force": 6.958659125506036e-07,
+          "potential_over_newtonian_potential": 1.3573518363992338e-07,
+          "radial_force_gradient_over_newtonian_gradient": 2.0220329150741615e-06,
+          "x_r_over_ell": 2.9968562602842472
+        },
+        {
+          "force_over_newtonian_force": 5.938134846494175e-07,
+          "potential_over_newtonian_potential": 1.143238593012784e-07,
+          "radial_force_gradient_over_newtonian_gradient": 1.744332852331094e-06,
+          "x_r_over_ell": 3.123107055628212
+        },
+        {
+          "force_over_newtonian_force": 5.054017712746527e-07,
+          "potential_over_newtonian_potential": 9.601849768889462e-08,
+          "radial_force_gradient_over_newtonian_gradient": 1.5006884457936997e-06,
+          "x_r_over_ell": 3.254676512242734
+        },
+        {
+          "force_over_newtonian_force": 4.2902270824056433e-07,
+          "potential_over_newtonian_potential": 8.040946902932408e-08,
+          "radial_force_gradient_over_newtonian_gradient": 1.2876405008609505e-06,
+          "x_r_over_ell": 3.391788693331796
+        },
+        {
+          "force_over_newtonian_force": 3.632184229794808e-07,
+          "potential_over_newtonian_potential": 6.713446980119067e-08,
+          "radial_force_gradient_over_newtonian_gradient": 1.101946290111431e-06,
+          "x_r_over_ell": 3.5346771013768286
+        },
+        {
+          "force_over_newtonian_force": 3.066749204591901e-07,
+          "potential_over_newtonian_potential": 5.587431568811365e-08,
+          "radial_force_gradient_over_newtonian_gradient": 9.405927323826435e-07,
+          "x_r_over_ell": 3.6835850757922035
+        },
+        {
+          "force_over_newtonian_force": 2.582143911803893e-07,
+          "potential_over_newtonian_potential": 4.6348853708367516e-08,
+          "radial_force_gradient_over_newtonian_gradient": 8.008027166578416e-07,
+          "x_r_over_ell": 3.838766207332965
+        },
+        {
+          "force_over_newtonian_force": 2.1678656373890265e-07,
+          "potential_over_newtonian_potential": 3.831304754312597e-08,
+          "radial_force_gradient_over_newtonian_gradient": 6.800357152834367e-07,
+          "x_r_over_ell": 4.0004847699607815
+        },
+        {
+          "force_over_newtonian_force": 1.8145946414154924e-07,
+          "potential_over_newtonian_potential": 3.155327582162812e-08,
+          "radial_force_gradient_over_newtonian_gradient": 5.759837791878451e-07,
+          "x_r_over_ell": 4.169016170903276
+        },
+        {
+          "force_over_newtonian_force": 1.5140988498540997e-07,
+          "potential_over_newtonian_potential": 2.5883870784406945e-08,
+          "radial_force_gradient_over_newtonian_gradient": 4.865639136063676e-07,
+          "x_r_over_ell": 4.344647419673442
+        },
+        {
+          "force_over_newtonian_force": 1.2591381265089122e-07,
+          "potential_over_newtonian_potential": 2.1143914299373425e-08,
+          "radial_force_gradient_over_newtonian_gradient": 4.0990771571197997e-07,
+          "x_r_over_ell": 4.527677616847755
+        },
+        {
+          "force_over_newtonian_force": 1.0433701144682346e-07,
+          "potential_over_newtonian_potential": 1.7194299517890818e-08,
+          "radial_force_gradient_over_newtonian_gradient": 3.4434903130731675e-07,
+          "x_r_over_ell": 4.718418463435397
+        },
+        {
+          "force_over_newtonian_force": 8.612592077257441e-08,
+          "potential_over_newtonian_potential": 1.391505934550688e-08,
+          "radial_force_gradient_over_newtonian_gradient": 2.8841026778224683e-07,
+          "x_r_over_ell": 4.917194791706107
+        },
+        {
+          "force_over_newtonian_force": 7.079898467359794e-08,
+          "potential_over_newtonian_potential": 1.1202957165170964e-08,
+          "radial_force_gradient_over_newtonian_gradient": 2.407878919667366e-07,
+          "x_r_over_ell": 5.124345118380523
+        },
+        {
+          "force_over_newtonian_force": 5.793850205106149e-08,
+          "potential_over_newtonian_potential": 8.969330698603584e-09,
+          "radial_force_gradient_over_newtonian_gradient": 2.0033754764270417e-07,
+          "x_r_over_ell": 5.340222221125231
+        },
+        {
+          "force_over_newtonian_force": 4.718305941954645e-08,
+          "potential_over_newtonian_potential": 7.138176356016179e-09,
+          "radial_force_gradient_over_newtonian_gradient": 1.6605914881581544e-07,
+          "x_r_over_ell": 5.565193739334334
+        },
+        {
+          "force_over_newtonian_force": 3.822058563797821e-08,
+          "potential_over_newtonian_potential": 5.644458766311429e-09,
+          "radial_force_gradient_over_newtonian_gradient": 1.370822400169336e-07,
+          "x_r_over_ell": 5.7996428002204246
+        },
+        {
+          "force_over_newtonian_force": 3.078204870974441e-08,
+          "potential_over_newtonian_potential": 4.432628288314673e-09,
+          "radial_force_gradient_over_newtonian_gradient": 1.1265186151982984e-07,
+          "x_r_over_ell": 6.043968671281481
+        },
+        {
+          "force_over_newtonian_force": 2.4635797959530776e-08,
+          "potential_over_newtonian_potential": 3.4553280916896523e-09,
+          "radial_force_gradient_over_newtonian_gradient": 9.211511267752576e-08,
+          "x_r_over_ell": 6.298587440254721
+        },
+        {
+          "force_over_newtonian_force": 1.9582540232452175e-08,
+          "potential_over_newtonian_potential": 2.6722717948834984e-09,
+          "radial_force_gradient_over_newtonian_gradient": 7.490856790590218e-08,
+          "x_r_over_ell": 6.563932723715289
+        },
+        {
+          "force_over_newtonian_force": 1.5450925994921535e-08,
+          "potential_over_newtonian_potential": 2.0492725983179707e-09,
+          "radial_force_gradient_over_newtonian_gradient": 6.05466648104685e-08,
+          "x_r_over_ell": 6.840456405526685
+        },
+        {
+          "force_over_newtonian_force": 1.2093710280578796e-08,
+          "potential_over_newtonian_potential": 1.557405299402472e-09,
+          "radial_force_gradient_over_newtonian_gradient": 4.861115066232184e-08,
+          "x_r_over_ell": 7.128629406400469
+        },
+        {
+          "force_over_newtonian_force": 9.384444386438434e-09,
+          "potential_over_newtonian_potential": 1.1722834646298442e-09,
+          "radial_force_gradient_over_newtonian_gradient": 3.874164056247002e-08,
+          "x_r_over_ell": 7.428942485875675
+        },
+        {
+          "force_over_newtonian_force": 7.214647243843461e-09,
+          "potential_over_newtonian_potential": 8.73435298520094e-10,
+          "radial_force_gradient_over_newtonian_gradient": 3.06273075377529e-08,
+          "x_r_over_ell": 7.741907078083863
+        },
+        {
+          "force_over_newtonian_force": 5.491400664498653e-09,
+          "potential_over_newtonian_potential": 6.437633145304393e-10,
+          "radial_force_gradient_over_newtonian_gradient": 2.3999691568313742e-08,
+          "x_r_over_ell": 8.068056162723128
+        },
+        {
+          "force_over_newtonian_force": 4.135310370665643e-09,
+          "potential_over_newtonian_potential": 4.690746929853189e-10,
+          "radial_force_gradient_over_newtonian_gradient": 1.8626581983401977e-08,
+          "x_r_over_ell": 8.40794517272423
+        },
+        {
+          "force_over_newtonian_force": 3.078774952270729e-09,
+          "potential_over_newtonian_potential": 3.3767110981066623e-10,
+          "radial_force_gradient_over_newtonian_gradient": 1.4306897271089418e-08,
+          "x_r_over_ell": 8.762152940154571
+        },
+        {
+          "force_over_newtonian_force": 2.2645076019580533e-09,
+          "potential_over_newtonian_potential": 2.3998873648973684e-10,
+          "radial_force_gradient_over_newtonian_gradient": 1.0866460082794103e-08,
+          "x_r_over_ell": 9.131282681971099
+        },
+        {
+          "force_over_newtonian_force": 1.6442604305702719e-09,
+          "potential_over_newtonian_potential": 1.682809468625869e-10,
+          "radial_force_gradient_over_newtonian_gradient": 8.154545173396505e-09,
+          "x_r_over_ell": 9.515963027300751
+        },
+        {
+          "force_over_newtonian_force": 1.1777079360706011e-09,
+          "potential_over_newtonian_potential": 1.1633793044923995e-10,
+          "radial_force_gradient_over_newtonian_gradient": 6.041066046793959e-09,
+          "x_r_over_ell": 9.916849087997765
+        },
+        {
+          "force_over_newtonian_force": 8.31454194391851e-10,
+          "potential_over_newtonian_potential": 7.923883295443943e-11,
+          "radial_force_gradient_over_newtonian_gradient": 4.414263363948531e-09,
+          "x_r_over_ell": 10.334623574301318
+        },
+        {
+          "force_over_newtonian_force": 5.781368531104515e-10,
+          "potential_over_newtonian_potential": 5.3133175207470636e-11,
+          "radial_force_gradient_over_newtonian_gradient": 3.1787649305542174e-09,
+          "x_r_over_ell": 10.769997957493233
+        },
+        {
+          "force_over_newtonian_force": 3.9560929829599716e-10,
+          "potential_over_newtonian_potential": 3.504912352048886e-11,
+          "radial_force_gradient_over_newtonian_gradient": 2.2539024008987555e-09,
+          "x_r_over_ell": 11.22371368153583
+        },
+        {
+          "force_over_newtonian_force": 2.6618975297124544e-10,
+          "potential_over_newtonian_potential": 2.2726708264480068e-11,
+          "radial_force_gradient_over_newtonian_gradient": 1.5721917314977964e-09,
+          "x_r_over_ell": 11.696543425753358
+        },
+        {
+          "force_over_newtonian_force": 1.7597202241951828e-10,
+          "potential_over_newtonian_potential": 1.4474350523343228e-11,
+          "radial_force_gradient_over_newtonian_gradient": 1.077910115723974e-09,
+          "x_r_over_ell": 12.18929242070733
+        },
+        {
+          "force_over_newtonian_force": 1.1419680929371732e-10,
+          "potential_over_newtonian_potential": 9.047115772707219e-12,
+          "radial_force_gradient_over_newtonian_gradient": 7.257284913072016e-10,
+          "x_r_over_ell": 12.702799819506819
+        },
+        {
+          "force_over_newtonian_force": 7.268490248318292e-11,
+          "potential_over_newtonian_potential": 5.545036204747763e-12,
+          "radial_force_gradient_over_newtonian_gradient": 4.793827405148348e-10,
+          "x_r_over_ell": 13.237940126888748
+        },
+        {
+          "force_over_newtonian_force": 4.533424869837579e-11,
+          "potential_over_newtonian_potential": 3.3296983777710822e-12,
+          "radial_force_gradient_over_newtonian_gradient": 3.103860064446376e-10,
+          "x_r_over_ell": 13.795624688502315
+        },
+        {
+          "force_over_newtonian_force": 2.7682276400778478e-11,
+          "potential_over_newtonian_potential": 1.957141649850498e-12,
+          "radial_force_gradient_over_newtonian_gradient": 1.967976666209958e-10,
+          "x_r_over_ell": 14.376803242933592
+        },
+        {
+          "force_over_newtonian_force": 1.6533299161571836e-11,
+          "potential_over_newtonian_potential": 1.1250027450505532e-12,
+          "radial_force_gradient_over_newtonian_gradient": 1.22071035870665e-10,
+          "x_r_over_ell": 14.98246553911325
+        },
+        {
+          "force_over_newtonian_force": 9.64885032903978e-12,
+          "potential_over_newtonian_potential": 6.31802703624571e-13,
+          "radial_force_gradient_over_newtonian_gradient": 7.400239898171783e-11,
+          "x_r_over_ell": 15.613643021862236
+        },
+        {
+          "force_over_newtonian_force": 5.496820007708955e-12,
+          "potential_over_newtonian_potential": 3.463164080228493e-13,
+          "radial_force_gradient_over_newtonian_gradient": 4.379982848324189e-11,
+          "x_r_over_ell": 16.271410588445455
+        },
+        {
+          "force_over_newtonian_force": 3.0536084508369e-12,
+          "potential_over_newtonian_potential": 1.8508828753060451e-13,
+          "radial_force_gradient_over_newtonian_gradient": 2.5283157711257856e-11,
+          "x_r_over_ell": 16.95688841912549
+        },
+        {
+          "force_over_newtonian_force": 1.652381303884199e-12,
+          "potential_over_newtonian_potential": 9.634565299349177e-14,
+          "radial_force_gradient_over_newtonian_gradient": 1.4218239358261016e-11,
+          "x_r_over_ell": 17.67124388483291
+        },
+        {
+          "force_over_newtonian_force": 8.699885595756397e-13,
+          "potential_over_newtonian_potential": 4.8791827863146534e-14,
+          "radial_force_gradient_over_newtonian_gradient": 7.780765185796324e-12,
+          "x_r_over_ell": 18.415693535202767
+        },
+        {
+          "force_over_newtonian_force": 4.4515915368782276e-13,
+          "potential_over_newtonian_potential": 2.4011466133686713e-14,
+          "radial_force_gradient_over_newtonian_gradient": 4.138556329639498e-12,
+          "x_r_over_ell": 19.191505170362618
+        },
+        {
+          "force_over_newtonian_force": 2.2109935981413622e-13,
+          "potential_over_newtonian_potential": 1.1468882690745505e-14,
+          "radial_force_gradient_over_newtonian_gradient": 2.1369482804415894e-12,
+          "x_r_over_ell": 19.99999999999999
+        }
+      ]
+    },
+    "distance_ratios": {
+      "adjacent_decay_ratios": [
+        {
+          "far_x_r_over_ell": 0.1,
+          "force_at_far_over_near": 0.9644829718167275,
+          "gradient_at_far_over_near": 0.9958286421976371,
+          "near_x_r_over_ell": 0.03
+        },
+        {
+          "far_x_r_over_ell": 0.3,
+          "force_at_far_over_near": 0.7976488290123239,
+          "gradient_at_far_over_near": 0.933452357769084,
+          "near_x_r_over_ell": 0.1
+        },
+        {
+          "far_x_r_over_ell": 1.0,
+          "force_at_far_over_near": 0.2931987989732655,
+          "gradient_at_far_over_near": 0.4659656299708873,
+          "near_x_r_over_ell": 0.3
+        },
+        {
+          "far_x_r_over_ell": 3.0,
+          "force_at_far_over_near": 0.04284074615907493,
+          "gradient_at_far_over_near": 0.06458499302664454,
+          "near_x_r_over_ell": 1.0
+        },
+        {
+          "far_x_r_over_ell": 10.0,
+          "force_at_far_over_near": 0.0015855121109319885,
+          "gradient_at_far_over_near": 0.0028174961723559286,
+          "near_x_r_over_ell": 3.0
+        }
+      ],
+      "anchors_x_r_over_ell": [
+        0.03,
+        0.1,
+        0.3,
+        1.0,
+        3.0,
+        10.0
+      ],
+      "definition": "ratios use the positive-mode scalar correction only; source and detector masses cancel",
+      "relative_to_reference": [
+        {
+          "force_ratio_to_x_0p1": 1.0368249406377508,
+          "gradient_ratio_to_x_0p1": 1.0041888309148825,
+          "x_r_over_ell": 0.03
+        },
+        {
+          "force_ratio_to_x_0p1": 1.0,
+          "gradient_ratio_to_x_0p1": 1.0,
+          "x_r_over_ell": 0.1
+        },
+        {
+          "force_ratio_to_x_0p1": 0.7976488290123239,
+          "gradient_ratio_to_x_0p1": 0.933452357769084,
+          "x_r_over_ell": 0.3
+        },
+        {
+          "force_ratio_to_x_0p1": 0.23386967866884495,
+          "gradient_ratio_to_x_0p1": 0.4349567159356813,
+          "x_r_over_ell": 1.0
+        },
+        {
+          "force_ratio_to_x_0p1": 0.010019151538156409,
+          "gradient_ratio_to_x_0p1": 0.028091676465598188,
+          "x_r_over_ell": 3.0
+        },
+        {
+          "force_ratio_to_x_0p1": 1.5885486105009846e-05,
+          "gradient_ratio_to_x_0p1": 7.914819091688401e-05,
+          "x_r_over_ell": 10.0
+        }
+      ],
+      "response_at_anchors": [
+        {
+          "force_over_newtonian_force": 7.172393766187988e-05,
+          "potential_over_newtonian_potential": 6.576023335255174e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201294907420196e-05,
+          "x_r_over_ell": 0.03
+        },
+        {
+          "force_over_newtonian_force": 6.917651654652761e-05,
+          "potential_over_newtonian_potential": 5.3301357445107316e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.171255729721012e-05,
+          "x_r_over_ell": 0.1
+        },
+        {
+          "force_over_newtonian_force": 5.51785674184894e-05,
+          "potential_over_newtonian_potential": 2.9769283473688393e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.694025569073132e-05,
+          "x_r_over_ell": 0.3
+        },
+        {
+          "force_over_newtonian_force": 1.617828969616645e-05,
+          "potential_over_newtonian_potential": 4.830956926906157e-06,
+          "radial_force_gradient_over_newtonian_gradient": 3.119185841334389e-05,
+          "x_r_over_ell": 1.0
+        },
+        {
+          "force_over_newtonian_force": 6.930900021614444e-07,
+          "potential_over_newtonian_potential": 1.3514905609174027e-07,
+          "radial_force_gradient_over_newtonian_gradient": 2.014525958113899e-06,
+          "x_r_over_ell": 3.0
+        },
+        {
+          "force_over_newtonian_force": 1.0989025923928482e-09,
+          "potential_over_newtonian_potential": 1.0777180816850583e-10,
+          "radial_force_gradient_over_newtonian_gradient": 5.67591917609757e-09,
+          "x_r_over_ell": 10.0
+        }
+      ]
+    },
+    "equations": {
+      "distance_variable": "x=r/ell",
+      "mode_strength": "alpha_n=2*beta_n(source)*beta_n(detector); this artifact uses the same derived UV beta_n for both",
+      "physical_mass": "m_n=mu_n/ell",
+      "physical_range": "lambda_n=ell/mu_n",
+      "point_source_force": "F_phi/F_Newton=sum_n alpha_n*(1+mu_n*x)*exp(-mu_n*x)",
+      "point_source_potential": "V_phi/V_Newton=sum_n alpha_n*exp(-mu_n*x)",
+      "radial_force_gradient": "|dF_phi/dr|/|dF_Newton/dr|=sum_n alpha_n*(1+mu_n*x+(mu_n*x)^2/2)*exp(-mu_n*x)"
+    },
+    "freeze_rules": [
+      "fix the boundary action, matter slice, and ell without reading the target experiment",
+      "calibrate the mechanical transfer with an ordinary independent actuator",
+      "freeze source geometry, distance bins, null arms, and excluded data before unblinding",
+      "do not infer an ambient mode amplitude from the same material data used to test it"
+    ],
+    "normalized_mechanical_transfer": {
+      "classification": "universal_near_resonance_shape_not_a_detector_calibration",
+      "curve": [
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -10.0,
+          "imag": 0.09900990099009901,
+          "magnitude": 0.09950371902099892,
+          "phase_rad": 1.4711276743037347,
+          "power_gain": 0.009900990099009901,
+          "real": 0.009900990099009901
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -9.875,
+          "imag": 0.10023790642347344,
+          "magnitude": 0.10075055368681525,
+          "phase_rad": 1.4698745421276027,
+          "power_gain": 0.010150674068199842,
+          "real": 0.010150674068199842
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -9.75,
+          "imag": 0.1014964216005205,
+          "magnitude": 0.10202886549856946,
+          "phase_rad": 1.468589608687643,
+          "power_gain": 0.01040988939492518,
+          "real": 0.01040988939492518
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -9.625,
+          "imag": 0.10278658434840647,
+          "magnitude": 0.10333985507338243,
+          "phase_rad": 1.4672716522843523,
+          "power_gain": 0.010679125646587686,
+          "real": 0.010679125646587686
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -9.5,
+          "imag": 0.10410958904109589,
+          "magnitude": 0.10468478451804275,
+          "phase_rad": 1.4659193880646628,
+          "power_gain": 0.010958904109589041,
+          "real": 0.010958904109589041
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -9.375,
+          "imag": 0.10546669010370892,
+          "magnitude": 0.10606498139220576,
+          "phase_rad": 1.4645314639038178,
+          "power_gain": 0.01124978027772895,
+          "real": 0.01124978027772895
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -9.25,
+          "imag": 0.10685920577617329,
+          "magnitude": 0.10748184298009181,
+          "phase_rad": 1.463106455962076,
+          "power_gain": 0.011552346570397111,
+          "real": 0.011552346570397111
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -9.125,
+          "imag": 0.10828852215835343,
+          "magnitude": 0.10893684089886685,
+          "phase_rad": 1.4616428638860188,
+          "power_gain": 0.011867235305025033,
+          "real": 0.011867235305025033
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -9.0,
+          "imag": 0.10975609756097561,
+          "magnitude": 0.11043152607484653,
+          "phase_rad": 1.460139105621001,
+          "power_gain": 0.012195121951219513,
+          "real": 0.012195121951219513
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -8.875,
+          "imag": 0.11126346718903037,
+          "magnitude": 0.11196753412197455,
+          "phase_rad": 1.4585935117976423,
+          "power_gain": 0.012536728697355533,
+          "real": 0.012536728697355533
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -8.75,
+          "imag": 0.11281224818694602,
+          "magnitude": 0.11354659116073192,
+          "phase_rad": 1.4570043196511886,
+          "power_gain": 0.0128928283642224,
+          "real": 0.0128928283642224
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -8.625,
+          "imag": 0.1144041450777202,
+          "magnitude": 0.11517052011979112,
+          "phase_rad": 1.4553696664279718,
+          "power_gain": 0.013264248704663213,
+          "real": 0.013264248704663213
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -8.5,
+          "imag": 0.11604095563139932,
+          "magnitude": 0.1168412475673972,
+          "phase_rad": 1.4536875822280324,
+          "power_gain": 0.013651877133105802,
+          "real": 0.013651877133105802
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -8.375,
+          "imag": 0.11772457720184494,
+          "magnitude": 0.11856081112470786,
+          "phase_rad": 1.4519559822271315,
+          "power_gain": 0.01405666593454865,
+          "real": 0.01405666593454865
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -8.25,
+          "imag": 0.11945701357466064,
+          "magnitude": 0.12033136751923737,
+          "phase_rad": 1.4501726582147938,
+          "power_gain": 0.014479638009049774,
+          "real": 0.014479638009049774
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -8.125,
+          "imag": 0.12124038237351364,
+          "magnitude": 0.12215520134321615,
+          "phase_rad": 1.4483352693775553,
+          "power_gain": 0.014921893215201678,
+          "real": 0.014921893215201678
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -8.0,
+          "imag": 0.12307692307692308,
+          "magnitude": 0.12403473458920847,
+          "phase_rad": 1.446441332248135,
+          "power_gain": 0.015384615384615385,
+          "real": 0.015384615384615385
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -7.875,
+          "imag": 0.12496900570295066,
+          "magnitude": 0.12597253704384767,
+          "phase_rad": 1.4444882097316563,
+          "power_gain": 0.015869080089263576,
+          "real": 0.015869080089263576
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -7.75,
+          "imag": 0.1269191402251791,
+          "magnitude": 0.12797133763019677,
+          "phase_rad": 1.442473099109102,
+          "power_gain": 0.016376663254861822,
+          "real": 0.016376663254861822
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -7.625,
+          "imag": 0.12892998678996037,
+          "magnitude": 0.13003403680018621,
+          "phase_rad": 1.4403930189057632,
+          "power_gain": 0.01690885072655218,
+          "real": 0.01690885072655218
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -7.5,
+          "imag": 0.13100436681222707,
+          "magnitude": 0.13216372009101796,
+          "phase_rad": 1.4382447944982226,
+          "power_gain": 0.017467248908296942,
+          "real": 0.017467248908296942
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -7.375,
+          "imag": 0.13314527503526094,
+          "magnitude": 0.13436367297357807,
+          "phase_rad": 1.4360250423171654,
+          "power_gain": 0.018053596614950634,
+          "real": 0.018053596614950634
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -7.25,
+          "imag": 0.1353558926487748,
+          "magnitude": 0.13663739713703102,
+          "phase_rad": 1.433730152484709,
+          "power_gain": 0.01866977829638273,
+          "real": 0.01866977829638273
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -7.125,
+          "imag": 0.13763960156957442,
+          "magnitude": 0.13898862837218867,
+          "phase_rad": 1.431356269703559,
+          "power_gain": 0.01931783881678237,
+          "real": 0.01931783881678237
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -7.0,
+          "imag": 0.14,
+          "magnitude": 0.1414213562373095,
+          "phase_rad": 1.4288992721907328,
+          "power_gain": 0.02,
+          "real": 0.02
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -6.875,
+          "imag": 0.1424409193913888,
+          "magnitude": 0.14393984571411075,
+          "phase_rad": 1.4263547484202526,
+          "power_gain": 0.020718679184202008,
+          "real": 0.020718679184202008
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -6.75,
+          "imag": 0.14496644295302014,
+          "magnitude": 0.14654866108946232,
+          "phase_rad": 1.423717971406494,
+          "power_gain": 0.021476510067114093,
+          "real": 0.021476510067114093
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -6.625,
+          "imag": 0.14758092586146884,
+          "magnitude": 0.14925269233005106,
+          "phase_rad": 1.4209838702219992,
+          "power_gain": 0.022276366167768884,
+          "real": 0.022276366167768884
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -6.5,
+          "imag": 0.15028901734104047,
+          "magnitude": 0.1520571842539411,
+          "phase_rad": 1.4181469983996315,
+          "power_gain": 0.023121387283236993,
+          "real": 0.023121387283236993
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -6.375,
+          "imag": 0.15309568480300187,
+          "magnitude": 0.15496776884521193,
+          "phase_rad": 1.415201498817867,
+          "power_gain": 0.02401500938086304,
+          "real": 0.02401500938086304
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -6.25,
+          "imag": 0.15600624024961,
+          "magnitude": 0.15799050110667284,
+          "phase_rad": 1.4121410646084953,
+          "power_gain": 0.0249609984399376,
+          "real": 0.0249609984399376
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -6.125,
+          "imag": 0.159026369168357,
+          "magnitude": 0.16113189890215215,
+          "phase_rad": 1.4089588955564738,
+          "power_gain": 0.025963488843813387,
+          "real": 0.025963488843813387
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -6.0,
+          "imag": 0.16216216216216217,
+          "magnitude": 0.1643989873053573,
+          "phase_rad": 1.4056476493802699,
+          "power_gain": 0.02702702702702703,
+          "real": 0.02702702702702703
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -5.875,
+          "imag": 0.16542014958205015,
+          "magnitude": 0.16779934804836205,
+          "phase_rad": 1.402199387185467,
+          "power_gain": 0.028156621205455347,
+          "real": 0.028156621205455347
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -5.75,
+          "imag": 0.1688073394495413,
+          "magnitude": 0.17134117475124774,
+          "phase_rad": 1.3986055122719576,
+          "power_gain": 0.029357798165137616,
+          "real": 0.029357798165137616
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -5.625,
+          "imag": 0.1723312589755864,
+          "magnitude": 0.17503333471749452,
+          "phase_rad": 1.3948567013423687,
+          "power_gain": 0.030636668262326472,
+          "real": 0.030636668262326472
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -5.5,
+          "imag": 0.176,
+          "magnitude": 0.17888543819998318,
+          "phase_rad": 1.3909428270024184,
+          "power_gain": 0.032,
+          "real": 0.032
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -5.375,
+          "imag": 0.17982226868792472,
+          "magnitude": 0.18290791618299246,
+          "phase_rad": 1.3868528702577214,
+          "power_gain": 0.0334553058024046,
+          "real": 0.0334553058024046
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -5.25,
+          "imag": 0.1838074398249453,
+          "magnitude": 0.1871121078899952,
+          "phase_rad": 1.382574821490126,
+          "power_gain": 0.0350109409190372,
+          "real": 0.0350109409190372
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -5.125,
+          "imag": 0.18796561604584527,
+          "magnitude": 0.19151035941964858,
+          "phase_rad": 1.378095568132511,
+          "power_gain": 0.03667621776504298,
+          "real": 0.03667621776504298
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -5.0,
+          "imag": 0.19230769230769232,
+          "magnitude": 0.19611613513818404,
+          "phase_rad": 1.373400766945016,
+          "power_gain": 0.038461538461538464,
+          "real": 0.038461538461538464
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -4.875,
+          "imag": 0.1968454258675079,
+          "magnitude": 0.20094414372133132,
+          "phase_rad": 1.368474698416593,
+          "power_gain": 0.04037854889589906,
+          "real": 0.04037854889589906
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -4.75,
+          "imag": 0.20159151193633953,
+          "magnitude": 0.2060104810498419,
+          "phase_rad": 1.3633001003596938,
+          "power_gain": 0.042440318302387266,
+          "real": 0.042440318302387266
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -4.625,
+          "imag": 0.20655966503838102,
+          "magnitude": 0.21133279252753887,
+          "phase_rad": 1.3578579772154995,
+          "power_gain": 0.044661549197487785,
+          "real": 0.044661549197487785
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -4.5,
+          "imag": 0.21176470588235294,
+          "magnitude": 0.21693045781865616,
+          "phase_rad": 1.3521273809209546,
+          "power_gain": 0.047058823529411764,
+          "real": 0.047058823529411764
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -4.375,
+          "imag": 0.21722265321955003,
+          "magnitude": 0.22282480150214112,
+          "phase_rad": 1.346085158380254,
+          "power_gain": 0.04965089216446858,
+          "real": 0.04965089216446858
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -4.25,
+          "imag": 0.22295081967213115,
+          "magnitude": 0.2290393337255473,
+          "phase_rad": 1.3397056595989996,
+          "power_gain": 0.05245901639344262,
+          "real": 0.05245901639344262
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -4.125,
+          "imag": 0.22896790980052037,
+          "magnitude": 0.23560002562150417,
+          "phase_rad": 1.332960399337446,
+          "power_gain": 0.055507372072853424,
+          "real": 0.055507372072853424
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -4.0,
+          "imag": 0.23529411764705882,
+          "magnitude": 0.24253562503633297,
+          "phase_rad": 1.3258176636680326,
+          "power_gain": 0.058823529411764705,
+          "real": 0.058823529411764705
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -3.875,
+          "imag": 0.24195121951219511,
+          "magnitude": 0.2498780190217697,
+          "phase_rad": 1.3182420510168371,
+          "power_gain": 0.0624390243902439,
+          "real": 0.0624390243902439
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -3.75,
+          "imag": 0.24896265560165975,
+          "magnitude": 0.25766265056033233,
+          "phase_rad": 1.3101939350475555,
+          "power_gain": 0.06639004149377593,
+          "real": 0.06639004149377593
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -3.625,
+          "imag": 0.256353591160221,
+          "magnitude": 0.26592899812581344,
+          "phase_rad": 1.3016288340091962,
+          "power_gain": 0.0707182320441989,
+          "real": 0.0707182320441989
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -3.5,
+          "imag": 0.2641509433962264,
+          "magnitude": 0.27472112789737807,
+          "phase_rad": 1.2924966677897853,
+          "power_gain": 0.07547169811320754,
+          "real": 0.07547169811320754
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -3.375,
+          "imag": 0.2723833543505675,
+          "magnitude": 0.284088329691374,
+          "phase_rad": 1.2827408797442708,
+          "power_gain": 0.0807061790668348,
+          "real": 0.0807061790668348
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -3.25,
+          "imag": 0.2810810810810811,
+          "magnitude": 0.2940858488375231,
+          "phase_rad": 1.2722973952087173,
+          "power_gain": 0.08648648648648649,
+          "real": 0.08648648648648649
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -3.125,
+          "imag": 0.29027576197387517,
+          "magnitude": 0.3047757271037837,
+          "phase_rad": 1.2610933822524404,
+          "power_gain": 0.09288824383164006,
+          "real": 0.09288824383164006
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -3.0,
+          "imag": 0.3,
+          "magnitude": 0.31622776601683794,
+          "phase_rad": 1.2490457723982544,
+          "power_gain": 0.1,
+          "real": 0.1
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -2.875,
+          "imag": 0.3102866779089376,
+          "magnitude": 0.3285206249412727,
+          "phase_rad": 1.2360594894780819,
+          "power_gain": 0.10792580101180438,
+          "real": 0.10792580101180438
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -2.75,
+          "imag": 0.32116788321167883,
+          "magnitude": 0.3417430630867044,
+          "phase_rad": 1.2220253232109897,
+          "power_gain": 0.11678832116788321,
+          "real": 0.11678832116788321
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -2.625,
+          "imag": 0.3326732673267327,
+          "magnitude": 0.3559953275919878,
+          "phase_rad": 1.2068173702852525,
+          "power_gain": 0.12673267326732673,
+          "real": 0.12673267326732673
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -2.5,
+          "imag": 0.3448275862068966,
+          "magnitude": 0.3713906763541037,
+          "phase_rad": 1.1902899496825317,
+          "power_gain": 0.13793103448275862,
+          "real": 0.13793103448275862
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -2.375,
+          "imag": 0.35764705882352943,
+          "magnitude": 0.38805700005813276,
+          "phase_rad": 1.1722738811284763,
+          "power_gain": 0.15058823529411763,
+          "real": 0.15058823529411763
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -2.25,
+          "imag": 0.3711340206185567,
+          "magnitude": 0.40613846605344767,
+          "phase_rad": 1.1525719972156676,
+          "power_gain": 0.16494845360824742,
+          "real": 0.16494845360824742
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -2.125,
+          "imag": 0.38526912181303113,
+          "magnitude": 0.4257970363298796,
+          "phase_rad": 1.1309537439791604,
+          "power_gain": 0.1813031161473088,
+          "real": 0.1813031161473088
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -2.0,
+          "imag": 0.4,
+          "magnitude": 0.4472135954999579,
+          "phase_rad": 1.1071487177940904,
+          "power_gain": 0.2,
+          "real": 0.2
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -1.875,
+          "imag": 0.41522491349480967,
+          "magnitude": 0.47058823529411764,
+          "phase_rad": 1.0808390005411683,
+          "power_gain": 0.22145328719723184,
+          "real": 0.22145328719723184
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -1.75,
+          "imag": 0.4307692307692308,
+          "magnitude": 0.49613893835683387,
+          "phase_rad": 1.0516502125483738,
+          "power_gain": 0.24615384615384617,
+          "real": 0.24615384615384617
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -1.625,
+          "imag": 0.44635193133047213,
+          "magnitude": 0.5240974256643347,
+          "phase_rad": 1.0191413442663497,
+          "power_gain": 0.27467811158798283,
+          "real": 0.27467811158798283
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -1.5,
+          "imag": 0.46153846153846156,
+          "magnitude": 0.5547001962252291,
+          "phase_rad": 0.982793723247329,
+          "power_gain": 0.3076923076923077,
+          "real": 0.3076923076923077
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -1.375,
+          "imag": 0.4756756756756757,
+          "magnitude": 0.5881716976750462,
+          "phase_rad": 0.9420000403794636,
+          "power_gain": 0.34594594594594597,
+          "real": 0.34594594594594597
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -1.25,
+          "imag": 0.4878048780487805,
+          "magnitude": 0.6246950475544243,
+          "phase_rad": 0.8960553845713439,
+          "power_gain": 0.3902439024390244,
+          "real": 0.3902439024390244
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -1.125,
+          "imag": 0.496551724137931,
+          "magnitude": 0.6643638388299198,
+          "phase_rad": 0.844153986113171,
+          "power_gain": 0.4413793103448276,
+          "real": 0.4413793103448276
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -1.0,
+          "imag": 0.5,
+          "magnitude": 0.7071067811865475,
+          "phase_rad": 0.7853981633974483,
+          "power_gain": 0.5,
+          "real": 0.5
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -0.875,
+          "imag": 0.49557522123893805,
+          "magnitude": 0.7525766947068778,
+          "phase_rad": 0.7188299996216245,
+          "power_gain": 0.5663716814159292,
+          "real": 0.5663716814159292
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -0.75,
+          "imag": 0.48,
+          "magnitude": 0.8,
+          "phase_rad": 0.6435011087932844,
+          "power_gain": 0.64,
+          "real": 0.64
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -0.625,
+          "imag": 0.449438202247191,
+          "magnitude": 0.847998304005088,
+          "phase_rad": 0.5585993153435624,
+          "power_gain": 0.7191011235955056,
+          "real": 0.7191011235955056
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -0.5,
+          "imag": 0.4,
+          "magnitude": 0.8944271909999159,
+          "phase_rad": 0.4636476090008061,
+          "power_gain": 0.8,
+          "real": 0.8
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -0.375,
+          "imag": 0.3287671232876712,
+          "magnitude": 0.9363291775690445,
+          "phase_rad": 0.35877067027057225,
+          "power_gain": 0.8767123287671232,
+          "real": 0.8767123287671232
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -0.25,
+          "imag": 0.23529411764705882,
+          "magnitude": 0.9701425001453319,
+          "phase_rad": 0.24497866312686414,
+          "power_gain": 0.9411764705882353,
+          "real": 0.9411764705882353
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": -0.125,
+          "imag": 0.12307692307692308,
+          "magnitude": 0.9922778767136677,
+          "phase_rad": 0.12435499454676144,
+          "power_gain": 0.9846153846153847,
+          "real": 0.9846153846153847
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 0.0,
+          "imag": -0.0,
+          "magnitude": 1.0,
+          "phase_rad": -0.0,
+          "power_gain": 1.0,
+          "real": 1.0
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 0.125,
+          "imag": -0.12307692307692308,
+          "magnitude": 0.9922778767136677,
+          "phase_rad": -0.12435499454676144,
+          "power_gain": 0.9846153846153847,
+          "real": 0.9846153846153847
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 0.25,
+          "imag": -0.23529411764705882,
+          "magnitude": 0.9701425001453319,
+          "phase_rad": -0.24497866312686414,
+          "power_gain": 0.9411764705882353,
+          "real": 0.9411764705882353
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 0.375,
+          "imag": -0.3287671232876712,
+          "magnitude": 0.9363291775690445,
+          "phase_rad": -0.35877067027057225,
+          "power_gain": 0.8767123287671232,
+          "real": 0.8767123287671232
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 0.5,
+          "imag": -0.4,
+          "magnitude": 0.8944271909999159,
+          "phase_rad": -0.4636476090008061,
+          "power_gain": 0.8,
+          "real": 0.8
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 0.625,
+          "imag": -0.449438202247191,
+          "magnitude": 0.847998304005088,
+          "phase_rad": -0.5585993153435624,
+          "power_gain": 0.7191011235955056,
+          "real": 0.7191011235955056
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 0.75,
+          "imag": -0.48,
+          "magnitude": 0.8,
+          "phase_rad": -0.6435011087932844,
+          "power_gain": 0.64,
+          "real": 0.64
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 0.875,
+          "imag": -0.49557522123893805,
+          "magnitude": 0.7525766947068778,
+          "phase_rad": -0.7188299996216245,
+          "power_gain": 0.5663716814159292,
+          "real": 0.5663716814159292
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 1.0,
+          "imag": -0.5,
+          "magnitude": 0.7071067811865475,
+          "phase_rad": -0.7853981633974483,
+          "power_gain": 0.5,
+          "real": 0.5
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 1.125,
+          "imag": -0.496551724137931,
+          "magnitude": 0.6643638388299198,
+          "phase_rad": -0.844153986113171,
+          "power_gain": 0.4413793103448276,
+          "real": 0.4413793103448276
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 1.25,
+          "imag": -0.4878048780487805,
+          "magnitude": 0.6246950475544243,
+          "phase_rad": -0.8960553845713439,
+          "power_gain": 0.3902439024390244,
+          "real": 0.3902439024390244
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 1.375,
+          "imag": -0.4756756756756757,
+          "magnitude": 0.5881716976750462,
+          "phase_rad": -0.9420000403794636,
+          "power_gain": 0.34594594594594597,
+          "real": 0.34594594594594597
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 1.5,
+          "imag": -0.46153846153846156,
+          "magnitude": 0.5547001962252291,
+          "phase_rad": -0.982793723247329,
+          "power_gain": 0.3076923076923077,
+          "real": 0.3076923076923077
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 1.625,
+          "imag": -0.44635193133047213,
+          "magnitude": 0.5240974256643347,
+          "phase_rad": -1.0191413442663497,
+          "power_gain": 0.27467811158798283,
+          "real": 0.27467811158798283
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 1.75,
+          "imag": -0.4307692307692308,
+          "magnitude": 0.49613893835683387,
+          "phase_rad": -1.0516502125483738,
+          "power_gain": 0.24615384615384617,
+          "real": 0.24615384615384617
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 1.875,
+          "imag": -0.41522491349480967,
+          "magnitude": 0.47058823529411764,
+          "phase_rad": -1.0808390005411683,
+          "power_gain": 0.22145328719723184,
+          "real": 0.22145328719723184
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 2.0,
+          "imag": -0.4,
+          "magnitude": 0.4472135954999579,
+          "phase_rad": -1.1071487177940904,
+          "power_gain": 0.2,
+          "real": 0.2
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 2.125,
+          "imag": -0.38526912181303113,
+          "magnitude": 0.4257970363298796,
+          "phase_rad": -1.1309537439791604,
+          "power_gain": 0.1813031161473088,
+          "real": 0.1813031161473088
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 2.25,
+          "imag": -0.3711340206185567,
+          "magnitude": 0.40613846605344767,
+          "phase_rad": -1.1525719972156676,
+          "power_gain": 0.16494845360824742,
+          "real": 0.16494845360824742
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 2.375,
+          "imag": -0.35764705882352943,
+          "magnitude": 0.38805700005813276,
+          "phase_rad": -1.1722738811284763,
+          "power_gain": 0.15058823529411763,
+          "real": 0.15058823529411763
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 2.5,
+          "imag": -0.3448275862068966,
+          "magnitude": 0.3713906763541037,
+          "phase_rad": -1.1902899496825317,
+          "power_gain": 0.13793103448275862,
+          "real": 0.13793103448275862
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 2.625,
+          "imag": -0.3326732673267327,
+          "magnitude": 0.3559953275919878,
+          "phase_rad": -1.2068173702852525,
+          "power_gain": 0.12673267326732673,
+          "real": 0.12673267326732673
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 2.75,
+          "imag": -0.32116788321167883,
+          "magnitude": 0.3417430630867044,
+          "phase_rad": -1.2220253232109897,
+          "power_gain": 0.11678832116788321,
+          "real": 0.11678832116788321
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 2.875,
+          "imag": -0.3102866779089376,
+          "magnitude": 0.3285206249412727,
+          "phase_rad": -1.2360594894780819,
+          "power_gain": 0.10792580101180438,
+          "real": 0.10792580101180438
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 3.0,
+          "imag": -0.3,
+          "magnitude": 0.31622776601683794,
+          "phase_rad": -1.2490457723982544,
+          "power_gain": 0.1,
+          "real": 0.1
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 3.125,
+          "imag": -0.29027576197387517,
+          "magnitude": 0.3047757271037837,
+          "phase_rad": -1.2610933822524404,
+          "power_gain": 0.09288824383164006,
+          "real": 0.09288824383164006
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 3.25,
+          "imag": -0.2810810810810811,
+          "magnitude": 0.2940858488375231,
+          "phase_rad": -1.2722973952087173,
+          "power_gain": 0.08648648648648649,
+          "real": 0.08648648648648649
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 3.375,
+          "imag": -0.2723833543505675,
+          "magnitude": 0.284088329691374,
+          "phase_rad": -1.2827408797442708,
+          "power_gain": 0.0807061790668348,
+          "real": 0.0807061790668348
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 3.5,
+          "imag": -0.2641509433962264,
+          "magnitude": 0.27472112789737807,
+          "phase_rad": -1.2924966677897853,
+          "power_gain": 0.07547169811320754,
+          "real": 0.07547169811320754
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 3.625,
+          "imag": -0.256353591160221,
+          "magnitude": 0.26592899812581344,
+          "phase_rad": -1.3016288340091962,
+          "power_gain": 0.0707182320441989,
+          "real": 0.0707182320441989
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 3.75,
+          "imag": -0.24896265560165975,
+          "magnitude": 0.25766265056033233,
+          "phase_rad": -1.3101939350475555,
+          "power_gain": 0.06639004149377593,
+          "real": 0.06639004149377593
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 3.875,
+          "imag": -0.24195121951219511,
+          "magnitude": 0.2498780190217697,
+          "phase_rad": -1.3182420510168371,
+          "power_gain": 0.0624390243902439,
+          "real": 0.0624390243902439
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 4.0,
+          "imag": -0.23529411764705882,
+          "magnitude": 0.24253562503633297,
+          "phase_rad": -1.3258176636680326,
+          "power_gain": 0.058823529411764705,
+          "real": 0.058823529411764705
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 4.125,
+          "imag": -0.22896790980052037,
+          "magnitude": 0.23560002562150417,
+          "phase_rad": -1.332960399337446,
+          "power_gain": 0.055507372072853424,
+          "real": 0.055507372072853424
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 4.25,
+          "imag": -0.22295081967213115,
+          "magnitude": 0.2290393337255473,
+          "phase_rad": -1.3397056595989996,
+          "power_gain": 0.05245901639344262,
+          "real": 0.05245901639344262
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 4.375,
+          "imag": -0.21722265321955003,
+          "magnitude": 0.22282480150214112,
+          "phase_rad": -1.346085158380254,
+          "power_gain": 0.04965089216446858,
+          "real": 0.04965089216446858
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 4.5,
+          "imag": -0.21176470588235294,
+          "magnitude": 0.21693045781865616,
+          "phase_rad": -1.3521273809209546,
+          "power_gain": 0.047058823529411764,
+          "real": 0.047058823529411764
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 4.625,
+          "imag": -0.20655966503838102,
+          "magnitude": 0.21133279252753887,
+          "phase_rad": -1.3578579772154995,
+          "power_gain": 0.044661549197487785,
+          "real": 0.044661549197487785
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 4.75,
+          "imag": -0.20159151193633953,
+          "magnitude": 0.2060104810498419,
+          "phase_rad": -1.3633001003596938,
+          "power_gain": 0.042440318302387266,
+          "real": 0.042440318302387266
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 4.875,
+          "imag": -0.1968454258675079,
+          "magnitude": 0.20094414372133132,
+          "phase_rad": -1.368474698416593,
+          "power_gain": 0.04037854889589906,
+          "real": 0.04037854889589906
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 5.0,
+          "imag": -0.19230769230769232,
+          "magnitude": 0.19611613513818404,
+          "phase_rad": -1.373400766945016,
+          "power_gain": 0.038461538461538464,
+          "real": 0.038461538461538464
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 5.125,
+          "imag": -0.18796561604584527,
+          "magnitude": 0.19151035941964858,
+          "phase_rad": -1.378095568132511,
+          "power_gain": 0.03667621776504298,
+          "real": 0.03667621776504298
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 5.25,
+          "imag": -0.1838074398249453,
+          "magnitude": 0.1871121078899952,
+          "phase_rad": -1.382574821490126,
+          "power_gain": 0.0350109409190372,
+          "real": 0.0350109409190372
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 5.375,
+          "imag": -0.17982226868792472,
+          "magnitude": 0.18290791618299246,
+          "phase_rad": -1.3868528702577214,
+          "power_gain": 0.0334553058024046,
+          "real": 0.0334553058024046
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 5.5,
+          "imag": -0.176,
+          "magnitude": 0.17888543819998318,
+          "phase_rad": -1.3909428270024184,
+          "power_gain": 0.032,
+          "real": 0.032
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 5.625,
+          "imag": -0.1723312589755864,
+          "magnitude": 0.17503333471749452,
+          "phase_rad": -1.3948567013423687,
+          "power_gain": 0.030636668262326472,
+          "real": 0.030636668262326472
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 5.75,
+          "imag": -0.1688073394495413,
+          "magnitude": 0.17134117475124774,
+          "phase_rad": -1.3986055122719576,
+          "power_gain": 0.029357798165137616,
+          "real": 0.029357798165137616
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 5.875,
+          "imag": -0.16542014958205015,
+          "magnitude": 0.16779934804836205,
+          "phase_rad": -1.402199387185467,
+          "power_gain": 0.028156621205455347,
+          "real": 0.028156621205455347
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 6.0,
+          "imag": -0.16216216216216217,
+          "magnitude": 0.1643989873053573,
+          "phase_rad": -1.4056476493802699,
+          "power_gain": 0.02702702702702703,
+          "real": 0.02702702702702703
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 6.125,
+          "imag": -0.159026369168357,
+          "magnitude": 0.16113189890215215,
+          "phase_rad": -1.4089588955564738,
+          "power_gain": 0.025963488843813387,
+          "real": 0.025963488843813387
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 6.25,
+          "imag": -0.15600624024961,
+          "magnitude": 0.15799050110667284,
+          "phase_rad": -1.4121410646084953,
+          "power_gain": 0.0249609984399376,
+          "real": 0.0249609984399376
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 6.375,
+          "imag": -0.15309568480300187,
+          "magnitude": 0.15496776884521193,
+          "phase_rad": -1.415201498817867,
+          "power_gain": 0.02401500938086304,
+          "real": 0.02401500938086304
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 6.5,
+          "imag": -0.15028901734104047,
+          "magnitude": 0.1520571842539411,
+          "phase_rad": -1.4181469983996315,
+          "power_gain": 0.023121387283236993,
+          "real": 0.023121387283236993
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 6.625,
+          "imag": -0.14758092586146884,
+          "magnitude": 0.14925269233005106,
+          "phase_rad": -1.4209838702219992,
+          "power_gain": 0.022276366167768884,
+          "real": 0.022276366167768884
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 6.75,
+          "imag": -0.14496644295302014,
+          "magnitude": 0.14654866108946232,
+          "phase_rad": -1.423717971406494,
+          "power_gain": 0.021476510067114093,
+          "real": 0.021476510067114093
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 6.875,
+          "imag": -0.1424409193913888,
+          "magnitude": 0.14393984571411075,
+          "phase_rad": -1.4263547484202526,
+          "power_gain": 0.020718679184202008,
+          "real": 0.020718679184202008
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 7.0,
+          "imag": -0.14,
+          "magnitude": 0.1414213562373095,
+          "phase_rad": -1.4288992721907328,
+          "power_gain": 0.02,
+          "real": 0.02
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 7.125,
+          "imag": -0.13763960156957442,
+          "magnitude": 0.13898862837218867,
+          "phase_rad": -1.431356269703559,
+          "power_gain": 0.01931783881678237,
+          "real": 0.01931783881678237
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 7.25,
+          "imag": -0.1353558926487748,
+          "magnitude": 0.13663739713703102,
+          "phase_rad": -1.433730152484709,
+          "power_gain": 0.01866977829638273,
+          "real": 0.01866977829638273
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 7.375,
+          "imag": -0.13314527503526094,
+          "magnitude": 0.13436367297357807,
+          "phase_rad": -1.4360250423171654,
+          "power_gain": 0.018053596614950634,
+          "real": 0.018053596614950634
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 7.5,
+          "imag": -0.13100436681222707,
+          "magnitude": 0.13216372009101796,
+          "phase_rad": -1.4382447944982226,
+          "power_gain": 0.017467248908296942,
+          "real": 0.017467248908296942
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 7.625,
+          "imag": -0.12892998678996037,
+          "magnitude": 0.13003403680018621,
+          "phase_rad": -1.4403930189057632,
+          "power_gain": 0.01690885072655218,
+          "real": 0.01690885072655218
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 7.75,
+          "imag": -0.1269191402251791,
+          "magnitude": 0.12797133763019677,
+          "phase_rad": -1.442473099109102,
+          "power_gain": 0.016376663254861822,
+          "real": 0.016376663254861822
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 7.875,
+          "imag": -0.12496900570295066,
+          "magnitude": 0.12597253704384767,
+          "phase_rad": -1.4444882097316563,
+          "power_gain": 0.015869080089263576,
+          "real": 0.015869080089263576
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 8.0,
+          "imag": -0.12307692307692308,
+          "magnitude": 0.12403473458920847,
+          "phase_rad": -1.446441332248135,
+          "power_gain": 0.015384615384615385,
+          "real": 0.015384615384615385
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 8.125,
+          "imag": -0.12124038237351364,
+          "magnitude": 0.12215520134321615,
+          "phase_rad": -1.4483352693775553,
+          "power_gain": 0.014921893215201678,
+          "real": 0.014921893215201678
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 8.25,
+          "imag": -0.11945701357466064,
+          "magnitude": 0.12033136751923737,
+          "phase_rad": -1.4501726582147938,
+          "power_gain": 0.014479638009049774,
+          "real": 0.014479638009049774
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 8.375,
+          "imag": -0.11772457720184494,
+          "magnitude": 0.11856081112470786,
+          "phase_rad": -1.4519559822271315,
+          "power_gain": 0.01405666593454865,
+          "real": 0.01405666593454865
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 8.5,
+          "imag": -0.11604095563139932,
+          "magnitude": 0.1168412475673972,
+          "phase_rad": -1.4536875822280324,
+          "power_gain": 0.013651877133105802,
+          "real": 0.013651877133105802
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 8.625,
+          "imag": -0.1144041450777202,
+          "magnitude": 0.11517052011979112,
+          "phase_rad": -1.4553696664279718,
+          "power_gain": 0.013264248704663213,
+          "real": 0.013264248704663213
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 8.75,
+          "imag": -0.11281224818694602,
+          "magnitude": 0.11354659116073192,
+          "phase_rad": -1.4570043196511886,
+          "power_gain": 0.0128928283642224,
+          "real": 0.0128928283642224
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 8.875,
+          "imag": -0.11126346718903037,
+          "magnitude": 0.11196753412197455,
+          "phase_rad": -1.4585935117976423,
+          "power_gain": 0.012536728697355533,
+          "real": 0.012536728697355533
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 9.0,
+          "imag": -0.10975609756097561,
+          "magnitude": 0.11043152607484653,
+          "phase_rad": -1.460139105621001,
+          "power_gain": 0.012195121951219513,
+          "real": 0.012195121951219513
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 9.125,
+          "imag": -0.10828852215835343,
+          "magnitude": 0.10893684089886685,
+          "phase_rad": -1.4616428638860188,
+          "power_gain": 0.011867235305025033,
+          "real": 0.011867235305025033
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 9.25,
+          "imag": -0.10685920577617329,
+          "magnitude": 0.10748184298009181,
+          "phase_rad": -1.463106455962076,
+          "power_gain": 0.011552346570397111,
+          "real": 0.011552346570397111
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 9.375,
+          "imag": -0.10546669010370892,
+          "magnitude": 0.10606498139220576,
+          "phase_rad": -1.4645314639038178,
+          "power_gain": 0.01124978027772895,
+          "real": 0.01124978027772895
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 9.5,
+          "imag": -0.10410958904109589,
+          "magnitude": 0.10468478451804275,
+          "phase_rad": -1.4659193880646628,
+          "power_gain": 0.010958904109589041,
+          "real": 0.010958904109589041
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 9.625,
+          "imag": -0.10278658434840647,
+          "magnitude": 0.10333985507338243,
+          "phase_rad": -1.4672716522843523,
+          "power_gain": 0.010679125646587686,
+          "real": 0.010679125646587686
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 9.75,
+          "imag": -0.1014964216005205,
+          "magnitude": 0.10202886549856946,
+          "phase_rad": -1.468589608687643,
+          "power_gain": 0.01040988939492518,
+          "real": 0.01040988939492518
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 9.875,
+          "imag": -0.10023790642347344,
+          "magnitude": 0.10075055368681525,
+          "phase_rad": -1.4698745421276027,
+          "power_gain": 0.010150674068199842,
+          "real": 0.010150674068199842
+        },
+        {
+          "delta_2Q_omega_minus_omega0_over_omega0": 10.0,
+          "imag": -0.09900990099009901,
+          "magnitude": 0.09950371902099892,
+          "phase_rad": -1.4711276743037347,
+          "power_gain": 0.009900990099009901,
+          "real": 0.009900990099009901
+        }
+      ],
+      "exact_single_mode_equation": "q/F = [M_eff*omega_0^2*(1-s^2+i*s/Q)]^-1, s=omega/omega_0",
+      "normalization": "unit magnitude and zero phase at resonance; M_eff, omega_0, Q, force overlap, and readout gain are not assigned",
+      "normalized_near_resonance_definition": "H_tilde(delta)=H/H(omega_0)=1/(1+i*delta), delta=2Q(omega-omega_0)/omega_0, Q>>1"
+    },
+    "positive_modes": [
+      {
+        "alpha_n_2_beta_squared": 9.94350157607916e-07,
+        "beta_n_uv": 0.0007051064308343514,
+        "mode_index_in_completion": 1,
+        "mu_n": 0.9138989815720246,
+        "range_over_ell": 1.094212839891637
+      },
+      {
+        "alpha_n_2_beta_squared": 4.845470552456976e-06,
+        "beta_n_uv": 0.001556513821406186,
+        "mode_index_in_completion": 2,
+        "mu_n": 1.54169473474637,
+        "range_over_ell": 0.6486368393575098
+      },
+      {
+        "alpha_n_2_beta_squared": 1.0929034273160898e-05,
+        "beta_n_uv": 0.0023376306672741203,
+        "mode_index_in_completion": 3,
+        "mu_n": 2.1337779482329147,
+        "range_over_ell": 0.46865232665289686
+      },
+      {
+        "alpha_n_2_beta_squared": 1.5905542427524888e-05,
+        "beta_n_uv": 0.0028200658172749167,
+        "mode_index_in_completion": 4,
+        "mu_n": 2.728898930852606,
+        "range_over_ell": 0.36644816291806165
+      },
+      {
+        "alpha_n_2_beta_squared": 1.8832750199851983e-05,
+        "beta_n_uv": 0.003068611265691044,
+        "mode_index_in_completion": 5,
+        "mu_n": 3.3366538592352217,
+        "range_over_ell": 0.29970145007166105
+      },
+      {
+        "alpha_n_2_beta_squared": 2.0515851006746042e-05,
+        "beta_n_uv": 0.003202799635221195,
+        "mode_index_in_completion": 6,
+        "mu_n": 3.9544733937818783,
+        "range_over_ell": 0.25287817123069467
+      }
+    ],
+    "provenance": {
+      "generator": "first_principles_audit/prediction_factory/material_prediction_factory.py",
+      "generator_sha256": "76b5581cb4dcff01b9cd47e15f648fdd9fbb27c6e7ced3f38d844f4c533cccc8",
+      "historical_fitted_couplings_reused": [],
+      "input_completion": "first_principles_audit/artifacts/minimal_probe_completion.json",
+      "input_completion_sha256": "7a91f42fad2ca24e57340219a7090f824c801ef3c5ede63fa2100e4e6e83ffa6",
+      "observational_inputs_read": []
+    },
+    "required_external_quantities": {
+      "not_supplied_by_the_frozen_geometry": [
+        "ambient scalar occupation or oscillation amplitude",
+        "laboratory time scale or drive frequency",
+        "atomic-clock coefficients d_e, d_g, or d_mi",
+        "noise model, sensitivity, significance, or a detection threshold"
+      ],
+      "to_convert_x_to_metres": [
+        "ell in metres, fixed independently and before comparison"
+      ],
+      "to_predict_a_source_signal": [
+        "source mass-density geometry and modulation history",
+        "source and detector localization slices if they differ from the frozen UV benchmark",
+        "a retuned mode table if the boundary action differs from the frozen Neumann benchmark"
+      ],
+      "to_predict_detector_displacement": [
+        "detector density and stiffness tensor",
+        "mechanical mode shapes and effective masses",
+        "resonance frequencies, damping or Q, supports, and reference-frame acceleration",
+        "force-overlap integral and readout transfer calibration"
+      ]
+    },
+    "schema_version": "holo.material-prediction-factory.v1",
+    "scope": {
+      "excluded_mode": "the massless Neumann zero mode is deliberately excluded; its viability requires a separate boundary-sector decision",
+      "force_sign": "attractive for equal-sign universal beta_n",
+      "included_modes": "six positive Neumann benchmark modes at the UV probe slice",
+      "source_geometry": "point-source Yukawa kernel; extended sources require volume integration of the same kernel"
+    },
+    "short_distance_limits": {
+      "force_fraction_x_to_0": 7.202299861734871e-05,
+      "gradient_fraction_x_to_0": 7.202299861734871e-05,
+      "potential_fraction_x_to_0": 7.202299861734871e-05,
+      "sum_alpha_n": 7.202299861734871e-05
+    }
+  }
+}

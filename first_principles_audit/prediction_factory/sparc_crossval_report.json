@@ -1,0 +1,408 @@
+{
+  "claim_boundary": "The split was frozen after the historical all-175 fit and all public outcomes existed. Test was excluded from this refit but was not historically blind; this is retrospective cross-validation, not independent confirmation.",
+  "classification": "retrospective_cross_validation_not_blind_confirmation",
+  "data_diagnostics": {
+    "galaxies": 175,
+    "negative_vgas_galaxies": 48,
+    "negative_vgas_points": 361,
+    "points_per_galaxy_max": 115,
+    "points_per_galaxy_median": 14.0,
+    "points_per_galaxy_min": 4,
+    "reported_velocity_error_kms_max": 75.0,
+    "reported_velocity_error_kms_median": 4.6,
+    "reported_velocity_error_kms_min": 0.2,
+    "vbar_vs_unsigned_component_quadrature_max_absdiff_kms": 4.999694169782742e-07,
+    "vbar_warning": "The local Vbar column uses unsigned component quadrature. Negative Vgas signs therefore do not subtract from Vbar; this historical conversion is retained identically for P5 and every baseline in this report.",
+    "velocity_points": 3391,
+    "zero_disk_plus_bulge_surface_brightness_galaxies": 111,
+    "zero_disk_plus_bulge_surface_brightness_points": 280
+  },
+  "frozen_fits": {
+    "newton": {
+      "fitted_parameters": 0
+    },
+    "p5": {
+      "optimizer": {
+        "algorithm": "scipy.optimize.differential_evolution",
+        "bounds": [
+          [
+            0.05,
+            0.8
+          ],
+          [
+            0.5,
+            2.5
+          ],
+          [
+            0.3,
+            2.0
+          ],
+          [
+            0.2,
+            1.0
+          ],
+          [
+            0.1,
+            0.8
+          ]
+        ],
+        "fun": 231.90667025830837,
+        "maxiter": 100,
+        "message": "Maximum number of iterations has been exceeded.",
+        "nfev": 6120,
+        "nit": 100,
+        "objective": "train total diagonal Gaussian chi2 divided by train velocity-point count",
+        "popsize": 12,
+        "seed": 20260829,
+        "success": false
+      },
+      "optimizer_warning": "The differential-evolution budget ended before its convergence criterion and four parameters reached preregistered bounds; treat the returned fit as a bounded best-found estimate, not a certified optimum.",
+      "parameters": {
+        "A": 0.8,
+        "Sigma0": 0.1,
+        "gamma": 0.3166849556893404,
+        "m": 0.3,
+        "n": 0.5
+      },
+      "parameters_at_preregistered_bounds": [
+        {
+          "bound": 0.8,
+          "parameter": "A",
+          "side": "upper"
+        },
+        {
+          "bound": 0.5,
+          "parameter": "n",
+          "side": "lower"
+        },
+        {
+          "bound": 0.3,
+          "parameter": "m",
+          "side": "lower"
+        },
+        {
+          "bound": 0.1,
+          "parameter": "Sigma0",
+          "side": "lower"
+        }
+      ]
+    },
+    "rar": {
+      "g_dagger_m_s2": 4.2806378879877874e-11,
+      "optimizer": {
+        "algorithm": "scipy.optimize.minimize_scalar_bounded",
+        "bounds_log10_g_dagger_m_s2": [
+          -11.0,
+          -9.0
+        ],
+        "fun": 114.15712514794441,
+        "message": "Solution found.",
+        "nfev": 12,
+        "nit": 12,
+        "objective": "train total diagonal Gaussian chi2 divided by train velocity-point count",
+        "success": true
+      }
+    }
+  },
+  "implementation_compatibility": {
+    "artifact_label": "HOLO_runner:A_single_Einstein_Dilaton geometry/artifacts/sparc_forward_eval.json",
+    "artifact_sha256": "a218ead2a7568cfddc5e7c6ce31670aea15fb6cd7e92b9c8e2770257c25f168b",
+    "exact_within_1e_8": true,
+    "galaxies_checked": 175,
+    "legacy_divergence_warning": "The older ed_p5_industrial.py executable used an analytic smoothed delta profile and smoothed delta_missing. The current manuscript artifact instead uses the frozen trace.delta with linear interpolation and no smoothing; this cross-validation targets the current artifact.",
+    "max_abs_diagonal_chi2_difference_p5": 7.275957614183426e-12,
+    "max_abs_rank_loss_difference_newton": 0.0,
+    "max_abs_rank_loss_difference_p5": 0.0,
+    "target": "current manuscript trace-backed sparc_forward_eval artifact"
+  },
+  "interpretation_rules": [
+    "Positive delta_loglike_per_point_left_minus_right favors the left model.",
+    "Absolute chi2 may expose an inadequate diagonal error/model specification even when one model beats another.",
+    "No result in this report is labelled blind, prospective, or confirmed.",
+    "Four P5 boundary hits and optimizer non-convergence are model/fit diagnostics, not evidence for a physical parameter determination.",
+    "All three models use the same historical Vbar column; the unsigned treatment of negative gas contributions and fixed stellar normalization limit the physical interpretation of absolute chi2.",
+    "Changing formula, bounds, error model, split, optimizer objective, or baseline after reading validation/test requires a new version and cannot reuse this test as confirmation."
+  ],
+  "protocol": {
+    "dictionary": "x=r/r_max; z=z_min+(z_max-z_min)*x; linear interpolation of frozen trace.delta",
+    "fit_data": "train only",
+    "p5_fitted_parameters": [
+      "A",
+      "n",
+      "m",
+      "gamma",
+      "Sigma0"
+    ],
+    "p5_formula": "v = Vbar*sqrt(1+clip((1-x^gamma)*delta_ED(z(x)) + x^gamma*A*(1/(1+Sigma_norm/Sigma0))^n*x^m, 0, 0.4))",
+    "per_galaxy_tuning": false,
+    "preregistered_model_list": [
+      "P5 five-global-parameter readout",
+      "Newton baryons-only",
+      "one-global-parameter RAR"
+    ],
+    "primary_fit_score": "total train chi2 / train velocity-point count",
+    "rar_fitted_parameters": [
+      "g_dagger_m_s2"
+    ],
+    "rar_formula": "g_obs=g_bar/(1-exp(-sqrt(g_bar/g_dagger))); v=sqrt(g_obs*r)",
+    "reported_scores": [
+      "diagonal Gaussian log likelihood and chi2 per point",
+      "median galaxy chi2 per point",
+      "galaxy win fraction",
+      "deterministic galaxy-cluster bootstrap intervals"
+    ],
+    "split_counts": {
+      "test": 27,
+      "train": 122,
+      "validation": 26
+    },
+    "split_group_id_sha256": {
+      "test": "ab148a54bf7662cc90650a7bf758f07cb4d9570ef08336b7d39dd8c44fb1ed5b",
+      "train": "00558f28a7f5150500053f8c5a888e77a9516f58a09a4908535f6ffc88fdda12",
+      "validation": "950a742448a7b58f04b21dd997427cd4c833e9b8e7a94793a974e46369a86486"
+    },
+    "split_unit": "galaxy",
+    "test_use": "evaluated last exactly once by the generation run; no refit",
+    "uncertainty_model": "reported eVobs_kms as independent diagonal Gaussian sigma; no intrinsic-scatter or covariance fit",
+    "validation_use": "opened once after fitting; reported only; no hyperparameter or model selection"
+  },
+  "provenance": {
+    "contains_absolute_paths": false,
+    "dataset_aggregate_sha256": "0a8cbe336032c4b2c65c8bc8b0f59f0768fb36e7db921b5a5dc85ff02c75b021",
+    "dataset_files": 175,
+    "dataset_hash_algorithm": "SHA256 over sorted filename, NUL, per-file SHA256, newline",
+    "dataset_label": "HOLO_TRANSDUCTOR_V2:data/external/SPARC/sparc_175",
+    "implementation_label": "prediction_factory:sparc_crossval.py",
+    "implementation_sha256": "d71dfe9138b13d0a55a795ed2b3445ff5268f6746c61709bcc6c4df0f4266539",
+    "raw_data_copied_into_report": false,
+    "split_label": "prediction_factory:sparc_split_v1.json",
+    "split_sha256": "15ca3107e08dd3c2ae41514a156bc915f5be781ef04ebfa452e907e16e2b2476",
+    "trace_label": "HOLO_TRANSDUCTOR_V2:data/internal/holo_physics_trace_ed_industrial.json",
+    "trace_sha256": "e1c4b9d8495a563be31c36ceeeea7575b1d46afae74b45394edb77a8ffb06725"
+  },
+  "results": {
+    "test": {
+      "comparisons": {
+        "p5_vs_newton": {
+          "delta_chi2_left_minus_right": -31697.635316599743,
+          "delta_chi2_per_point_left_minus_right": -51.042891009017296,
+          "delta_loglike_per_point_left_minus_right": 25.521445504508577,
+          "left_win_fraction": 0.8148148148148148,
+          "left_wins_galaxies": 22
+        },
+        "p5_vs_rar": {
+          "delta_chi2_left_minus_right": 88346.97223973335,
+          "delta_chi2_per_point_left_minus_right": 142.26565578056903,
+          "delta_loglike_per_point_left_minus_right": -71.13282789028452,
+          "left_win_fraction": 0.2962962962962963,
+          "left_wins_galaxies": 8
+        },
+        "rar_vs_newton": {
+          "delta_chi2_left_minus_right": -120044.6075563331,
+          "delta_chi2_per_point_left_minus_right": -193.30854678958633,
+          "delta_loglike_per_point_left_minus_right": 96.65427339479311,
+          "left_win_fraction": 0.6666666666666666,
+          "left_wins_galaxies": 18
+        }
+      },
+      "galaxies": 27,
+      "models": {
+        "newton": {
+          "chi2": 157919.6822861177,
+          "chi2_per_point": 254.2990052916549,
+          "loglike": -80550.023890184,
+          "loglike_per_point": -129.71018339804186,
+          "median_galaxy_chi2_per_point": 36.96302553333806,
+          "median_galaxy_loglike_per_point": -21.059737445634635
+        },
+        "p5": {
+          "chi2": 126222.04696951795,
+          "chi2_per_point": 203.2561142826376,
+          "loglike": -64701.20623188417,
+          "loglike_per_point": -104.18873789353329,
+          "median_galaxy_chi2_per_point": 33.26241250881928,
+          "median_galaxy_loglike_per_point": -18.949508379732922
+        },
+        "rar": {
+          "chi2": 37875.074729784596,
+          "chi2_per_point": 60.99045850206859,
+          "loglike": -20527.72011201748,
+          "loglike_per_point": -33.05591000324876,
+          "median_galaxy_chi2_per_point": 12.91511303562766,
+          "median_galaxy_loglike_per_point": -9.030204866867523
+        }
+      },
+      "velocity_points": 621
+    },
+    "test_bootstrap": {
+      "interval": "deterministic percentile 95% interval",
+      "intervals": {
+        "newton_chi2_per_point": {
+          "p2_5": 58.0516497672441,
+          "p50": 245.10095317869946,
+          "p97_5": 622.8600708931008
+        },
+        "newton_median_galaxy_chi2_per_point": {
+          "p2_5": 19.7820989564079,
+          "p50": 36.96302553333806,
+          "p97_5": 64.4033874873377
+        },
+        "p5_chi2_per_point": {
+          "p2_5": 50.110055795599905,
+          "p50": 196.577259151649,
+          "p97_5": 469.99858895148657
+        },
+        "p5_median_galaxy_chi2_per_point": {
+          "p2_5": 10.260756690178994,
+          "p50": 33.26241250881928,
+          "p97_5": 46.8640509695425
+        },
+        "p5_minus_newton_delta_loglike_per_point": {
+          "p2_5": -15.264423168630188,
+          "p50": 23.612126595119804,
+          "p97_5": 81.64915645490852
+        },
+        "p5_minus_rar_delta_loglike_per_point": {
+          "p2_5": -199.42360257787175,
+          "p50": -69.33105202364335,
+          "p97_5": -7.718880761476596
+        },
+        "p5_vs_newton_win_fraction": {
+          "p2_5": 0.6666666666666666,
+          "p50": 0.8148148148148148,
+          "p97_5": 0.9629629629629629
+        },
+        "p5_vs_rar_win_fraction": {
+          "p2_5": 0.14814814814814814,
+          "p50": 0.2962962962962963,
+          "p97_5": 0.48148148148148145
+        },
+        "rar_chi2_per_point": {
+          "p2_5": 25.64234709018877,
+          "p50": 59.846187520533505,
+          "p97_5": 97.2786738659855
+        },
+        "rar_median_galaxy_chi2_per_point": {
+          "p2_5": 5.66038890012396,
+          "p50": 12.91511303562766,
+          "p97_5": 23.128847469900517
+        }
+      },
+      "replicates": 10000,
+      "seed": 5812387,
+      "unit": "galaxy cluster bootstrap; each selected galaxy contributes all radial points"
+    },
+    "train": {
+      "comparisons": {
+        "p5_vs_newton": {
+          "delta_chi2_left_minus_right": -225384.29119612568,
+          "delta_chi2_per_point_left_minus_right": -98.46408527572112,
+          "delta_loglike_per_point_left_minus_right": 49.23204263786059,
+          "left_win_fraction": 0.7622950819672131,
+          "left_wins_galaxies": 93
+        },
+        "p5_vs_rar": {
+          "delta_chi2_left_minus_right": 269528.70875762316,
+          "delta_chi2_per_point_left_minus_right": 117.74954511036397,
+          "delta_loglike_per_point_left_minus_right": -58.87477255518197,
+          "left_win_fraction": 0.1885245901639344,
+          "left_wins_galaxies": 23
+        },
+        "rar_vs_newton": {
+          "delta_chi2_left_minus_right": -494912.99995374883,
+          "delta_chi2_per_point_left_minus_right": -216.21363038608507,
+          "delta_loglike_per_point_left_minus_right": 108.10681519304256,
+          "left_win_fraction": 0.7377049180327869,
+          "left_wins_galaxies": 90
+        }
+      },
+      "galaxies": 122,
+      "models": {
+        "newton": {
+          "chi2": 756218.6594173936,
+          "chi2_per_point": 330.3707555340295,
+          "loglike": -383630.85069468734,
+          "loglike_per_point": -167.59757566390886,
+          "median_galaxy_chi2_per_point": 46.91924823888844,
+          "median_galaxy_loglike_per_point": -26.41298268945631
+        },
+        "p5": {
+          "chi2": 530834.3682212679,
+          "chi2_per_point": 231.9066702583084,
+          "loglike": -270938.7050966245,
+          "loglike_per_point": -118.36553302604827,
+          "median_galaxy_chi2_per_point": 45.307721259267026,
+          "median_galaxy_loglike_per_point": -25.349079681306133
+        },
+        "rar": {
+          "chi2": 261305.65946364478,
+          "chi2_per_point": 114.15712514794443,
+          "loglike": -136174.35071781295,
+          "loglike_per_point": -59.4907604708663,
+          "median_galaxy_chi2_per_point": 15.101395262503262,
+          "median_galaxy_loglike_per_point": -10.240940637866572
+        }
+      },
+      "velocity_points": 2289
+    },
+    "validation": {
+      "comparisons": {
+        "p5_vs_newton": {
+          "delta_chi2_left_minus_right": -62066.6911349177,
+          "delta_chi2_per_point_left_minus_right": -129.0367799062738,
+          "delta_loglike_per_point_left_minus_right": 64.5183899531369,
+          "left_win_fraction": 0.8076923076923077,
+          "left_wins_galaxies": 21
+        },
+        "p5_vs_rar": {
+          "delta_chi2_left_minus_right": 28393.87178869406,
+          "delta_chi2_per_point_left_minus_right": 59.03091847961343,
+          "delta_loglike_per_point_left_minus_right": -29.515459239806717,
+          "left_win_fraction": 0.23076923076923078,
+          "left_wins_galaxies": 6
+        },
+        "rar_vs_newton": {
+          "delta_chi2_left_minus_right": -90460.56292361177,
+          "delta_chi2_per_point_left_minus_right": -188.06769838588724,
+          "delta_loglike_per_point_left_minus_right": 94.03384919294362,
+          "left_win_fraction": 0.8076923076923077,
+          "left_wins_galaxies": 21
+        }
+      },
+      "galaxies": 26,
+      "models": {
+        "newton": {
+          "chi2": 111507.16288367218,
+          "chi2_per_point": 231.82362345877792,
+          "loglike": -56886.17255900563,
+          "loglike_per_point": -118.26647101664372,
+          "median_galaxy_chi2_per_point": 75.10036435722468,
+          "median_galaxy_loglike_per_point": -40.00743905704843
+        },
+        "p5": {
+          "chi2": 49440.47174875448,
+          "chi2_per_point": 102.78684355250411,
+          "loglike": -25852.826991546775,
+          "loglike_per_point": -53.74808106350681,
+          "median_galaxy_chi2_per_point": 33.32601602993301,
+          "median_galaxy_loglike_per_point": -19.069092536762795
+        },
+        "rar": {
+          "chi2": 21046.599960060415,
+          "chi2_per_point": 43.755925072890676,
+          "loglike": -11655.891097199745,
+          "loglike_per_point": -24.232621823700093,
+          "median_galaxy_chi2_per_point": 12.866313091691996,
+          "median_galaxy_loglike_per_point": -8.268158229489352
+        }
+      },
+      "velocity_points": 481
+    }
+  },
+  "runtime": {
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "scipy": "1.15.3"
+  },
+  "schema": "sparc-p5-retrospective-crossval-v1"
+}

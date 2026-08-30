@@ -1,0 +1,49 @@
+{
+  "beta_relative_error": 3.166239492813361e-10,
+  "boundary_residuals": {
+    "left_neumann_relative_flux": 0.0,
+    "right_dirichlet_relative_value": 6.301872246261554e-09
+  },
+  "classification": "independent_numerical_verification_not_detection",
+  "eigenvalue_lambda": 7.533714681978506e-06,
+  "evidence_boundary": "This confirms that the hard IR wall creates an ultralight mode in the declared conditional compact branch. It does not select that branch, fix ell, or establish an observed interaction.",
+  "inputs": {
+    "branch_catalogue_sha256": "3765a5701edfe43dab6d8ae1764c4aeb6478ff5c8fd8277c729e3a4ac08bd7b8",
+    "effective_action_sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+  },
+  "mass_mu": 0.0027447613160306865,
+  "mass_relative_error": 7.837979000002715e-05,
+  "method": {
+    "integration": "DOP853",
+    "interpolation": "PCHIP interpolation of log(p) and log(w)",
+    "left_boundary": "f(u_min)=1, j(u_min)=0",
+    "primary_fem_matrices_reused": false,
+    "right_boundary": "f(u_max)=0",
+    "root_window_lambda": [
+      1e-10,
+      0.1
+    ],
+    "state": "(f,j), j=p f'"
+  },
+  "observational_inputs_read": [],
+  "passes": {
+    "all": true,
+    "catalogue_certified": true,
+    "effective_action_certified": true,
+    "fixed_window_has_one_root": true,
+    "left_neumann": true,
+    "mass_matches_fem": true,
+    "no_observational_inputs": true,
+    "right_dirichlet": true,
+    "ultralight": true,
+    "uv_coupling_matches_fem": true
+  },
+  "root_bracket": [
+    7.498942093324558e-06,
+    8.91250938133746e-06
+  ],
+  "target_fem_beta_uv": 0.05429095411355716,
+  "target_fem_mass_mu": 0.0027449764667097022,
+  "title": "Independent ND ultralight verification by continuous shooting",
+  "uv_coupling_beta": 0.05429095409636734
+}

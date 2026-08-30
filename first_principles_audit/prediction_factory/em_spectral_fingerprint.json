@@ -1,0 +1,845 @@
+{
+  "assumptions": [
+    "the certified interval is a physical compact interval",
+    "the photon propagates in the five-dimensional bulk",
+    "the photon has Neumann-compatible boundary data and no brane kinetic terms",
+    "the reported central fingerprint uses Z(chi)=1",
+    "scalar endpoints are comoving in the almost-radial gauge",
+    "matter sources are localized at the UV endpoint",
+    "a conserved four-dimensional electric current couples minimally to the bulk photon at the UV endpoint",
+    "no brane bending, endpoint displacement or backreaction"
+  ],
+  "brane_photon_branch": {
+    "bulk_photon_KK_tower": null,
+    "classical_trace_vertex": 0.0,
+    "reason": "four-dimensional Maxwell Weyl invariance cancels the conformal trace and there is no radial lapse integral"
+  },
+  "bulk_photon_tower": {
+    "boundary_conditions": "Neumann--Neumann photon data",
+    "convergence": {
+      "half_grid": {
+        "mass_relative_to_full": [
+          7.953261312643178e-06,
+          1.7843548332008297e-05,
+          3.4572161808910096e-05,
+          5.8081553896194293e-05,
+          8.834858895534481e-05,
+          0.00012534908165062753
+        ],
+        "positive_masses_mu_gamma": [
+          0.6526018639378453,
+          1.3014503270242956,
+          1.9393219031858426,
+          2.5764957466614598,
+          3.214576774538125,
+          3.8535002650487904
+        ],
+        "samples": 990,
+        "uv_residue_relative_to_full": [
+          1.765858174307411e-05,
+          5.2673428706739855e-05,
+          0.00010552264087215768,
+          0.00017721412515325774,
+          0.00026876622233507064,
+          0.0003804978220545152
+        ]
+      },
+      "quarter_grid": {
+        "mass_relative_to_full": [
+          3.915768986573198e-05,
+          8.689269148720591e-05,
+          0.00016770724050663155,
+          0.00028125239492116094,
+          0.00042736794412512324,
+          0.0006058844569847288
+        ],
+        "positive_masses_mu_gamma": [
+          0.6526222278441227,
+          1.3015401894507712,
+          1.9395800860341041,
+          2.57707071198926,
+          3.2156664820092553,
+          3.855351776159788
+        ],
+        "samples": 496,
+        "uv_residue_relative_to_full": [
+          8.643063703051013e-05,
+          0.00025586412762823585,
+          0.0005112042696400199,
+          0.0008573895957812994,
+          0.0012991510833961772,
+          0.0018377313106132664
+        ]
+      }
+    },
+    "coulomb_template": "V_Q(r)=V_Coulomb(r)[1+sum_(n>0) eta_n exp(-mu_gamma,n r/ell)]",
+    "hellmann_feynman_finite_difference_relative_errors": [
+      8.027417108813495e-07,
+      2.2653265971950276e-06,
+      2.8256095718770524e-07,
+      1.3423683791202734e-06,
+      7.824906944620125e-09,
+      4.6971664346973085e-07
+    ],
+    "hellmann_feynman_identity": "partial_c lambda_n=int du chi[exp(2A)(f_n')^2-lambda_n f_n^2]",
+    "independent_shooting": {
+      "fem_masses_first_three": [
+        0.6525966736659679,
+        1.301427104946848,
+        1.93925485895307
+      ],
+      "primary_fem_reused": false,
+      "relative_errors": [
+        2.6511735621292942e-06,
+        5.948502662778132e-06,
+        1.1526093236846613e-05
+      ],
+      "shooting_masses_first_three": [
+        0.6525949435189199,
+        1.3014193634042488,
+        1.9392325069207557
+      ]
+    },
+    "modes": [
+      {
+        "mass_rule": "m_gamma,n=mu_gamma,n/ell",
+        "mode_index": 0,
+        "mu_gamma": 0.0,
+        "partial_c_ln_mu_at_c0": 0.0,
+        "uv_charge_coupling_squared_relative_to_zero_mode": 1.0
+      },
+      {
+        "mass_rule": "m_gamma,n=mu_gamma,n/ell",
+        "mode_index": 1,
+        "mu_gamma": 0.6525966736659679,
+        "partial_c_ln_mu_at_c0": -0.005232400397621911,
+        "uv_charge_coupling_squared_relative_to_zero_mode": 0.6193584713395174
+      },
+      {
+        "mass_rule": "m_gamma,n=mu_gamma,n/ell",
+        "mode_index": 2,
+        "mu_gamma": 1.301427104946848,
+        "partial_c_ln_mu_at_c0": -0.002955583503314104,
+        "uv_charge_coupling_squared_relative_to_zero_mode": 0.698484436807347
+      },
+      {
+        "mass_rule": "m_gamma,n=mu_gamma,n/ell",
+        "mode_index": 3,
+        "mu_gamma": 1.93925485895307,
+        "partial_c_ln_mu_at_c0": -0.0016958259060174399,
+        "uv_charge_coupling_squared_relative_to_zero_mode": 0.7580789791405146
+      },
+      {
+        "mass_rule": "m_gamma,n=mu_gamma,n/ell",
+        "mode_index": 4,
+        "mu_gamma": 2.576346108476105,
+        "partial_c_ln_mu_at_c0": -0.0010626643400775179,
+        "uv_charge_coupling_squared_relative_to_zero_mode": 0.7885631099484766
+      },
+      {
+        "mass_rule": "m_gamma,n=mu_gamma,n/ell",
+        "mode_index": 5,
+        "mu_gamma": 3.2142927963050822,
+        "partial_c_ln_mu_at_c0": -0.0007209189235419738,
+        "uv_charge_coupling_squared_relative_to_zero_mode": 0.8036592869012694
+      },
+      {
+        "mass_rule": "m_gamma,n=mu_gamma,n/ell",
+        "mode_index": 6,
+        "mu_gamma": 3.853017292869545,
+        "partial_c_ln_mu_at_c0": -0.0005261694066154341,
+        "uv_charge_coupling_squared_relative_to_zero_mode": 0.8116709868659702
+      }
+    ],
+    "zero_mode": "exactly massless and flat for every positive Z(chi)"
+  },
+  "classification": "action_derived_conditional_template_not_detection",
+  "criteria": {
+    "c_derivative_finite_difference_relative_max": 1e-07,
+    "determinant_vertex_absolute_error_max": 2e-08,
+    "photon_half_grid_mass_relative_max": 0.0002,
+    "photon_hf_finite_difference_relative_max": 5e-06,
+    "photon_quarter_grid_mass_relative_max": 0.0008,
+    "photon_quarter_grid_residue_relative_max": 0.0025,
+    "photon_shooting_mass_relative_max": 2e-05,
+    "scalar_d_half_grid_relative_max": 0.0008,
+    "scalar_d_quarter_grid_relative_max": 0.004
+  },
+  "derivation": {
+    "clock_ratio": "delta ln(nu_A/nu_B)=Delta K_alpha delta ln alpha only after an atomic sensitivity Delta K_alpha is supplied",
+    "constraint": "A_u h_uu=(d_u h)/4",
+    "maxwell_linear_factor": "N=h_uu/2=(d_u h)/(8 A_u)",
+    "scalar_photon_coefficient": "d_gamma,n(c)=sqrt(I_g/3)<f_n'/A_u>_(Z=exp(c chi))",
+    "slope_per_unfitted_c_gamma": "partial_c d|_0=sqrt(I_g/3) Cov_u(chi,f_n'/A_u)",
+    "source_to_alpha": "delta ln alpha/U=sum_n 2 beta_n d_gamma,n exp(-mu_n r/ell), U=G M/r"
+  },
+  "determinant_vertex_check": {
+    "absolute_error": 1.3565851220143088e-10,
+    "expected_radial_lapse_derivative": -0.205,
+    "finite_difference_derivative": -0.20499999986434148,
+    "passes": true,
+    "pure_four_dimensional_trace_derivative": 0.0
+  },
+  "evidence_boundary": "This is a parameter-free central fingerprint only inside the declared bulk-photon compactification. It neither selects the scalar boundary action nor supplies ell, a source amplitude, an atomic coefficient, or evidence for an observed interaction.",
+  "inputs": {
+    "boundary_catalogue": {
+      "path": "first_principles_audit/prediction_factory/artifacts/boundary_branch_catalogue.json",
+      "sha256": "3765a5701edfe43dab6d8ae1764c4aeb6478ff5c8fd8277c729e3a4ac08bd7b8"
+    },
+    "coordinate_correct_em_kernel": {
+      "path": "first_principles_audit/prediction_factory/em_kernel_completion.json",
+      "sha256": "5780459df42f55bfe2d2f7b995b4c70ff214aa53f5ec49807bad904501a8b32f"
+    },
+    "effective_action": {
+      "path": "first_principles_audit/artifacts/holo_effective_action.json",
+      "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+    }
+  },
+  "metrics": {
+    "photon": {
+      "half_grid_mass_relative_max": 0.00012534908165062753,
+      "hf_finite_difference_relative_max": 2.2653265971950276e-06,
+      "quarter_grid_mass_relative_max": 0.0006058844569847288,
+      "quarter_grid_residue_relative_max": 0.0018377313106132664,
+      "shooting_mass_relative_max": 1.1526093236846613e-05
+    },
+    "scalar": {
+      "c_derivative_finite_difference_relative_max": 6.335332534708362e-10,
+      "d_half_grid_relative_max": 0.0004232344243630948,
+      "d_quarter_grid_relative_max": 0.0021322189267185543
+    }
+  },
+  "observational_inputs_read": [],
+  "passes": {
+    "all": true,
+    "boundary_catalogue_input_certified": true,
+    "coordinate_correct_kernel_input_certified": true,
+    "determinant_vertex": true,
+    "effective_action_input_certified": true,
+    "no_branch_selected": true,
+    "no_c_gamma_fit": true,
+    "no_ell_assignment": true,
+    "no_observational_inputs": true,
+    "photon_half_grid_mass_convergence": true,
+    "photon_hellmann_feynman_finite_difference": true,
+    "photon_independent_shooting": true,
+    "photon_quarter_grid_mass_convergence": true,
+    "photon_quarter_grid_residue_convergence": true,
+    "scalar_c_derivative_finite_difference": true,
+    "scalar_d_half_grid_convergence": true,
+    "scalar_d_quarter_grid_convergence": true
+  },
+  "scalar_boundary_branches": {
+    "DD": {
+      "adjudication": "the exact UV point probe decouples because its field obeys Dirichlet data on the matter face",
+      "convergence": {
+        "half_grid": {
+          "d_gamma_at_c0": [
+            -0.6188238893062135,
+            -0.10699135037554003,
+            -0.342508418195144,
+            -0.10403944522354337,
+            -0.2743333422547824,
+            -0.11307038433279998
+          ],
+          "max_relative": 0.0004232344243630948,
+          "relative_to_full": [
+            1.302073273645732e-07,
+            3.2097954008492025e-05,
+            1.5045664782498136e-05,
+            0.0001700566603335396,
+            5.875507166885896e-05,
+            0.0004232344243630948
+          ],
+          "samples": 990
+        },
+        "quarter_grid": {
+          "d_gamma_at_c0": [
+            -0.6188235257848173,
+            -0.10700645768325477,
+            -0.3425272272801489,
+            -0.10411232412105648,
+            -0.2743953869906847,
+            -0.11326353811796902
+          ],
+          "max_relative": 0.0021322189267185543,
+          "relative_to_full": [
+            4.572319260987001e-07,
+            0.00017330369237322785,
+            6.996217778132419e-05,
+            0.0008706687300961136,
+            0.00028493385415018224,
+            0.0021322189267185543
+          ],
+          "samples": 496
+        }
+      },
+      "modes": [
+        {
+          "beta_uv": -0.0,
+          "d_gamma_at_c0": -0.6188238087308192,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 0,
+          "mu_scalar": 1.2305282394475952,
+          "partial_c_d_gamma_at_c0": 1.467449330399334,
+          "partial_c_finite_difference_relative_error": 1.2535928856583083e-10,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        },
+        {
+          "beta_uv": 0.0,
+          "d_gamma_at_c0": -0.10698791628232374,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 1,
+          "mu_scalar": 1.8411950522172063,
+          "partial_c_d_gamma_at_c0": 0.3513465278196508,
+          "partial_c_finite_difference_relative_error": 5.515603627229554e-10,
+          "source_to_delta_ln_alpha_per_U": -0.0
+        },
+        {
+          "beta_uv": -0.0,
+          "d_gamma_at_c0": -0.34250326500583184,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 2,
+          "mu_scalar": 2.4299402720768177,
+          "partial_c_d_gamma_at_c0": 0.7562489568657599,
+          "partial_c_finite_difference_relative_error": 3.230830531442669e-11,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        },
+        {
+          "beta_uv": 0.0,
+          "d_gamma_at_c0": -0.1040217556311787,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 3,
+          "mu_scalar": 3.029290090162164,
+          "partial_c_d_gamma_at_c0": 0.35127731704564835,
+          "partial_c_finite_difference_relative_error": 3.2426405247947867e-10,
+          "source_to_delta_ln_alpha_per_U": -0.0
+        },
+        {
+          "beta_uv": -0.0,
+          "d_gamma_at_c0": -0.2743172247265836,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 4,
+          "mu_scalar": 3.641438980825738,
+          "partial_c_d_gamma_at_c0": 0.5921128363857656,
+          "partial_c_finite_difference_relative_error": 6.723013124835745e-11,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        },
+        {
+          "beta_uv": 0.0,
+          "d_gamma_at_c0": -0.11302254929920727,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 5,
+          "mu_scalar": 4.261429935499823,
+          "partial_c_d_gamma_at_c0": 0.36281081308148677,
+          "partial_c_finite_difference_relative_error": 2.3127676873498365e-10,
+          "source_to_delta_ln_alpha_per_U": -0.0
+        }
+      ],
+      "photon_first_to_scalar_mass_ratios": [
+        0.5303386405491429,
+        0.3544419005906501,
+        0.26856490308225045,
+        0.21542891378588078,
+        0.17921395280883826,
+        0.15314030349989194
+      ],
+      "physical_branch_selected": false,
+      "scalar_boundary_conditions": {
+        "ir": "Dirichlet",
+        "uv": "Dirichlet"
+      },
+      "transfer_anchors": [
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 0.5
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 1.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 2.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 5.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 10.0
+        }
+      ],
+      "uv_point_matter_decouples": true
+    },
+    "DN": {
+      "adjudication": "the exact UV point probe decouples because its field obeys Dirichlet data on the matter face",
+      "convergence": {
+        "half_grid": {
+          "d_gamma_at_c0": [
+            -3.9450846973266067,
+            2.521299920094534,
+            -2.898188557141485,
+            2.4234438431924663,
+            -2.832839535224911,
+            2.4462882583164594
+          ],
+          "max_relative": 0.000415487212608312,
+          "relative_to_full": [
+            5.0013594813380635e-06,
+            2.696395369072846e-05,
+            7.763697421636628e-05,
+            0.00017080245967981966,
+            0.00025154747424949164,
+            0.000415487212608312
+          ],
+          "samples": 990
+        },
+        "quarter_grid": {
+          "d_gamma_at_c0": [
+            -3.944996681167757,
+            2.5215499801322343,
+            -2.899038762393786,
+            2.4250130194411166,
+            -2.835538871129665,
+            2.4501289578506493
+          ],
+          "max_relative": 0.001986150556419819,
+          "relative_to_full": [
+            2.7311582303402027e-05,
+            0.00012614564100799086,
+            0.00037101721601229265,
+            0.0008184115520968316,
+            0.001204660025210913,
+            0.001986150556419819
+          ],
+          "samples": 496
+        }
+      },
+      "modes": [
+        {
+          "beta_uv": -0.0,
+          "d_gamma_at_c0": -3.9451044282120438,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 0,
+          "mu_scalar": 0.913821688861947,
+          "partial_c_d_gamma_at_c0": -7.042773917232898,
+          "partial_c_finite_difference_relative_error": 3.1677194613566496e-11,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        },
+        {
+          "beta_uv": 0.0,
+          "d_gamma_at_c0": 2.521231937713322,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 1,
+          "mu_scalar": 1.5410563148211187,
+          "partial_c_d_gamma_at_c0": 7.774788498921302,
+          "partial_c_finite_difference_relative_error": 1.2177685782031203e-11,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        },
+        {
+          "beta_uv": -0.0,
+          "d_gamma_at_c0": -2.8979635680186746,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 2,
+          "mu_scalar": 2.1317763794776905,
+          "partial_c_d_gamma_at_c0": -6.087536952968052,
+          "partial_c_finite_difference_relative_error": 7.621582365208295e-12,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        },
+        {
+          "beta_uv": 0.0,
+          "d_gamma_at_c0": 2.4230299837113702,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 3,
+          "mu_scalar": 2.7251649726229443,
+          "partial_c_d_gamma_at_c0": 7.160916258522002,
+          "partial_c_finite_difference_relative_error": 9.644060973565573e-12,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        },
+        {
+          "beta_uv": -0.0,
+          "d_gamma_at_c0": -2.83212712080092,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 4,
+          "mu_scalar": 3.3312435088275127,
+          "partial_c_d_gamma_at_c0": -6.16257909741228,
+          "partial_c_finite_difference_relative_error": 9.110251600866169e-12,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        },
+        {
+          "beta_uv": 0.0,
+          "d_gamma_at_c0": 2.4452722789532086,
+          "mechanical_yukawa_alpha": 0.0,
+          "mode_index": 5,
+          "mu_scalar": 3.9474864909267695,
+          "partial_c_d_gamma_at_c0": 7.10764509480315,
+          "partial_c_finite_difference_relative_error": 1.1622622361478019e-12,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        }
+      ],
+      "photon_first_to_scalar_mass_ratios": [
+        0.7141400577597332,
+        0.4234736053378551,
+        0.3061281098469913,
+        0.23947052021509363,
+        0.19590182222843872,
+        0.1653195457833612
+      ],
+      "physical_branch_selected": false,
+      "scalar_boundary_conditions": {
+        "ir": "Neumann",
+        "uv": "Dirichlet"
+      },
+      "transfer_anchors": [
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 0.5
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 1.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 2.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 5.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0,
+          "mechanical_delta_V_over_Newton": 0.0,
+          "x_r_over_ell": 10.0
+        }
+      ],
+      "uv_point_matter_decouples": true
+    },
+    "ND": {
+      "adjudication": "candidate UV-coupled hard-wall branch; the former zero mode becomes ultralight rather than disappearing",
+      "convergence": {
+        "half_grid": {
+          "d_gamma_at_c0": [
+            0.014360915017059954,
+            0.6188689180738879,
+            0.10673529309991664,
+            0.3423802916696474,
+            0.10401691082870815,
+            0.2744001146556423
+          ],
+          "max_relative": 0.00016931984242019027,
+          "relative_to_full": [
+            9.659959983032707e-06,
+            1.276683894158026e-07,
+            3.203547642183224e-05,
+            1.496345355622708e-05,
+            0.00016931984242019027,
+            5.772912299217836e-05
+          ],
+          "samples": 990
+        },
+        "quarter_grid": {
+          "d_gamma_at_c0": [
+            0.014360365625149535,
+            0.6188685475230526,
+            0.10675034254306955,
+            0.3423989733954911,
+            0.10408946821341343,
+            0.2744610415874761
+          ],
+          "max_relative": 0.0008669916876236083,
+          "relative_to_full": [
+            4.791564234474244e-05,
+            4.710866486901111e-07,
+            0.00017303780875166375,
+            6.952852590824676e-05,
+            0.0008669916876236083,
+            0.0002797787718000766
+          ],
+          "samples": 496
+        }
+      },
+      "modes": [
+        {
+          "beta_uv": 0.05429095411355716,
+          "d_gamma_at_c0": 0.014361053744264439,
+          "mechanical_yukawa_alpha": 0.005895015397120738,
+          "mode_index": 0,
+          "mu_scalar": 0.0027449764667097022,
+          "partial_c_d_gamma_at_c0": 0.03021612661537493,
+          "partial_c_finite_difference_relative_error": 2.5520812314525492e-11,
+          "source_to_delta_ln_alpha_per_U": 0.0015593506197043778
+        },
+        {
+          "beta_uv": 0.0011294771690004137,
+          "d_gamma_at_c0": 0.6188688390639,
+          "mechanical_yukawa_alpha": 2.5514373505863785e-06,
+          "mode_index": 1,
+          "mu_scalar": 1.230795929903421,
+          "partial_c_d_gamma_at_c0": -1.4661427944866974,
+          "partial_c_finite_difference_relative_error": 1.32936788723834e-10,
+          "source_to_delta_ln_alpha_per_U": 0.0013979964486569329
+        },
+        {
+          "beta_uv": 0.0019844885792502276,
+          "d_gamma_at_c0": 0.10673187389348707,
+          "mechanical_yukawa_alpha": 7.876389842349173e-06,
+          "mode_index": 2,
+          "mu_scalar": 1.8424382294474757,
+          "partial_c_d_gamma_at_c0": -0.3484216581869336,
+          "partial_c_finite_difference_relative_error": 6.335332534708362e-10,
+          "source_to_delta_ln_alpha_per_U": 0.0004236163695672012
+        },
+        {
+          "beta_uv": 0.0026168850887706716,
+          "d_gamma_at_c0": 0.3423751685547139,
+          "mechanical_yukawa_alpha": 1.3696175135660571e-05,
+          "mode_index": 3,
+          "mu_scalar": 2.432804159158691,
+          "partial_c_d_gamma_at_c0": -0.7525920196921546,
+          "partial_c_finite_difference_relative_error": 6.340493983941382e-11,
+          "source_to_delta_ln_alpha_per_U": 0.0017919129467123523
+        },
+        {
+          "beta_uv": 0.00296634566789457,
+          "d_gamma_at_c0": 0.10399930168333532,
+          "mechanical_yukawa_alpha": 1.7598413242873765e-05,
+          "mode_index": 4,
+          "mu_scalar": 3.0338856459271657,
+          "partial_c_d_gamma_at_c0": -0.34769998837773086,
+          "partial_c_finite_difference_relative_error": 3.877477192715358e-10,
+          "source_to_delta_ln_alpha_per_U": 0.0006169957560248444
+        },
+        {
+          "beta_uv": 0.003146834805416388,
+          "d_gamma_at_c0": 0.27438427469210147,
+          "mechanical_yukawa_alpha": 1.980513858515999e-05,
+          "mode_index": 5,
+          "mu_scalar": 3.6476600753624107,
+          "partial_c_d_gamma_at_c0": -0.5883871977123466,
+          "partial_c_finite_difference_relative_error": 3.0588404238185467e-12,
+          "source_to_delta_ln_alpha_per_U": 0.0017268839713200717
+        }
+      ],
+      "photon_first_to_scalar_mass_ratios": [
+        237.74217432479864,
+        0.5302232951949851,
+        0.3542027424505154,
+        0.26824874957943506,
+        0.2151025944376134,
+        0.17890830290734522
+      ],
+      "physical_branch_selected": false,
+      "scalar_boundary_conditions": {
+        "ir": "Dirichlet",
+        "uv": "Neumann"
+      },
+      "transfer_anchors": [
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0034263598734293943,
+          "mechanical_delta_V_over_Newton": 0.005902559578452669,
+          "x_r_over_ell": 0.5
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.002262485147905219,
+          "mechanical_delta_V_over_Newton": 0.005883414278331874,
+          "x_r_over_ell": 1.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.001697105719047673,
+          "mechanical_delta_V_over_Newton": 0.005863315813060018,
+          "x_r_over_ell": 2.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0015411174771595175,
+          "mechanical_delta_V_over_Newton": 0.005814665986277922,
+          "x_r_over_ell": 5.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.001517135267843366,
+          "mechanical_delta_V_over_Newton": 0.005735399357180515,
+          "x_r_over_ell": 10.0
+        }
+      ],
+      "uv_point_matter_decouples": false
+    },
+    "NN": {
+      "adjudication": "excluded as a universal unscreened completion because its constant scalar mode is exactly massless",
+      "convergence": {
+        "half_grid": {
+          "d_gamma_at_c0": [
+            3.9456146200676008,
+            -2.5234431327905886,
+            2.901465291555682,
+            -2.4271638964632563,
+            2.8361848710588973,
+            -2.449171821582517
+          ],
+          "max_relative": 0.00041792255202222073,
+          "relative_to_full": [
+            4.991576893709215e-06,
+            2.7102106763265965e-05,
+            7.794904702440597e-05,
+            0.0001715448596888436,
+            0.0002527234015006208,
+            0.00041792255202222073
+          ],
+          "samples": 990
+        },
+        "quarter_grid": {
+          "d_gamma_at_c0": [
+            3.9455267428199745,
+            -2.5236947499635383,
+            2.9023198912501655,
+            -2.4287423466133538,
+            2.8388999731635365,
+            -2.453039766649418
+          ],
+          "max_relative": 0.0019978695097142563,
+          "relative_to_full": [
+            2.7263597210391843e-05,
+            0.00012681665512581652,
+            0.0003725127325535649,
+            0.0008219833930764864,
+            0.0012102732079999345,
+            0.0019978695097142563
+          ],
+          "samples": 496
+        }
+      },
+      "modes": [
+        {
+          "beta_uv": 0.05429009535288237,
+          "d_gamma_at_c0": 0.0,
+          "mechanical_yukawa_alpha": 0.0058948289068501206,
+          "mode_index": 0,
+          "mu_scalar": 0.0,
+          "partial_c_d_gamma_at_c0": 0.0,
+          "partial_c_finite_difference_relative_error": 0.0,
+          "source_to_delta_ln_alpha_per_U": 0.0
+        },
+        {
+          "beta_uv": 0.0007051064316768625,
+          "d_gamma_at_c0": 3.9456343150046784,
+          "mechanical_yukawa_alpha": 9.943501599841558e-07,
+          "mode_index": 1,
+          "mu_scalar": 0.9138989815715508,
+          "partial_c_d_gamma_at_c0": 7.044717679108586,
+          "partial_c_finite_difference_relative_error": 3.3529480159184857e-11,
+          "source_to_delta_ln_alpha_per_U": 0.005564184265109461
+        },
+        {
+          "beta_uv": 0.00155651382206329,
+          "d_gamma_at_c0": -2.5233747440188727,
+          "mechanical_yukawa_alpha": 4.845470556548143e-06,
+          "mode_index": 2,
+          "mu_scalar": 1.5416947347466599,
+          "partial_c_d_gamma_at_c0": -7.7778903062609475,
+          "partial_c_finite_difference_relative_error": 1.4428249680864786e-11,
+          "source_to_delta_ln_alpha_per_U": -0.007855335334621584
+        },
+        {
+          "beta_uv": 0.0023376306677915025,
+          "d_gamma_at_c0": 2.9012391427293163,
+          "mechanical_yukawa_alpha": 1.0929034277998691e-05,
+          "mode_index": 3,
+          "mu_scalar": 2.1337779482328476,
+          "partial_c_d_gamma_at_c0": 6.099717229716381,
+          "partial_c_finite_difference_relative_error": 2.1255677319093314e-11,
+          "source_to_delta_ln_alpha_per_U": 0.013564051189282356
+        },
+        {
+          "beta_uv": 0.0028200658176574848,
+          "d_gamma_at_c0": -2.4267476003866477,
+          "mechanical_yukawa_alpha": 1.5905542431840355e-05,
+          "mode_index": 4,
+          "mu_scalar": 2.7288989308532146,
+          "partial_c_d_gamma_at_c0": -7.166373440835098,
+          "partial_c_finite_difference_relative_error": 1.3252577360449023e-12,
+          "source_to_delta_ln_alpha_per_U": -0.013687175911865421
+        },
+        {
+          "beta_uv": 0.0030686112659686028,
+          "d_gamma_at_c0": 2.835468281869856,
+          "mechanical_yukawa_alpha": 1.883275020325886e-05,
+          "mode_index": 5,
+          "mu_scalar": 3.3366538592325705,
+          "partial_c_d_gamma_at_c0": 6.174585827254594,
+          "partial_c_finite_difference_relative_error": 1.4710228124081133e-11,
+          "source_to_delta_ln_alpha_per_U": 0.017401899828084957
+        },
+        {
+          "beta_uv": 0.003202799635426364,
+          "d_gamma_at_c0": -2.4481486850363368,
+          "mechanical_yukawa_alpha": 2.05158510093745e-05,
+          "mode_index": 6,
+          "mu_scalar": 3.954473393782188,
+          "partial_c_d_gamma_at_c0": -7.111709227316313,
+          "partial_c_finite_difference_relative_error": 3.405364335895697e-12,
+          "source_to_delta_ln_alpha_per_U": -0.015681859431807825
+        }
+      ],
+      "photon_first_to_scalar_mass_ratios": [
+        null,
+        0.7140796595962449,
+        0.4232982437818381,
+        0.30584094947950674,
+        0.23914285219127837,
+        0.19558416940978857,
+        0.16502745338787145
+      ],
+      "physical_branch_selected": false,
+      "scalar_boundary_conditions": {
+        "ir": "Neumann",
+        "uv": "Neumann"
+      },
+      "transfer_anchors": [
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.002169152815148376,
+          "mechanical_delta_V_over_Newton": 0.005911916387447558,
+          "x_r_over_ell": 0.5
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.001580140547483734,
+          "mechanical_delta_V_over_Newton": 0.0058996598637798825,
+          "x_r_over_ell": 1.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 0.0006827382230070692,
+          "mechanical_delta_V_over_Newton": 0.005895463038931682,
+          "x_r_over_ell": 2.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 5.44357912705436e-05,
+          "mechanical_delta_V_over_Newton": 0.005894841661314877,
+          "x_r_over_ell": 5.0
+        },
+        {
+          "delta_ln_alpha_per_Newtonian_U": 5.959934514033299e-07,
+          "mechanical_delta_V_over_Newton": 0.005894829014621929,
+          "x_r_over_ell": 10.0
+        }
+      ],
+      "uv_point_matter_decouples": false
+    }
+  },
+  "scale_rule": {
+    "cross_sector_mass_ratios": "mu_gamma,n/mu_scalar,m are ell-independent",
+    "ell": null,
+    "photon_masses": "m_gamma,n=mu_gamma,n/ell",
+    "scalar_masses": "m_scalar,n=mu_scalar,n/ell"
+  },
+  "schema": "holo.em-spectral-fingerprint.v1",
+  "title": "Conditional scalar--photon double-comb fingerprint"
+}

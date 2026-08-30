@@ -1,0 +1,80 @@
+{
+  "claim_matrix": {
+    "field_equations_from_declared_action": {
+      "classification": "derived",
+      "pass": true
+    },
+    "frozen_industrial_trace_solves_declared_action": {
+      "classification": "inconsistent",
+      "pass": false
+    },
+    "growth_mapping_is_derived_from_the_action": {
+      "classification": "phenomenological_coordinate_dictionary",
+      "pass": false
+    },
+    "holonomic_ansatz_is_a_full_solution": {
+      "classification": "holonomic_constraint_solution_not_full_ED_solution",
+      "pass": false
+    },
+    "new_exact_superpotential_baseline": {
+      "classification": "derived_and_independently_reproduced",
+      "pass": true
+    },
+    "nist_null_validates_the_uv_coupling": {
+      "classification": "phenomenological_null_comparison",
+      "pass": false
+    },
+    "one_geometry_physically_unifies_all_reported_domains": {
+      "classification": "unsupported",
+      "pass": false
+    },
+    "reported_scalar_ratio_is_a_physical_prediction_of_the_declared_action": {
+      "classification": "unsupported_until_recomputed_on_a_full_ED_solution",
+      "pass": false
+    },
+    "sparc_result_is_out_of_sample_prediction": {
+      "classification": "phenomenological_in_sample_calibration",
+      "pass": false
+    }
+  },
+  "conformal_coordinate_check": {
+    "max_abs_residuals": {
+      "constraint": 3.552713678800501e-15,
+      "scalar": 1.734723475976807e-18,
+      "warp": 2.6860052679122265e-16
+    },
+    "pass": true
+  },
+  "independent_integration": {
+    "component_max_abs_errors": {
+      "A": 9.992007221626409e-16,
+      "A_u": 4.440892098500626e-16,
+      "phi": 4.8698892141096906e-14,
+      "phi_u": 4.92080334812961e-14
+    },
+    "max_abs_error": 4.92080334812961e-14,
+    "method": "scipy.solve_ivp_DOP853_on_second_order_equations",
+    "pass": true
+  },
+  "stage": 3,
+  "surviving_manuscript_scope": {
+    "must_be_reframed_as_phenomenology": [
+      "SPARC readout",
+      "trace-to-cosmology dictionary",
+      "UV clock projection and time conversion"
+    ],
+    "must_not_be_claimed_from_current_evidence": [
+      "first-principles cross-domain unification",
+      "physical scalar-spectrum prediction from the frozen trace",
+      "out-of-sample SPARC success",
+      "laboratory detection or validation"
+    ],
+    "supported": [
+      "variation of the scalar-gravity action in domain-wall gauge",
+      "exact superpotential solution with m^2 L^2=-3",
+      "independent numerical and coordinate-covariance checks",
+      "equation-level audit of the frozen HOLO trace"
+    ],
+    "title": "A first-principles consistency audit and exact baseline for a five-dimensional Einstein--dilaton flow"
+  }
+}

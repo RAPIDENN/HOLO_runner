@@ -1,0 +1,559 @@
+{
+  "artefacts": {
+    "boundary_branches": {
+      "path": "first_principles_audit/prediction_factory/artifacts/boundary_branch_catalogue.json",
+      "sha256": "3765a5701edfe43dab6d8ae1764c4aeb6478ff5c8fd8277c729e3a4ac08bd7b8"
+    },
+    "desi_dr1_diagonal_diagnostic": {
+      "path": "first_principles_audit/prediction_factory/desi_dr1_growth_diagnostic.json",
+      "sha256": "b2ddb23947cd7edd16a5d148e58815519c6895c80cc51ac27585162d7be2f969"
+    },
+    "em_kernel_completion": {
+      "path": "first_principles_audit/prediction_factory/em_kernel_completion.json",
+      "sha256": "5780459df42f55bfe2d2f7b995b4c70ff214aa53f5ec49807bad904501a8b32f"
+    },
+    "em_spectral_fingerprint": {
+      "path": "first_principles_audit/prediction_factory/em_spectral_fingerprint.json",
+      "sha256": "3cef0b9f600bfee45a207bb846d4f8384775a2da4a43c61f622385e5510cdee7"
+    },
+    "material_fingerprint": {
+      "path": "first_principles_audit/prediction_factory/material_predictions.json",
+      "sha256": "791a38c5709d8da651ac8c0cbf7230d6166113d1f56672afa58362ba96ecf1b2"
+    },
+    "nd_shooting": {
+      "path": "first_principles_audit/prediction_factory/artifacts/nd_ultralight_shooting.json",
+      "sha256": "b747788cdc72f267bd6196471a42e085178d485d8f246653e5fc464e07ce0328"
+    },
+    "observational_protocol": {
+      "path": "first_principles_audit/prediction_factory/prediction_manifest.json",
+      "sha256": "52271e019f70fc41b74e3bc82df61d202b6b6c759f23657e139c5300dcb2e628"
+    },
+    "robin_boundary_family": {
+      "path": "first_principles_audit/prediction_factory/artifacts/robin_boundary_family.json",
+      "sha256": "70b626e486e5b5abf071a51da7817f291301ca42e4599e56e0cc96a6734a11bf"
+    },
+    "sparc_retrospective_cv": {
+      "path": "first_principles_audit/prediction_factory/sparc_crossval_report.json",
+      "sha256": "e6229adf0d8f0b7894a5ab9252da2940647e709d2548374959a306c1300b8947"
+    },
+    "wilson_input_audit": {
+      "path": "first_principles_audit/prediction_factory/wilson_data_manifest.json",
+      "sha256": "903d7f1cc141d2a8663a8ad04fabcaf7ed3126d5426dd9cfbb8c84fa1674d2af"
+    }
+  },
+  "current_predictions": {
+    "boundary_branches": {
+      "branches": {
+        "DD": {
+          "adjudication": "the exact UV point probe decouples because its field obeys Dirichlet data on the matter face",
+          "has_exact_massless_mode": false,
+          "left_boundary": "Dirichlet",
+          "masses_mu": [
+            1.2305282394475952,
+            1.8411950522172063,
+            2.4299402720768177,
+            3.029290090162164,
+            3.641438980825738,
+            4.261429935499823
+          ],
+          "right_boundary": "Dirichlet",
+          "uv_point_probe_decouples": true,
+          "uv_probe_couplings_beta_n": [
+            -0.0,
+            0.0,
+            -0.0,
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        "DN": {
+          "adjudication": "the exact UV point probe decouples because its field obeys Dirichlet data on the matter face",
+          "has_exact_massless_mode": false,
+          "left_boundary": "Dirichlet",
+          "masses_mu": [
+            0.913821688861947,
+            1.5410563148211187,
+            2.1317763794776905,
+            2.7251649726229443,
+            3.3312435088275127,
+            3.9474864909267695
+          ],
+          "right_boundary": "Neumann",
+          "uv_point_probe_decouples": true,
+          "uv_probe_couplings_beta_n": [
+            -0.0,
+            0.0,
+            -0.0,
+            0.0,
+            -0.0,
+            0.0
+          ]
+        },
+        "ND": {
+          "adjudication": "candidate UV-coupled hard-wall branch; the former zero mode becomes ultralight rather than disappearing",
+          "has_exact_massless_mode": false,
+          "left_boundary": "Neumann",
+          "masses_mu": [
+            0.0027449764667097022,
+            1.230795929903421,
+            1.8424382294474757,
+            2.432804159158691,
+            3.0338856459271657,
+            3.6476600753624107
+          ],
+          "right_boundary": "Dirichlet",
+          "uv_point_probe_decouples": false,
+          "uv_probe_couplings_beta_n": [
+            0.05429095411355716,
+            0.0011294771690004137,
+            0.0019844885792502276,
+            0.0026168850887706716,
+            0.00296634566789457,
+            0.003146834805416388
+          ]
+        },
+        "NN": {
+          "adjudication": "excluded as a universal unscreened completion because its constant scalar mode is exactly massless",
+          "has_exact_massless_mode": true,
+          "left_boundary": "Neumann",
+          "masses_mu": [
+            0.9138989815715508,
+            1.5416947347466599,
+            2.1337779482328476,
+            2.7288989308532146,
+            3.3366538592325705,
+            3.954473393782188
+          ],
+          "right_boundary": "Neumann",
+          "uv_point_probe_decouples": false,
+          "uv_probe_couplings_beta_n": [
+            0.0007051064316768625,
+            0.00155651382206329,
+            0.0023376306677915025,
+            0.0028200658176574848,
+            0.0030686112659686028,
+            0.003202799635426364
+          ]
+        }
+      },
+      "classification": "conditional numerical alternatives",
+      "nd_independent_shooting": {
+        "beta_uv": 0.05429095409636734,
+        "certificate": {
+          "all": true,
+          "catalogue_certified": true,
+          "effective_action_certified": true,
+          "fixed_window_has_one_root": true,
+          "left_neumann": true,
+          "mass_matches_fem": true,
+          "no_observational_inputs": true,
+          "right_dirichlet": true,
+          "ultralight": true,
+          "uv_coupling_matches_fem": true
+        },
+        "mu_lightest": 0.0027447613160306865
+      },
+      "result": "NN contains the excluded universal unscreened massless mode; ND leaves an ultralight UV-coupled mode; DN and DD decouple an exact UV point probe."
+    },
+    "desi_dr1_growth": {
+      "classification": "external_diagonal_diagnostic_not_confirmatory_likelihood",
+      "delta_chi2_holo_minus_lcdm": 0.27285713171660975,
+      "diagonal_chi2_holo": 2.691715566742528,
+      "diagonal_chi2_lcdm": 2.418858435025918,
+      "edge_bin_holo_pull": -0.33032220547679386,
+      "edge_bin_lcdm_pull": 0.040412333516317143,
+      "edge_bin_z": 0.92,
+      "interpretation": "Both curves are compatible with these four marginal entries; the small positive delta chi2 does not favour HOLO.",
+      "points": 4
+    },
+    "em_kernel": {
+      "classification": "derived_kernel_and_trace_response_not_detection",
+      "coordinate_measure_max_abs_error": 6.268652263941021e-12,
+      "eq39_coordinate_certificate": true,
+      "legacy_max_abs_error_from_correct_u_kernel": 0.395738538098634,
+      "result": "The functional Eq. 39 follows for a minimal bulk photon only in the constructed conformal coordinate. The historical numerical kernel mixed radial gauges and is not retained as a physical projection. The scalar lapse constraint now supplies a conditional action-derived photon coupling, but no laboratory detection is claimed."
+    },
+    "em_spectral_fingerprint": {
+      "classification": "action_derived_conditional_template_not_detection",
+      "ell_fixed": false,
+      "nd_d_gamma_at_c0": [
+        0.014361053744264439,
+        0.6188688390639,
+        0.10673187389348707,
+        0.3423751685547139,
+        0.10399930168333532,
+        0.27438427469210147
+      ],
+      "nn_positive_d_gamma_at_c0": [
+        3.9456343150046784,
+        -2.5233747440188727,
+        2.9012391427293163,
+        -2.4267476003866477,
+        2.835468281869856,
+        -2.4481486850363368
+      ],
+      "photon_positive_masses_mu": [
+        0.6525966736659679,
+        1.301427104946848,
+        1.93925485895307,
+        2.576346108476105,
+        3.2142927963050822,
+        3.853017292869545
+      ],
+      "photon_uv_residues_relative_to_zero": [
+        0.6193584713395174,
+        0.698484436807347,
+        0.7580789791405146,
+        0.7885631099484766,
+        0.8036592869012694,
+        0.8116709868659702
+      ],
+      "physical_branch_selected": false
+    },
+    "historical_boss_and_clock": {
+      "boss_dr12": {
+        "chi2_holo_recomputed": 2.2658096236080754,
+        "chi2_lcdm_recomputed": 2.4429961128699658,
+        "delta_chi2_holo_minus_lcdm": -0.1771864892618904,
+        "interpretation": "historical external comparison already inspected; no preference and not a new holdout",
+        "points": 3
+      },
+      "nist_uv": {
+        "chi2_over_n_reported": 22.590156199688852,
+        "interpretation": "historical null/poor-fit summary; the local bundle redacts the observations",
+        "local_series_fields": [
+          "t_lab_rel",
+          "y_pred",
+          "z_trace"
+        ],
+        "observed_series_removed": true,
+        "pearson_r_reported": -0.055375790994458114,
+        "raw_likelihood_recomputable_locally": false,
+        "residual_series_removed": true,
+        "samples_reported": 595
+      },
+      "sparc": {
+        "galaxies": 175,
+        "interpretation": "descriptive reproduction of an all-data fit; never a holdout score",
+        "median_rank_loss_ed": 1.8621666163018333,
+        "median_rank_loss_newton": 1.927856562773911,
+        "median_uncertainty_chi2_ed": 831.021465244633,
+        "median_uncertainty_chi2_newton": 905.9755194753745,
+        "wins_rank_ed_over_newton": 150,
+        "wins_uncertainty_ed_over_newton": 149
+      }
+    },
+    "material_fingerprint": {
+      "anchor_responses": [
+        {
+          "force_over_newtonian_force": 7.172393766187988e-05,
+          "potential_over_newtonian_potential": 6.576023335255174e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.201294907420196e-05,
+          "x_r_over_ell": 0.03
+        },
+        {
+          "force_over_newtonian_force": 6.917651654652761e-05,
+          "potential_over_newtonian_potential": 5.3301357445107316e-05,
+          "radial_force_gradient_over_newtonian_gradient": 7.171255729721012e-05,
+          "x_r_over_ell": 0.1
+        },
+        {
+          "force_over_newtonian_force": 5.51785674184894e-05,
+          "potential_over_newtonian_potential": 2.9769283473688393e-05,
+          "radial_force_gradient_over_newtonian_gradient": 6.694025569073132e-05,
+          "x_r_over_ell": 0.3
+        },
+        {
+          "force_over_newtonian_force": 1.617828969616645e-05,
+          "potential_over_newtonian_potential": 4.830956926906157e-06,
+          "radial_force_gradient_over_newtonian_gradient": 3.119185841334389e-05,
+          "x_r_over_ell": 1.0
+        },
+        {
+          "force_over_newtonian_force": 6.930900021614444e-07,
+          "potential_over_newtonian_potential": 1.3514905609174027e-07,
+          "radial_force_gradient_over_newtonian_gradient": 2.014525958113899e-06,
+          "x_r_over_ell": 3.0
+        },
+        {
+          "force_over_newtonian_force": 1.0989025923928482e-09,
+          "potential_over_newtonian_potential": 1.0777180816850583e-10,
+          "radial_force_gradient_over_newtonian_gradient": 5.67591917609757e-09,
+          "x_r_over_ell": 10.0
+        }
+      ],
+      "classification": "prospective_dimensionless_prediction_not_detection",
+      "mass_ratios": [
+        1.0,
+        1.6869421739528097,
+        2.334807228434088,
+        2.9859962489054825,
+        3.6510094950491627,
+        4.327035562485989
+      ],
+      "physical_units_available": false,
+      "positive_mode_count": 6,
+      "sum_alpha": 7.202299861734871e-05
+    },
+    "robin_boundary_family": {
+      "C_p": 0.0006883632917406481,
+      "classification": "operator_derived_phase_map_not_boundary_selection",
+      "hellmann_feynman_identity": "d(mu_n^2)/d(b_UV)=f_n(UV)^2=3 beta_n(UV)^2/I_g",
+      "ir_only_lightest_mass_ceiling": 0.0027449764667097022,
+      "minimum_avoided_crossing_gap": 0.011922903509479998,
+      "physical_boundary_coefficients_selected": false,
+      "uv_residue_exchange_rho_brackets": [
+        [
+          110867.97693606238,
+          114105.3803115751
+        ]
+      ]
+    },
+    "sparc": {
+      "classification": "retrospective_cross_validation_not_blind_confirmation",
+      "p5_optimizer_success": false,
+      "result": "The current P5 refit improves on baryons-only Newton on the retrospective test split but is decisively worse than the one-parameter RAR baseline.",
+      "split_galaxies": {
+        "test": 27,
+        "train": 122,
+        "validation": 26
+      },
+      "test_p5_minus_newton_delta_loglike_per_point": 25.521445504508577,
+      "test_p5_minus_rar_delta_loglike_per_point": -71.13282789028452,
+      "test_p5_vs_newton_galaxy_win_fraction": 0.8148148148148148,
+      "test_p5_vs_rar_galaxy_win_fraction": 0.2962962962962963
+    },
+    "wilson_loops": {
+      "classification": "blocked_missing_link_configurations",
+      "fail_closed": true,
+      "result": "analyser tested; no usable gauge-link ensemble found",
+      "sigma_a2": {
+        "status": "not_computable_without_link_configurations",
+        "units": "dimensionless_lattice_units",
+        "value": null
+      }
+    }
+  },
+  "freeze_date_utc": "2026-08-29",
+  "global_classification": "executable prediction programme; no new physical detection and no clean confirmatory holdout in this checkout",
+  "hard_rules": [
+    "No boundary condition is selected from observational performance.",
+    "No QCD scale is identified with ell without a separately derived UV matching relation.",
+    "No retrospective split is called a blind confirmation.",
+    "A weak or failed comparator result is preserved rather than recalibrated after unblinding."
+  ],
+  "links": [
+    {
+      "from": "frozen_trace",
+      "gate": "passed",
+      "id": "trace_to_effective_action",
+      "meaning": "The achieved profiles admit a positive-kinetic Einstein-scalar completion on the certified interval.",
+      "status": "derived_inverse",
+      "to": "effective_action"
+    },
+    {
+      "from": "effective_action",
+      "gate": "passed",
+      "id": "effective_action_to_scalar_carrier",
+      "meaning": "The healthy gauge-invariant trace carrier follows locally from the completed action.",
+      "status": "derived_local",
+      "to": "scalar_carrier"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/boundary_branch_catalogue.json",
+        "sha256": "3765a5701edfe43dab6d8ae1764c4aeb6478ff5c8fd8277c729e3a4ac08bd7b8"
+      },
+      "from": "boundary_action",
+      "gate": "blocked_missing_boundary_action",
+      "id": "boundary_selects_spectrum",
+      "meaning": "NN, ND, DN and DD are numerical alternatives; data may not select one after the fact.",
+      "status": "conditional_unselected",
+      "to": "scalar_carrier"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/robin_boundary_family.json",
+        "sha256": "70b626e486e5b5abf071a51da7817f291301ca42e4599e56e0cc96a6734a11bf"
+      },
+      "from": "boundary_action",
+      "gate": "passed_family_scan_missing_microscopic_boundary_coefficients",
+      "id": "positive_robin_action_to_phase_map",
+      "meaning": "Positive quadratic endpoint terms map poles and UV residues; IR stiffness alone cannot lift the light mode, while UV stiffness causes a residue exchange through an avoided crossing.",
+      "status": "derived_family_unselected",
+      "to": "robin_phase_map"
+    },
+    {
+      "from": "scalar_carrier",
+      "gate": "conditional",
+      "id": "carrier_to_matter_coupling",
+      "meaning": "beta_n=sqrt(I_g/3) f_n on the declared UV probe slice.",
+      "status": "derived_given_compact_interval_and_uv_probe",
+      "to": "matter_probe"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/material_predictions.json",
+        "sha256": "791a38c5709d8da651ac8c0cbf7230d6166113d1f56672afa58362ba96ecf1b2"
+      },
+      "from": "matter_probe",
+      "gate": "passed_as_benchmark_not_physical_branch",
+      "id": "matter_to_dimensionless_force",
+      "meaning": "A frozen correlated Yukawa force and gradient fingerprint versus x=r/ell.",
+      "status": "derived_for_positive_nn_benchmark_modes",
+      "to": "material_force"
+    },
+    {
+      "from": "material_force",
+      "gate": "missing_ell_source_detector_and_noise_model",
+      "id": "dimensionless_force_to_lab_signal",
+      "meaning": "No metres, newtons, displacement or significance can be predicted until these independent inputs are frozen.",
+      "status": "blocked",
+      "to": "laboratory_signal"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/em_kernel_completion.json",
+        "sha256": "5780459df42f55bfe2d2f7b995b4c70ff214aa53f5ec49807bad904501a8b32f"
+      },
+      "from": "photon_localization",
+      "gate": "bulk_or_brane_photon_branch_unselected",
+      "id": "photon_action_to_em_kernel",
+      "meaning": "Eq. 39 is the conformal-coordinate form of the minimal bulk-Maxwell measure. The historical numerical kernel mixed conformal and domain-wall coordinates and is rejected.",
+      "status": "derived_family_conditional_on_bulk_photon",
+      "to": "em_overlap_kernel"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/em_spectral_fingerprint.json",
+        "sha256": "3cef0b9f600bfee45a207bb846d4f8384775a2da4a43c61f622385e5510cdee7"
+      },
+      "from": "em_overlap_kernel",
+      "gate": "passed_as_conditional_dimensionless_template",
+      "id": "em_kernel_to_double_comb",
+      "meaning": "The scalar lapse constraint fixes d_gamma,n and the same interval fixes a photon KK tower; no free c_gamma is fitted at the Z=1 point.",
+      "status": "derived_given_bulk_photon_and_comoving_boundaries",
+      "to": "em_double_comb"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/em_spectral_fingerprint.json",
+        "sha256": "3cef0b9f600bfee45a207bb846d4f8384775a2da4a43c61f622385e5510cdee7"
+      },
+      "from": "photon_localization",
+      "gate": "passed_as_conditional_dimensionless_template",
+      "id": "bulk_photon_to_photon_kk_tower",
+      "meaning": "Neumann bulk Maxwell data give a flat massless photon plus a correlated massive vector comb with UV charge residues.",
+      "status": "derived_given_bulk_photon",
+      "to": "photon_kk_tower"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/em_spectral_fingerprint.json",
+        "sha256": "3cef0b9f600bfee45a207bb846d4f8384775a2da4a43c61f622385e5510cdee7"
+      },
+      "from": "em_double_comb",
+      "gate": "missing_ell_source_atomic_coefficients_and_physical_branch_selection",
+      "id": "em_double_comb_to_clock_signal",
+      "meaning": "The normalized source-to-alpha transfer is derived, but hertz and significance still require a physical branch, ell, a source and atomic differential sensitivities.",
+      "status": "blocked_dimensional_readout",
+      "to": "laboratory_signal"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/sparc_crossval_report.json",
+        "sha256": "e6229adf0d8f0b7894a5ab9252da2940647e709d2548374959a306c1300b8947"
+      },
+      "from": "frozen_trace",
+      "gate": "retrospective_cross_validation_only",
+      "id": "trace_to_galaxy_readout",
+      "meaning": "Five global parameters are fitted on train galaxies; this is not a field-equation derivation.",
+      "status": "phenomenological_dictionary",
+      "to": "galaxy_readout"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/desi_dr1_growth_diagnostic.json",
+        "sha256": "b2ddb23947cd7edd16a5d148e58815519c6895c80cc51ac27585162d7be2f969"
+      },
+      "from": "frozen_trace",
+      "gate": "external_diagnostic_not_full_likelihood",
+      "id": "trace_to_growth_readout",
+      "meaning": "The frozen curve can be scored, but a 4D cosmological interface has not been derived.",
+      "status": "phenomenological_dictionary",
+      "to": "growth_readout"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/wilson_data_manifest.json",
+        "sha256": "903d7f1cc141d2a8663a8ad04fabcaf7ed3126d5426dd9cfbb8c84fa1674d2af"
+      },
+      "from": "wilson_observable",
+      "gate": "missing_su3_link_configurations",
+      "id": "gauge_links_to_wilson_observable",
+      "meaning": "Rectangular loops, Creutz ratios and a continuum scale cannot be recovered from plaquette summaries or an ED endpoint proxy.",
+      "status": "blocked",
+      "to": "qcd_scale"
+    },
+    {
+      "from": "qcd_scale",
+      "gate": "missing_uv_matching_relation_ell_sqrt_sigma",
+      "id": "qcd_scale_to_compactification_length",
+      "meaning": "Setting ell equal to a lattice spacing or QCD length would be an additional physical hypothesis.",
+      "status": "blocked",
+      "to": "material_force"
+    }
+  ],
+  "next_falsifiable_runs": [
+    {
+      "freeze_before_data": "boundary/junction action and matter slice",
+      "id": "physical_boundary_selection",
+      "output": "one selected spectrum or an explicit proof that this compactification fails",
+      "priority": 1
+    },
+    {
+      "freeze_before_data": "bulk photon localization, ell, electrostatic source geometry, clock species and distance bins",
+      "id": "bulk_photon_double_comb_test",
+      "output": "joint Coulomb, scalar-force and differential-clock template with shared mass ratios",
+      "priority": 2
+    },
+    {
+      "freeze_before_data": "ell, source geometry, detector transfer and distance bins",
+      "id": "dimensional_material_scan",
+      "output": "absolute force/displacement curve and null arms",
+      "priority": 3
+    },
+    {
+      "freeze_before_data": "thermalized SU(3) links, action, beta values and blocking plan",
+      "id": "wilson_ensemble_export",
+      "output": "W(R,T), V_eff, Creutz plateaux and continuum sigma",
+      "priority": 4
+    },
+    {
+      "freeze_before_data": "model, likelihood, masks and nuisance policy",
+      "id": "prospective_external_observation",
+      "output": "a preserved external holdout result, including a null or failure",
+      "priority": 5
+    }
+  ],
+  "nodes": {
+    "boundary_action": "physical selector not yet supplied",
+    "effective_action": "geometry-preserving inverse completion",
+    "em_double_comb": "conditional scalar and photon spectral fingerprint",
+    "em_overlap_kernel": "action-derived family containing Eq. 39",
+    "frozen_trace": "verified numerical input",
+    "galaxy_readout": "phenomenological radial dictionary",
+    "growth_readout": "phenomenological cosmological dictionary",
+    "laboratory_signal": "requires dimensional source and detector",
+    "material_force": "dimensionless six-mode Yukawa fingerprint",
+    "matter_probe": "conditional UV-slice compact-interval probe",
+    "photon_kk_tower": "bulk-Maxwell compact-interval eigenmodes",
+    "photon_localization": "bulk or brane branch not yet selected",
+    "qcd_scale": "requires Wilson ensembles and continuum scale setting",
+    "robin_phase_map": "derived positive endpoint-action family",
+    "scalar_carrier": "derived local fluctuation degree of freedom",
+    "wilson_observable": "analyser ready; gauge links absent"
+  },
+  "schema": "holo.master-prediction-registry.v1"
+}

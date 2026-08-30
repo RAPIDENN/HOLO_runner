@@ -24,10 +24,19 @@ All figures are copied verbatim from the paper build directory and correspond 1:
 - `figures/fig_single_arm_modal_responses.pdf`
 - `figures/bulk_clock_5d.png`
 - `figures/nist_baseline_vs_uv.png`
+- `figures/fig_effective_reconstruction.png`
+- `figures/fig_minimal_probe_completion.png`
+- `figures/fig_ricci_material_audit.png`
+- `figures/fig_prediction_factory.png`
+- `figures/fig_em_double_comb.png`
 
-## Instrument closure (bulk clock + UV-screened lab channel)
+## Historical instrument-closure artefacts
 
-This bundle includes the frozen instrument-closure artifacts used by the paper:
+This bundle includes the frozen historical artefacts audited by the paper.  The
+legacy Ricci series used a mislabeled radial derivative, and the laboratory
+kernel mixed the domain-wall trace coordinate with the conformal Maxwell
+density.  It is retained for provenance and superseded by the coordinate-correct
+bulk-photon certificate:
 
 - `artifacts/ed_bulk_clock.json`
 - `artifacts/tau_from_dictionary.json`
@@ -50,7 +59,7 @@ This keeps the manuscript figure as published while avoiding redistribution of t
 - `artifacts/invariant_flux_spectrum_u.json` — gauge-invariant scalar 0⁺⁺ spectrum readout (u coordinate); includes the reported ratio m₁/m₀.
 - `artifacts/growth_report.json` — linear-growth readout fσ8(z) computed from the frozen ED trace and matched ΛCDM reference.
 - `artifacts/growth_validation_boss_dr12.json` — BOSS DR12 covariance-weighted χ² comparison vs ΛCDM.
-- `artifacts/yang_mills_scale_report.json` — Wilson-loop string-tension estimate and implied absolute glueball mass scale under a universal α′.
+- `artifacts/yang_mills_scale_report.json` — Einstein-frame IR-endpoint proxy and implied absolute glueball mass after external choices of α′ and scalar conversion factor; it is not a measured Wilson area law.
 - `artifacts/desi_residual.json` — versioned residual vector Δfσ8(z_bins) used by the paper.
 - `artifacts/bulk_eigenmodes_derived.json` — certified bulk eigenmode basis (ψₙ on the solver grid).
 - `artifacts/reconstructed_mode_delta_G_desi_nontoy.json` — non-toy bounded single-arm reconstruction artifact underlying the dynamic spectroscopy figure.
@@ -72,8 +81,8 @@ This keeps the manuscript figure as published while avoiding redistribution of t
 - Verifies the **BOSS DR12** covariance-weighted χ² calculation for the quoted redshifts.
 
 ### `artifacts/yang_mills_scale_report.json`
-- Verifies the **Wilson-loop string-tension estimate** from the IR warp factor and the implied absolute mass scale.
-- Uses the convention stated in the preprint: σ_eff = exp(2A(z_*)) / (2π α′).
+- Verifies the arithmetic of the historical **IR-endpoint scale proxy** and its implied absolute mass conversion.
+- Uses σ_proxy = exp(2A(z_end)) / (2π α′), with external α′; no rectangular Wilson loop or world-sheet calculation is contained in the artefact.
 
 ## Verification (local)
 
@@ -82,6 +91,24 @@ From the repo root `HOLO_runner/`:
 ```bash
 python3 tools/verify_bulk_clock_5d.py
 python3 tools/verify_uv_screened_nist_channel.py
+python3 first_principles_audit/audit_ricci_wilson_interface.py
+python3 first_principles_audit/derive_material_transducer.py
+python3 first_principles_audit/prediction_factory/derive_boundary_branches.py
+python3 first_principles_audit/prediction_factory/verify_nd_ultralight_shooting.py
+python3 first_principles_audit/prediction_factory/derive_em_kernel_completion.py
+python3 first_principles_audit/prediction_factory/derive_robin_boundary_family.py
+python3 first_principles_audit/prediction_factory/derive_em_spectral_fingerprint.py
+python3 first_principles_audit/prediction_factory/evaluate_desi_dr1_growth.py
+python3 first_principles_audit/prediction_factory/build_master_prediction_registry.py
 ```
+
+The prediction factory is indexed by
+[`MASTER_PREDICTION_REGISTRY.md`](../first_principles_audit/prediction_factory/MASTER_PREDICTION_REGISTRY.md).
+It includes the four endpoint branches, the positive Robin phase map, the
+scale-free material fingerprint, the coordinate-correct Eq. 39 completion, the
+conditional scalar--photon double comb and photon KK tower, the fail-closed
+Wilson-loop input audit, retrospective SPARC cross-validation, and the DESI DR1
+marginal diagnostic.  None is labelled a new detection or a clean confirmatory
+holdout.
 
 ## JSON sanitized

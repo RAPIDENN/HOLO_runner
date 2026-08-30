@@ -1,0 +1,122 @@
+{
+  "discovered_files": [
+    {
+      "available_result_fields": [
+        "convergence",
+        "final_verdict",
+        "gap_compatibility",
+        "gap_compatibility_smeared",
+        "invariance_scaling",
+        "mass_effective",
+        "mass_effective_scaling",
+        "operator_consistency",
+        "operator_smearing",
+        "reflection_positivity",
+        "runs",
+        "trace_id"
+      ],
+      "classification": "observable_summary_without_links",
+      "path": "HK-core/results/4d_su3/beta5p5_seed944_heatbath_positive_plateau_regression.json",
+      "reason": "serialized plaquette/correlator analysis has no links, links_real or links_imag field",
+      "sha256": "0a9903e41ca1b25cae563f8b3e1f841cc3eefbf47fdb5b98d18125466f124d2f",
+      "size_bytes": 7340,
+      "summary_trace_id": "MILL_REFINE_SU3_4D_b5.5_seed944",
+      "usable_link_ensemble": false
+    },
+    {
+      "available_result_fields": [
+        "convergence",
+        "final_verdict",
+        "gap_compatibility",
+        "gap_compatibility_smeared",
+        "invariance_scaling",
+        "mass_effective",
+        "mass_effective_scaling",
+        "operator_consistency",
+        "operator_smearing",
+        "reflection_positivity",
+        "runs",
+        "trace_id"
+      ],
+      "classification": "observable_summary_without_links",
+      "path": "instrument_closure/2026-01-04/hkcore_refine_beta2.0_seed777.json",
+      "reason": "serialized plaquette/correlator analysis has no links, links_real or links_imag field",
+      "sha256": "ac2883a8b580a7e70a486ee9ea1f887d6671b747845bad278f07dd3446282851",
+      "size_bytes": 10330,
+      "summary_trace_id": "MILL_REFINE_SU2_3D_b2_seed777",
+      "usable_link_ensemble": false
+    },
+    {
+      "available_top_level_fields": [
+        "bundle",
+        "external_channels",
+        "files",
+        "generated_utc",
+        "summary"
+      ],
+      "classification": "manifest_without_link_matrices",
+      "path": "instrument_closure/2026-01-04/instrument_closure_manifest.json",
+      "reason": "bundle manifest references outputs but stores no gauge links",
+      "sha256": "fdb090a64c8d1bf439254b25e2ab47c798750935c30a5883be6991e954ff0664",
+      "size_bytes": 3374,
+      "usable_link_ensemble": false
+    },
+    {
+      "classification": "excluded_ed_endpoint_proxy",
+      "path": "instrument_closure/2026-01-04/wilson_loop_sigma_from_ed_trace.json",
+      "reason": "contains e2A_ir, alpha_prime_GeV-2 and sigma_eff_GeV2 but no gauge links; it is not a Wilson-loop observable",
+      "sha256": "36c873e400d3e08e3451036d1a703451f7a0fd89673d30fc2700043cd1287275",
+      "size_bytes": 474,
+      "usable_link_ensemble": false
+    }
+  ],
+  "evidence_boundary": {
+    "ed_endpoint_proxy_is_not_wilson_data": true,
+    "lattice_spacing_a_is_not_a_physical_compactification_length": true,
+    "plaquette_correlator_is_not_static_potential": true,
+    "plaquette_is_only_W_1_1": true
+  },
+  "fail_closed": true,
+  "measurements": null,
+  "missing_data": [
+    {
+      "contract": "One or more thermalized configurations with shape [Ncfg,Lx,Ly,Lz,Lt,4,3,3], complex SU(3) matrices, canonical axis metadata and periodic boundaries",
+      "id": "su3_link_matrices",
+      "producer_gap": "HK-core currently serializes plaquette/correlator summaries rather than the Su3Gauge4D link field",
+      "required": true
+    },
+    {
+      "fields": [
+        "ensemble_id",
+        "gauge_action",
+        "beta",
+        "thermalization_sweeps",
+        "saved_configuration_stride_sweeps"
+      ],
+      "id": "ensemble_provenance",
+      "required_for": "sigma_a2_interpretation"
+    },
+    {
+      "acceptable_example": "r0/a together with an external r0_phys",
+      "explicitly_rejected": "instrument_closure/2026-01-04/wilson_loop_sigma_from_ed_trace.json",
+      "id": "independent_lattice_scale",
+      "required_for": "GeV_conversion_only"
+    }
+  ],
+  "physical_scale": {
+    "endpoint_proxy_used": false,
+    "sigma_GeV2": null,
+    "status": "not_available"
+  },
+  "schema": "holo.wilson-loop-analysis.v1",
+  "sigma_a2": {
+    "status": "not_computable_without_link_configurations",
+    "units": "dimensionless_lattice_units",
+    "value": null
+  },
+  "sources_scanned": [
+    "HK-core/results/4d_su3",
+    "instrument_closure/2026-01-04"
+  ],
+  "status": "blocked_missing_link_configurations"
+}

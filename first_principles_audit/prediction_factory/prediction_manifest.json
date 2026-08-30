@@ -1,0 +1,281 @@
+{
+  "baselines": {
+    "clocks": [
+      {
+        "id": "noise_plus_registered_systematics",
+        "rule": "constant/drift/environmental terms trained only on calibration sessions"
+      },
+      {
+        "id": "blind_injection_controls",
+        "rule": "include null and synthetic signals processed by the identical pipeline"
+      }
+    ],
+    "growth": [
+      {
+        "id": "matched_flat_lcdm",
+        "rule": "freeze the same external cosmological parameters and use the identical official likelihood"
+      },
+      {
+        "id": "survey_reference_model",
+        "rule": "reproduce the collaboration baseline before scoring HOLO"
+      }
+    ],
+    "sparc_primary_zero_test_tuning": [
+      {
+        "id": "baryons_only_newton",
+        "rule": "same baryonic inputs and independently frozen nuisances as HOLO"
+      },
+      {
+        "id": "canonical_rar_or_mond",
+        "rule": "global acceleration scale and interpolation choice fixed on train only; no test-galaxy tuning"
+      },
+      {
+        "id": "abundance_matched_cdm",
+        "rule": "halo relation and scatter learned externally or on train only; evaluate the predictive distribution"
+      }
+    ],
+    "sparc_secondary_nuisance_profiled": {
+      "models": [
+        "HOLO",
+        "RAR/MOND",
+        "NFW or cored CDM"
+      ],
+      "rule": "all models receive the same nuisance prior budget; integrate or cross-validate nuisance parameters rather than quoting unpenalized best-fit test chi2"
+    }
+  },
+  "claim_policy": "A local calculation may be reproducible yet remain in-sample, historical, or synthetic. Only a datum not used to choose the tested pipeline can support a confirmatory claim.",
+  "data_separation": {
+    "clocks": "group by independent acquisition session/day/site/species; no interleaved sample split and no reuse of the two historical NIST channels as test",
+    "growth": "dataset-release barrier: BOSS DR12 and inspected DESI Year 1 are development; a later untouched official release is test",
+    "sparc": "deterministic galaxy-level 70/15/15 split for a clean refit; current outcomes remain development-only because the full sample was previously used"
+  },
+  "freeze_date_utc": "2026-08-29",
+  "historical_audit_receipts": {
+    "boss_dr12": {
+      "chi2_holo_recomputed": 2.2658096236080754,
+      "chi2_lcdm_recomputed": 2.4429961128699658,
+      "delta_chi2_holo_minus_lcdm": -0.1771864892618904,
+      "interpretation": "historical external comparison already inspected; no preference and not a new holdout",
+      "points": 3
+    },
+    "nist_uv": {
+      "chi2_over_n_reported": 22.590156199688852,
+      "interpretation": "historical null/poor-fit summary; the local bundle redacts the observations",
+      "local_series_fields": [
+        "t_lab_rel",
+        "y_pred",
+        "z_trace"
+      ],
+      "observed_series_removed": true,
+      "pearson_r_reported": -0.055375790994458114,
+      "raw_likelihood_recomputable_locally": false,
+      "residual_series_removed": true,
+      "samples_reported": 595
+    },
+    "sparc": {
+      "galaxies": 175,
+      "interpretation": "descriptive reproduction of an all-data fit; never a holdout score",
+      "median_rank_loss_ed": 1.8621666163018333,
+      "median_rank_loss_newton": 1.927856562773911,
+      "median_uncertainty_chi2_ed": 831.021465244633,
+      "median_uncertainty_chi2_newton": 905.9755194753745,
+      "wins_rank_ed_over_newton": 150,
+      "wins_uncertainty_ed_over_newton": 149
+    }
+  },
+  "input_documents": {
+    "observational_inventory_sha256": "1e372bb33aaa74aebc52254b328404be38920b04a92a40f9e1783d1665ee712e",
+    "sparc_split_sha256": "1007a4242c3f067421206064307698ced27b015b52f90a701c5d1d099b3f6465"
+  },
+  "metrics": {
+    "atomic_clocks": {
+      "primary": "out-of-session predictive log likelihood or predeclared matched-filter statistic with colored-noise covariance",
+      "required_reporting": [
+        "injection-recovery efficiency",
+        "environmental vetoes and dead time",
+        "trials correction if frequency, phase, or coherence time is scanned",
+        "cross-species or cross-site coherence with parameters fixed before the test session"
+      ],
+      "split_unit": "independent acquisition session/day/site/species, never interleaved samples"
+    },
+    "common_rules": [
+      "Freeze geometry, dictionaries, model parameters, masks, nuisance priors, and the score before opening a test outcome.",
+      "Never label a score confirmatory when its observations were used to choose parameters, transforms, endpoints, cuts, or error models.",
+      "Use the same observations, masks, covariance, nuisance policy, and likelihood normalization for every compared model.",
+      "Report absolute goodness of fit and uncertainty, not only win counts or a delta relative to a weak baseline.",
+      "A failed or null holdout is preserved; it is not moved into calibration and rerun under the same prediction ID."
+    ],
+    "galaxy_rotation_curves": {
+      "forbidden_primary_metric": "the historical velocity-weighted ranking loss",
+      "primary": "sum of held-out Gaussian log predictive densities, normalized per retained velocity datum",
+      "required_inputs": [
+        "point-level velocity observations",
+        "reported errors or covariance",
+        "baryonic component curves",
+        "independently fixed or hierarchically predicted distance, inclination, and mass-to-light nuisances"
+      ],
+      "secondary": [
+        "median per-galaxy chi2 per retained datum",
+        "galaxy-level win fraction with a galaxy-cluster bootstrap interval",
+        "residual calibration by radius and surface-brightness strata"
+      ]
+    },
+    "growth_rsd": {
+      "primary": "generalized chi2 r^T C^-1 r or the official full-shape log likelihood",
+      "primary_contrast": "delta chi2 = chi2_HOLO - chi2_LCDM on the same frozen data vector and nuisance treatment",
+      "required_reporting": [
+        "full covariance or official likelihood",
+        "Alcock-Paczynski and fiducial-cosmology conventions",
+        "scale cuts, tracer selection, nuisance count, and any look-elsewhere correction"
+      ],
+      "target_window": "predeclared effective-redshift bins intersecting 0.90 <= z_eff <= 1.05"
+    }
+  },
+  "predictions": [
+    {
+      "confirmatory_eligible_now": false,
+      "development_split": "sparc-name-sha256-70-15-15-v1",
+      "domain": "galaxy_rotation_curves",
+      "id": "sparc_global_readout_clean_refit_v1",
+      "local_confirmatory_evaluation_available": false,
+      "local_descriptive_evaluation_available": true,
+      "next_test": "refit five parameters on train only, use validation once, then freeze; treat the SPARC test group as honest development estimation and reserve a new external galaxy catalogue for confirmation",
+      "observable": "point-level circular velocity conditioned only on baryonic inputs and five frozen global readout parameters",
+      "reason_codes": [
+        "ALL_175_USED_TO_FIT_GLOBAL_PARAMETERS",
+        "POINT_LEVEL_OBSERVATIONS_NOT_LOCAL",
+        "CURRENT_SPLIT_OUTCOMES_ALREADY_EXPOSED"
+      ],
+      "status": "blocked_clean_refit_and_external_holdout"
+    },
+    {
+      "audit_result": {
+        "chi2_holo_recomputed": 2.2658096236080754,
+        "chi2_lcdm_recomputed": 2.4429961128699658,
+        "delta_chi2_holo_minus_lcdm": -0.1771864892618904,
+        "interpretation": "historical external comparison already inspected; no preference and not a new holdout",
+        "points": 3
+      },
+      "confirmatory_eligible_now": false,
+      "domain": "cosmological_growth",
+      "id": "boss_dr12_dictionary_growth_v1",
+      "local_confirmatory_evaluation_available": false,
+      "local_descriptive_evaluation_available": true,
+      "next_test": "freeze a 4D growth prediction and score an untouched later survey release with its official likelihood",
+      "observable": "f_sigma8 at z = 0.38, 0.51, 0.61",
+      "reason_codes": [
+        "BOSS_VECTOR_ALREADY_INSPECTED",
+        "COMPOSITE_DICTIONARY_NOT_4D_DERIVATION",
+        "NO_STATISTICAL_PREFERENCE_OVER_LCDM"
+      ],
+      "status": "historical_external_comparison_only"
+    },
+    {
+      "confirmatory_eligible_now": false,
+      "domain": "cosmological_growth",
+      "id": "desi_high_redshift_growth_holdout_v1",
+      "legacy_dictionary_signature": {
+        "classification": "edge-of-domain composite-dictionary signature; not a derived 4D prediction",
+        "endpoint_delta_fsigma8_percent": -12.386473033641826,
+        "endpoint_z": 1.0,
+        "source": "A_single_Einstein_Dilaton geometry/artifacts/growth_report.json",
+        "source_sha256": "d15348e26d212adf7beaf88b72e07d92583f45f9dcb0d8f0510b0756cd15fa7d"
+      },
+      "local_confirmatory_evaluation_available": false,
+      "local_descriptive_evaluation_available": false,
+      "next_test": "ingest the official frozen likelihood without changing the prediction curve, target window, cuts, or score",
+      "observable": "f_sigma8 or full-shape growth likelihood in predeclared bins intersecting 0.90 <= z_eff <= 1.05",
+      "reason_codes": [
+        "LOCAL_DESI_RESIDUAL_IS_MODEL_DERIVED",
+        "OFFICIAL_OBSERVED_VECTOR_AND_COVARIANCE_ABSENT",
+        "YEAR1_RESULTS_ALREADY_PUBLIC_AND_INSPECTED"
+      ],
+      "release_holdout_rule": "BOSS DR12 and DESI Year 1 are development context; the first official later DESI growth likelihood not used to alter this protocol is the test release",
+      "status": "prospective_official_likelihood_missing"
+    },
+    {
+      "audit_result": {
+        "chi2_over_n_reported": 22.590156199688852,
+        "interpretation": "historical null/poor-fit summary; the local bundle redacts the observations",
+        "local_series_fields": [
+          "t_lab_rel",
+          "y_pred",
+          "z_trace"
+        ],
+        "observed_series_removed": true,
+        "pearson_r_reported": -0.055375790994458114,
+        "raw_likelihood_recomputable_locally": false,
+        "residual_series_removed": true,
+        "samples_reported": 595
+      },
+      "confirmatory_eligible_now": false,
+      "domain": "atomic_clocks",
+      "id": "nist_uv_readout_historical_v1",
+      "local_confirmatory_evaluation_available": false,
+      "local_descriptive_evaluation_available": true,
+      "next_test": "use a new acquisition session and dissimilar transition/site after deriving a dimensional, non-universal clock coupling",
+      "observable": "historical Yb-channel phase-derived comparison",
+      "reason_codes": [
+        "OBSERVED_AND_RESIDUAL_SERIES_REDACTED_LOCALLY",
+        "BOTH_CHANNELS_ALREADY_USED",
+        "TIME_DICTIONARY_NOT_UNIQUE"
+      ],
+      "status": "historical_null_redacted"
+    },
+    {
+      "confirmatory_eligible_now": false,
+      "domain": "atomic_clocks",
+      "id": "metric_only_tree_level_clock_null_v1",
+      "local_confirmatory_evaluation_available": false,
+      "local_descriptive_evaluation_available": false,
+      "next_test": "a predeclared differential line in independent clock sessions would falsify the minimal null or require an explicitly new interaction model",
+      "observable": "differential frequency ratio of co-located dissimilar atomic transitions",
+      "reason_codes": [
+        "NO_NEW_INDEPENDENT_CLOCK_SESSION_LOCAL",
+        "NONUNIVERSAL_ANOMALY_COEFFICIENTS_NOT_DERIVED"
+      ],
+      "status": "prospective_null_requires_new_data",
+      "theory_statement": "the current universal metric-only completion has no direct classical Maxwell vertex and no leading universal differential clock-ratio signal"
+    }
+  ],
+  "prospective_split_rules": {
+    "clocks": {
+      "algorithm": "SHA256(salt + '|' + session_id) mapped to [0,1): calibration <0.50, validation <0.75, otherwise test",
+      "historical_nist_sessions": "development-only regardless of hash bucket because outcomes were already inspected",
+      "salt": "HOLO_runner|prediction_factory|clock-session|v1|2026-08-29",
+      "split_id": "clock-session-sha256-50-25-25-v1",
+      "unit": "complete independent acquisition session/day/site/species; all channels from one session stay together"
+    },
+    "growth": {
+      "development": [
+        "BOSS_DR12",
+        "DESI_YEAR1_INSPECTED"
+      ],
+      "split_id": "chronological-official-release-barrier-v1",
+      "test": "chronologically first later official growth likelihood not used to change this protocol",
+      "unit": "complete covariance-coupled survey likelihood, never individual correlated redshift rows"
+    },
+    "sparc": {
+      "assignment_document": "sparc_split_v1.json",
+      "split_id": "sparc-name-sha256-70-15-15-v1",
+      "unit": "galaxy"
+    }
+  },
+  "protocol_version": "holo-observational-protocol-v1",
+  "readiness": {
+    "audit_only_now": [
+      "sparc_global_readout_clean_refit_v1",
+      "boss_dr12_dictionary_growth_v1",
+      "nist_uv_readout_historical_v1"
+    ],
+    "bottom_line": "No local observational arm currently qualifies as a clean confirmatory holdout.",
+    "confirmatory_evaluable_locally_now": [],
+    "prospective_or_blocked": [
+      "sparc_global_readout_clean_refit_v1",
+      "desi_high_redshift_growth_holdout_v1",
+      "nist_uv_readout_historical_v1",
+      "metric_only_tree_level_clock_null_v1"
+    ]
+  },
+  "schema": "prediction-factory-manifest-v1"
+}

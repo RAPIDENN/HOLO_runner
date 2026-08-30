@@ -1,0 +1,83 @@
+{
+  "carrier_metrics": {
+    "epsilon_max": 9682.701000453508,
+    "epsilon_min": 0.3067743134956326,
+    "p_integral": 85.4283279180457,
+    "p_max": 8587.703763802585,
+    "p_min": 0.00011388187854569774,
+    "w_integral": 91.37501027469986,
+    "w_ir_decile_fraction": 1.7081447249690548e-05,
+    "w_max": 9118.781049316276,
+    "w_min": 0.006829428712918662,
+    "w_uv_decile_fraction": 0.9670951385432036,
+    "w_weighted_median_u": 0.019907756784158105
+  },
+  "classification": "bulk_carrier_derived_interface_coefficients_unfixed",
+  "conditional_4d_interface": {
+    "B_F": "1 + d_e varphi/M_Pl + O(varphi^2)",
+    "electromagnetism": "-B_F(varphi) F^2/4",
+    "ln_A_m": "beta varphi/M_Pl + O(varphi^2)",
+    "matter": "S_m[A_m(varphi)^2 g, Psi]",
+    "yukawa_potential": "-G m1 m2/r [1 + 2 beta^2 exp(-m_varphi r)]"
+  },
+  "criteria": {
+    "identity_max_abs": 1e-10,
+    "zero_mode_norm_abs_error": 1e-12,
+    "zero_mode_radial_energy_max": 1e-24
+  },
+  "evidence_boundary": "This certificate derives a positive gauge-invariant scalar carrier and an allowed interaction basis from the corrected bulk. It does not select a boundary completion, determine any matter Wilson coefficient, or establish an observed interaction.",
+  "geometry_fixed": {
+    "canonical_field": "d chi = sqrt(K(phi)) d phi",
+    "carrier_factor": "epsilon_ED = -A_uu/A_u^2",
+    "four_dimensional_weight": "w = exp(2 A) epsilon_ED",
+    "local_superpotential": "W(chi(u)) = -6 A_u(u)",
+    "potential_identity": "V = W_chi^2/2 - W^2/3",
+    "radial_weight": "p = exp(4 A) epsilon_ED",
+    "shape_equation": "-d_u(p d_u f_n) = m_n^2 w f_n",
+    "shape_normalization": "integral w f_n f_m du = delta_nm"
+  },
+  "identity_metrics": {
+    "V_from_W_max_abs": 1.4210854715202004e-14,
+    "W_flow_max_abs": 1.3322676295501878e-15,
+    "canonicalization_max_abs": 4.440892098500626e-16,
+    "warp_representation_max_abs": 4.440892098500626e-16
+  },
+  "input": {
+    "domain": [
+      0.01023316578330245,
+      1.980980980980981
+    ],
+    "path": "/home/debian/work/repos/HOLO_runner/first_principles_audit/artifacts/holo_effective_action.json",
+    "samples": 1979,
+    "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+  },
+  "neumann_trial": {
+    "completion": "Neumann--Neumann trial only",
+    "constant_mode_amplitude": 0.10461315031155387,
+    "interpretation": "A massless shape mode is allowed by this trial completion. It is not a physical prediction until boundary actions and normalization are fixed.",
+    "radial_energy": 0.0,
+    "weighted_norm": 1.0
+  },
+  "observational_inputs_read": [],
+  "passes": {
+    "A_uu_strictly_negative": true,
+    "all": true,
+    "blind_to_observations": true,
+    "canonical_field_monotonic": true,
+    "effective_action_input_certified": true,
+    "finite_positive_carrier_integrals": true,
+    "neumann_constant_mode_normalized": true,
+    "positive_carrier_weights": true,
+    "superpotential_identities": true
+  },
+  "title": "Geometry-derived scalar interaction carrier",
+  "unfixed_choices": [
+    "radial boundary actions and boundary conditions",
+    "five-dimensional gravitational normalization kappa_5",
+    "absolute radial and four-dimensional mass scale",
+    "Standard-Model localization in the radial direction",
+    "universal matter Wilson coefficient beta",
+    "electromagnetic Wilson coefficient d_e",
+    "QCD and fermion-mass coefficients d_g and d_mi"
+  ]
+}

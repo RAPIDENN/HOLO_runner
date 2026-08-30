@@ -6,10 +6,16 @@ It contains frozen readouts (JSON) plus a manifest; it does **not** contain the 
 All channels are auditable via `instrument_closure_manifest.json` and verifiable as frozen artefacts (with some channels referencing external inputs by recorded hashes).
 The QCD glueball (0⁺⁺) channel is provided by the frozen spectrum artefact in the Einstein–Dilaton geometry pack and is referenced here as an external audited channel.
 
+The diagram below corrects the causal direction while preserving every frozen
+file.  The original label “Wilson loop” was too strong: the JSON reads the ED
+endpoint and external constants; HK-core does not provide a rectangular-loop
+area-law measurement.
+
 ```mermaid
 flowchart LR
-  WL["Wilson loop"] --> SIG["sigma_eff"]
-  SIG --> TR["ED_trace"]
+  TR["ED_trace"] --> SIG["IR endpoint proxy"]
+  EXT["external alpha prime and c"] --> SIG
+  HK["HK-core plaquette run"] --> AUDIT["separate kernel audit"]
 
   TR --> SPARC["SPARC"]
   TR --> GROW["Growth_BOSS"]
@@ -18,6 +24,7 @@ flowchart LR
   TR --> QCD["QCD_0pp"]
 
   SIG --> MAN["instrument_closure_manifest.json"]
+  AUDIT --> MAN
   SPARC --> MAN
   GROW --> MAN
   RICCI --> MAN
@@ -38,8 +45,11 @@ flowchart LR
 Legend:
 
 - `ED_trace`: frozen Einstein–Dilaton geometry trace ID used across channels.
-- `sigma_eff`: Wilson-loop absolute scale readout.
+- `sigma_eff`: historical endpoint arithmetic proxy, not a Wilson area-law measurement.
 - `QCD_0pp`: QCD glueball scalar `0++` ratio `m1/m0` (scale-free).
+
+The corrected Ricci and scale audit is
+`../../first_principles_audit/RICCI_WILSON_MATERIAL_INTERFACE.md`.
 
 External audited channels (not copied into this folder):
 

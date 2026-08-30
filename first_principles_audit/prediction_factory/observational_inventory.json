@@ -1,0 +1,206 @@
+{
+  "channels": {
+    "boss_dr12": {
+      "calibration_exposure": "the three values and covariance have already been used in the manuscript comparison",
+      "confirmatory_use_now": false,
+      "full_covariance_local": true,
+      "historical_summary": {
+        "chi2_holo_recomputed": 2.2658096236080754,
+        "chi2_lcdm_recomputed": 2.4429961128699658,
+        "delta_chi2_holo_minus_lcdm": -0.1771864892618904,
+        "interpretation": "historical external comparison already inspected; no preference and not a new holdout",
+        "points": 3
+      },
+      "local_artifacts": [
+        {
+          "bytes": 1261,
+          "exists": true,
+          "path": "A_single_Einstein_Dilaton geometry/artifacts/growth_validation_boss_dr12.json",
+          "role": "three-point observation, covariance, predictions, and scores",
+          "sha256": "e5b90a18d40d4a2715b808607e064358bd9ed5f87ffcf90474a11a3dc0077118"
+        },
+        {
+          "bytes": 47647,
+          "exists": true,
+          "path": "A_single_Einstein_Dilaton geometry/artifacts/growth_report.json",
+          "role": "dictionary-derived growth curves",
+          "sha256": "d15348e26d212adf7beaf88b72e07d92583f45f9dcb0d8f0510b0756cd15fa7d"
+        },
+        {
+          "bytes": 1347,
+          "exists": true,
+          "path": "instrument_closure/2026-01-04/growth_validation_boss_dr12.json",
+          "role": "frozen duplicate comparison",
+          "sha256": "4865f4f8fa571caff5456cbb059b247446e40d76387395dc8beec3854f1258a1"
+        }
+      ],
+      "observed_vector_local": true,
+      "redshifts": [
+        0.38,
+        0.51,
+        0.61
+      ],
+      "upstream": {
+        "name": "BOSS DR12 consensus RSD",
+        "primary_reference": "https://arxiv.org/abs/1607.03155"
+      }
+    },
+    "desi": {
+      "confirmatory_use_now": false,
+      "constructed_residual_bins": 6,
+      "local_artifacts": [
+        {
+          "bytes": 524,
+          "exists": true,
+          "path": "A_single_Einstein_Dilaton geometry/artifacts/desi_residual.json",
+          "role": "constructed residual vector, not an official DESI measurement table",
+          "sha256": "d2695410941f4b491f9cd9fbafa3f31d05ca60e434069c10c6fe678aac279051"
+        },
+        {
+          "bytes": 44028,
+          "exists": true,
+          "path": "A_single_Einstein_Dilaton geometry/artifacts/response_operator_R_desi_nontoy.json",
+          "role": "finite-difference response operator",
+          "sha256": "c24295033502b7a6d3e6ea98b7ac34f122fedd2fefbdd345eb54e95e972db054"
+        },
+        {
+          "bytes": 103332,
+          "exists": true,
+          "path": "A_single_Einstein_Dilaton geometry/artifacts/reconstructed_mode_delta_G_desi_nontoy.json",
+          "role": "bounded single-arm inverse reconstruction",
+          "sha256": "0e78dfbe7db774ec957cde4e99f487bea375098e7e256e67cb3522679f441e0d"
+        }
+      ],
+      "local_residual_is_observation": false,
+      "local_residual_status": "COMPUTED_NUMERICAL",
+      "official_covariance_or_likelihood_local": false,
+      "official_observed_vector_local": false,
+      "reason": "delta_fsigma8 is a constructed residual used by the inverse operator and has no official DESI data provenance",
+      "upstream": {
+        "name": "DESI full-shape and RSD likelihoods",
+        "official_results_guide": "https://www.desi.lbl.gov/2024/11/19/desi-y1-results-nov-19-guide/",
+        "year1_primary_reference": "https://arxiv.org/abs/2411.12021"
+      }
+    },
+    "nist_clocks": {
+      "calibration_exposure": "both named channels were already used in historical clock/readout work",
+      "confirmatory_use_now": false,
+      "declared_external_files": [
+        {
+          "name": "NIST_Yb_Clock_phase.csv",
+          "sha256": "c00f2c5c03c3ef0cf346de9917b66800eccd4147cc86af88feae9d02725baad9"
+        },
+        {
+          "name": "NIST_10GHz_phase.csv",
+          "sha256": "9d715e33e8440dc7b84833ee51a48884e7e7091cc632f482ab2812fc466793be"
+        }
+      ],
+      "historical_summary": {
+        "chi2_over_n_reported": 22.590156199688852,
+        "interpretation": "historical null/poor-fit summary; the local bundle redacts the observations",
+        "local_series_fields": [
+          "t_lab_rel",
+          "y_pred",
+          "z_trace"
+        ],
+        "observed_series_removed": true,
+        "pearson_r_reported": -0.055375790994458114,
+        "raw_likelihood_recomputable_locally": false,
+        "residual_series_removed": true,
+        "samples_reported": 595
+      },
+      "local_artifacts": [
+        {
+          "bytes": 40962,
+          "exists": true,
+          "path": "A_single_Einstein_Dilaton geometry/artifacts/nist_comparison_uv.json",
+          "role": "redacted UV-projected comparison summary",
+          "sha256": "27e84a3632cae471fa7e79c143698743fce11e958e852002b8c647245905f2ae"
+        },
+        {
+          "bytes": 39849,
+          "exists": true,
+          "path": "A_single_Einstein_Dilaton geometry/artifacts/nist_comparison_naive.json",
+          "role": "redacted naive comparison summary",
+          "sha256": "f0b47508431f3b97cd5ffe7bd904408b4713b80ea008b8919c8c93f9f6a644a1"
+        },
+        {
+          "bytes": 3848,
+          "exists": true,
+          "path": "A_single_Einstein_Dilaton geometry/artifacts/tau_from_dictionary.json",
+          "role": "non-unique candidate time dictionaries",
+          "sha256": "19c014232bcca90d08fd946106cda85923fe1b003a0ec7841e2636cf7a891d30"
+        },
+        {
+          "bytes": 3374,
+          "exists": true,
+          "path": "instrument_closure/2026-01-04/instrument_closure_manifest.json",
+          "role": "external NIST file names and declared hashes",
+          "sha256": "fdb090a64c8d1bf439254b25e2ab47c798750935c30a5883be6991e954ff0664"
+        }
+      ],
+      "local_bundle_redacted": true,
+      "raw_observed_series_local": false,
+      "upstream": {
+        "declared_archive_doi": "10.5281/zenodo.18147532",
+        "name": "NIST mds2-2206 coherent optical-clock down-conversion data",
+        "official_dataset": "https://data.nist.gov/metrics/mds2-2206"
+      }
+    },
+    "sparc": {
+      "calibration_exposure": "the five global readout parameters were optimized on all 175 observed curves",
+      "confirmatory_use_now": false,
+      "derived_rows": 175,
+      "historical_summary": {
+        "galaxies": 175,
+        "interpretation": "descriptive reproduction of an all-data fit; never a holdout score",
+        "median_rank_loss_ed": 1.8621666163018333,
+        "median_rank_loss_newton": 1.927856562773911,
+        "median_uncertainty_chi2_ed": 831.021465244633,
+        "median_uncertainty_chi2_newton": 905.9755194753745,
+        "wins_rank_ed_over_newton": 150,
+        "wins_uncertainty_ed_over_newton": 149
+      },
+      "local_artifacts": [
+        {
+          "bytes": 77399,
+          "exists": true,
+          "path": "A_single_Einstein_Dilaton geometry/artifacts/sparc_forward_eval.json",
+          "role": "175-galaxy derived per-galaxy score table",
+          "sha256": "a218ead2a7568cfddc5e7c6ce31670aea15fb6cd7e92b9c8e2770257c25f168b"
+        },
+        {
+          "bytes": 32876,
+          "exists": true,
+          "path": "data/internal/sparc_p5_current.json",
+          "role": "legacy all-sample derived summary",
+          "sha256": "6c97519e09b08a89fe311b1719cfc5ed7b6c96cb27c61d5600b582cb517ad581"
+        },
+        {
+          "bytes": 32876,
+          "exists": true,
+          "path": "data/internal/sparc_p5_preprint_frozen.json",
+          "role": "legacy frozen all-sample derived summary",
+          "sha256": "6c97519e09b08a89fe311b1719cfc5ed7b6c96cb27c61d5600b582cb517ad581"
+        },
+        {
+          "bytes": 25547,
+          "exists": true,
+          "path": "instrument_closure/2026-01-04/ed_fixed_ic_sparc_eval.json",
+          "role": "separate frozen all-sample score table",
+          "sha256": "1a79c32ec7fcabc62ef217e86d5b634537755113aef20fba3b00fe0f65f1b512"
+        }
+      ],
+      "per_point_covariance_local": false,
+      "point_level_rotation_curves_local": false,
+      "unique_galaxy_ids": 175,
+      "upstream": {
+        "name": "SPARC database",
+        "official_url": "https://astroweb.cwru.edu/SPARC/"
+      }
+    }
+  },
+  "freeze_date_utc": "2026-08-29",
+  "schema": "observational-inventory-v1",
+  "scope": "local files only; absence means absent from this checkout, not absent upstream"
+}

@@ -26,8 +26,9 @@ local checkout. It records only the portable inputs and expected output hash:
 
 - canonical initial conditions: [`canonical_ic.json`](./canonical_ic.json)
 - expected trace hash: [`EXPECTED_SHA256`](./EXPECTED_SHA256)
-- optional runner path expected inside an external checkout:
-  `kernel/rust/holo_kerneld`
+- supported external solver layouts: the standalone `ed-trace-solver` layout
+  (`Cargo.toml` and `src/bin/ed_runner.rs` at repository root), or the legacy
+  monorepo path `kernel/rust/holo_kerneld`
 - expected output trace path inside that checkout:
   `data/internal/holo_physics_trace_ed_industrial.json`
 

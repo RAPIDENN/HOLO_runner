@@ -1,0 +1,79 @@
+{
+  "classification": "inverse_effective_completion_not_forward_prediction",
+  "criteria": {
+    "A_fit_max_abs": 5e-06,
+    "delta_correlation_min": 0.999999,
+    "delta_rms": 0.001,
+    "equation_max_abs": 1e-10,
+    "equation_normalized_rms": 1e-12,
+    "phi_fit_max_abs": 2e-07
+  },
+  "domain": [
+    0.01023316578330245,
+    1.980980980980981
+  ],
+  "equation_metrics": {
+    "canonical_scalar_max_abs": 1.0658141036401503e-14,
+    "canonical_scalar_normalized_rms": 7.819192900409068e-17,
+    "canonical_warp_max_abs": 4.440892098500626e-16,
+    "constraint_max_abs": 7.105427357601002e-15,
+    "scalar_max_abs": 1.3073986337985843e-11,
+    "scalar_normalized_rms": 7.581745265379584e-17,
+    "warp_max_abs": 2.220446049250313e-16
+  },
+  "evidence_boundary": "The action functions are reconstructed from the frozen geometry. This proves an effective completion exists on the certified interval; it does not make the geometry a prior prediction of those functions.",
+  "input": {
+    "path": "/home/debian/work/repos/HOLO_TRANSDUCTOR_instrument/data/internal/holo_physics_trace_ed_industrial.json",
+    "samples_certified": 1979,
+    "samples_total": 1999,
+    "sha256": "e1c4b9d8495a563be31c36ceeeea7575b1d46afae74b45394edb77a8ffb06725"
+  },
+  "method": {
+    "K_reconstruction": "-6 A_uu / phi_u^2",
+    "V_reconstruction": "-3 A_uu - 12 A_u^2",
+    "action": "R - (1/2) K(phi) (partial phi)^2 - V(phi)",
+    "canonical_field": "chi_u=sqrt(-6 A_uu)",
+    "endpoint_trim_each_side": 10,
+    "metric_gauge": "domain_wall",
+    "recovered_deformation": "delta_eff=-A_u-1 for L=1",
+    "smoothing_A": 1e-10,
+    "smoothing_phi": 1e-12,
+    "spline_degree": 5
+  },
+  "passes": {
+    "A_profile_preserved": true,
+    "all": true,
+    "canonical_equations": true,
+    "input_hash": true,
+    "noncanonical_equations": true,
+    "operational_delta_recovered": true,
+    "phi_profile_preserved": true,
+    "positive_kinetic_function": true
+  },
+  "preservation_metrics": {
+    "A_fit_max_abs": 2.042400889495921e-06,
+    "delta_correlation": 0.9999999047611539,
+    "delta_max_abs": 0.0010076263493161708,
+    "delta_rms": 0.0006880618109736062,
+    "phi_fit_max_abs": 8.535466098014621e-08
+  },
+  "ranges": {
+    "canonical_chi": [
+      0.0,
+      4.983414792803092
+    ],
+    "kinetic_K": [
+      8.550762146508154,
+      9390972.829166137
+    ],
+    "phi": [
+      -0.15469716512013792,
+      0.0009937769552747844
+    ],
+    "potential_V": [
+      -47.681338718944104,
+      3.0636345678459365
+    ]
+  },
+  "title": "Geometry-preserving effective Einstein--scalar reconstruction"
+}

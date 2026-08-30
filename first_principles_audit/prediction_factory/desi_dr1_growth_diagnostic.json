@@ -1,0 +1,92 @@
+{
+  "classification": "external_diagonal_diagnostic_not_confirmatory_likelihood",
+  "comparison_rule": {
+    "excluded_bins": {
+      "ELG2_z_1.32": "outside frozen trace domain",
+      "QSO_z_1.49": "outside frozen trace domain"
+    },
+    "included_bins": [
+      "BGS",
+      "LRG1",
+      "LRG2",
+      "LRG3"
+    ],
+    "observable": "published fiducial-compression f sigma_s8 compared directly with frozen f sigma8 at the tabulated effective redshift",
+    "parameters_refit": [],
+    "score": "sum of squared one-dimensional marginal pulls"
+  },
+  "evidence_boundary": "This diagnostic uses only the growth component and diagonal marginal variances. It is not the official DESI likelihood, does not validate the radial-to-cosmological dictionary, and cannot be called a detection or a confirmatory preference.",
+  "input": {
+    "frozen_trace_z_max": 1.0,
+    "growth_artifact": "A_single_Einstein_Dilaton geometry/artifacts/growth_report.json",
+    "growth_sha256": "d15348e26d212adf7beaf88b72e07d92583f45f9dcb0d8f0510b0756cd15fa7d"
+  },
+  "passes": {
+    "all": true,
+    "all_bins_inside_trace": true,
+    "diagnostic_not_mislabeled_full_likelihood": true,
+    "finite_predictions": true,
+    "higher_bins_fail_closed": true,
+    "no_parameter_refit": true
+  },
+  "rows": [
+    {
+      "frozen_holo_fsigma8": 0.4703258664671766,
+      "holo_marginal_pull": 0.8226022148157066,
+      "lcdm_marginal_pull": 0.8568684864083723,
+      "matched_lcdm_fsigma8": 0.4734084007425716,
+      "published_fsigma_s8": 0.396326,
+      "published_marginal_sigma": 0.08995826310017328,
+      "tracer": "BGS",
+      "z_eff": 0.3
+    },
+    {
+      "frozen_holo_fsigma8": 0.4706052340562167,
+      "holo_marginal_pull": -1.2967340934884048,
+      "lcdm_marginal_pull": -1.2387756526464009,
+      "matched_lcdm_fsigma8": 0.47404799944630055,
+      "published_fsigma_s8": 0.547632,
+      "published_marginal_sigma": 0.05940058669743928,
+      "tracer": "LRG1",
+      "z_eff": 0.51
+    },
+    {
+      "frozen_holo_fsigma8": 0.4567921362984605,
+      "holo_marginal_pull": -0.4737183702122747,
+      "lcdm_marginal_pull": -0.3852746523408886,
+      "matched_lcdm_fsigma8": 0.46103937307378756,
+      "published_fsigma_s8": 0.479541,
+      "published_marginal_sigma": 0.04802191583017071,
+      "tracer": "LRG2",
+      "z_eff": 0.71
+    },
+    {
+      "frozen_holo_fsigma8": 0.42482993681885955,
+      "holo_marginal_pull": -0.33032220547679386,
+      "lcdm_marginal_pull": 0.040412333516317143,
+      "matched_lcdm_fsigma8": 0.44012079737539567,
+      "published_fsigma_s8": 0.438454,
+      "published_marginal_sigma": 0.04124476936533892,
+      "tracer": "LRG3",
+      "z_eff": 0.92
+    }
+  ],
+  "source": {
+    "arxiv_version": "2411.12021v5",
+    "journal_doi": "10.1088/1475-7516/2025/09/008",
+    "location": "Appendix A, SF+BAO compressed datavectors and covariances",
+    "title": "DESI 2024 V: Full-Shape Galaxy Clustering from Galaxies and Quasars",
+    "url": "https://arxiv.org/abs/2411.12021"
+  },
+  "summary": {
+    "delta_chi2_holo_minus_lcdm": 0.27285713171660975,
+    "diagonal_chi2_holo": 2.691715566742528,
+    "diagonal_chi2_lcdm": 2.418858435025918,
+    "edge_bin_holo_pull": -0.33032220547679386,
+    "edge_bin_lcdm_pull": 0.040412333516317143,
+    "edge_bin_z": 0.92,
+    "interpretation": "Both curves are compatible with these four marginal entries; the small positive delta chi2 does not favour HOLO.",
+    "points": 4
+  },
+  "title": "Frozen growth dictionary versus DESI DR1 compressed growth"
+}

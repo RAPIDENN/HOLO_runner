@@ -75,10 +75,11 @@ For SPARC verification details (definition alignment that resolved early mismatc
 - `tools/` – verification scripts (no generation)
 - `repro/` – traceability map and reproduction instructions
 - `ed_trace_repro/` – minimal external-solver reproduction check for the frozen ED trace hash
-- `instrument_closure/` – auditable “instrument closure” bundles (Wilson-loop scale → SPARC → growth/BOSS → Ricci clock → UV projection)
+- `instrument_closure/` – frozen historical “instrument closure” bundles, retained for provenance; their Wilson and Ricci labels are corrected by `first_principles_audit/`
 - `Data_edhs_passive_bulk_spectroscopy/` – frozen artefact pack for the EDHS passive bulk spectroscopy note (PDF + figures + JSON)
 - `A_single_Einstein_Dilaton geometry/` – frozen artefact pack + PDF for “A single Einstein–Dilaton geometry linking hadron spectra, galaxy rotation curves, and cosmological growth”
 - `Holographic Scalar Dynamics Unifying Galactic/` – paper PDF bundle (manuscript only)
+- `first_principles_audit/prediction_factory/` – executable physical-link graph, discrete and Robin boundary maps, scalar--photon double comb, photon KK spectrum, Wilson input contract, and present-data diagnostics
 
 ## Additional pack
 
@@ -146,9 +147,19 @@ physical model.
 This repository remains **verification-only**. Zenodo record `https://doi.org/10.5281/zenodo.18224589` and the bundled PDF
 `A_single_Einstein_Dilaton geometry/A_single_Einstein-Dilaton_geometry.pdf` are treated as the **scientific specification** of an auditable instrument run.
 
-The instrument closure circuit recorded here is:
+The historical circuit recorded by the frozen 2026-01-04 bundle was:
 
 Wilson loop → σ_eff → frozen ED geometry → SPARC → fσ₈ → 5D Ricci clock → UV-screened laboratory projection.
+
+The executable audit now shows that this arrow chain is not a physical closure:
+the scale JSON runs from the ED endpoint plus external α′ to a proxy, the Ricci
+clock used the stored logarithmic derivative as though it were `A_u`, and the
+historical UV kernel used the domain-wall trace coordinate as though it were
+conformal.  The audit now constructs the correct conformal coordinate, derives
+the scalar-lapse Maxwell vertex and a conditional photon KK tower, and keeps
+the old NIST result only as a failed historical projection.  See
+`first_principles_audit/RICCI_WILSON_MATERIAL_INTERFACE.md` and the executable
+`first_principles_audit/prediction_factory/MASTER_PREDICTION_REGISTRY.md`.
 
 ### Instrument closure 2026-01-04 (sanitized bundle)
 
@@ -156,7 +167,7 @@ Includes an additional QCD glueball (0⁺⁺, m₁/m₀) verification channel fr
 - External audited channel (not copied into `instrument_closure/2026-01-04/`): `A_single_Einstein_Dilaton geometry/artifacts/invariant_flux_spectrum_u.json` (hash-audited via `instrument_closure/2026-01-04/instrument_closure_manifest.json:external_channels`).
 - LAB/NIST clock inputs are archived at Zenodo `10.5281/zenodo.18147532` and are hash-audited in `instrument_closure/2026-01-04/instrument_closure_manifest.json:external_channels`.
 - Manifest (bundle-local hashes + pointers): `instrument_closure/2026-01-04/instrument_closure_manifest.json`
-- Wilson-loop absolute scale from frozen ED trace (Eq. 13–16): `instrument_closure/2026-01-04/wilson_loop_sigma_from_ed_trace.json`
+- Historical IR-endpoint scale proxy from frozen ED trace: `instrument_closure/2026-01-04/wilson_loop_sigma_from_ed_trace.json`
 - HK-core gauge-kernel decision run (IR-Lmax verdict): `instrument_closure/2026-01-04/hkcore_refine_beta2.0_seed777.json`
 - SPARC fixed-IC ED evaluation output: `instrument_closure/2026-01-04/ed_fixed_ic_sparc_eval.json`
 - Growth readout series (HOLO vs ΛCDM): `instrument_closure/2026-01-04/growth_report.json`
@@ -167,7 +178,7 @@ Includes an additional QCD glueball (0⁺⁺, m₁/m₀) verification channel fr
 
 ### Key outcomes (from the bundle)
 
-- Wilson-loop scale: σ_eff = 0.2031359 GeV², m₀ = 1.600006 GeV
+- Historical endpoint conversion: σ_proxy = 0.2031359 GeV², m₀ = 1.600006 GeV after external α′ and c choices
 - SPARC (175): successes = 172/175, median χ²_holo = 0.5650, median χ²_newton = 1.9279
 - Growth/BOSS DR12: χ²_HOLO = 2.2684, χ²_ΛCDM = 2.4430, Δχ² = −0.1746; predicted Δfσ₈(z=1) = −12.339%
 - UV-projected lab channel vs NIST: Pearson r = −0.0554 (no detection-level correlation in the UV-screened baseline)

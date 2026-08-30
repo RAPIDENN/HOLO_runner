@@ -1,0 +1,208 @@
+{
+  "claim_audit": {
+    "cross_domain_unification": {
+      "classification": "unsupported",
+      "reason": "Reuse of one frozen array across declared readout maps is reproducible, but the maps are not jointly derived from the action."
+    },
+    "growth": {
+      "classification": "phenomenological_coordinate_dictionary",
+      "mapping": {
+        "N": "ln a = -ln(z_trace)",
+        "dphi_dN": "dphi/dN = -z_trace * dphi/dz_trace",
+        "fsigma8": "fσ8 = σ8,0 * f * D, where f=d ln D/d ln a and D(z=0)=1",
+        "z_trace": "1 + z_cosmo"
+      },
+      "reason": "z_trace=1+z_cosmo is declared as a mapping, not derived from the five-dimensional action."
+    },
+    "laboratory": {
+      "chi2_over_n": 22.590156199688852,
+      "classification": "phenomenological_null_comparison",
+      "pearson_r": -0.055375790994458114,
+      "reason": "The UV kernel and physical time conversion are additional assumptions; a null correlation does not derive or validate them.",
+      "tau_non_uniqueness_note": "Without a specified physical unit for the z-coordinate, tau is not uniquely determined by A(z),phi(z) alone. The candidates here are bookkeeping conversions under explicit assumptions."
+    },
+    "scalar_spectrum": {
+      "artifact_assumption": "Trace is in conformal coordinate z with ds^2=e^{2A(z)}(dx_4^2+dz^2), and u is defined by du=e^{A(z)}dz.",
+      "classification": "numerical_operator_result_on_a_coordinate-misidentified_trace",
+      "physical_claim_status": "unsupported_until_recomputed_on_a_full_ED_solution",
+      "solver_gauge_from_sealed_derivation": "domain_wall"
+    },
+    "sparc": {
+      "calibration_evidence": {
+        "objective_reads_v_obs": true,
+        "optimizes_all_loaded_galaxies": true,
+        "uses_differential_evolution": true
+      },
+      "classification": "phenomenological_in_sample_calibration",
+      "final_curve_uses_v_obs_directly": false,
+      "global_parameter_count": 9,
+      "reason": "The final curve is forward-evaluated, but its global parameters were optimized on the same 175 observed curves."
+    }
+  },
+  "frozen_inputs": {
+    "ansatz": {
+      "actual_sha256": "caed952a68815f8267f8f5ba60f709484041318d5498323e91350501b5eaaf89",
+      "expected_sha256": "caed952a68815f8267f8f5ba60f709484041318d5498323e91350501b5eaaf89",
+      "match": true,
+      "path": "/home/debian/work/repos/HOLO_TRANSDUCTOR_instrument/data/archive/symbolic_distill/PRIMARY_ANSATZ.json"
+    },
+    "growth": {
+      "actual_sha256": "e5b90a18d40d4a2715b808607e064358bd9ed5f87ffcf90474a11a3dc0077118",
+      "expected_sha256": "e5b90a18d40d4a2715b808607e064358bd9ed5f87ffcf90474a11a3dc0077118",
+      "match": true,
+      "path": "/home/debian/work/repos/HOLO_runner/A_single_Einstein_Dilaton geometry/artifacts/growth_validation_boss_dr12.json"
+    },
+    "nist": {
+      "actual_sha256": "27e84a3632cae471fa7e79c143698743fce11e958e852002b8c647245905f2ae",
+      "expected_sha256": "27e84a3632cae471fa7e79c143698743fce11e958e852002b8c647245905f2ae",
+      "match": true,
+      "path": "/home/debian/work/repos/HOLO_runner/A_single_Einstein_Dilaton geometry/artifacts/nist_comparison_uv.json"
+    },
+    "pdf": {
+      "actual_sha256": "95af056f044d761f9f4ed79fc574788c70beeabaef341d726dd846dd7af73e58",
+      "expected_sha256": "95af056f044d761f9f4ed79fc574788c70beeabaef341d726dd846dd7af73e58",
+      "match": true,
+      "path": "/home/debian/work/repos/HOLO_runner/A_single_Einstein_Dilaton geometry/A_single_Einstein-Dilaton_geometry_v1_frozen.pdf"
+    },
+    "rust_rhs": {
+      "actual_sha256": "2a44892d782fab8d6667f36775a9a35d49c2869a9b48cb6c0d4ace1153456e2a",
+      "expected_sha256": "2a44892d782fab8d6667f36775a9a35d49c2869a9b48cb6c0d4ace1153456e2a",
+      "match": true,
+      "path": "/home/debian/work/repos/HOLO_TRANSDUCTOR_instrument/kernel/rust/holo_kerneld/src/ed_solver_plus/implicit_solver.rs"
+    },
+    "sparc": {
+      "actual_sha256": "a218ead2a7568cfddc5e7c6ce31670aea15fb6cd7e92b9c8e2770257c25f168b",
+      "expected_sha256": "a218ead2a7568cfddc5e7c6ce31670aea15fb6cd7e92b9c8e2770257c25f168b",
+      "match": true,
+      "path": "/home/debian/work/repos/HOLO_runner/A_single_Einstein_Dilaton geometry/artifacts/sparc_forward_eval.json"
+    },
+    "spectrum": {
+      "actual_sha256": "6e3b56a805d1dec7634d91d2ac58ec29bd3e979c5c02530fd17dc1eba7a9ccb1",
+      "expected_sha256": "6e3b56a805d1dec7634d91d2ac58ec29bd3e979c5c02530fd17dc1eba7a9ccb1",
+      "match": true,
+      "path": "/home/debian/work/repos/HOLO_runner/A_single_Einstein_Dilaton geometry/artifacts/invariant_flux_spectrum_u.json"
+    },
+    "trace": {
+      "actual_sha256": "e1c4b9d8495a563be31c36ceeeea7575b1d46afae74b45394edb77a8ffb06725",
+      "expected_sha256": "e1c4b9d8495a563be31c36ceeeea7575b1d46afae74b45394edb77a8ffb06725",
+      "match": true,
+      "path": "/home/debian/work/repos/HOLO_TRANSDUCTOR_instrument/data/internal/holo_physics_trace_ed_industrial.json"
+    }
+  },
+  "holonomic_ansatz": {
+    "all_full_equation_checks_pass": false,
+    "classification": "holonomic_constraint_solution_not_full_ED_solution",
+    "interpretation": "domain_wall_because_the_imposed_constraint_is_domain_wall",
+    "metrics": {
+      "constraint_normalized_p95": 1.4802667226996283e-16,
+      "scalar_eom_normalized_rms": 0.954640553851542,
+      "warp_eom_normalized_rms": 0.9494245861462124
+    },
+    "passes": {
+      "constraint": true,
+      "scalar_eom": false,
+      "warp_eom": false
+    }
+  },
+  "stage": 2,
+  "trace_intended_bf_mass_potential": {
+    "all_preregistered_trace_checks_pass": false,
+    "coordinate_reference": {
+      "classification": "inconsistent_coordinate_mix",
+      "conformal_ads_reference": "A_z=-1/z",
+      "domain_wall_ads_reference": "A_u=+-1/L (constant)",
+      "implemented_delta": "delta=-u*A_u-1"
+    },
+    "domain_interpreted_as": "domain_wall_u",
+    "metrics": {
+      "A_kinematic_normalized_rms": 0.46153777184542694,
+      "constraint_abs_max": 1.4464167676514528,
+      "constraint_normalized_p95": 0.03850666478337996,
+      "phi_kinematic_normalized_rms": 0.31393354768017695,
+      "scalar_eom_normalized_rms": 0.3543322595068686,
+      "warp_source_eom_normalized_rms": 0.8902923340286727,
+      "warp_vacuum_eom_normalized_rms": 0.9208543689287293
+    },
+    "n_samples": 1999,
+    "passes": {
+      "A_kinematic": false,
+      "constraint": false,
+      "phi_kinematic": false,
+      "scalar_eom": false,
+      "warp_source_eom": false
+    },
+    "ranges": {
+      "A": [
+        -2.109533186116954,
+        -0.03
+      ],
+      "phi": [
+        -0.17915325569706284,
+        0.001
+      ],
+      "u": [
+        0.01,
+        2.0
+      ]
+    },
+    "source_consistency": {
+      "formal_status": "inconsistent_without_a_declared_matter_action_and_modified_constraint",
+      "observed_constraint_drift_end": -1.9094608383722296,
+      "predicted_constraint_drift_end": 0.21195819960813675,
+      "propagation_error_rms": 0.5654979425824633,
+      "source_is_nonzero": true,
+      "unchanged_vacuum_constraint_is_preserved": false,
+      "vacuum_constraint_derivative_identity": "H_u=-24*kappa*A_u*rho"
+    }
+  },
+  "trace_literal_implemented_potential": {
+    "all_preregistered_trace_checks_pass": false,
+    "coordinate_reference": {
+      "classification": "inconsistent_coordinate_mix",
+      "conformal_ads_reference": "A_z=-1/z",
+      "domain_wall_ads_reference": "A_u=+-1/L (constant)",
+      "implemented_delta": "delta=-u*A_u-1"
+    },
+    "domain_interpreted_as": "domain_wall_u",
+    "metrics": {
+      "A_kinematic_normalized_rms": 0.46153777184542694,
+      "constraint_abs_max": 1.3633194940437825,
+      "constraint_normalized_p95": 0.03851580060232685,
+      "phi_kinematic_normalized_rms": 0.31393354768017695,
+      "scalar_eom_normalized_rms": 0.3220457109274185,
+      "warp_source_eom_normalized_rms": 0.8902923340286727,
+      "warp_vacuum_eom_normalized_rms": 0.9208543689287293
+    },
+    "n_samples": 1999,
+    "passes": {
+      "A_kinematic": false,
+      "constraint": false,
+      "phi_kinematic": false,
+      "scalar_eom": false,
+      "warp_source_eom": false
+    },
+    "ranges": {
+      "A": [
+        -2.109533186116954,
+        -0.03
+      ],
+      "phi": [
+        -0.17915325569706284,
+        0.001
+      ],
+      "u": [
+        0.01,
+        2.0
+      ]
+    },
+    "source_consistency": {
+      "formal_status": "inconsistent_without_a_declared_matter_action_and_modified_constraint",
+      "observed_constraint_drift_end": -1.8131761712916585,
+      "predicted_constraint_drift_end": 0.21195819960813675,
+      "propagation_error_rms": 0.5646649723725611,
+      "source_is_nonzero": true,
+      "unchanged_vacuum_constraint_is_preserved": false,
+      "vacuum_constraint_derivative_identity": "H_u=-24*kappa*A_u*rho"
+    }
+  }
+}

@@ -6,7 +6,7 @@ RUNNER_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 EXPECTED_SHA="e1c4b9d8495a563be31c36ceeeea7575b1d46afae74b45394edb77a8ffb06725"
 TRACE_REL="data/internal/holo_physics_trace_ed_industrial.json"
-RUNNER_REL="kernel/rust/holo_kerneld"
+LEGACY_RUNNER_REL="kernel/rust/holo_kerneld"
 EXPECTED_FILE="$SCRIPT_DIR/EXPECTED_SHA256"
 IC_FILE="$SCRIPT_DIR/canonical_ic.json"
 
@@ -80,12 +80,22 @@ echo "[INFO] External solver rev:  $SOURCE_REV"
 
 git -C "$ED_SOLVER_REPO" worktree add --detach "$WT" "$SOURCE_REV" >/dev/null
 
-if [[ ! -d "$WT/$RUNNER_REL" ]]; then
-  echo "[ERR] External solver checkout does not contain expected runner path: $RUNNER_REL" >&2
+if [[ -f "$WT/Cargo.toml" && -f "$WT/src/bin/ed_runner.rs" ]]; then
+  SOLVER_WORKDIR="$WT"
+  SOLVER_LAYOUT="standalone-root"
+elif [[ -f "$WT/$LEGACY_RUNNER_REL/Cargo.toml" && -f "$WT/$LEGACY_RUNNER_REL/src/bin/ed_runner.rs" ]]; then
+  SOLVER_WORKDIR="$WT/$LEGACY_RUNNER_REL"
+  SOLVER_LAYOUT="legacy-monorepo"
+else
+  echo "[ERR] External checkout has neither supported ED solver layout:" >&2
+  echo "[ERR]   standalone: Cargo.toml + src/bin/ed_runner.rs" >&2
+  echo "[ERR]   legacy:     $LEGACY_RUNNER_REL" >&2
   exit 2
 fi
 
-pushd "$WT/$RUNNER_REL" >/dev/null
+echo "[INFO] Solver layout:        $SOLVER_LAYOUT"
+
+pushd "$SOLVER_WORKDIR" >/dev/null
 cargo run --bin ed_runner --quiet -- --ic-file "$IC_FILE"
 popd >/dev/null
 

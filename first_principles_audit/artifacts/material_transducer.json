@@ -1,0 +1,184 @@
+{
+  "channel_boundaries": {
+    "atomic_clock_ratio": "requires anomaly or non-universal d_e,d_g,d_mi; not derived",
+    "differential_mechanical_tide": "transfer law derived conditionally",
+    "signal_frequency_and_phase": "requires source dynamics or a populated mode; not derived",
+    "uniform_material_strain": "requires material sensitivity to masses/couplings; not derived",
+    "universal_bulk_acceleration": "derived conditionally"
+  },
+  "classification": "derived_transfer_law_not_signal_prediction",
+  "dimensionless_force_templates": {
+    "acceleration_ratio_formula": "a_scalar/a_Newton=sum alpha_n (1+mu_n*x) exp(-mu_n*x)",
+    "all_modes_acceleration_ratio": [
+      0.005966851905467467,
+      0.005964005423396647,
+      0.005950007474268608,
+      0.005911007196546285,
+      0.0058955219968522795,
+      0.005894830005752711
+    ],
+    "all_modes_tidal_ratio": [
+      0.005966851905467467,
+      0.00596654146414733,
+      0.005961769162540849,
+      0.005926020765263462,
+      0.0058968434328082325,
+      0.0058948345827692945
+    ],
+    "positive_modes_acceleration_ratio": [
+      7.202299861734871e-05,
+      6.91765165465276e-05,
+      5.51785674184894e-05,
+      1.617828969616645e-05,
+      6.930900021614444e-07,
+      1.0989025923928482e-09
+    ],
+    "positive_modes_tidal_ratio": [
+      7.202299861734871e-05,
+      7.171255729721011e-05,
+      6.694025569073132e-05,
+      3.119185841334389e-05,
+      2.014525958113899e-06,
+      5.67591917609757e-09
+    ],
+    "tidal_ratio_formula": "|da_scalar/dr|/|da_Newton/dr|=sum alpha_n (1+mu_n*x+(mu_n*x)^2/2) exp(-mu_n*x)",
+    "x": [
+      0.0,
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0
+    ],
+    "x_definition": "x=r/ell"
+  },
+  "evidence_boundary": "The geometry fixes a correlated Yukawa template and a mechanical transfer equation. It does not fix ell, excite a mode, choose a material, predict a clock ratio, or establish a signal. The current Neumann zero mode must be assessed separately because a massless unscreened branch is not an admissible detector discovery claim.",
+  "geometry_fixed": {
+    "couplings_beta_uv": [
+      0.054290095352882366,
+      0.0007051064308343514,
+      0.001556513821406186,
+      0.0023376306672741203,
+      0.0028200658172749167,
+      0.003068611265691044,
+      0.003202799635221195
+    ],
+    "masses_mu": [
+      0.0,
+      0.9138989815720246,
+      1.54169473474637,
+      2.1337779482329147,
+      2.728898930852606,
+      3.3366538592352217,
+      3.9544733937818783
+    ],
+    "positive_mode_mass_ratios_to_mu1": [
+      1.0,
+      1.6869421739528097,
+      2.334807228434088,
+      2.9859962489054825,
+      3.6510094950491627,
+      4.327035562485989
+    ],
+    "positive_mode_total_alpha_at_zero_range": 7.202299861734871e-05,
+    "yukawa_strengths_alpha_uv": [
+      0.005894828906850119,
+      9.94350157607916e-07,
+      4.845470552456976e-06,
+      1.0929034273160898e-05,
+      1.5905542427524888e-05,
+      1.8832750199851983e-05,
+      2.0515851006746042e-05
+    ],
+    "zero_mode_alpha": 0.005894828906850119
+  },
+  "input_branch": {
+    "alpha_rule": "alpha_n=2 beta_n(source) beta_n(detector)",
+    "coupling": "L_int=sum_n (beta_n/M_Pl) varphi_n T",
+    "mass_rule": "m_n=mu_n/ell",
+    "matter_slice": "UV endpoint",
+    "potential": "V=-G M m/r [1+sum_n alpha_n exp(-mu_n r/ell)]",
+    "universal_uv_case": "alpha_n=2 beta_n(UV)^2"
+  },
+  "material_constants_read": [],
+  "mechanical_readout": {
+    "continuum_equation": "rho*u_ddot_i-partial_j(C_ijkl*epsilon_kl)=rho*(a_phi_i-a_frame_i)",
+    "elastic_mode_projection": "q_a(omega)=integral[rho U_a dot (a_phi-a_frame)]dV / {M_a[omega_a^2-omega^2-i omega omega_a/Q_a]}",
+    "oscillator_transfer": "|Delta x(Omega)|=|Delta a(Omega)|/sqrt((omega_m^2-Omega^2)^2+(Omega*omega_m/Q)^2)",
+    "requires_before_number": [
+      "physical ell or scan range",
+      "source mass and modulation trajectory",
+      "detector baseline L, resonance omega_m, and Q",
+      "noise spectral density and integration protocol",
+      "support/frame motion and elastic tensor C_ijkl"
+    ],
+    "resonant_limit": "|Delta x|/L=Q*|Delta a|/(L*omega_m^2) at Omega=omega_m",
+    "source_gradient": "Delta a_n approximately L*(2 G M_s/r^3)*tidal_ratio_n"
+  },
+  "observational_inputs_read": [],
+  "passes": {
+    "all": true,
+    "coupling_identity": true,
+    "minimal_input_certified": true,
+    "no_material_or_target_frequency_input": true,
+    "no_observational_input": true,
+    "ricci_interface_input_certified": true,
+    "scale_free_ricci_ratio": true,
+    "yukawa_gradient_independent_check": true
+  },
+  "ricci_clock_use": {
+    "legacy_u1_anchor": {
+      "R5_hat": -13.163482175419622,
+      "interpretation": "omega_R=c*sqrt(abs(R5_hat))/ell and omega_n=c*mu_n/ell only after a physical compact-interval interpretation",
+      "omega_n_over_omega_R": [
+        0.0,
+        0.2518910858191538,
+        0.4249256959110971,
+        0.5881171279486715,
+        0.7521458373887222,
+        0.919656746043974,
+        1.0899416862126887
+      ],
+      "sqrt_abs_R5_hat": 3.6281513440621,
+      "u": 0.9995995995995995
+    },
+    "mode_frequency_at_rest": "omega_n=c*mu_n/ell",
+    "physical_curvature_frequency": "omega_R(u)=c*sqrt(abs(R5_hat(u)))/ell",
+    "role": "The Ricci quantity supplies a dimensionless cadence or a cross-check once ell is fixed. It is not a mode amplitude, a source, detector proper time, or an observed clock line.",
+    "scale_free_ratio": "omega_n/omega_R=mu_n/sqrt(abs(R5_hat))",
+    "uv_probe_slice": {
+      "R5_hat": 7.941633444955801,
+      "interpretation": "omega_R=c*sqrt(abs(R5_hat))/ell and omega_n=c*mu_n/ell only after a physical compact-interval interpretation",
+      "omega_n_over_omega_R": [
+        0.0,
+        0.3242972563574193,
+        0.5470707186465166,
+        0.7571715783046451,
+        0.9683503910135935,
+        1.1840123621793301,
+        1.4032457610751887
+      ],
+      "sqrt_abs_R5_hat": 2.818090389777411,
+      "u": 0.01023316578330245
+    }
+  },
+  "source_or_mode_amplitudes_read": [],
+  "title": "Conditional universal material-transducer law",
+  "validation": {
+    "ell_cancellation_in_omega_ratio": true,
+    "finite_difference_tidal_max_relative_error": 2.019355793692057e-10,
+    "finite_difference_tidal_relative_errors": [
+      2.019355793692057e-10,
+      1.3038459201197838e-11,
+      1.0799472427436285e-11,
+      3.3704150581570502e-12
+    ],
+    "positive_alpha_sum_identity_error": 0.0
+  },
+  "wilson_matching_if_future_loop_exists": {
+    "identity": "ell*sqrt(sigma)=(ell/a)*sqrt(a^2 sigma)",
+    "lattice_output": "a^2 sigma from rectangular W(R,T)",
+    "required_bridge": "a separately derived ell/a, equivalently ell*sqrt(sigma)",
+    "warning": "Setting ell=a or adopting sqrt(sigma) in GeV is a matching choice unless a UV completion predicts the relation."
+  }
+}

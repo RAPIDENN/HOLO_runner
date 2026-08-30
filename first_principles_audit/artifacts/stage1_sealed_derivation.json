@@ -1,0 +1,51 @@
+{
+  "action": "S=(2*kappa5^2)^-1 int sqrt(-g) [R-(dphi)^2/2-V(phi)]",
+  "all_symbolic_checks_pass": true,
+  "conformal_equations": {
+    "constraint": "12*A_z^2-phi_z^2/2+exp(2A)*V=0",
+    "coordinate": "dz/du=exp(-A)",
+    "scalar": "phi_zz+3*A_z*phi_z=exp(2A)*V_phi",
+    "warp": "A_zz-A_z^2=-phi_z^2/6"
+  },
+  "domain_wall_gauge": "ds^2=exp(2A(u))*eta_mn dx^m dx^n+du^2",
+  "exact_reference": {
+    "physical_mass_squared_times_L_squared": -3.0,
+    "potential": "V=-12/L^2-3phi^2/(2L^2)-phi^4/(12L^2)",
+    "solution": {
+      "A": "A0-(u-u0)/L-(phi(u)^2-phi0^2)/24",
+      "phi": "phi0*exp((u-u0)/L)"
+    },
+    "superpotential": "W=6/L+phi^2/(2L)"
+  },
+  "field_equations": {
+    "constraint": "12*A_u^2-phi_u^2/2+V=0",
+    "scalar": "phi_uu+4*A_u*phi_u=V_phi",
+    "warp": "A_uu=-phi_u^2/6"
+  },
+  "reads_existing_answer_artifacts": false,
+  "stage": 1,
+  "symbolic_residuals": {
+    "constraint_conformal": "0",
+    "constraint_domain_wall": "0",
+    "scalar_conformal": "0",
+    "scalar_domain_wall": "0",
+    "warp_conformal": "0",
+    "warp_domain_wall": "0"
+  },
+  "symbolic_zero_checks": {
+    "constraint_conformal": true,
+    "constraint_domain_wall": true,
+    "scalar_conformal": true,
+    "scalar_domain_wall": true,
+    "warp_conformal": true,
+    "warp_domain_wall": true
+  },
+  "thresholds": {
+    "constraint_normalized_p95": 0.001,
+    "coordinate_residual_max_abs": 1e-11,
+    "eom_normalized_rms": 0.01,
+    "exact_integration_max_abs": 1e-07,
+    "exact_symbolic_abs": 1e-12,
+    "kinematic_normalized_rms": 0.01
+  }
+}
