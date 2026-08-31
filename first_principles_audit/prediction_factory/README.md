@@ -113,8 +113,53 @@ python3 -m first_principles_audit.prediction_factory.derive_adm_bmp_tricritical_
 python3 -m first_principles_audit.prediction_factory.derive_bps_radion_matter_coupling
 python3 -m first_principles_audit.prediction_factory.derive_bps_biscalar_matter_geometry
 python3 -m first_principles_audit.prediction_factory.derive_bps_volume_constraint_selector
+python3 -m first_principles_audit.prediction_factory.derive_c1_bk_derivative_gate
+python3 -m first_principles_audit.prediction_factory.derive_c2_critical_continuum_gate
+python3 -m first_principles_audit.prediction_factory.derive_c3_geometric_transition_gate
 python3 first_principles_audit/prediction_factory/build_master_prediction_registry.py
 ```
+
+## Minimal microscopic-mechanism ladder
+
+`artifacts/minimal_mechanism_campaign.json` is the fail-closed C1 -> C2 -> C3
+campaign. Its step records, theory inputs, gate artifacts and test sources are
+content-addressed. Its declared input set contains no observational table; it
+authorizes no parameter fit or physical action and cannot promote a new force,
+lensing result or publication. This provenance statement covers the declared
+repository paths; it is not presented as a recursive audit of every historical
+ancestor.
+
+The present result is `C1=failed`, `C2=failed`, `C3=blocked`. None of the three
+steps is labelled target-blind: C1 tests the known Berezhiani--Khoury candidate,
+C2 knows its acceptance target, and C3 knows the required mechanism structure.
+C1 rejects that candidate as a completion of the current HOLO action. C2 rejects
+only the frozen compact seven-pole model, not every possible critical continuum.
+C3 remains open because nine of ten microscopic action, constraint, source and
+branch-selection requirements are missing. The content hashes preserve the
+reconstruction, but the record times and initial dirty-worktree state are
+explicitly declared metadata, not independently authenticated history. When
+Git metadata is available, validation additionally requires the declared
+baseline commit to exist and be an ancestor of the inspected `HEAD`.
+
+Three one-shot, history-free and tool-free Skai review requests were attempted.
+All ended in provider errors, so the campaign records them as inconclusive
+non-evidence; no Skai answer is invented or used to decide a physics gate.
+The legacy private request identifiers contain the word `BLIND`; that label is
+not a blinding claim. Private request/response records remain outside the
+repository. Validate the versioned campaign with:
+
+```bash
+python3 first_principles_audit/prediction_factory/validate_mechanism_campaign.py \
+  first_principles_audit/prediction_factory/artifacts/minimal_mechanism_campaign.json
+python3 -m unittest \
+  first_principles_audit.prediction_factory.test_mechanism_campaign \
+  first_principles_audit.prediction_factory.test_minimal_mechanism_campaign
+```
+
+The paper build regenerates the three theory gates and then validates this
+content-addressed campaign. It intentionally does not regenerate the campaign
+or its private Skai records; any changed gate hash must stop the build and start
+a new recorded campaign rather than silently refreshing the old receipts.
 
 The current branch audit finds that changing only the IR Neumann condition to
 Dirichlet does not cleanly remove the excluded massless mode: it produces an

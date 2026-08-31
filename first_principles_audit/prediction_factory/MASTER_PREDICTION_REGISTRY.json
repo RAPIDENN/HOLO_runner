@@ -100,6 +100,10 @@
       "path": "first_principles_audit/prediction_factory/artifacts/superpotential_boundary_shooting.json",
       "sha256": "b1448ea20d6117e14b209c2cd475843f76fe7363a0e9cbb9303e4e047fe3b207"
     },
+    "minimal_mechanism_campaign": {
+      "path": "first_principles_audit/prediction_factory/artifacts/minimal_mechanism_campaign.json",
+      "sha256": "d55515e914172f023a6824b410944328ed42b7dd87cbe67cb52e6a36afa8ea45"
+    },
     "nd_shooting": {
       "path": "first_principles_audit/prediction_factory/artifacts/nd_ultralight_shooting.json",
       "sha256": "b747788cdc72f267bd6196471a42e085178d485d8f246653e5fc464e07ce0328"
@@ -539,6 +543,46 @@
       "status": "legacy NN trace benchmark, superseded as physical candidate",
       "sum_alpha": 7.202299861734871e-05
     },
+    "minimal_mechanism_campaign": {
+      "campaign_id": "minimal-mechanism-ladder-20260831",
+      "classification": "theory_only_sequential_campaign_blocked",
+      "lensing_derived": false,
+      "mechanism_candidate": false,
+      "new_force_derived": false,
+      "physical_completion": false,
+      "provenance_scope": "declared_repository_paths_only",
+      "publication_authorized": false,
+      "record_time_authentication": "not_timestamp_authenticated",
+      "skai_review_attempt_statuses": {
+        "C1": "provider_error",
+        "C2": "provider_error",
+        "C3": "provider_error"
+      },
+      "step_reason_codes": {
+        "C1": [
+          "binary_kill_gate_triggered"
+        ],
+        "C2": [
+          "frozen_compact_spectrum_killed"
+        ],
+        "C3": [
+          "input_contract_incomplete"
+        ]
+      },
+      "step_statuses": {
+        "C1": "failed",
+        "C2": "failed",
+        "C3": "blocked"
+      },
+      "target_blind": false,
+      "verdict": {
+        "reason_codes": [
+          "c3_input_contract_incomplete"
+        ],
+        "selected_step": null,
+        "status": "blocked"
+      }
+    },
     "nonlinear_collector_action": {
       "a0_m_s2": 1.1441421135374019e-10,
       "classification": "phenomenological_nonrelativistic_action_reconstruction_not_derived_from_current_holo_bulk",
@@ -709,7 +753,7 @@
       }
     }
   },
-  "freeze_date_utc": "2026-08-30",
+  "freeze_date_utc": "2026-08-31",
   "global_classification": "executable prediction programme; no new physical detection and no clean confirmatory holdout in this checkout",
   "hard_rules": [
     "No boundary condition is selected from observational performance.",
@@ -924,6 +968,18 @@
     },
     {
       "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/minimal_mechanism_campaign.json",
+        "sha256": "d55515e914172f023a6824b410944328ed42b7dd87cbe67cb52e6a36afa8ea45"
+      },
+      "from": "nonlinear_route_matrix",
+      "gate": "c3_input_contract_incomplete",
+      "id": "nonlinear_route_matrix_to_minimal_mechanism_campaign",
+      "meaning": "The fail-closed ladder rejects the disclosed C1 candidate and the current frozen compact C2 spectrum. C3 is not falsified: nine microscopic action, constraint, source and branch-selection inputs remain absent. Three Skai review attempts returned provider errors and therefore contribute no physics evidence.",
+      "status": "recorded_sequential_adjudication_blocked",
+      "to": "minimal_mechanism_campaign"
+    },
+    {
+      "evidence": {
         "path": "first_principles_audit/prediction_factory/artifacts/jordan_deep_limit_gate.json",
         "sha256": "7ae63ba6222b766661c8a7f78e317ff5aa01240aa90a832612d6a6ed4e19990d"
       },
@@ -1093,6 +1149,7 @@
     "laboratory_signal": "requires dimensional source and detector",
     "material_force": "current seven-mode stiff Yukawa candidate",
     "matter_probe": "canonically normalized UV matter vertex in stiff limit",
+    "minimal_mechanism_campaign": "content-addressed sequential mechanism record; C1 and the current compact C2 are killed, while C3 is input-incomplete",
     "nonlinear_collector_action": "locally elliptic but degenerate nonrelativistic action target; not HOLO-derived",
     "nonlinear_route_matrix": "theory-only route generation with explicit killed branches",
     "photon_kk_tower": "bulk-Maxwell compact-interval eigenmodes",

@@ -13,6 +13,11 @@ import json
 from pathlib import Path
 from typing import Any
 
+if __package__:
+    from . import validate_mechanism_campaign as mechanism_contract
+else:
+    import validate_mechanism_campaign as mechanism_contract
+
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
@@ -174,6 +179,10 @@ def build_registry() -> dict[str, Any]:
         "first_principles_audit/prediction_factory/artifacts/"
         "holo_nonlinear_route_matrix.json"
     )
+    minimal_mechanism_campaign_path = (
+        "first_principles_audit/prediction_factory/artifacts/"
+        "minimal_mechanism_campaign.json"
+    )
     scale_consistency_path = (
         "first_principles_audit/prediction_factory/artifacts/"
         "scale_consistency.json"
@@ -222,6 +231,12 @@ def build_registry() -> dict[str, Any]:
         nonlinear_swarm_adjudication_path
     )
     nonlinear_route_matrix = _read_json(nonlinear_route_matrix_path)
+    minimal_mechanism_campaign = mechanism_contract.load_and_validate(
+        REPO / minimal_mechanism_campaign_path,
+        repository_root=REPO,
+    )
+    if minimal_mechanism_campaign["campaign_id"] != "minimal-mechanism-ladder-20260831":
+        raise ValueError("unexpected mechanism campaign identity")
     scale_consistency = _read_json(scale_consistency_path)
     observations = _read_json(observation_path)
 
@@ -287,13 +302,14 @@ def build_registry() -> dict[str, Any]:
             nonlinear_swarm_adjudication_path
         ),
         "holo_nonlinear_route_matrix": _evidence(nonlinear_route_matrix_path),
+        "minimal_mechanism_campaign": _evidence(minimal_mechanism_campaign_path),
         "scale_consistency": _evidence(scale_consistency_path),
         "observational_protocol": _evidence(observation_path),
     }
 
     return {
         "schema": "holo.master-prediction-registry.v1",
-        "freeze_date_utc": "2026-08-30",
+        "freeze_date_utc": "2026-08-31",
         "global_classification": (
             "executable prediction programme; no new physical detection and no "
             "clean confirmatory holdout in this checkout"
@@ -330,6 +346,10 @@ def build_registry() -> dict[str, Any]:
             ),
             "nonlinear_route_matrix": (
                 "theory-only route generation with explicit killed branches"
+            ),
+            "minimal_mechanism_campaign": (
+                "content-addressed sequential mechanism record; C1 and the current "
+                "compact C2 are killed, while C3 is input-incomplete"
             ),
             "derivative_constitutive_scalar": (
                 "surviving architecture; microscopic derivative operator not derived"
@@ -575,6 +595,21 @@ def build_registry() -> dict[str, Any]:
                     "negative controls rather than promoted explanations."
                 ),
                 "evidence": artefacts["holo_nonlinear_route_matrix"],
+            },
+            {
+                "id": "nonlinear_route_matrix_to_minimal_mechanism_campaign",
+                "from": "nonlinear_route_matrix",
+                "to": "minimal_mechanism_campaign",
+                "status": "recorded_sequential_adjudication_blocked",
+                "gate": "c3_input_contract_incomplete",
+                "meaning": (
+                    "The fail-closed ladder rejects the disclosed C1 candidate and "
+                    "the current frozen compact C2 spectrum. C3 is not falsified: "
+                    "nine microscopic action, constraint, source and branch-selection "
+                    "inputs remain absent. Three Skai review attempts returned provider "
+                    "errors and therefore contribute no physics evidence."
+                ),
+                "evidence": artefacts["minimal_mechanism_campaign"],
             },
             {
                 "id": "matter_interface_to_derivative_constitutive_scalar",
@@ -940,6 +975,39 @@ def build_registry() -> dict[str, Any]:
                 ]["direct_s_as_full_planck_coefficient_completion"],
                 "physical_completion": False,
                 "passes": nonlinear_route_matrix["passes"]["all"],
+            },
+            "minimal_mechanism_campaign": {
+                "classification": "theory_only_sequential_campaign_blocked",
+                "record_time_authentication": "not_timestamp_authenticated",
+                "provenance_scope": minimal_mechanism_campaign["data_policy"]
+                ["provenance_audit_scope"],
+                "campaign_id": minimal_mechanism_campaign["campaign_id"],
+                "target_blind": minimal_mechanism_campaign["objective"][
+                    "target_blind"
+                ],
+                "step_statuses": {
+                    step["id"]: step["status"]
+                    for step in minimal_mechanism_campaign["steps"]
+                },
+                "step_reason_codes": {
+                    step["id"]: step["reason_codes"]
+                    for step in minimal_mechanism_campaign["steps"]
+                },
+                "skai_review_attempt_statuses": {
+                    step["id"]: step["evidence"]["review_attempts"][0]["status"]
+                    for step in minimal_mechanism_campaign["steps"]
+                },
+                "mechanism_candidate": minimal_mechanism_campaign["claim_gate"]
+                ["mechanism_candidate"],
+                "physical_completion": minimal_mechanism_campaign["claim_gate"]
+                ["physical_completion"],
+                "new_force_derived": minimal_mechanism_campaign["claim_gate"]
+                ["new_force_derived"],
+                "lensing_derived": minimal_mechanism_campaign["claim_gate"]
+                ["lensing_derived"],
+                "publication_authorized": minimal_mechanism_campaign["claim_gate"]
+                ["publication_authorized"],
+                "verdict": minimal_mechanism_campaign["verdict"],
             },
             "bulk_constitutive_decision_gate": {
                 "classification": bulk_decision_gate["classification"],
@@ -1378,6 +1446,9 @@ def render_markdown(registry: dict[str, Any]) -> str:
     collector_embedding = registry["current_predictions"][
         "holo_collector_embedding_gate"
     ]
+    mechanism_campaign = registry["current_predictions"][
+        "minimal_mechanism_campaign"
+    ]
     bulk_gate = registry["current_predictions"][
         "bulk_constitutive_decision_gate"
     ]
@@ -1427,6 +1498,7 @@ def render_markdown(registry: dict[str, Any]) -> str:
             "  RC -->|nonlinear reconstruction| NA[Nonrelativistic action]",
             "  C -.->|current linear sector: no-go| NA",
             "  NA -->|inverse-design falsifiers| NR[Nonlinear route matrix]",
+            "  NR -->|content-addressed C1-C2-C3| MC[Minimal mechanism campaign]",
             "  C -.->|missing bulk-derived P(Y)| DS[Derivative constitutive scalar]",
             "  C -.->|missing q2Y + critical selector| CB[Critical constitutive bridge]",
             "  CB -.->|unfrozen matter + causal gates| DS",
@@ -1520,6 +1592,18 @@ def render_markdown(registry: dict[str, Any]) -> str:
             "Thus the present source-independent Yukawa tower and endpoint potentials "
             "cannot contain the collector through a regular weak-field embedding. This "
             "does not exclude a new derivative or nonperturbative IR sector.",
+            f"- **Minimal mechanism ladder:** C1 is "
+            f"`{mechanism_campaign['step_statuses']['C1']}`, the current frozen "
+            f"compact C2 model is `{mechanism_campaign['step_statuses']['C2']}`, "
+            f"and C3 is `{mechanism_campaign['step_statuses']['C3']}` because its "
+            "microscopic input contract is incomplete. The campaign is explicitly "
+            f"target-blind=`{str(mechanism_campaign['target_blind']).lower()}`: C1 "
+            "tests a known candidate, C2 knows its acceptance target, and C3 knows "
+            "the required mechanism structure. All three Skai review attempts ended "
+            "in provider errors and are retained as inconclusive non-evidence. No "
+            "mechanism candidate, physical completion, new force or lensing result is "
+            "promoted. The record is content-addressed, but its record time is not "
+            "independently authenticated.",
             f"- **Old versus critical response:** the old fixed tower has source "
             f"exponent `{_fmt(bulk_gate['old_source_mass_exponent'])}` and only "
             f"crosses the target three-halves slope for "

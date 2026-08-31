@@ -159,6 +159,38 @@ class MasterPredictionRegistryTests(unittest.TestCase):
             links["matter_interface_to_derivative_constitutive_scalar"]["gate"],
         )
 
+    def test_minimal_mechanism_ladder_is_blocked_without_promoting_a_claim(self) -> None:
+        campaign = self.registry["current_predictions"][
+            "minimal_mechanism_campaign"
+        ]
+        self.assertEqual(
+            campaign["step_statuses"],
+            {"C1": "failed", "C2": "failed", "C3": "blocked"},
+        )
+        self.assertFalse(campaign["target_blind"])
+        self.assertEqual(
+            campaign["record_time_authentication"],
+            "not_timestamp_authenticated",
+        )
+        self.assertEqual(
+            campaign["provenance_scope"],
+            "declared_repository_paths_only",
+        )
+        self.assertFalse(campaign["mechanism_candidate"])
+        self.assertFalse(campaign["physical_completion"])
+        self.assertFalse(campaign["new_force_derived"])
+        self.assertFalse(campaign["lensing_derived"])
+        self.assertFalse(campaign["publication_authorized"])
+        self.assertEqual(campaign["verdict"]["status"], "blocked")
+        self.assertEqual(
+            set(campaign["skai_review_attempt_statuses"].values()),
+            {"provider_error"},
+        )
+        links = {row["id"]: row for row in self.registry["links"]}
+        link = links["nonlinear_route_matrix_to_minimal_mechanism_campaign"]
+        self.assertEqual(link["gate"], "c3_input_contract_incomplete")
+        self.assertIn("no physics evidence", link["meaning"])
+
     def test_critical_bridge_changes_exponent_but_remains_prospective(self) -> None:
         gate = self.registry["current_predictions"][
             "bulk_constitutive_decision_gate"

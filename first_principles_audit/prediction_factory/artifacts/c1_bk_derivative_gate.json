@@ -1,0 +1,239 @@
+{
+  "binary_gates": {
+    "G1_5d_action_and_boundary_origin": {
+      "criterion": "The frozen 5D action and boundary conditions derive the C1 field and its Wilson function.",
+      "evidence": "The BK action is an external 4D construction and is absent from the certified HOLO action.",
+      "passed": false
+    },
+    "G2_ward_selection_and_relevant_operators": {
+      "criterion": "An existing Ward identity selects the Wilson function and forbids q^2 and q^4 deformations.",
+      "evidence": "Spatial homogeneity admits distinct stable Wilson functions, while an illustrative dimension-one 5D compensator permits q^2, q^4 and q^6.",
+      "passed": false
+    },
+    "G3_regular_vacuum_and_exact_deep_branch": {
+      "criterion": "A regular vacuum retains the non-zero three-halves branch continuously down to X=0.",
+      "evidence": "Lambda_c>0 creates a fold; Lambda_c=0 makes the action singular at s=0.",
+      "passed": false
+    },
+    "G4_uniform_local_radial_elimination": {
+      "criterion": "The spatially normalized radial fluctuation has a strictly positive uniform inverse-correlation scale as X tends to zero.",
+      "evidence": "H_rho=16*m*abs(X) and Z_rho=2, so M_spatial^2=H_rho/Z_rho=8*m*abs(X); the inverse-correlation scale vanishes and its correlation length diverges.",
+      "passed": false
+    },
+    "G5_same_action_stabilizes_negative_x_branch": {
+      "criterion": "The declared zero-temperature action has a healthy phonon kinetic matrix on X<0.",
+      "evidence": "P_XX is negative on X<0; a separate finite-temperature operator is required.",
+      "passed": false
+    },
+    "G6_holo_matter_vertex": {
+      "criterion": "The current constrained 5D reduction derives the physical q^2*Y matter vertex.",
+      "evidence": "The certified tricritical bridge records this vertex as unproved.",
+      "passed": false
+    },
+    "all": false
+  },
+  "checks": {
+    "above_fold_has_unstable_and_stable_roots": true,
+    "all": true,
+    "below_fold_has_no_nonzero_stationary_branch": true,
+    "certified_inputs": true,
+    "five_dimensional_compensator_allows_q2_q4_q6": true,
+    "five_dimensional_spatial_weyl_power_is_two_not_three_halves": true,
+    "fold_satisfies_stationarity_and_double_root": true,
+    "no_observational_tables_read": true,
+    "q2_and_q4_deformations_change_deep_power": true,
+    "regulated_root_residuals_close": true,
+    "regulated_stable_branch_converges_to_unregulated_branch": true,
+    "unregulated_density_matches_eq93": true,
+    "unregulated_log_slope_is_three_halves": true,
+    "unregulated_radial_energy_curvature_is_16_m_abs_x": true,
+    "unregulated_radial_gradient_normalization_is_2": true,
+    "unregulated_selector_matches_eq92": true,
+    "unregulated_spatial_inverse_correlation_scale_squared_is_8_m_abs_x": true,
+    "weyl_homogeneity_does_not_select_unique_wilson_function": true,
+    "zero_temperature_negative_x_branch_has_wrong_kinetic_sign": true
+  },
+  "classification": "valid_radial_counterexample_to_canonical_phi6_no_go;failed_declared_5d_holo_completion",
+  "conventions": {
+    "algebraic_approximation": "radial gradients are neglected as in BK Eq. (91)",
+    "mond_sign_branch": "X=-x with x>0",
+    "regulated_lagrangian": "L=m*s*X+(4/3)*Lambda^4*m^3*X^3*s^3/(Lambda_c^2+s)^6",
+    "regulator": "Lambda_c>=0 and c=Lambda_c^2",
+    "selector": "s=rho^2>0"
+  },
+  "decision": {
+    "no_repair_rule": "Do not add a regulator, finite-temperature term, Wilson coefficient or boundary operator after seeing a failed gate. A newly declared action would constitute a new candidate, not a repair of C1.",
+    "promote_as_declared_holo_c1_completion": false,
+    "promote_as_mathematical_counterexample": true,
+    "verdict": "KILL_C1"
+  },
+  "diagnostics": {
+    "maximum_regulated_root_residual": 7.197471980254808e-16,
+    "onshell_density_log_slope": 1.5000000000000002,
+    "onshell_density_max_relative_error": 3.3306690738754696e-16,
+    "radial_energy_curvature_max_relative_error": 0.0,
+    "radial_gradient_normalization_max_relative_error": 4.440892098500626e-16,
+    "samples": 257,
+    "selector_max_relative_error": 0.0,
+    "spatial_inverse_correlation_scale_squared_max_relative_error": 5.551115123125783e-16
+  },
+  "evidence_boundary": "This is a theory-only reproduction of the algebraic BK mechanism and a fail-closed audit against the current certified HOLO action. It is not a fit, force detection, lensing prediction or 5D derivation.",
+  "radial_locality": {
+    "correlation_length": "xi_radial=1/sqrt(8*m*abs(X))",
+    "radial_gradient_normalization": "Z_rho=2 from BK Eq. (89)",
+    "scope_warning": "M_spatial is the inverse correlation length in the static spatial derivative expansion, not a temporal pole mass or an all-channel UV cutoff.",
+    "spatial_inverse_correlation_scale": "M_spatial=sqrt(8*m*abs(X))",
+    "spatial_inverse_correlation_scale_squared": "M_spatial^2=H_rho/Z_rho=8*m*abs(X)",
+    "static_energy_curvature": "H_rho=d2E/d(rho)^2=16*m*abs(X)"
+  },
+  "regulated_fold": {
+    "above_fold_eta": 1034.0971131946694,
+    "above_fold_radial_energy_curvatures": [
+      -0.03613333527642803,
+      0.012152078198365045
+    ],
+    "above_fold_roots_y": [
+      1.1569161968110286,
+      3.2177996950126158
+    ],
+    "below_fold_nonzero_roots": [],
+    "bk_parametric_x_for_probe_regulator": 5.000000000000001e-05,
+    "dimensionless_variables": "y=s/Lambda_c^2; eta=4*Lambda^4*m^2*x^2/Lambda_c^8",
+    "exact_fold_over_parametric_x": 22.738701735088895,
+    "fold_eta": 517.0485565973347,
+    "fold_sqrt_eta": 22.738701735088895,
+    "fold_x_for_probe_regulator": 0.001136935086754445,
+    "fold_y": 1.7071067811865475,
+    "interpretation": "The lower stationary branch is radially unstable, the upper branch is locally stable, and both meet at zero curvature.",
+    "stationarity": "(1+y)^7+eta*y^2*(1-y)=0"
+  },
+  "regulator_to_zero_limit": {
+    "fixed_x": 1.0,
+    "regularity_locality_dichotomy": "Finite Lambda_c regularizes s=0 but removes the deep branch below a fold. Lambda_c=0 restores exact homogeneity but is singular at s=0 and has a collapsing spatial inverse-correlation scale.",
+    "sequence": [
+      {
+        "eta": 1562499.9999999993,
+        "regulator": 0.2,
+        "relative_error_to_unregulated": 0.05764276938358448,
+        "stable_selector_s": 1.3326943761380854
+      },
+      {
+        "eta": 399999999.9999998,
+        "regulator": 0.1,
+        "relative_error_to_unregulated": 0.014205719249906767,
+        "stable_selector_s": 1.3941236415466125
+      },
+      {
+        "eta": 102399999999.99995,
+        "regulator": 0.05,
+        "relative_error_to_unregulated": 0.003539456816854636,
+        "stable_selector_s": 1.4092080145392654
+      },
+      {
+        "eta": 26214399999999.99,
+        "regulator": 0.025,
+        "relative_error_to_unregulated": 0.0008841278764005756,
+        "stable_selector_s": 1.4129632167394173
+      }
+    ],
+    "unregulated_selector_s": 1.4142135623730951
+  },
+  "relevant_deformation_audit": {
+    "balance": "E=r_p*s^p+A*x^3/s^3 gives E_on proportional to x^[3p/(p+3)]",
+    "conclusion": "Quadratic and quartic amplitude operators change the deep power; scale symmetry with an illustrative dimension-one 5D compensator does not forbid them.",
+    "powers": {
+      "q2": 0.75,
+      "q4": 1.2,
+      "q6": 1.5
+    }
+  },
+  "schema": "holo.c1-bk-derivative-gate.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "interface": {
+      "path": "first_principles_audit/artifacts/interface_action_derivation.json",
+      "sha256": "ee56f159c28beba211ffb0838f76dab4e0e2688f9ac56f5fa1a0cb12bd241cf3"
+    },
+    "observational_inputs_read": [],
+    "paper": {
+      "audited_equations": [
+        87,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        97
+      ],
+      "authors": "Lasha Berezhiani and Justin Khoury",
+      "doi": "10.1103/PhysRevD.92.103510",
+      "title": "Theory of dark matter superfluidity",
+      "url": "https://link.aps.org/accepted/10.1103/PhysRevD.92.103510"
+    },
+    "tricritical_bridge": {
+      "path": "first_principles_audit/prediction_factory/artifacts/tricritical_constitutive_bridge.json",
+      "sha256": "703adf3eec2f3fb3a284058dd352bc7b2cd1736b3f42ad33d3c3bda972112caa"
+    }
+  },
+  "symmetry_audit": {
+    "conclusion": "Spatial homogeneity protects the power if a stable root exists, but it does not select F, the root, its sign or normalization.",
+    "five_dimensional_compensator_assumption": "illustrative [Sigma]=1 and [Q]=(D-2)/2; not present in the current certified HOLO action",
+    "five_dimensional_compensator_operators": {
+      "abs_Q_power_2": {
+        "q_power": 2,
+        "sigma_power": 2.0,
+        "total_scaling_dimension": 5.0
+      },
+      "abs_Q_power_4": {
+        "q_power": 4,
+        "sigma_power": -1.0,
+        "total_scaling_dimension": 5.0
+      },
+      "abs_Q_power_6": {
+        "q_power": 6,
+        "sigma_power": -4.0,
+        "total_scaling_dimension": 5.0
+      }
+    },
+    "homogeneous_class": "L=s^3*F(X/s^2)",
+    "quasistatic_weyl_power_3_spatial_dimensions": 1.5,
+    "quasistatic_weyl_power_4_spatial_dimensions": 2.0,
+    "stationary_root_condition": "3*F(z)-2*z*F'(z)=0",
+    "two_distinct_stable_wilson_examples": [
+      {
+        "dimensionless_radial_curvature": 2.828427124746189,
+        "onshell_energy_coefficient": 1.8856180831641267,
+        "power_in_x": 1.5,
+        "quadratic_tower_coefficient": 0.0,
+        "selector_coefficient_t": 1.4142135623730951
+      },
+      {
+        "dimensionless_radial_curvature": 2.0114048120770986,
+        "onshell_energy_coefficient": 2.550520596482872,
+        "power_in_x": 1.5,
+        "quadratic_tower_coefficient": 1.0,
+        "selector_coefficient_t": 1.600485180440241
+      }
+    ]
+  },
+  "title": "C1 regulated derivative-condensate reproduction and kill gate",
+  "unregulated_counterexample": {
+    "onshell_lagrangian": "L=-(2/3)*Lambda*(2*m)^(3/2)*x^(3/2)",
+    "radial_energy_curvature": "d2E/d(rho)^2=16*m*x>0",
+    "static_energy": "E=m*x*s+(4/3)*Lambda^4*m^3*x^3/s^3",
+    "stationary_selector": "s=Lambda*sqrt(2*m*x)",
+    "verdict": "PASS: a stable radial inverse-susceptibility counterexample exists"
+  },
+  "zero_temperature_phonon_gate": {
+    "conclusion": "The MOND-sign X<0 branch has the wrong zero-temperature kinetic sign even though its static radial extremum is a minimum.",
+    "effective_density": "P(X)=C*X*sqrt(abs(X))",
+    "negative_x_probe": -0.75,
+    "positive_x_probe": 0.75,
+    "second_derivative": "P_XX=(3C/4)*sign(X)/sqrt(abs(X))"
+  }
+}

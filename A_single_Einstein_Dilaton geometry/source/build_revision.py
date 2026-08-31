@@ -291,6 +291,30 @@ def main() -> int:
     )
     run(
         "python3",
+        "-m",
+        "first_principles_audit.prediction_factory.derive_c1_bk_derivative_gate",
+        cwd=REPO_ROOT,
+    )
+    run(
+        "python3",
+        "-m",
+        "first_principles_audit.prediction_factory.derive_c2_critical_continuum_gate",
+        cwd=REPO_ROOT,
+    )
+    run(
+        "python3",
+        "-m",
+        "first_principles_audit.prediction_factory.derive_c3_geometric_transition_gate",
+        cwd=REPO_ROOT,
+    )
+    run(
+        "python3",
+        "first_principles_audit/prediction_factory/validate_mechanism_campaign.py",
+        "first_principles_audit/prediction_factory/artifacts/minimal_mechanism_campaign.json",
+        cwd=REPO_ROOT,
+    )
+    run(
+        "python3",
         "first_principles_audit/prediction_factory/build_master_prediction_registry.py",
         cwd=REPO_ROOT,
     )
@@ -350,6 +374,11 @@ def main() -> int:
         "first_principles_audit.prediction_factory.test_collective_spectral_bridge",
         "first_principles_audit.prediction_factory.test_bulk_constitutive_decision_gate",
         "first_principles_audit.prediction_factory.test_holo_nonlinear_route_matrix",
+        "first_principles_audit.prediction_factory.test_c1_bk_derivative_gate",
+        "first_principles_audit.prediction_factory.test_c2_critical_continuum_gate",
+        "first_principles_audit.prediction_factory.test_c3_geometric_transition_gate",
+        "first_principles_audit.prediction_factory.test_mechanism_campaign",
+        "first_principles_audit.prediction_factory.test_minimal_mechanism_campaign",
         "first_principles_audit.prediction_factory.test_master_prediction_registry",
         "first_principles_audit.prediction_factory.tests.test_wilson_loop_analyzer",
         "-v",

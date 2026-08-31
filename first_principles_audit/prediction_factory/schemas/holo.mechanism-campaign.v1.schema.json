@@ -1,0 +1,587 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://holo.invalid/schemas/holo.mechanism-campaign.v1.schema.json",
+  "title": "HOLO fail-closed microscopic mechanism campaign",
+  "description": "A theory-only, sequential and evidence-addressed campaign contract. V1 disables target-blind claims until an authenticated pre-execution manifest exists. Validation of transition, receipt and claim semantics is completed by validate_mechanism_campaign.py.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "campaign_id",
+    "declared_record_time_utc",
+    "repository",
+    "objective",
+    "inputs",
+    "data_policy",
+    "ladder_policy",
+    "steps",
+    "claim_gate",
+    "verdict"
+  ],
+  "properties": {
+    "schema": {
+      "const": "holo.mechanism-campaign.v1"
+    },
+    "campaign_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,63}$"
+    },
+    "declared_record_time_utc": {
+      "$ref": "#/$defs/utcTimestamp"
+    },
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declared_baseline_commit",
+        "declared_worktree_dirty_at_start",
+        "unrelated_changes_preserved",
+        "remote_mutation_authorized",
+        "publication_authorized"
+      ],
+      "properties": {
+        "declared_baseline_commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "declared_worktree_dirty_at_start": {
+          "type": "boolean"
+        },
+        "unrelated_changes_preserved": {
+          "const": true
+        },
+        "remote_mutation_authorized": {
+          "const": false
+        },
+        "publication_authorized": {
+          "const": false
+        }
+      }
+    },
+    "objective": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "statement",
+        "scope",
+        "target_blind",
+        "requested_output"
+      ],
+      "properties": {
+        "statement": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "scope": {
+          "const": "theory_only"
+        },
+        "target_blind": {
+          "const": false
+        },
+        "requested_output": {
+          "const": "adjudication_record_only"
+        }
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/inputReceipt"
+      }
+    },
+    "data_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "observational_inputs_read",
+        "provenance_audit_scope",
+        "forbidden_inputs",
+        "parameter_fitting_authorized",
+        "post_hoc_target_matching_authorized",
+        "external_physics_input_access_authorized",
+        "review_channel_access_authorized",
+        "physical_actions_authorized"
+      ],
+      "properties": {
+        "observational_inputs_read": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "provenance_audit_scope": {
+          "const": "declared_repository_paths_only"
+        },
+        "forbidden_inputs": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          }
+        },
+        "parameter_fitting_authorized": {
+          "const": false
+        },
+        "post_hoc_target_matching_authorized": {
+          "const": false
+        },
+        "external_physics_input_access_authorized": {
+          "const": false
+        },
+        "review_channel_access_authorized": {
+          "const": true
+        },
+        "physical_actions_authorized": {
+          "const": false
+        }
+      }
+    },
+    "ladder_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "step_count",
+        "unlock_requires_previous_failure"
+      ],
+      "properties": {
+        "mode": {
+          "const": "sequential"
+        },
+        "step_count": {
+          "const": 3
+        },
+        "unlock_requires_previous_failure": {
+          "const": true
+        }
+      }
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "$ref": "#/$defs/campaignStep"
+      }
+    },
+    "claim_gate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mechanism_candidate",
+        "physical_completion",
+        "new_force_derived",
+        "lensing_derived",
+        "publication_authorized"
+      ],
+      "properties": {
+        "mechanism_candidate": {
+          "const": false
+        },
+        "physical_completion": {
+          "const": false
+        },
+        "new_force_derived": {
+          "const": false
+        },
+        "lensing_derived": {
+          "const": false
+        },
+        "publication_authorized": {
+          "const": false
+        }
+      }
+    },
+    "verdict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "selected_step",
+        "reason_codes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "blocked",
+            "falsified"
+          ]
+        },
+        "selected_step": {
+          "type": "null"
+        },
+        "reason_codes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/reasonCode"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reasonCode": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{1,63}$"
+    },
+    "hash64": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "utcTimestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+    },
+    "relativePath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+    },
+    "inputReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "path",
+        "sha256",
+        "schema",
+        "role",
+        "integrity_verified",
+        "observational"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reasonCode"
+        },
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/hash64"
+        },
+        "schema": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "role": {
+          "enum": [
+            "theory",
+            "geometry",
+            "boundary",
+            "prior_certificate"
+          ]
+        },
+        "integrity_verified": {
+          "const": true
+        },
+        "observational": {
+          "const": false
+        }
+      }
+    },
+    "stepRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "declared_record_time_utc",
+        "hypothesis",
+        "declared_test",
+        "kill_gate",
+        "allowed_input_ids",
+        "target_blind",
+        "target_disclosure",
+        "no_tuning",
+        "binary_kill_gate",
+        "local_five_dimensional_action_required",
+        "record_time_authentication"
+      ],
+      "properties": {
+        "declared_record_time_utc": {
+          "$ref": "#/$defs/utcTimestamp"
+        },
+        "hypothesis": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "declared_test": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "kill_gate": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "allowed_input_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/reasonCode"
+          }
+        },
+        "target_blind": {
+          "const": false
+        },
+        "target_disclosure": {
+          "enum": [
+            "known_external_candidate",
+            "known_acceptance_target",
+            "known_mechanism_requirements"
+          ]
+        },
+        "no_tuning": {
+          "const": true
+        },
+        "binary_kill_gate": {
+          "const": true
+        },
+        "local_five_dimensional_action_required": {
+          "const": true
+        },
+        "record_time_authentication": {
+          "const": "content_addressed_not_timestamp_authenticated"
+        }
+      }
+    },
+    "gateCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "status",
+        "evidence_refs"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reasonCode"
+        },
+        "status": {
+          "enum": [
+            "pending",
+            "pass",
+            "fail",
+            "blocked"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/reasonCode"
+          }
+        }
+      }
+    },
+    "artifactReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "path",
+        "sha256",
+        "schema"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reasonCode"
+        },
+        "path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "sha256": {
+          "$ref": "#/$defs/hash64"
+        },
+        "schema": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "testReceipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "command",
+        "exit_code",
+        "source_path",
+        "source_sha256"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reasonCode"
+        },
+        "command": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "exit_code": {
+          "const": 0
+        },
+        "source_path": {
+          "$ref": "#/$defs/relativePath"
+        },
+        "source_sha256": {
+          "$ref": "#/$defs/hash64"
+        }
+      }
+    },
+    "reviewAttempt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "channel",
+        "status",
+        "context_sha256",
+        "response_sha256",
+        "literal_output_sha256",
+        "literal_output_captured",
+        "independent_from_builder",
+        "verdict"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/reasonCode"
+        },
+        "channel": {
+          "$ref": "#/$defs/reasonCode"
+        },
+        "status": {
+          "enum": [
+            "completed",
+            "provider_error"
+          ]
+        },
+        "context_sha256": {
+          "$ref": "#/$defs/hash64"
+        },
+        "response_sha256": {
+          "$ref": "#/$defs/hash64"
+        },
+        "literal_output_sha256": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/hash64"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "literal_output_captured": {
+          "type": "boolean"
+        },
+        "independent_from_builder": {
+          "type": "boolean"
+        },
+        "verdict": {
+          "enum": [
+            "pass",
+            "fail",
+            "inconclusive"
+          ]
+        }
+      }
+    },
+    "evidenceBundle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_receipts",
+        "test_receipts",
+        "review_attempts"
+      ],
+      "properties": {
+        "artifact_receipts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactReceipt"
+          }
+        },
+        "test_receipts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/testReceipt"
+          }
+        },
+        "review_attempts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reviewAttempt"
+          }
+        }
+      }
+    },
+    "campaignStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "ordinal",
+        "family",
+        "status",
+        "step_record",
+        "step_record_sha256",
+        "checks",
+        "evidence",
+        "reason_codes"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "C1",
+            "C2",
+            "C3"
+          ]
+        },
+        "ordinal": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        },
+        "family": {
+          "enum": [
+            "derivative_condensate",
+            "critical_continuum",
+            "geometric_brane_transition"
+          ]
+        },
+        "status": {
+          "enum": [
+            "locked",
+            "ready",
+            "failed",
+            "blocked"
+          ]
+        },
+        "step_record": {
+          "$ref": "#/$defs/stepRecord"
+        },
+        "step_record_sha256": {
+          "$ref": "#/$defs/hash64"
+        },
+        "checks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/gateCheck"
+          }
+        },
+        "evidence": {
+          "$ref": "#/$defs/evidenceBundle"
+        },
+        "reason_codes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/reasonCode"
+          }
+        }
+      }
+    }
+  }
+}

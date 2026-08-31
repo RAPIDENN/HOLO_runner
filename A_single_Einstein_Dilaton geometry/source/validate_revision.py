@@ -89,6 +89,9 @@ BPS_VOLUME_CONSTRAINT = (
 NONLINEAR_ROUTE_MATRIX = (
     FACTORY_ROOT / "artifacts" / "holo_nonlinear_route_matrix.json"
 )
+MECHANISM_CAMPAIGN = (
+    FACTORY_ROOT / "artifacts" / "minimal_mechanism_campaign.json"
+)
 MASTER_REGISTRY = FACTORY_ROOT / "MASTER_PREDICTION_REGISTRY.json"
 COMPARISON = PAPER_ROOT / "build" / "original_revision_comparison.json"
 
@@ -136,6 +139,7 @@ def main() -> int:
         BPS_BISCALAR_MATTER,
         BPS_VOLUME_CONSTRAINT,
         NONLINEAR_ROUTE_MATRIX,
+        MECHANISM_CAMPAIGN,
         MASTER_REGISTRY,
         COMPARISON,
         SOURCE / "main.tex",
@@ -196,6 +200,7 @@ def main() -> int:
     nonlinear_route_matrix = json.loads(
         NONLINEAR_ROUTE_MATRIX.read_text(encoding="utf-8")
     )
+    mechanism_campaign = json.loads(MECHANISM_CAMPAIGN.read_text(encoding="utf-8"))
     master_registry = json.loads(MASTER_REGISTRY.read_text(encoding="utf-8"))
     comparison = json.loads(COMPARISON.read_text(encoding="utf-8"))
 
@@ -643,6 +648,94 @@ def main() -> int:
         == "derivative_constitutive_scalar",
         nonlinear_route_matrix["prototype_selection"],
     )
+    campaign_validation = subprocess.run(
+        [
+            "python3",
+            str(FACTORY_ROOT / "validate_mechanism_campaign.py"),
+            str(MECHANISM_CAMPAIGN),
+        ],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    record(
+        checks,
+        "minimal_mechanism_campaign_contract",
+        campaign_validation.returncode == 0,
+        campaign_validation.stdout.strip() or campaign_validation.stderr.strip(),
+    )
+    receipt_mismatches: list[str] = []
+    if campaign_validation.returncode == 0:
+        campaign_receipts = list(mechanism_campaign["inputs"])
+        for step in mechanism_campaign["steps"]:
+            campaign_receipts.extend(step["evidence"]["artifact_receipts"])
+        receipt_mismatches = [
+            receipt["path"]
+            for receipt in campaign_receipts
+            if sha256(REPO_ROOT / receipt["path"]) != receipt["sha256"]
+        ]
+    else:
+        receipt_mismatches = ["contract_invalid_receipts_not_opened"]
+    record(
+        checks,
+        "minimal_mechanism_campaign_receipts",
+        not receipt_mismatches,
+        receipt_mismatches,
+    )
+    record(
+        checks,
+        "minimal_mechanism_campaign_claim_boundary",
+        [step["status"] for step in mechanism_campaign["steps"]]
+        == ["failed", "failed", "blocked"]
+        and mechanism_campaign["verdict"]["status"] == "blocked"
+        and not mechanism_campaign["claim_gate"]["mechanism_candidate"]
+        and not mechanism_campaign["claim_gate"]["physical_completion"]
+        and not mechanism_campaign["claim_gate"]["new_force_derived"]
+        and not mechanism_campaign["claim_gate"]["lensing_derived"]
+        and not mechanism_campaign["claim_gate"]["publication_authorized"],
+        {
+            "steps": [step["status"] for step in mechanism_campaign["steps"]],
+            "verdict": mechanism_campaign["verdict"],
+            "claim_gate": mechanism_campaign["claim_gate"],
+        },
+    )
+    registered_campaign = master_registry["current_predictions"][
+        "minimal_mechanism_campaign"
+    ]
+    registered_campaign_evidence = master_registry["artefacts"][
+        "minimal_mechanism_campaign"
+    ]
+    registered_campaign_claim_gate = {
+        key: registered_campaign.get(key)
+        for key in mechanism_campaign["claim_gate"]
+    }
+    record(
+        checks,
+        "minimal_mechanism_campaign_registry_binding",
+        registered_campaign_evidence["path"]
+        == str(MECHANISM_CAMPAIGN.relative_to(REPO_ROOT))
+        and registered_campaign_evidence["sha256"] == sha256(MECHANISM_CAMPAIGN)
+        and registered_campaign["campaign_id"] == mechanism_campaign["campaign_id"]
+        and registered_campaign["step_statuses"]
+        == {
+            step["id"]: step["status"]
+            for step in mechanism_campaign["steps"]
+        }
+        and registered_campaign["target_blind"]
+        == mechanism_campaign["objective"]["target_blind"]
+        and registered_campaign_claim_gate == mechanism_campaign["claim_gate"]
+        and registered_campaign["verdict"] == mechanism_campaign["verdict"],
+        {
+            "evidence": registered_campaign_evidence,
+            "summary": registered_campaign,
+            "expected_target_blind": mechanism_campaign["objective"][
+                "target_blind"
+            ],
+            "expected_claim_gate": mechanism_campaign["claim_gate"],
+            "expected_verdict": mechanism_campaign["verdict"],
+        },
+    )
     record(
         checks,
         "minimal_probe_observational_blinding",
@@ -734,6 +827,7 @@ def main() -> int:
             BPS_VOLUME_CONSTRAINT
         ),
         "nonlinear_route_matrix_sha256": sha256(NONLINEAR_ROUTE_MATRIX),
+        "minimal_mechanism_campaign_sha256": sha256(MECHANISM_CAMPAIGN),
         "master_prediction_registry_sha256": sha256(MASTER_REGISTRY),
         "original_revision_comparison_sha256": sha256(COMPARISON),
         "checks": checks,

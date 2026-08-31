@@ -1,0 +1,456 @@
+{
+  "campaign_id": "minimal-mechanism-ladder-20260831",
+  "claim_gate": {
+    "lensing_derived": false,
+    "mechanism_candidate": false,
+    "new_force_derived": false,
+    "physical_completion": false,
+    "publication_authorized": false
+  },
+  "data_policy": {
+    "external_physics_input_access_authorized": false,
+    "forbidden_inputs": [
+      "observational_tables",
+      "post_hoc_target_coefficients",
+      "undeclared_external_outputs"
+    ],
+    "observational_inputs_read": [],
+    "parameter_fitting_authorized": false,
+    "physical_actions_authorized": false,
+    "post_hoc_target_matching_authorized": false,
+    "provenance_audit_scope": "declared_repository_paths_only",
+    "review_channel_access_authorized": true
+  },
+  "declared_record_time_utc": "2026-08-31T15:21:00Z",
+  "inputs": [
+    {
+      "id": "effective_action",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/artifacts/holo_effective_action.json",
+      "role": "theory",
+      "schema": null,
+      "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+    },
+    {
+      "id": "interface_action",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/artifacts/interface_action_derivation.json",
+      "role": "boundary",
+      "schema": null,
+      "sha256": "ee56f159c28beba211ffb0838f76dab4e0e2688f9ac56f5fa1a0cb12bd241cf3"
+    },
+    {
+      "id": "adm_bps_flatness",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/prediction_factory/artifacts/adm_bmp_tricritical_necessity.json",
+      "role": "prior_certificate",
+      "schema": "holo.adm-bmp-tricritical-necessity.v2",
+      "sha256": "67efa3eed8c2a3446ed983adb6f5909b3288062cea994958cbcdffd538cde9e1"
+    },
+    {
+      "id": "adm_quadratic",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/prediction_factory/artifacts/adm_quadratic_recovery.json",
+      "role": "prior_certificate",
+      "schema": "holo.adm-quadratic-recovery.v1",
+      "sha256": "ff9b52174bfe600f4498f60efdca3c6c8114ce84593752d17f710ea2d9527762"
+    },
+    {
+      "id": "bent_brane_geometry",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/prediction_factory/artifacts/bent_brane_geometry_S2.json",
+      "role": "geometry",
+      "schema": "holo.bent-brane-geometry-S2.v2",
+      "sha256": "5150c8092e6a2951a7733d9703effca03a15c37073160eac6f9948cd1bb5b40e"
+    },
+    {
+      "id": "compact_brane_s2",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/prediction_factory/artifacts/compact_brane_S2_backward.json",
+      "role": "prior_certificate",
+      "schema": "holo.compact-brane-S2-backward.v1",
+      "sha256": "1c65875e0218bce61a77f084c011a13279815aba4146f0337f46a086398f0150"
+    },
+    {
+      "id": "finite_gamma_s2",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/prediction_factory/artifacts/finite_gamma_brane_S2.json",
+      "role": "prior_certificate",
+      "schema": "holo.finite-gamma-brane-S2.v1",
+      "sha256": "f2f208f6966e4ade317da1f2d30fa765ad48e85f9b0fcc7b89ee1c1a8333a272"
+    },
+    {
+      "id": "bps_biscalar_geometry",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/prediction_factory/artifacts/bps_biscalar_matter_geometry.json",
+      "role": "geometry",
+      "schema": "holo.bps-biscalar-matter-geometry.v1",
+      "sha256": "8a132ff87ddf1c3b1e01386353c5e8c631c20ab8c3d8cceacacc2e6bf6776359"
+    },
+    {
+      "id": "volume_selector",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/prediction_factory/artifacts/bps_volume_constraint_selector.json",
+      "role": "prior_certificate",
+      "schema": "holo.bps-volume-constraint-selector.v1",
+      "sha256": "43badad202cfc48addee8f2f4009af36bcc4d3b5218b634f7555d3b3405e6c2c"
+    },
+    {
+      "id": "collective_spectral_bridge",
+      "integrity_verified": true,
+      "observational": false,
+      "path": "first_principles_audit/prediction_factory/artifacts/collective_spectral_bridge.json",
+      "role": "prior_certificate",
+      "schema": "holo.collective-spectral-bridge.v1",
+      "sha256": "a2fb7b67d91ddf00813bf1821b92f12a787b85a41b6236ca92c6a4cd1a66cdf1"
+    }
+  ],
+  "ladder_policy": {
+    "mode": "sequential",
+    "step_count": 3,
+    "unlock_requires_previous_failure": true
+  },
+  "objective": {
+    "requested_output": "adjudication_record_only",
+    "scope": "theory_only",
+    "statement": "Derive or falsify one local microscopic HOLO mechanism.",
+    "target_blind": false
+  },
+  "repository": {
+    "declared_baseline_commit": "1906d5a9bee1443ffd304665fc737f9c04145135",
+    "declared_worktree_dirty_at_start": true,
+    "publication_authorized": false,
+    "remote_mutation_authorized": false,
+    "unrelated_changes_preserved": true
+  },
+  "schema": "holo.mechanism-campaign.v1",
+  "steps": [
+    {
+      "checks": [
+        {
+          "evidence_refs": [
+            "artifact_c1",
+            "test_c1"
+          ],
+          "id": "background_and_junctions_preserved",
+          "status": "blocked"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c1",
+            "test_c1"
+          ],
+          "id": "five_dimensional_operator_basis_closed",
+          "status": "fail"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c1",
+            "test_c1"
+          ],
+          "id": "ward_or_isometry_fixes_homogeneity",
+          "status": "fail"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c1",
+            "test_c1"
+          ],
+          "id": "x_negative_branch_hyperbolic_without_patch",
+          "status": "fail"
+        }
+      ],
+      "evidence": {
+        "artifact_receipts": [
+          {
+            "id": "artifact_c1",
+            "path": "first_principles_audit/prediction_factory/artifacts/c1_bk_derivative_gate.json",
+            "schema": "holo.c1-bk-derivative-gate.v1",
+            "sha256": "508a8fe0c5a3c18af2578abc067146c4c22641d48922b78fdebf426694906bba"
+          }
+        ],
+        "review_attempts": [
+          {
+            "channel": "skai_chat",
+            "context_sha256": "4a267cd17103201ae5936c3d45369f35dd5a929e53851db1832192d715243c9d",
+            "id": "skai_c1_review_attempt",
+            "independent_from_builder": false,
+            "literal_output_captured": false,
+            "literal_output_sha256": null,
+            "response_sha256": "929f7dc63b60e14dd00e715a8de7af8880b6fd95eee71de74fc2c95d5c0ea041",
+            "status": "provider_error",
+            "verdict": "inconclusive"
+          }
+        ],
+        "test_receipts": [
+          {
+            "command": "python3 -m unittest first_principles_audit.prediction_factory.test_c1_bk_derivative_gate",
+            "exit_code": 0,
+            "id": "test_c1",
+            "source_path": "first_principles_audit/prediction_factory/test_c1_bk_derivative_gate.py",
+            "source_sha256": "3a8f4e46b20e16d04f86503fc0341098acfe05f766af319cc4293d4b31ec3b42"
+          }
+        ]
+      },
+      "family": "derivative_condensate",
+      "id": "C1",
+      "ordinal": 1,
+      "reason_codes": [
+        "binary_kill_gate_triggered"
+      ],
+      "status": "failed",
+      "step_record": {
+        "allowed_input_ids": [
+          "effective_action",
+          "interface_action",
+          "adm_bps_flatness",
+          "bps_biscalar_geometry"
+        ],
+        "binary_kill_gate": true,
+        "declared_record_time_utc": "2026-08-31T15:21:00Z",
+        "declared_test": "Enumerate the declared 5D operator basis and reduce its negative-X branch.",
+        "hypothesis": "A local five-dimensional U(1) derivative condensate is uniquely selected and remains regular, hyperbolic and coupled to matter.",
+        "kill_gate": "Kill on any unfixed competing operator, singular deep limit, ghost, collapsing cutoff or underived matter vertex.",
+        "local_five_dimensional_action_required": true,
+        "no_tuning": true,
+        "record_time_authentication": "content_addressed_not_timestamp_authenticated",
+        "target_blind": false,
+        "target_disclosure": "known_external_candidate"
+      },
+      "step_record_sha256": "547732f1bf763993507c9f289d9ebb55236af29b6fc55c197929e5872cf5167d"
+    },
+    {
+      "checks": [
+        {
+          "evidence_refs": [
+            "artifact_c2",
+            "test_c2"
+          ],
+          "id": "local_amplitude_reduction",
+          "status": "fail"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c2",
+            "test_c2"
+          ],
+          "id": "no_gapless_mode_integrated_out",
+          "status": "blocked"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c2",
+            "test_c2"
+          ],
+          "id": "nonlinear_generating_functional_derived",
+          "status": "fail"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c2",
+            "test_c2"
+          ],
+          "id": "positive_gapless_spectral_measure",
+          "status": "fail"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c2",
+            "test_c2"
+          ],
+          "id": "target_exponent_and_sign_emerge",
+          "status": "fail"
+        }
+      ],
+      "evidence": {
+        "artifact_receipts": [
+          {
+            "id": "artifact_c2",
+            "path": "first_principles_audit/prediction_factory/artifacts/c2_critical_continuum_gate.json",
+            "schema": "holo.c2-critical-continuum-gate.v1",
+            "sha256": "4d8b4b25094ba2d55b7792d19735df6beca74588734705add34b0529831e8f57"
+          }
+        ],
+        "review_attempts": [
+          {
+            "channel": "skai_chat",
+            "context_sha256": "dfd2f975ce8c34639e05b82158dc2da4cfc91be6b62d97fab42f55bbeca3ae91",
+            "id": "skai_c2_review_attempt",
+            "independent_from_builder": false,
+            "literal_output_captured": false,
+            "literal_output_sha256": null,
+            "response_sha256": "0aa4a77c2d8c3d066d2334c4e07fb9e596237fc28f053cf39fe3daeaa2d6fc61",
+            "status": "provider_error",
+            "verdict": "inconclusive"
+          }
+        ],
+        "test_receipts": [
+          {
+            "command": "python3 -m unittest first_principles_audit.prediction_factory.test_c2_critical_continuum_gate",
+            "exit_code": 0,
+            "id": "test_c2",
+            "source_path": "first_principles_audit/prediction_factory/test_c2_critical_continuum_gate.py",
+            "source_sha256": "df31d9538a9134e04192e7289c2bf1cba1e59e9db6565cdf1d7d4b97b494da62"
+          }
+        ]
+      },
+      "family": "critical_continuum",
+      "id": "C2",
+      "ordinal": 2,
+      "reason_codes": [
+        "frozen_compact_spectrum_killed"
+      ],
+      "status": "failed",
+      "step_record": {
+        "allowed_input_ids": [
+          "collective_spectral_bridge",
+          "compact_brane_s2",
+          "finite_gamma_s2"
+        ],
+        "binary_kill_gate": true,
+        "declared_record_time_utc": "2026-08-31T15:21:00Z",
+        "declared_test": "Derive the full source functional from the declared spectrum without using the target exponent.",
+        "hypothesis": "The frozen compact spectral sector generates a positive local nonlinear amplitude functional in the infrared.",
+        "kill_gate": "Kill the frozen model on a discrete gap plus analytic linear response and absence of a local nonlinear collective reduction.",
+        "local_five_dimensional_action_required": true,
+        "no_tuning": true,
+        "record_time_authentication": "content_addressed_not_timestamp_authenticated",
+        "target_blind": false,
+        "target_disclosure": "known_acceptance_target"
+      },
+      "step_record_sha256": "8b2185f9a650aa712b337f7219031f8bac60fd86c016d1eaa3f962e9f14aa09f"
+    },
+    {
+      "checks": [
+        {
+          "evidence_refs": [
+            "artifact_c3",
+            "test_c3"
+          ],
+          "id": "codimension_zero_criticality",
+          "status": "blocked"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c3",
+            "test_c3"
+          ],
+          "id": "dirac_rank_controlled",
+          "status": "blocked"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c3",
+            "test_c3"
+          ],
+          "id": "q2y_and_g6_derived",
+          "status": "blocked"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c3",
+            "test_c3"
+          ],
+          "id": "single_physical_collective",
+          "status": "blocked"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c3",
+            "test_c3"
+          ],
+          "id": "two_source_geometries_agree",
+          "status": "blocked"
+        },
+        {
+          "evidence_refs": [
+            "artifact_c3",
+            "test_c3"
+          ],
+          "id": "uniform_positive_gap_for_other_modes",
+          "status": "blocked"
+        }
+      ],
+      "evidence": {
+        "artifact_receipts": [
+          {
+            "id": "artifact_c3",
+            "path": "first_principles_audit/prediction_factory/artifacts/c3_geometric_transition_gate.json",
+            "schema": "holo.c3-geometric-transition-gate.v1",
+            "sha256": "c954aef968622fe0e2d4cf0c074e3c74e42c3be446ab265372f69d0310488ba6"
+          }
+        ],
+        "review_attempts": [
+          {
+            "channel": "skai_chat",
+            "context_sha256": "02e9fa6be5b8336b28d057615a213b995d50e61097785815d47b856ae1c84b65",
+            "id": "skai_c3_review_attempt",
+            "independent_from_builder": false,
+            "literal_output_captured": false,
+            "literal_output_sha256": null,
+            "response_sha256": "8666ceb638c85506da7fa80c0e81a42cad099691a9436ebf2f45acd382630a9b",
+            "status": "provider_error",
+            "verdict": "inconclusive"
+          }
+        ],
+        "test_receipts": [
+          {
+            "command": "python3 -m unittest first_principles_audit.prediction_factory.test_c3_geometric_transition_gate",
+            "exit_code": 0,
+            "id": "test_c3",
+            "source_path": "first_principles_audit/prediction_factory/test_c3_geometric_transition_gate.py",
+            "source_sha256": "798b78d6b21037998c1891abe45149a537cb597a5d7dc29ec82e308047914ef2"
+          }
+        ]
+      },
+      "family": "geometric_brane_transition",
+      "id": "C3",
+      "ordinal": 3,
+      "reason_codes": [
+        "input_contract_incomplete"
+      ],
+      "status": "blocked",
+      "step_record": {
+        "allowed_input_ids": [
+          "effective_action",
+          "interface_action",
+          "adm_bps_flatness",
+          "adm_quadratic",
+          "bent_brane_geometry",
+          "compact_brane_s2",
+          "finite_gamma_s2",
+          "bps_biscalar_geometry",
+          "volume_selector",
+          "collective_spectral_bridge"
+        ],
+        "binary_kill_gate": true,
+        "declared_record_time_utc": "2026-08-31T15:21:00Z",
+        "declared_test": "Freeze the full variational problem and solve all branches for two conserved source geometries.",
+        "hypothesis": "The complete brane geometry forces a protected codimension-zero transition with one physical collective mode.",
+        "kill_gate": "Block rather than kill if the total action, constraints, sources, branch spectrum or free energies are not frozen.",
+        "local_five_dimensional_action_required": true,
+        "no_tuning": true,
+        "record_time_authentication": "content_addressed_not_timestamp_authenticated",
+        "target_blind": false,
+        "target_disclosure": "known_mechanism_requirements"
+      },
+      "step_record_sha256": "74c5b98a76496efc88dd6015f98a3fd11864c9cb8ded0f9b21fe724ee52f6a76"
+    }
+  ],
+  "verdict": {
+    "reason_codes": [
+      "c3_input_contract_incomplete"
+    ],
+    "selected_step": null,
+    "status": "blocked"
+  }
+}

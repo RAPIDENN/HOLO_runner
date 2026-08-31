@@ -1,0 +1,48 @@
+{
+  "campaign_transition": "UNLOCK_C3",
+  "decision": {
+    "kill_all_critical_continuum_models": false,
+    "kill_current_frozen_compact_spectrum": true,
+    "meaning": "The frozen compact seven-mode model cannot realize C2: it is gapped and discrete, only crosses the target slope in a narrow window, and supplies no local nonlinear amplitude reduction.",
+    "physical_completion": false,
+    "verdict": "KILL_C2"
+  },
+  "declared_scope": {
+    "adjudicated_model": "frozen_current_compact_seven_mode_spectrum",
+    "mimic_width_limit_dex": 0.25,
+    "parameter_fitting": false,
+    "target_blind": false,
+    "universal_no_go_claimed": false
+  },
+  "evidence": {
+    "constant_positive_density_per_mass_derived": false,
+    "frozen_pole_count": 7,
+    "gapless_continuum_present": false,
+    "local_amplitude_reduction_derived": false,
+    "source_locality_warning": "A continuum over spacetime momentum usually produces a nonlocal fractional operator. P(Y) is local but nonlinear in field amplitude; equating the two requires a collective constraint not present in the current quadratic pole sum.",
+    "source_new_requirement": "gapless constant spectral density or a non-Gaussian tricritical collective coordinate; local nonlinear amplitude response",
+    "source_old_model_statement": "seven fixed gapped poles; linear superposition; source exponent one",
+    "three_halves_mimic_width_dex": 0.21001750145845488
+  },
+  "kill_conditions": {
+    "all": true,
+    "finite_discrete_gapped_current_spectrum": true,
+    "local_nonlinear_amplitude_reduction_absent": true,
+    "three_halves_is_only_a_narrow_mimic": true
+  },
+  "outside_scope_live_classes": [
+    "decompactified_gapless_continuum",
+    "critical_boundary_limit",
+    "non_gaussian_collective_constraint"
+  ],
+  "schema": "holo.c2-critical-continuum-gate.v1",
+  "sources": {
+    "observational_inputs_read": [],
+    "spectral_certificate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/collective_spectral_bridge.json",
+      "schema": "holo.collective-spectral-bridge.v1",
+      "sha256": "a2fb7b67d91ddf00813bf1821b92f12a787b85a41b6236ca92c6a4cd1a66cdf1"
+    }
+  },
+  "title": "C2 critical-continuum gate for the frozen compact spectrum"
+}

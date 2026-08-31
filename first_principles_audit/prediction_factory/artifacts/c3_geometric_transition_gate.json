@@ -1,0 +1,392 @@
+{
+  "analytic_branch_theorem": {
+    "application": {
+      "exhaustive_uniform_free_energy_gap_to_all_competing_branches": false,
+      "first_order_crossing_excluded": false,
+      "interpretation": "The theorem controls a regular local branch whose full gauge-fixed linearization is an isomorphism. A C3 branch with one critical collective is outside this theorem and instead needs a Lyapunov--Schmidt reduction with a uniform gap on the complement. A first-order crossing needs an exhaustive uniform free-energy gap. Missing hypotheses leave the physical question open.",
+      "local_continuous_nonanalytic_transition_excluded": false,
+      "local_onshell_map_is_analytic": false,
+      "local_status": "NOT_APPLICABLE",
+      "local_unique_analytic_stationary_branch": false,
+      "missing_local_hypotheses": [
+        "maps_analytic_between_fixed_banach_spaces",
+        "gauge_fixed_boundary_value_problem_complete",
+        "dirac_rank_constant",
+        "algebraic_auxiliary_jacobian_invertible_or_absent",
+        "full_linearized_gauge_fixed_bvp_is_bounded_isomorphism"
+      ],
+      "physical_no_go_claimed": false,
+      "selected_ground_state_status": "UNDECIDED"
+    },
+    "certified_hypotheses": {
+      "algebraic_auxiliary_jacobian_invertible_or_absent": false,
+      "dirac_rank_constant": false,
+      "exhaustive_uniform_free_energy_gap_to_all_competing_branches": false,
+      "full_linearized_gauge_fixed_bvp_is_bounded_isomorphism": false,
+      "gauge_fixed_boundary_value_problem_complete": false,
+      "maps_analytic_between_fixed_banach_spaces": false
+    },
+    "global_caveat": "A first-order crossing with a distinct branch is excluded only after a separate exhaustive uniform free-energy gap to all competitors is proved.",
+    "local_statement": "For an analytic gauge-fixed boundary-value map between fixed Banach spaces, constant Dirac rank and a boundedly invertible full linearized operator let the analytic implicit-function theorem give a unique local analytic stationary branch and analytic on-shell Dirichlet-to-Neumann map.",
+    "scope": "A failed hypothesis opens a calculation; it is not evidence for a transition and not a no-go against one.",
+    "ways_a_transition_can_remain_open": [
+      "a retained physical mode becomes gapless",
+      "two stable branches cross in free energy",
+      "a healthy threshold independently derives a nonanalytic microscopic functional below its certified cutoff"
+    ]
+  },
+  "campaign_step_projection": {
+    "checks": [
+      {
+        "evidence_refs": [],
+        "id": "codimension_zero_criticality",
+        "status": "pending"
+      },
+      {
+        "evidence_refs": [],
+        "id": "single_physical_collective",
+        "status": "pending"
+      },
+      {
+        "evidence_refs": [],
+        "id": "dirac_rank_controlled",
+        "status": "pending"
+      },
+      {
+        "evidence_refs": [],
+        "id": "uniform_positive_gap_for_other_modes",
+        "status": "pending"
+      },
+      {
+        "evidence_refs": [],
+        "id": "q2y_and_g6_derived",
+        "status": "pending"
+      },
+      {
+        "evidence_refs": [],
+        "id": "two_source_geometries_agree",
+        "status": "pending"
+      }
+    ],
+    "family": "geometric_brane_transition",
+    "projection_scope": "Partial step projection only; this artifact is not a standalone holo.mechanism-campaign.v1 document.",
+    "status": "ready",
+    "status_semantics": "ready means C2 unlocked the ladder step; it does not override the INPUT_INCOMPLETE/BLOCKED_C3 diagnostic.",
+    "step_id": "C3"
+  },
+  "candidate_spectral_adjudication": {
+    "calculation_complete": false,
+    "exactly_one_physical_critical_collective": {
+      "certified": false,
+      "evaluated": false,
+      "status": "NOT_EVALUATED_INPUT_INCOMPLETE"
+    },
+    "exhaustive_uniform_free_energy_gap_to_competitors": {
+      "certified": false,
+      "evaluated": false,
+      "status": "NOT_EVALUATED_INPUT_INCOMPLETE"
+    },
+    "full_linearized_operator_isomorphism": {
+      "certified": false,
+      "evaluated": false,
+      "status": "NOT_EVALUATED_INPUT_INCOMPLETE"
+    },
+    "interpretation": "Completing R9 means performing the candidate calculation; it does not predetermine an isomorphism, a critical kernel, a complement gap, a free-energy gap or cutoff separation.",
+    "transition_below_independent_eft_cutoff": {
+      "certified": false,
+      "evaluated": false,
+      "status": "NOT_EVALUATED_INPUT_INCOMPLETE"
+    },
+    "uniform_positive_gap_on_noncollective_complement": {
+      "certified": false,
+      "evaluated": false,
+      "status": "NOT_EVALUATED_INPUT_INCOMPLETE"
+    }
+  },
+  "checks": {
+    "all": true,
+    "all_upstream_mathematical_certificates_pass": true,
+    "analytic_theorem_not_applied_without_hypotheses": true,
+    "baseline_s2_gap_not_promoted_to_candidate_branch_gap": true,
+    "blocked_verdict_is_not_a_kill": true,
+    "campaign_step_is_ready_with_pending_checks": true,
+    "kill_criteria_remain_unevaluated": true,
+    "missing_boundary_junction_lapse_shift_and_matter_inputs_detected": true,
+    "no_observational_data_read": true,
+    "required_inputs_are_incomplete": true,
+    "source_receipts_are_content_addressed": true
+  },
+  "classification": "input_incomplete;blocked_without_physical_kill",
+  "decision": {
+    "candidate_passed": false,
+    "input_status": "INPUT_INCOMPLETE",
+    "kill_triggered": false,
+    "missing_requirement_ids": [
+      "R2_complete_boundary_action_and_jets_frozen",
+      "R3_eh_ghy_boundary_variation_complete",
+      "R4_nonlinear_junctions_with_bending_complete",
+      "R5_nonlinear_lapse_shift_and_dirac_system_complete",
+      "R6_matter_action_localization_and_source_frozen",
+      "R7_physical_q2y_and_g6_vertices_derived",
+      "R8_branch_family_and_selection_rule_frozen",
+      "R9_candidate_spectrum_symbol_and_free_energy_gap_complete",
+      "R10_two_conserved_source_geometries_frozen"
+    ],
+    "next_action": "Freeze and derive the missing inputs in one total action, then solve all branches and evaluate the predeclared kill criteria without changing boundary jets or source conventions.",
+    "reason": "The existing certificates close important background, ADM, bending, BPS and selector precursors, but they do not freeze the complete boundary/junction, nonlinear constraint and matter-source problem.",
+    "status": "BLOCKED_C3"
+  },
+  "evidence_boundary": "This certificate composes existing theory-only results and proves that the C3 calculation is not yet well posed. It neither rejects geometric phase transitions nor claims a force, critical exponent, lensing response or physical completion.",
+  "functional_analytic_adjudication": {
+    "action_and_source_input_bundle_frozen": false,
+    "algebraic_auxiliary_jacobian_invertible_or_absent": {
+      "certified": false,
+      "evaluated": false,
+      "status": "NOT_EVALUATED_INPUT_INCOMPLETE"
+    },
+    "boundary_and_constraint_input_bundle_complete": false,
+    "dirac_rank_constant": {
+      "certified": false,
+      "evaluated": false,
+      "status": "NOT_EVALUATED_INPUT_INCOMPLETE"
+    },
+    "gauge_fixed_boundary_value_problem_complete": {
+      "certified": false,
+      "evaluated": false,
+      "status": "NOT_EVALUATED_INPUT_INCOMPLETE"
+    },
+    "interpretation": "Frozen actions and completed equations are prerequisites only. They do not by themselves certify analyticity on chosen function spaces, Fredholm well-posedness, constant Dirac rank or an algebraic auxiliary Jacobian.",
+    "maps_analytic_between_fixed_banach_spaces": {
+      "certified": false,
+      "evaluated": false,
+      "status": "NOT_EVALUATED_INPUT_INCOMPLETE"
+    }
+  },
+  "input_completeness": {
+    "all": false,
+    "missing_requirement_ids": [
+      "R2_complete_boundary_action_and_jets_frozen",
+      "R3_eh_ghy_boundary_variation_complete",
+      "R4_nonlinear_junctions_with_bending_complete",
+      "R5_nonlinear_lapse_shift_and_dirac_system_complete",
+      "R6_matter_action_localization_and_source_frozen",
+      "R7_physical_q2y_and_g6_vertices_derived",
+      "R8_branch_family_and_selection_rule_frozen",
+      "R9_candidate_spectrum_symbol_and_free_energy_gap_complete",
+      "R10_two_conserved_source_geometries_frozen"
+    ],
+    "present_count": 1,
+    "required_count": 10
+  },
+  "kill_criteria": [
+    {
+      "evaluated": false,
+      "id": "K1_regular_analytic_branch",
+      "kill_if": "The full gauge-fixed boundary-value linearization is an isomorphism, an exhaustive uniform free-energy gap selects this branch, and its Dirichlet-to-Neumann map stays regular and analytic instead of developing a protected critical collective.",
+      "result": "NOT_EVALUATED_INPUT_INCOMPLETE",
+      "test": "Apply the analytic branch theorem to the fully reduced source-zero solution."
+    },
+    {
+      "evaluated": false,
+      "id": "K2_unprotected_codimension",
+      "kill_if": "Criticality at zero source requires tuning any unprotected boundary jet, brane scale or Wilson coefficient.",
+      "result": "NOT_EVALUATED_INPUT_INCOMPLETE",
+      "test": "Derive the normal form and count independent relevant coefficients before comparison with the target."
+    },
+    {
+      "evaluated": false,
+      "id": "K3_negative_mode_or_bad_principal_symbol",
+      "kill_if": "A negative-norm or negative-energy physical mode, ill-posed characteristic, or vanishing tensor Planck coefficient occurs.",
+      "result": "NOT_EVALUATED_INPUT_INCOMPLETE",
+      "test": "Compute the gauge-reduced Hessian, kinetic residues and full principal symbol on the selected branch."
+    },
+    {
+      "evaluated": false,
+      "id": "K4_gauge_or_constraint_artifact",
+      "kill_if": "The nonanalyticity is a gauge kernel or unsolved lapse/shift constraint, or the Dirac rank changes anywhere on the candidate branch.",
+      "result": "NOT_EVALUATED_INPUT_INCOMPLETE",
+      "test": "Track the Dirac rank and physical mode count through the candidate transition."
+    },
+    {
+      "evaluated": false,
+      "id": "K5_background_junction_or_conservation_failure",
+      "kill_if": "The selected branch fails any background equation, junction condition or source conservation identity.",
+      "result": "NOT_EVALUATED_INPUT_INCOMPLETE",
+      "test": "Vary the same total action and evaluate bulk equations, scalar/Israel junctions and conserved matter Ward identities."
+    },
+    {
+      "evaluated": false,
+      "id": "K6_nonlocal_or_geometry_dependent_normal_form",
+      "kill_if": "The leading relation is nonlocal or its supposedly local coefficient depends on source geometry.",
+      "result": "NOT_EVALUATED_INPUT_INCOMPLETE",
+      "test": "Extract the local Dirichlet-to-Neumann normal form for two frozen conserved source geometries."
+    },
+    {
+      "evaluated": false,
+      "id": "K7_required_vertices_absent",
+      "kill_if": "The physical q^2Y vertex or stable g6 coefficient is absent after all inputs are complete.",
+      "result": "NOT_EVALUATED_INPUT_INCOMPLETE",
+      "test": "Project the complete constrained action through q^2Y and q^6 on the selected canonical mode."
+    },
+    {
+      "evaluated": false,
+      "id": "K8_noncollective_gap_or_cutoff_failure",
+      "kill_if": "Any physical mode other than the single selected collective becomes gapless, a tower accumulates at zero, or the transition occurs at or above the EFT cutoff.",
+      "result": "NOT_EVALUATED_INPUT_INCOMPLETE",
+      "test": "Bound the full non-collective spectrum uniformly and compare every transition scale with the independently derived EFT cutoff."
+    }
+  ],
+  "precursor_certificates": {
+    "bent_geometry_and_radial_straightening_close_through_o2": true,
+    "bulk_adm_s2_recovered_on_compact_support": true,
+    "c2_frozen_scope_failed_and_c3_unlocked": true,
+    "einstein_dilaton_background_and_bulk_action_reconstructed": true,
+    "finite_gamma_s2_spectrum_crosschecked": true,
+    "functional_bps_background_action_and_junctions_close": true,
+    "stiff_compact_s2_spectrum_recovered": true,
+    "two_physical_bps_moduli_and_positive_kinetic_metric_resolved": true,
+    "warped_volume_selector_exists_as_a_geometric_functional": true
+  },
+  "required_inputs": {
+    "R10_two_conserved_source_geometries_frozen": {
+      "consequence_if_missing": "Locality and geometry-independent normal-form coefficients cannot be tested.",
+      "description": "Two non-equivalent conserved source geometries are frozen before solving the nonlinear map.",
+      "evidence_refs": [
+        "interface"
+      ],
+      "present": false
+    },
+    "R1_bulk_action_and_background_frozen": {
+      "consequence_if_missing": "No nonlinear C3 variational problem can be posed.",
+      "description": "A concrete Einstein--dilaton bulk action and background are available on the certified interval.",
+      "evidence_refs": [
+        "effective_action",
+        "adm_bps_flatness"
+      ],
+      "present": true
+    },
+    "R2_complete_boundary_action_and_jets_frozen": {
+      "consequence_if_missing": "Boundary normal forms and any apparent critical point remain selectable inputs.",
+      "description": "All brane potentials and boundary jets required by the nonlinear order are fixed before the C3 scan.",
+      "evidence_refs": [
+        "adm_bps_flatness",
+        "finite_gamma_s2"
+      ],
+      "present": false
+    },
+    "R3_eh_ghy_boundary_variation_complete": {
+      "consequence_if_missing": "The endpoint action and junction operator are not derived in the same variables.",
+      "description": "The complete EH+GHY+brane variation is recovered on nonzero endpoint profiles.",
+      "evidence_refs": [
+        "bent_brane_geometry",
+        "finite_gamma_s2",
+        "compact_brane_s2"
+      ],
+      "present": false
+    },
+    "R4_nonlinear_junctions_with_bending_complete": {
+      "consequence_if_missing": "A candidate branch cannot be checked against the actual endpoint equations.",
+      "description": "Scalar and Israel junctions including bending are derived from the frozen total action through the required order.",
+      "evidence_refs": [
+        "bent_brane_geometry",
+        "compact_brane_s2"
+      ],
+      "present": false
+    },
+    "R5_nonlinear_lapse_shift_and_dirac_system_complete": {
+      "consequence_if_missing": "A gauge kernel or constraint-rank change could be mistaken for a physical transition.",
+      "description": "Nonlinear lapse and shift constraints, gauge quotient and Dirac rank are solved on every candidate branch.",
+      "evidence_refs": [
+        "adm_quadratic_recovery"
+      ],
+      "present": false
+    },
+    "R6_matter_action_localization_and_source_frozen": {
+      "consequence_if_missing": "The source family and its coupling to the geometric branch remain undefined.",
+      "description": "The conserved matter action, radial localization, Y convention and absolute normalization are frozen.",
+      "evidence_refs": [
+        "interface",
+        "bps_biscalar_geometry"
+      ],
+      "present": false
+    },
+    "R7_physical_q2y_and_g6_vertices_derived": {
+      "consequence_if_missing": "The proposed transition is not connected to the required local constitutive vertex.",
+      "description": "The same constrained reduction derives the physical q^2Y vertex and stable g6 coefficient.",
+      "evidence_refs": [
+        "adm_bps_flatness",
+        "bps_biscalar_geometry"
+      ],
+      "present": false
+    },
+    "R8_branch_family_and_selection_rule_frozen": {
+      "consequence_if_missing": "Neither codimension nor free-energy competition can be evaluated.",
+      "description": "All competing branches and a target-independent rule selecting the physical branch are specified.",
+      "evidence_refs": [
+        "bps_biscalar_geometry",
+        "volume_selector"
+      ],
+      "present": false
+    },
+    "R9_candidate_spectrum_symbol_and_free_energy_gap_complete": {
+      "consequence_if_missing": "The baseline positive S2 spectrum cannot be reused as the gap of an unspecified critical branch.",
+      "description": "Each nonlinear branch has a physical fluctuation spectrum, principal symbol and free-energy comparison.",
+      "evidence_refs": [
+        "adm_quadratic_recovery",
+        "finite_gamma_s2"
+      ],
+      "present": false
+    }
+  },
+  "schema": "holo.c3-geometric-transition-gate.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "artifacts": {
+      "adm_bps_flatness": {
+        "path": "first_principles_audit/prediction_factory/artifacts/adm_bmp_tricritical_necessity.json",
+        "sha256": "67efa3eed8c2a3446ed983adb6f5909b3288062cea994958cbcdffd538cde9e1"
+      },
+      "adm_quadratic_recovery": {
+        "path": "first_principles_audit/prediction_factory/artifacts/adm_quadratic_recovery.json",
+        "sha256": "ff9b52174bfe600f4498f60efdca3c6c8114ce84593752d17f710ea2d9527762"
+      },
+      "bent_brane_geometry": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bent_brane_geometry_S2.json",
+        "sha256": "5150c8092e6a2951a7733d9703effca03a15c37073160eac6f9948cd1bb5b40e"
+      },
+      "bps_biscalar_geometry": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bps_biscalar_matter_geometry.json",
+        "sha256": "8a132ff87ddf1c3b1e01386353c5e8c631c20ab8c3d8cceacacc2e6bf6776359"
+      },
+      "c2_gate": {
+        "path": "first_principles_audit/prediction_factory/artifacts/c2_critical_continuum_gate.json",
+        "sha256": "4d8b4b25094ba2d55b7792d19735df6beca74588734705add34b0529831e8f57"
+      },
+      "compact_brane_s2": {
+        "path": "first_principles_audit/prediction_factory/artifacts/compact_brane_S2_backward.json",
+        "sha256": "1c65875e0218bce61a77f084c011a13279815aba4146f0337f46a086398f0150"
+      },
+      "effective_action": {
+        "path": "first_principles_audit/artifacts/holo_effective_action.json",
+        "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+      },
+      "finite_gamma_s2": {
+        "path": "first_principles_audit/prediction_factory/artifacts/finite_gamma_brane_S2.json",
+        "sha256": "f2f208f6966e4ade317da1f2d30fa765ad48e85f9b0fcc7b89ee1c1a8333a272"
+      },
+      "interface": {
+        "path": "first_principles_audit/artifacts/interface_action_derivation.json",
+        "sha256": "ee56f159c28beba211ffb0838f76dab4e0e2688f9ac56f5fa1a0cb12bd241cf3"
+      },
+      "volume_selector": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bps_volume_constraint_selector.json",
+        "sha256": "43badad202cfc48addee8f2f4009af36bcc4d3b5218b634f7555d3b3405e6c2c"
+      }
+    },
+    "observational_inputs_read": []
+  },
+  "title": "C3 geometric brane-transition input and analytic gate"
+}
