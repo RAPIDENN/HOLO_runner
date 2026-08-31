@@ -1,0 +1,295 @@
+{
+  "acceptance_ladder": [
+    {
+      "level": "K0_static_bath_function",
+      "status": "PASS"
+    },
+    {
+      "level": "K1_geometric_matching_and_exact_mu",
+      "status": "PASS"
+    },
+    {
+      "level": "K2_local_flat_constraint_rank_and_DOF",
+      "status": "PASS"
+    },
+    {
+      "level": "K3_critical_local_z2_pole_model",
+      "status": "CONDITIONAL_NO_UHP_IN_TRUNCATED_KERNEL"
+    },
+    {
+      "level": "K4_same_action_full_retarded_kernel",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "K5_warped_brane_boundary_constraints",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "K6_force_matter_and_lensing",
+      "status": "NOT_ENTERED"
+    }
+  ],
+  "action": {
+    "acceleration": "a_M=U^N nabla_N U_M; a=sqrt((G_MN+U_M U_N)a^M a^N)",
+    "acceleration_scale_a0": 1.0,
+    "adapted_ADM_form": "S=(M5^3/2) integral dt d4x N sqrt(h) [K_AB K^AB-lambda K^2+xi R4+F_eff(a)] plus S_dilaton; F_eff includes the integrated-out static bath and the bath is not added a second time",
+    "bath_accounting": "Use either the reduced static F_eff or future explicit bath fields, never both in the same action.",
+    "bath_quadratic_increment": 0.1,
+    "bulk_4_plus_1_eta_c": 1.5,
+    "covariant_khronon": "U_M=-partial_M T/sqrt(-partial T squared)",
+    "critical_relation_is_dynamically_selected": false,
+    "critical_relation_is_radiatively_protected": false,
+    "geometric_critical_value": "eta_c=xi*(n-1)/(n-2)",
+    "matching_status": "eta_inf+Delta_eta=eta_c is a derived critical surface but remains an imposed codimension-one tuning; the improvement is stability, not symmetry protection or self-selection",
+    "microscopic_identity": "eta_c-eta_inf=K2=g*rho1*Lambda*y^2/2 and a0=Lambda/y, so the second term equals the filled-sea L_bath exactly",
+    "microscopic_status": "The filled-sea static function is imported from the spectral gate; a same-action local 5D bath derivation remains blocked.",
+    "positive_high_field_baseline_eta_infinity": 1.4,
+    "sign_convention": "F enters with a plus sign in the displayed ADM action",
+    "signature": "(-++++)",
+    "static_effective_function": "F=eta_inf*a^2+(2*(eta_c-eta_inf)/3)*a0^2*[(1+x^2)^(3/2)-1-x^3]"
+  },
+  "background_compatibility_gate": {
+    "adjudication": "The three-component boundary bath and the four-spatial-component bulk khronon are not yet one solved system. The flat constraint certificate cannot be transplanted to the Lifshitz background.",
+    "constraint_gate_background": "local flat background with a_M=0",
+    "constraint_gate_bulk_spatial_dimensions": 4,
+    "diagnostic_lifshitz_acceleration_at_L_1": 1.5,
+    "lifshitz_static_foliation_acceleration": "|a|=z/L along the radial direction",
+    "origin_free_witness_acceleration_components": 3,
+    "origin_lifshitz_boundary_spatial_dimensions": 3,
+    "radial_projection_and_boundary_conditions_derived": false,
+    "same_background_analysis_completed": false
+  },
+  "checks": {
+    "all": true,
+    "bath_function_matches_convex_action_function": true,
+    "bath_quadratic_is_retained_not_internally_cancelled": true,
+    "boundary_three_component_bath_is_not_conflated_with_bulk_four_space": true,
+    "certified_inputs": true,
+    "conditional_positive_k4_truncated_poles_have_no_UHP_roots": true,
+    "critical_lapse_symbol_keeps_rank": true,
+    "critical_scalar_is_not_a_ghost": true,
+    "critical_scalar_k2_speed_is_zero": true,
+    "critical_surface_is_not_mislabelled_as_protected_or_selected": true,
+    "critical_z2_cubic_gradient_is_power_counting_marginal_in_4_space": true,
+    "fermion_temporal_kernel_has_positive_ohmic_weight": true,
+    "flat_and_lifshitz_backgrounds_are_not_conflated": true,
+    "full_retarded_and_warped_problem_not_promoted": true,
+    "geometric_Schur_reduction_gives_exact_static_mu": true,
+    "local_constraint_count_is_six_gravity_plus_dilaton": true,
+    "no_force_lensing_or_publication_promotion": true,
+    "nonzero_background_scalar_k2_speed_is_positive": true,
+    "nonzero_detuning_destroys_the_asymptotic_deep_limit": true,
+    "pure_negative_cubic_realization_is_killed": true,
+    "static_bath_is_not_double_counted_in_reduced_action": true,
+    "static_effective_F_Hessian_is_positive_at_and_away_from_vacuum": true,
+    "zero_k4_limit_has_zero_and_non_growing_diffusive_pole": true
+  },
+  "classification": "theory_only;local_constraint_rank_closed;full_dynamics_open",
+  "conditional_temporal_completion": {
+    "branch_cut_resolved": false,
+    "bulk_4_plus_1_ohmic_Schur_coefficient": 0.3141592653589793,
+    "critical_Euclidean_inverse_propagator": "q_zeta*omega_E^2+(n-2)^2*kappa*k^2*|omega_E|+B4*k^4",
+    "diagnostic_positive_k4_coefficient": 0.8,
+    "fermion_kernel": "K(0)-K(i*omega_E)=kappa*|omega_E|+...",
+    "kappa_expected": 0.07853981633974483,
+    "kappa_numeric": 0.07853981631464921,
+    "maximum_retarded_pole_imaginary_part": -2.755783029464731e-19,
+    "microscopic_branch_cut_acknowledged_but_not_in_pole_model": true,
+    "power_counting": {
+      "action_density_dimension": 6.0,
+      "cubic_gradient_is_marginal": true,
+      "cubic_gradient_operator_dimension": 6.0,
+      "field_dimension": 1.0
+    },
+    "proved_scope": "For q_zeta>0, kappa>=0 and B4>=0 the truncated quadratic-model poles are not in the upper half plane; this is not a full branch-cut or temporal-stability proof.",
+    "unproved_scope": [
+      "complete Pi_R(omega,k) and positive spectral representation",
+      "absence of additional bath, radial and brane poles",
+      "causal UV completion while microscopic fermions remain explicit",
+      "positive and scale-separated k4/k6 operators on the warped background"
+    ],
+    "zero_k4_poles_at_k_1": [
+      {
+        "imaginary": 0.0,
+        "real": 0.0
+      },
+      {
+        "imaginary": -0.005511566058929461,
+        "real": 0.0
+      }
+    ]
+  },
+  "decision": {
+    "complete_time_dependent_stability": false,
+    "critical_k_squared_scalar_wave_exists": false,
+    "critical_matching_dynamically_selected": false,
+    "current_holo_mechanism": false,
+    "exact_static_mu_derived_from_action_Schur_complement": true,
+    "fine_tuning_eliminated": false,
+    "flat_constraint_result_transferred_to_lifshitz_background": false,
+    "full_microscopic_retarded_kernel_derived": false,
+    "full_warped_brane_boundary_constraint_system_derived": false,
+    "geometric_critical_matching_rule_derived": true,
+    "lensing_derived": false,
+    "local_flat_background_gravitational_DOF_count_derived": true,
+    "local_flat_background_lapse_constraint_rank_preserved": true,
+    "new_force_derived": false,
+    "next_action": "First construct an explicit local 5D bath action whose static determinant reproduces F; then compute its complete retarded Pi_R(omega,k) before eliminating lapse and audit all poles, branch cuts, warped junction constraints and boundary modes with a fixed cutoff hierarchy.",
+    "old_internal_bare_minus_bath_quadratic_cancellation_required": false,
+    "physical_completion": false,
+    "publication_authorized": false,
+    "pure_negative_cubic_aether_realization_survives": false,
+    "same_5D_action_and_background_closed": false,
+    "same_action_local_5D_microscopic_bath_derived": false,
+    "static_effective_acceleration_function_is_convex": true,
+    "truncated_z2_kernel_has_no_upper_half_plane_poles": true,
+    "verdict": "GEOMETRIC_KHRONON_MATCHING_PRESERVES_LOCAL_CONSTRAINT_RANK_FULL_RETARDED_AND_WARPED_COMPLETION_BLOCKED"
+  },
+  "diagnostics": {
+    "bath_delta_eta": 0.1,
+    "critical_sound_speed_squared": -0.0,
+    "eta_critical": 1.5,
+    "eta_infinity": 1.4,
+    "maximum_Schur_mu_error": 1.9984014443252818e-15,
+    "maximum_bath_identity_relative_error": 1.7000703982963094e-13,
+    "maximum_mu_error": 1.1102230246251565e-16,
+    "maximum_pole_imaginary_part": -2.755783029464731e-19,
+    "minimum_lapse_symbol": 2.8,
+    "minimum_nonzero_sound_speed_squared": 1.4035088880566609e-11,
+    "q_zeta": 57.00000000000001,
+    "temporal_kernel_linear_coefficient": 0.07853981631464921
+  },
+  "dimensional_boundary": {
+    "brane_eta_c": "2*xi",
+    "brane_spatial_dimensions": 3,
+    "bulk_eta_c": "3*xi/2",
+    "bulk_spatial_dimensions": 4,
+    "warning": "The bulk and brane critical coefficients cannot be mixed; this artifact certifies the local 4+1 bulk calculation only."
+  },
+  "evidence_boundary": "The result replaces an unstable internal stiffness cancellation by an metric/lapse Schur matching inside a covariant khronon EFT and closes the local flat constraint count. The static bath function is imported from the spectral gate, not yet derived from the same microscopic 5D action. The truncated z=2 pole model has no upper-half-plane roots only conditional on a positive Ohmic kernel and higher-gradient coefficient. The full microscopic retarded, warped and brane-boundary problem remains uncomputed.",
+  "hessian_and_constraint_rank": {
+    "analytic_bounds": "eta_inf <= eta_L <= eta_T <= eta_c",
+    "classification": "(p_N,C_N) local second-class elliptic pair; shift/momentum pairs first-class; one global time-reparametrization part excluded",
+    "eta_longitudinal_minimum": 1.4,
+    "eta_transverse_minimum": 1.40000000005,
+    "generic_vector_aether_comparison": "in 4+1 a generic aether has five tensor plus three spin-1 plus one scalar modes; hypersurface orthogonality removes the spin-1 sector",
+    "inventory": {
+      "dilaton_dof": 1,
+      "einstein_tensor_dof": 5,
+      "extra_khronon_scalar_dof": 1,
+      "first_class_constraints": 8,
+      "global_time_reparametrization_mode_included": false,
+      "khronometric_gravitational_dof": 6,
+      "local_count_integer": true,
+      "second_class_constraints": 2,
+      "spatial_metric_canonical_pairs": 10,
+      "total_bosonic_dof_before_bath": 7,
+      "total_phase_space_dimension_including_lapse_shift": 30
+    },
+    "lapse_principal_symbol_minimum": 2.8,
+    "lapse_symbol": "Q_AB=2*eta_T*P_T_AB+2*eta_L*P_L_AB >= 2*eta_inf*h_AB",
+    "primary_constraints": [
+      "p_N approximately 0",
+      "p_A approximately 0 (A=1..4)"
+    ],
+    "secondary_constraints": [
+      "C_N approximately 0 (local lapse equation)",
+      "H_A approximately 0 (A=1..4)"
+    ]
+  },
+  "killed_realization": {
+    "ansatz": "F_fundamental=-gamma*|A|^3 after cancelling all A^2 inside F",
+    "generic_aether_hessian_at_A_0p4_gamma_1": [
+      -1.2000000000000002,
+      -2.4000000000000004
+    ],
+    "lapse_symbol_at_zero": [
+      0.0,
+      0.0
+    ],
+    "reason": "The lapse symbol loses rank at zero; for a generic vector aether A_i is a velocity at leading order and the nonzero-background Hessian is negative kinetic energy.",
+    "verdict": "KILL_PURE_NEGATIVE_CUBIC_FUNDAMENTAL_AETHER"
+  },
+  "matching_sensitivity": {
+    "RG_normal_beta": "beta_match=(n-1)*beta_xi/(n-2)-beta_eta_inf-beta_Delta_eta",
+    "deep_limit_condition": "To retain mu approximately x over a finite window, require |delta_match|/Delta_eta much smaller than its minimum x.",
+    "detuned_constitutive_function": "mu_delta=delta_match/Delta_eta+1+x-sqrt(1+x^2)",
+    "detuning_definition": "delta_match=eta_c-(eta_inf+Delta_eta)",
+    "diagnostic_deep_x": 1e-08,
+    "diagnostic_detuned_mu": 0.00010000999999995,
+    "diagnostic_normalized_detuning": 0.0001,
+    "diagnostic_tuned_mu": 9.999999950000001e-09,
+    "ward_identity_derived": false
+  },
+  "quadratic_stability": {
+    "critical_coefficients": {
+      "eta_c": 1.5,
+      "gradient_stable": true,
+      "no_scalar_ghost": true,
+      "q_zeta": 57.00000000000001,
+      "sound_speed_squared": -0.0,
+      "static_lapse_coefficient_after_eliminating_zeta": 0.0,
+      "strictly_hyperbolic_at_k_squared_order": false,
+      "zeta_gradient_lagrangian_coefficient": 0.0
+    },
+    "critical_interpretation": "At a=0 the scalar kinetic residue is positive and the lapse constraint remains elliptic, but c0^2=0; higher spatial derivatives or the microscopic memory kernel control the leading propagation.",
+    "health_region": "M5^3>0, xi>0, lambda>1 or lambda<1/4, and 0<eta<3*xi/2 for strict k^2 scalar propagation",
+    "lambda": 1.2,
+    "minimum_nonzero_background_sound_speed_squared": 1.4035088880566609e-11,
+    "spatial_dimension": 4,
+    "tensor_polarizations": 5,
+    "tensor_speed_squared": 1.0,
+    "xi": 1.0
+  },
+  "schema": "holo.khronon-constraint-stability-gate.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "c3_input_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/c3_geometric_transition_gate.json",
+      "sha256": "c954aef968622fe0e2d4cf0c074e3c74e42c3be446ab265372f69d0310488ba6"
+    },
+    "covariant_5D_origin_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/covariant_5d_pseudogap_gate.json",
+      "sha256": "75d790815e0338268fccfb65d8a5b51763a9e7f2f9a8a0c630171f2ddfc2fdc5"
+    },
+    "dirac_static_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/dirac_critical_bath_gate.json",
+      "sha256": "4d750a1147e26de568e6b32d84f94bda08cb55b498fc452f9fee05fd90d3ae63"
+    },
+    "inherited_target_origin": "SPARC training split only",
+    "primary_theory_references": [
+      {
+        "topic": "covariant khronon action and modified Poisson limit",
+        "url": "https://arxiv.org/abs/1107.5264"
+      },
+      {
+        "topic": "healthy nonprojectable Horava scalar",
+        "url": "https://arxiv.org/abs/0909.3525"
+      },
+      {
+        "topic": "Hamiltonian constraint structure",
+        "url": "https://arxiv.org/abs/1106.2131"
+      },
+      {
+        "topic": "stability limits of khronometric MOND",
+        "url": "https://arxiv.org/abs/1502.05554"
+      }
+    ],
+    "raw_observational_tables_read_directly": []
+  },
+  "static_reduction": {
+    "constitutive_function": "mu=(eta_c-chi)/(eta_c-eta_inf)=1+x-sqrt(1+x^2)",
+    "high_field_normalization": "eta_c-eta_inf",
+    "interpretation": "The negative reduced cubic is generated only after solving the metric constraint; the static effective acceleration Hessian is positive.",
+    "maximum_bath_function_identity_relative_error": 1.7000703982963094e-13,
+    "maximum_mu_error_against_static_gate": 1.1102230246251565e-16,
+    "maximum_mu_error_from_Schur_formula": 1.9984014443252818e-15,
+    "reduced_static_coefficient": "eta_c-chi",
+    "small_field_expansion": "F=eta_c*a^2-[2*(eta_c-eta_inf)/(3*a0)]*a^3+O(a^4)",
+    "susceptibility": "chi=F'/(2a)=eta_inf+(eta_c-eta_inf)*(sqrt(1+x^2)-x)"
+  },
+  "title": "Geometric khronon matching, local constraints and temporal pre-gate"
+}

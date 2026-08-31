@@ -119,6 +119,8 @@ python3 -m first_principles_audit.prediction_factory.derive_c3_geometric_transit
 python3 -m first_principles_audit.prediction_factory.derive_c2_band_edge_continuum
 python3 -m first_principles_audit.prediction_factory.derive_dirac_critical_bath_gate
 python3 -m first_principles_audit.prediction_factory.derive_dirac_bath_red_team_map
+python3 -m first_principles_audit.prediction_factory.derive_covariant_5d_pseudogap_gate
+python3 -m first_principles_audit.prediction_factory.derive_khronon_constraint_stability_gate
 python3 first_principles_audit/prediction_factory/build_master_prediction_registry.py
 ```
 
@@ -192,11 +194,45 @@ lensing claim or publication. Reproduce the branch and tests with:
 python3 -m first_principles_audit.prediction_factory.derive_c2_band_edge_continuum
 python3 -m first_principles_audit.prediction_factory.derive_dirac_critical_bath_gate
 python3 -m first_principles_audit.prediction_factory.derive_dirac_bath_red_team_map
+python3 -m first_principles_audit.prediction_factory.derive_covariant_5d_pseudogap_gate
+python3 -m first_principles_audit.prediction_factory.derive_khronon_constraint_stability_gate
 python3 -m unittest \
   first_principles_audit.prediction_factory.test_c2_band_edge_continuum \
   first_principles_audit.prediction_factory.test_dirac_critical_bath_gate \
-  first_principles_audit.prediction_factory.test_dirac_bath_red_team_map
+  first_principles_audit.prediction_factory.test_dirac_bath_red_team_map \
+  first_principles_audit.prediction_factory.test_covariant_5d_pseudogap_gate \
+  first_principles_audit.prediction_factory.test_khronon_constraint_stability_gate
 ```
+
+The covariant-origin gate kills the current regular compact Einstein--dilaton
+interval as an exact infrared linear-DOS source. A local isotropic 4+1
+Einstein--Proca background with `z=3/2` does derive the required effective
+thermodynamic state-counting exponent. It does not derive a literal
+single-particle DOS, sharp Clifford determinant, normalization or sign from
+that same action; the free fractional Clifford model remains only a separate
+witness. The quadratic matching is not a Ward identity.
+
+The khronon gate improves the static organization without claiming that missing
+microscopic derivation. In four spatial bulk dimensions,
+
+```text
+eta_c = 3 xi / 2,
+F_eff(a) = eta_inf a^2
+         + 2(eta_c-eta_inf)a0^2[(1+x^2)^(3/2)-1-x^3]/3.
+```
+
+The positive bath quadratic is retained. Eliminating the scalar metric gives
+`mu=(eta_c-chi)/(eta_c-eta_inf)=1+x-sqrt(1+x^2)` while the static effective
+lapse Hessian remains positive. The local flat ADM count gives five tensor
+modes plus one khronon scalar; the critical `k^2` speed vanishes and the
+truncated `z=2` pole model has no upper-half-plane pole only conditionally. The
+microscopic branch cut is acknowledged but not evaluated. The relation
+`eta_inf+Delta_eta=eta_c` remains an unprotected codimension-one tuning.
+Moreover, the three-component boundary
+bath and the four-spatial-component bulk khronon have not been solved on the
+same Lifshitz background, whose preferred-time lapse has nonzero radial
+acceleration. Full retarded, warped and brane-junction constraints remain
+blocked, so no force, lensing or publication claim is promoted.
 
 The current branch audit finds that changing only the IR Neumann condition to
 Dirichlet does not cleanly remove the excluded massless mode: it produces an

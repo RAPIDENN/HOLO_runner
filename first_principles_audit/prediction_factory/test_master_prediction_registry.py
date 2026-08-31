@@ -235,6 +235,54 @@ class MasterPredictionRegistryTests(unittest.TestCase):
             "first_blocked_level_L2_finite_local_QFT",
         )
 
+    def test_covariant_origin_and_khronon_gates_stop_before_same_action_completion(self) -> None:
+        origin = self.registry["current_predictions"][
+            "covariant_5d_pseudogap_gate"
+        ]
+        self.assertFalse(origin["current_regular_compact_origin_survives"])
+        self.assertTrue(origin["covariant_lifshitz_scaling_background_exhibited"])
+        self.assertTrue(origin["effective_linear_state_counting_exponent_derived"])
+        self.assertFalse(origin["literal_boundary_single_particle_DOS_derived"])
+        self.assertFalse(origin["same_action_exact_Clifford_determinant_derived"])
+        self.assertFalse(origin["quadratic_matching_Ward_protected"])
+        self.assertFalse(origin["complete_constraint_and_time_stability"])
+        self.assertFalse(origin["current_holo_mechanism"])
+        self.assertFalse(origin["physical_completion"])
+        self.assertFalse(origin["publication_authorized"])
+
+        stability = self.registry["current_predictions"][
+            "khronon_constraint_stability_gate"
+        ]
+        self.assertTrue(stability["geometric_critical_matching_rule_derived"])
+        self.assertTrue(stability["exact_static_mu_from_Schur"])
+        self.assertTrue(stability["static_effective_function_convex"])
+        self.assertTrue(stability["local_lapse_constraint_rank_preserved"])
+        self.assertEqual(stability["khronometric_gravitational_DOF"], 6)
+        self.assertGreater(stability["minimum_lapse_symbol"], 0.0)
+        self.assertLess(stability["maximum_Schur_mu_error"], 3.0e-15)
+        self.assertFalse(stability["old_internal_quadratic_cancellation_required"])
+        self.assertFalse(stability["same_action_local_5D_microscopic_bath_derived"])
+        self.assertFalse(stability["fine_tuning_eliminated"])
+        self.assertFalse(stability["same_5D_action_and_background_closed"])
+        self.assertTrue(
+            stability["truncated_z2_kernel_has_no_upper_half_plane_poles"]
+        )
+        self.assertFalse(stability["full_microscopic_retarded_kernel_derived"])
+        self.assertFalse(stability["full_warped_brane_constraints_derived"])
+        self.assertFalse(stability["complete_time_dependent_stability"])
+        self.assertFalse(stability["physical_completion"])
+        self.assertFalse(stability["publication_authorized"])
+
+        links = {row["id"]: row for row in self.registry["links"]}
+        self.assertEqual(
+            links["dirac_red_team_to_covariant_5d_origin_gate"]["gate"],
+            "L2_scaling_pass_L3_same_action_determinant_blocked",
+        )
+        self.assertEqual(
+            links["covariant_5d_origin_to_khronon_geometric_matching"]["gate"],
+            "K2_local_rank_pass_K4_retarded_and_K5_warped_blocked",
+        )
+
     def test_critical_bridge_changes_exponent_but_remains_prospective(self) -> None:
         gate = self.registry["current_predictions"][
             "bulk_constitutive_decision_gate"

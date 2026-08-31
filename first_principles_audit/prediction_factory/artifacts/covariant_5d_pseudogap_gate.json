@@ -1,0 +1,407 @@
+{
+  "acceptance_ladder": [
+    {
+      "level": "L0_uniform_static_spectrum",
+      "status": "PASS"
+    },
+    {
+      "level": "L1_current_compact_5D_origin",
+      "status": "KILLED"
+    },
+    {
+      "level": "L2_covariant_5D_linear_scaling_background",
+      "status": "PASS"
+    },
+    {
+      "level": "L3_same_action_Clifford_determinant",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "L4_protected_quadratic_matching",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "L5_constraints_and_retarded_stability",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "L6_force_matter_and_lensing",
+      "status": "NOT_ENTERED"
+    }
+  ],
+  "checks": {
+    "IMS_fixed_point_prepotential_is_cubic": true,
+    "IMS_prepotential_is_not_relabelled_as_static_AQUAL_energy": true,
+    "IMS_relevant_quadratic_deformation_is_visible": true,
+    "all": true,
+    "certified_inputs": true,
+    "compact_radial_weyl_DOS_is_constant_not_linear": true,
+    "cubic_static_symbol_has_zero_rank_at_vacuum": true,
+    "cubic_static_symbol_is_positive_away_from_vacuum": true,
+    "current_action_contains_only_metric_and_scalar": true,
+    "finite_positive_tower_is_quartic_after_quadratic_subtraction": true,
+    "finite_tower_zero_mode_is_linear_not_cubic": true,
+    "free_lifshitz_Clifford_witness_closes": true,
+    "free_lifshitz_DOS_normalization_closes": true,
+    "free_lifshitz_sea_matches_static_closed_form": true,
+    "free_z_three_halves_boundary_symbol_is_fractional_and_nonlocal": true,
+    "gapless_temporal_kernel_is_nonanalytic": true,
+    "lifshitz_scaling_not_promoted_to_literal_single_particle_DOS": true,
+    "lifshitz_z_three_halves_has_required_effective_scaling": true,
+    "lifshitz_z_three_halves_satisfies_NEC": true,
+    "local_covariant_5D_Einstein_Proca_background_exhibited": true,
+    "matching_surface_is_RG_tangent_only_for_equal_anomalous_rates": true,
+    "no_force_lensing_or_publication_promotion": true,
+    "quadratic_sum_zero_leaves_cubic_and_quartic": true,
+    "relativistic_theta_one_linear_DOS_route_violates_NEC": true,
+    "same_local_5D_action_does_not_yet_derive_the_Clifford_determinant": true,
+    "two_negative_branches_require_sixteen_real_bosons": true
+  },
+  "classification": "theory_only;covariant_scaling_route_not_completed_bath",
+  "covariant_5D_scaling_candidate": {
+    "background": "ds^2=L^2[du^2-exp(2*z*u)dt^2+exp(2*u)dvec_x^2], B_t=L*sqrt(2*(z-1)/z)*exp(z*u), with u dimensionless",
+    "bulk_action": "S_EP=(2*kappa5^2)^-1 integral_M sqrt(-G) [R+Lambda5-(F_B^2+m_B^2 B^2)/4] plus GHY and brane terms",
+    "free_witness": {
+      "clifford_spectrum": [
+        -0.6325421425314747,
+        -0.6325421425314747,
+        0.6325421425314747,
+        0.6325421425314747
+      ],
+      "hamiltonian": "H=c*|k|^(3/2)*Gamma_1+y*a_I*Gamma_(I+1)",
+      "locality_status": "fractional free boundary symbol; not a finite-derivative local boundary QFT",
+      "maximum_spectrum_error": 0.0,
+      "rho_epsilon": "0.063377233778906472*epsilon for the diagnostic c",
+      "rho_slope": 0.06337723377890647,
+      "sea_integral_relative_error": 1.4432899320127035e-15
+    },
+    "missing_bridge": {
+      "bulk_spinor_flavor_action_and_boundary_conditions_frozen": false,
+      "determinant_sign_derived": false,
+      "finite_band_interpolation_derived": false,
+      "radial_green_function_solved": false,
+      "reason": "Thermodynamic/spectral scaling fixes powers, not pole structure, normalization or the sign of a renormalized determinant.",
+      "sharp_Clifford_poles_derived": false,
+      "spectral_normalization_derived": false
+    },
+    "null_energy_condition": {
+      "density_of_states_exponent": 1.0,
+      "effective_spatial_dimension": 3.0,
+      "first_inequality": 4.5,
+      "gap_free_energy_exponent": 3.0,
+      "satisfied": true,
+      "second_inequality": 2.25,
+      "state_count_exponent": 2.0,
+      "tolerance": 6.394884621840902e-14
+    },
+    "parameters": {
+      "Lambda_times_L_squared": 14.25,
+      "action_convention": "R+Lambda-(F_MN F^MN+m_B^2 B_M B^M)/4",
+      "boundary_spatial_dimension": 3,
+      "bulk_spacetime_dimension": 5,
+      "dynamical_exponent": 1.5,
+      "isotropic_in_boundary_space": true,
+      "proca_mass_squared_times_L_squared": 9.0,
+      "real_timelike_vector": true,
+      "timelike_tangent_amplitude_squared": 0.6666666666666666
+    },
+    "rejected_relativistic_theta_one_shortcut": {
+      "density_of_states_exponent": 1.0,
+      "effective_spatial_dimension": 2.0,
+      "first_inequality": -2.0,
+      "gap_free_energy_exponent": 3.0,
+      "satisfied": false,
+      "second_inequality": 0.0,
+      "state_count_exponent": 2.0,
+      "tolerance": 2.842170943040401e-14
+    },
+    "scaling": {
+      "density_of_states_exponent": 1.0,
+      "effective_spatial_dimension": 3.0,
+      "gap_free_energy_exponent": 3.0,
+      "state_count_exponent": 2.0
+    },
+    "scaling_family_with_linear_DOS": [
+      {
+        "NEC_first": -2.0,
+        "NEC_satisfied": false,
+        "NEC_second": 0.0,
+        "density_of_states_exponent": 1.0,
+        "gap_free_energy_exponent": 3.0,
+        "theta": 1.0,
+        "z": 1.0
+      },
+      {
+        "NEC_first": -5.329070518200751e-16,
+        "NEC_satisfied": true,
+        "NEC_second": 0.7199999999999999,
+        "density_of_states_exponent": 1.0,
+        "gap_free_energy_exponent": 3.0,
+        "theta": 0.6000000000000001,
+        "z": 1.2
+      },
+      {
+        "NEC_first": 4.5,
+        "NEC_satisfied": true,
+        "NEC_second": 2.25,
+        "density_of_states_exponent": 1.0,
+        "gap_free_energy_exponent": 3.0,
+        "theta": 0.0,
+        "z": 1.5
+      },
+      {
+        "NEC_first": 16.0,
+        "NEC_satisfied": true,
+        "NEC_second": 6.0,
+        "density_of_states_exponent": 1.0,
+        "gap_free_energy_exponent": 3.0,
+        "theta": -1.0,
+        "z": 2.0
+      }
+    ],
+    "scaling_interpretation": "Thermodynamic/effective state counting only; a literal boundary single-particle DOS requires a solved spectral function.",
+    "total_action_status": "extension_candidate_not_current_HOLO_action"
+  },
+  "covariant_acceleration_source": {
+    "acceleration": "a_mu=U^nu D_nu U_mu; U^mu a_mu=0",
+    "adapted_gauge": "T=t implies a_i=D_i ln(N)",
+    "clifford_requirement": "the three components of O^mu must be represented by mutually anticommuting mass matrices and anticommute with the bath kinetic block",
+    "khronon": "U_mu=-D_mu T/sqrt(-D_alpha T D^alpha T)",
+    "linear_source_template": "S_src=y integral_Sigma sqrt(-gamma) a_mu O^mu",
+    "source_action_derived_from_current_HOLO": false
+  },
+  "critical_matching_audit": {
+    "RG_beta_on_equal_rates": 0.0,
+    "RG_beta_on_split_rates": 0.16,
+    "exact_SUSY_result": "equal supermultiplet spectra cancel the complete determinant, including both quadratic and cubic pieces",
+    "operator_basis_result": "diffeomorphisms, rotations, parity, C, T and khronon relabeling permit both X=a_mu a^mu and X^(3/2); none is a Ward identity for c2=0",
+    "per_negative_branch_rule": "one fermion branch at y plus eight real bosons at y/2",
+    "status": "CODIMENSION_ONE_CRITICAL_MATCHING_NOT_PROTECTED",
+    "supertrace_convention": "one filled negative fermion branch has weight +1; one real stable boson zero-point determinant has weight -1/2",
+    "two_branch_field_content": {
+      "negative_fermion_branches": 2,
+      "negative_lagrangian_cubic_survives": true,
+      "quadratic_cancels": true,
+      "real_bosons": 16,
+      "signed_cubic_sum": 1.0,
+      "signed_quadratic_sum": 0.0,
+      "signed_quartic_sum": 1.5
+    }
+  },
+  "current_action_no_go": {
+    "Weyl_counting": "N(epsilon)~L_SL*epsilon/pi",
+    "action": "R - (1/2) K(phi) (partial phi)^2 - V(phi)",
+    "boundary_condition_scope": "regular Dirichlet, Neumann, Robin and MIT-type endpoint changes shift phases but not the one-dimensional Weyl exponent",
+    "density_of_states_exponent": 0.0,
+    "geometry": "regular finite radial interval in the certified checkout",
+    "positive_tower_after_quadratic_subtraction_power": 4.0,
+    "proca_khronon_or_clifford_sector_present": false,
+    "radial_problem": "one-dimensional regular Sturm-Liouville tower",
+    "result": "KILLED_AS_EXACT_INFRARED_PSEUDOGAP_ORIGIN",
+    "target_density_of_states_exponent": 1.0,
+    "zero_mode_power": 0.9999999999999987
+  },
+  "decision": {
+    "IMS_protected_cubic_is_same_AQUAL_observable": false,
+    "complete_constraint_rank_and_time_stability_derived": false,
+    "covariant_local_5D_Lifshitz_scaling_background_exhibited": true,
+    "current_holo_mechanism": false,
+    "current_regular_compact_Einstein_dilaton_origin_survives": false,
+    "effective_linear_state_counting_exponent_from_5D_scaling": true,
+    "exact_Clifford_determinant_derived_from_same_local_5D_action": false,
+    "free_Clifford_scaling_witness_reproduces_static_bath": true,
+    "lensing_derived": false,
+    "literal_boundary_single_particle_DOS_derived": false,
+    "new_force_derived": false,
+    "next_action": "Solve and renormalize an explicit bulk Clifford/flavor sector on the z=3/2 background with the khronon acceleration as its boundary source; accept it only if its radial determinant fixes the linear measure and negative cubic sign, then close the full Dirac/ADM rank and retarded poles.",
+    "physical_completion": false,
+    "publication_authorized": false,
+    "quadratic_matching_is_Ward_protected": false,
+    "verdict": "COVARIANT_5D_LIFSHITZ_SCALING_ROUTE_SURVIVES_DETERMINANT_MATCHING_AND_DYNAMICS_BLOCKED"
+  },
+  "diagnostics": {
+    "IMS_cubic_scaling_ratio": 8.0,
+    "clifford_spectrum_maximum_error": 0.0,
+    "compact_positive_tower_critical_power": 4.0,
+    "compact_zero_mode_power": 0.9999999999999987,
+    "free_DOS_analytic_slope": 0.06337723377890647,
+    "free_DOS_expected_slope": 0.06337723377890649,
+    "free_DOS_numerical_log_slope": 1.0000000000000002,
+    "linear_DOS_family": [
+      {
+        "NEC_first": -2.0,
+        "NEC_satisfied": false,
+        "NEC_second": 0.0,
+        "density_of_states_exponent": 1.0,
+        "gap_free_energy_exponent": 3.0,
+        "theta": 1.0,
+        "z": 1.0
+      },
+      {
+        "NEC_first": -5.329070518200751e-16,
+        "NEC_satisfied": true,
+        "NEC_second": 0.7199999999999999,
+        "density_of_states_exponent": 1.0,
+        "gap_free_energy_exponent": 3.0,
+        "theta": 0.6000000000000001,
+        "z": 1.2
+      },
+      {
+        "NEC_first": 4.5,
+        "NEC_satisfied": true,
+        "NEC_second": 2.25,
+        "density_of_states_exponent": 1.0,
+        "gap_free_energy_exponent": 3.0,
+        "theta": 0.0,
+        "z": 1.5
+      },
+      {
+        "NEC_first": 16.0,
+        "NEC_satisfied": true,
+        "NEC_second": 6.0,
+        "density_of_states_exponent": 1.0,
+        "gap_free_energy_exponent": 3.0,
+        "theta": -1.0,
+        "z": 2.0
+      }
+    ],
+    "matching_RG_tangent_equal": 0.0,
+    "matching_RG_tangent_split": 0.16,
+    "static_sea_integral_relative_error": 1.4432899320127035e-15,
+    "temporal_kernel_power": 0.9999999873396932
+  },
+  "evidence_boundary": "The artifact proves a local covariant 5D action can supply boundary thermodynamic state-counting with the required effective linear exponent while preserving spatial isotropy. It does not derive a literal single-particle DOS or infer the sharp Clifford determinant from scaling, does not protect critical matching, and makes no force, lensing, observational or publication claim.",
+  "protected_alternative_audit": {
+    "cubic_scaling_ratio_at_two_phi": 8.0,
+    "diagnostic_phi": 0.37,
+    "diagnostic_prepotential": 0.06753733333333332,
+    "fatal_identification_gap": "F is a Coulomb-branch gauge kinetic/CS prepotential, not vacuum energy. No healthy equation derives phi^2=a_mu a^mu.",
+    "fixed_point": "m0=1/g5^2 -> 0 leaves a chamberwise exact cubic",
+    "formula": "F=0.5*m0*h_ij*phi_i*phi_j+k_CS*d_ijk*phi_i*phi_j*phi_k/6 +(sum_roots|alpha.phi|^3-sum_hypers|w.phi+m|^3)/12",
+    "route": "5D N=1 gauge/SCFT Intriligator-Morrison-Seiberg prepotential",
+    "status": "SURVIVES_AS_DISTINCT_PROTECTED_5D_ROUTE_NOT_AS_AQUAL_BATH",
+    "with_relevant_quadratic_deformation": 0.09491733333333333
+  },
+  "route_matrix": [
+    {
+      "covariant_5D": true,
+      "exact_static_determinant": false,
+      "linear_DOS": false,
+      "protected_matching": false,
+      "route": "current_regular_compact_Einstein_dilaton",
+      "status": "KILLED"
+    },
+    {
+      "covariant_5D": true,
+      "exact_static_determinant": false,
+      "linear_DOS": "coarse_grained_high_level_only",
+      "protected_matching": false,
+      "route": "compact_soft_wall",
+      "status": "KILLED_IN_STRICT_IR"
+    },
+    {
+      "covariant_5D": "as_defect_source",
+      "exact_static_determinant": true,
+      "linear_DOS": true,
+      "protected_matching": false,
+      "route": "2_plus_1_Dirac_brane_or_nodal_line",
+      "status": "SURVIVES_STATIC_ORIGIN_ONLY_ANISOTROPY_AND_DYNAMICS_OPEN"
+    },
+    {
+      "covariant_5D": true,
+      "exact_static_determinant": "not_derived_from_same_bulk_action",
+      "linear_DOS": "effective_scaling_only_not_literal_single_particle_DOS",
+      "protected_matching": false,
+      "route": "isotropic_z_3_over_2_Lifshitz_bulk",
+      "status": "LEADING_ISOTROPIC_5D_ROUTE"
+    },
+    {
+      "covariant_5D": true,
+      "exact_static_determinant": false,
+      "linear_DOS": "not_the_claimed_mechanism",
+      "protected_matching": "protected_cubic_but_wrong_observable",
+      "route": "5D_N1_SCFT_prepotential",
+      "status": "DISTINCT_ROUTE_REQUIRES_HEALTHY_ACCELERATION_REDUCTION"
+    },
+    {
+      "covariant_5D": false,
+      "exact_static_determinant": true,
+      "linear_DOS": true,
+      "protected_matching": false,
+      "route": "two_internal_momenta",
+      "status": "REQUIRES_AT_LEAST_6D_OR_SYNTHETIC_FIBER"
+    }
+  ],
+  "schema": "holo.covariant-5d-pseudogap-gate.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "c3_input_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/c3_geometric_transition_gate.json",
+      "sha256": "c954aef968622fe0e2d4cf0c074e3c74e42c3be446ab265372f69d0310488ba6"
+    },
+    "current_effective_action": {
+      "path": "first_principles_audit/artifacts/holo_effective_action.json",
+      "sha256": "1b368e2715dafa054efaffeba12f1802956cceae497be57b4f536b57caa6a7d9"
+    },
+    "dirac_red_team_map": {
+      "path": "first_principles_audit/prediction_factory/artifacts/dirac_bath_red_team_map.json",
+      "sha256": "a1a7ea70879a9e68339a0c38fc3ea98409350fbfac20cd2fb63d66663189ab5b"
+    },
+    "dirac_static_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/dirac_critical_bath_gate.json",
+      "sha256": "4d750a1147e26de568e6b32d84f94bda08cb55b498fc452f9fee05fd90d3ae63"
+    },
+    "inherited_target_origin": "SPARC training split only",
+    "primary_theory_references": [
+      {
+        "topic": "covariant Einstein-Proca Lifshitz backgrounds",
+        "url": "https://arxiv.org/abs/0812.0530"
+      },
+      {
+        "topic": "Lifshitz fixed-point gravity duals",
+        "url": "https://arxiv.org/abs/0808.1725"
+      },
+      {
+        "topic": "hyperscaling-violation consistency conditions",
+        "url": "https://arxiv.org/abs/1201.1905"
+      },
+      {
+        "topic": "five-dimensional supersymmetric cubic prepotential",
+        "url": "https://arxiv.org/abs/hep-th/9702198"
+      },
+      {
+        "topic": "khronometric acceleration and MOND limit",
+        "url": "https://arxiv.org/abs/1107.5264"
+      },
+      {
+        "topic": "Hamiltonian constraints of nonprojectable Horava gravity",
+        "url": "https://arxiv.org/abs/1106.2131"
+      }
+    ],
+    "raw_observational_tables_read_directly": []
+  },
+  "time_and_constraint_precheck": {
+    "adjudication": "The nonanalytic retarded kernel and zero-rank static symbol are blockers to a local reduced theory; keeping microscopic fields explicit changes the problem but still requires a coupled constraint and pole calculation.",
+    "complete_coupled_Dirac_ADM_analysis_in_this_artifact": false,
+    "constant_principal_rank_at_vacuum": false,
+    "full_bath_can_remain_explicit_and_local": true,
+    "gapless_static_bath_kernel_power": 0.9999999873396932,
+    "integrated_out_kernel": "Pi_E(omega,0)-Pi_E(0,0) proportional to -|omega|",
+    "khronon_scalar_constraint_known_to_be_second_class": true,
+    "local_finite_derivative_effective_action": false,
+    "static_cubic_hessian_eigenvalues_at_a_0p4": [
+      1.2000000000000002,
+      1.2000000000000002,
+      2.4000000000000004
+    ],
+    "static_cubic_hessian_eigenvalues_at_vacuum": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "title": "Covariant five-dimensional pseudogap-origin decision gate"
+}

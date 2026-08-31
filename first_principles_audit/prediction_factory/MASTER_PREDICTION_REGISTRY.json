@@ -52,6 +52,10 @@
       "path": "first_principles_audit/prediction_factory/artifacts/collective_spectral_bridge.json",
       "sha256": "a2fb7b67d91ddf00813bf1821b92f12a787b85a41b6236ca92c6a4cd1a66cdf1"
     },
+    "covariant_5d_pseudogap_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/covariant_5d_pseudogap_gate.json",
+      "sha256": "75d790815e0338268fccfb65d8a5b51763a9e7f2f9a8a0c630171f2ddfc2fdc5"
+    },
     "cubic_boundary_identifiability": {
       "path": "first_principles_audit/prediction_factory/artifacts/cubic_boundary_identifiability.json",
       "sha256": "f99ae783aa998b02718845a9c2eb6801e7bde6756572c04383246487e7d1712d"
@@ -99,6 +103,10 @@
     "jordan_selector_embedding": {
       "path": "first_principles_audit/prediction_factory/artifacts/jordan_selector_embedding.json",
       "sha256": "831abb8aac414cff930f79c8320661381b02d86973658bde9e9df08363c98b93"
+    },
+    "khronon_constraint_stability_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/khronon_constraint_stability_gate.json",
+      "sha256": "297211af1d3ed29371029934b94ecd44ddfac86aef045d83bee45aecd6abf595"
     },
     "material_fingerprint": {
       "path": "first_principles_audit/prediction_factory/material_predictions.json",
@@ -413,6 +421,21 @@
       "required_variational_sign_derived": false,
       "verdict": "KILL_C2_BAND_EDGE_WRONG_VARIATIONAL_SIGN"
     },
+    "covariant_5d_pseudogap_gate": {
+      "classification": "theory_only;covariant_scaling_route_not_completed_bath",
+      "complete_constraint_and_time_stability": false,
+      "covariant_lifshitz_scaling_background_exhibited": true,
+      "current_holo_mechanism": false,
+      "current_regular_compact_origin_survives": false,
+      "effective_linear_state_counting_exponent_derived": true,
+      "inherited_target_origin": "SPARC training split only",
+      "literal_boundary_single_particle_DOS_derived": false,
+      "physical_completion": false,
+      "publication_authorized": false,
+      "quadratic_matching_Ward_protected": false,
+      "same_action_exact_Clifford_determinant_derived": false,
+      "verdict": "COVARIANT_5D_LIFSHITZ_SCALING_ROUTE_SURVIVES_DETERMINANT_MATCHING_AND_DYNAMICS_BLOCKED"
+    },
     "desi_dr1_growth": {
       "classification": "external_diagonal_diagnostic_not_confirmatory_likelihood",
       "delta_chi2_holo_minus_lcdm": 0.27285713171660975,
@@ -542,6 +565,32 @@
       "current_linearized_sector_can_embed": false,
       "current_mass_exponent": 1.0,
       "full_nonlinear_completion_resolved": false
+    },
+    "khronon_constraint_stability_gate": {
+      "bath_delta_eta": 0.1,
+      "classification": "theory_only;local_constraint_rank_closed;full_dynamics_open",
+      "complete_time_dependent_stability": false,
+      "constitutive_function": "mu=(eta_c-chi)/(eta_c-eta_inf)=1+x-sqrt(1+x^2)",
+      "current_holo_mechanism": false,
+      "eta_critical": 1.5,
+      "eta_infinity": 1.4,
+      "exact_static_mu_from_Schur": true,
+      "fine_tuning_eliminated": false,
+      "full_microscopic_retarded_kernel_derived": false,
+      "full_warped_brane_constraints_derived": false,
+      "geometric_critical_matching_rule_derived": true,
+      "khronometric_gravitational_DOF": 6,
+      "local_lapse_constraint_rank_preserved": true,
+      "maximum_Schur_mu_error": 1.9984014443252818e-15,
+      "minimum_lapse_symbol": 2.8,
+      "old_internal_quadratic_cancellation_required": false,
+      "physical_completion": false,
+      "publication_authorized": false,
+      "same_5D_action_and_background_closed": false,
+      "same_action_local_5D_microscopic_bath_derived": false,
+      "static_effective_function_convex": true,
+      "truncated_z2_kernel_has_no_upper_half_plane_poles": true,
+      "verdict": "GEOMETRIC_KHRONON_MATCHING_PRESERVES_LOCAL_CONSTRAINT_RANK_FULL_RETARDED_AND_WARPED_COMPLETION_BLOCKED"
     },
     "material_fingerprint": {
       "anchor_responses": [
@@ -1069,6 +1118,30 @@
     },
     {
       "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/covariant_5d_pseudogap_gate.json",
+        "sha256": "75d790815e0338268fccfb65d8a5b51763a9e7f2f9a8a0c630171f2ddfc2fdc5"
+      },
+      "from": "dirac_bath_red_team",
+      "gate": "L2_scaling_pass_L3_same_action_determinant_blocked",
+      "id": "dirac_red_team_to_covariant_5d_origin_gate",
+      "meaning": "A local 4+1 Einstein-Proca background with z=3/2 supplies the required effective thermodynamic scaling exponent, but not a literal single-particle DOS. Neither that scaling nor the free fractional Clifford witness derives the required determinant from the same local bulk action.",
+      "status": "covariant_scaling_background_survives_exact_bath_blocked",
+      "to": "covariant_5d_pseudogap_origin_gate"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/khronon_constraint_stability_gate.json",
+        "sha256": "297211af1d3ed29371029934b94ecd44ddfac86aef045d83bee45aecd6abf595"
+      },
+      "from": "covariant_5d_pseudogap_origin_gate",
+      "gate": "K2_local_rank_pass_K4_retarded_and_K5_warped_blocked",
+      "id": "covariant_5d_origin_to_khronon_geometric_matching",
+      "meaning": "The covariant khronon EFT retains the positive bath quadratic inside a convex F_eff and obtains the static cancellation only after the metric/lapse Schur reduction. The exact mu and local flat constraint count close; the same-action microscopic bath, full retarded kernel and warped junction system do not.",
+      "status": "local_flat_geometric_reorganization_survives",
+      "to": "khronon_geometric_matching_gate"
+    },
+    {
+      "evidence": {
         "path": "first_principles_audit/prediction_factory/artifacts/jordan_deep_limit_gate.json",
         "sha256": "7ae63ba6222b766661c8a7f78e317ff5aa01240aa90a832612d6a6ed4e19990d"
       },
@@ -1227,6 +1300,7 @@
     "breathing_response": "conditional retarded scalar response",
     "c2_band_edge_negative_control": "post-campaign continuum test; exact exponent but wrong stable-bath sign",
     "collector_embedding_gate": "conditional no-go for the current regular linearized HOLO sector",
+    "covariant_5d_pseudogap_origin_gate": "local z=3/2 Lifshitz scaling background; exact same-action bath blocked",
     "critical_constitutive_bridge": "exact three-halves mechanism; critical bulk realization not derived",
     "derivative_constitutive_scalar": "surviving architecture; microscopic derivative operator not derived",
     "dirac_bath_red_team": "17-attack map; L1 passes while local QFT, dynamics and HOLO are blocked",
@@ -1238,6 +1312,7 @@
     "galaxy_readout": "action-derived stiff force tested; empirically insufficient and unique source convolution unavailable",
     "galaxy_residual_target": "train-frozen universal signed response; empirical, not action-derived",
     "growth_readout": "phenomenological cosmological dictionary",
+    "khronon_geometric_matching_gate": "convex covariant EFT and local flat constraints; full retarded and warped completion blocked",
     "laboratory_signal": "requires dimensional source and detector",
     "material_force": "current seven-mode stiff Yukawa candidate",
     "matter_probe": "canonically normalized UV matter vertex in stiff limit",

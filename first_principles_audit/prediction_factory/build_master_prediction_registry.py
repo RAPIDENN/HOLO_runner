@@ -195,6 +195,14 @@ def build_registry() -> dict[str, Any]:
         "first_principles_audit/prediction_factory/artifacts/"
         "dirac_bath_red_team_map.json"
     )
+    covariant_5d_origin_path = (
+        "first_principles_audit/prediction_factory/artifacts/"
+        "covariant_5d_pseudogap_gate.json"
+    )
+    khronon_stability_path = (
+        "first_principles_audit/prediction_factory/artifacts/"
+        "khronon_constraint_stability_gate.json"
+    )
     scale_consistency_path = (
         "first_principles_audit/prediction_factory/artifacts/"
         "scale_consistency.json"
@@ -252,6 +260,8 @@ def build_registry() -> dict[str, Any]:
     c2_band_edge = _read_json(c2_band_edge_path)
     dirac_bath = _read_json(dirac_bath_path)
     dirac_red_team = _read_json(dirac_red_team_path)
+    covariant_5d_origin = _read_json(covariant_5d_origin_path)
+    khronon_stability = _read_json(khronon_stability_path)
     if c2_band_edge.get("decision", {}).get("verdict") != (
         "KILL_C2_BAND_EDGE_WRONG_VARIATIONAL_SIGN"
     ):
@@ -266,9 +276,25 @@ def build_registry() -> dict[str, Any]:
         "DYNAMICS_AND_HOLO"
     ):
         raise ValueError("unexpected Dirac bath red-team verdict")
+    if covariant_5d_origin.get("decision", {}).get("verdict") != (
+        "COVARIANT_5D_LIFSHITZ_SCALING_ROUTE_SURVIVES_"
+        "DETERMINANT_MATCHING_AND_DYNAMICS_BLOCKED"
+    ):
+        raise ValueError("unexpected covariant 5D pseudogap-origin verdict")
+    if khronon_stability.get("decision", {}).get("verdict") != (
+        "GEOMETRIC_KHRONON_MATCHING_PRESERVES_LOCAL_CONSTRAINT_RANK_"
+        "FULL_RETARDED_AND_WARPED_COMPLETION_BLOCKED"
+    ):
+        raise ValueError("unexpected khronon constraint/stability verdict")
     if not all(
         artifact.get("checks", {}).get("all") is True
-        for artifact in (c2_band_edge, dirac_bath, dirac_red_team)
+        for artifact in (
+            c2_band_edge,
+            dirac_bath,
+            dirac_red_team,
+            covariant_5d_origin,
+            khronon_stability,
+        )
     ):
         raise ValueError("post-campaign microscopic gate checks are incomplete")
     scale_consistency = _read_json(scale_consistency_path)
@@ -340,6 +366,8 @@ def build_registry() -> dict[str, Any]:
         "c2_band_edge_continuum": _evidence(c2_band_edge_path),
         "dirac_critical_bath_gate": _evidence(dirac_bath_path),
         "dirac_bath_red_team_map": _evidence(dirac_red_team_path),
+        "covariant_5d_pseudogap_gate": _evidence(covariant_5d_origin_path),
+        "khronon_constraint_stability_gate": _evidence(khronon_stability_path),
         "scale_consistency": _evidence(scale_consistency_path),
         "observational_protocol": _evidence(observation_path),
     }
@@ -396,6 +424,13 @@ def build_registry() -> dict[str, Any]:
             ),
             "dirac_bath_red_team": (
                 "17-attack map; L1 passes while local QFT, dynamics and HOLO are blocked"
+            ),
+            "covariant_5d_pseudogap_origin_gate": (
+                "local z=3/2 Lifshitz scaling background; exact same-action bath blocked"
+            ),
+            "khronon_geometric_matching_gate": (
+                "convex covariant EFT and local flat constraints; full retarded and "
+                "warped completion blocked"
             ),
             "derivative_constitutive_scalar": (
                 "surviving architecture; microscopic derivative operator not derived"
@@ -695,6 +730,36 @@ def build_registry() -> dict[str, Any]:
                     "radiative protection, current-HOLO origin and matter/lensing."
                 ),
                 "evidence": artefacts["dirac_bath_red_team_map"],
+            },
+            {
+                "id": "dirac_red_team_to_covariant_5d_origin_gate",
+                "from": "dirac_bath_red_team",
+                "to": "covariant_5d_pseudogap_origin_gate",
+                "status": "covariant_scaling_background_survives_exact_bath_blocked",
+                "gate": "L2_scaling_pass_L3_same_action_determinant_blocked",
+                "meaning": (
+                    "A local 4+1 Einstein-Proca background with z=3/2 supplies the "
+                    "required effective thermodynamic scaling exponent, but not a "
+                    "literal single-particle DOS. Neither that scaling nor the free "
+                    "fractional Clifford witness derives the required "
+                    "determinant from the same local bulk action."
+                ),
+                "evidence": artefacts["covariant_5d_pseudogap_gate"],
+            },
+            {
+                "id": "covariant_5d_origin_to_khronon_geometric_matching",
+                "from": "covariant_5d_pseudogap_origin_gate",
+                "to": "khronon_geometric_matching_gate",
+                "status": "local_flat_geometric_reorganization_survives",
+                "gate": "K2_local_rank_pass_K4_retarded_and_K5_warped_blocked",
+                "meaning": (
+                    "The covariant khronon EFT retains the positive bath quadratic "
+                    "inside a convex F_eff and obtains the static cancellation only "
+                    "after the metric/lapse Schur reduction. The exact mu and local "
+                    "flat constraint count close; the same-action microscopic bath, "
+                    "full retarded kernel and warped junction system do not."
+                ),
+                "evidence": artefacts["khronon_constraint_stability_gate"],
             },
             {
                 "id": "matter_interface_to_derivative_constitutive_scalar",
@@ -1155,6 +1220,99 @@ def build_registry() -> dict[str, Any]:
                 "publication_authorized": dirac_red_team["decision"]
                 ["publication_authorized"],
             },
+            "covariant_5d_pseudogap_gate": {
+                "classification": covariant_5d_origin["classification"],
+                "verdict": covariant_5d_origin["decision"]["verdict"],
+                "current_regular_compact_origin_survives": covariant_5d_origin[
+                    "decision"
+                ]["current_regular_compact_Einstein_dilaton_origin_survives"],
+                "covariant_lifshitz_scaling_background_exhibited": (
+                    covariant_5d_origin["decision"]
+                    ["covariant_local_5D_Lifshitz_scaling_background_exhibited"]
+                ),
+                "effective_linear_state_counting_exponent_derived": (
+                    covariant_5d_origin["decision"]
+                    ["effective_linear_state_counting_exponent_from_5D_scaling"]
+                ),
+                "literal_boundary_single_particle_DOS_derived": covariant_5d_origin[
+                    "decision"
+                ]["literal_boundary_single_particle_DOS_derived"],
+                "same_action_exact_Clifford_determinant_derived": (
+                    covariant_5d_origin["decision"]
+                    ["exact_Clifford_determinant_derived_from_same_local_5D_action"]
+                ),
+                "quadratic_matching_Ward_protected": covariant_5d_origin[
+                    "decision"
+                ]["quadratic_matching_is_Ward_protected"],
+                "complete_constraint_and_time_stability": covariant_5d_origin[
+                    "decision"
+                ]["complete_constraint_rank_and_time_stability_derived"],
+                "inherited_target_origin": covariant_5d_origin["sources"]
+                ["inherited_target_origin"],
+                "current_holo_mechanism": covariant_5d_origin["decision"]
+                ["current_holo_mechanism"],
+                "physical_completion": covariant_5d_origin["decision"]
+                ["physical_completion"],
+                "publication_authorized": covariant_5d_origin["decision"]
+                ["publication_authorized"],
+            },
+            "khronon_constraint_stability_gate": {
+                "classification": khronon_stability["classification"],
+                "verdict": khronon_stability["decision"]["verdict"],
+                "constitutive_function": khronon_stability["static_reduction"]
+                ["constitutive_function"],
+                "eta_critical": khronon_stability["diagnostics"]["eta_critical"],
+                "eta_infinity": khronon_stability["diagnostics"]["eta_infinity"],
+                "bath_delta_eta": khronon_stability["diagnostics"]
+                ["bath_delta_eta"],
+                "maximum_Schur_mu_error": khronon_stability["diagnostics"]
+                ["maximum_Schur_mu_error"],
+                "minimum_lapse_symbol": khronon_stability["diagnostics"]
+                ["minimum_lapse_symbol"],
+                "old_internal_quadratic_cancellation_required": khronon_stability[
+                    "decision"
+                ]["old_internal_bare_minus_bath_quadratic_cancellation_required"],
+                "geometric_critical_matching_rule_derived": khronon_stability[
+                    "decision"
+                ]["geometric_critical_matching_rule_derived"],
+                "exact_static_mu_from_Schur": khronon_stability["decision"]
+                ["exact_static_mu_derived_from_action_Schur_complement"],
+                "same_action_local_5D_microscopic_bath_derived": khronon_stability[
+                    "decision"
+                ]["same_action_local_5D_microscopic_bath_derived"],
+                "fine_tuning_eliminated": khronon_stability["decision"]
+                ["fine_tuning_eliminated"],
+                "same_5D_action_and_background_closed": khronon_stability[
+                    "decision"
+                ]["same_5D_action_and_background_closed"],
+                "static_effective_function_convex": khronon_stability["decision"]
+                ["static_effective_acceleration_function_is_convex"],
+                "local_lapse_constraint_rank_preserved": khronon_stability[
+                    "decision"
+                ]["local_flat_background_lapse_constraint_rank_preserved"],
+                "khronometric_gravitational_DOF": khronon_stability[
+                    "hessian_and_constraint_rank"
+                ]["inventory"]["khronometric_gravitational_dof"],
+                "truncated_z2_kernel_has_no_upper_half_plane_poles": (
+                    khronon_stability["decision"]
+                    ["truncated_z2_kernel_has_no_upper_half_plane_poles"]
+                ),
+                "full_microscopic_retarded_kernel_derived": khronon_stability[
+                    "decision"
+                ]["full_microscopic_retarded_kernel_derived"],
+                "full_warped_brane_constraints_derived": khronon_stability[
+                    "decision"
+                ]["full_warped_brane_boundary_constraint_system_derived"],
+                "complete_time_dependent_stability": khronon_stability[
+                    "decision"
+                ]["complete_time_dependent_stability"],
+                "current_holo_mechanism": khronon_stability["decision"]
+                ["current_holo_mechanism"],
+                "physical_completion": khronon_stability["decision"]
+                ["physical_completion"],
+                "publication_authorized": khronon_stability["decision"]
+                ["publication_authorized"],
+            },
             "bulk_constitutive_decision_gate": {
                 "classification": bulk_decision_gate["classification"],
                 "old_source_mass_exponent": bulk_decision_gate["old_vs_this"]
@@ -1598,6 +1756,12 @@ def render_markdown(registry: dict[str, Any]) -> str:
     band_edge = registry["current_predictions"]["c2_band_edge_continuum"]
     dirac_bath = registry["current_predictions"]["dirac_critical_bath_gate"]
     dirac_red_team = registry["current_predictions"]["dirac_bath_red_team"]
+    covariant_origin = registry["current_predictions"][
+        "covariant_5d_pseudogap_gate"
+    ]
+    khronon_stability = registry["current_predictions"][
+        "khronon_constraint_stability_gate"
+    ]
     bulk_gate = registry["current_predictions"][
         "bulk_constitutive_decision_gate"
     ]
@@ -1651,6 +1815,8 @@ def render_markdown(registry: dict[str, Any]) -> str:
             "  MC -.->|outside-scope C2: wrong sign| BE[Band-edge negative control]",
             "  BE -->|filled Clifford sea| DB[Dirac static spectral candidate]",
             "  DB -.->|17 adversarial attacks; stops at L2| RT[Dirac red-team map]",
+            "  RT -.->|L2 scaling only; determinant blocked| CO[Covariant 5D origin gate]",
+            "  CO -.->|convex Schur matching; flat local gate| KG[Khronon matching gate]",
             "  C -.->|missing bulk-derived P(Y)| DS[Derivative constitutive scalar]",
             "  C -.->|missing q2Y + critical selector| CB[Critical constitutive bridge]",
             "  CB -.->|unfrozen matter + causal gates| DS",
@@ -1770,6 +1936,26 @@ def render_markdown(registry: dict[str, Any]) -> str:
             f"and its first blocked level is `{dirac_red_team['first_blocked_level']}`. "
             "It is a uniform-static spectral construction, not a finite local QFT, "
             "causal HOLO completion, force, lensing result or publication.",
+            f"- **Covariant 5D continuation:** the present regular compact "
+            f"Einstein-dilaton origin survives=`"
+            f"{str(covariant_origin['current_regular_compact_origin_survives']).lower()}`. "
+            "A local isotropic `z=3/2` Einstein-Proca background supplies the required "
+            "effective linear thermodynamic state-counting exponent, but not a "
+            "literal single-particle DOS; scaling also does not derive "
+            "the sharp Clifford determinant, its sign or normalization from that "
+            "same action. The quadratic matching also has no Ward protection.",
+            f"- **Geometric khronon reorganization:** retaining the positive bath "
+            "quadratic inside a convex `F_eff` and eliminating the metric constraint "
+            f"reproduces `{khronon_stability['constitutive_function']}` with maximum "
+            f"Schur error `{_fmt(khronon_stability['maximum_Schur_mu_error'])}`. The "
+            f"local flat 4+1 count is `{khronon_stability['khronometric_gravitational_DOF']}` "
+            "gravitational modes and the lapse principal symbol stays positive. This "
+            "removes the unstable internal bare-minus-bath cancellation, but not the "
+            "codimension-one tuning: it is neither protected nor dynamically selected. "
+            "The three-component boundary bath, four-spatial-component bulk khronon, "
+            "nonzero radial acceleration of the Lifshitz background, full retarded "
+            "kernel and warped brane constraints have not yet been joined into one "
+            "action/background calculation.",
             f"- **Old versus critical response:** the old fixed tower has source "
             f"exponent `{_fmt(bulk_gate['old_source_mass_exponent'])}` and only "
             f"crosses the target three-halves slope for "
