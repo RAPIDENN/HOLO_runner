@@ -44,6 +44,10 @@
       "path": "first_principles_audit/prediction_factory/artifacts/bulk_cubic_vertex_inventory.json",
       "sha256": "d969c43069fbb7f739b48989b480e46246150bf83ce2153dfceb9415df1f294b"
     },
+    "c2_band_edge_continuum": {
+      "path": "first_principles_audit/prediction_factory/artifacts/c2_band_edge_continuum.json",
+      "sha256": "dce359426862c60889e26407e710f435f1d9d8b9fc6c7810302f0b213553ca20"
+    },
     "collective_spectral_bridge": {
       "path": "first_principles_audit/prediction_factory/artifacts/collective_spectral_bridge.json",
       "sha256": "a2fb7b67d91ddf00813bf1821b92f12a787b85a41b6236ca92c6a4cd1a66cdf1"
@@ -55,6 +59,14 @@
     "desi_dr1_diagonal_diagnostic": {
       "path": "first_principles_audit/prediction_factory/desi_dr1_growth_diagnostic.json",
       "sha256": "b2ddb23947cd7edd16a5d148e58815519c6895c80cc51ac27585162d7be2f969"
+    },
+    "dirac_bath_red_team_map": {
+      "path": "first_principles_audit/prediction_factory/artifacts/dirac_bath_red_team_map.json",
+      "sha256": "a1a7ea70879a9e68339a0c38fc3ea98409350fbfac20cd2fb63d66663189ab5b"
+    },
+    "dirac_critical_bath_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/dirac_critical_bath_gate.json",
+      "sha256": "4d750a1147e26de568e6b32d84f94bda08cb55b498fc452f9fee05fd90d3ae63"
     },
     "em_kernel_completion": {
       "path": "first_principles_audit/prediction_factory/em_kernel_completion.json",
@@ -390,6 +402,17 @@
       "total_Y2_coefficient": "C_Y2_total=C_Y2_direct_S4-0.5*c^T*M^(-2)*c; its sign cannot be known from S3 alone",
       "tricritical_selector": "s=sqrt(Y)"
     },
+    "c2_band_edge_continuum": {
+      "candidate_survives": false,
+      "classification": "exact_band_edge_exponent_with_stable_thermodynamics;wrong_AQUAL_variational_sign_and_no_current_holo_embedding",
+      "exact_exponent_derived": true,
+      "inherited_target_origin": "SPARC training split only",
+      "physical_completion": false,
+      "pressure_log_slope": 1.5,
+      "raw_observational_tables_read_directly": [],
+      "required_variational_sign_derived": false,
+      "verdict": "KILL_C2_BAND_EDGE_WRONG_VARIATIONAL_SIGN"
+    },
     "desi_dr1_growth": {
       "classification": "external_diagonal_diagnostic_not_confirmatory_likelihood",
       "delta_chi2_holo_minus_lcdm": 0.27285713171660975,
@@ -400,6 +423,36 @@
       "edge_bin_z": 0.92,
       "interpretation": "Both curves are compatible with these four marginal entries; the small positive delta chi2 does not favour HOLO.",
       "points": 4
+    },
+    "dirac_bath_red_team": {
+      "causal_covariant_completion_survives": false,
+      "classification": "static_spectral_gate_survives;finite_local_qft_causal_holo_and_physical_completion_blocked",
+      "closed_count": 3,
+      "confirmed_blocker_count": 4,
+      "current_holo_mechanism": false,
+      "finite_local_qft_survives": false,
+      "first_blocked_level": "L2_finite_local_QFT",
+      "highest_level_passed": "L1_uniform_static_spectral",
+      "open_blocker_count": 8,
+      "p0_count": 7,
+      "physical_completion": false,
+      "publication_authorized": false,
+      "static_spectral_construction_survives": true,
+      "threat_count": 17,
+      "verdict": "SURVIVES_STATIC_SPECTRAL_RED_TEAM_BLOCKED_LOCAL_QFT_DYNAMICS_AND_HOLO"
+    },
+    "dirac_critical_bath_gate": {
+      "acceleration_scale": "a0=Lambda/y",
+      "classification": "uniform_static_spectral_candidate_survives;finite_local_qft_radiative_dynamic_relativistic_and_holo_gates_open",
+      "constitutive_function": "mu(x)=F'(x^2)=1+x-sqrt(1+x^2)",
+      "exact_exposed_collector_interpolation_reproduced": false,
+      "finite_local_qft_realization_exhibited": false,
+      "inherited_target_origin": "SPARC training split only",
+      "maximum_absolute_mu_difference_from_exposed_target": 0.07945047996084542,
+      "physical_completion": false,
+      "publication_authorized": false,
+      "uniform_static_spectral_candidate": true,
+      "verdict": "SURVIVES_STATIC_SPECTRAL_GATE_BLOCKED_MICROSCOPIC_LOCAL_QFT_AND_HOLO"
     },
     "em_kernel": {
       "classification": "derived_kernel_and_trace_response_not_detection",
@@ -980,6 +1033,42 @@
     },
     {
       "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/c2_band_edge_continuum.json",
+        "sha256": "dce359426862c60889e26407e710f435f1d9d8b9fc6c7810302f0b213553ca20"
+      },
+      "from": "minimal_mechanism_campaign",
+      "gate": "killed_wrong_AQUAL_variational_sign",
+      "id": "minimal_campaign_to_band_edge_negative_control",
+      "meaning": "A z=2 gapless band edge realizes the exact three-halves pressure law left outside the compact C2 no-go, but stable equilibrium occupation induces the opposite variational sign.",
+      "status": "post_campaign_outside_scope_continuum_falsified",
+      "to": "c2_band_edge_negative_control"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/dirac_critical_bath_gate.json",
+        "sha256": "4d750a1147e26de568e6b32d84f94bda08cb55b498fc452f9fee05fd90d3ae63"
+      },
+      "from": "c2_band_edge_negative_control",
+      "gate": "finite_local_QFT_radiative_and_dynamic_completion_missing",
+      "id": "band_edge_to_dirac_static_spectral_candidate",
+      "meaning": "Replacing the chemical-shift bath by a filled Clifford sea fixes the deep variational sign and derives a0=Lambda/y. The result is pointwise and static, not a finite local QFT or force.",
+      "status": "uniform_static_spectral_construction_survives",
+      "to": "dirac_static_spectral_candidate"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/dirac_bath_red_team_map.json",
+        "sha256": "a1a7ea70879a9e68339a0c38fc3ea98409350fbfac20cd2fb63d66663189ab5b"
+      },
+      "from": "dirac_static_spectral_candidate",
+      "gate": "first_blocked_level_L2_finite_local_QFT",
+      "id": "dirac_static_candidate_to_red_team_map",
+      "meaning": "The attack map closes static algebra and convexity at L0-L1, then blocks promotion at finite regulation, temporal response, radiative protection, current-HOLO origin and matter/lensing.",
+      "status": "adversarial_static_gate_pass_with_blockers",
+      "to": "dirac_bath_red_team"
+    },
+    {
+      "evidence": {
         "path": "first_principles_audit/prediction_factory/artifacts/jordan_deep_limit_gate.json",
         "sha256": "7ae63ba6222b766661c8a7f78e317ff5aa01240aa90a832612d6a6ed4e19990d"
       },
@@ -1136,9 +1225,12 @@
     "boundary_action": "minimal superpotential matching derived and rejected; stabilized curvatures remain unselected",
     "bps_moduli_matter_metric": "minimal induced metrics derived on a separation slice; two-modulus canonical projection remains unselected",
     "breathing_response": "conditional retarded scalar response",
+    "c2_band_edge_negative_control": "post-campaign continuum test; exact exponent but wrong stable-bath sign",
     "collector_embedding_gate": "conditional no-go for the current regular linearized HOLO sector",
     "critical_constitutive_bridge": "exact three-halves mechanism; critical bulk realization not derived",
     "derivative_constitutive_scalar": "surviving architecture; microscopic derivative operator not derived",
+    "dirac_bath_red_team": "17-attack map; L1 passes while local QFT, dynamics and HOLO are blocked",
+    "dirac_static_spectral_candidate": "explicit uniform-static Clifford bath; finite local QFT not exhibited",
     "effective_action": "geometry-preserving inverse completion",
     "em_double_comb": "conditional scalar and photon spectral fingerprint",
     "em_overlap_kernel": "action-derived family containing Eq. 39",

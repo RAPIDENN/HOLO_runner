@@ -183,6 +183,18 @@ def build_registry() -> dict[str, Any]:
         "first_principles_audit/prediction_factory/artifacts/"
         "minimal_mechanism_campaign.json"
     )
+    c2_band_edge_path = (
+        "first_principles_audit/prediction_factory/artifacts/"
+        "c2_band_edge_continuum.json"
+    )
+    dirac_bath_path = (
+        "first_principles_audit/prediction_factory/artifacts/"
+        "dirac_critical_bath_gate.json"
+    )
+    dirac_red_team_path = (
+        "first_principles_audit/prediction_factory/artifacts/"
+        "dirac_bath_red_team_map.json"
+    )
     scale_consistency_path = (
         "first_principles_audit/prediction_factory/artifacts/"
         "scale_consistency.json"
@@ -237,6 +249,28 @@ def build_registry() -> dict[str, Any]:
     )
     if minimal_mechanism_campaign["campaign_id"] != "minimal-mechanism-ladder-20260831":
         raise ValueError("unexpected mechanism campaign identity")
+    c2_band_edge = _read_json(c2_band_edge_path)
+    dirac_bath = _read_json(dirac_bath_path)
+    dirac_red_team = _read_json(dirac_red_team_path)
+    if c2_band_edge.get("decision", {}).get("verdict") != (
+        "KILL_C2_BAND_EDGE_WRONG_VARIATIONAL_SIGN"
+    ):
+        raise ValueError("band-edge negative control is not frozen")
+    if dirac_bath.get("decision", {}).get("verdict") != (
+        "SURVIVES_STATIC_SPECTRAL_GATE_BLOCKED_MICROSCOPIC_"
+        "LOCAL_QFT_AND_HOLO"
+    ):
+        raise ValueError("unexpected Dirac bath gate verdict")
+    if dirac_red_team.get("decision", {}).get("verdict") != (
+        "SURVIVES_STATIC_SPECTRAL_RED_TEAM_BLOCKED_LOCAL_QFT_"
+        "DYNAMICS_AND_HOLO"
+    ):
+        raise ValueError("unexpected Dirac bath red-team verdict")
+    if not all(
+        artifact.get("checks", {}).get("all") is True
+        for artifact in (c2_band_edge, dirac_bath, dirac_red_team)
+    ):
+        raise ValueError("post-campaign microscopic gate checks are incomplete")
     scale_consistency = _read_json(scale_consistency_path)
     observations = _read_json(observation_path)
 
@@ -303,6 +337,9 @@ def build_registry() -> dict[str, Any]:
         ),
         "holo_nonlinear_route_matrix": _evidence(nonlinear_route_matrix_path),
         "minimal_mechanism_campaign": _evidence(minimal_mechanism_campaign_path),
+        "c2_band_edge_continuum": _evidence(c2_band_edge_path),
+        "dirac_critical_bath_gate": _evidence(dirac_bath_path),
+        "dirac_bath_red_team_map": _evidence(dirac_red_team_path),
         "scale_consistency": _evidence(scale_consistency_path),
         "observational_protocol": _evidence(observation_path),
     }
@@ -350,6 +387,15 @@ def build_registry() -> dict[str, Any]:
             "minimal_mechanism_campaign": (
                 "content-addressed sequential mechanism record; C1 and the current "
                 "compact C2 are killed, while C3 is input-incomplete"
+            ),
+            "c2_band_edge_negative_control": (
+                "post-campaign continuum test; exact exponent but wrong stable-bath sign"
+            ),
+            "dirac_static_spectral_candidate": (
+                "explicit uniform-static Clifford bath; finite local QFT not exhibited"
+            ),
+            "dirac_bath_red_team": (
+                "17-attack map; L1 passes while local QFT, dynamics and HOLO are blocked"
             ),
             "derivative_constitutive_scalar": (
                 "surviving architecture; microscopic derivative operator not derived"
@@ -610,6 +656,45 @@ def build_registry() -> dict[str, Any]:
                     "errors and therefore contribute no physics evidence."
                 ),
                 "evidence": artefacts["minimal_mechanism_campaign"],
+            },
+            {
+                "id": "minimal_campaign_to_band_edge_negative_control",
+                "from": "minimal_mechanism_campaign",
+                "to": "c2_band_edge_negative_control",
+                "status": "post_campaign_outside_scope_continuum_falsified",
+                "gate": "killed_wrong_AQUAL_variational_sign",
+                "meaning": (
+                    "A z=2 gapless band edge realizes the exact three-halves "
+                    "pressure law left outside the compact C2 no-go, but stable "
+                    "equilibrium occupation induces the opposite variational sign."
+                ),
+                "evidence": artefacts["c2_band_edge_continuum"],
+            },
+            {
+                "id": "band_edge_to_dirac_static_spectral_candidate",
+                "from": "c2_band_edge_negative_control",
+                "to": "dirac_static_spectral_candidate",
+                "status": "uniform_static_spectral_construction_survives",
+                "gate": "finite_local_QFT_radiative_and_dynamic_completion_missing",
+                "meaning": (
+                    "Replacing the chemical-shift bath by a filled Clifford sea "
+                    "fixes the deep variational sign and derives a0=Lambda/y. The "
+                    "result is pointwise and static, not a finite local QFT or force."
+                ),
+                "evidence": artefacts["dirac_critical_bath_gate"],
+            },
+            {
+                "id": "dirac_static_candidate_to_red_team_map",
+                "from": "dirac_static_spectral_candidate",
+                "to": "dirac_bath_red_team",
+                "status": "adversarial_static_gate_pass_with_blockers",
+                "gate": "first_blocked_level_L2_finite_local_QFT",
+                "meaning": (
+                    "The attack map closes static algebra and convexity at L0-L1, "
+                    "then blocks promotion at finite regulation, temporal response, "
+                    "radiative protection, current-HOLO origin and matter/lensing."
+                ),
+                "evidence": artefacts["dirac_bath_red_team_map"],
             },
             {
                 "id": "matter_interface_to_derivative_constitutive_scalar",
@@ -1008,6 +1093,67 @@ def build_registry() -> dict[str, Any]:
                 "publication_authorized": minimal_mechanism_campaign["claim_gate"]
                 ["publication_authorized"],
                 "verdict": minimal_mechanism_campaign["verdict"],
+            },
+            "c2_band_edge_continuum": {
+                "classification": c2_band_edge["classification"],
+                "verdict": c2_band_edge["decision"]["verdict"],
+                "pressure_log_slope": c2_band_edge["diagnostics"]
+                ["pressure_log_slope"],
+                "exact_exponent_derived": c2_band_edge["decision"]
+                ["exact_exponent_and_positive_pressure_derived"],
+                "required_variational_sign_derived": c2_band_edge["decision"]
+                ["required_AQUAL_variational_sign_derived"],
+                "candidate_survives": c2_band_edge["decision"]
+                ["candidate_survives"],
+                "raw_observational_tables_read_directly": c2_band_edge["sources"]
+                ["raw_observational_tables_read_directly"],
+                "inherited_target_origin": c2_band_edge["sources"]
+                ["inherited_exposed_target_origin"],
+                "physical_completion": c2_band_edge["decision"]
+                ["physical_completion"],
+            },
+            "dirac_critical_bath_gate": {
+                "classification": dirac_bath["classification"],
+                "verdict": dirac_bath["decision"]["verdict"],
+                "constitutive_function": dirac_bath["uniform_static_derivation"]
+                ["constitutive_function"],
+                "acceleration_scale": dirac_bath["uniform_static_derivation"]
+                ["acceleration_scale"],
+                "uniform_static_spectral_candidate": dirac_bath["decision"]
+                ["uniform_static_spectral_candidate"],
+                "finite_local_qft_realization_exhibited": dirac_bath["decision"]
+                ["finite_local_qft_realization_exhibited"],
+                "exact_exposed_collector_interpolation_reproduced": dirac_bath[
+                    "decision"
+                ]["exact_exposed_collector_interpolation_reproduced"],
+                "maximum_absolute_mu_difference_from_exposed_target": dirac_bath[
+                    "diagnostics"
+                ]["maximum_absolute_mu_difference_from_exposed_target"],
+                "inherited_target_origin": dirac_bath["sources"]
+                ["inherited_exposed_target_origin"],
+                "physical_completion": dirac_bath["decision"]
+                ["physical_completion"],
+                "publication_authorized": dirac_bath["decision"]
+                ["publication_authorized"],
+            },
+            "dirac_bath_red_team": {
+                "classification": dirac_red_team["classification"],
+                "verdict": dirac_red_team["decision"]["verdict"],
+                **dirac_red_team["summary"],
+                "static_spectral_construction_survives": dirac_red_team[
+                    "decision"
+                ]["static_spectral_construction_survives"],
+                "finite_local_qft_survives": dirac_red_team["decision"]
+                ["finite_local_qft_survives"],
+                "causal_covariant_completion_survives": dirac_red_team[
+                    "decision"
+                ]["causal_covariant_completion_survives"],
+                "current_holo_mechanism": dirac_red_team["decision"]
+                ["current_holo_mechanism"],
+                "physical_completion": dirac_red_team["decision"]
+                ["physical_completion"],
+                "publication_authorized": dirac_red_team["decision"]
+                ["publication_authorized"],
             },
             "bulk_constitutive_decision_gate": {
                 "classification": bulk_decision_gate["classification"],
@@ -1449,6 +1595,9 @@ def render_markdown(registry: dict[str, Any]) -> str:
     mechanism_campaign = registry["current_predictions"][
         "minimal_mechanism_campaign"
     ]
+    band_edge = registry["current_predictions"]["c2_band_edge_continuum"]
+    dirac_bath = registry["current_predictions"]["dirac_critical_bath_gate"]
+    dirac_red_team = registry["current_predictions"]["dirac_bath_red_team"]
     bulk_gate = registry["current_predictions"][
         "bulk_constitutive_decision_gate"
     ]
@@ -1499,6 +1648,9 @@ def render_markdown(registry: dict[str, Any]) -> str:
             "  C -.->|current linear sector: no-go| NA",
             "  NA -->|inverse-design falsifiers| NR[Nonlinear route matrix]",
             "  NR -->|content-addressed C1-C2-C3| MC[Minimal mechanism campaign]",
+            "  MC -.->|outside-scope C2: wrong sign| BE[Band-edge negative control]",
+            "  BE -->|filled Clifford sea| DB[Dirac static spectral candidate]",
+            "  DB -.->|17 adversarial attacks; stops at L2| RT[Dirac red-team map]",
             "  C -.->|missing bulk-derived P(Y)| DS[Derivative constitutive scalar]",
             "  C -.->|missing q2Y + critical selector| CB[Critical constitutive bridge]",
             "  CB -.->|unfrozen matter + causal gates| DS",
@@ -1604,6 +1756,20 @@ def render_markdown(registry: dict[str, Any]) -> str:
             "mechanism candidate, physical completion, new force or lensing result is "
             "promoted. The record is content-addressed, but its record time is not "
             "independently authenticated.",
+            f"- **Post-campaign microscopic branch:** the z=2 band edge derives "
+            f"pressure exponent `{_fmt(band_edge['pressure_log_slope'])}` but is "
+            f"`{band_edge['verdict']}` because a stable chemical bath has the wrong "
+            "variational sign. A filled Clifford sea instead derives "
+            f"`{dirac_bath['constitutive_function']}` and "
+            f"`{dirac_bath['acceleration_scale']}` with the required static sign. "
+            "That candidate matches only the target asymptotes, not its full "
+            f"SPARC-trained curve (maximum absolute mu difference "
+            f"`{_fmt(dirac_bath['maximum_absolute_mu_difference_from_exposed_target'])}`). "
+            f"The adversarial map contains `{dirac_red_team['threat_count']}` threats: "
+            f"its highest passed level is `{dirac_red_team['highest_level_passed']}` "
+            f"and its first blocked level is `{dirac_red_team['first_blocked_level']}`. "
+            "It is a uniform-static spectral construction, not a finite local QFT, "
+            "causal HOLO completion, force, lensing result or publication.",
             f"- **Old versus critical response:** the old fixed tower has source "
             f"exponent `{_fmt(bulk_gate['old_source_mass_exponent'])}` and only "
             f"crosses the target three-halves slope for "

@@ -1,0 +1,416 @@
+{
+  "acceptance_ladder": [
+    {
+      "level": "L0_algebra",
+      "meaning": "Clifford spectrum, determinant, sign and coefficients close.",
+      "status": "PASS"
+    },
+    {
+      "level": "L1_uniform_static_spectral",
+      "meaning": "Deep exponent, monotone mu and static convexity close.",
+      "status": "PASS"
+    },
+    {
+      "level": "L2_finite_local_QFT",
+      "meaning": "Finite regulator changes the origin asymptote and the onsite continuum is an infinite fiber.",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "L3_causal_covariant_dynamics",
+      "meaning": "Temporal nonanalyticity, zero-field degeneracy and constraints remain open.",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "L4_current_HOLO_origin",
+      "meaning": "The current compact 5D scalar tower does not supply the required DOS or vertex.",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "L5_physical_force_and_lensing",
+      "meaning": "Matter normalization, two metric potentials and external verification are absent.",
+      "status": "BLOCKED"
+    }
+  ],
+  "assets": [
+    "three-halves exponent and attractive static sign",
+    "positive convex static energy",
+    "constitutive interpolation and a0 relation",
+    "finite local field content and regulator",
+    "causal covariant dynamics and constraints",
+    "current-HOLO origin",
+    "universal matter force, slip and lensing"
+  ],
+  "checks": {
+    "all": true,
+    "all_priorities_present": true,
+    "current_HOLO_gate_is_false": true,
+    "exact_target_match_is_false": true,
+    "finite_local_QFT_gate_is_false": true,
+    "finite_tower_attack_is_executable": true,
+    "no_attack_promotes_publication": true,
+    "p0_has_confirmed_blockers": true,
+    "source_has_no_physical_completion": true,
+    "source_static_gate_passes": true,
+    "temporal_attack_is_executable": true,
+    "threat_ids_unique": true
+  },
+  "classification": "static_spectral_gate_survives;finite_local_qft_causal_holo_and_physical_completion_blocked",
+  "decision": {
+    "causal_covariant_completion_survives": false,
+    "current_holo_mechanism": false,
+    "finite_local_qft_survives": false,
+    "physical_completion": false,
+    "publication_authorized": false,
+    "static_spectral_construction_survives": true,
+    "verdict": "SURVIVES_STATIC_SPECTRAL_RED_TEAM_BLOCKED_LOCAL_QFT_DYNAMICS_AND_HOLO"
+  },
+  "evidence_boundary": "The red-team map confirms the uniform-static algebra and records concrete counterexamples to finite-spectrum, causal and current-HOLO promotion. The comparison target inherits a SPARC training fit; no raw observation table is read here. Priorities are attack severity, not probabilities. No physical force, lensing, discovery or publication claim is authorized.",
+  "priority_actions": [
+    {
+      "action": "Construct a finite canonical regulator and bound the cubic window before taking a->0.",
+      "closes": [
+        "RT03_finite_spectrum_order_of_limits"
+      ],
+      "priority": 1
+    },
+    {
+      "action": "Derive the full retarded kernel and canonical constraint/principal-symbol spectrum.",
+      "closes": [
+        "RT04_gapless_temporal_kernel",
+        "RT08_gravity_constraint_and_DOF"
+      ],
+      "priority": 2
+    },
+    {
+      "action": "Find an anomaly-free RG-invariant cancellation rule for the a-squared operator.",
+      "closes": [
+        "RT05_unprotected_quadratic_matching",
+        "RT10_anomaly_and_topological_terms"
+      ],
+      "priority": 3
+    },
+    {
+      "action": "Derive the spectral fiber and Clifford vertex from a covariant extension of the current bulk.",
+      "closes": [
+        "RT06_current_5D_DOS_origin",
+        "RT15_species_and_backreaction"
+      ],
+      "priority": 4
+    },
+    {
+      "action": "Freeze one matter metric and solve two conserved source geometries for force, slip and lensing.",
+      "closes": [
+        "RT09_matter_and_lensing"
+      ],
+      "priority": 5
+    }
+  ],
+  "review_profile": {
+    "model_requested_by_user": "gpt-daybreak-blue-latest",
+    "scores_are_priorities_not_probabilities": true,
+    "style": "defensive scientific red team"
+  },
+  "schema": "holo.dirac-bath-red-team-map.v1",
+  "software": {
+    "python": "3.13.5"
+  },
+  "sources": {
+    "band_edge_negative_control": {
+      "path": "first_principles_audit/prediction_factory/artifacts/c2_band_edge_continuum.json",
+      "sha256": "dce359426862c60889e26407e710f435f1d9d8b9fc6c7810302f0b213553ca20"
+    },
+    "dirac_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/dirac_critical_bath_gate.json",
+      "sha256": "4d750a1147e26de568e6b32d84f94bda08cb55b498fc452f9fee05fd90d3ae63"
+    },
+    "inherited_target_origin": "SPARC training split only",
+    "minimal_campaign": {
+      "path": "first_principles_audit/prediction_factory/artifacts/minimal_mechanism_campaign.json",
+      "sha256": "d55515e914172f023a6824b410944328ed42b7dd87cbe67cb52e6a36afa8ea45"
+    },
+    "raw_observational_tables_read_directly": []
+  },
+  "summary": {
+    "closed_count": 3,
+    "confirmed_blocker_count": 4,
+    "first_blocked_level": "L2_finite_local_QFT",
+    "highest_level_passed": "L1_uniform_static_spectral",
+    "open_blocker_count": 8,
+    "p0_count": 7,
+    "threat_count": 17
+  },
+  "threats": [
+    {
+      "asset": "uniform static exponent and attractive sign",
+      "blocks_physical_completion": false,
+      "closure_evidence": "Independent symbolic derivation and executable Clifford/integral tests.",
+      "executable_evidence": [
+        "checks.clifford_coupling_is_linear_and_isotropic",
+        "checks.spectral_integral_matches_closed_form",
+        "checks.a0_relation_closes"
+      ],
+      "exploit": "Recompute the spectrum, filled-sea integral, Legendre sign and degeneracy.",
+      "id": "RT01_determinant_factor_and_sign",
+      "kill_criterion": "Any sign flip, complex energy or factor mismatch.",
+      "priority": "P0",
+      "result": "Factors, sign, K2 and a0=Lambda/y close in the declared per-negative-branch convention.",
+      "status": "CLOSED",
+      "trust_boundary": "TB1_spectrum_to_static_determinant"
+    },
+    {
+      "asset": "static stability",
+      "blocks_physical_completion": false,
+      "closure_evidence": "Global analytic inequalities plus logarithmic executable scans.",
+      "executable_evidence": [
+        "checks.nonzero_background_is_elliptic",
+        "checks.mixed_statistics_static_energy_is_positive_and_convex"
+      ],
+      "exploit": "Search for negative energy, negative slope or a negative Hessian eigenvalue.",
+      "id": "RT02_static_energy_instability",
+      "kill_criterion": "Negative static energy or transverse/longitudinal curvature.",
+      "priority": "P0",
+      "result": "Single matched bath and the 1F+8B witness are positive and convex for nonzero field; both degenerate at zero.",
+      "status": "CLOSED",
+      "trust_boundary": "TB1_spectrum_to_static_determinant"
+    },
+    {
+      "asset": "exact three-halves infrared asymptote",
+      "blocks_physical_completion": true,
+      "closure_evidence": "A canonical regulator, order of limits and a uniform error bound over the physical window.",
+      "executable_evidence": [
+        "diagnostics.finite_positive_tower_critical_power",
+        "diagnostics.finite_tower_zero_mode_power"
+      ],
+      "exploit": "Replace the continuum by a finite regulated spectrum, with and without a zero mode.",
+      "id": "RT03_finite_spectrum_order_of_limits",
+      "kill_criterion": "No regulated window with a bounded cubic approximation at the claimed physical scale.",
+      "priority": "P0",
+      "result": "A zero mode gives a linear onset; a positive finite tower gives a quartic critical remainder, never cubic at the origin.",
+      "status": "CONFIRMED_BLOCKER",
+      "trust_boundary": "TB2_continuous_DOS_to_finite_local_QFT"
+    },
+    {
+      "asset": "causal local dynamics",
+      "blocks_physical_completion": true,
+      "closure_evidence": "Full retarded propagator, constraints, positive residues and strong-coupling cutoff.",
+      "executable_evidence": [
+        "diagnostics.gapless_temporal_kernel_power"
+      ],
+      "exploit": "Compute the same fermion bubble at nonzero frequency after subtracting K(0).",
+      "id": "RT04_gapless_temporal_kernel",
+      "kill_criterion": "No hyperbolic initial-value problem, unstable pole or negative spectral weight.",
+      "priority": "P0",
+      "result": "The leading kernel is proportional to |omega|; bosonic a^2 seagulls do not cancel it.",
+      "status": "CONFIRMED_BLOCKER",
+      "trust_boundary": "TB3_static_determinant_to_causal_dynamics"
+    },
+    {
+      "asset": "deep branch with no residual a-squared term",
+      "blocks_physical_completion": true,
+      "closure_evidence": "A Ward identity or exact anomaly-free symmetry preserving Str(Q^2)=0 but Str(|Q|^3) nonzero.",
+      "executable_evidence": [],
+      "exploit": "Renormalize K2 and perturb the 1:8, y:y/2 mixed-field rule.",
+      "id": "RT05_unprotected_quadratic_matching",
+      "kill_criterion": "Radiative drift larger than the accuracy required for the deep branch.",
+      "priority": "P0",
+      "result": "The operator a^2 is symmetry-allowed; neither cancellation is RG protected.",
+      "status": "CONFIRMED_BLOCKER",
+      "trust_boundary": "TB3_static_determinant_to_causal_dynamics"
+    },
+    {
+      "asset": "current-HOLO microscopic origin",
+      "blocks_physical_completion": true,
+      "closure_evidence": "A covariant bulk/brane action, boundary conditions and reduction deriving DOS, sign and normalization.",
+      "executable_evidence": [],
+      "exploit": "Apply one-dimensional Weyl/Sturm-Liouville counting to the compact current bulk.",
+      "id": "RT06_current_5D_DOS_origin",
+      "kill_criterion": "The current 5D action cannot generate the required continuum and Clifford vertex.",
+      "priority": "P0",
+      "result": "The regular finite interval supplies a discrete gapped tower with asymptotically constant DOS, not rho(epsilon) proportional to epsilon.",
+      "status": "CONFIRMED_BLOCKER",
+      "trust_boundary": "TB5_new_spectral_sector_to_current_HOLO_5D"
+    },
+    {
+      "asset": "spatial locality",
+      "blocks_physical_completion": true,
+      "closure_evidence": "A finite local regulator with a quantitative locality bound on two source geometries.",
+      "executable_evidence": [],
+      "exploit": "Give the internal fermions physical group velocity and evaluate the inhomogeneous determinant.",
+      "id": "RT07_nonzero_physical_hopping",
+      "kill_criterion": "Nonlocal kernel dominates the local cubic in the intended regime.",
+      "priority": "P0",
+      "result": "A nonlocal spatial polarization returns; LDA requires v/(y|a|L)<<1 and is not uniform as a tends to zero.",
+      "status": "OPEN_BLOCKER",
+      "trust_boundary": "TB2_continuous_DOS_to_finite_local_QFT"
+    },
+    {
+      "asset": "healthy gravitational embedding",
+      "blocks_physical_completion": true,
+      "closure_evidence": "Canonical action, complete constraint rank and principal-symbol spectrum on vacuum and sourced backgrounds.",
+      "executable_evidence": [],
+      "exploit": "Choose a_i as scalar gradient, lapse acceleration or aether acceleration and run ADM/Dirac analysis.",
+      "id": "RT08_gravity_constraint_and_DOF",
+      "kill_criterion": "Ghost, lost constraint, ill-posed characteristic or unacceptable strong coupling.",
+      "priority": "P1",
+      "result": "No choice and complete constraint algebra have yet been derived; the principal spatial symbol degenerates at a=0.",
+      "status": "OPEN_BLOCKER",
+      "trust_boundary": "TB4_gradient_proxy_to_gravitational_constraints"
+    },
+    {
+      "asset": "physical force and lensing",
+      "blocks_physical_completion": true,
+      "closure_evidence": "One matter action and two-source solutions for Phi, Psi, force and lensing without target fitting.",
+      "executable_evidence": [],
+      "exploit": "Derive both weak-field metric potentials and couple all conserved matter through one metric.",
+      "id": "RT09_matter_and_lensing",
+      "kill_criterion": "Non-universal force, wrong slip or insufficient lensing.",
+      "priority": "P1",
+      "result": "Only a spherical constitutive proxy exists; normalization, slip and lensing are open.",
+      "status": "OPEN_BLOCKER",
+      "trust_boundary": "TB6_quasistatic_scalar_to_matter_and_lensing"
+    },
+    {
+      "asset": "real anomaly-free determinant",
+      "blocks_physical_completion": true,
+      "closure_evidence": "Explicit lattice or Pauli-Villars regulator and cancellation of the complete parity-odd functional.",
+      "executable_evidence": [],
+      "exploit": "Regulate the paired cones with all three mass matrices and inspect parity-odd terms.",
+      "id": "RT10_anomaly_and_topological_terms",
+      "kill_criterion": "Gauge/gravitational anomaly or unwanted topological response.",
+      "priority": "P1",
+      "result": "The 4x4 spectrum pairs two cones, but the full regulator and texture-dependent determinant are unspecified.",
+      "status": "OPEN_BLOCKER",
+      "trust_boundary": "TB2_continuous_DOS_to_finite_local_QFT"
+    },
+    {
+      "asset": "1F+8B protected-interpolation option",
+      "blocks_physical_completion": false,
+      "closure_evidence": "A protected high-field sector that restores a^2 without reintroducing it on the deep branch.",
+      "executable_evidence": [],
+      "exploit": "Take m much larger than Lambda after the internal quadratic sum rule.",
+      "id": "RT11_mixed_bath_high_field",
+      "kill_criterion": "Using the mixed sum rule alone as the full Newtonian interpolation.",
+      "priority": "P1",
+      "result": "The mixed energy grows linearly, not quadratically; it is only a deep-static witness, not a complete interpolant.",
+      "status": "CONFIRMED_LIMITATION",
+      "trust_boundary": "TB1_spectrum_to_static_determinant"
+    },
+    {
+      "asset": "robust spectral exponent",
+      "blocks_physical_completion": true,
+      "closure_evidence": "RG and phase diagram with a quantified, regulator-independent physical window.",
+      "executable_evidence": [
+        "diagnostics.gapped_critically_subtracted_deep_power"
+      ],
+      "exploit": "Add temperature, chemical potential, a small gap or anomalous dimension.",
+      "id": "RT12_IR_state_and_interactions",
+      "kill_criterion": "No domain where y|a| dominates every IR scale and rho remains linear.",
+      "priority": "P1",
+      "result": "A gap explicitly rounds cubic to quartic; the other deformations are unevaluated.",
+      "status": "OPEN_BLOCKER",
+      "trust_boundary": "TB2_continuous_DOS_to_finite_local_QFT"
+    },
+    {
+      "asset": "absolute normalization",
+      "blocks_physical_completion": true,
+      "closure_evidence": "Canonical field inventory and rho1 normalized per 4x4 multiplet.",
+      "executable_evidence": [],
+      "exploit": "Count the two negative branches of each 4x4 Clifford multiplet again inside g.",
+      "id": "RT13_degeneracy_contract",
+      "kill_criterion": "Factor-two ambiguity survives the field-content definition.",
+      "priority": "P2",
+      "result": "The code declares g per negative branch, but no real field inventory fixes it.",
+      "status": "OPEN_BLOCKER",
+      "trust_boundary": "TB1_spectrum_to_static_determinant"
+    },
+    {
+      "asset": "exact interpolation mu(x)",
+      "blocks_physical_completion": true,
+      "closure_evidence": "Derive the complete band from the microscopic action or claim only universal asymptotics.",
+      "executable_evidence": [],
+      "exploit": "Replace the hard linear DOS edge with a local lattice band.",
+      "id": "RT14_UV_shape_dependence",
+      "kill_criterion": "A reasonable regulator changes the claimed exact curve materially.",
+      "priority": "P2",
+      "result": "The cubic coefficient is infrared-universal, but the complete mu curve is UV dependent.",
+      "status": "OPEN_BLOCKER",
+      "trust_boundary": "TB1_spectrum_to_static_determinant"
+    },
+    {
+      "asset": "controlled effective theory",
+      "blocks_physical_completion": true,
+      "closure_evidence": "Finite regulator, stress tensor and gravitational backreaction with bounded corrections.",
+      "executable_evidence": [],
+      "exploit": "Count the onsite continuum's entropy and induced curvature operators.",
+      "id": "RT15_species_and_backreaction",
+      "kill_criterion": "Species renormalization or stress invalidates the assumed background.",
+      "priority": "P2",
+      "result": "The site density/fiber volume is new and its Planck/curvature backreaction is uncomputed.",
+      "status": "OPEN_BLOCKER",
+      "trust_boundary": "TB5_new_spectral_sector_to_current_HOLO_5D"
+    },
+    {
+      "asset": "relation to the exposed collector",
+      "blocks_physical_completion": false,
+      "closure_evidence": "A blind physical derivation of the full curve followed by external validation.",
+      "executable_evidence": [
+        "decision.exact_exposed_collector_interpolation_reproduced"
+      ],
+      "exploit": "Compare mu=1+x-sqrt(1+x^2) with the train-derived parametric mu target.",
+      "id": "RT16_exact_exposed_target_mismatch",
+      "kill_criterion": "Claiming reproduction of the exact empirical interpolation.",
+      "priority": "P1",
+      "result": "The limits agree, but the maximum absolute mu difference on the declared theory grid is 0.0794505.",
+      "status": "CONFIRMED_LIMITATION",
+      "trust_boundary": "TB6_quasistatic_scalar_to_matter_and_lensing"
+    },
+    {
+      "asset": "alternative material mechanisms",
+      "blocks_physical_completion": false,
+      "closure_evidence": "Frozen C2 band-edge sign certificate.",
+      "executable_evidence": [
+        "c2.decision.required_AQUAL_variational_sign_derived"
+      ],
+      "exploit": "Replace the filled sea by stable equilibrium occupation coupled as a chemical shift.",
+      "id": "RT17_ordinary_chemical_bath_sign",
+      "kill_criterion": "Reusing pressure with a flipped multiplicity or ghost measure.",
+      "priority": "P1",
+      "result": "The susceptibility sign is opposite to the AQUAL energy; that alternative is killed.",
+      "status": "CLOSED",
+      "trust_boundary": "TB1_spectrum_to_static_determinant"
+    }
+  ],
+  "title": "Adversarial attack map for the Dirac critical-bath route",
+  "trust_boundaries": [
+    {
+      "id": "TB1_spectrum_to_static_determinant",
+      "meaning": "Hermitian Clifford spectrum to filled-sea sign and integral.",
+      "status": "CLOSED_UNIFORM_STATIC"
+    },
+    {
+      "id": "TB2_continuous_DOS_to_finite_local_QFT",
+      "meaning": "An onsite continuum is an infinite internal fiber, not a finite 3+1 QFT.",
+      "status": "OPEN"
+    },
+    {
+      "id": "TB3_static_determinant_to_causal_dynamics",
+      "meaning": "The zero-gap fermion bubble has a nonanalytic temporal kernel.",
+      "status": "OPEN"
+    },
+    {
+      "id": "TB4_gradient_proxy_to_gravitational_constraints",
+      "meaning": "Choosing scalar gradient, lapse acceleration or aether changes constraints and DOF.",
+      "status": "OPEN"
+    },
+    {
+      "id": "TB5_new_spectral_sector_to_current_HOLO_5D",
+      "meaning": "The current compact one-coordinate bulk has a discrete gapped tower.",
+      "status": "OPEN"
+    },
+    {
+      "id": "TB6_quasistatic_scalar_to_matter_and_lensing",
+      "meaning": "A spherical constitutive equation does not fix two metric potentials or universal matter coupling.",
+      "status": "OPEN"
+    }
+  ]
+}

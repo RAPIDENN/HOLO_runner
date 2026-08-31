@@ -1,0 +1,189 @@
+{
+  "checks": {
+    "a0_relation_closes": true,
+    "all": true,
+    "certified_inputs": true,
+    "clifford_coupling_is_linear_and_isotropic": true,
+    "constitutive_mu_is_between_zero_and_one": true,
+    "constitutive_mu_is_monotone": true,
+    "critical_matching_cancels_quadratic_term": true,
+    "deep_mu_is_x": true,
+    "exposed_target_nonidentity_is_explicit": true,
+    "field_function_derivative_is_mu": true,
+    "finite_internal_gap_rounds_cubic_to_quartic": true,
+    "finite_tower_excludes_exact_cubic_origin": true,
+    "gapless_temporal_kernel_is_linear_not_local_analytic": true,
+    "microscopic_spectrum_is_real_and_gapped_by_gradient": true,
+    "mixed_statistics_quadratic_sum_rule_exists": true,
+    "mixed_statistics_static_energy_is_positive_and_convex": true,
+    "negative_branch_multiplicity_convention_is_explicit": true,
+    "newtonian_mu_tends_to_one": true,
+    "no_raw_observational_table_read_directly": true,
+    "nonzero_background_is_elliptic": true,
+    "remaining_cubic_has_required_negative_lagrangian_sign": true,
+    "spectral_integral_matches_closed_form": true,
+    "spherical_deep_source_scaling_is_square_root": true,
+    "spherical_high_source_scaling_is_linear": true
+  },
+  "classification": "uniform_static_spectral_candidate_survives;finite_local_qft_radiative_dynamic_relativistic_and_holo_gates_open",
+  "current_holo_embedding": {
+    "available_slots": [
+      "a certified scalar-matter interface",
+      "a separate derivative-constitutive route left open by the route matrix",
+      "a finite compact scalar spectrum and boundary actions"
+    ],
+    "missing": [
+      "the internal rho(epsilon) proportional to epsilon continuum",
+      "the Clifford Yukawa coupling to a spatial gradient or aether acceleration",
+      "a protected quadratic matching or sum rule",
+      "the complete lapse, shift, scalar and brane constraints",
+      "time-dependent hyperbolicity, matter normalization and lensing"
+    ],
+    "status": "new explicit sector; not derived from the current 5D action"
+  },
+  "decision": {
+    "chemical_bath_sign_obstruction_avoided": true,
+    "current_holo_mechanism": false,
+    "deep_operator_candidate_survives_static_algebraic_gate": true,
+    "exact_exposed_collector_interpolation_reproduced": false,
+    "finite_local_qft_realization_exhibited": false,
+    "lensing_derived": false,
+    "new_force_as_fundamental_physics": false,
+    "next_action": "Derive the internal pseudogap bath and its cancellation rule from a covariant 5D action, then perform the full constraint and time-dependent stability analysis before any force or lensing claim.",
+    "physical_completion": false,
+    "pointwise_onsite_hamiltonian_exhibited": true,
+    "publication_authorized": false,
+    "uniform_static_spectral_candidate": true,
+    "verdict": "SURVIVES_STATIC_SPECTRAL_GATE_BLOCKED_MICROSCOPIC_LOCAL_QFT_AND_HOLO"
+  },
+  "diagnostics": {
+    "clifford_maximum_error": 0.0,
+    "deep_mu_coefficient": 0.9999998418861171,
+    "deep_mu_log_slope": 0.9999980926171314,
+    "deep_spherical_source_mass_slope": 0.5000116196559841,
+    "expected_temporal_kernel_linear_coefficient": 2.7237608306623504,
+    "field_function_derivative_maximum_absolute_error": 2.9424220540489633e-07,
+    "finite_positive_tower_critical_power": 4.000000000000002,
+    "finite_tower_zero_mode_power": 0.9999999999999989,
+    "gapless_temporal_kernel_linear_coefficient": 2.723760827880252,
+    "gapless_temporal_kernel_power": 0.9999999269243819,
+    "gapped_critically_subtracted_deep_power": 3.999999948657612,
+    "high_spherical_source_mass_slope": 0.9999969814254492,
+    "high_x_coefficient_of_one_minus_mu": 0.4999999999879879,
+    "maximum_absolute_mu_difference_from_exposed_target": 0.07945047996084542,
+    "minimum_longitudinal_elliptic_factor": 1.9999999985e-09,
+    "minimum_mu_on_nonzero_grid": 9.999999995e-10,
+    "mixed_statistics_deep_energy_coefficient": 0.16666666504782096,
+    "mixed_statistics_minimum_energy": 2.3039999987039997e-27,
+    "mixed_statistics_minimum_first_derivative": 2.8800005289901643e-18,
+    "mixed_statistics_minimum_second_derivative": 4.1999999999814e-18,
+    "mixed_statistics_sum_rule": {
+      "field_content": "one filled fermion branch at y plus eight real bosons at y/2",
+      "negative_lagrangian_cubic_survives": true,
+      "quadratic_cancels": true,
+      "radiatively_protected": false,
+      "signed_cubic_sum": 0.5,
+      "signed_quadratic_sum": 0.0
+    },
+    "parameters": {
+      "K2": 8.3232,
+      "Lambda": 2.4,
+      "a0": 1.411764705882353,
+      "equivalent_4x4_multiplets": 2.0,
+      "negative_branch_degeneracy": 4,
+      "negative_branches_per_4x4_multiplet": 2,
+      "rho1": 0.6,
+      "y": 1.7
+    },
+    "rms_absolute_mu_difference_from_exposed_target": 0.016575171122489785,
+    "spectral_integral_maximum_relative_error": 2.1232889779732034e-08,
+    "spectrum_maximum_absolute_error": 2.220446049250313e-16
+  },
+  "evidence_boundary": "This theory-only calculation constructs an explicit stable spectrum whose uniform static determinant has the AQUAL three-halves power, attractive variational sign, monotone interpolation and an acceleration scale fixed by microscopic parameters. An onsite internal fiber makes the formal static response pointwise, but is not yet a finite local 3+1 QFT. The critical matching is not protected, zero-gap time dependence is not local after the bath is integrated out, and the sector is absent from the current HOLO action. The exposed comparison target inherits a SPARC training fit even though this script reads no raw observation table, and the derived mu is not that exact interpolation. It is therefore a surviving static spectral candidate, not a completed microscopic HOLO mechanism, relativistic theory, detection, lensing result or publication.",
+  "locality_and_regulator_audit": {
+    "finite_spacing": "An infrared gap removes the |a|^3 nonanalyticity and makes the critically subtracted onset quartic. The continuum/thermodynamic limit must precede a->0.",
+    "leading_temporal_obstruction": "After subtracting its zero-frequency piece, the linearly coupled fermion produces a nonanalytic kernel proportional to |omega|. The bosonic a^2 seagulls cancel the static coefficient but not that retarded kernel.",
+    "nonzero_hopping_condition": "For physical group velocity v_phys and variation length L, the local-density approximation requires v_phys/(y*|a|*L)<<1. It cannot hold uniformly as a->0 at fixed L.",
+    "time_dependence": "The continuum reaches epsilon=0, so integrating it out gives temporal memory and no uniform adiabatic expansion. Static fields are derived; causal dynamics are not.",
+    "uv_status": "The analytic a^2 coefficient depends on the physical bandwidth and local counterterms. Its exact cancellation is a critical matching condition, not yet a protected prediction.",
+    "zero_hopping_static_result": "Because the spectral modes are onsite/internal, integrating their ground-state energy produces no spatial kernel. This is pointwise as a static spectral model, but its continuum is an infinite internal fiber rather than a demonstrated finite local 3+1 QFT."
+  },
+  "microscopic_model": {
+    "branch_counting": "Each 4x4 Clifford multiplet has two negative eigenvalue branches. The parameter g counts negative branches, so the demonstrated g=4 corresponds to two 4x4 multiplets before any further species multiplicity. The 1F+8B sum rule is explicitly per one branch.",
+    "clifford_algebra": "{Gamma_A,Gamma_B}=2*delta_AB",
+    "degrees_of_freedom": "At each physical point, filled fermionic Clifford levels with internal spectral energy epsilon and rho(epsilon)=rho1*epsilon.",
+    "hamiltonian": "H_epsilon=epsilon*Gamma1+y*a_i*Gamma_(i+2)",
+    "local_realizations": [
+      "zero-physical-hopping pseudogap bath with a two-dimensional internal Dirac density of states at every spatial site",
+      "equal stacks of local 2D Clifford layers; their uniform potential is isotropic, while derivative anisotropy must be gated"
+    ],
+    "microscopic_coupling": "linear in the three components a_i; |a| appears only after diagonalizing the Hermitian Hamiltonian",
+    "spectrum": "E_+/-=+/-sqrt(epsilon^2+y^2*|a|^2)",
+    "stability_statement": "The one-particle spectrum is real and the finite-cutoff filled sea is bounded at fixed a. Stability of the coupled gravity/scalar initial-value problem is a separate open gate."
+  },
+  "physical_gates": {
+    "correct_deep_exponent_and_variational_sign": true,
+    "current_HOLO_physical_completion": false,
+    "finite_band_interpolation_and_a0_relation_derived": true,
+    "finite_local_3p1_qft_realization": false,
+    "five_dimensional_covariant_action_and_constraints_derived": false,
+    "gapless_continuum_generated_by_current_finite_HOLO_interval": false,
+    "lensing_and_gravitational_slip_derived": false,
+    "matter_coupling_absolute_normalization_derived": false,
+    "nonnegative_fermion_excitation_spectrum": true,
+    "nonzero_physical_hopping_uniformly_local_as_a_goes_to_zero": false,
+    "parity_and_gravitational_anomalies_cancelled_in_full_field_content": false,
+    "pointwise_static_when_internal_bath_has_zero_physical_hopping": true,
+    "quadratic_matching_or_sum_rule_radiatively_protected": false,
+    "time_dependent_bath_response_local_and_adiabatic_at_zero_gap": false,
+    "uniform_static_spectral_hamiltonian_explicit": true,
+    "vacuum_scalar_or_khronon_initial_value_problem_closed": false
+  },
+  "quadratic_cancellation_options": {
+    "boundary": "The displayed boson/fermion sum cancels the one-loop uniform quadratic coefficient pointwise for an onsite static bath and leaves a positive convex microscopic energy with the desired cubic sign. No current symmetry protects its multiplicities and coupling ratio, and it does not cancel the temporal |omega| kernel.",
+    "finite_stable_field_sum_rule": {
+      "field_content": "one filled fermion branch at y plus eight real bosons at y/2",
+      "negative_lagrangian_cubic_survives": true,
+      "quadratic_cancels": true,
+      "radiatively_protected": false,
+      "signed_cubic_sum": 0.5,
+      "signed_quadratic_sum": 0.0
+    },
+    "single_bath_matching": "Match the bare scalar or lapse-gradient stiffness to K2=g*rho1*Lambda*y^2/2.",
+    "sum_rule_static_energy": "U_mix=-I(m)+4*I(m/2)>0, U_mix'>0 and U_mix''>0 for m>0; U_mix=m^3/6+O(m^4/Lambda)."
+  },
+  "schema": "holo.dirac-critical-bath-gate.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "inherited_exposed_target_origin": "SPARC training split only",
+    "killed_chemical_band_edge": {
+      "path": "first_principles_audit/prediction_factory/artifacts/c2_band_edge_continuum.json",
+      "sha256": "dce359426862c60889e26407e710f435f1d9d8b9fc6c7810302f0b213553ca20"
+    },
+    "nonlinear_target": {
+      "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+      "sha256": "6d109eef26cd4f082af6165504905926a52c436bf30275abbce0e6584b65f12b"
+    },
+    "raw_observational_tables_read_directly": [],
+    "route_matrix": {
+      "path": "first_principles_audit/prediction_factory/artifacts/holo_nonlinear_route_matrix.json",
+      "sha256": "92ea91fc5fb5069d30acd50eb5b71428c5a70e9d7583e80dc052228afa3b3498"
+    }
+  },
+  "title": "Dirac critical-bath spectral construction for the AQUAL static operator",
+  "uniform_static_derivation": {
+    "acceleration_scale": "a0=Lambda/y",
+    "bath_lagrangian": "L_bath=g*rho1/3*[(Lambda^2+y^2*a^2)^(3/2)-Lambda^3-y^3*|a|^3]",
+    "constitutive_function": "mu(x)=F'(x^2)=1+x-sqrt(1+x^2)",
+    "critical_bare_term": "L_bare=-K2*a^2, K2=g*rho1*Lambda*y^2/2",
+    "limits": "mu=x+O(x^2) for x<<1; mu=1-1/(2x)+O(x^-2) for x>>1",
+    "matched_deep_term": "L_total=-(g*rho1*y^3/3)*|a|^3+O(a^4)",
+    "normalized_action": "L_total=-K2*a0^2*F(X), X=a^2/a0^2; F~2*X^(3/2)/3",
+    "small_a": "L_bath=(g*rho1*Lambda*y^2/2)*a^2-(g*rho1*y^3/3)*|a|^3+O(a^4/Lambda)",
+    "spherical_equation": "mu(g/a0)*g=g_N",
+    "target_scope": "The microscopic curve shares the required deep and Newtonian limits but is not the exact train-derived collector interpolation."
+  }
+}

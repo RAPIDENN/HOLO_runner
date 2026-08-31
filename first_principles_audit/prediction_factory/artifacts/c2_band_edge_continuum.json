@@ -1,0 +1,230 @@
+{
+  "candidate_realizations_not_yet_HOLO_derivations": [
+    {
+      "advantage": "finite positive density; the cubic low-density energy is exact for free spinless fermions and isolated impenetrable Tonks segments",
+      "class": "spinless_quantum_wire_or_Tonks_network",
+      "open_gate": "junctions can spoil the Tonks map; isotropic network stress, universal density and eta Y coupling remain unproved",
+      "rho0": "g times total wire length per three-volume divided by pi",
+      "state_counting": "dk/(2pi) on the full wire folds to dm/pi for m=abs(k)"
+    },
+    {
+      "advantage": "a one-dimensional quadratic spectrum is kinematically available",
+      "class": "decompactified_radial_or_internal_channel",
+      "open_gate": "a bare 5D KK continuum supplies neither fermionic occupation nor a finite 4D density; ordinary three-momentum dispersion also changes the density-of-states exponent",
+      "rho0": "not finite in 4D until a normalized channel density is derived"
+    }
+  ],
+  "checks": {
+    "all": true,
+    "attractive_fold_is_a_spinodal": true,
+    "coexistence_follows_spinodal_and_preempts_clean_onset": true,
+    "coexistence_free_energy_closes": true,
+    "deep_log_slope_is_three_halves": true,
+    "density_legendre_transform_closes": true,
+    "finite_spacing_converges_at_fixed_y": true,
+    "no_raw_observational_table_read_directly": true,
+    "occupation_integral_matches_closed_form": true,
+    "physical_density_is_square_root_selector": true,
+    "positive_spectral_measure": true,
+    "prior_compact_C2_kill_is_scoped": true,
+    "quadratic_band_edge": true,
+    "stable_bath_susceptibility_has_opposite_target_sign": true,
+    "z1_constant_measure_does_not": true,
+    "z2_constant_measure_selects_three_halves": true
+  },
+  "classification": "exact_band_edge_exponent_with_stable_thermodynamics;wrong_AQUAL_variational_sign_and_no_current_holo_embedding",
+  "decision": {
+    "candidate_survives": false,
+    "current_holo_mechanism_candidate": false,
+    "exact_exponent_and_positive_pressure_derived": true,
+    "kills_prior_scoped_compact_verdict": false,
+    "lensing_derived": false,
+    "new_force_derived": false,
+    "next_action": "Do not repair this equilibrium bath by flipping multiplicity. Test a constrained geometric sector whose static sign follows from the gravitational constraint, with tensor and Dirac gates evaluated before any phenomenological comparison.",
+    "physical_completion": false,
+    "required_AQUAL_variational_sign_derived": false,
+    "tested_live_C2_class": true,
+    "verdict": "KILL_C2_BAND_EDGE_WRONG_VARIATIONAL_SIGN"
+  },
+  "diagnostics": {
+    "attractive_deformation": {
+      "coexistence_density": 0.6528000000000002,
+      "coexistence_grand_potential": -2.7755575615628914e-17,
+      "coexistence_y": 0.18055384615384615,
+      "spinodal_curvature": 5.551115123125783e-17,
+      "spinodal_density": 0.43520000000000014,
+      "spinodal_y": 0.16381538461538458
+    },
+    "finite_spacing_rows": [
+      {
+        "first_excited_threshold_above_yc": 0.009049773755656111,
+        "pressure": 0.3695058823529413,
+        "relative_error_to_continuum": 0.002024071437767061,
+        "spacing": 0.2
+      },
+      {
+        "first_excited_threshold_above_yc": 0.000565610859728507,
+        "pressure": 0.36881764705882364,
+        "relative_error_to_continuum": 0.0001577186557015775,
+        "spacing": 0.05
+      },
+      {
+        "first_excited_threshold_above_yc": 3.5350678733031684e-05,
+        "pressure": 0.36876277573529426,
+        "relative_error_to_continuum": 8.918894631504415e-06,
+        "spacing": 0.0125
+      }
+    ],
+    "maximum_legendre_relative_error": 3.3306690738754696e-16,
+    "maximum_pressure_integral_relative_error": 4.440892098500626e-16,
+    "maximum_selector_relative_error": 2.220446049250313e-16,
+    "parameters": {
+      "Delta": 0.0,
+      "M_star": 1.7,
+      "eta": 1.3,
+      "rho0": 0.8
+    },
+    "pressure_log_slope": 1.5,
+    "selector_prefactor_B": 2.1864747883293787,
+    "stable_bath_d2_Omega_star_dY2": -1.7972712048502262
+  },
+  "dimensional_contract": {
+    "candidate_scale_relation": "If and only if this sector is the full target density, M_Pl^2 a0^2=B=sqrt(2)rho0 sqrt(M_star)eta^(3/2).",
+    "dimensions": {
+      "W_P_B": "mass^4",
+      "Y": "dimensionless by convention",
+      "attraction_g": "mass^-2",
+      "eta_Delta_M_star_m": "mass",
+      "n": "mass^3",
+      "rho0": "mass^2 so rho0*dm is a number density"
+    },
+    "natural_units": "hbar=c=1",
+    "scale_status": "relation derived; none of rho0,M_star,eta is selected by current HOLO"
+  },
+  "evidence_boundary": "This theory calculation derives a convex stable band-edge occupation problem, its positive pressure, the three-halves power and a physical density selector. It reads no raw observation table, but its exposed acceptance target inherits a SPARC training fit through the phase-space bridge. It fails the variational sign required by AQUAL, so this candidate is killed rather than repaired. It is not an embedding in the current finite HOLO geometry, a force, a lensing prediction, an observation or a publication claim.",
+  "finite_size_and_fold_adjudication": {
+    "attractive_result": "As Y increases, adding -g n^2/2 first creates a metastable high-density branch at the spinodal; coexistence occurs later but before the n=0 clean onset, so the equilibrium transition is first order.",
+    "clean_onset": "At Delta=0 and zero attraction the boundary n=0 is stable for Y<=0; for Y>0 a unique stable n~sqrt(Y) branch appears.",
+    "compact_result": "Finite level spacing gives a linear zero-mode segment and steps; the continuum limit must precede the deep-edge limit.",
+    "ift_status": "W''(0)=0, so the inverse map is nonanalytic at the band edge; this is a boundary onset, not two physical branches crossing.",
+    "interior_fold_no_go": "For Omega=W(n)-eta Yn with eta>0 and strict equilibrium stability W''>0, dY/dn=W''/eta>0; a stable interior fold is impossible."
+  },
+  "kill_criteria": [
+    {
+      "current_result": "OPEN_FAIL_CURRENT_HOLO_HAS_NO_PROTECTION",
+      "id": "K1_nonzero_unprotected_gap",
+      "kill_if": "Delta is nonzero or unprotected, producing Yc=Delta/eta."
+    },
+    {
+      "current_result": "FAIL_FOR_CURRENT_FINITE_HOLO_INTERVAL",
+      "id": "K2_finite_level_spacing",
+      "kill_if": "The physical spectrum remains compact/discrete in the required deep window."
+    },
+    {
+      "current_result": "NOT_EVALUATED",
+      "id": "K3_dispersion_or_measure_runs",
+      "kill_if": "Interactions or geometry change alpha=0,z=2 in the infrared."
+    },
+    {
+      "current_result": "NOT_EVALUATED",
+      "id": "K4_thermal_rounding",
+      "kill_if": "T is not much smaller than eta*abs(Y-Yc) in the claimed window."
+    },
+    {
+      "current_result": "NOT_UNIFORMLY_SATISFIED_AT_ONSET",
+      "id": "K5_local_density_breakdown",
+      "kill_if": "The variation length is not large compared with 1/m_F."
+    },
+    {
+      "current_result": "NOT_DERIVED_FROM_CURRENT_HOLO",
+      "id": "K6_wrong_conjugate_operator",
+      "kill_if": "The same microscopic action does not derive eta*Y as the chemical shift."
+    },
+    {
+      "current_result": "NOT_EVALUATED",
+      "id": "K7_anisotropy_or_bad_stress",
+      "kill_if": "The channel realization leaves unacceptable preferred-direction stress or instability."
+    },
+    {
+      "current_result": "NOT_EVALUATED",
+      "id": "K8_tensor_or_causality_failure",
+      "kill_if": "Embedding the response creates a vanishing tensor coefficient, ghost, gradient instability or acausality."
+    },
+    {
+      "current_result": "TRIGGERED",
+      "id": "K9_wrong_variational_sign",
+      "kill_if": "Stable occupation induces +P in the Lorentzian density rather than the required -P."
+    }
+  ],
+  "microscopic_occupation_problem": {
+    "compressibility": "d(eta Y-Delta)/dn=n/(M_star rho0^2)>0 for n>0",
+    "dispersion": "epsilon(m)=Delta+m^2/(2M_star)",
+    "hamiltonian_density": "Omega=min_{N_m in {0,1}} integral_0^infinity rho0 dm N_m[Delta+m^2/(2M_star)-eta Y]",
+    "occupation_rule": "N_m=1 iff m<m_F=sqrt(2M_star[eta Y-Delta]_+)",
+    "pressure": "P=-Omega=(2sqrt(2)/3)rho0 sqrt(M_star)[eta Y-Delta]_+^(3/2)",
+    "selector": "n=rho0*m_F is occupied number density, not a fitted radius",
+    "selector_energy": "W(n)=n^3/(6M_star rho0^2)",
+    "spectral_measure": "rho(m) dm=rho0 dm with rho0>0"
+  },
+  "normalized_tricritical_map": {
+    "definition": "s=n/[rho0 sqrt(2M_star eta)], B=sqrt(2)rho0 sqrt(M_star)eta^(3/2), Yc=Delta/eta",
+    "grand_potential": "Omega=B[s^3/3-s(Y-Yc)]",
+    "interpretation": "The q6-like cubic cost in s and q2Y-like conjugate term arise from filled z=2 states when s is identified with density.",
+    "onshell_pressure": "P=(2B/3)[Y-Yc]_+^(3/2)",
+    "stationary_selector": "s=sqrt(Y-Yc) for Y>Yc"
+  },
+  "physical_gates": {
+    "a0_normalization_derived": false,
+    "causal_relativistic_completion_derived": false,
+    "current_HOLO_physical_completion": false,
+    "current_finite_HOLO_interval_decompactified": false,
+    "eta_times_Y_vertex_derived_from_current_5d_action": false,
+    "explicit_positive_measure_occupation_problem": true,
+    "finite_four_dimensional_spectral_density_derived_from_HOLO": false,
+    "fractional_power_inserted_by_hand": false,
+    "gap_Delta_zero_protected_by_current_action": false,
+    "isotropic_stress_tensor_derived": false,
+    "lensing_and_gravitational_slip_derived": false,
+    "required_AQUAL_variational_sign_derived": false,
+    "selector_is_physical_number_density": true,
+    "stable_convex_zero_temperature_onset": true,
+    "uniform_local_density_approximation_at_onset": false,
+    "z2_dispersion_and_single_component_occupation_protected": false
+  },
+  "scaling_selection": {
+    "constant_measure_z1_power": 2.0,
+    "constant_measure_z2_power": 1.5,
+    "general_rule": "rho(m)~m^alpha and epsilon-Delta~m^z imply P~[Y-Yc]^[1+(alpha+1)/z]",
+    "meaning": "Changing the dispersion or material changes the exponent; the three-halves value is selected specifically by alpha=0,z=2."
+  },
+  "schema": "holo.c2-band-edge-continuum.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "inherited_exposed_target": {
+      "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_collector_action.json",
+      "sha256": "6d109eef26cd4f082af6165504905926a52c436bf30275abbce0e6584b65f12b"
+    },
+    "inherited_exposed_target_origin": "SPARC training split only",
+    "prior_compact_c2_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/c2_critical_continuum_gate.json",
+      "sha256": "4d8b4b25094ba2d55b7792d19735df6beca74588734705add34b0529831e8f57"
+    },
+    "prior_phase_space_diagnostic": {
+      "path": "first_principles_audit/prediction_factory/artifacts/phase_space_collector_bridge.json",
+      "sha256": "d1c4933caae7dc05486bc6c11d45225cbe05bcea34e44883a344e4b2e5f3f488"
+    },
+    "raw_observational_tables_read_directly": []
+  },
+  "title": "Quadratic band-edge occupation mechanism for a three-halves response",
+  "variational_sign_audit": {
+    "induced_static_actions": "Gamma_E=beta*V*Omega_star=-beta*V*P, while the static Lorentzian density is L_gas=+P and H_gas=-P.",
+    "required_target_sign": "The repository target is L_target=-C*P and H_target=+C*P for C=M_Pl^2*a0^2>0.",
+    "sign_flip_failure": "Changing the chemical coupling to +eta*Y*n leaves the empty minimum for Y>0; reversing determinant multiplicity or occupation would abandon a stable positive-norm gas.",
+    "stable_minimization": "Omega(n,Y)=W(n)-eta*Y*n has Omega_nn=W''>0; at its minimum Omega_star(Y)=-P(Y).",
+    "susceptibility_no_go": "d2 Omega_star/dY2=-eta^2/W''<0 on every strictly stable interior branch, whereas the target energy requires +C*P_YY>0.",
+    "verdict": "FAIL_REQUIRED_AQUAL_VARIATIONAL_SIGN"
+  }
+}

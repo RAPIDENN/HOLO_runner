@@ -116,6 +116,9 @@ python3 -m first_principles_audit.prediction_factory.derive_bps_volume_constrain
 python3 -m first_principles_audit.prediction_factory.derive_c1_bk_derivative_gate
 python3 -m first_principles_audit.prediction_factory.derive_c2_critical_continuum_gate
 python3 -m first_principles_audit.prediction_factory.derive_c3_geometric_transition_gate
+python3 -m first_principles_audit.prediction_factory.derive_c2_band_edge_continuum
+python3 -m first_principles_audit.prediction_factory.derive_dirac_critical_bath_gate
+python3 -m first_principles_audit.prediction_factory.derive_dirac_bath_red_team_map
 python3 first_principles_audit/prediction_factory/build_master_prediction_registry.py
 ```
 
@@ -160,6 +163,40 @@ The paper build regenerates the three theory gates and then validates this
 content-addressed campaign. It intentionally does not regenerate the campaign
 or its private Skai records; any changed gate hash must stop the build and start
 a new recorded campaign rather than silently refreshing the old receipts.
+
+## Post-campaign spectral branch and adversarial map
+
+The frozen campaign is unchanged. A subsequent outside-scope C2 test now makes
+the continuum fork explicit. A stable z=2 band edge derives the exact
+three-halves pressure exponent but has the wrong AQUAL variational sign, so
+`c2_band_edge_continuum.json` kills that candidate. A filled negative-energy
+Clifford bath avoids the sign obstruction. Its uniform-static determinant gives
+
+```text
+mu(x) = 1 + x - sqrt(1 + x^2),    a0 = Lambda/y,
+```
+
+with the required deep limit, positive off-origin elliptic factors and a finite
+band Newtonian limit. This is a static spectral construction. The onsite
+continuum is still an infinite internal fibre, not an exhibited finite local
+3+1 QFT, and it produces a nonanalytic temporal kernel. Its curve shares the
+exposed target's asymptotes but is not the exact SPARC-training interpolation.
+
+`dirac_bath_red_team_map.json` records 17 attacks across six trust boundaries.
+Algebra and uniform-static spectral response pass at L0-L1. Finite regulation,
+causal covariant dynamics, the current compact HOLO origin and matter/lensing
+remain blocked at L2-L5. The artifact authorizes no physical force, detection,
+lensing claim or publication. Reproduce the branch and tests with:
+
+```bash
+python3 -m first_principles_audit.prediction_factory.derive_c2_band_edge_continuum
+python3 -m first_principles_audit.prediction_factory.derive_dirac_critical_bath_gate
+python3 -m first_principles_audit.prediction_factory.derive_dirac_bath_red_team_map
+python3 -m unittest \
+  first_principles_audit.prediction_factory.test_c2_band_edge_continuum \
+  first_principles_audit.prediction_factory.test_dirac_critical_bath_gate \
+  first_principles_audit.prediction_factory.test_dirac_bath_red_team_map
+```
 
 The current branch audit finds that changing only the IR Neumann condition to
 Dirichlet does not cleanly remove the excluded massless mode: it produces an

@@ -191,6 +191,50 @@ class MasterPredictionRegistryTests(unittest.TestCase):
         self.assertEqual(link["gate"], "c3_input_contract_incomplete")
         self.assertIn("no physics evidence", link["meaning"])
 
+    def test_post_campaign_dirac_branch_stops_at_static_spectral_level(self) -> None:
+        band = self.registry["current_predictions"]["c2_band_edge_continuum"]
+        self.assertAlmostEqual(band["pressure_log_slope"], 1.5, places=11)
+        self.assertTrue(band["exact_exponent_derived"])
+        self.assertFalse(band["required_variational_sign_derived"])
+        self.assertFalse(band["candidate_survives"])
+        self.assertEqual(band["raw_observational_tables_read_directly"], [])
+        self.assertEqual(band["inherited_target_origin"], "SPARC training split only")
+
+        candidate = self.registry["current_predictions"][
+            "dirac_critical_bath_gate"
+        ]
+        self.assertTrue(candidate["uniform_static_spectral_candidate"])
+        self.assertFalse(candidate["finite_local_qft_realization_exhibited"])
+        self.assertFalse(
+            candidate["exact_exposed_collector_interpolation_reproduced"]
+        )
+        self.assertEqual(candidate["inherited_target_origin"], "SPARC training split only")
+        self.assertFalse(candidate["physical_completion"])
+        self.assertFalse(candidate["publication_authorized"])
+
+        red_team = self.registry["current_predictions"]["dirac_bath_red_team"]
+        self.assertEqual(red_team["threat_count"], 17)
+        self.assertEqual(
+            red_team["highest_level_passed"], "L1_uniform_static_spectral"
+        )
+        self.assertEqual(red_team["first_blocked_level"], "L2_finite_local_QFT")
+        self.assertTrue(red_team["static_spectral_construction_survives"])
+        self.assertFalse(red_team["finite_local_qft_survives"])
+        self.assertFalse(red_team["causal_covariant_completion_survives"])
+        self.assertFalse(red_team["current_holo_mechanism"])
+        self.assertFalse(red_team["physical_completion"])
+        self.assertFalse(red_team["publication_authorized"])
+
+        links = {row["id"]: row for row in self.registry["links"]}
+        self.assertEqual(
+            links["minimal_campaign_to_band_edge_negative_control"]["gate"],
+            "killed_wrong_AQUAL_variational_sign",
+        )
+        self.assertEqual(
+            links["dirac_static_candidate_to_red_team_map"]["gate"],
+            "first_blocked_level_L2_finite_local_QFT",
+        )
+
     def test_critical_bridge_changes_exponent_but_remains_prospective(self) -> None:
         gate = self.registry["current_predictions"][
             "bulk_constitutive_decision_gate"
