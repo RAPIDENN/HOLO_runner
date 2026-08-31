@@ -203,6 +203,14 @@ def build_registry() -> dict[str, Any]:
         "first_principles_audit/prediction_factory/artifacts/"
         "khronon_constraint_stability_gate.json"
     )
+    bulk_z2_clifford_completion_path = (
+        "first_principles_audit/prediction_factory/artifacts/"
+        "bulk_z2_clifford_completion_gate.json"
+    )
+    brane_tilted_semimetal_path = (
+        "first_principles_audit/prediction_factory/artifacts/"
+        "brane_tilted_semimetal_gate.json"
+    )
     scale_consistency_path = (
         "first_principles_audit/prediction_factory/artifacts/"
         "scale_consistency.json"
@@ -262,6 +270,8 @@ def build_registry() -> dict[str, Any]:
     dirac_red_team = _read_json(dirac_red_team_path)
     covariant_5d_origin = _read_json(covariant_5d_origin_path)
     khronon_stability = _read_json(khronon_stability_path)
+    bulk_z2_clifford_completion = _read_json(bulk_z2_clifford_completion_path)
+    brane_tilted_semimetal = _read_json(brane_tilted_semimetal_path)
     if c2_band_edge.get("decision", {}).get("verdict") != (
         "KILL_C2_BAND_EDGE_WRONG_VARIATIONAL_SIGN"
     ):
@@ -286,6 +296,16 @@ def build_registry() -> dict[str, Any]:
         "FULL_RETARDED_AND_WARPED_COMPLETION_BLOCKED"
     ):
         raise ValueError("unexpected khronon constraint/stability verdict")
+    if bulk_z2_clifford_completion.get("decision", {}).get("verdict") != (
+        "LOCAL_5D_Z2_GAUSSIAN_STATIC_BATH_AND_FLAT_BANDED_CAUSAL_GATE_"
+        "PASS_COMPACT_HOLO_AND_RETARDED_UV_BLOCKED"
+    ):
+        raise ValueError("unexpected bulk z=2 Clifford completion verdict")
+    if brane_tilted_semimetal.get("decision", {}).get("verdict") != (
+        "COVARIANT_BRANE_TILTED_SEMIMETAL_STATIC_AND_Q0_ACCELERATION_RETARDED_PASS_"
+        "FULL_Q_ISOTROPY_JUNCTIONS_AND_PHYSICS_BLOCKED"
+    ):
+        raise ValueError("unexpected brane tilted-semimetal verdict")
     if not all(
         artifact.get("checks", {}).get("all") is True
         for artifact in (
@@ -294,9 +314,83 @@ def build_registry() -> dict[str, Any]:
             dirac_red_team,
             covariant_5d_origin,
             khronon_stability,
+            bulk_z2_clifford_completion,
+            brane_tilted_semimetal,
         )
     ):
         raise ValueError("post-campaign microscopic gate checks are incomplete")
+    bulk_z2_decision = bulk_z2_clifford_completion["decision"]
+    required_bulk_z2_passes = (
+        "same_action_local_5D_Gaussian_static_bath_derived",
+        "UV_finite_static_completion_without_hard_cutoff",
+        "literal_bulk_single_particle_linear_DOS_derived",
+        "exact_local_Clifford_spectrum_derived",
+        "filled_negative_sea_sign_and_cubic_derived",
+        "fundamental_flat_constraint_rank_preserved",
+        "full_flat_finite_band_gaussian_retarded_kernel_derived",
+        "retarded_branch_cut_resolved",
+        "exact_metric_lapse_Schur_complement_retained",
+        "critical_linear_flat_scalar_has_no_UHP_poles",
+        "flat_background_linear_time_stability_complete_for_frozen_banded_model",
+        "same_action_q0_renormalized_retarded_kernel_derived",
+        "same_action_continuum_has_upper_half_plane_pole",
+        "same_action_finite_q_requires_gradient_counterterm",
+    )
+    if not all(bulk_z2_decision.get(key) is True for key in required_bulk_z2_passes):
+        raise ValueError("bulk z=2 Clifford pass boundary is incomplete")
+    required_bulk_z2_blocks = (
+        "finite_band_retarded_regulator_derived_from_local_UV_completion",
+        "same_action_local_UV_full_retarded_kernel_derived",
+        "minimal_static_Gaussian_multiplet_same_action_UV_dynamics_survives",
+        "finite_compact_HOLO_strict_IR_cubic_survives",
+        "naive_isotropic_original_Lifshitz_background_route_survives",
+        "gapless_radial_continuum_with_4D_gravity_localization_derived",
+        "critical_matching_Ward_protected",
+        "nonlinear_global_time_stability_derived",
+        "current_compact_Einstein_dilaton_HOLO_completed",
+        "new_force_derived",
+        "lensing_derived",
+        "physical_completion",
+        "publication_authorized",
+    )
+    if not all(bulk_z2_decision.get(key) is False for key in required_bulk_z2_blocks):
+        raise ValueError("bulk z=2 Clifford blocked boundary was promoted")
+    brane_semimetal_decision = brane_tilted_semimetal["decision"]
+    required_brane_semimetal_passes = (
+        "local_covariant_5D_defect_matter_ansatz_exhibited",
+        "literal_three_space_linear_DOS_derived",
+        "bounded_below_Hamiltonian_and_finite_occupied_region_from_same_ansatz",
+        "exact_static_bracket_from_same_finite_occupied_region",
+        "fixed_charge_sector_required",
+        "same_ansatz_q0_acceleration_retarded_kernel_derived",
+        "same_ansatz_q0_acceleration_positive_spectral_measure",
+        "reduced_brane_long_wavelength_Schur_has_no_UHP_poles",
+        "same_ansatz_finite_q_acceleration_block_positive_Kubo_representation_derived",
+        "finite_q_sampled_static_response_below_q0",
+    )
+    if not all(
+        brane_semimetal_decision.get(key) is True
+        for key in required_brane_semimetal_passes
+    ):
+        raise ValueError("brane tilted-semimetal pass boundary is incomplete")
+    required_brane_semimetal_blocks = (
+        "fixed_charge_sector_dynamically_selected",
+        "inhomogeneous_fixed_charge_local_functional_derived",
+        "full_q_all_vertex_global_Schur_stability_derived",
+        "metric_and_density_intraband_channels_included",
+        "continuous_SO3_dynamical_isotropy_derived",
+        "full_brane_constraint_and_junction_rank_derived",
+        "warped_backreacted_solution_derived",
+        "new_force_derived",
+        "lensing_derived",
+        "physical_completion",
+        "publication_authorized",
+    )
+    if not all(
+        brane_semimetal_decision.get(key) is False
+        for key in required_brane_semimetal_blocks
+    ):
+        raise ValueError("brane tilted-semimetal blocked boundary was promoted")
     scale_consistency = _read_json(scale_consistency_path)
     observations = _read_json(observation_path)
 
@@ -368,6 +462,10 @@ def build_registry() -> dict[str, Any]:
         "dirac_bath_red_team_map": _evidence(dirac_red_team_path),
         "covariant_5d_pseudogap_gate": _evidence(covariant_5d_origin_path),
         "khronon_constraint_stability_gate": _evidence(khronon_stability_path),
+        "bulk_z2_clifford_completion_gate": _evidence(
+            bulk_z2_clifford_completion_path
+        ),
+        "brane_tilted_semimetal_gate": _evidence(brane_tilted_semimetal_path),
         "scale_consistency": _evidence(scale_consistency_path),
         "observational_protocol": _evidence(observation_path),
     }
@@ -431,6 +529,17 @@ def build_registry() -> dict[str, Any]:
             "khronon_geometric_matching_gate": (
                 "convex covariant EFT and local flat constraints; full retarded and "
                 "warped completion blocked"
+            ),
+            "bulk_z2_local_static_and_flat_banded_gate": (
+                "local 4+1 z=2 Clifford-scalar static completion and exact-Schur "
+                "flat finite-band response; compact HOLO and same-action retarded "
+                "UV completion blocked"
+            ),
+            "brane_tilted_semimetal_gate": (
+                "covariant 3+1 defect-matter ansatz in 4+1 with a bounded-below "
+                "Hamiltonian and finite occupied region; static and q=0 acceleration "
+                "response pass while "
+                "full-q, isotropy, junction and backreaction gates remain blocked"
             ),
             "derivative_constitutive_scalar": (
                 "surviving architecture; microscopic derivative operator not derived"
@@ -760,6 +869,50 @@ def build_registry() -> dict[str, Any]:
                     "full retarded kernel and warped junction system do not."
                 ),
                 "evidence": artefacts["khronon_constraint_stability_gate"],
+            },
+            {
+                "id": "khronon_matching_to_bulk_z2_clifford_completion",
+                "from": "khronon_geometric_matching_gate",
+                "to": "bulk_z2_local_static_and_flat_banded_gate",
+                "status": "same_action_local_static_pass_separate_flat_banded_exact_schur_pass",
+                "gate": "Z0_Z4_pass_Z5_killed_Z6_blocked",
+                "meaning": (
+                    "A finite-derivative local 4+1 z=2 Clifford bath plus stable "
+                    "massive scalars derives the literal linear DOS and UV-finite "
+                    "static bracket from one action. The separately frozen positive-"
+                    "weight finite band closes the full flat Gaussian branch cut and "
+                    "exact metric/lapse Schur stability test. The actual local "
+                    "scalar partners have only a seagull and their continuum "
+                    "response develops an explicit UHP pole, killing that minimal "
+                    "same-action UV completion; finite compactification "
+                    "also removes the strict-IR cubic. No force or lensing follows."
+                ),
+                "evidence": artefacts["bulk_z2_clifford_completion_gate"],
+            },
+            {
+                "id": "bulk_z2_to_brane_tilted_semimetal_completion",
+                "from": "bulk_z2_local_static_and_flat_banded_gate",
+                "to": "brane_tilted_semimetal_gate",
+                "status": "same_ansatz_defect_static_and_q0_acceleration_retarded_pass",
+                "gate": "B0_B3_pass_B4_B5_blocked_B6_not_entered",
+                "meaning": (
+                    "A covariantly embedded 3+1 defect replaces the problematic "
+                    "radial continuum by a finite-derivative tilted-semimetal ansatz. "
+                    "A three-director sum restores reference and q^2 isotropy, not "
+                    "continuous dynamical SO(3). The same local defect-matter "
+                    "ansatz supplies "
+                    "the literal three-space "
+                    "linear DOS, a bounded-below Hamiltonian and finite occupied "
+                    "region, the exact fixed-charge static "
+                    "bracket, the complete q=0 acceleration-sector retarded kernel "
+                    "and positive finite-q acceleration-sector "
+                    "Kubo weights. Fixed filling is declared rather than dynamically "
+                    "selected; its inhomogeneous local functional, density and metric "
+                    "intraband channels, a global full-q Schur bound, continuous SO(3), "
+                    "bulk-brane junction rank and backreaction remain open. No force "
+                    "or lensing follows."
+                ),
+                "evidence": artefacts["brane_tilted_semimetal_gate"],
             },
             {
                 "id": "matter_interface_to_derivative_constitutive_scalar",
@@ -1313,6 +1466,319 @@ def build_registry() -> dict[str, Any]:
                 "publication_authorized": khronon_stability["decision"]
                 ["publication_authorized"],
             },
+            "bulk_z2_clifford_completion_gate": {
+                "classification": bulk_z2_clifford_completion["classification"],
+                "verdict": bulk_z2_decision["verdict"],
+                "spatial_dimensions": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["spatial_dimensions"],
+                "linear_bulk_DOS": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["rho_negative"],
+                "negative_branches": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["negative_branches"],
+                "real_massive_scalars": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["real_massive_scalars"],
+                "static_sea_lagrangian": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["sea_lagrangian"],
+                "planck5_cubed": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["planck5_cubed"],
+                "matter_quadratic_coefficient_K2": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["matter_quadratic_coefficient_K2"],
+                "quadratic_increment_Delta_eta": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["quadratic_increment_Delta_eta"],
+                "critical_relation": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["critical_relation"],
+                "reduced_mu": bulk_z2_clifford_completion[
+                    "microscopic_static_derivation"
+                ]["reduced_mu"],
+                "same_action_local_5D_Gaussian_static_bath_derived": (
+                    bulk_z2_decision[
+                        "same_action_local_5D_Gaussian_static_bath_derived"
+                    ]
+                ),
+                "UV_finite_static_completion_without_hard_cutoff": (
+                    bulk_z2_decision[
+                        "UV_finite_static_completion_without_hard_cutoff"
+                    ]
+                ),
+                "literal_bulk_single_particle_linear_DOS_derived": (
+                    bulk_z2_decision[
+                        "literal_bulk_single_particle_linear_DOS_derived"
+                    ]
+                ),
+                "fundamental_flat_constraint_rank_preserved": bulk_z2_decision[
+                    "fundamental_flat_constraint_rank_preserved"
+                ],
+                "khronometric_gravitational_DOF": bulk_z2_clifford_completion[
+                    "constraint_completion"
+                ]["gravity_constraint_inventory"]["khronometric_gravitational_dof"],
+                "full_flat_finite_band_gaussian_retarded_kernel_derived": (
+                    bulk_z2_decision[
+                        "full_flat_finite_band_gaussian_retarded_kernel_derived"
+                    ]
+                ),
+                "retarded_branch_cut_resolved": bulk_z2_decision[
+                    "retarded_branch_cut_resolved"
+                ],
+                "exact_metric_lapse_Schur_complement_retained": bulk_z2_decision[
+                    "exact_metric_lapse_Schur_complement_retained"
+                ],
+                "critical_linear_flat_scalar_has_no_UHP_poles": bulk_z2_decision[
+                    "critical_linear_flat_scalar_has_no_UHP_poles"
+                ],
+                "flat_background_linear_time_stability_complete_for_frozen_banded_model": (
+                    bulk_z2_decision[
+                        "flat_background_linear_time_stability_complete_for_frozen_banded_model"
+                    ]
+                ),
+                "exact_Schur_critical_inverse": bulk_z2_clifford_completion[
+                    "retarded_completion"
+                ]["critical_inverse"],
+                "flat_banded_retarded_proof_scope": bulk_z2_clifford_completion[
+                    "retarded_completion"
+                ]["proof_scope"],
+                "finite_band_regulator_from_local_UV_completion": bulk_z2_decision[
+                    "finite_band_retarded_regulator_derived_from_local_UV_completion"
+                ],
+                "same_action_local_UV_full_retarded_kernel_derived": (
+                    bulk_z2_decision[
+                        "same_action_local_UV_full_retarded_kernel_derived"
+                    ]
+                ),
+                "minimal_same_action_UV_dynamics_survives": bulk_z2_decision[
+                    "minimal_static_Gaussian_multiplet_same_action_UV_dynamics_survives"
+                ],
+                "same_action_dynamic_status": bulk_z2_clifford_completion[
+                    "same_action_dynamic_red_team"
+                ]["status"],
+                "same_action_continuum_lapse_zero": bulk_z2_clifford_completion[
+                    "same_action_dynamic_red_team"
+                ]["lapse_zero"],
+                "same_action_continuum_UHP_pole": bulk_z2_clifford_completion[
+                    "same_action_dynamic_red_team"
+                ]["explicit_B4_zero_UHP_pole"],
+                "same_action_finite_q_requires_gradient_counterterm": (
+                    bulk_z2_decision[
+                        "same_action_finite_q_requires_gradient_counterterm"
+                    ]
+                ),
+                "finite_compact_strict_IR_DOS_power": bulk_z2_clifford_completion[
+                    "compactification_obstruction"
+                ]["finite_interval_strict_IR_DOS_power"],
+                "finite_compact_strict_IR_sea_power": bulk_z2_clifford_completion[
+                    "compactification_obstruction"
+                ]["finite_interval_strict_IR_sea_power"],
+                "finite_compact_HOLO_strict_IR_cubic_survives": bulk_z2_decision[
+                    "finite_compact_HOLO_strict_IR_cubic_survives"
+                ],
+                "original_Lifshitz_background_status": bulk_z2_clifford_completion[
+                    "lifshitz_background_obstruction"
+                ]["status"],
+                "original_Lifshitz_fermion_background_gap": (
+                    bulk_z2_clifford_completion["lifshitz_background_obstruction"]
+                    ["fermion_background_gap"]
+                ),
+                "naive_isotropic_original_Lifshitz_background_route_survives": (
+                    bulk_z2_decision[
+                        "naive_isotropic_original_Lifshitz_background_route_survives"
+                    ]
+                ),
+                "gapless_radial_continuum_with_4D_gravity_localization_derived": (
+                    bulk_z2_decision[
+                        "gapless_radial_continuum_with_4D_gravity_localization_derived"
+                    ]
+                ),
+                "critical_matching_Ward_protected": bulk_z2_decision[
+                    "critical_matching_Ward_protected"
+                ],
+                "nonlinear_global_time_stability_derived": bulk_z2_decision[
+                    "nonlinear_global_time_stability_derived"
+                ],
+                "warped_background_residuals_closed": bulk_z2_clifford_completion[
+                    "backreaction_and_boundary_gate"
+                ]["background_residuals_closed"],
+                "warped_junction_conditions_closed": bulk_z2_clifford_completion[
+                    "backreaction_and_boundary_gate"
+                ]["warped_junction_conditions_closed"],
+                "full_channel_QNM_spectrum_closed": bulk_z2_clifford_completion[
+                    "backreaction_and_boundary_gate"
+                ]["full_channel_QNM_spectrum_closed"],
+                "current_compact_HOLO_completed": bulk_z2_decision[
+                    "current_compact_Einstein_dilaton_HOLO_completed"
+                ],
+                "new_force_derived": bulk_z2_decision["new_force_derived"],
+                "lensing_derived": bulk_z2_decision["lensing_derived"],
+                "physical_completion": bulk_z2_decision["physical_completion"],
+                "publication_authorized": bulk_z2_decision[
+                    "publication_authorized"
+                ],
+                "evidence_boundary": bulk_z2_clifford_completion[
+                    "evidence_boundary"
+                ],
+            },
+            "brane_tilted_semimetal_gate": {
+                "classification": brane_tilted_semimetal["classification"],
+                "verdict": brane_semimetal_decision["verdict"],
+                "acceptance_ladder": brane_tilted_semimetal["acceptance_ladder"],
+                "Hamiltonian": brane_tilted_semimetal[
+                    "covariant_defect_matter_ansatz"
+                ]
+                ["Hamiltonian"],
+                "dispersion": brane_tilted_semimetal["microscopic_derivation"]
+                ["dispersion"],
+                "linear_three_space_DOS": brane_tilted_semimetal[
+                    "microscopic_derivation"
+                ]["DOS_per_negative_branch"],
+                "spectrum": brane_tilted_semimetal["microscopic_derivation"]
+                ["spectrum"],
+                "negative_branches": brane_tilted_semimetal[
+                    "microscopic_derivation"
+                ]["negative_branches"],
+                "director_count": brane_tilted_semimetal[
+                    "microscopic_derivation"
+                ]["director_count"],
+                "band_edge": brane_tilted_semimetal["microscopic_derivation"]
+                ["band_edge"],
+                "fixed_particle_density": brane_tilted_semimetal[
+                    "microscopic_derivation"
+                ]["fixed_particle_density"],
+                "static_sea_lagrangian": brane_tilted_semimetal[
+                    "microscopic_derivation"
+                ]["sea_lagrangian"],
+                "state_boundary": brane_tilted_semimetal[
+                    "microscopic_derivation"
+                ]["state_boundary"],
+                "brane_Planck_squared": brane_tilted_semimetal[
+                    "microscopic_derivation"
+                ]["critical_normalization"]["brane_Planck_squared"],
+                "Pi_zero": brane_tilted_semimetal["microscopic_derivation"]
+                ["critical_normalization"]["Pi_zero"],
+                "quadratic_increment_Delta_eta": brane_tilted_semimetal[
+                    "microscopic_derivation"
+                ]["critical_normalization"]["Delta_eta"],
+                "critical_relation": brane_tilted_semimetal[
+                    "microscopic_derivation"
+                ]["critical_normalization"]["relation"],
+                "local_covariant_5D_defect_matter_ansatz_exhibited": (
+                    brane_semimetal_decision[
+                        "local_covariant_5D_defect_matter_ansatz_exhibited"
+                    ]
+                ),
+                "literal_three_space_linear_DOS_derived": (
+                    brane_semimetal_decision[
+                        "literal_three_space_linear_DOS_derived"
+                    ]
+                ),
+                "bounded_below_Hamiltonian_and_finite_occupied_region_from_same_ansatz": (
+                    brane_semimetal_decision[
+                        "bounded_below_Hamiltonian_and_finite_occupied_region_from_same_ansatz"
+                    ]
+                ),
+                "exact_static_bracket_from_same_finite_occupied_region": (
+                    brane_semimetal_decision[
+                        "exact_static_bracket_from_same_finite_occupied_region"
+                    ]
+                ),
+                "fixed_charge_sector_required": brane_semimetal_decision[
+                    "fixed_charge_sector_required"
+                ],
+                "fixed_charge_sector_dynamically_selected": (
+                    brane_semimetal_decision[
+                        "fixed_charge_sector_dynamically_selected"
+                    ]
+                ),
+                "inhomogeneous_fixed_charge_local_functional_derived": (
+                    brane_semimetal_decision[
+                        "inhomogeneous_fixed_charge_local_functional_derived"
+                    ]
+                ),
+                "same_ansatz_q0_acceleration_retarded_kernel_derived": (
+                    brane_semimetal_decision[
+                        "same_ansatz_q0_acceleration_retarded_kernel_derived"
+                    ]
+                ),
+                "same_ansatz_q0_acceleration_positive_spectral_measure": (
+                    brane_semimetal_decision[
+                        "same_ansatz_q0_acceleration_positive_spectral_measure"
+                    ]
+                ),
+                "q0_kernel": brane_tilted_semimetal["retarded_gate"]
+                ["q0_kernel"],
+                "q0_spectral_weight": brane_tilted_semimetal["retarded_gate"]
+                ["q0_spectral_weight"],
+                "reduced_brane_q0_Schur": brane_tilted_semimetal["retarded_gate"]
+                ["reduced_brane_q0_Schur"],
+                "reduced_brane_long_wavelength_Schur_has_no_UHP_poles": (
+                    brane_semimetal_decision[
+                        "reduced_brane_long_wavelength_Schur_has_no_UHP_poles"
+                    ]
+                ),
+                "same_ansatz_finite_q_acceleration_block_positive_Kubo_representation_derived": (
+                    brane_semimetal_decision[
+                        "same_ansatz_finite_q_acceleration_block_positive_Kubo_representation_derived"
+                    ]
+                ),
+                "finite_q_representation": brane_tilted_semimetal[
+                    "retarded_gate"
+                ]["finite_q_representation"],
+                "finite_q_sampled_static_response_below_q0": (
+                    brane_semimetal_decision[
+                        "finite_q_sampled_static_response_below_q0"
+                    ]
+                ),
+                "full_q_all_vertex_global_Schur_stability_derived": (
+                    brane_semimetal_decision[
+                        "full_q_all_vertex_global_Schur_stability_derived"
+                    ]
+                ),
+                "metric_and_density_intraband_channels_included": (
+                    brane_semimetal_decision[
+                        "metric_and_density_intraband_channels_included"
+                    ]
+                ),
+                "continuous_SO3_dynamical_isotropy_derived": (
+                    brane_semimetal_decision[
+                        "continuous_SO3_dynamical_isotropy_derived"
+                    ]
+                ),
+                "prescribed_constant_radius_radial_acceleration_projected_out": (
+                    brane_tilted_semimetal["constraint_and_geometry_boundary"]
+                    ["prescribed_constant_radius_radial_acceleration_projected_out"]
+                ),
+                "ordinary_radial_KK_linear_DOS_required": (
+                    brane_semimetal_decision[
+                        "ordinary_radial_KK_linear_DOS_required"
+                    ]
+                ),
+                "full_brane_constraint_and_junction_rank_derived": (
+                    brane_semimetal_decision[
+                        "full_brane_constraint_and_junction_rank_derived"
+                    ]
+                ),
+                "warped_backreacted_solution_derived": brane_semimetal_decision[
+                    "warped_backreacted_solution_derived"
+                ],
+                "new_force_derived": brane_semimetal_decision["new_force_derived"],
+                "lensing_derived": brane_semimetal_decision["lensing_derived"],
+                "physical_completion": brane_semimetal_decision[
+                    "physical_completion"
+                ],
+                "publication_authorized": brane_semimetal_decision[
+                    "publication_authorized"
+                ],
+                "next_action": brane_semimetal_decision["next_action"],
+                "evidence_boundary": brane_tilted_semimetal[
+                    "evidence_boundary"
+                ],
+            },
             "bulk_constitutive_decision_gate": {
                 "classification": bulk_decision_gate["classification"],
                 "old_source_mass_exponent": bulk_decision_gate["old_vs_this"]
@@ -1724,6 +2190,7 @@ def build_registry() -> dict[str, Any]:
             "No QCD scale is identified with ell without a separately derived UV matching relation.",
             "No retrospective split is called a blind confirmation.",
             "A weak or failed comparator result is preserved rather than recalibrated after unblinding.",
+            "A frozen flat finite-band retarded diagnostic is not promoted to a same-action local UV completion, compact HOLO mechanism, force, or lensing result.",
         ],
     }
 
@@ -1761,6 +2228,12 @@ def render_markdown(registry: dict[str, Any]) -> str:
     ]
     khronon_stability = registry["current_predictions"][
         "khronon_constraint_stability_gate"
+    ]
+    bulk_z2_completion = registry["current_predictions"][
+        "bulk_z2_clifford_completion_gate"
+    ]
+    brane_semimetal = registry["current_predictions"][
+        "brane_tilted_semimetal_gate"
     ]
     bulk_gate = registry["current_predictions"][
         "bulk_constitutive_decision_gate"
@@ -1817,6 +2290,9 @@ def render_markdown(registry: dict[str, Any]) -> str:
             "  DB -.->|17 adversarial attacks; stops at L2| RT[Dirac red-team map]",
             "  RT -.->|L2 scaling only; determinant blocked| CO[Covariant 5D origin gate]",
             "  CO -.->|convex Schur matching; flat local gate| KG[Khronon matching gate]",
+            "  KG -->|local static bath; flat exact-Schur band| ZB[Bulk z=2 Clifford gate]",
+            "  ZB -->|bounded-below H; finite occupied region; q=0 acceleration kernel| BS[Brane tilted-semimetal gate]",
+            "  BS -.->|full-q Schur + SO3 + junctions blocked| DS",
             "  C -.->|missing bulk-derived P(Y)| DS[Derivative constitutive scalar]",
             "  C -.->|missing q2Y + critical selector| CB[Critical constitutive bridge]",
             "  CB -.->|unfrozen matter + causal gates| DS",
@@ -1956,6 +2432,37 @@ def render_markdown(registry: dict[str, Any]) -> str:
             "nonzero radial acceleration of the Lifshitz background, full retarded "
             "kernel and warped brane constraints have not yet been joined into one "
             "action/background calculation.",
+            f"- **Local bulk z=2 completion gate:** in "
+            f"`{bulk_z2_completion['spatial_dimensions']}` spatial bulk dimensions, "
+            f"the local Clifford spectrum gives `{bulk_z2_completion['linear_bulk_DOS']}`; "
+            f"`{bulk_z2_completion['negative_branches']}` filled negative branches and "
+            f"`{bulk_z2_completion['real_massive_scalars']}` stable massive scalars "
+            "produce the complete UV-finite static bracket without a hard cutoff. "
+            "The frozen positive-weight finite-band kernel resolves its branch cut and "
+            "passes the exact metric/lapse Schur no-upper-half-plane-pole test on the "
+            "uniform flat background. This is not the same-action local retarded UV "
+            "completion: the regulator remains external to that continuum action, and "
+            f"finite compactification changes the strict-IR sea power to "
+            f"`{_fmt(bulk_z2_completion['finite_compact_strict_IR_sea_power'])}` rather "
+            "than the required cubic. Nonlinear stability, the current compact HOLO "
+            "background, force, lensing and publication therefore remain blocked.",
+            f"- **Brane tilted-semimetal continuation:** the covariantly embedded "
+            f"3+1 defect uses `{brane_semimetal['director_count']}` directors and "
+            f"`{brane_semimetal['negative_branches']}` negative branches. Its "
+            f"per-negative-branch DOS is "
+            f"`{brane_semimetal['linear_three_space_DOS']}` and a finite "
+            "occupied-region edge "
+            f"`{_fmt(brane_semimetal['band_edge'])}`. In its declared fixed-charge "
+            "sector, that same local defect-matter ansatz yields the exact static "
+            "bracket, the full "
+            "q=0 acceleration-sector retarded kernel and a positive finite-q "
+            "acceleration-sector Kubo representation; its "
+            "local induced-gravity normalization is "
+            f"`{brane_semimetal['critical_relation']}`. Fixed filling is not "
+            "dynamically selected and the inhomogeneous fixed-charge functional, "
+            "density/metric intraband channels, global full-q Schur bound and "
+            "continuous SO(3) completion are not closed. Bulk-brane junction rank, "
+            "warped backreaction, force, lensing and publication remain blocked.",
             f"- **Old versus critical response:** the old fixed tower has source "
             f"exponent `{_fmt(bulk_gate['old_source_mass_exponent'])}` and only "
             f"crosses the target three-halves slope for "

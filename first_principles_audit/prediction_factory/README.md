@@ -121,6 +121,8 @@ python3 -m first_principles_audit.prediction_factory.derive_dirac_critical_bath_
 python3 -m first_principles_audit.prediction_factory.derive_dirac_bath_red_team_map
 python3 -m first_principles_audit.prediction_factory.derive_covariant_5d_pseudogap_gate
 python3 -m first_principles_audit.prediction_factory.derive_khronon_constraint_stability_gate
+python3 -m first_principles_audit.prediction_factory.derive_bulk_z2_clifford_completion_gate
+python3 -m first_principles_audit.prediction_factory.derive_brane_tilted_semimetal_gate
 python3 first_principles_audit/prediction_factory/build_master_prediction_registry.py
 ```
 
@@ -196,12 +198,16 @@ python3 -m first_principles_audit.prediction_factory.derive_dirac_critical_bath_
 python3 -m first_principles_audit.prediction_factory.derive_dirac_bath_red_team_map
 python3 -m first_principles_audit.prediction_factory.derive_covariant_5d_pseudogap_gate
 python3 -m first_principles_audit.prediction_factory.derive_khronon_constraint_stability_gate
+python3 -m first_principles_audit.prediction_factory.derive_bulk_z2_clifford_completion_gate
+python3 -m first_principles_audit.prediction_factory.derive_brane_tilted_semimetal_gate
 python3 -m unittest \
   first_principles_audit.prediction_factory.test_c2_band_edge_continuum \
   first_principles_audit.prediction_factory.test_dirac_critical_bath_gate \
   first_principles_audit.prediction_factory.test_dirac_bath_red_team_map \
   first_principles_audit.prediction_factory.test_covariant_5d_pseudogap_gate \
-  first_principles_audit.prediction_factory.test_khronon_constraint_stability_gate
+  first_principles_audit.prediction_factory.test_khronon_constraint_stability_gate \
+  first_principles_audit.prediction_factory.test_bulk_z2_clifford_completion_gate \
+  first_principles_audit.prediction_factory.test_brane_tilted_semimetal_gate
 ```
 
 The covariant-origin gate kills the current regular compact Einstein--dilaton
@@ -233,6 +239,60 @@ bath and the four-spatial-component bulk khronon have not been solved on the
 same Lifshitz background, whose preferred-time lapse has nonzero radial
 acceleration. Full retarded, warped and brane-junction constraints remain
 blocked, so no force, lensing or publication claim is promoted.
+
+The subsequent `bulk_z2_clifford_completion_gate.json` replaces the fractional
+boundary witness by a finite-derivative local 4+1 construction. A `z=2`
+Clifford fermion in four spatial bulk dimensions has a literal linear
+single-particle DOS. Per filled negative branch, two stable massive `z=2` real
+scalars cancel the ultraviolet tail and produce the complete static bracket
+without a hard cutoff. Thus the same local action now closes the static
+spectrum, sign and Gaussian determinant. Its normalization is kept explicit as
+`Delta_eta=2 K2/M5^3=Pi(0,0)/M5^3`, while the khronometric flat constraint rank
+remains intact.
+
+The dynamical pass is deliberately narrower. A separately frozen
+positive-weight finite band gives the full flat Gaussian retarded kernel,
+including its branch cut, and the exact metric/lapse Schur response has no
+upper-half-plane pole. The two local scalar partners have only an `a^2 phi^2`
+seagull at quadratic order: with the same-action continuum their critical
+lapse coefficient is `C(ip)=eta_c-pi*rho1*y^2*p/(4*M5^3)`, and the exact Schur
+develops an explicit UHP pole for every nonzero momentum. Thus that minimal
+global UV completion is killed, while a physical finite band or partners with
+the missing positive spectral response remain open. Moreover, a finite
+compact radial interval changes the strict-infrared DOS from linear to a
+square-root law and the sea term from cubic to power `5/2`. Consequently the
+current compact HOLO background, nonlinear time stability, force, lensing and
+publication remain blocked.
+
+`brane_tilted_semimetal_gate.json` then tests a different local material rather
+than forcing the failed bulk radial continuum. A finite-derivative tilted
+semimetal matter ansatz lives on a prescribed, covariantly embedded 3+1 defect
+in the 4+1 geometry. Its anisotropic dispersion has a literal linear
+three-space DOS; the Hamiltonian is bounded below, and its declared occupied
+lower-band region is finite. The same defect-matter ansatz produces the exact
+static bracket in a declared fixed-charge sector. For the prescribed
+constant-radius embedding, tangential projection removes the background radial
+acceleration and no radial KK continuum is used. A
+triad of three director species gives six filled negative branches and restores
+the reference stress and the leading `q^2` response isotropically; it does not
+by itself derive continuous dynamical SO(3), because the `q^4` response remains
+cubic-anisotropic until a covariant solid/director sector is supplied.
+The critical normalization is an induced-brane relation,
+`eta_infinity+Pi_zero/M4^2=eta_c_brane=2*xi`, not a bulk `M5^3` coefficient and
+not the unsolved bulk-brane junction Schur denominator.
+
+The same finite occupied region also derives the complete `q=0`
+acceleration-sector retarded kernel and its positive spectral measure. In the
+long-wavelength material limit the reduced induced-brane Schur response has no
+upper-half-plane poles by its positive-real representation. Sampled finite-q
+acceleration vertices have a
+positive Kubo representation, but that is not a global stability proof:
+gapless intraband channels remain, density and induced-metric vertices are not
+included, and neither the full-q Schur bound nor continuous SO(3) dynamics has
+been closed. Fixed filling is imposed rather than dynamically selected, and
+its inhomogeneous fixed-charge local functional is still missing. Full
+bulk-brane constraint rank, junction conditions, warped backreaction, force,
+lensing and publication therefore remain blocked.
 
 The current branch audit finds that changing only the IR Neumann condition to
 Dirichlet does not cleanly remove the excluded massless mode: it produces an

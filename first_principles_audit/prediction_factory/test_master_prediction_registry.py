@@ -283,6 +283,169 @@ class MasterPredictionRegistryTests(unittest.TestCase):
             "K2_local_rank_pass_K4_retarded_and_K5_warped_blocked",
         )
 
+    def test_bulk_z2_gate_closes_static_and_flat_banded_only(self) -> None:
+        gate = self.registry["current_predictions"][
+            "bulk_z2_clifford_completion_gate"
+        ]
+        self.assertTrue(gate["same_action_local_5D_Gaussian_static_bath_derived"])
+        self.assertTrue(gate["UV_finite_static_completion_without_hard_cutoff"])
+        self.assertTrue(gate["literal_bulk_single_particle_linear_DOS_derived"])
+        self.assertTrue(gate["fundamental_flat_constraint_rank_preserved"])
+        self.assertEqual(gate["spatial_dimensions"], 4)
+        self.assertEqual(gate["khronometric_gravitational_DOF"], 6)
+        self.assertTrue(
+            gate["full_flat_finite_band_gaussian_retarded_kernel_derived"]
+        )
+        self.assertTrue(gate["retarded_branch_cut_resolved"])
+        self.assertTrue(gate["exact_metric_lapse_Schur_complement_retained"])
+        self.assertTrue(gate["critical_linear_flat_scalar_has_no_UHP_poles"])
+        self.assertTrue(
+            gate[
+                "flat_background_linear_time_stability_complete_for_frozen_banded_model"
+            ]
+        )
+        self.assertIn("C_R=eta_infinity+Pi_R/M5^3", gate["exact_Schur_critical_inverse"])
+        self.assertIn("Delta_eta=2*K2/M5^3", gate["critical_relation"])
+        self.assertAlmostEqual(
+            gate["quadratic_increment_Delta_eta"],
+            2.0 * gate["matter_quadratic_coefficient_K2"] / gate["planck5_cubed"],
+        )
+
+        self.assertFalse(gate["finite_band_regulator_from_local_UV_completion"])
+        self.assertFalse(gate["same_action_local_UV_full_retarded_kernel_derived"])
+        self.assertFalse(gate["minimal_same_action_UV_dynamics_survives"])
+        self.assertEqual(
+            gate["same_action_dynamic_status"],
+            "KILL_MINIMAL_SAME_ACTION_GLOBAL_RETARDED_UV_COMPLETION",
+        )
+        self.assertGreater(
+            gate["same_action_continuum_UHP_pole"],
+            gate["same_action_continuum_lapse_zero"],
+        )
+        self.assertTrue(
+            gate["same_action_finite_q_requires_gradient_counterterm"]
+        )
+        self.assertAlmostEqual(gate["finite_compact_strict_IR_DOS_power"], 0.5)
+        self.assertAlmostEqual(gate["finite_compact_strict_IR_sea_power"], 2.5)
+        self.assertFalse(gate["finite_compact_HOLO_strict_IR_cubic_survives"])
+        self.assertEqual(
+            gate["original_Lifshitz_background_status"],
+            "KILL_NAIVE_ISOTROPIC_ORIGINAL_LIFSHITZ_BULK_ROUTE",
+        )
+        self.assertGreater(gate["original_Lifshitz_fermion_background_gap"], 0.0)
+        self.assertFalse(
+            gate["naive_isotropic_original_Lifshitz_background_route_survives"]
+        )
+        self.assertFalse(
+            gate["gapless_radial_continuum_with_4D_gravity_localization_derived"]
+        )
+        self.assertFalse(gate["critical_matching_Ward_protected"])
+        self.assertFalse(gate["nonlinear_global_time_stability_derived"])
+        self.assertFalse(gate["warped_background_residuals_closed"])
+        self.assertFalse(gate["warped_junction_conditions_closed"])
+        self.assertFalse(gate["full_channel_QNM_spectrum_closed"])
+        self.assertFalse(gate["current_compact_HOLO_completed"])
+        self.assertFalse(gate["new_force_derived"])
+        self.assertFalse(gate["lensing_derived"])
+        self.assertFalse(gate["physical_completion"])
+        self.assertFalse(gate["publication_authorized"])
+
+        links = {row["id"]: row for row in self.registry["links"]}
+        link = links["khronon_matching_to_bulk_z2_clifford_completion"]
+        self.assertEqual(
+            link["status"],
+            "same_action_local_static_pass_separate_flat_banded_exact_schur_pass",
+        )
+        self.assertEqual(link["gate"], "Z0_Z4_pass_Z5_killed_Z6_blocked")
+        self.assertIn("exact metric/lapse Schur", link["meaning"])
+        self.assertIn("No force or lensing follows", link["meaning"])
+        evidence = self.registry["artefacts"]["bulk_z2_clifford_completion_gate"]
+        self.assertTrue(evidence["path"].endswith("bulk_z2_clifford_completion_gate.json"))
+
+    def test_brane_tilted_semimetal_advances_same_action_gate_only(self) -> None:
+        gate = self.registry["current_predictions"][
+            "brane_tilted_semimetal_gate"
+        ]
+        self.assertTrue(gate["local_covariant_5D_defect_matter_ansatz_exhibited"])
+        self.assertTrue(gate["literal_three_space_linear_DOS_derived"])
+        self.assertTrue(
+            gate[
+                "bounded_below_Hamiltonian_and_finite_occupied_region_from_same_ansatz"
+            ]
+        )
+        self.assertTrue(
+            gate["exact_static_bracket_from_same_finite_occupied_region"]
+        )
+        self.assertTrue(
+            gate[
+                "prescribed_constant_radius_radial_acceleration_projected_out"
+            ]
+        )
+        self.assertFalse(gate["ordinary_radial_KK_linear_DOS_required"])
+        self.assertEqual(gate["director_count"], 3)
+        self.assertEqual(gate["negative_branches"], 6)
+        self.assertIn("epsilon/(8*pi*c*v)", gate["linear_three_space_DOS"])
+        self.assertIn("eta_infinity+Pi_zero/M4^2", gate["critical_relation"])
+        self.assertAlmostEqual(
+            gate["quadratic_increment_Delta_eta"],
+            gate["Pi_zero"] / gate["brane_Planck_squared"],
+        )
+
+        self.assertTrue(gate["fixed_charge_sector_required"])
+        self.assertFalse(gate["fixed_charge_sector_dynamically_selected"])
+        self.assertFalse(
+            gate["inhomogeneous_fixed_charge_local_functional_derived"]
+        )
+        self.assertTrue(gate["same_ansatz_q0_acceleration_retarded_kernel_derived"])
+        self.assertTrue(gate["same_ansatz_q0_acceleration_positive_spectral_measure"])
+        self.assertTrue(
+            gate[
+                "reduced_brane_long_wavelength_Schur_has_no_UHP_poles"
+            ]
+        )
+        self.assertIn("Re[D(p,q)/p]>0", gate["reduced_brane_q0_Schur"])
+        self.assertTrue(
+            gate[
+                "same_ansatz_finite_q_acceleration_block_positive_Kubo_representation_derived"
+            ]
+        )
+        self.assertTrue(gate["finite_q_sampled_static_response_below_q0"])
+        self.assertFalse(
+            gate[
+                "full_q_all_vertex_global_Schur_stability_derived"
+            ]
+        )
+        self.assertFalse(gate["metric_and_density_intraband_channels_included"])
+        self.assertFalse(gate["continuous_SO3_dynamical_isotropy_derived"])
+        self.assertFalse(gate["full_brane_constraint_and_junction_rank_derived"])
+        self.assertFalse(gate["warped_backreacted_solution_derived"])
+        self.assertFalse(gate["new_force_derived"])
+        self.assertFalse(gate["lensing_derived"])
+        self.assertFalse(gate["physical_completion"])
+        self.assertFalse(gate["publication_authorized"])
+
+        levels = {row["level"]: row["status"] for row in gate["acceptance_ladder"]}
+        self.assertEqual(
+            levels["B3_same_ansatz_q0_acceleration_retarded_kernel"], "PASS"
+        )
+        self.assertEqual(levels["B4_full_q_global_Schur_and_SO3"], "BLOCKED")
+        self.assertEqual(
+            levels["B5_warped_constraints_junctions_backreaction"], "BLOCKED"
+        )
+        self.assertEqual(levels["B6_force_matter_lensing"], "NOT_ENTERED")
+
+        links = {row["id"]: row for row in self.registry["links"]}
+        link = links["bulk_z2_to_brane_tilted_semimetal_completion"]
+        self.assertEqual(
+            link["status"],
+            "same_ansatz_defect_static_and_q0_acceleration_retarded_pass",
+        )
+        self.assertEqual(link["gate"], "B0_B3_pass_B4_B5_blocked_B6_not_entered")
+        self.assertIn("Fixed filling is declared", link["meaning"])
+        self.assertIn("No force or lensing follows", link["meaning"])
+        evidence = self.registry["artefacts"]["brane_tilted_semimetal_gate"]
+        self.assertTrue(evidence["path"].endswith("brane_tilted_semimetal_gate.json"))
+
     def test_critical_bridge_changes_exponent_but_remains_prospective(self) -> None:
         gate = self.registry["current_predictions"][
             "bulk_constitutive_decision_gate"

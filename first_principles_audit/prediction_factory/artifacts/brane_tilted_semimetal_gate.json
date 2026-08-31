@@ -1,0 +1,204 @@
+{
+  "acceptance_ladder": [
+    {
+      "level": "B0_covariant_5D_defect_matter_ansatz",
+      "status": "PASS"
+    },
+    {
+      "level": "B1_literal_3D_linear_DOS",
+      "status": "PASS"
+    },
+    {
+      "level": "B2_bounded_Hamiltonian_finite_region_exact_static",
+      "status": "PASS"
+    },
+    {
+      "level": "B3_same_ansatz_q0_acceleration_retarded_kernel",
+      "status": "PASS"
+    },
+    {
+      "level": "B3b_reduced_brane_long_wavelength_Schur",
+      "status": "PASS"
+    },
+    {
+      "level": "B4_full_q_global_Schur_and_SO3",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "B5_warped_constraints_junctions_backreaction",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "B6_force_matter_lensing",
+      "status": "NOT_ENTERED"
+    }
+  ],
+  "checks": {
+    "Clifford_five_closes": true,
+    "all": true,
+    "bare_lapse_coefficient_remains_positive": true,
+    "finite_q_Kubo_samples_are_positive": true,
+    "finite_q_Kubo_samples_decrease_with_Euclidean_frequency": true,
+    "finite_q_sampled_static_response_does_not_exceed_q0": true,
+    "fixed_filling_interval_is_globally_lowest": true,
+    "fixed_filling_not_confused_with_grand_canonical_state": true,
+    "fixed_filling_static_bracket_is_exact": true,
+    "literal_three_space_DOS_is_linear": true,
+    "no_force_lensing_or_publication_promotion": true,
+    "reduced_brane_q0_Schur_positive_real_gate": true,
+    "same_action_q0_Kubo_matches_closed_band_kernel": true,
+    "single_particle_Hamiltonian_is_bounded_below": true,
+    "tilted_spectrum_closes": true,
+    "upstream_falsifier_retained": true
+  },
+  "classification": "theory_only;same_ansatz_static_and_q0_acceleration_retarded_pass;full_q_isotropy_constraints_and_physics_open",
+  "constraint_and_geometry_boundary": {
+    "backreacted_warped_solution": false,
+    "bath_has_no_radial_KK_tower": true,
+    "bath_renormalizes_brane_not_bulk_eta": true,
+    "continuous_SO3_dynamical_isotropy": false,
+    "fermion_time_derivative_order": 1,
+    "fixed_charge_adds_local_U1_Gauss_constraint_if_gauged": true,
+    "full_bulk_brane_Dirac_matrix_rank": false,
+    "inhomogeneous_fixed_charge_local_functional": false,
+    "junction_conditions": false,
+    "lapse_or_shift_time_derivatives_added": false,
+    "prescribed_constant_radius_radial_acceleration_projected_out": true
+  },
+  "covariant_defect_matter_ansatz": {
+    "Hamiltonian": "H=epsilon_op^2/Lambda*I+v*(-iD_parallel)*Gamma0+c*(-D_perp^2)*Gamma1+y*A_i*Gamma_(i+1)",
+    "derivative_orders": {
+      "IR_scaling": "k_parallel~epsilon, k_perp~sqrt(epsilon)",
+      "parallel_spatial": 2,
+      "preferred_time": 1,
+      "transverse_spatial": 4
+    },
+    "director": "orthonormal spatial triad n_alpha^mu; summing its three species restores reference-stress and q^2 isotropy, while a solid/director action is required and q^4 retains cubic anisotropy",
+    "embedding": "X^M(xi) with induced gamma_mu_nu and unit normal s^M",
+    "induced_khronon": "u_mu is the normalized tangential pullback of U_M; P_mu_nu=gamma_mu_nu+u_mu*u_nu",
+    "tangential_acceleration": "A_mu=P_mu^nu e_nu^M a_M; the background radial a_M is projected out"
+  },
+  "decision": {
+    "bounded_below_Hamiltonian_and_finite_occupied_region_from_same_ansatz": true,
+    "continuous_SO3_dynamical_isotropy_derived": false,
+    "exact_static_bracket_from_same_finite_occupied_region": true,
+    "finite_q_sampled_static_response_below_q0": true,
+    "fixed_charge_sector_dynamically_selected": false,
+    "fixed_charge_sector_required": true,
+    "full_brane_constraint_and_junction_rank_derived": false,
+    "full_q_all_vertex_global_Schur_stability_derived": false,
+    "inhomogeneous_fixed_charge_local_functional_derived": false,
+    "lensing_derived": false,
+    "literal_three_space_linear_DOS_derived": true,
+    "local_covariant_5D_defect_matter_ansatz_exhibited": true,
+    "metric_and_density_intraband_channels_included": false,
+    "new_force_derived": false,
+    "next_action": "Derive the full anisotropic finite-q acceleration, density and metric spectral matrix, control charge redistribution and retain the exact brane/bulk Schur denominator; then introduce a covariant director/solid sector, vary the complete bulk-plus-brane action and close junction, backreaction and all-channel QNM gates before sourcing or lensing.",
+    "ordinary_radial_KK_linear_DOS_required": false,
+    "original_Lifshitz_radial_acceleration_gaps_defect_bath": false,
+    "physical_completion": false,
+    "publication_authorized": false,
+    "reduced_brane_long_wavelength_Schur_has_no_UHP_poles": true,
+    "same_ansatz_finite_q_acceleration_block_positive_Kubo_representation_derived": true,
+    "same_ansatz_q0_acceleration_positive_spectral_measure": true,
+    "same_ansatz_q0_acceleration_retarded_kernel_derived": true,
+    "verdict": "COVARIANT_BRANE_TILTED_SEMIMETAL_STATIC_AND_Q0_ACCELERATION_RETARDED_PASS_FULL_Q_ISOTROPY_JUNCTIONS_AND_PHYSICS_BLOCKED",
+    "warped_backreacted_solution_derived": false
+  },
+  "diagnostics": {
+    "Clifford_spectrum_max_error": 4.440892098500626e-16,
+    "analytic_lower_band_global_minimum": -0.6039376470588236,
+    "fixed_vs_grand_canonical_relative_difference": 0.029088842616208588,
+    "minimum_fixed_filling_ordering_margin": 0.017169999999999908,
+    "minimum_q0_positive_real_Schur_margin": 2.0802842655612386,
+    "q0_Kubo_max_error": 3.055333763768431e-13,
+    "static_integral_relative_error": 7.771561172376096e-15
+  },
+  "evidence_boundary": "A finite-derivative tilted semimetal on a prescribed covariantly embedded 3+1 defect derives the linear DOS, a bounded-below Hamiltonian, a finite occupied region, the exact static bracket and q=0 retarded kernel from the same matter ansatz in a declared fixed-charge sector. Finite-q acceleration-block Kubo samples retain positive spectral weights, but no global full-q Schur bound, continuous rotational completion, warped junction solution, force or lensing law is claimed.",
+  "microscopic_derivation": {
+    "DOS_per_negative_branch": "epsilon/(8*pi*c*v)",
+    "band_edge": 1.7,
+    "critical_normalization": {
+      "Delta_eta": 0.6820452457083933,
+      "Pi_zero": 0.6820452457083933,
+      "brane_Planck_squared": 1.0,
+      "eta_c": 2.0,
+      "eta_infinity": 1.3179547542916068,
+      "relation": "local induced-brane witness eta_infinity+Pi_zero/M4^2=eta_c_brane=2*xi; the bulk-brane junction Schur is not this algebraic coefficient"
+    },
+    "director_count": 3,
+    "dispersion": "epsilon^2=v^2*k_parallel^2+c^2*k_perp^4",
+    "fixed_particle_density": 0.47912269326622653,
+    "negative_branches": 6,
+    "rho1": 0.3315727981081153,
+    "sea_lagrangian": "rho1/3*[(Lambda^2+y^2 A^2)^(3/2)-Lambda^3-y^3|A|^3]",
+    "spectrum": "E_plus_minus=epsilon^2/Lambda +/- sqrt(epsilon^2+y^2*|A|^2), twice per flavor",
+    "state_boundary": "exact bracket uses the canonical conserved-charge sector; at fixed chemical potential zero the result changes at O(A^4)"
+  },
+  "retarded_gate": {
+    "finite_q_representation": "sum over occupied-to-empty interband and lower-band transitions of 2*Delta*|matrix element|^2/(Omega^2+Delta^2)",
+    "finite_q_samples": [
+      {
+        "Pi_E": [
+          0.6716557437749592,
+          0.6190423033826846,
+          0.46595786975316006
+        ],
+        "monotone_in_Euclidean_frequency": true,
+        "q_magnitude": 0.08,
+        "q_vector": [
+          0.08,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "Pi_E": [
+          0.6677444442859282,
+          0.6190320724570507,
+          0.46595819340733874
+        ],
+        "monotone_in_Euclidean_frequency": true,
+        "q_magnitude": 0.08,
+        "q_vector": [
+          0.046188021535170064,
+          0.046188021535170064,
+          0.046188021535170064
+        ]
+      },
+      {
+        "Pi_E": [
+          0.6288887234502839,
+          0.5980174887516672,
+          0.4550140977684859
+        ],
+        "monotone_in_Euclidean_frequency": true,
+        "q_magnitude": 0.2692582403567252,
+        "q_vector": [
+          0.2,
+          0.15,
+          0.1
+        ]
+      }
+    ],
+    "full_q_global_bound": false,
+    "metric_and_density_vertices_included": false,
+    "q0_kernel": "Pi_E=gamma*integral_0^Lambda d epsilon epsilon*4epsilon/(Omega^2+4epsilon^2)",
+    "q0_spectral_weight": "sigma(nu)=rho1*y^2*nu/4 for 0<nu<2Lambda",
+    "reduced_brane_q0_Schur": "C=eta_infinity+Pi/M4^2 is positive Stieltjes and H=A_g*(eta_c/C-1) is complete-Bernstein; Re[D(p,q)/p]>0 for Re(p)>0 in the long-wavelength material limit",
+    "warning": "finite-q acceleration vertices include gapless intraband transitions; lapse, induced-metric and density vertices add further Fermi-surface channels not present in this Kubo block"
+  },
+  "schema": "holo.brane-tilted-semimetal-gate.v1",
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "bulk_z2_red_team_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/bulk_z2_clifford_completion_gate.json",
+      "sha256": "3346a2dce57697e903987a1518203021026fe6e4e7de59f621972ab084b9990b"
+    },
+    "raw_observational_tables_read_directly": []
+  },
+  "title": "Covariant-brane tilted-semimetal microscopic rescue gate"
+}

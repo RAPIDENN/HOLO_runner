@@ -32,6 +32,10 @@
       "path": "first_principles_audit/prediction_factory/artifacts/bps_volume_constraint_selector.json",
       "sha256": "43badad202cfc48addee8f2f4009af36bcc4d3b5218b634f7555d3b3405e6c2c"
     },
+    "brane_tilted_semimetal_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/brane_tilted_semimetal_gate.json",
+      "sha256": "aa4978750c7e5e1d0a2ab5d741ce366ec28a5fb9c9eeea1d2910400683c94bda"
+    },
     "breathing_response": {
       "path": "first_principles_audit/prediction_factory/artifacts/breathing_response.json",
       "sha256": "4730ec2b2b8fae27b2399a6c0725b20062aa2519f53d04916e07aeaa59d539c2"
@@ -43,6 +47,10 @@
     "bulk_cubic_vertex_inventory": {
       "path": "first_principles_audit/prediction_factory/artifacts/bulk_cubic_vertex_inventory.json",
       "sha256": "d969c43069fbb7f739b48989b480e46246150bf83ce2153dfceb9415df1f294b"
+    },
+    "bulk_z2_clifford_completion_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/bulk_z2_clifford_completion_gate.json",
+      "sha256": "3346a2dce57697e903987a1518203021026fe6e4e7de59f621972ab084b9990b"
     },
     "c2_band_edge_continuum": {
       "path": "first_principles_audit/prediction_factory/artifacts/c2_band_edge_continuum.json",
@@ -320,6 +328,87 @@
       },
       "result": "NN contains the excluded universal unscreened massless mode; ND leaves an ultralight UV-coupled mode; DN and DD decouple an exact UV point probe."
     },
+    "brane_tilted_semimetal_gate": {
+      "Hamiltonian": "H=epsilon_op^2/Lambda*I+v*(-iD_parallel)*Gamma0+c*(-D_perp^2)*Gamma1+y*A_i*Gamma_(i+1)",
+      "Pi_zero": 0.6820452457083933,
+      "acceptance_ladder": [
+        {
+          "level": "B0_covariant_5D_defect_matter_ansatz",
+          "status": "PASS"
+        },
+        {
+          "level": "B1_literal_3D_linear_DOS",
+          "status": "PASS"
+        },
+        {
+          "level": "B2_bounded_Hamiltonian_finite_region_exact_static",
+          "status": "PASS"
+        },
+        {
+          "level": "B3_same_ansatz_q0_acceleration_retarded_kernel",
+          "status": "PASS"
+        },
+        {
+          "level": "B3b_reduced_brane_long_wavelength_Schur",
+          "status": "PASS"
+        },
+        {
+          "level": "B4_full_q_global_Schur_and_SO3",
+          "status": "BLOCKED"
+        },
+        {
+          "level": "B5_warped_constraints_junctions_backreaction",
+          "status": "BLOCKED"
+        },
+        {
+          "level": "B6_force_matter_lensing",
+          "status": "NOT_ENTERED"
+        }
+      ],
+      "band_edge": 1.7,
+      "bounded_below_Hamiltonian_and_finite_occupied_region_from_same_ansatz": true,
+      "brane_Planck_squared": 1.0,
+      "classification": "theory_only;same_ansatz_static_and_q0_acceleration_retarded_pass;full_q_isotropy_constraints_and_physics_open",
+      "continuous_SO3_dynamical_isotropy_derived": false,
+      "critical_relation": "local induced-brane witness eta_infinity+Pi_zero/M4^2=eta_c_brane=2*xi; the bulk-brane junction Schur is not this algebraic coefficient",
+      "director_count": 3,
+      "dispersion": "epsilon^2=v^2*k_parallel^2+c^2*k_perp^4",
+      "evidence_boundary": "A finite-derivative tilted semimetal on a prescribed covariantly embedded 3+1 defect derives the linear DOS, a bounded-below Hamiltonian, a finite occupied region, the exact static bracket and q=0 retarded kernel from the same matter ansatz in a declared fixed-charge sector. Finite-q acceleration-block Kubo samples retain positive spectral weights, but no global full-q Schur bound, continuous rotational completion, warped junction solution, force or lensing law is claimed.",
+      "exact_static_bracket_from_same_finite_occupied_region": true,
+      "finite_q_representation": "sum over occupied-to-empty interband and lower-band transitions of 2*Delta*|matrix element|^2/(Omega^2+Delta^2)",
+      "finite_q_sampled_static_response_below_q0": true,
+      "fixed_charge_sector_dynamically_selected": false,
+      "fixed_charge_sector_required": true,
+      "fixed_particle_density": 0.47912269326622653,
+      "full_brane_constraint_and_junction_rank_derived": false,
+      "full_q_all_vertex_global_Schur_stability_derived": false,
+      "inhomogeneous_fixed_charge_local_functional_derived": false,
+      "lensing_derived": false,
+      "linear_three_space_DOS": "epsilon/(8*pi*c*v)",
+      "literal_three_space_linear_DOS_derived": true,
+      "local_covariant_5D_defect_matter_ansatz_exhibited": true,
+      "metric_and_density_intraband_channels_included": false,
+      "negative_branches": 6,
+      "new_force_derived": false,
+      "next_action": "Derive the full anisotropic finite-q acceleration, density and metric spectral matrix, control charge redistribution and retain the exact brane/bulk Schur denominator; then introduce a covariant director/solid sector, vary the complete bulk-plus-brane action and close junction, backreaction and all-channel QNM gates before sourcing or lensing.",
+      "ordinary_radial_KK_linear_DOS_required": false,
+      "physical_completion": false,
+      "prescribed_constant_radius_radial_acceleration_projected_out": true,
+      "publication_authorized": false,
+      "q0_kernel": "Pi_E=gamma*integral_0^Lambda d epsilon epsilon*4epsilon/(Omega^2+4epsilon^2)",
+      "q0_spectral_weight": "sigma(nu)=rho1*y^2*nu/4 for 0<nu<2Lambda",
+      "quadratic_increment_Delta_eta": 0.6820452457083933,
+      "reduced_brane_long_wavelength_Schur_has_no_UHP_poles": true,
+      "reduced_brane_q0_Schur": "C=eta_infinity+Pi/M4^2 is positive Stieltjes and H=A_g*(eta_c/C-1) is complete-Bernstein; Re[D(p,q)/p]>0 for Re(p)>0 in the long-wavelength material limit",
+      "same_ansatz_finite_q_acceleration_block_positive_Kubo_representation_derived": true,
+      "same_ansatz_q0_acceleration_positive_spectral_measure": true,
+      "same_ansatz_q0_acceleration_retarded_kernel_derived": true,
+      "spectrum": "E_plus_minus=epsilon^2/Lambda +/- sqrt(epsilon^2+y^2*|A|^2), twice per flavor",
+      "state_boundary": "exact bracket uses the canonical conserved-charge sector; at fixed chemical potential zero the result changes at O(A^4)",
+      "static_sea_lagrangian": "rho1/3*[(Lambda^2+y^2 A^2)^(3/2)-Lambda^3-y^3|A|^3]",
+      "verdict": "COVARIANT_BRANE_TILTED_SEMIMETAL_STATIC_AND_Q0_ACCELERATION_RETARDED_PASS_FULL_Q_ISOTROPY_JUNCTIONS_AND_PHYSICS_BLOCKED",
+      "warped_backreacted_solution_derived": false
+    },
     "breathing_response": {
       "absolute_force_residues_available": true,
       "classification": "derived_dynamic_response_with_microscopic_stiff_candidate_not_detection",
@@ -409,6 +498,57 @@
       "synthetic_fixture_used_as_BPS_physical_evidence": false,
       "total_Y2_coefficient": "C_Y2_total=C_Y2_direct_S4-0.5*c^T*M^(-2)*c; its sign cannot be known from S3 alone",
       "tricritical_selector": "s=sqrt(Y)"
+    },
+    "bulk_z2_clifford_completion_gate": {
+      "UV_finite_static_completion_without_hard_cutoff": true,
+      "classification": "theory_only;local_5D_static_microscopic_and_banded_flat_causal_steps_closed;minimal_same_action_retarded_UV_killed;alternative_UV_and_compactification_open",
+      "critical_linear_flat_scalar_has_no_UHP_poles": true,
+      "critical_matching_Ward_protected": false,
+      "critical_relation": "eta_infinity+Delta_eta=eta_c with Delta_eta=2*K2/M5^3=Pi(0,0)/M5^3",
+      "current_compact_HOLO_completed": false,
+      "evidence_boundary": "A local khronon-covariant 4+1 free-field action now derives the literal linear bulk DOS, Clifford spectrum, filled-sea sign and the complete UV-finite static bracket: two stable massive z=2 scalars per negative fermion branch supply its analytic part. A separately frozen positive-weight finite-band kernel resolves the flat linear branch cut; the exact metric/lapse Schur complement has no upper-half-plane pole. The actual local scalar partners contribute only a quadratic seagull; their same-action continuum response has an explicit upper-half-plane pole and is killed as a global UV completion. A finite compact radial direction also changes the strict-IR exponent. This is not a compact HOLO force or lensing result.",
+      "exact_Schur_critical_inverse": "D_R=-q_zeta omega^2+B4 q^4+q^2 H_R; C_R=eta_infinity+Pi_R/M5^3, H_R=A_g*(eta_c/C_R-1), A_g=(n-2)^2 eta_c",
+      "exact_metric_lapse_Schur_complement_retained": true,
+      "finite_band_regulator_from_local_UV_completion": false,
+      "finite_compact_HOLO_strict_IR_cubic_survives": false,
+      "finite_compact_strict_IR_DOS_power": 0.5,
+      "finite_compact_strict_IR_sea_power": 2.5,
+      "flat_background_linear_time_stability_complete_for_frozen_banded_model": true,
+      "flat_banded_retarded_proof_scope": "exact Gaussian/RPA linear response of the frozen positive-weight finite-band flat model at T=0; its logarithmic hard-band edge is included. It is separate from the local scalar completion, whose same-action continuum dynamics fails the following red-team gate",
+      "full_channel_QNM_spectrum_closed": false,
+      "full_flat_finite_band_gaussian_retarded_kernel_derived": true,
+      "fundamental_flat_constraint_rank_preserved": true,
+      "gapless_radial_continuum_with_4D_gravity_localization_derived": false,
+      "khronometric_gravitational_DOF": 6,
+      "lensing_derived": false,
+      "linear_bulk_DOS": "rho1*epsilon",
+      "literal_bulk_single_particle_linear_DOS_derived": true,
+      "matter_quadratic_coefficient_K2": 0.0407065771000564,
+      "minimal_same_action_UV_dynamics_survives": false,
+      "naive_isotropic_original_Lifshitz_background_route_survives": false,
+      "negative_branches": 4,
+      "new_force_derived": false,
+      "nonlinear_global_time_stability_derived": false,
+      "original_Lifshitz_background_status": "KILL_NAIVE_ISOTROPIC_ORIGINAL_LIFSHITZ_BULK_ROUTE",
+      "original_Lifshitz_fermion_background_gap": 1.6500000000000001,
+      "physical_completion": false,
+      "planck5_cubed": 1.0,
+      "publication_authorized": false,
+      "quadratic_increment_Delta_eta": 0.0814131542001128,
+      "real_massive_scalars": 8,
+      "reduced_mu": "1+x-sqrt(1+x^2)",
+      "retarded_branch_cut_resolved": true,
+      "same_action_continuum_UHP_pole": 39.88134550774629,
+      "same_action_continuum_lapse_zero": 39.88005219763572,
+      "same_action_dynamic_status": "KILL_MINIMAL_SAME_ACTION_GLOBAL_RETARDED_UV_COMPLETION",
+      "same_action_finite_q_requires_gradient_counterterm": true,
+      "same_action_local_5D_Gaussian_static_bath_derived": true,
+      "same_action_local_UV_full_retarded_kernel_derived": false,
+      "spatial_dimensions": 4,
+      "static_sea_lagrangian": "rho1/3*[(Lambda^2+y^2 a^2)^(3/2)-Lambda^3-y^3|a|^3]",
+      "verdict": "LOCAL_5D_Z2_GAUSSIAN_STATIC_BATH_AND_FLAT_BANDED_CAUSAL_GATE_PASS_COMPACT_HOLO_AND_RETARDED_UV_BLOCKED",
+      "warped_background_residuals_closed": false,
+      "warped_junction_conditions_closed": false
     },
     "c2_band_edge_continuum": {
       "candidate_survives": false,
@@ -861,7 +1001,8 @@
     "No boundary condition is selected from observational performance.",
     "No QCD scale is identified with ell without a separately derived UV matching relation.",
     "No retrospective split is called a blind confirmation.",
-    "A weak or failed comparator result is preserved rather than recalibrated after unblinding."
+    "A weak or failed comparator result is preserved rather than recalibrated after unblinding.",
+    "A frozen flat finite-band retarded diagnostic is not promoted to a same-action local UV completion, compact HOLO mechanism, force, or lensing result."
   ],
   "links": [
     {
@@ -1142,6 +1283,30 @@
     },
     {
       "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/bulk_z2_clifford_completion_gate.json",
+        "sha256": "3346a2dce57697e903987a1518203021026fe6e4e7de59f621972ab084b9990b"
+      },
+      "from": "khronon_geometric_matching_gate",
+      "gate": "Z0_Z4_pass_Z5_killed_Z6_blocked",
+      "id": "khronon_matching_to_bulk_z2_clifford_completion",
+      "meaning": "A finite-derivative local 4+1 z=2 Clifford bath plus stable massive scalars derives the literal linear DOS and UV-finite static bracket from one action. The separately frozen positive-weight finite band closes the full flat Gaussian branch cut and exact metric/lapse Schur stability test. The actual local scalar partners have only a seagull and their continuum response develops an explicit UHP pole, killing that minimal same-action UV completion; finite compactification also removes the strict-IR cubic. No force or lensing follows.",
+      "status": "same_action_local_static_pass_separate_flat_banded_exact_schur_pass",
+      "to": "bulk_z2_local_static_and_flat_banded_gate"
+    },
+    {
+      "evidence": {
+        "path": "first_principles_audit/prediction_factory/artifacts/brane_tilted_semimetal_gate.json",
+        "sha256": "aa4978750c7e5e1d0a2ab5d741ce366ec28a5fb9c9eeea1d2910400683c94bda"
+      },
+      "from": "bulk_z2_local_static_and_flat_banded_gate",
+      "gate": "B0_B3_pass_B4_B5_blocked_B6_not_entered",
+      "id": "bulk_z2_to_brane_tilted_semimetal_completion",
+      "meaning": "A covariantly embedded 3+1 defect replaces the problematic radial continuum by a finite-derivative tilted-semimetal ansatz. A three-director sum restores reference and q^2 isotropy, not continuous dynamical SO(3). The same local defect-matter ansatz supplies the literal three-space linear DOS, a bounded-below Hamiltonian and finite occupied region, the exact fixed-charge static bracket, the complete q=0 acceleration-sector retarded kernel and positive finite-q acceleration-sector Kubo weights. Fixed filling is declared rather than dynamically selected; its inhomogeneous local functional, density and metric intraband channels, a global full-q Schur bound, continuous SO(3), bulk-brane junction rank and backreaction remain open. No force or lensing follows.",
+      "status": "same_ansatz_defect_static_and_q0_acceleration_retarded_pass",
+      "to": "brane_tilted_semimetal_gate"
+    },
+    {
+      "evidence": {
         "path": "first_principles_audit/prediction_factory/artifacts/jordan_deep_limit_gate.json",
         "sha256": "7ae63ba6222b766661c8a7f78e317ff5aa01240aa90a832612d6a6ed4e19990d"
       },
@@ -1297,7 +1462,9 @@
     "axisymmetric_collector": "four converged defined-source solves; two pass source closure, global a0 remains observation-trained",
     "boundary_action": "minimal superpotential matching derived and rejected; stabilized curvatures remain unselected",
     "bps_moduli_matter_metric": "minimal induced metrics derived on a separation slice; two-modulus canonical projection remains unselected",
+    "brane_tilted_semimetal_gate": "covariant 3+1 defect-matter ansatz in 4+1 with a bounded-below Hamiltonian and finite occupied region; static and q=0 acceleration response pass while full-q, isotropy, junction and backreaction gates remain blocked",
     "breathing_response": "conditional retarded scalar response",
+    "bulk_z2_local_static_and_flat_banded_gate": "local 4+1 z=2 Clifford-scalar static completion and exact-Schur flat finite-band response; compact HOLO and same-action retarded UV completion blocked",
     "c2_band_edge_negative_control": "post-campaign continuum test; exact exponent but wrong stable-bath sign",
     "collector_embedding_gate": "conditional no-go for the current regular linearized HOLO sector",
     "covariant_5d_pseudogap_origin_gate": "local z=3/2 Lifshitz scaling background; exact same-action bath blocked",

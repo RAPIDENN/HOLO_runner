@@ -1,0 +1,309 @@
+{
+  "acceptance_ladder": [
+    {
+      "level": "Z0_local_5D_foliation_action",
+      "status": "PASS"
+    },
+    {
+      "level": "Z1_literal_linear_bulk_DOS",
+      "status": "PASS"
+    },
+    {
+      "level": "Z2_same_action_UV_finite_static_Clifford_sea",
+      "status": "PASS"
+    },
+    {
+      "level": "Z3_flat_constraint_rank",
+      "status": "PASS"
+    },
+    {
+      "level": "Z4_flat_finite_band_retarded_linear_stability",
+      "status": "PASS"
+    },
+    {
+      "level": "Z4a_minimal_same_action_global_retarded_UV",
+      "status": "KILLED"
+    },
+    {
+      "level": "Z4b_original_Lifshitz_background_transfer",
+      "status": "KILLED"
+    },
+    {
+      "level": "Z5_finite_compact_HOLO_strict_IR",
+      "status": "KILLED"
+    },
+    {
+      "level": "Z6_same_action_retarded_UV_and_protected_matching",
+      "status": "BLOCKED"
+    },
+    {
+      "level": "Z7_force_matter_lensing",
+      "status": "NOT_ENTERED"
+    }
+  ],
+  "backreaction_and_boundary_gate": {
+    "background_residuals_closed": false,
+    "flat_patch": "the a=0 vacuum energy and stress are subtracted by frozen local counterterms; this certifies only the uniform flat saddle",
+    "full_channel_QNM_spectrum_closed": false,
+    "required_background_equations": "vary the combined gravity, khronon, Proca, fermion and scalar action before solving V,A,D,b; old Einstein-Proca parameters cannot be imported unchanged",
+    "required_boundaries": "Hamiltonian differentiability, zero symplectic flux, khronon/Proca junction conditions, radion and edge-mode count",
+    "status": "BLOCKS_NONLINEAR_GLOBAL_STABILITY_AND_PHYSICAL_PROMOTION",
+    "warped_ansatz": "ds^2=-exp(2V)dt^2+exp(2A)dx_3^2+exp(2D)dr^2, B=b(r)dt",
+    "warped_junction_conditions_closed": false
+  },
+  "checks": {
+    "UV_finite_local_fermion_boson_integral_matches_exact_static_function": true,
+    "all": true,
+    "certified_inputs": true,
+    "critical_Euclidean_inverse_is_positive_off_origin": true,
+    "exact_Schur_positive_real_no_UHP_theorem_sampled": true,
+    "exact_Schur_reduces_to_linear_response_at_small_deficit": true,
+    "exact_Schur_retarded_response_is_passive_on_cut": true,
+    "fermion_action_has_no_higher_preferred_time_derivative": true,
+    "finite_band_retarded_diagnostic_is_not_mislabelled_as_local_UV_completion": true,
+    "finite_compactification_changes_strict_IR_power": true,
+    "five_local_Clifford_matrices_close": true,
+    "four_space_z2_DOS_is_exactly_linear": true,
+    "full_Euclidean_bubble_matches_spectral_integral": true,
+    "fundamental_lapse_constraint_keeps_positive_principal_rank": true,
+    "geometric_Schur_still_gives_exact_mu": true,
+    "local_polynomial_Clifford_spectrum_closes": true,
+    "local_scalar_completion_is_not_mislabelled_as_symmetry_protected": true,
+    "matter_gravity_normalization_is_explicit_and_consistent": true,
+    "no_force_lensing_or_publication_promotion": true,
+    "ohmic_limit_is_derived_not_assumed": true,
+    "original_Lifshitz_radial_acceleration_gaps_the_cubic": true,
+    "positive_sea_quadratic_leaves_positive_baseline": true,
+    "pure_imaginary_upper_half_plane_axis_is_positive": true,
+    "retarded_branch_cut_has_positive_exact_spectral_weight": true,
+    "same_action_continuum_UV_has_explicit_UHP_pole": true,
+    "same_action_continuum_q0_static_hessian_matches": true,
+    "same_action_finite_momentum_gradient_divergence_recorded": true
+  },
+  "classification": "theory_only;local_5D_static_microscopic_and_banded_flat_causal_steps_closed;minimal_same_action_retarded_UV_killed;alternative_UV_and_compactification_open",
+  "compactification_obstruction": {
+    "finite_interval_result": "below the first radial KK gap the zero mode gives rho~sqrt(epsilon) and |a|^(5/2), so the cubic is at most an intermediate-window law",
+    "finite_interval_strict_IR_DOS_power": 0.5,
+    "finite_interval_strict_IR_noncompact_spatial_dimensions": 3,
+    "finite_interval_strict_IR_sea_power": 2.5,
+    "four_space_continuum_sea_power": 3.0,
+    "status": "BLOCKS_CURRENT_COMPACT_HOLO_PHYSICAL_COMPLETION",
+    "surviving_asymptotic_route": "a gapless radial continuum, followed by an explicit demonstration that four-dimensional gravity and matter remain localized"
+  },
+  "constraint_completion": {
+    "adapted_action": "S_grav=(M5^3/2) integral N sqrt(h)[K_AB K^AB-lambda K^2+xi R4+eta_infinity a_A a^A+B4 spatial terms]+S_Psi+S_scalar",
+    "bare_lapse_principal_coefficient": 2.8371736915997743,
+    "fermion_primary_constraints": "the first-order Grassmann momenta form an invertible second-class block; four complex canonical amplitudes per flavor",
+    "fermion_spatial_derivative_order": 2,
+    "fermion_time_derivative_order": 1,
+    "full_warped_constraint_and_boundary_rank_derived": false,
+    "gravity_DOF_unchanged_by_regular_fermion_constraint_block": true,
+    "gravity_constraint_inventory": {
+      "dilaton_dof": 1,
+      "einstein_tensor_dof": 5,
+      "extra_khronon_scalar_dof": 1,
+      "first_class_constraints": 8,
+      "global_time_reparametrization_mode_included": false,
+      "khronometric_gravitational_dof": 6,
+      "local_count_integer": true,
+      "second_class_constraints": 2,
+      "spatial_metric_canonical_pairs": 10,
+      "total_bosonic_dof_before_bath": 7,
+      "total_phase_space_dimension_including_lapse_shift": 30
+    },
+    "lapse_or_shift_time_derivatives_added_by_bath": false,
+    "loop_corrected_static_lapse_principal_coefficient": 3.0,
+    "original_Proca_if_retained": {
+      "massive_5D_Proca_DOF": 4,
+      "total_bosonic_DOF_with_khronon_gravity_and_dilaton": 11,
+      "warning": "Proca and the khronon are independent fields unless an off-shell constraint is added and re-counted"
+    },
+    "scope": "local uniform flat background and frozen EFT coefficients"
+  },
+  "decision": {
+    "UV_finite_static_completion_without_hard_cutoff": true,
+    "critical_linear_flat_scalar_has_no_UHP_poles": true,
+    "critical_matching_Ward_protected": false,
+    "current_compact_Einstein_dilaton_HOLO_completed": false,
+    "exact_local_Clifford_spectrum_derived": true,
+    "exact_metric_lapse_Schur_complement_retained": true,
+    "filled_negative_sea_sign_and_cubic_derived": true,
+    "finite_band_retarded_regulator_derived_from_local_UV_completion": false,
+    "finite_compact_HOLO_strict_IR_cubic_survives": false,
+    "flat_background_linear_time_stability_complete_for_frozen_banded_model": true,
+    "full_flat_finite_band_gaussian_retarded_kernel_derived": true,
+    "fundamental_flat_constraint_rank_preserved": true,
+    "gapless_radial_continuum_with_4D_gravity_localization_derived": false,
+    "lensing_derived": false,
+    "literal_bulk_single_particle_linear_DOS_derived": true,
+    "minimal_static_Gaussian_multiplet_same_action_UV_dynamics_survives": false,
+    "naive_isotropic_original_Lifshitz_background_route_survives": false,
+    "new_force_derived": false,
+    "next_action": "Replace the quadratic scalar portal by healthy UV partners whose linear response supplies the missing positive spectral weight, or derive a physical finite band before the explicit same-action UHP pole. In parallel construct a gapless radial continuum with localized 4D gravity, or another covariant compact sector that keeps the linear DOS below its first KK gap; then repeat constraints, full kernels and junctions on that background before force or lensing.",
+    "nonlinear_global_time_stability_derived": false,
+    "old_fractional_boundary_symbol_required": false,
+    "physical_completion": false,
+    "publication_authorized": false,
+    "retarded_branch_cut_resolved": true,
+    "same_action_continuum_has_upper_half_plane_pole": true,
+    "same_action_finite_q_requires_gradient_counterterm": true,
+    "same_action_local_5D_Gaussian_static_bath_derived": true,
+    "same_action_local_UV_full_retarded_kernel_derived": false,
+    "same_action_q0_renormalized_retarded_kernel_derived": true,
+    "three_vs_four_acceleration_component_mismatch_removed": true,
+    "verdict": "LOCAL_5D_Z2_GAUSSIAN_STATIC_BATH_AND_FLAT_BANDED_CAUSAL_GATE_PASS_COMPACT_HOLO_AND_RETARDED_UV_BLOCKED"
+  },
+  "diagnostics": {
+    "Clifford_spectrum_max_error": 1.1102230246251565e-16,
+    "DOS_log_slope": 0.9999999999999993,
+    "Euclidean_closed_form_max_error": 2.498001805406602e-16,
+    "maximum_exact_Schur_linearization_relative_error": 5.426974729605405e-07,
+    "minimum_Euclidean_inverse_off_origin": 6.947421930118544e-06,
+    "minimum_exact_Schur_retarded_passivity": 0.07998279258513624,
+    "minimum_imaginary_axis_inverse": 0.005709911813003515,
+    "minimum_positive_real_no_UHP_margin": 4.56073560499456,
+    "mu_max_error": 1.1102230246251565e-16,
+    "ohmic_coefficient_expected": 0.018806394642694665,
+    "ohmic_coefficient_numeric": 0.0188063936898762,
+    "retarded_spectral_weight_max_error": 0.0,
+    "rho_slope": 0.03957858736028819,
+    "same_action_UHP_pole_normalized_residual": 5.581781540107299e-13,
+    "same_action_continuum_B4_zero_UHP_pole": 39.88134550774629,
+    "same_action_continuum_lapse_zero": 39.88005219763572,
+    "sea_integral_relative_error": 1.2434497875801753e-14
+  },
+  "evidence_boundary": "A local khronon-covariant 4+1 free-field action now derives the literal linear bulk DOS, Clifford spectrum, filled-sea sign and the complete UV-finite static bracket: two stable massive z=2 scalars per negative fermion branch supply its analytic part. A separately frozen positive-weight finite-band kernel resolves the flat linear branch cut; the exact metric/lapse Schur complement has no upper-half-plane pole. The actual local scalar partners contribute only a quadratic seagull; their same-action continuum response has an explicit upper-half-plane pole and is killed as a global UV completion. A finite compact radial direction also changes the strict-IR exponent. This is not a compact HOLO force or lensing result.",
+  "lifshitz_background_obstruction": {
+    "acceleration_magnitude": 1.5,
+    "curvature_radius": 1.0,
+    "dynamical_exponent": 1.5,
+    "fermion_background_gap": 1.6500000000000001,
+    "khronon_acceleration": "a_hat_u=z/L",
+    "original_background": "ds^2=L^2[du^2-exp(2zu)dt^2+exp(2u)dx_3^2], T=t",
+    "orthogonal_perturbation_expansion": {
+      "cubic_coefficient": 0.0,
+      "quadratic_coefficient": 0.01721820083120242,
+      "quartic_coefficient": -0.001332450324230826
+    },
+    "result": "the nonzero radial acceleration makes tangential response analytic in b^2 and removes the required -|b|^3 term",
+    "spectral_geometry_warning": "the spatial slice is H4, so the flat R4 DOS and commuting Clifford square are not an exact radial determinant on this background",
+    "status": "KILL_NAIVE_ISOTROPIC_ORIGINAL_LIFSHITZ_BULK_ROUTE"
+  },
+  "microscopic_static_derivation": {
+    "a0": 1.5454545454545452,
+    "critical_relation": "eta_infinity+Delta_eta=eta_c with Delta_eta=2*K2/M5^3=Pi(0,0)/M5^3",
+    "dispersion": "epsilon=c*|p|^2",
+    "geometric_eta_c": 1.5,
+    "joint_UV_finite_integrand": "rho1*epsilon*{[sqrt(epsilon^2+m^2)-epsilon]-[sqrt(epsilon^2+Lambda^2+m^2)-sqrt(epsilon^2+Lambda^2)]}",
+    "local_field_content_per_negative_branch": "one filled light fermion branch plus two real stable z=2 scalars of mass squared Lambda^2+y^2 a^2",
+    "matter_quadratic_coefficient_K2": 0.0407065771000564,
+    "negative_branches": 4,
+    "planck5_cubed": 1.0,
+    "positive_eta_infinity": 1.4185868457998871,
+    "protection_status": "the free Gaussian determinant is exact, but no Ward identity fixes the fermion-scalar multiplicity, equal c, portals or mass scale",
+    "quadratic_increment_Delta_eta": 0.0814131542001128,
+    "real_massive_scalars": 8,
+    "reduced_mu": "1+x-sqrt(1+x^2)",
+    "rho1": 0.03957858736028819,
+    "rho_negative": "rho1*epsilon",
+    "sea_lagrangian": "rho1/3*[(Lambda^2+y^2 a^2)^(3/2)-Lambda^3-y^3|a|^3]",
+    "spatial_dimensions": 4,
+    "spectrum": "two copies of +/-sqrt(c^2|p|^4+y^2|a|^2) per flavor"
+  },
+  "retarded_completion": {
+    "Pi_E": "y^2 int_0^Lambda d epsilon rho1 epsilon*4(epsilon+s)/[Omega^2+4(epsilon+s)^2], s=c q^2/4",
+    "Pi_R_spectral_representation": "int_(2s)^(2s+2Lambda) dnu 2nu sigma(nu,q)/[nu^2-(omega+i0)^2]",
+    "critical_inverse": "D_R=-q_zeta omega^2+B4 q^4+q^2 H_R; C_R=eta_infinity+Pi_R/M5^3, H_R=A_g*(eta_c/C_R-1), A_g=(n-2)^2 eta_c",
+    "linearized_Schur_limit": "H_R=(n-2)^2[Pi(0,0)-Pi_R]/M5^3+O((Delta Pi)^2)",
+    "no_UHP_proof": "C(u,q)=eta_infinity+Pi_E(sqrt(u),q)/M5^3 is positive Stieltjes. Its reciprocal is complete-Bernstein, hence so is H(u,q)=A_g[eta_c/C(u,q)-1]. For p=-i omega with Re(p)>0, Re[D(p,q)/p]>0 because Re(p)>0, Re(1/p)>0 and each measure term obeys Re[p/(p^2+t)]>0. Therefore D has no UHP zero.",
+    "nonlinear_or_running_coupling_stability": false,
+    "positive_frequency_cut_at_q0": [
+      0.0,
+      3.4
+    ],
+    "positive_spectral_measure": true,
+    "proof_scope": "exact Gaussian/RPA linear response of the frozen positive-weight finite-band flat model at T=0; its logarithmic hard-band edge is included. It is separate from the local scalar completion, whose same-action continuum dynamics fails the following red-team gate",
+    "sigma": "y^2*rho1*(nu-2s)/4 on the cut and zero outside",
+    "small_frequency_F_coefficient_deficit": "Pi(0,0)/2-Pi_E(Omega,0)/2=pi*y^2*rho1*|Omega|/8+O(Omega^2/Lambda)"
+  },
+  "same_action_dynamic_red_team": {
+    "EFT_window": "eta_infinity>0 puts the lapse zero above 4*Lambda/pi, so the construction can remain conditional below its declared matter scale if new physics enters first",
+    "critical_lapse_on_Laplace_axis": "C(ip)=eta_c-kappa*p, kappa=pi*gamma/(4*M5^3)",
+    "explicit_B4_zero_UHP_pole": 39.88134550774629,
+    "fermion_q0_with_intermediate_cutoff": "Pi_f,E=gamma*[R-|Omega|*atan(2R/|Omega|)/2]",
+    "finite_B4_result": "for every q>0, D tends to minus infinity just above the C=0 crossing and to plus infinity at large p, so finite B4 cannot remove the positive-p root",
+    "finite_momentum_UV_behavior": "Pi_same,E contains -gamma*c*q^2*log(R)/4; a (D_B a_A)^2 counterterm and a finite renormalization condition are required",
+    "lapse_zero": 39.88005219763572,
+    "normalized_inverse_residual": 5.581781540107299e-13,
+    "renormalized_q0_Hessian": "Pi_same,E=gamma*[Lambda-pi*|Omega|/4]",
+    "spectral_diagnosis": "the fermion cut has positive weight only in a subtracted representation; the negative scalar contact has no compensating spectral continuum, so the total C is not positive Stieltjes",
+    "status": "KILL_MINIMAL_SAME_ACTION_GLOBAL_RETARDED_UV_COMPLETION",
+    "two_scalar_q0_seagull": "Pi_b=-gamma*[sqrt(R^2+Lambda^2)-Lambda]; the a^2 phi^2 portal has no order-a^2 bubble or branch cut around a=0"
+  },
+  "schema": "holo.bulk-z2-clifford-completion-gate.v1",
+  "single_local_5D_action": {
+    "acceleration": "a_M=U^N nabla_N U_M",
+    "covariance": "five-dimensional diffeomorphism covariance with the preferred foliation carried by the dynamical khronon",
+    "covariant_fields": [
+      "G_MN",
+      "T with U_M=-partial_M T/sqrt(-partial T squared)",
+      "optional certified dilaton phi",
+      "N_f four-component complex Spin(4) fermions Psi_f",
+      "two real massive z=2 scalars per negative fermion branch"
+    ],
+    "derivative_order": {
+      "dynamical_exponent": 2.0,
+      "preferred_time": 1,
+      "spatial": 2
+    },
+    "fermion_operator": "Psi_dagger[i D_U-c Gamma_0(-D_perp^2)-y a_hatA Gamma_A]Psi, A=1..4",
+    "locality": "finite-derivative local bulk action",
+    "normalization": "S_grav=(M5^3/2) integral N sqrt(h)[...+eta a^2]; matter Hessian Pi therefore contributes Pi/M5^3 to eta",
+    "retarded_diagnostic_regulator": "symmetric finite energy band epsilon<=Lambda; frozen for the exact linear response test but not derived from the continuum field action",
+    "spatial_projector": "h_MN=G_MN+U_M U_N",
+    "static_UV_completion": "per negative branch, two stable real scalars with omega_b^2=c^2 p^4+Lambda^2+y^2 a^2; their total -1 zero-point weight cancels the light-fermion UV integrand",
+    "uniform_flat_solution": "G=eta, T=t, a_A=0 and empty excitations after subtracting the a=0 sea stress"
+  },
+  "software": {
+    "numpy": "2.4.2",
+    "python": "3.13.5"
+  },
+  "sources": {
+    "covariant_5D_origin_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/covariant_5d_pseudogap_gate.json",
+      "sha256": "75d790815e0338268fccfb65d8a5b51763a9e7f2f9a8a0c630171f2ddfc2fdc5"
+    },
+    "dirac_static_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/dirac_critical_bath_gate.json",
+      "sha256": "4d750a1147e26de568e6b32d84f94bda08cb55b498fc452f9fee05fd90d3ae63"
+    },
+    "khronon_constraint_gate": {
+      "path": "first_principles_audit/prediction_factory/artifacts/khronon_constraint_stability_gate.json",
+      "sha256": "297211af1d3ed29371029934b94ecd44ddfac86aef045d83bee45aecd6abf595"
+    },
+    "primary_theory_references": [
+      {
+        "topic": "healthy nonprojectable Horava gravity",
+        "url": "https://arxiv.org/abs/0909.3525"
+      },
+      {
+        "topic": "covariant khronon and MOND limit",
+        "url": "https://arxiv.org/abs/1107.5264"
+      },
+      {
+        "topic": "Hamiltonian constraints with lapse acceleration",
+        "url": "https://arxiv.org/abs/1106.2131"
+      },
+      {
+        "topic": "Lifshitz fermion power-counting precedent",
+        "url": "https://arxiv.org/abs/1612.05900"
+      },
+      {
+        "topic": "positive spectral bath influence functional",
+        "url": "https://doi.org/10.1016/0378-4371(83)90013-4"
+      }
+    ],
+    "raw_observational_tables_read_directly": []
+  },
+  "title": "Local five-dimensional z=2 Clifford bath and causal flat gate"
+}
