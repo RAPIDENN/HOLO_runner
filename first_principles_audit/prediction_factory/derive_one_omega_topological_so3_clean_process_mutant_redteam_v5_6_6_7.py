@@ -45,7 +45,7 @@ SCHEMA = (
     "holo.one-omega-topological-so3-clean-process-mutant-redteam-"
     "v5-6-6-7.v1"
 )
-FROZEN_COMMIT = "8dc58ada87f82c6151052e1ce6d2fb02080f99e3"
+FROZEN_COMMIT = "ea014fd1a8ed124c353058eb6f0a1c92b90353bc"
 LITERAL_V5_2_ACTION_SHA256 = (
     "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a"
 )
