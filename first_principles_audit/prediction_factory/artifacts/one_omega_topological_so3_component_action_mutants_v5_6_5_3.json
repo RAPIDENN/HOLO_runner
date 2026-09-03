@@ -1,0 +1,494 @@
+{
+  "classification": "theory_only;finite_N2;exact_additive_component_mutants;special_mutants_pending",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "Euler_Green_independent_route_pass": false,
+    "N1_ACTION_pass": false,
+    "all_twenty_component_omit_mutants_pass": true,
+    "all_twenty_component_sign_mutants_pass": true,
+    "exact_additive_40_mutant_campaign_pass": true,
+    "independent_clean_process_redteam_pass": false,
+    "special_geometric_action_mutants_pass": false
+  },
+  "evidence_boundary": "The 40 exact additive omit/sign mutants are killed on raw Q5 endpoint actions. This does not execute non-additive geometric/configuration mutants, derive Euler-Green, or promote C1/N1.",
+  "open_special_mutants": [
+    "freeze_relative_R",
+    "rotate_phi_only",
+    "break_induced_pullback",
+    "remove_T_ui_matter",
+    "V4_anisotropic",
+    "break_gluing",
+    "impose_Z2",
+    "circular_Eulerian_route"
+  ],
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_component_action_mutants_v5_6_5_3.py",
+      "sha256": "fbb008bac07546dfc8ac160cdd80ee4b567e508495118ec9d6589b0ae2c9de41"
+    },
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_component_action_mutants_v5_6_5_3.py",
+      "sha256": "7e3cca429914235af7ada329039a31164b07ea3f3e327a5fae81a989ba319d57"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-component-action-mutants-v5-6-5-3.v1",
+  "scientific": {
+    "all_mutants_killed": true,
+    "campaign_kind": "exact additive action mutation on independently evaluated raw endpoints",
+    "endpoint_operation": "replace one literal action component at every raw endpoint, recompute S_total, FD5, and Richardson",
+    "mutant_count": 40,
+    "records": [
+      {
+        "id": "omit_EH_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 168.9663565699271,
+        "nominal_AD_target_derivative": 215.98964182855204,
+        "operation": "omit",
+        "target": "EH_bulk_plus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -215.98964182855204
+      },
+      {
+        "id": "omit_Omega_kinetic_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 385.4253489265885,
+        "nominal_AD_target_derivative": -0.4693505279756698,
+        "operation": "omit",
+        "target": "Omega_kinetic_bulk_plus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": 0.4693505279756698
+      },
+      {
+        "id": "omit_Omega_potential_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 309.44490703997894,
+        "nominal_AD_target_derivative": 75.51109135871815,
+        "operation": "omit",
+        "target": "Omega_potential_bulk_plus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -75.51109135871815
+      },
+      {
+        "id": "omit_P_kinetic_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 76.34760751612096,
+        "nominal_AD_target_derivative": 308.6083908824643,
+        "operation": "omit",
+        "target": "P_kinetic_bulk_plus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -308.6083908824643
+      },
+      {
+        "id": "omit_full_V4_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 380.6670205874874,
+        "nominal_AD_target_derivative": 4.288977811065739,
+        "operation": "omit",
+        "target": "full_V4_bulk_plus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -4.288977811065739
+      },
+      {
+        "id": "omit_BF_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 358.1230204260818,
+        "nominal_AD_target_derivative": 26.832977972412635,
+        "operation": "omit",
+        "target": "BF_bulk_plus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -26.832977972412635
+      },
+      {
+        "id": "omit_GHY_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 388.1249349077451,
+        "nominal_AD_target_derivative": -3.168936509245334,
+        "operation": "omit",
+        "target": "GHY_plus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": 3.168936509245334
+      },
+      {
+        "id": "omit_EH_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 973.3688477025376,
+        "nominal_AD_target_derivative": -588.4128493036999,
+        "operation": "omit",
+        "target": "EH_bulk_minus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": 588.4128493036999
+      },
+      {
+        "id": "omit_Omega_kinetic_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 384.47100350265174,
+        "nominal_AD_target_derivative": 0.4849948959325818,
+        "operation": "omit",
+        "target": "Omega_kinetic_bulk_minus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -0.4849948959325818
+      },
+      {
+        "id": "omit_Omega_potential_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 439.9211341922205,
+        "nominal_AD_target_derivative": -54.965135793586896,
+        "operation": "omit",
+        "target": "Omega_potential_bulk_minus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": 54.965135793586896
+      },
+      {
+        "id": "omit_P_kinetic_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 73.08293366542786,
+        "nominal_AD_target_derivative": 311.87306473314806,
+        "operation": "omit",
+        "target": "P_kinetic_bulk_minus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -311.87306473314806
+      },
+      {
+        "id": "omit_full_V4_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 380.3275094751214,
+        "nominal_AD_target_derivative": 4.628488923399619,
+        "operation": "omit",
+        "target": "full_V4_bulk_minus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -4.628488923399619
+      },
+      {
+        "id": "omit_BF_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 395.19153034397834,
+        "nominal_AD_target_derivative": -10.235531945551422,
+        "operation": "omit",
+        "target": "BF_bulk_minus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": 10.235531945551422
+      },
+      {
+        "id": "omit_GHY_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 379.36971179779397,
+        "nominal_AD_target_derivative": 5.586286600621229,
+        "operation": "omit",
+        "target": "GHY_minus",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -5.586286600621229
+      },
+      {
+        "id": "omit_wall",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 381.87157804241826,
+        "nominal_AD_target_derivative": 3.084420356348076,
+        "operation": "omit",
+        "target": "wall",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -3.084420356348076
+      },
+      {
+        "id": "omit_K_foliation",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 384.9718343439488,
+        "nominal_AD_target_derivative": -0.01583594541141129,
+        "operation": "omit",
+        "target": "K_foliation",
+        "target_component_relative_residual": 1.0,
+        "target_residual": 0.01583594541141129
+      },
+      {
+        "id": "omit_R",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 384.95599839862535,
+        "nominal_AD_target_derivative": -7.232728217737696e-11,
+        "operation": "omit",
+        "target": "R",
+        "target_component_relative_residual": 1.0,
+        "target_residual": 7.232728217737696e-11
+      },
+      {
+        "id": "omit_R_squared",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 384.9559983985147,
+        "nominal_AD_target_derivative": -6.398551603923109e-14,
+        "operation": "omit",
+        "target": "R_squared",
+        "target_component_relative_residual": 1.0,
+        "target_residual": 6.398551603923109e-14
+      },
+      {
+        "id": "omit_a_squared",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 384.9785327672504,
+        "nominal_AD_target_derivative": -0.022534368740718194,
+        "operation": "omit",
+        "target": "a_squared",
+        "target_component_relative_residual": 1.0,
+        "target_residual": 0.022534368740718194
+      },
+      {
+        "id": "omit_Robin",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.0,
+        "mutated_Richardson_total_derivative": 299.5981609674123,
+        "nominal_AD_target_derivative": 85.35783743110684,
+        "operation": "omit",
+        "target": "Robin",
+        "target_component_relative_residual": 1.0,
+        "target_residual": -85.35783743110684
+      },
+      {
+        "id": "invert_sign_EH_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -215.98964182863892,
+        "mutated_Richardson_total_derivative": -47.02328525879037,
+        "nominal_AD_target_derivative": 215.98964182855204,
+        "operation": "invert_sign",
+        "target": "EH_bulk_plus",
+        "target_component_relative_residual": 1.9999999999995979,
+        "target_residual": -431.979283657191
+      },
+      {
+        "id": "invert_sign_Omega_kinetic_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.4693505279789573,
+        "mutated_Richardson_total_derivative": 385.8946994545333,
+        "nominal_AD_target_derivative": -0.4693505279756698,
+        "operation": "invert_sign",
+        "target": "Omega_kinetic_bulk_plus",
+        "target_component_relative_residual": 1.9999999999929956,
+        "target_residual": 0.9387010559546272
+      },
+      {
+        "id": "invert_sign_Omega_potential_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -75.5110913585541,
+        "mutated_Richardson_total_derivative": 233.9338156813781,
+        "nominal_AD_target_derivative": 75.51109135871815,
+        "operation": "invert_sign",
+        "target": "Omega_potential_bulk_plus",
+        "target_component_relative_residual": 1.9999999999978275,
+        "target_residual": -151.02218271727224
+      },
+      {
+        "id": "invert_sign_P_kinetic_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -308.6083908824008,
+        "mutated_Richardson_total_derivative": -232.26078336632781,
+        "nominal_AD_target_derivative": 308.6083908824643,
+        "operation": "invert_sign",
+        "target": "P_kinetic_bulk_plus",
+        "target_component_relative_residual": 1.9999999999997944,
+        "target_residual": -617.2167817648651
+      },
+      {
+        "id": "invert_sign_full_V4_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -4.288977811059355,
+        "mutated_Richardson_total_derivative": 376.37804277630954,
+        "nominal_AD_target_derivative": 4.288977811065739,
+        "operation": "invert_sign",
+        "target": "full_V4_bulk_plus",
+        "target_component_relative_residual": 1.9999999999985114,
+        "target_residual": -8.577955622125094
+      },
+      {
+        "id": "invert_sign_BF_bulk_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -26.832977972411925,
+        "mutated_Richardson_total_derivative": 331.290042453799,
+        "nominal_AD_target_derivative": 26.832977972412635,
+        "operation": "invert_sign",
+        "target": "BF_bulk_plus",
+        "target_component_relative_residual": 1.9999999999999736,
+        "target_residual": -53.66595594482456
+      },
+      {
+        "id": "invert_sign_GHY_plus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 3.168936509242295,
+        "mutated_Richardson_total_derivative": 391.29387141699584,
+        "nominal_AD_target_derivative": -3.168936509245334,
+        "operation": "invert_sign",
+        "target": "GHY_plus",
+        "target_component_relative_residual": 1.9999999999990412,
+        "target_residual": 6.337873018487629
+      },
+      {
+        "id": "invert_sign_EH_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 588.4128493040644,
+        "mutated_Richardson_total_derivative": 1561.7816970066249,
+        "nominal_AD_target_derivative": -588.4128493036999,
+        "operation": "invert_sign",
+        "target": "EH_bulk_minus",
+        "target_component_relative_residual": 1.9999999999993805,
+        "target_residual": 1176.8256986077643
+      },
+      {
+        "id": "invert_sign_Omega_kinetic_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -0.48499489592362227,
+        "mutated_Richardson_total_derivative": 383.98600860663873,
+        "nominal_AD_target_derivative": 0.4849948959325818,
+        "operation": "invert_sign",
+        "target": "Omega_kinetic_bulk_minus",
+        "target_component_relative_residual": 1.9999999999815266,
+        "target_residual": -0.9699897918562042
+      },
+      {
+        "id": "invert_sign_Omega_potential_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 54.96513579368528,
+        "mutated_Richardson_total_derivative": 494.8862699858612,
+        "nominal_AD_target_derivative": -54.965135793586896,
+        "operation": "invert_sign",
+        "target": "Omega_potential_bulk_minus",
+        "target_component_relative_residual": 1.99999999999821,
+        "target_residual": 109.93027158727217
+      },
+      {
+        "id": "invert_sign_P_kinetic_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -311.87306473306205,
+        "mutated_Richardson_total_derivative": -238.79013106758447,
+        "nominal_AD_target_derivative": 311.87306473314806,
+        "operation": "invert_sign",
+        "target": "P_kinetic_bulk_minus",
+        "target_component_relative_residual": 1.999999999999724,
+        "target_residual": -623.74612946621
+      },
+      {
+        "id": "invert_sign_full_V4_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -4.62848892339475,
+        "mutated_Richardson_total_derivative": 375.6990205517281,
+        "nominal_AD_target_derivative": 4.628488923399619,
+        "operation": "invert_sign",
+        "target": "full_V4_bulk_minus",
+        "target_component_relative_residual": 1.999999999998948,
+        "target_residual": -9.256977846794369
+      },
+      {
+        "id": "invert_sign_BF_bulk_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 10.235531945546711,
+        "mutated_Richardson_total_derivative": 405.4270622895714,
+        "nominal_AD_target_derivative": -10.235531945551422,
+        "operation": "invert_sign",
+        "target": "BF_bulk_minus",
+        "target_component_relative_residual": 1.9999999999995397,
+        "target_residual": 20.471063891098133
+      },
+      {
+        "id": "invert_sign_GHY_minus",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -5.5862866006207526,
+        "mutated_Richardson_total_derivative": 373.7834251972027,
+        "nominal_AD_target_derivative": 5.586286600621229,
+        "operation": "invert_sign",
+        "target": "GHY_minus",
+        "target_component_relative_residual": 1.9999999999999147,
+        "target_residual": -11.172573201241981
+      },
+      {
+        "id": "invert_sign_wall",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -3.0844203560804497,
+        "mutated_Richardson_total_derivative": 378.7871576863538,
+        "nominal_AD_target_derivative": 3.084420356348076,
+        "operation": "invert_sign",
+        "target": "wall",
+        "target_component_relative_residual": 1.999999999913233,
+        "target_residual": -6.168840712428526
+      },
+      {
+        "id": "invert_sign_K_foliation",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.01583594541030237,
+        "mutated_Richardson_total_derivative": 384.98767028927335,
+        "nominal_AD_target_derivative": -0.01583594541141129,
+        "operation": "invert_sign",
+        "target": "K_foliation",
+        "target_component_relative_residual": 1.9999999999299747,
+        "target_residual": 0.031671890821713664
+      },
+      {
+        "id": "invert_sign_R",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 7.232823321718217e-11,
+        "mutated_Richardson_total_derivative": 384.9559983987153,
+        "nominal_AD_target_derivative": -7.232728217737696e-11,
+        "operation": "invert_sign",
+        "target": "R",
+        "target_component_relative_residual": 1.9999868510571472,
+        "target_residual": 1.4465551539455913e-10
+      },
+      {
+        "id": "invert_sign_R_squared",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 6.398551598320885e-14,
+        "mutated_Richardson_total_derivative": 384.9559983985147,
+        "nominal_AD_target_derivative": -6.398551603923109e-14,
+        "operation": "invert_sign",
+        "target": "R_squared",
+        "target_component_relative_residual": 1.9999999991244541,
+        "target_residual": 1.2797103202243992e-13
+      },
+      {
+        "id": "invert_sign_a_squared",
+        "killed": true,
+        "mutated_Richardson_target_derivative": 0.022534368738893952,
+        "mutated_Richardson_total_derivative": 385.0010671360062,
+        "nominal_AD_target_derivative": -0.022534368740718194,
+        "operation": "invert_sign",
+        "target": "a_squared",
+        "target_component_relative_residual": 1.9999999999190463,
+        "target_residual": 0.045068737479612146
+      },
+      {
+        "id": "invert_sign_Robin",
+        "killed": true,
+        "mutated_Richardson_target_derivative": -85.35783743108917,
+        "mutated_Richardson_total_derivative": 214.24032353629957,
+        "nominal_AD_target_derivative": 85.35783743110684,
+        "operation": "invert_sign",
+        "target": "Robin",
+        "target_component_relative_residual": 1.9999999999997928,
+        "target_residual": -170.715674862196
+      }
+    ]
+  },
+  "source_pins": {
+    "nominal_comparator_artifact_sha256": "26cef70ab86c666b33f62a6e6ce5375cb4da4669a25ca070cc3346493a660828",
+    "route_A_artifact_sha256": "ec56360b271cea3d32b41c5d3c19e7a7dc85de4425b4cd3ab4e5fe290f696e2e",
+    "route_B_artifact_sha256": "7e1044cdc628052750f02f0ab4d134c89ee85f7296d3de027d998177578320db"
+  },
+  "tolerance": {
+    "target_component_relative_residual_kill_threshold": 5e-05
+  }
+}

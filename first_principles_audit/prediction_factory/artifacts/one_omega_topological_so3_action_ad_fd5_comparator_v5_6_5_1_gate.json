@@ -1,0 +1,1394 @@
+{
+  "classification": "theory_only;finite_N2;two_route_direct_variation_certificate;fail_closed_C1_N1",
+  "decision": {
+    "AD_vs_independent_FD5_comparator_pass": true,
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "Euler_Green_independent_route_pass": false,
+    "N1_ACTION_pass": false,
+    "continuous_dense_family_theorem_pass": false,
+    "independent_clean_process_redteam_pass": false,
+    "multi_N_convergence_pass": false,
+    "mutant_campaign_pass": false,
+    "restricted_spectral_N2_two_route_derivative_certificate_pass": true
+  },
+  "evidence_boundary": "Agreement of two independent numerical implementations of S_rel and D_xi S on one finite N2 member is now testable. This is not yet Euler-Green closure, multi-N convergence, a continuum theorem, or authorization to promote C1/N1 or open B4/B5.",
+  "mutant_campaign_status": {
+    "circular_route_mutant": "rejected by byte-pinned route artifacts; clean-process audit pending",
+    "output_level_omit_and_sign_mutants": "implemented_in_comparator_tests_only",
+    "reexecuted_action_mutants": "pending"
+  },
+  "open_obligations": {
+    "Euler_Green": "derive the bulk/interface/Robin/corner Green decomposition independently from the same literal action",
+    "boundary": "large gauges and BV-BFV/interface edge modes remain outside this finite certificate",
+    "continuous_extension": "prove density, uniform stability, and continuity of the residual as N tends to infinity",
+    "multi_N": "repeat on independently generated N values with simultaneous Q, radial, and h refinement",
+    "mutants": "reexecute BF/material/conformal/Robin/R/gluing/sign/Z2 mutants through the action evaluators",
+    "redteam": "regenerate and compare from a clean process without reading this comparator receipt"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_action_ad_fd5_comparator_v5_6_5_1_gate.py",
+      "sha256": "6dc1f770b207683bc1ffd7c514e5603dda2c9cb0d3359408fa4af710d7a6e76e"
+    },
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_action_ad_fd5_comparator_v5_6_5_1_gate.py",
+      "sha256": "84d90db2181037395d52b6041236db847bb8f27ae38d3b39dde8624a8825e608"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-action-ad-fd5-comparator-v5-6-5-1.v1",
+  "scientific": {
+    "R_identity_action_comparison": {
+      "all_output_Linf": 4.729372449219227e-11,
+      "all_output_component_relative_Linf": 5.0835616444840006e-11,
+      "residual_by_component": {
+        "BF_bulk_minus": {
+          "absolute_residual": 1.4210854715202004e-14,
+          "component_relative_residual": 4.489003208110016e-16,
+          "left": -31.657038447930034,
+          "residual": -1.4210854715202004e-14,
+          "right": -31.65703844793002
+        },
+        "BF_bulk_plus": {
+          "absolute_residual": 1.0658141036401503e-13,
+          "component_relative_residual": 3.609922043485696e-15,
+          "left": 29.524573960356484,
+          "residual": -1.0658141036401503e-13,
+          "right": 29.52457396035659
+        },
+        "EH_bulk_minus": {
+          "absolute_residual": 2.6432189770275727e-12,
+          "component_relative_residual": 1.5302196088789663e-14,
+          "left": 172.7346167628832,
+          "residual": 2.6432189770275727e-12,
+          "right": 172.73461676288056
+        },
+        "EH_bulk_plus": {
+          "absolute_residual": 7.73070496506989e-12,
+          "component_relative_residual": 5.886866666722348e-15,
+          "left": 1313.2121725756865,
+          "residual": -7.73070496506989e-12,
+          "right": 1313.2121725756942
+        },
+        "GHY_minus": {
+          "absolute_residual": 1.2789769243681803e-13,
+          "component_relative_residual": 1.6552865435150314e-15,
+          "left": 77.2661947491127,
+          "residual": 1.2789769243681803e-13,
+          "right": 77.26619474911257
+        },
+        "GHY_plus": {
+          "absolute_residual": 6.110667527536862e-13,
+          "component_relative_residual": 5.570261625962041e-15,
+          "left": 109.70162512755381,
+          "residual": 6.110667527536862e-13,
+          "right": 109.7016251275532
+        },
+        "K_foliation": {
+          "absolute_residual": 4.2351647362715017e-20,
+          "component_relative_residual": 4.736774124688632e-15,
+          "left": 8.94103164893867e-06,
+          "residual": -4.2351647362715017e-20,
+          "right": 8.941031648938712e-06
+        },
+        "Omega_kinetic_bulk_minus": {
+          "absolute_residual": 1.9184653865522705e-13,
+          "component_relative_residual": 5.0400534386825176e-15,
+          "left": -38.064385822340654,
+          "residual": 1.9184653865522705e-13,
+          "right": -38.064385822340846
+        },
+        "Omega_kinetic_bulk_plus": {
+          "absolute_residual": 3.552713678800501e-14,
+          "component_relative_residual": 1.5456792532526763e-15,
+          "left": -22.98480536194225,
+          "residual": -3.552713678800501e-14,
+          "right": -22.984805361942215
+        },
+        "Omega_potential_bulk_minus": {
+          "absolute_residual": 4.320099833421409e-12,
+          "component_relative_residual": 1.3255742836116935e-14,
+          "left": -325.904016608617,
+          "residual": -4.320099833421409e-12,
+          "right": -325.90401660861266
+        },
+        "Omega_potential_bulk_plus": {
+          "absolute_residual": 1.1368683772161603e-13,
+          "component_relative_residual": 1.545036427714672e-16,
+          "left": 735.819788338421,
+          "residual": -1.1368683772161603e-13,
+          "right": 735.8197883384211
+        },
+        "P_kinetic_bulk_minus": {
+          "absolute_residual": 3.410605131648481e-13,
+          "component_relative_residual": 1.5148588733683808e-15,
+          "left": -225.14342369496066,
+          "residual": -3.410605131648481e-13,
+          "right": -225.14342369496032
+        },
+        "P_kinetic_bulk_plus": {
+          "absolute_residual": 2.3305801732931286e-12,
+          "component_relative_residual": 8.763462640535498e-15,
+          "left": -265.94284347296497,
+          "residual": 2.3305801732931286e-12,
+          "right": -265.9428434729673
+        },
+        "R": {
+          "absolute_residual": 2.710505431213761e-17,
+          "component_relative_residual": 5.0835616444840006e-11,
+          "left": -5.331902356598426e-07,
+          "residual": -2.710505431213761e-17,
+          "right": -5.331902356327375e-07
+        },
+        "R_squared": {
+          "absolute_residual": 1.6543612251060553e-22,
+          "component_relative_residual": 5.558722604529334e-15,
+          "left": -2.976153592838139e-08,
+          "residual": -1.6543612251060553e-22,
+          "right": -2.9761535928381223e-08
+        },
+        "Robin": {
+          "absolute_residual": 9.237055564881302e-14,
+          "component_relative_residual": 1.598971680910964e-15,
+          "left": -57.76872520730811,
+          "residual": -9.237055564881302e-14,
+          "right": -57.768725207308016
+        },
+        "S_total": {
+          "absolute_residual": 4.729372449219227e-11,
+          "component_relative_residual": 3.700070059844704e-15,
+          "left": -12781.845675153847,
+          "residual": -4.729372449219227e-11,
+          "right": -12781.8456751538
+        },
+        "a_squared": {
+          "absolute_residual": 1.5246593050577406e-20,
+          "component_relative_residual": 1.478425342849436e-15,
+          "left": 1.0312724361983648e-05,
+          "residual": 1.5246593050577406e-20,
+          "right": 1.0312724361983632e-05
+        },
+        "full_V4_bulk_minus": {
+          "absolute_residual": 8.881784197001252e-16,
+          "component_relative_residual": 4.614245878024695e-16,
+          "left": -1.92486149021678,
+          "residual": 8.881784197001252e-16,
+          "right": -1.9248614902167809
+        },
+        "full_V4_bulk_plus": {
+          "absolute_residual": 9.769962616701378e-15,
+          "component_relative_residual": 3.610351613370035e-15,
+          "left": -2.7060972622502275,
+          "residual": 9.769962616701378e-15,
+          "right": -2.7060972622502373
+        },
+        "wall": {
+          "absolute_residual": 4.001776687800884e-11,
+          "component_relative_residual": 2.8086568707418704e-15,
+          "left": -14248.008467990134,
+          "residual": -4.001776687800884e-11,
+          "right": -14248.008467990094
+        }
+      },
+      "twenty_component_L2": 4.114418796112471e-11
+    },
+    "Richardson_h4_cancellation": {
+      "all_output_Linf": 9.707150638860185e-10,
+      "all_output_component_relative_Linf": 1.314894285271126e-05,
+      "coarse_step": 0.04,
+      "extrapolated_derivative": {
+        "BF_bulk_minus": -10.235531945546711,
+        "BF_bulk_plus": 26.832977972411925,
+        "EH_bulk_minus": -588.4128493040644,
+        "EH_bulk_plus": 215.98964182863892,
+        "GHY_minus": 5.5862866006207526,
+        "GHY_plus": -3.168936509242295,
+        "K_foliation": -0.01583594541030237,
+        "Omega_kinetic_bulk_minus": 0.48499489592362227,
+        "Omega_kinetic_bulk_plus": -0.4693505279789573,
+        "Omega_potential_bulk_minus": -54.96513579368528,
+        "Omega_potential_bulk_plus": 75.5110913585541,
+        "P_kinetic_bulk_minus": 311.87306473306205,
+        "P_kinetic_bulk_plus": 308.6083908824008,
+        "R": -7.232823321718217e-11,
+        "R_squared": -6.398551598320885e-14,
+        "Robin": 85.35783743108917,
+        "S_total": 384.9559983985147,
+        "a_squared": -0.022534368738893952,
+        "full_V4_bulk_minus": 4.62848892339475,
+        "full_V4_bulk_plus": 4.288977811059355,
+        "wall": 3.0844203560804497
+      },
+      "fine_step": 0.02,
+      "formula": "D_R=D(h/2)+(D(h/2)-D(h))/15",
+      "residual_by_component": {
+        "BF_bulk_minus": {
+          "absolute_residual": 4.710898338089464e-12,
+          "component_relative_residual": 4.602494880724709e-13,
+          "left": -10.235531945551422,
+          "residual": -4.710898338089464e-12,
+          "right": -10.235531945546711
+        },
+        "BF_bulk_plus": {
+          "absolute_residual": 7.105427357601002e-13,
+          "component_relative_residual": 2.648020419092578e-14,
+          "left": 26.832977972412635,
+          "residual": 7.105427357601002e-13,
+          "right": 26.832977972411925
+        },
+        "EH_bulk_minus": {
+          "absolute_residual": 3.64480001735501e-10,
+          "component_relative_residual": 6.194290321269899e-13,
+          "left": -588.4128493036999,
+          "residual": 3.64480001735501e-10,
+          "right": -588.4128493040644
+        },
+        "EH_bulk_plus": {
+          "absolute_residual": 8.688516572874505e-11,
+          "component_relative_residual": 4.022654280693594e-13,
+          "left": 215.98964182855204,
+          "residual": -8.688516572874505e-11,
+          "right": 215.98964182863892
+        },
+        "GHY_minus": {
+          "absolute_residual": 4.760636329592671e-13,
+          "component_relative_residual": 8.52200517077527e-14,
+          "left": 5.586286600621229,
+          "residual": 4.760636329592671e-13,
+          "right": 5.5862866006207526
+        },
+        "GHY_plus": {
+          "absolute_residual": 3.0389024630039785e-12,
+          "component_relative_residual": 9.589660298141088e-13,
+          "left": -3.168936509245334,
+          "residual": -3.0389024630039785e-12,
+          "right": -3.168936509242295
+        },
+        "K_foliation": {
+          "absolute_residual": 1.108921982018174e-12,
+          "component_relative_residual": 7.002562544949739e-11,
+          "left": -0.01583594541141129,
+          "residual": -1.108921982018174e-12,
+          "right": -0.01583594541030237
+        },
+        "Omega_kinetic_bulk_minus": {
+          "absolute_residual": 8.959555319876245e-12,
+          "component_relative_residual": 1.8473504350284328e-11,
+          "left": 0.4849948959325818,
+          "residual": 8.959555319876245e-12,
+          "right": 0.48499489592362227
+        },
+        "Omega_kinetic_bulk_plus": {
+          "absolute_residual": 3.2875369093687823e-12,
+          "component_relative_residual": 7.00443850255171e-12,
+          "left": -0.4693505279756698,
+          "residual": 3.2875369093687823e-12,
+          "right": -0.4693505279789573
+        },
+        "Omega_potential_bulk_minus": {
+          "absolute_residual": 9.838174719334347e-11,
+          "component_relative_residual": 1.789893643902289e-12,
+          "left": -54.965135793586896,
+          "residual": 9.838174719334347e-11,
+          "right": -54.96513579368528
+        },
+        "Omega_potential_bulk_plus": {
+          "absolute_residual": 1.6405010683229193e-10,
+          "component_relative_residual": 2.1725299407072004e-12,
+          "left": 75.51109135871815,
+          "residual": 1.6405010683229193e-10,
+          "right": 75.5110913585541
+        },
+        "P_kinetic_bulk_minus": {
+          "absolute_residual": 8.600409273640253e-11,
+          "component_relative_residual": 2.757663372115553e-13,
+          "left": 311.87306473314806,
+          "residual": 8.600409273640253e-11,
+          "right": 311.87306473306205
+        },
+        "P_kinetic_bulk_plus": {
+          "absolute_residual": 6.349409886752255e-11,
+          "component_relative_residual": 2.0574326798426144e-13,
+          "left": 308.6083908824643,
+          "residual": 6.349409886752255e-11,
+          "right": 308.6083908824008
+        },
+        "R": {
+          "absolute_residual": 9.510398052103007e-16,
+          "component_relative_residual": 1.314894285271126e-05,
+          "left": -7.232728217737696e-11,
+          "residual": 9.510398052103007e-16,
+          "right": -7.232823321718217e-11
+        },
+        "R_squared": {
+          "absolute_residual": 5.602223829438023e-23,
+          "component_relative_residual": 8.755456197310596e-10,
+          "left": -6.398551603923109e-14,
+          "residual": -5.602223829438023e-23,
+          "right": -6.398551598320885e-14
+        },
+        "Robin": {
+          "absolute_residual": 1.7678303265711293e-11,
+          "component_relative_residual": 2.071081437598466e-13,
+          "left": 85.35783743110684,
+          "residual": 1.7678303265711293e-11,
+          "right": 85.35783743108917
+        },
+        "S_total": {
+          "absolute_residual": 9.707150638860185e-10,
+          "component_relative_residual": 2.5216260245896095e-12,
+          "left": 384.9559983994854,
+          "residual": 9.707150638860185e-10,
+          "right": 384.9559983985147
+        },
+        "a_squared": {
+          "absolute_residual": 1.8242421462311142e-12,
+          "component_relative_residual": 8.095377186824954e-11,
+          "left": -0.022534368740718194,
+          "residual": -1.8242421462311142e-12,
+          "right": -0.022534368738893952
+        },
+        "full_V4_bulk_minus": {
+          "absolute_residual": 4.8689940967960865e-12,
+          "component_relative_residual": 1.0519619204835034e-12,
+          "left": 4.628488923399619,
+          "residual": 4.8689940967960865e-12,
+          "right": 4.62848892339475
+        },
+        "full_V4_bulk_plus": {
+          "absolute_residual": 6.3842264808045e-12,
+          "component_relative_residual": 1.4885193540365104e-12,
+          "left": 4.288977811065739,
+          "residual": 6.3842264808045e-12,
+          "right": 4.288977811059355
+        },
+        "wall": {
+          "absolute_residual": 2.676263655132516e-10,
+          "component_relative_residual": 8.67671505806422e-11,
+          "left": 3.084420356348076,
+          "residual": 2.676263655132516e-10,
+          "right": 3.0844203560804497
+        }
+      },
+      "twenty_component_L2": 5.104341009893662e-10
+    },
+    "all_direct_comparison_checks_pass": true,
+    "central_action_comparison": {
+      "all_output_Linf": 2.9103830456733704e-11,
+      "all_output_component_relative_Linf": 3.229988842403746e-11,
+      "residual_by_component": {
+        "BF_bulk_minus": {
+          "absolute_residual": 1.7763568394002505e-14,
+          "component_relative_residual": 1.236289302609521e-15,
+          "left": 14.368455956472094,
+          "residual": 1.7763568394002505e-14,
+          "right": 14.368455956472076
+        },
+        "BF_bulk_plus": {
+          "absolute_residual": 5.551115123125783e-15,
+          "component_relative_residual": 3.5407839652835497e-15,
+          "left": -1.567764420973716,
+          "residual": -5.551115123125783e-15,
+          "right": -1.5677644209737105
+        },
+        "EH_bulk_minus": {
+          "absolute_residual": 1.0231815394945443e-11,
+          "component_relative_residual": 7.371490682654403e-15,
+          "left": -1388.0252767627442,
+          "residual": 1.0231815394945443e-11,
+          "right": -1388.0252767627544
+        },
+        "EH_bulk_plus": {
+          "absolute_residual": 4.092726157978177e-12,
+          "component_relative_residual": 3.484934898749101e-15,
+          "left": 1174.40534095694,
+          "residual": 4.092726157978177e-12,
+          "right": 1174.405340956936
+        },
+        "GHY_minus": {
+          "absolute_residual": 6.217248937900877e-15,
+          "component_relative_residual": 1.040809788924829e-15,
+          "left": -5.973472774812557,
+          "residual": 6.217248937900877e-15,
+          "right": -5.973472774812564
+        },
+        "GHY_plus": {
+          "absolute_residual": 9.592326932761353e-14,
+          "component_relative_residual": 3.1600717941375022e-15,
+          "left": 30.354775326803754,
+          "residual": 9.592326932761353e-14,
+          "right": 30.354775326803658
+        },
+        "K_foliation": {
+          "absolute_residual": 1.6940658945086007e-21,
+          "component_relative_residual": 3.9364687177348037e-16,
+          "left": 4.303516720141578e-06,
+          "residual": 1.6940658945086007e-21,
+          "right": 4.3035167201415765e-06
+        },
+        "Omega_kinetic_bulk_minus": {
+          "absolute_residual": 1.2789769243681803e-13,
+          "component_relative_residual": 4.3814072399824826e-15,
+          "left": -29.191007690334985,
+          "residual": -1.2789769243681803e-13,
+          "right": -29.191007690334857
+        },
+        "Omega_kinetic_bulk_plus": {
+          "absolute_residual": 2.1316282072803006e-14,
+          "component_relative_residual": 6.684462945533425e-16,
+          "left": -31.889296487231757,
+          "residual": 2.1316282072803006e-14,
+          "right": -31.88929648723178
+        },
+        "Omega_potential_bulk_minus": {
+          "absolute_residual": 7.44648787076585e-12,
+          "component_relative_residual": 1.4665276694969507e-14,
+          "left": -507.76320322139907,
+          "residual": -7.44648787076585e-12,
+          "right": -507.7632032213916
+        },
+        "Omega_potential_bulk_plus": {
+          "absolute_residual": 4.263256414560601e-12,
+          "component_relative_residual": 1.0853586143741517e-14,
+          "left": -392.7970311470618,
+          "residual": 4.263256414560601e-12,
+          "right": -392.79703114706604
+        },
+        "P_kinetic_bulk_minus": {
+          "absolute_residual": 1.9326762412674725e-12,
+          "component_relative_residual": 4.269065446714895e-15,
+          "left": -452.7164704759177,
+          "residual": 1.9326762412674725e-12,
+          "right": -452.7164704759196
+        },
+        "P_kinetic_bulk_plus": {
+          "absolute_residual": 2.7284841053187847e-12,
+          "component_relative_residual": 5.647217041548612e-15,
+          "left": -483.15552337449185,
+          "residual": 2.7284841053187847e-12,
+          "right": -483.1555233744946
+        },
+        "R": {
+          "absolute_residual": 1.1289255121005315e-17,
+          "component_relative_residual": 3.229988842403746e-11,
+          "left": -3.4951374979375754e-07,
+          "residual": -1.1289255121005315e-17,
+          "right": -3.495137497824683e-07
+        },
+        "R_squared": {
+          "absolute_residual": 2.3005960786631082e-24,
+          "component_relative_residual": 2.1935665125612222e-14,
+          "left": -1.0487924872525827e-10,
+          "residual": 2.3005960786631082e-24,
+          "right": -1.0487924872526057e-10
+        },
+        "Robin": {
+          "absolute_residual": 1.7053025658242404e-13,
+          "component_relative_residual": 1.3088452733900523e-15,
+          "left": -130.29061574309088,
+          "residual": -1.7053025658242404e-13,
+          "right": -130.2906157430907
+        },
+        "S_total": {
+          "absolute_residual": 2.9103830456733704e-11,
+          "component_relative_residual": 1.7661728606646078e-15,
+          "left": -16478.47224069672,
+          "residual": 2.9103830456733704e-11,
+          "right": -16478.47224069675
+        },
+        "a_squared": {
+          "absolute_residual": 1.2705494208814505e-21,
+          "component_relative_residual": 4.484802031268711e-16,
+          "left": 2.8330111608561297e-06,
+          "residual": -1.2705494208814505e-21,
+          "right": 2.833011160856131e-06
+        },
+        "full_V4_bulk_minus": {
+          "absolute_residual": 5.417888360170764e-14,
+          "component_relative_residual": 1.5270000939504154e-14,
+          "left": -3.548060266423725,
+          "residual": -5.417888360170764e-14,
+          "right": -3.5480602664236707
+        },
+        "full_V4_bulk_plus": {
+          "absolute_residual": 3.4638958368304884e-14,
+          "component_relative_residual": 1.056999776296503e-14,
+          "left": -3.2771017690914044,
+          "residual": -3.4638958368304884e-14,
+          "right": -3.2771017690913697
+        },
+        "wall": {
+          "absolute_residual": 1.4551915228366852e-11,
+          "component_relative_residual": 1.0199412025468752e-15,
+          "left": -14267.40599559027,
+          "residual": 1.4551915228366852e-11,
+          "right": -14267.405995590285
+        }
+      },
+      "twenty_component_L2": 2.0446606187686683e-11
+    },
+    "checks": {
+      "R_identity_action_component_Linf_within_tolerance": true,
+      "R_identity_action_component_relative_Linf_within_tolerance": true,
+      "Richardson_each_component_relative_within_tolerance": true,
+      "Richardson_twenty_component_L2_within_tolerance": true,
+      "byte_pinned_independent_route_receipts_loaded": true,
+      "central_action_component_Linf_within_tolerance": true,
+      "central_action_component_relative_Linf_within_tolerance": true,
+      "no_on_shell_zero_was_used_as_acceptance": true,
+      "off_shell_direction_is_nontrivial": true,
+      "roundoff_floor_is_visible_after_h4_window": true,
+      "same_action_bundle_member_tangent_and_Q5_r3": true,
+      "twenty_components_plus_total_present_in_every_raw_record": true,
+      "two_consecutive_coarse_L2_orders_are_fourth_order": true
+    },
+    "input_identity": {
+      "action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+      "ambient_tangent_sha256": "84ac494a2bd03d2fca9ca2490b4905436ef80719dcf4744f16ce2eae28b7812f",
+      "bundle_sha256": "bcbb0037a2b025d9ece7387b5962a910e31eced7294ccb5324ab764c3bc7cb26",
+      "central_sha256": "0febc03837763087bcd802a19431800b703278fa055ab3e11ddc9b4259458b67",
+      "identity_member_id": "N2.K2.seed0",
+      "member_id": "N2.K2.seed20260902",
+      "quadrature": {
+        "radial_gauss_order": 3,
+        "tangential_node_count": 625,
+        "tangential_points_per_axis": 5
+      },
+      "tangent_sha256": "96f2cb65c7ecb11f6893c6077d2538187a2fa1645cabf5b10980d36de97a0ffa"
+    },
+    "raw_AD_JVP": {
+      "BF_bulk_minus": -10.235531945551422,
+      "BF_bulk_plus": 26.832977972412635,
+      "EH_bulk_minus": -588.4128493036999,
+      "EH_bulk_plus": 215.98964182855204,
+      "GHY_minus": 5.586286600621229,
+      "GHY_plus": -3.168936509245334,
+      "K_foliation": -0.01583594541141129,
+      "Omega_kinetic_bulk_minus": 0.4849948959325818,
+      "Omega_kinetic_bulk_plus": -0.4693505279756698,
+      "Omega_potential_bulk_minus": -54.965135793586896,
+      "Omega_potential_bulk_plus": 75.51109135871815,
+      "P_kinetic_bulk_minus": 311.87306473314806,
+      "P_kinetic_bulk_plus": 308.6083908824643,
+      "R": -7.232728217737696e-11,
+      "R_squared": -6.398551603923109e-14,
+      "Robin": 85.35783743110684,
+      "S_total": 384.9559983994854,
+      "a_squared": -0.022534368740718194,
+      "full_V4_bulk_minus": 4.628488923399619,
+      "full_V4_bulk_plus": 4.288977811065739,
+      "wall": 3.084420356348076
+    },
+    "raw_FD5_error_window": [
+      {
+        "all_output_Linf": 1.6240508671216958e-06,
+        "all_output_component_relative_Linf": 0.00021942936493144288,
+        "residual_by_component": {
+          "BF_bulk_minus": {
+            "absolute_residual": 2.9086120179044883e-09,
+            "component_relative_residual": 2.8416813435300717e-10,
+            "left": -10.235531945551422,
+            "residual": 2.9086120179044883e-09,
+            "right": -10.235531948460034
+          },
+          "BF_bulk_plus": {
+            "absolute_residual": 2.256047793025573e-09,
+            "component_relative_residual": 8.407742872056038e-11,
+            "left": 26.832977972412635,
+            "residual": -2.256047793025573e-09,
+            "right": 26.832977974668683
+          },
+          "EH_bulk_minus": {
+            "absolute_residual": 5.386626753534074e-07,
+            "component_relative_residual": 9.154502251112216e-10,
+            "left": -588.4128493036999,
+            "residual": -5.386626753534074e-07,
+            "right": -588.4128487650372
+          },
+          "EH_bulk_plus": {
+            "absolute_residual": 1.6240508671216958e-06,
+            "component_relative_residual": 7.519114589813676e-09,
+            "left": 215.98964182855204,
+            "residual": 1.6240508671216958e-06,
+            "right": 215.98964020450117
+          },
+          "GHY_minus": {
+            "absolute_residual": 2.9456498573665613e-08,
+            "component_relative_residual": 5.273001669908929e-09,
+            "left": 5.586286600621229,
+            "residual": 2.9456498573665613e-08,
+            "right": 5.58628657116473
+          },
+          "GHY_plus": {
+            "absolute_residual": 7.0564545318063665e-09,
+            "component_relative_residual": 2.2267579395230057e-09,
+            "left": -3.168936509245334,
+            "residual": -7.0564545318063665e-09,
+            "right": -3.1689365021888793
+          },
+          "K_foliation": {
+            "absolute_residual": 2.7045710521839128e-08,
+            "component_relative_residual": 1.707865468639157e-06,
+            "left": -0.01583594541141129,
+            "residual": 2.7045710521839128e-08,
+            "right": -0.015835972457121813
+          },
+          "Omega_kinetic_bulk_minus": {
+            "absolute_residual": 2.6384324058881248e-08,
+            "component_relative_residual": 5.4401237713662446e-08,
+            "left": 0.4849948959325818,
+            "residual": -2.6384324058881248e-08,
+            "right": 0.4849949223169059
+          },
+          "Omega_kinetic_bulk_plus": {
+            "absolute_residual": 2.6066894687204467e-07,
+            "component_relative_residual": 5.553822385080118e-07,
+            "left": -0.4693505279756698,
+            "residual": -2.6066894687204467e-07,
+            "right": -0.4693502673067229
+          },
+          "Omega_potential_bulk_minus": {
+            "absolute_residual": 1.1163521662638232e-08,
+            "component_relative_residual": 2.0310186628654545e-10,
+            "left": -54.965135793586896,
+            "residual": 1.1163521662638232e-08,
+            "right": -54.96513580475042
+          },
+          "Omega_potential_bulk_plus": {
+            "absolute_residual": 6.797048968110175e-08,
+            "component_relative_residual": 9.001391503802085e-10,
+            "left": 75.51109135871815,
+            "residual": -6.797048968110175e-08,
+            "right": 75.51109142668864
+          },
+          "P_kinetic_bulk_minus": {
+            "absolute_residual": 1.430142333447293e-07,
+            "component_relative_residual": 4.585655175675347e-10,
+            "left": 311.87306473314806,
+            "residual": 1.430142333447293e-07,
+            "right": 311.8730645901338
+          },
+          "P_kinetic_bulk_plus": {
+            "absolute_residual": 1.0744864198386495e-06,
+            "component_relative_residual": 3.4817148458766956e-09,
+            "left": 308.6083908824643,
+            "residual": -1.0744864198386495e-06,
+            "right": 308.6083919569507
+          },
+          "R": {
+            "absolute_residual": 1.5870729595399093e-14,
+            "component_relative_residual": 0.00021942936493144288,
+            "left": -7.232728217737696e-11,
+            "residual": -1.5870729595399093e-14,
+            "right": -7.231141144778156e-11
+          },
+          "R_squared": {
+            "absolute_residual": 1.0208142008271208e-20,
+            "component_relative_residual": 1.595383242984607e-07,
+            "left": -6.398551603923109e-14,
+            "residual": -1.0208142008271208e-20,
+            "right": -6.398550583108908e-14
+          },
+          "Robin": {
+            "absolute_residual": 4.4789165087877336e-07,
+            "component_relative_residual": 5.247223504698923e-09,
+            "left": 85.35783743110684,
+            "residual": 4.4789165087877336e-07,
+            "right": 85.3578369832152
+          },
+          "S_total": {
+            "absolute_residual": 1.7894757320391363e-07,
+            "component_relative_residual": 4.648520191001879e-10,
+            "left": 384.9559983994854,
+            "residual": -1.7894757320391363e-07,
+            "right": 384.95599857843297
+          },
+          "a_squared": {
+            "absolute_residual": 3.902612083148127e-08,
+            "component_relative_residual": 1.731845861461288e-06,
+            "left": -0.022534368740718194,
+            "residual": 3.902612083148127e-08,
+            "right": -0.022534407766839026
+          },
+          "full_V4_bulk_minus": {
+            "absolute_residual": 2.788552730947913e-07,
+            "component_relative_residual": 6.024757991418442e-08,
+            "left": 4.628488923399619,
+            "residual": -2.788552730947913e-07,
+            "right": 4.628489202254892
+          },
+          "full_V4_bulk_plus": {
+            "absolute_residual": 2.1725512944215097e-07,
+            "component_relative_residual": 5.06542882727721e-08,
+            "left": 4.288977811065739,
+            "residual": -2.1725512944215097e-07,
+            "right": 4.2889780283208685
+          },
+          "wall": {
+            "absolute_residual": 2.9911428889306535e-08,
+            "component_relative_residual": 9.69758500577812e-09,
+            "left": 3.084420356348076,
+            "residual": -2.9911428889306535e-08,
+            "right": 3.084420386259505
+          }
+        },
+        "step": 0.04,
+        "total_absolute_residual": 1.7894757320391363e-07,
+        "twenty_component_L2": 2.122665563526953e-06
+      },
+      {
+        "all_output_Linf": 1.0142173323401948e-07,
+        "all_output_component_relative_Linf": 1.3870392928875387e-06,
+        "observed_L2_order_from_previous": 4.00195009962943,
+        "residual_by_component": {
+          "BF_bulk_minus": {
+            "absolute_residual": 1.773710067709544e-10,
+            "component_relative_residual": 1.732894857946e-11,
+            "left": -10.235531945551422,
+            "residual": 1.773710067709544e-10,
+            "right": -10.235531945728793
+          },
+          "BF_bulk_plus": {
+            "absolute_residual": 1.403357430262986e-10,
+            "component_relative_residual": 5.229972728701443e-12,
+            "left": 26.832977972412635,
+            "residual": -1.403357430262986e-10,
+            "right": 26.83297797255297
+          },
+          "EH_bulk_minus": {
+            "absolute_residual": 3.332468168082414e-08,
+            "component_relative_residual": 5.66348639739241e-11,
+            "left": -588.4128493036999,
+            "residual": -3.332468168082414e-08,
+            "right": -588.4128492703752
+          },
+          "EH_bulk_plus": {
+            "absolute_residual": 1.0142173323401948e-07,
+            "component_relative_residual": 4.695675791458828e-10,
+            "left": 215.98964182855204,
+            "residual": 1.0142173323401948e-07,
+            "right": 215.9896417271303
+          },
+          "GHY_minus": {
+            "absolute_residual": 1.841477192954244e-09,
+            "component_relative_residual": 3.2964244848258604e-10,
+            "left": 5.586286600621229,
+            "residual": 1.841477192954244e-09,
+            "right": 5.586286598779751
+          },
+          "GHY_plus": {
+            "absolute_residual": 4.4387737929696414e-10,
+            "component_relative_residual": 1.400714018731386e-10,
+            "left": -3.168936509245334,
+            "residual": -4.4387737929696414e-10,
+            "right": -3.1689365088014565
+          },
+          "K_foliation": {
+            "absolute_residual": 1.6893172936904843e-09,
+            "component_relative_residual": 1.0667611371426984e-07,
+            "left": -0.01583594541141129,
+            "residual": 1.6893172936904843e-09,
+            "right": -0.015835947100728585
+          },
+          "Omega_kinetic_bulk_minus": {
+            "absolute_residual": 1.6406206948538227e-09,
+            "component_relative_residual": 3.3827586703759007e-09,
+            "left": 0.4849948959325818,
+            "residual": -1.6406206948538227e-09,
+            "right": 0.4849948975732025
+          },
+          "Omega_kinetic_bulk_plus": {
+            "absolute_residual": 1.628872708936413e-08,
+            "component_relative_residual": 3.470482319391043e-08,
+            "left": -0.4693505279756698,
+            "residual": -1.628872708936413e-08,
+            "right": -0.4693505116869427
+          },
+          "Omega_potential_bulk_minus": {
+            "absolute_residual": 7.89952991908649e-10,
+            "component_relative_residual": 1.4371891936442088e-11,
+            "left": -54.965135793586896,
+            "residual": 7.89952991908649e-10,
+            "right": -54.96513579437685
+          },
+          "Omega_potential_bulk_plus": {
+            "absolute_residual": 4.094360406270425e-09,
+            "component_relative_residual": 5.422197365149995e-11,
+            "left": 75.51109135871815,
+            "residual": -4.094360406270425e-09,
+            "right": 75.51109136281251
+          },
+          "P_kinetic_bulk_minus": {
+            "absolute_residual": 9.019004210131243e-09,
+            "component_relative_residual": 2.891883022295718e-11,
+            "left": 311.87306473314806,
+            "residual": 9.019004210131243e-09,
+            "right": 311.87306472412905
+          },
+          "P_kinetic_bulk_plus": {
+            "absolute_residual": 6.709586841679993e-08,
+            "component_relative_residual": 2.1741427123984543e-10,
+            "left": 308.6083908824643,
+            "residual": -6.709586841679993e-08,
+            "right": 308.60839094956015
+          },
+          "R": {
+            "absolute_residual": 1.0032078232778642e-16,
+            "component_relative_residual": 1.3870392928875387e-06,
+            "left": -7.232728217737696e-11,
+            "residual": -1.0032078232778642e-16,
+            "right": -7.232718185659463e-11
+          },
+          "R_squared": {
+            "absolute_residual": 6.905297215513493e-22,
+            "component_relative_residual": 1.0791969250165437e-08,
+            "left": -6.398551603923109e-14,
+            "residual": -6.905297215513493e-22,
+            "right": -6.398551534870137e-14
+          },
+          "Robin": {
+            "absolute_residual": 2.8009807806483877e-08,
+            "component_relative_residual": 3.2814570576592773e-10,
+            "left": 85.35783743110684,
+            "residual": 2.8009807806483877e-08,
+            "right": 85.35783740309704
+          },
+          "S_total": {
+            "absolute_residual": 1.0274163741996745e-08,
+            "component_relative_residual": 2.6689189892972116e-11,
+            "left": 384.9559983994854,
+            "residual": -1.0274163741996745e-08,
+            "right": 384.95599840975956
+          },
+          "a_squared": {
+            "absolute_residual": 2.4374223264733708e-09,
+            "component_relative_residual": 1.0816464800392539e-07,
+            "left": -0.022534368740718194,
+            "residual": 2.4374223264733708e-09,
+            "right": -0.02253437117814052
+          },
+          "full_V4_bulk_minus": {
+            "absolute_residual": 1.742388988645871e-08,
+            "component_relative_residual": 3.764487743025399e-09,
+            "left": 4.628488923399619,
+            "residual": -1.742388988645871e-08,
+            "right": 4.628488940823509
+          },
+          "full_V4_bulk_plus": {
+            "absolute_residual": 1.3572460488830984e-08,
+            "component_relative_residual": 3.164497706391359e-09,
+            "left": 4.288977811065739,
+            "residual": -1.3572460488830984e-08,
+            "right": 4.2889778246381995
+          },
+          "wall": {
+            "absolute_residual": 1.6185643936239558e-09,
+            "component_relative_residual": 5.247548018036591e-10,
+            "left": 3.084420356348076,
+            "residual": -1.6185643936239558e-09,
+            "right": 3.0844203579666405
+          }
+        },
+        "step": 0.02,
+        "total_absolute_residual": 1.0274163741996745e-08,
+        "twenty_component_L2": 1.3248739261993863e-07
+      },
+      {
+        "all_output_Linf": 9.113193755183602e-09,
+        "all_output_component_relative_Linf": 1.896951822858869e-05,
+        "observed_L2_order_from_previous": 3.4939851968269537,
+        "residual_by_component": {
+          "BF_bulk_minus": {
+            "absolute_residual": 1.8031798276751942e-11,
+            "component_relative_residual": 1.761686483188319e-12,
+            "left": -10.235531945551422,
+            "residual": 1.8031798276751942e-11,
+            "right": -10.235531945569454
+          },
+          "BF_bulk_plus": {
+            "absolute_residual": 9.237055564881302e-12,
+            "component_relative_residual": 3.442426544819166e-13,
+            "left": 26.832977972412635,
+            "residual": -9.237055564881302e-12,
+            "right": 26.832977972421872
+          },
+          "EH_bulk_minus": {
+            "absolute_residual": 1.4269971870817244e-09,
+            "component_relative_residual": 2.4251631975242654e-12,
+            "left": -588.4128493036999,
+            "residual": -1.4269971870817244e-09,
+            "right": -588.4128493022729
+          },
+          "EH_bulk_plus": {
+            "absolute_residual": 8.43917291604157e-09,
+            "component_relative_residual": 3.907211866548863e-11,
+            "left": 215.98964182855204,
+            "residual": 8.43917291604157e-09,
+            "right": 215.98964182011287
+          },
+          "GHY_minus": {
+            "absolute_residual": 1.1517276021777434e-10,
+            "component_relative_residual": 2.0617051800558612e-11,
+            "left": 5.586286600621229,
+            "residual": 1.1517276021777434e-10,
+            "right": 5.586286600506056
+          },
+          "GHY_plus": {
+            "absolute_residual": 3.4649172420131436e-11,
+            "component_relative_residual": 1.0934006509452901e-11,
+            "left": -3.168936509245334,
+            "residual": -3.4649172420131436e-11,
+            "right": -3.1689365092106847
+          },
+          "K_foliation": {
+            "absolute_residual": 1.0556882451551175e-10,
+            "component_relative_residual": 6.666404882633337e-09,
+            "left": -0.01583594541141129,
+            "residual": 1.0556882451551175e-10,
+            "right": -0.015835945516980116
+          },
+          "Omega_kinetic_bulk_minus": {
+            "absolute_residual": 9.603401407431988e-11,
+            "component_relative_residual": 1.980103602340872e-10,
+            "left": 0.4849948959325818,
+            "residual": -9.603401407431988e-11,
+            "right": 0.48499489602861584
+          },
+          "Omega_kinetic_bulk_plus": {
+            "absolute_residual": 1.032841645542959e-09,
+            "component_relative_residual": 2.200576294220126e-09,
+            "left": -0.4693505279756698,
+            "residual": -1.032841645542959e-09,
+            "right": -0.46935052694282814
+          },
+          "Omega_potential_bulk_minus": {
+            "absolute_residual": 4.6120618435452343e-10,
+            "component_relative_residual": 8.39088592599211e-12,
+            "left": -54.965135793586896,
+            "residual": 4.6120618435452343e-10,
+            "right": -54.9651357940481
+          },
+          "Omega_potential_bulk_plus": {
+            "absolute_residual": 2.3138113647291902e-10,
+            "component_relative_residual": 3.0642006665355377e-12,
+            "left": 75.51109135871815,
+            "residual": -2.3138113647291902e-10,
+            "right": 75.51109135894953
+          },
+          "P_kinetic_bulk_minus": {
+            "absolute_residual": 8.252527550212108e-10,
+            "component_relative_residual": 2.6461174379625646e-12,
+            "left": 311.87306473314806,
+            "residual": 8.252527550212108e-10,
+            "right": 311.8730647323228
+          },
+          "P_kinetic_bulk_plus": {
+            "absolute_residual": 4.2320493776060175e-09,
+            "component_relative_residual": 1.3713332179486294e-11,
+            "left": 308.6083908824643,
+            "residual": -4.2320493776060175e-09,
+            "right": 308.6083908866963
+          },
+          "R": {
+            "absolute_residual": 1.3720136976880302e-15,
+            "component_relative_residual": 1.896951822858869e-05,
+            "left": -7.232728217737696e-11,
+            "residual": -1.3720136976880302e-15,
+            "right": -7.232591016367927e-11
+          },
+          "R_squared": {
+            "absolute_residual": 6.125853290016902e-23,
+            "component_relative_residual": 9.573812433209089e-10,
+            "left": -6.398551603923109e-14,
+            "residual": -6.125853290016902e-23,
+            "right": -6.398551597797255e-14
+          },
+          "Robin": {
+            "absolute_residual": 1.6580230521867634e-09,
+            "component_relative_residual": 1.9424379788498862e-11,
+            "left": 85.35783743110684,
+            "residual": 1.6580230521867634e-09,
+            "right": 85.35783742944882
+          },
+          "S_total": {
+            "absolute_residual": 9.113193755183602e-09,
+            "component_relative_residual": 2.3673338753190304e-11,
+            "left": 384.9559983994854,
+            "residual": 9.113193755183602e-09,
+            "right": 384.9559983903722
+          },
+          "a_squared": {
+            "absolute_residual": 1.5231203104315583e-10,
+            "component_relative_residual": 6.759099035174898e-09,
+            "left": -0.022534368740718194,
+            "residual": 1.5231203104315583e-10,
+            "right": -0.022534368893030225
+          },
+          "full_V4_bulk_minus": {
+            "absolute_residual": 1.0917506898522333e-09,
+            "component_relative_residual": 2.358762671063769e-10,
+            "left": 4.628488923399619,
+            "residual": -1.0917506898522333e-09,
+            "right": 4.62848892449137
+          },
+          "full_V4_bulk_plus": {
+            "absolute_residual": 8.478284740931485e-10,
+            "component_relative_residual": 1.9767611567915338e-10,
+            "left": 4.288977811065739,
+            "residual": -8.478284740931485e-10,
+            "right": 4.2889778119135675
+          },
+          "wall": {
+            "absolute_residual": 6.3546723438889785e-09,
+            "component_relative_residual": 2.060248477744081e-09,
+            "left": 3.084420356348076,
+            "residual": 6.3546723438889785e-09,
+            "right": 3.0844203499934038
+          }
+        },
+        "step": 0.01,
+        "total_absolute_residual": 9.113193755183602e-09,
+        "twenty_component_L2": 1.1759265731955038e-08
+      },
+      {
+        "all_output_Linf": 3.2623903578610225e-09,
+        "all_output_component_relative_Linf": 1.1390086139345154e-05,
+        "observed_L2_order_from_previous": 1.4438326846368053,
+        "residual_by_component": {
+          "BF_bulk_minus": {
+            "absolute_residual": 2.1239898728708795e-11,
+            "component_relative_residual": 2.075114301991906e-12,
+            "left": -10.235531945551422,
+            "residual": -2.1239898728708795e-11,
+            "right": -10.235531945530182
+          },
+          "BF_bulk_plus": {
+            "absolute_residual": 9.627854069549358e-13,
+            "component_relative_residual": 3.588067667870314e-14,
+            "left": 26.832977972412635,
+            "residual": -9.627854069549358e-13,
+            "right": 26.832977972413598
+          },
+          "EH_bulk_minus": {
+            "absolute_residual": 1.4322267816169187e-09,
+            "component_relative_residual": 2.4340508255526073e-12,
+            "left": -588.4128493036999,
+            "residual": 1.4322267816169187e-09,
+            "right": -588.4128493051321
+          },
+          "EH_bulk_plus": {
+            "absolute_residual": 2.1602488686767174e-09,
+            "component_relative_residual": 1.0001631792925843e-11,
+            "left": 215.98964182855204,
+            "residual": -2.1602488686767174e-09,
+            "right": 215.9896418307123
+          },
+          "GHY_minus": {
+            "absolute_residual": 2.951416888663516e-12,
+            "component_relative_residual": 5.283325220613101e-13,
+            "left": 5.586286600621229,
+            "residual": 2.951416888663516e-12,
+            "right": 5.586286600618277
+          },
+          "GHY_plus": {
+            "absolute_residual": 1.4526602143405398e-11,
+            "component_relative_residual": 4.584062224332239e-12,
+            "left": -3.168936509245334,
+            "residual": 1.4526602143405398e-11,
+            "right": -3.1689365092598605
+          },
+          "K_foliation": {
+            "absolute_residual": 6.596567042604917e-12,
+            "component_relative_residual": 4.1655656599470377e-10,
+            "left": -0.01583594541141129,
+            "residual": 6.596567042604917e-12,
+            "right": -0.015835945418007858
+          },
+          "Omega_kinetic_bulk_minus": {
+            "absolute_residual": 8.445355526021103e-12,
+            "component_relative_residual": 1.741328743219408e-11,
+            "left": 0.4849948959325818,
+            "residual": 8.445355526021103e-12,
+            "right": 0.48499489592413647
+          },
+          "Omega_kinetic_bulk_plus": {
+            "absolute_residual": 4.7970183381096376e-11,
+            "component_relative_residual": 1.0220545311410209e-10,
+            "left": -0.4693505279756698,
+            "residual": -4.7970183381096376e-11,
+            "right": -0.4693505279276996
+          },
+          "Omega_potential_bulk_minus": {
+            "absolute_residual": 3.743920728993544e-10,
+            "component_relative_residual": 6.811446337644397e-12,
+            "left": -54.965135793586896,
+            "residual": -3.743920728993544e-10,
+            "right": -54.965135793212504
+          },
+          "Omega_potential_bulk_plus": {
+            "absolute_residual": 1.032873342410312e-09,
+            "component_relative_residual": 1.367843218540548e-11,
+            "left": 75.51109135871815,
+            "residual": -1.032873342410312e-09,
+            "right": 75.51109135975102
+          },
+          "P_kinetic_bulk_minus": {
+            "absolute_residual": 3.1729996408103034e-10,
+            "component_relative_residual": 1.0174009876492635e-12,
+            "left": 311.87306473314806,
+            "residual": -3.1729996408103034e-10,
+            "right": 311.87306473346536
+          },
+          "P_kinetic_bulk_plus": {
+            "absolute_residual": 2.467004378559068e-11,
+            "component_relative_residual": 7.993964038062876e-14,
+            "left": 308.6083908824643,
+            "residual": -2.467004378559068e-11,
+            "right": 308.60839088248895
+          },
+          "R": {
+            "absolute_residual": 8.238139742250471e-16,
+            "component_relative_residual": 1.1390086139345154e-05,
+            "left": -7.232728217737696e-11,
+            "residual": -8.238139742250471e-16,
+            "right": -7.232645836340273e-11
+          },
+          "R_squared": {
+            "absolute_residual": 3.2686105771211775e-22,
+            "component_relative_residual": 5.108360109367739e-09,
+            "left": -6.398551603923109e-14,
+            "residual": -3.2686105771211775e-22,
+            "right": -6.398551571237003e-14
+          },
+          "Robin": {
+            "absolute_residual": 7.564437964902027e-11,
+            "component_relative_residual": 8.862030942392793e-13,
+            "left": 85.35783743110684,
+            "residual": 7.564437964902027e-11,
+            "right": 85.3578374310312
+          },
+          "S_total": {
+            "absolute_residual": 6.852474143670406e-10,
+            "component_relative_residual": 1.7800668575527167e-12,
+            "left": 384.9559983994854,
+            "residual": 6.852474143670406e-10,
+            "right": 384.95599839880015
+          },
+          "a_squared": {
+            "absolute_residual": 9.519263849400161e-12,
+            "component_relative_residual": 4.2243312670117957e-10,
+            "left": -0.022534368740718194,
+            "residual": 9.519263849400161e-12,
+            "right": -0.022534368750237458
+          },
+          "full_V4_bulk_minus": {
+            "absolute_residual": 5.847411443937744e-11,
+            "component_relative_residual": 1.263352152427526e-11,
+            "left": 4.628488923399619,
+            "residual": -5.847411443937744e-11,
+            "right": 4.628488923458093
+          },
+          "full_V4_bulk_plus": {
+            "absolute_residual": 5.452260865013159e-11,
+            "component_relative_residual": 1.2712261767540022e-11,
+            "left": 4.288977811065739,
+            "residual": -5.452260865013159e-11,
+            "right": 4.288977811120262
+          },
+          "wall": {
+            "absolute_residual": 3.2623903578610225e-09,
+            "component_relative_residual": 1.0576996585911724e-09,
+            "left": 3.084420356348076,
+            "residual": 3.2623903578610225e-09,
+            "right": 3.0844203530856857
+          }
+        },
+        "step": 0.005,
+        "total_absolute_residual": 6.852474143670406e-10,
+        "twenty_component_L2": 4.3225821699094086e-09
+      },
+      {
+        "all_output_Linf": 6.1056653066771105e-09,
+        "all_output_component_relative_Linf": 7.830504883138677e-05,
+        "observed_L2_order_from_previous": -0.6310356280590694,
+        "residual_by_component": {
+          "BF_bulk_minus": {
+            "absolute_residual": 1.7070789226636407e-11,
+            "component_relative_residual": 1.6677969760064362e-12,
+            "left": -10.235531945551422,
+            "residual": 1.7070789226636407e-11,
+            "right": -10.235531945568493
+          },
+          "BF_bulk_plus": {
+            "absolute_residual": 1.007194327939942e-11,
+            "component_relative_residual": 3.75356894406232e-13,
+            "left": 26.832977972412635,
+            "residual": -1.007194327939942e-11,
+            "right": 26.832977972422707
+          },
+          "EH_bulk_minus": {
+            "absolute_residual": 4.213802640151698e-09,
+            "component_relative_residual": 7.1613028932116925e-12,
+            "left": -588.4128493036999,
+            "residual": 4.213802640151698e-09,
+            "right": -588.4128493079137
+          },
+          "EH_bulk_plus": {
+            "absolute_residual": 1.4023271432961337e-09,
+            "component_relative_residual": 6.492566640765886e-12,
+            "left": 215.98964182855204,
+            "residual": -1.4023271432961337e-09,
+            "right": 215.98964182995437
+          },
+          "GHY_minus": {
+            "absolute_residual": 4.524380869952438e-12,
+            "component_relative_residual": 8.099084764905608e-13,
+            "left": 5.586286600621229,
+            "residual": -4.524380869952438e-12,
+            "right": 5.586286600625753
+          },
+          "GHY_plus": {
+            "absolute_residual": 6.118217044104313e-12,
+            "component_relative_residual": 1.9306846401758686e-12,
+            "left": -3.168936509245334,
+            "residual": 6.118217044104313e-12,
+            "right": -3.168936509251452
+          },
+          "K_foliation": {
+            "absolute_residual": 4.1271153161659413e-13,
+            "component_relative_residual": 2.606169198514922e-11,
+            "left": -0.01583594541141129,
+            "residual": 4.1271153161659413e-13,
+            "right": -0.015835945411824003
+          },
+          "Omega_kinetic_bulk_minus": {
+            "absolute_residual": 4.0893510799833166e-11,
+            "component_relative_residual": 8.43174044568042e-11,
+            "left": 0.4849948959325818,
+            "residual": 4.0893510799833166e-11,
+            "right": 0.4849948958916883
+          },
+          "Omega_kinetic_bulk_plus": {
+            "absolute_residual": 2.173933255633642e-11,
+            "component_relative_residual": 4.6317903700032366e-11,
+            "left": -0.4693505279756698,
+            "residual": -2.173933255633642e-11,
+            "right": -0.46935052795393045
+          },
+          "Omega_potential_bulk_minus": {
+            "absolute_residual": 9.134595302384696e-10,
+            "component_relative_residual": 1.6618889720728175e-11,
+            "left": -54.965135793586896,
+            "residual": -9.134595302384696e-10,
+            "right": -54.965135792673436
+          },
+          "Omega_potential_bulk_plus": {
+            "absolute_residual": 1.4194085906638065e-09,
+            "component_relative_residual": 1.879735235045371e-11,
+            "left": 75.51109135871815,
+            "residual": -1.4194085906638065e-09,
+            "right": 75.51109136013756
+          },
+          "P_kinetic_bulk_minus": {
+            "absolute_residual": 9.378595677844714e-10,
+            "component_relative_residual": 3.007183607164421e-12,
+            "left": 311.87306473314806,
+            "residual": -9.378595677844714e-10,
+            "right": 311.8730647340859
+          },
+          "P_kinetic_bulk_plus": {
+            "absolute_residual": 1.1369252206350211e-09,
+            "component_relative_residual": 3.6840385881271735e-12,
+            "left": 308.6083908824643,
+            "residual": -1.1369252206350211e-09,
+            "right": 308.6083908836012
+          },
+          "R": {
+            "absolute_residual": 5.6640348852692664e-15,
+            "component_relative_residual": 7.830504883138677e-05,
+            "left": -7.232728217737696e-11,
+            "residual": 5.6640348852692664e-15,
+            "right": -7.233294621226223e-11
+          },
+          "R_squared": {
+            "absolute_residual": 5.495966663641905e-22,
+            "component_relative_residual": 8.589391793405547e-09,
+            "left": -6.398551603923109e-14,
+            "residual": -5.495966663641905e-22,
+            "right": -6.398551548963442e-14
+          },
+          "Robin": {
+            "absolute_residual": 3.1752733775647357e-10,
+            "component_relative_residual": 3.7199552766501594e-12,
+            "left": 85.35783743110684,
+            "residual": -3.1752733775647357e-10,
+            "right": 85.35783743142437
+          },
+          "S_total": {
+            "absolute_residual": 6.1056653066771105e-09,
+            "component_relative_residual": 1.58606836416773e-11,
+            "left": 384.9559983994854,
+            "residual": -6.1056653066771105e-09,
+            "right": 384.95599840559106
+          },
+          "a_squared": {
+            "absolute_residual": 5.955722026662613e-13,
+            "component_relative_residual": 2.642950461595842e-11,
+            "left": -0.022534368740718194,
+            "residual": 5.955722026662613e-13,
+            "right": -0.022534368741313766
+          },
+          "full_V4_bulk_minus": {
+            "absolute_residual": 6.5849548036567285e-12,
+            "component_relative_residual": 1.4227007804568944e-12,
+            "left": 4.628488923399619,
+            "residual": 6.5849548036567285e-12,
+            "right": 4.628488923393034
+          },
+          "full_V4_bulk_plus": {
+            "absolute_residual": 1.1445955294675514e-11,
+            "component_relative_residual": 2.668690722790389e-12,
+            "left": 4.288977811065739,
+            "residual": -1.1445955294675514e-11,
+            "right": 4.288977811077185
+          },
+          "wall": {
+            "absolute_residual": 4.4683146072088675e-09,
+            "component_relative_residual": 1.4486723871924465e-09,
+            "left": 3.084420356348076,
+            "residual": -4.4683146072088675e-09,
+            "right": 3.0844203608163907
+          }
+        },
+        "step": 0.0025,
+        "total_absolute_residual": 6.1056653066771105e-09,
+        "twenty_component_L2": 6.6942805637285085e-09
+      }
+    ]
+  },
+  "source_pins": {
+    "route_A": {
+      "artifact_sha256": "ec56360b271cea3d32b41c5d3c19e7a7dc85de4425b4cd3ab4e5fe290f696e2e",
+      "source_sha256": "dfb1692b3af96c1827ad7fd435b0de7a2af89dd7535a328bc49ba5431d492a7c",
+      "test_sha256": "ecf155ab10acc39f6b3e714833ea081758b353b5601ce5702e5d52400eb89987"
+    },
+    "route_B": {
+      "artifact_sha256": "7e1044cdc628052750f02f0ab4d134c89ee85f7296d3de027d998177578320db",
+      "source_sha256": "6c98724d0e51c1cad16c80303e6ad7625d661bd1c9c56c9ff96c5b8124992909",
+      "test_sha256": "a6ee90e92ae9584207753770f9fb9c8e5c20a1136356520283ba5f7d733fa2fa"
+    }
+  },
+  "title": "Independent Torch-AD versus NumPy-FD5 literal v5.2 action comparator",
+  "tolerances_fixed_in_comparator": {
+    "Richardson_each_component_relative": 5e-05,
+    "Richardson_twenty_component_L2": 2e-08,
+    "central_absolute_Linf": 5e-10,
+    "central_component_relative_Linf": 1e-09,
+    "coarse_h4_order_interval": [
+      3.25,
+      4.75
+    ]
+  }
+}
