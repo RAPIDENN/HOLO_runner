@@ -1,0 +1,2056 @@
+{
+  "classification": "theory_only;AD;FD5;independent_route_C;three_way;multi_N;identical_quadrature;restricted_spectral_family;fail_closed",
+  "decision": {
+    "AD_FD5_Route_C_three_way_comparison_pass": true,
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "Route_C_four_directions_multi_N_pass": true,
+    "Route_C_independent_Euler_Green_multi_N_pass": true,
+    "Route_C_precision_stabilized_convergence_pass": true,
+    "full_mutant_campaign_pass": false,
+    "independent_clean_process_redteam_pass": false,
+    "restricted_spectral_family_three_route_certificate_pass": true,
+    "uniform_N_to_infinity_bridge_pass": false
+  },
+  "evidence_boundary": "AD, Richardson FD5, and precision-stabilized Route C are compared componentwise only for the selected N=1,2,3 joint directions at Qtheta=5 and Qrho=10. C1/N1, B4/B5, clean-room mutants, and the continuous limit remain false.",
+  "fixed_before_acceptance_run": {
+    "active_sign_threshold": 1e-06,
+    "all_three_pairs_required_componentwise": true,
+    "pairwise_absolute_tolerance": 1e-08,
+    "pairwise_relative_tolerance": 1e-11,
+    "radial_order": 10,
+    "tangential_order_per_axis": 5
+  },
+  "independence_audit": {
+    "NumPy_FD5_action_module_imported": false,
+    "Route_C_recomputed_from_primitives": true,
+    "Route_C_uses_extended_precision_coordinate_jets": true,
+    "Torch_action_module_imported": false,
+    "expected_component_values_hardcoded": false,
+    "raw_AD_receipt_read_only": true,
+    "raw_FD5_receipt_read_only": true
+  },
+  "open_obligations": {
+    "clean_room_and_mutants": "required next; the comparator is not an independent process replica or mutant campaign",
+    "uniform_continuum_bridge": "the three finite selected members do not prove density, uniform stability, or the N-to-infinity limit"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_ad_fd5_route_c_three_way_v5_6_6_6.py",
+      "sha256": "fd4c4a21358742017d79af1fcfdd340cf90609c96172fd82c5c1dc04b8f0e8e5"
+    },
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_ad_fd5_route_c_three_way_v5_6_6_6.py",
+      "sha256": "e1e401241180b4fd47245a15d31142e54829da3708767f42b64f1e7b87cbbea8"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-ad-fd5-route-c-three-way-v5-6-6-6.v1",
+  "scientific": {
+    "members": [
+      {
+        "AD_JVP": {
+          "BF_bulk_minus": -0.5287188803849198,
+          "BF_bulk_plus": 10.593907262439215,
+          "EH_bulk_minus": -68.66284731618697,
+          "EH_bulk_plus": -25.31921078238295,
+          "GHY_minus": 7.22750487674173,
+          "GHY_plus": -4.100270433214514,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.06722961579047,
+          "Omega_kinetic_bulk_plus": -57.70757134508094,
+          "Omega_potential_bulk_minus": -1005.6279572865988,
+          "Omega_potential_bulk_plus": -884.6277090719213,
+          "P_kinetic_bulk_minus": 123.51584973238032,
+          "P_kinetic_bulk_plus": 107.6929081201543,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302286524,
+          "S_total": -799.2995189416796,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968236465185285,
+          "full_V4_bulk_plus": 4.469818027837558,
+          "wall": 929.5802682822775
+        },
+        "FD5_Richardson_JVP": {
+          "BF_bulk_minus": -0.5287188803833074,
+          "BF_bulk_plus": 10.593907262439787,
+          "EH_bulk_minus": -68.66284731619332,
+          "EH_bulk_plus": -25.319210782367517,
+          "GHY_minus": 7.227504876742182,
+          "GHY_plus": -4.100270433212923,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.06722961579077,
+          "Omega_kinetic_bulk_plus": -57.707571345082016,
+          "Omega_potential_bulk_minus": -1005.6279572866063,
+          "Omega_potential_bulk_plus": -884.6277090718656,
+          "P_kinetic_bulk_minus": 123.51584973237708,
+          "P_kinetic_bulk_plus": 107.69290812014738,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302286309,
+          "S_total": -799.2995189419178,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968236465185189,
+          "full_V4_bulk_plus": 4.469818027837269,
+          "wall": 929.580268282017
+        },
+        "K": 1,
+        "N": 1,
+        "Route_C_precision_stabilized_JVP": {
+          "BF_bulk_minus": -0.5287188803832217,
+          "BF_bulk_plus": 10.593907262434119,
+          "EH_bulk_minus": -68.66284731593156,
+          "EH_bulk_plus": -25.3192107824162,
+          "GHY_minus": 7.2275048767425885,
+          "GHY_plus": -4.1002704332160675,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.067229615775624,
+          "Omega_kinetic_bulk_plus": -57.70757134506578,
+          "Omega_potential_bulk_minus": -1005.6279572867472,
+          "Omega_potential_bulk_plus": -884.6277090720343,
+          "P_kinetic_bulk_minus": 123.51584973239727,
+          "P_kinetic_bulk_plus": 107.69290812016749,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302288752,
+          "S_total": -799.2995189400705,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.9682364651900714,
+          "full_V4_bulk_plus": 4.469818027840799,
+          "wall": 929.5802682838397
+        },
+        "authoritative_free_central_sha256": "782065991a7af9029c93a02985686b59e8bfc0b2742a3a1dedc9fa8a7e969255",
+        "authoritative_free_tangent_sha256": "105b5a06735ecab8f1158e8fbaa0babebf14f69b16c98b6bbeeb0413be02ecb7",
+        "comparison": {
+          "maximum_residual_over_tolerance": 0.10266758850826829,
+          "pairwise_L2": {
+            "AD_minus_FD5": 3.579548997448531e-10,
+            "AD_minus_Route_C": 2.265454757127005e-09,
+            "FD5_minus_Route_C": 2.6184155764211298e-09
+          },
+          "pairwise_cosine": {
+            "AD_FD5": 1.0,
+            "AD_Route_C": 1.0000000000000002,
+            "FD5_Route_C": 1.0000000000000002
+          },
+          "pass": true,
+          "rows": {
+            "BF_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.6123768986631148e-12,
+                "AD_minus_Route_C": 1.698086116164177e-12,
+                "FD5_minus_Route_C": 8.570921750106208e-14
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0005287188803849e-08,
+              "maximum_residual_over_tolerance": 0.00016971887804123956,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.6123768986631148e-12,
+                "AD_minus_Route_C": 1.698086116164177e-12,
+                "FD5_minus_Route_C": 8.570921750106208e-14
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.6123768986631148e-12,
+                "AD_minus_Route_C": -1.698086116164177e-12,
+                "FD5_minus_Route_C": -8.570921750106208e-14
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -0.5287188803849198,
+                "FD5": -0.5287188803833074,
+                "Route_C": -0.5287188803832217
+              }
+            },
+            "BF_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 5.719869022868806e-13,
+                "AD_minus_Route_C": 5.0963677722393186e-12,
+                "FD5_minus_Route_C": 5.668354674526199e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0105939072624398e-08,
+              "maximum_residual_over_tolerance": 0.0005608934146338754,
+              "normalized_residuals": {
+                "AD_minus_FD5": 5.399206242958479e-14,
+                "AD_minus_Route_C": 4.810659227033502e-13,
+                "FD5_minus_Route_C": 5.350579851329349e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -5.719869022868806e-13,
+                "AD_minus_Route_C": 5.0963677722393186e-12,
+                "FD5_minus_Route_C": 5.668354674526199e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 10.593907262439215,
+                "FD5": 10.593907262439787,
+                "Route_C": 10.593907262434119
+              }
+            },
+            "EH_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 6.352252057695296e-12,
+                "AD_minus_Route_C": 2.554116917963256e-10,
+                "FD5_minus_Route_C": 2.617639438540209e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0686628473161934e-08,
+              "maximum_residual_over_tolerance": 0.024494530198313408,
+              "normalized_residuals": {
+                "AD_minus_FD5": 9.251367087128052e-14,
+                "AD_minus_Route_C": 3.719794645569406e-12,
+                "FD5_minus_Route_C": 3.812308316440687e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 6.352252057695296e-12,
+                "AD_minus_Route_C": -2.554116917963256e-10,
+                "FD5_minus_Route_C": -2.617639438540209e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -68.66284731618697,
+                "FD5": -68.66284731619332,
+                "Route_C": -68.66284731593156
+              }
+            },
+            "EH_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.5432988220709376e-11,
+                "AD_minus_Route_C": 3.324984731989389e-11,
+                "FD5_minus_Route_C": 4.8682835540603264e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0253192107824162e-08,
+              "maximum_residual_over_tolerance": 0.0047480662635252515,
+              "normalized_residuals": {
+                "AD_minus_FD5": 6.095367013345988e-13,
+                "AD_minus_Route_C": 1.313226056121204e-12,
+                "FD5_minus_Route_C": 1.9227627574558027e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.5432988220709376e-11,
+                "AD_minus_Route_C": 3.324984731989389e-11,
+                "FD5_minus_Route_C": 4.8682835540603264e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -25.31921078238295,
+                "FD5": -25.319210782367517,
+                "Route_C": -25.3192107824162
+              }
+            },
+            "GHY_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 4.5208281562736374e-13,
+                "AD_minus_Route_C": 8.588685318500211e-13,
+                "FD5_minus_Route_C": 4.0678571622265736e-13
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0072275048767426e-08,
+              "maximum_residual_over_tolerance": 8.527055979821791e-05,
+              "normalized_residuals": {
+                "AD_minus_FD5": 6.255033007063371e-14,
+                "AD_minus_Route_C": 1.1883333826778546e-13,
+                "FD5_minus_Route_C": 5.628300819715175e-14
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -4.5208281562736374e-13,
+                "AD_minus_Route_C": -8.588685318500211e-13,
+                "FD5_minus_Route_C": -4.0678571622265736e-13
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 7.22750487674173,
+                "FD5": 7.227504876742182,
+                "Route_C": 7.2275048767425885
+              }
+            },
+            "GHY_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.5907275496829243e-12,
+                "AD_minus_Route_C": 1.553424056055519e-12,
+                "FD5_minus_Route_C": 3.1441516057384433e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0041002704332161e-08,
+              "maximum_residual_over_tolerance": 0.00031313123781770403,
+              "normalized_residuals": {
+                "AD_minus_FD5": 3.879567398278238e-13,
+                "AD_minus_Route_C": 3.7885892683353645e-13,
+                "FD5_minus_Route_C": 7.668156666613603e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.5907275496829243e-12,
+                "AD_minus_Route_C": 1.553424056055519e-12,
+                "FD5_minus_Route_C": 3.1441516057384433e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -4.100270433214514,
+                "FD5": -4.100270433212923,
+                "Route_C": -4.1002704332160675
+              }
+            },
+            "K_foliation": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "active_for_sign_check": false,
+              "fixed_tolerance": 1e-08,
+              "maximum_residual_over_tolerance": 0.0,
+              "normalized_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 0.0,
+                "FD5": 0.0,
+                "Route_C": 0.0
+              }
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 3.055333763768431e-13,
+                "AD_minus_Route_C": 1.4843237750028493e-11,
+                "FD5_minus_Route_C": 1.5148771126405336e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0520672296157908e-08,
+              "maximum_residual_over_tolerance": 0.0014399052360881523,
+              "normalized_residuals": {
+                "AD_minus_FD5": 5.8680551784952654e-15,
+                "AD_minus_Route_C": 2.8507830855527e-13,
+                "FD5_minus_Route_C": 2.9094636373376524e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 3.055333763768431e-13,
+                "AD_minus_Route_C": -1.4843237750028493e-11,
+                "FD5_minus_Route_C": -1.5148771126405336e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -52.06722961579047,
+                "FD5": -52.06722961579077,
+                "Route_C": -52.067229615775624
+              }
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.0729195309977513e-12,
+                "AD_minus_Route_C": 1.5162981981120538e-11,
+                "FD5_minus_Route_C": 1.623590151211829e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.057707571345082e-08,
+              "maximum_residual_over_tolerance": 0.0015350085365722745,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.8592352892168424e-14,
+                "AD_minus_Route_C": 2.627555037873339e-13,
+                "FD5_minus_Route_C": 2.813478566795023e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 1.0729195309977513e-12,
+                "AD_minus_Route_C": -1.5162981981120538e-11,
+                "FD5_minus_Route_C": -1.623590151211829e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -57.70757134508094,
+                "FD5": -57.707571345082016,
+                "Route_C": -57.70757134506578
+              }
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 7.503331289626658e-12,
+                "AD_minus_Route_C": 1.4847501006443053e-10,
+                "FD5_minus_Route_C": 1.4097167877480388e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 2.005627957286747e-08,
+              "maximum_residual_over_tolerance": 0.007402918847685513,
+              "normalized_residuals": {
+                "AD_minus_FD5": 7.461339191355775e-15,
+                "AD_minus_Route_C": 1.476440755137976e-13,
+                "FD5_minus_Route_C": 1.4018273632244184e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 7.503331289626658e-12,
+                "AD_minus_Route_C": 1.4847501006443053e-10,
+                "FD5_minus_Route_C": 1.4097167877480388e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -1005.6279572865988,
+                "FD5": -1005.6279572866063,
+                "Route_C": -1005.6279572867472
+              }
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 5.5706550483591855e-11,
+                "AD_minus_Route_C": 1.1300471669528633e-10,
+                "FD5_minus_Route_C": 1.687112671788782e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.8846277090720343e-08,
+              "maximum_residual_over_tolerance": 0.008951967880274315,
+              "normalized_residuals": {
+                "AD_minus_FD5": 6.297174496379666e-14,
+                "AD_minus_Route_C": 1.2774268264084465e-13,
+                "FD5_minus_Route_C": 1.907144276046413e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -5.5706550483591855e-11,
+                "AD_minus_Route_C": 1.1300471669528633e-10,
+                "FD5_minus_Route_C": 1.687112671788782e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -884.6277090719213,
+                "FD5": -884.6277090718656,
+                "Route_C": -884.6277090720343
+              }
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 3.240074875066057e-12,
+                "AD_minus_Route_C": 1.695354967523599e-11,
+                "FD5_minus_Route_C": 2.0193624550302047e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.1235158497323973e-08,
+              "maximum_residual_over_tolerance": 0.001797360006546577,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.6232057522057508e-14,
+                "AD_minus_Route_C": 1.3725809045532722e-13,
+                "FD5_minus_Route_C": 1.6349014797738475e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 3.240074875066057e-12,
+                "AD_minus_Route_C": -1.695354967523599e-11,
+                "FD5_minus_Route_C": -2.0193624550302047e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 123.51584973238032,
+                "FD5": 123.51584973237708,
+                "Route_C": 123.51584973239727
+              }
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 6.920686246303376e-12,
+                "AD_minus_Route_C": 1.318767317570746e-11,
+                "FD5_minus_Route_C": 2.0108359422010835e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.1076929081201675e-08,
+              "maximum_residual_over_tolerance": 0.0018153370193672298,
+              "normalized_residuals": {
+                "AD_minus_FD5": 6.426315685134098e-14,
+                "AD_minus_Route_C": 1.2245628246005017e-13,
+                "FD5_minus_Route_C": 1.8671943931139113e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 6.920686246303376e-12,
+                "AD_minus_Route_C": -1.318767317570746e-11,
+                "FD5_minus_Route_C": -2.0108359422010835e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 107.6929081201543,
+                "FD5": 107.69290812014738,
+                "Route_C": 107.69290812016749
+              }
+            },
+            "R": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "active_for_sign_check": false,
+              "fixed_tolerance": 1e-08,
+              "maximum_residual_over_tolerance": 0.0,
+              "normalized_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 0.0,
+                "FD5": 0.0,
+                "Route_C": 0.0
+              }
+            },
+            "R_squared": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "active_for_sign_check": false,
+              "fixed_tolerance": 1e-08,
+              "maximum_residual_over_tolerance": 0.0,
+              "normalized_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 0.0,
+                "FD5": 0.0,
+                "Route_C": 0.0
+              }
+            },
+            "Robin": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.1458390619955026e-12,
+                "AD_minus_Route_C": 2.2282620193436742e-11,
+                "FD5_minus_Route_C": 2.4428459255432244e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.1112935030228876e-08,
+              "maximum_residual_over_tolerance": 0.002198200492397653,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.9280901433700137e-14,
+                "AD_minus_Route_C": 2.0021492349696567e-13,
+                "FD5_minus_Route_C": 2.194958249306658e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.1458390619955026e-12,
+                "AD_minus_Route_C": -2.2282620193436742e-11,
+                "FD5_minus_Route_C": -2.4428459255432244e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 111.29350302286524,
+                "FD5": 111.29350302286309,
+                "Route_C": 111.29350302288752
+              }
+            },
+            "S_total": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.381739250267856e-10,
+                "AD_minus_Route_C": 1.6091235011117533e-09,
+                "FD5_minus_Route_C": 1.8472974261385389e-09
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.7992995189419175e-08,
+              "maximum_residual_over_tolerance": 0.10266758850826829,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.979783164915089e-13,
+                "AD_minus_Route_C": 2.0131671081722277e-12,
+                "FD5_minus_Route_C": 2.3111454246637366e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.381739250267856e-10,
+                "AD_minus_Route_C": -1.6091235011117533e-09,
+                "FD5_minus_Route_C": -1.8472974261385389e-09
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -799.2995189416796,
+                "FD5": -799.2995189419178,
+                "Route_C": -799.2995189400705
+              }
+            },
+            "a_squared": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "active_for_sign_check": false,
+              "fixed_tolerance": 1e-08,
+              "maximum_residual_over_tolerance": 0.0,
+              "normalized_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 0.0,
+                "AD_minus_Route_C": 0.0,
+                "FD5_minus_Route_C": 0.0
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 0.0,
+                "FD5": 0.0,
+                "Route_C": 0.0
+              }
+            },
+            "full_V4_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 9.592326932761353e-14,
+                "AD_minus_Route_C": 4.786393503763975e-12,
+                "FD5_minus_Route_C": 4.882316773091588e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0049682364651901e-08,
+              "maximum_residual_over_tolerance": 0.00048581801851413055,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.9307307532501628e-14,
+                "AD_minus_Route_C": 9.633988915986229e-13,
+                "FD5_minus_Route_C": 9.827061991311245e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 9.592326932761353e-14,
+                "AD_minus_Route_C": -4.786393503763975e-12,
+                "FD5_minus_Route_C": -4.882316773091588e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 4.968236465185285,
+                "FD5": 4.968236465185189,
+                "Route_C": 4.9682364651900714
+              }
+            },
+            "full_V4_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.8954616482224083e-13,
+                "AD_minus_Route_C": 3.240963053485757e-12,
+                "FD5_minus_Route_C": 3.530509218307998e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0044698180278408e-08,
+              "maximum_residual_over_tolerance": 0.0003514798707680178,
+              "normalized_residuals": {
+                "AD_minus_FD5": 6.477806546458217e-14,
+                "AD_minus_Route_C": 7.250771806142954e-13,
+                "FD5_minus_Route_C": 7.898552460788776e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.8954616482224083e-13,
+                "AD_minus_Route_C": -3.240963053485757e-12,
+                "FD5_minus_Route_C": -3.530509218307998e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 4.469818027837558,
+                "FD5": 4.469818027837269,
+                "Route_C": 4.469818027840799
+              }
+            },
+            "wall": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.6057023205794394e-10,
+                "AD_minus_Route_C": 1.5621708371327259e-09,
+                "FD5_minus_Route_C": 1.8227410691906698e-09
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.9295802682838396e-08,
+              "maximum_residual_over_tolerance": 0.09446308604781743,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.8030955577295124e-13,
+                "AD_minus_Route_C": 1.6805120444485702e-12,
+                "FD5_minus_Route_C": 1.9608216002215215e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.6057023205794394e-10,
+                "AD_minus_Route_C": -1.5621708371327259e-09,
+                "FD5_minus_Route_C": -1.8227410691906698e-09
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 929.5802682822775,
+                "FD5": 929.580268282017,
+                "Route_C": 929.5802682838397
+              }
+            }
+          }
+        },
+        "member_id": "N1.K1.seed20260902",
+        "member_three_way_pass": true,
+        "quadrature": {
+          "radial_order": 10,
+          "tangential_order_per_axis": 5
+        }
+      },
+      {
+        "AD_JVP": {
+          "BF_bulk_minus": -0.43232276731337616,
+          "BF_bulk_plus": 8.166594305283823,
+          "EH_bulk_minus": -53.600448776132595,
+          "EH_bulk_plus": -19.399486380122273,
+          "GHY_minus": 5.586286600621229,
+          "GHY_plus": -3.168936509245334,
+          "K_foliation": -0.01583594541141129,
+          "Omega_kinetic_bulk_minus": 0.08972081999318471,
+          "Omega_kinetic_bulk_plus": -0.299538087528473,
+          "Omega_potential_bulk_minus": -46.93770631351616,
+          "Omega_potential_bulk_plus": 78.27915697300207,
+          "P_kinetic_bulk_minus": 118.60503197253081,
+          "P_kinetic_bulk_plus": 107.71410829142177,
+          "R": -7.232728217737696e-11,
+          "R_squared": -6.398551603923109e-14,
+          "Robin": 85.35783743110684,
+          "S_total": 290.911366904936,
+          "a_squared": -0.022534368740718194,
+          "full_V4_bulk_minus": 4.144396892494365,
+          "full_V4_bulk_plus": 3.760622410216627,
+          "wall": 3.084420356348076
+        },
+        "FD5_Richardson_JVP": {
+          "BF_bulk_minus": -0.432322767214512,
+          "BF_bulk_plus": 8.166594305225699,
+          "EH_bulk_minus": -53.600448776153655,
+          "EH_bulk_plus": -19.39948638010802,
+          "GHY_minus": 5.5862866006211425,
+          "GHY_plus": -3.1689365092379664,
+          "K_foliation": -0.015835945411396886,
+          "Omega_kinetic_bulk_minus": 0.08972081996326252,
+          "Omega_kinetic_bulk_plus": -0.29953808748624416,
+          "Omega_potential_bulk_minus": -46.937706312777316,
+          "Omega_potential_bulk_plus": 78.27915697301357,
+          "P_kinetic_bulk_minus": 118.60503197319724,
+          "P_kinetic_bulk_plus": 107.71410829114691,
+          "R": -7.232582538415158e-11,
+          "R_squared": -6.398551601992396e-14,
+          "Robin": 85.35783743120561,
+          "S_total": 290.911366899438,
+          "a_squared": -0.02253436874068954,
+          "full_V4_bulk_minus": 4.1443968924933205,
+          "full_V4_bulk_plus": 3.760622410218511,
+          "wall": 3.0844203494618547
+        },
+        "K": 2,
+        "N": 2,
+        "Route_C_precision_stabilized_JVP": {
+          "BF_bulk_minus": -0.43232276731379826,
+          "BF_bulk_plus": 8.166594305279116,
+          "EH_bulk_minus": -53.60044877614385,
+          "EH_bulk_plus": -19.399486379749945,
+          "GHY_minus": 5.586286600620409,
+          "GHY_plus": -3.168936509245567,
+          "K_foliation": -0.015835945411580163,
+          "Omega_kinetic_bulk_minus": 0.08972081999193049,
+          "Omega_kinetic_bulk_plus": -0.2995380875311719,
+          "Omega_potential_bulk_minus": -46.937706314147924,
+          "Omega_potential_bulk_plus": 78.27915697253391,
+          "P_kinetic_bulk_minus": 118.60503197251894,
+          "P_kinetic_bulk_plus": 107.71410829141125,
+          "R": -7.232648151186479e-11,
+          "R_squared": -6.39855161102318e-14,
+          "Robin": 85.3578374310781,
+          "S_total": 290.91136690337794,
+          "a_squared": -0.022534368740961885,
+          "full_V4_bulk_minus": 4.144396892495622,
+          "full_V4_bulk_plus": 3.760622410217158,
+          "wall": 3.0844203555887106
+        },
+        "authoritative_free_central_sha256": "0febc03837763087bcd802a19431800b703278fa055ab3e11ddc9b4259458b67",
+        "authoritative_free_tangent_sha256": "96f2cb65c7ecb11f6893c6077d2538187a2fa1645cabf5b10980d36de97a0ffa",
+        "comparison": {
+          "maximum_residual_over_tolerance": 0.6865046681174637,
+          "pairwise_L2": {
+            "AD_minus_FD5": 8.873564031731139e-09,
+            "AD_minus_Route_C": 1.9396939676171413e-09,
+            "FD5_minus_Route_C": 7.473969021186874e-09
+          },
+          "pairwise_cosine": {
+            "AD_FD5": 1.0,
+            "AD_Route_C": 0.9999999999999998,
+            "FD5_Route_C": 0.9999999999999999
+          },
+          "pass": true,
+          "rows": {
+            "BF_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 9.88641390975431e-11,
+                "AD_minus_Route_C": 4.221067939624845e-13,
+                "FD5_minus_Route_C": 9.928624589150559e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0004323227673137e-08,
+              "maximum_residual_over_tolerance": 0.009924334073580123,
+              "normalized_residuals": {
+                "AD_minus_FD5": 9.88641390975431e-11,
+                "AD_minus_Route_C": 4.221067939624845e-13,
+                "FD5_minus_Route_C": 9.928624589150559e-11
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -9.88641390975431e-11,
+                "AD_minus_Route_C": 4.221067939624845e-13,
+                "FD5_minus_Route_C": 9.928624589150559e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -0.43232276731337616,
+                "FD5": -0.432322767214512,
+                "Route_C": -0.43232276731379826
+              }
+            },
+            "BF_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 5.8124172142015595e-11,
+                "AD_minus_Route_C": 4.707345624410664e-12,
+                "FD5_minus_Route_C": 5.341682651760493e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0081665943052838e-08,
+              "maximum_residual_over_tolerance": 0.005765334069818918,
+              "normalized_residuals": {
+                "AD_minus_FD5": 7.117308631874734e-12,
+                "AD_minus_Route_C": 5.764147756629701e-13,
+                "FD5_minus_Route_C": 6.5408938562117635e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 5.8124172142015595e-11,
+                "AD_minus_Route_C": 4.707345624410664e-12,
+                "FD5_minus_Route_C": -5.341682651760493e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 8.166594305283823,
+                "FD5": 8.166594305225699,
+                "Route_C": 8.166594305279116
+              }
+            },
+            "EH_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.106048668792937e-11,
+                "AD_minus_Route_C": 1.1254996934439987e-11,
+                "FD5_minus_Route_C": 9.805489753489383e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0536004487761538e-08,
+              "maximum_residual_over_tolerance": 0.0019989063892667195,
+              "normalized_residuals": {
+                "AD_minus_FD5": 3.9291623799424204e-13,
+                "AD_minus_Route_C": 2.0997952799692288e-13,
+                "FD5_minus_Route_C": 1.8293670999731916e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.106048668792937e-11,
+                "AD_minus_Route_C": 1.1254996934439987e-11,
+                "FD5_minus_Route_C": -9.805489753489383e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -53.600448776132595,
+                "FD5": -53.600448776153655,
+                "Route_C": -53.60044877614385
+              }
+            },
+            "EH_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.425348727934761e-11,
+                "AD_minus_Route_C": 3.723279462519713e-10,
+                "FD5_minus_Route_C": 3.580744589726237e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0193994863801223e-08,
+              "maximum_residual_over_tolerance": 0.0365242430692313,
+              "normalized_residuals": {
+                "AD_minus_FD5": 7.347352914432043e-13,
+                "AD_minus_Route_C": 1.9192670308708687e-11,
+                "FD5_minus_Route_C": 1.8457935017265483e-11
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.425348727934761e-11,
+                "AD_minus_Route_C": -3.723279462519713e-10,
+                "FD5_minus_Route_C": -3.580744589726237e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -19.399486380122273,
+                "FD5": -19.39948638010802,
+                "Route_C": -19.399486379749945
+              }
+            },
+            "GHY_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 8.615330671091215e-14,
+                "AD_minus_Route_C": 8.197886813832156e-13,
+                "FD5_minus_Route_C": 7.336353746723034e-13
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0055862866006212e-08,
+              "maximum_residual_over_tolerance": 8.15234547553852e-05,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.5422285476962706e-14,
+                "AD_minus_Route_C": 1.467502009818204e-13,
+                "FD5_minus_Route_C": 1.3132791550485769e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 8.615330671091215e-14,
+                "AD_minus_Route_C": 8.197886813832156e-13,
+                "FD5_minus_Route_C": 7.336353746723034e-13
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 5.586286600621229,
+                "FD5": 5.5862866006211425,
+                "Route_C": 5.586286600620409
+              }
+            },
+            "GHY_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 7.367439991412539e-12,
+                "AD_minus_Route_C": 2.3314683517128287e-13,
+                "FD5_minus_Route_C": 7.600586826583822e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0031689365092456e-08,
+              "maximum_residual_over_tolerance": 0.0007576577134686598,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.3248935312896235e-12,
+                "AD_minus_Route_C": 7.357258010410201e-14,
+                "FD5_minus_Route_C": 2.3984661113937257e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -7.367439991412539e-12,
+                "AD_minus_Route_C": 2.3314683517128287e-13,
+                "FD5_minus_Route_C": 7.600586826583822e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -3.168936509245334,
+                "FD5": -3.1689365092379664,
+                "Route_C": -3.168936509245567
+              }
+            },
+            "K_foliation": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.4405143744511406e-14,
+                "AD_minus_Route_C": 1.6887186093939022e-13,
+                "FD5_minus_Route_C": 1.8327700468390162e-13
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0000158359454115e-08,
+              "maximum_residual_over_tolerance": 1.8327410236522123e-05,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.4405143744511406e-14,
+                "AD_minus_Route_C": 1.6887186093939022e-13,
+                "FD5_minus_Route_C": 1.8327700468390162e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.4405143744511406e-14,
+                "AD_minus_Route_C": 1.6887186093939022e-13,
+                "FD5_minus_Route_C": 1.8327700468390162e-13
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -0.01583594541141129,
+                "FD5": -0.015835945411396886,
+                "Route_C": -0.015835945411580163
+              }
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.9922189725972714e-11,
+                "AD_minus_Route_C": 1.2542189509190393e-12,
+                "FD5_minus_Route_C": 2.8667970775053675e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0000897208199932e-08,
+              "maximum_residual_over_tolerance": 0.0029919505323421306,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.9922189725972714e-11,
+                "AD_minus_Route_C": 1.2542189509190393e-12,
+                "FD5_minus_Route_C": 2.8667970775053675e-11
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.9922189725972714e-11,
+                "AD_minus_Route_C": 1.2542189509190393e-12,
+                "FD5_minus_Route_C": -2.8667970775053675e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 0.08972081999318471,
+                "FD5": 0.08972081996326252,
+                "Route_C": 0.08972081999193049
+              }
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 4.222883154270107e-11,
+                "AD_minus_Route_C": 2.6988966617125243e-12,
+                "FD5_minus_Route_C": 4.49277282044136e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0002995380875312e-08,
+              "maximum_residual_over_tolerance": 0.004491427466847655,
+              "normalized_residuals": {
+                "AD_minus_FD5": 4.222883154270107e-11,
+                "AD_minus_Route_C": 2.6988966617125243e-12,
+                "FD5_minus_Route_C": 4.49277282044136e-11
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -4.222883154270107e-11,
+                "AD_minus_Route_C": 2.6988966617125243e-12,
+                "FD5_minus_Route_C": 4.49277282044136e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -0.299538087528473,
+                "FD5": -0.29953808748624416,
+                "Route_C": -0.2995380875311719
+              }
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 7.38843652925425e-10,
+                "AD_minus_Route_C": 6.317648626463779e-10,
+                "FD5_minus_Route_C": 1.3706085155718029e-09
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0469377063141479e-08,
+              "maximum_residual_over_tolerance": 0.13091595682394241,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.5740940726426662e-11,
+                "AD_minus_Route_C": 1.3459644968973523e-11,
+                "FD5_minus_Route_C": 2.920058569540018e-11
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -7.38843652925425e-10,
+                "AD_minus_Route_C": 6.317648626463779e-10,
+                "FD5_minus_Route_C": 1.3706085155718029e-09
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -46.93770631351616,
+                "FD5": -46.937706312777316,
+                "Route_C": -46.937706314147924
+              }
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.1496581464598421e-11,
+                "AD_minus_Route_C": 4.681623977376148e-10,
+                "FD5_minus_Route_C": 4.796589792022132e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0782791569730136e-08,
+              "maximum_residual_over_tolerance": 0.04448374765480307,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.4686644451934787e-13,
+                "AD_minus_Route_C": 5.980677562726077e-12,
+                "FD5_minus_Route_C": 6.127544007245425e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.1496581464598421e-11,
+                "AD_minus_Route_C": 4.681623977376148e-10,
+                "FD5_minus_Route_C": 4.796589792022132e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 78.27915697300207,
+                "FD5": 78.27915697301357,
+                "Route_C": 78.27915697253391
+              }
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 6.664322427241132e-10,
+                "AD_minus_Route_C": 1.1866063687193673e-11,
+                "FD5_minus_Route_C": 6.782983064113068e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.1186050319731973e-08,
+              "maximum_residual_over_tolerance": 0.06063787369298723,
+              "normalized_residuals": {
+                "AD_minus_FD5": 5.618920476111973e-12,
+                "AD_minus_Route_C": 1.0004688241115441e-13,
+                "FD5_minus_Route_C": 5.718967358523127e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -6.664322427241132e-10,
+                "AD_minus_Route_C": 1.1866063687193673e-11,
+                "FD5_minus_Route_C": 6.782983064113068e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 118.60503197253081,
+                "FD5": 118.60503197319724,
+                "Route_C": 118.60503197251894
+              }
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.7485214104672195e-10,
+                "AD_minus_Route_C": 1.0516032489249483e-11,
+                "FD5_minus_Route_C": 2.6433610855747247e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.1077141082914218e-08,
+              "maximum_residual_over_tolerance": 0.024812552172930595,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.5516819050584007e-12,
+                "AD_minus_Route_C": 9.76291096501327e-14,
+                "FD5_minus_Route_C": 2.454052795408268e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.7485214104672195e-10,
+                "AD_minus_Route_C": 1.0516032489249483e-11,
+                "FD5_minus_Route_C": -2.6433610855747247e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 107.71410829142177,
+                "FD5": 107.71410829114691,
+                "Route_C": 107.71410829141125
+              }
+            },
+            "R": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.4567932253787132e-15,
+                "AD_minus_Route_C": 8.006655121650087e-16,
+                "FD5_minus_Route_C": 6.561277132137044e-16
+              },
+              "active_for_sign_check": false,
+              "fixed_tolerance": 1.0000000000000723e-08,
+              "maximum_residual_over_tolerance": 1.4567932253786078e-07,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.4567932253787132e-15,
+                "AD_minus_Route_C": 8.006655121650087e-16,
+                "FD5_minus_Route_C": 6.561277132137044e-16
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.4567932253787132e-15,
+                "AD_minus_Route_C": -8.006655121650087e-16,
+                "FD5_minus_Route_C": 6.561277132137044e-16
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -7.232728217737696e-11,
+                "FD5": -7.232582538415158e-11,
+                "Route_C": -7.232648151186479e-11
+              }
+            },
+            "R_squared": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.9307124530681835e-23,
+                "AD_minus_Route_C": 7.100071264415885e-23,
+                "FD5_minus_Route_C": 9.030783717484068e-23
+              },
+              "active_for_sign_check": false,
+              "fixed_tolerance": 1e-08,
+              "maximum_residual_over_tolerance": 9.030783717484068e-15,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.9307124530681835e-23,
+                "AD_minus_Route_C": 7.100071264415885e-23,
+                "FD5_minus_Route_C": 9.030783717484068e-23
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.9307124530681835e-23,
+                "AD_minus_Route_C": 7.100071264415885e-23,
+                "FD5_minus_Route_C": 9.030783717484068e-23
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -6.398551603923109e-14,
+                "FD5": -6.398551601992396e-14,
+                "Route_C": -6.39855161102318e-14
+              }
+            },
+            "Robin": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 9.876544027065393e-11,
+                "AD_minus_Route_C": 2.8748559088853654e-11,
+                "FD5_minus_Route_C": 1.2751399935950758e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0853578374312057e-08,
+              "maximum_residual_over_tolerance": 0.011748567611701604,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.1570752404576114e-12,
+                "AD_minus_Route_C": 3.368004620785248e-13,
+                "FD5_minus_Route_C": 1.4938757025361362e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -9.876544027065393e-11,
+                "AD_minus_Route_C": 2.8748559088853654e-11,
+                "FD5_minus_Route_C": 1.2751399935950758e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 85.35783743110684,
+                "FD5": 85.35783743120561,
+                "Route_C": 85.3578374310781
+              }
+            },
+            "S_total": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 5.498009159055073e-09,
+                "AD_minus_Route_C": 1.5580781109747477e-09,
+                "FD5_minus_Route_C": 3.939931048080325e-09
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.290911366904936e-08,
+              "maximum_residual_over_tolerance": 0.42590136705024084,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.88992586214471e-11,
+                "AD_minus_Route_C": 5.355851603708206e-12,
+                "FD5_minus_Route_C": 1.3543407017738896e-11
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 5.498009159055073e-09,
+                "AD_minus_Route_C": 1.5580781109747477e-09,
+                "FD5_minus_Route_C": -3.939931048080325e-09
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 290.911366904936,
+                "FD5": 290.911366899438,
+                "Route_C": 290.91136690337794
+              }
+            },
+            "a_squared": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.86541623761849e-14,
+                "AD_minus_Route_C": 2.436904844582699e-13,
+                "FD5_minus_Route_C": 2.723446468344548e-13
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.000022534368741e-08,
+              "maximum_residual_over_tolerance": 2.723385098580513e-05,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.86541623761849e-14,
+                "AD_minus_Route_C": 2.436904844582699e-13,
+                "FD5_minus_Route_C": 2.723446468344548e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -2.86541623761849e-14,
+                "AD_minus_Route_C": 2.436904844582699e-13,
+                "FD5_minus_Route_C": 2.723446468344548e-13
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -0.022534368740718194,
+                "FD5": -0.02253436874068954,
+                "Route_C": -0.022534368740961885
+              }
+            },
+            "full_V4_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.0444978215673473e-12,
+                "AD_minus_Route_C": 1.2567724638756772e-12,
+                "FD5_minus_Route_C": 2.3012702854430245e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0041443968924956e-08,
+              "maximum_residual_over_tolerance": 0.00022917722715624534,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.5202649472560156e-13,
+                "AD_minus_Route_C": 3.0324616499721616e-13,
+                "FD5_minus_Route_C": 5.552726597228177e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 1.0444978215673473e-12,
+                "AD_minus_Route_C": -1.2567724638756772e-12,
+                "FD5_minus_Route_C": -2.3012702854430245e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 4.144396892494365,
+                "FD5": 4.1443968924933205,
+                "Route_C": 4.144396892495622
+              }
+            },
+            "full_V4_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.8838264281839656e-12,
+                "AD_minus_Route_C": 5.311306949806749e-13,
+                "FD5_minus_Route_C": 1.3526957332032907e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0037606224102186e-08,
+              "maximum_residual_over_tolerance": 0.00018767686100900662,
+              "normalized_residuals": {
+                "AD_minus_FD5": 5.009347450212386e-13,
+                "AD_minus_Route_C": 1.4123478431056138e-13,
+                "FD5_minus_Route_C": 3.5969996071067727e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.8838264281839656e-12,
+                "AD_minus_Route_C": -5.311306949806749e-13,
+                "FD5_minus_Route_C": 1.3526957332032907e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 3.760622410216627,
+                "FD5": 3.760622410218511,
+                "Route_C": 3.760622410217158
+              }
+            },
+            "wall": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 6.886221370905332e-09,
+                "AD_minus_Route_C": 7.593654594018062e-10,
+                "FD5_minus_Route_C": 6.126855911503526e-09
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0030844203563481e-08,
+              "maximum_residual_over_tolerance": 0.6865046681174637,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.232582000936653e-09,
+                "AD_minus_Route_C": 2.461938943694716e-10,
+                "FD5_minus_Route_C": 1.9863881065671813e-09
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 6.886221370905332e-09,
+                "AD_minus_Route_C": 7.593654594018062e-10,
+                "FD5_minus_Route_C": -6.126855911503526e-09
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 3.084420356348076,
+                "FD5": 3.0844203494618547,
+                "Route_C": 3.0844203555887106
+              }
+            }
+          }
+        },
+        "member_id": "N2.K2.seed20260902",
+        "member_three_way_pass": true,
+        "quadrature": {
+          "radial_order": 10,
+          "tangential_order_per_axis": 5
+        }
+      },
+      {
+        "AD_JVP": {
+          "BF_bulk_minus": -0.5050275864534832,
+          "BF_bulk_plus": 9.538916487275573,
+          "EH_bulk_minus": -63.01196304779759,
+          "EH_bulk_plus": -22.90780944802293,
+          "GHY_minus": 6.6348297131395855,
+          "GHY_plus": -3.675551641048222,
+          "K_foliation": -0.036088625808074135,
+          "Omega_kinetic_bulk_minus": 0.09269941023310135,
+          "Omega_kinetic_bulk_plus": -0.3668092043919162,
+          "Omega_potential_bulk_minus": -55.52751685350543,
+          "Omega_potential_bulk_plus": 92.41041623225168,
+          "P_kinetic_bulk_minus": 139.97145055234995,
+          "P_kinetic_bulk_plus": 127.13524367872103,
+          "R": 0.00020665906765019422,
+          "R_squared": -1.952102273290026e-13,
+          "Robin": 100.74505438897437,
+          "S_total": 343.42730662852875,
+          "a_squared": -0.04117263159854269,
+          "full_V4_bulk_minus": 4.8915570985111,
+          "full_V4_bulk_plus": 4.438684879805853,
+          "wall": 3.6401865668252924
+        },
+        "FD5_Richardson_JVP": {
+          "BF_bulk_minus": -0.5050275864796443,
+          "BF_bulk_plus": 9.538916487267272,
+          "EH_bulk_minus": -63.011963047769655,
+          "EH_bulk_plus": -22.907809448004016,
+          "GHY_minus": 6.634829713137159,
+          "GHY_plus": -3.6755516410484845,
+          "K_foliation": -0.03608862580802461,
+          "Omega_kinetic_bulk_minus": 0.09269941023069045,
+          "Omega_kinetic_bulk_plus": -0.3668092043319218,
+          "Omega_potential_bulk_minus": -55.527516853123274,
+          "Omega_potential_bulk_plus": 92.41041623209625,
+          "P_kinetic_bulk_minus": 139.9714505527782,
+          "P_kinetic_bulk_plus": 127.1352436782172,
+          "R": 0.000206659067650269,
+          "R_squared": -1.9521022738513515e-13,
+          "Robin": 100.74505438906687,
+          "S_total": 343.4273066346997,
+          "a_squared": -0.04117263159846408,
+          "full_V4_bulk_minus": 4.891557098509578,
+          "full_V4_bulk_plus": 4.438684879806214,
+          "wall": 3.6401865727091516
+        },
+        "K": 3,
+        "N": 3,
+        "Route_C_precision_stabilized_JVP": {
+          "BF_bulk_minus": -0.5050275864549612,
+          "BF_bulk_plus": 9.538916487273628,
+          "EH_bulk_minus": -63.01196304788351,
+          "EH_bulk_plus": -22.907809448068445,
+          "GHY_minus": 6.6348297131394185,
+          "GHY_plus": -3.675551641049031,
+          "K_foliation": -0.03608862580845657,
+          "Omega_kinetic_bulk_minus": 0.09269941023164119,
+          "Omega_kinetic_bulk_plus": -0.36680920439156733,
+          "Omega_potential_bulk_minus": -55.52751685341502,
+          "Omega_potential_bulk_plus": 92.41041623197968,
+          "P_kinetic_bulk_minus": 139.9714505523423,
+          "P_kinetic_bulk_plus": 127.13524367872631,
+          "R": 0.00020665906766059174,
+          "R_squared": -1.9521022759016903e-13,
+          "Robin": 100.7450543889784,
+          "S_total": 343.4273066280863,
+          "a_squared": -0.04117263159909135,
+          "full_V4_bulk_minus": 4.8915570985144985,
+          "full_V4_bulk_plus": 4.438684879808457,
+          "wall": 3.6401865666945703
+        },
+        "authoritative_free_central_sha256": "52d78abb8b7b6a5933d94faec1dacb2ba7bb0ca654ac07834ac5c7b90e9b347a",
+        "authoritative_free_tangent_sha256": "590f924cf1cc8c98b5b6e5963282d42fe23e48772984edf2ec6e556f9f5d5a64",
+        "comparison": {
+          "maximum_residual_over_tolerance": 0.5992766489361279,
+          "pairwise_L2": {
+            "AD_minus_FD5": 8.562802456290266e-09,
+            "AD_minus_Route_C": 5.51911872312207e-10,
+            "FD5_minus_Route_C": 8.971578901064326e-09
+          },
+          "pairwise_cosine": {
+            "AD_FD5": 0.9999999999999999,
+            "AD_Route_C": 1.0,
+            "FD5_Route_C": 1.0000000000000002
+          },
+          "pass": true,
+          "rows": {
+            "BF_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.6161073307662264e-11,
+                "AD_minus_Route_C": 1.4779288903810084e-12,
+                "FD5_minus_Route_C": 2.4683144417281255e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0005050275864797e-08,
+              "maximum_residual_over_tolerance": 0.002614786791303855,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.6161073307662264e-11,
+                "AD_minus_Route_C": 1.4779288903810084e-12,
+                "FD5_minus_Route_C": 2.4683144417281255e-11
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.6161073307662264e-11,
+                "AD_minus_Route_C": 1.4779288903810084e-12,
+                "FD5_minus_Route_C": -2.4683144417281255e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -0.5050275864534832,
+                "FD5": -0.5050275864796443,
+                "Route_C": -0.5050275864549612
+              }
+            },
+            "BF_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 8.30091551051737e-12,
+                "AD_minus_Route_C": 1.9451107391432743e-12,
+                "FD5_minus_Route_C": 6.355804771374096e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0095389164872757e-08,
+              "maximum_residual_over_tolerance": 0.000822248194195493,
+              "normalized_residuals": {
+                "AD_minus_FD5": 8.702157652381554e-13,
+                "AD_minus_Route_C": 2.0391317417842505e-13,
+                "FD5_minus_Route_C": 6.663025910597303e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 8.30091551051737e-12,
+                "AD_minus_Route_C": 1.9451107391432743e-12,
+                "FD5_minus_Route_C": -6.355804771374096e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 9.538916487275573,
+                "FD5": 9.538916487267272,
+                "Route_C": 9.538916487273628
+              }
+            },
+            "EH_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.793854037008714e-11,
+                "AD_minus_Route_C": 8.591882760811131e-11,
+                "FD5_minus_Route_C": 1.1385736797819845e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0630119630478834e-08,
+              "maximum_residual_over_tolerance": 0.010710826588606297,
+              "normalized_residuals": {
+                "AD_minus_FD5": 4.4338470059814394e-13,
+                "AD_minus_Route_C": 1.3635319938028373e-12,
+                "FD5_minus_Route_C": 1.8069166944009813e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -2.793854037008714e-11,
+                "AD_minus_Route_C": 8.591882760811131e-11,
+                "FD5_minus_Route_C": 1.1385736797819845e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -63.01196304779759,
+                "FD5": -63.011963047769655,
+                "Route_C": -63.01196304788351
+              }
+            },
+            "EH_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.8914647625933867e-11,
+                "AD_minus_Route_C": 4.551381493911322e-11,
+                "FD5_minus_Route_C": 6.442846256504708e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0229078094480684e-08,
+              "maximum_residual_over_tolerance": 0.006298560043237017,
+              "normalized_residuals": {
+                "AD_minus_FD5": 8.256855666978112e-13,
+                "AD_minus_Route_C": 1.9868252807974565e-12,
+                "FD5_minus_Route_C": 2.812510847495268e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -1.8914647625933867e-11,
+                "AD_minus_Route_C": 4.551381493911322e-11,
+                "FD5_minus_Route_C": 6.442846256504708e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -22.90780944802293,
+                "FD5": -22.907809448004016,
+                "Route_C": -22.907809448068445
+              }
+            },
+            "GHY_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.426503442620742e-12,
+                "AD_minus_Route_C": 1.6697754290362354e-13,
+                "FD5_minus_Route_C": 2.2595258997171186e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0066348297131396e-08,
+              "maximum_residual_over_tolerance": 0.00024105101184629404,
+              "normalized_residuals": {
+                "AD_minus_FD5": 3.657220377209239e-13,
+                "AD_minus_Route_C": 2.5166816651366653e-14,
+                "FD5_minus_Route_C": 3.4055522106955725e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.426503442620742e-12,
+                "AD_minus_Route_C": 1.6697754290362354e-13,
+                "FD5_minus_Route_C": -2.2595258997171186e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 6.6348297131395855,
+                "FD5": 6.634829713137159,
+                "Route_C": 6.6348297131394185
+              }
+            },
+            "GHY_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.62456723021387e-13,
+                "AD_minus_Route_C": 8.091305403468141e-13,
+                "FD5_minus_Route_C": 5.466738173254271e-13
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.003675551641049e-08,
+              "maximum_residual_over_tolerance": 8.061674303253216e-05,
+              "normalized_residuals": {
+                "AD_minus_FD5": 7.140607687026805e-14,
+                "AD_minus_Route_C": 2.2013853140038644e-13,
+                "FD5_minus_Route_C": 1.487324545301184e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.62456723021387e-13,
+                "AD_minus_Route_C": 8.091305403468141e-13,
+                "FD5_minus_Route_C": 5.466738173254271e-13
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -3.675551641048222,
+                "FD5": -3.6755516410484845,
+                "Route_C": -3.675551641049031
+              }
+            },
+            "K_foliation": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 4.952288579218589e-14,
+                "AD_minus_Route_C": 3.824371375138469e-13,
+                "FD5_minus_Route_C": 4.319600233060328e-13
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0000360886258084e-08,
+              "maximum_residual_over_tolerance": 4.319444350249471e-05,
+              "normalized_residuals": {
+                "AD_minus_FD5": 4.952288579218589e-14,
+                "AD_minus_Route_C": 3.824371375138469e-13,
+                "FD5_minus_Route_C": 4.319600233060328e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -4.952288579218589e-14,
+                "AD_minus_Route_C": 3.824371375138469e-13,
+                "FD5_minus_Route_C": 4.319600233060328e-13
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -0.036088625808074135,
+                "FD5": -0.03608862580802461,
+                "Route_C": -0.03608862580845657
+              }
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 2.4109048091247587e-12,
+                "AD_minus_Route_C": 1.4601653219870059e-12,
+                "FD5_minus_Route_C": 9.507394871377528e-13
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0000926994102331e-08,
+              "maximum_residual_over_tolerance": 0.0002410681340386245,
+              "normalized_residuals": {
+                "AD_minus_FD5": 2.4109048091247587e-12,
+                "AD_minus_Route_C": 1.4601653219870059e-12,
+                "FD5_minus_Route_C": 9.507394871377528e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 2.4109048091247587e-12,
+                "AD_minus_Route_C": 1.4601653219870059e-12,
+                "FD5_minus_Route_C": -9.507394871377528e-13
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 0.09269941023310135,
+                "FD5": 0.09269941023069045,
+                "Route_C": 0.09269941023164119
+              }
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 5.99943983381479e-11,
+                "AD_minus_Route_C": 3.4888758548845544e-13,
+                "FD5_minus_Route_C": 5.964551075265945e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0003668092043919e-08,
+              "maximum_residual_over_tolerance": 0.0059972399909851495,
+              "normalized_residuals": {
+                "AD_minus_FD5": 5.99943983381479e-11,
+                "AD_minus_Route_C": 3.4888758548845544e-13,
+                "FD5_minus_Route_C": 5.964551075265945e-11
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -5.99943983381479e-11,
+                "AD_minus_Route_C": -3.4888758548845544e-13,
+                "FD5_minus_Route_C": 5.964551075265945e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -0.3668092043919162,
+                "FD5": -0.3668092043319218,
+                "Route_C": -0.36680920439156733
+              }
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 3.821583050012123e-10,
+                "AD_minus_Route_C": 9.040945769811515e-11,
+                "FD5_minus_Route_C": 2.9174884730309714e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0555275168535055e-08,
+              "maximum_residual_over_tolerance": 0.0362054327243324,
+              "normalized_residuals": {
+                "AD_minus_FD5": 6.882322975281521e-12,
+                "AD_minus_Route_C": 1.628191981583409e-12,
+                "FD5_minus_Route_C": 5.254130993698111e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -3.821583050012123e-10,
+                "AD_minus_Route_C": -9.040945769811515e-11,
+                "FD5_minus_Route_C": 2.9174884730309714e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -55.52751685350543,
+                "FD5": -55.527516853123274,
+                "Route_C": -55.52751685341502
+              }
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.5542411802016431e-10,
+                "AD_minus_Route_C": 2.7199575924896635e-10,
+                "FD5_minus_Route_C": 1.1657164122880204e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0924104162322516e-08,
+              "maximum_residual_over_tolerance": 0.024898678665760614,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.6818896002972504e-12,
+                "AD_minus_Route_C": 2.9433452454685354e-12,
+                "FD5_minus_Route_C": 1.2614556451712852e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 1.5542411802016431e-10,
+                "AD_minus_Route_C": 2.7199575924896635e-10,
+                "FD5_minus_Route_C": 1.1657164122880204e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 92.41041623225168,
+                "FD5": 92.41041623209625,
+                "Route_C": 92.41041623197968
+              }
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 4.282583176973276e-10,
+                "AD_minus_Route_C": 7.645439836778678e-12,
+                "FD5_minus_Route_C": 4.3590375753410626e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.1399714505527783e-08,
+              "maximum_residual_over_tolerance": 0.03823812932532075,
+              "normalized_residuals": {
+                "AD_minus_FD5": 3.0596119137584184e-12,
+                "AD_minus_Route_C": 5.462142320155393e-14,
+                "FD5_minus_Route_C": 3.1142333369599723e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -4.282583176973276e-10,
+                "AD_minus_Route_C": 7.645439836778678e-12,
+                "FD5_minus_Route_C": 4.3590375753410626e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 139.97145055234995,
+                "FD5": 139.9714505527782,
+                "Route_C": 139.9714505523423
+              }
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 5.038316430727718e-10,
+                "AD_minus_Route_C": 5.286437954055145e-12,
+                "FD5_minus_Route_C": 5.09118081026827e-10
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.1271352436787263e-08,
+              "maximum_residual_over_tolerance": 0.04516920962964261,
+              "normalized_residuals": {
+                "AD_minus_FD5": 3.962958094814102e-12,
+                "AD_minus_Route_C": 4.15812154135174e-14,
+                "FD5_minus_Route_C": 4.0045393102276196e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 5.038316430727718e-10,
+                "AD_minus_Route_C": -5.286437954055145e-12,
+                "FD5_minus_Route_C": -5.09118081026827e-10
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 127.13524367872103,
+                "FD5": 127.1352436782172,
+                "Route_C": 127.13524367872631
+              }
+            },
+            "R": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 7.478284484718767e-17,
+                "AD_minus_Route_C": 1.03975259391903e-14,
+                "FD5_minus_Route_C": 1.0322743094343112e-14
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0000002066590677e-08,
+              "maximum_residual_over_tolerance": 1.0397523790447726e-06,
+              "normalized_residuals": {
+                "AD_minus_FD5": 7.478284484718767e-17,
+                "AD_minus_Route_C": 1.03975259391903e-14,
+                "FD5_minus_Route_C": 1.0322743094343112e-14
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -7.478284484718767e-17,
+                "AD_minus_Route_C": -1.03975259391903e-14,
+                "FD5_minus_Route_C": -1.0322743094343112e-14
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 0.00020665906765019422,
+                "FD5": 0.000206659067650269,
+                "Route_C": 0.00020665906766059174
+              }
+            },
+            "R_squared": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 5.613253998159186e-23,
+                "AD_minus_Route_C": 2.6116642546486717e-22,
+                "FD5_minus_Route_C": 2.0503388548327531e-22
+              },
+              "active_for_sign_check": false,
+              "fixed_tolerance": 1.0000000000000002e-08,
+              "maximum_residual_over_tolerance": 2.611664254648671e-14,
+              "normalized_residuals": {
+                "AD_minus_FD5": 5.613253998159186e-23,
+                "AD_minus_Route_C": 2.6116642546486717e-22,
+                "FD5_minus_Route_C": 2.0503388548327531e-22
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 5.613253998159186e-23,
+                "AD_minus_Route_C": 2.6116642546486717e-22,
+                "FD5_minus_Route_C": 2.0503388548327531e-22
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -1.952102273290026e-13,
+                "FD5": -1.9521022738513515e-13,
+                "Route_C": -1.9521022759016903e-13
+              }
+            },
+            "Robin": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 9.249845334124984e-11,
+                "AD_minus_Route_C": 4.035882739117369e-12,
+                "FD5_minus_Route_C": 8.846257060213247e-11
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.1007450543890668e-08,
+              "maximum_residual_over_tolerance": 0.008403258590390681,
+              "normalized_residuals": {
+                "AD_minus_FD5": 9.181438622687174e-13,
+                "AD_minus_Route_C": 4.0060355950885805e-14,
+                "FD5_minus_Route_C": 8.780835063178315e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -9.249845334124984e-11,
+                "AD_minus_Route_C": -4.035882739117369e-12,
+                "FD5_minus_Route_C": 8.846257060213247e-11
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 100.74505438897437,
+                "FD5": 100.74505438906687,
+                "Route_C": 100.7450543889784
+              }
+            },
+            "S_total": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 6.170921551529318e-09,
+                "AD_minus_Route_C": 4.424691724125296e-10,
+                "FD5_minus_Route_C": 6.613390723941848e-09
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.3434273066346996e-08,
+              "maximum_residual_over_tolerance": 0.492277527133825,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.7968639745042954e-11,
+                "AD_minus_Route_C": 1.2883925181965212e-12,
+                "FD5_minus_Route_C": 1.9257032263239476e-11
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -6.170921551529318e-09,
+                "AD_minus_Route_C": 4.424691724125296e-10,
+                "FD5_minus_Route_C": 6.613390723941848e-09
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 343.42730662852875,
+                "FD5": 343.4273066346997,
+                "Route_C": 343.4273066280863
+              }
+            },
+            "a_squared": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 7.861072903736499e-14,
+                "AD_minus_Route_C": 5.486583409819445e-13,
+                "FD5_minus_Route_C": 6.272690700193095e-13
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0000411726315991e-08,
+              "maximum_residual_over_tolerance": 6.272432447642699e-05,
+              "normalized_residuals": {
+                "AD_minus_FD5": 7.861072903736499e-14,
+                "AD_minus_Route_C": 5.486583409819445e-13,
+                "FD5_minus_Route_C": 6.272690700193095e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -7.861072903736499e-14,
+                "AD_minus_Route_C": 5.486583409819445e-13,
+                "FD5_minus_Route_C": 6.272690700193095e-13
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": -0.04117263159854269,
+                "FD5": -0.04117263159846408,
+                "Route_C": -0.04117263159909135
+              }
+            },
+            "full_V4_bulk_minus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 1.5223378113660146e-12,
+                "AD_minus_Route_C": 3.398170633772679e-12,
+                "FD5_minus_Route_C": 4.920508445138694e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0048915570985145e-08,
+              "maximum_residual_over_tolerance": 0.0004896556658656763,
+              "normalized_residuals": {
+                "AD_minus_FD5": 3.1121742641588066e-13,
+                "AD_minus_Route_C": 6.947012097241303e-13,
+                "FD5_minus_Route_C": 1.005918636140011e-12
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": 1.5223378113660146e-12,
+                "AD_minus_Route_C": -3.398170633772679e-12,
+                "FD5_minus_Route_C": -4.920508445138694e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 4.8915570985111,
+                "FD5": 4.891557098509578,
+                "Route_C": 4.8915570985144985
+              }
+            },
+            "full_V4_bulk_plus": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 3.6060043839825084e-13,
+                "AD_minus_Route_C": 2.603250948141067e-12,
+                "FD5_minus_Route_C": 2.2426505097428162e-12
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0044386848798086e-08,
+              "maximum_residual_over_tolerance": 0.0002591746999920232,
+              "normalized_residuals": {
+                "AD_minus_FD5": 8.1240378211713e-14,
+                "AD_minus_Route_C": 5.864914988633763e-13,
+                "FD5_minus_Route_C": 5.052511206516633e-13
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -3.6060043839825084e-13,
+                "AD_minus_Route_C": -2.603250948141067e-12,
+                "FD5_minus_Route_C": -2.2426505097428162e-12
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 4.438684879805853,
+                "FD5": 4.438684879806214,
+                "Route_C": 4.438684879808457
+              }
+            },
+            "wall": {
+              "absolute_residuals": {
+                "AD_minus_FD5": 5.883859177657769e-09,
+                "AD_minus_Route_C": 1.3072209981146443e-10,
+                "FD5_minus_Route_C": 6.014581277469233e-09
+              },
+              "active_for_sign_check": true,
+              "fixed_tolerance": 1.0036401865727092e-08,
+              "maximum_residual_over_tolerance": 0.5992766489361279,
+              "normalized_residuals": {
+                "AD_minus_FD5": 1.616361980391241e-09,
+                "AD_minus_Route_C": 3.5910824129593055e-11,
+                "FD5_minus_Route_C": 1.652272804520834e-09
+              },
+              "pass": true,
+              "raw_signed_residuals": {
+                "AD_minus_FD5": -5.883859177657769e-09,
+                "AD_minus_Route_C": 1.3072209981146443e-10,
+                "FD5_minus_Route_C": 6.014581277469233e-09
+              },
+              "same_sign_when_active": true,
+              "values": {
+                "AD": 3.6401865668252924,
+                "FD5": 3.6401865727091516,
+                "Route_C": 3.6401865666945703
+              }
+            }
+          }
+        },
+        "member_id": "N3.K3.seed20260902",
+        "member_three_way_pass": true,
+        "quadrature": {
+          "radial_order": 10,
+          "tangential_order_per_axis": 5
+        }
+      }
+    ]
+  },
+  "source_pins": {
+    "AD_raw_artifact_sha256": "d0db75f97c580e417e2032211134546695691598714f0ace65db8f24afc11cdb",
+    "FD5_raw_artifact_sha256": "501d5fddba619a32a8ab6c050e536c523cbc91795813f9a837b13c9d6fb133ea",
+    "Route_C_Euler_Green_artifact_sha256": "4e343402192d539d7b5b8bf3e70dbbac139a779fea15273ce223143b0452bfd7",
+    "Route_C_four_direction_red_refinement_artifact_sha256": "23579f90fc535a71d088e992a4f6f49aea515a8ab9c7b04bb6b7cc89bff9ddb8",
+    "Route_C_precision_correction_artifact_sha256": "06ad302a03d17e4ea718c9ab801113807a7f66c71102e69486f7869130f77654",
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf"
+  }
+}
