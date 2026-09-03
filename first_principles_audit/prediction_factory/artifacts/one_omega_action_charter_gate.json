@@ -1,0 +1,751 @@
+{
+  "action_charter": {
+    "coefficient_policy": {
+      "UV_derivation_claimed": false,
+      "all_displayed_coefficient_functions_are_constant_unless_formula_shown": true,
+      "all_unlisted_operator_coefficients_at_mu_star": 0.0,
+      "dimensionful_reconstruction": {
+        "B4_bar": "0.8",
+        "G": "1.2*k_infinity^3",
+        "M5_cubed": "1*k_infinity^3",
+        "Mb_squared": "2*k_infinity^2",
+        "beta": "2*k_infinity^4",
+        "kappa_hat": "1*k_infinity^4",
+        "material_M": "1*k_infinity",
+        "material_T_two_side": "2*k_infinity^3",
+        "material_Z5_per_side": "1*k_infinity^3 on each of the two sides",
+        "mu_star": "1*k_infinity",
+        "solid_lambda": "1",
+        "solid_mu": "1",
+        "solid_rho": "1*k_infinity^2",
+        "solid_v": "1*k_infinity",
+        "y_squared": "3/k_infinity^2"
+      },
+      "matching_scale_in_k_infinity_units": 1.0,
+      "matching_scale_symbol": "mu_star",
+      "parameters": {
+        "B4_bar": 0.8,
+        "M4_bulk_squared_selected_one_Omega_wall_value": 1.107013790800849,
+        "M5_cubed": 1.0,
+        "Robin_kappa_hat": 1.0,
+        "Robin_kappa_in_Mb_units": 0.5,
+        "Robin_y": 1.7320508075688772,
+        "Robin_y_squared": 3.0,
+        "brane_Mb_squared": 2.0,
+        "brane_beta": 2.0,
+        "compensator_metric_G": 1.2,
+        "eta": 3.107013790800849,
+        "k_infinity": 1.0,
+        "lambda_K": 1.3107013790800848,
+        "material_Z5_per_side": 1.0,
+        "material_mass_M": 1.0,
+        "solid_lambda": 1.0,
+        "solid_mu": 1.0,
+        "solid_rho": 1.0,
+        "solid_v": 1.0,
+        "xi": 1.0
+      },
+      "radiative_closure_proved": false
+    },
+    "definitions": {
+      "acceleration": "a_mu=u^nu*D_nu u_mu",
+      "bulk_extrinsic_curvature": "Theta_eps_mu_nu=e_mu^M e_nu^N nabla_M n_eps_N",
+      "conformal_derivative": "P_M^a=nabla_M phi^a+3*phi^a*nabla_M Omega/(2*Omega)",
+      "covariant_delta_wall_equivalence": "int_Sigma sqrt(-gamma)*L_Sigma=int_M sqrt(-g)*delta_Sigma*L_Sigma, where int_M sqrt(-g)*delta_Sigma*f=int_Sigma sqrt(-gamma)*f",
+      "embedding": "e_mu^M=partial_mu Y^M; gamma_mu_nu=g_MN(Y)e_mu^M e_nu^N",
+      "khronon_norm": "D_T_squared=gamma^(mu nu)*D_mu T*D_nu T<0",
+      "khronon_unit_vector": "u_mu=-D_mu T/sqrt(-gamma^(rho sigma)*D_rho T*D_sigma T)",
+      "leaf_extrinsic_curvature": "Kcal_mu_nu=h_mu^rho*h_nu^sigma*D_rho u_sigma",
+      "material_radius": "r_phi=sqrt(delta_ab*phi^a*phi^b)",
+      "normal_convention": "n_eps^M is outward pointing and n_eps^M*n_eps_M=+1",
+      "orthonormal_triad": "E^a_mu=h_mu^nu*partial_nu X^b*(B^(-1/2))_b^a",
+      "raised_triad": "E^(a mu)=h^(mu nu)*E^a_nu",
+      "soldered_acceleration": "Acal^a=E^(a mu)*a_mu",
+      "solid_metric": "B^ab=h^(mu nu)*partial_mu X^a*partial_nu X^b",
+      "spatial_metric": "h_mu_nu=gamma_mu_nu+u_mu*u_nu",
+      "triad_internal_identity": "E^a_mu*E^(b mu)=delta^ab",
+      "triad_spatial_identity": "sum_a E^(a mu)*E^(a nu)=h^(mu nu)"
+    },
+    "derivative_and_amplitude_scope": {
+      "Robin": "algebraic in varphi^a and Acal^a",
+      "bulk": "Einstein frame with at most two derivatives in each displayed bulk term",
+      "foliation": "at most two time derivatives and at most four leaf-spatial derivatives",
+      "nonlinear_amplitude": "exact in every displayed field",
+      "solid": "first derivatives of X^a with equations of motion of second differential order"
+    },
+    "domains": {
+      "BRST_closed_boundary_domain_selected": false,
+      "Omega": "Omega>0",
+      "excluded": [
+        "khronon caustics",
+        "solid defects with det(B)=0",
+        "a nondynamical external triad"
+      ],
+      "gluing_is_a_restricted_domain_not_a_multiplier_equation": true,
+      "interface_gluing": {
+        "configuration_Omega": "Omega_+(Y_+)=Omega_-(Y_-)=Omega_Sigma",
+        "configuration_metric": "gamma^+_{mu nu}[g_+,Y_+]=gamma^-_{mu nu}[g_-,Y_-]=gamma_{mu nu}",
+        "configuration_phi": "phi_+^a(Y_+)=phi_-^a(Y_-)=varphi^a",
+        "implementation": "the common induced metric and continuous even traces define the restricted configuration and variation spaces; no gluing Lagrange multiplier is required",
+        "variation_Omega": "delta[Omega_+(Y_+)]=delta[Omega_-(Y_-)]=delta Omega_Sigma",
+        "variation_metric": "delta gamma^+_{mu nu}=delta gamma^-_{mu nu}=delta gamma_{mu nu}",
+        "variation_phi": "delta[phi_+^a(Y_+)]=delta[phi_-^a(Y_-)]=delta varphi^a"
+      },
+      "khronon": "-gamma^(mu nu)*D_mu T*D_nu T>0 with a global time orientation",
+      "solder_patch": "rank-full orientation-preserving sector with det(B)>0",
+      "solid": "B^ab positive definite and det(partial_i X^a)>0"
+    },
+    "exact_action": {
+      "GHY": "S_GHY=+M5^3*sum_(eps in {plus,minus}) int_Sigma sqrt(-gamma)*Theta_eps for outward spacelike normals",
+      "Robin": "S_R=-kappa_hat*int_Sigma sqrt(-gamma)*delta_ab*(varphi^a-y*Acal^a)*(varphi^b-y*Acal^b)/2",
+      "bulk": "S_bulk=sum_(eps in {plus,minus}) int_Meps sqrt(-g)*[M5^3*R/2-G*(nabla Omega)^2/2-U(Omega)-Z5_per_side*P_M^a*P_a^M/2-Z5_per_side*M^2*Omega^(-5)*V4(Omega^(3/2)*r_phi)]",
+      "bulk_potential": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+      "dimensionless_material_argument": "r=Omega^(3/2)*r_phi",
+      "foliation": "S_fol=Mb^2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]/2",
+      "full_V4": "V4(r)=r^4/(2*sqrt(1+r^4))",
+      "solid": "S_X=int_Sigma sqrt(-gamma)*[rho_X*(u^mu*partial_mu X^a)^2/2-mu_X*tr[(B-v^2*I)^2]/4-lambda_X*(tr(B-v^2*I))^2/8]",
+      "superpotential": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+      "total": "S_cand=S_bulk+S_GHY+S_wall0+S_fol+S_X+S_R",
+      "wall_background": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]"
+    },
+    "explicit_cross_couplings": {
+      "Robin_expansion": "(varphi-y*Acal)^2=varphi^2-2*y*varphi_a*E^(a mu)*a_mu+y^2*a_mu*a^mu",
+      "Robin_four_sector": "S_R couples gamma_mu_nu, T, X^a and varphi^a",
+      "conformal_kinetic_expansion": "P^2=(nabla phi)^2+3*phi^a*nabla_M phi^a*nabla^M Omega/Omega+9*phi^2*(nabla Omega)^2/(4*Omega^2)",
+      "direct_Robin_dressing": "f(Omega_Sigma)=1",
+      "foliation_metric": "u, h, Kcal, a and Rcal are exact functions of gamma_mu_nu and T",
+      "moving_pullbacks": "gamma_mu_nu, Omega_Sigma and varphi^a depend on Y^M, so bending is generated by varying the displayed action",
+      "solid_foliation_metric": "B and E are exact functions of gamma_mu_nu, T and X^a"
+    },
+    "independent_fields": {
+      "brane_dynamic": [
+        "embedding Y_plus^M(sigma) and Y_minus^M(sigma)",
+        "khronon T(sigma)",
+        "three solid Stueckelberg scalars X^a(sigma)"
+      ],
+      "bulk_dynamic": [
+        "g_MN on each Z2 side",
+        "one positive compensator Omega on each Z2 side",
+        "one real SO(3) triplet phi^a on each Z2 side"
+      ],
+      "classical_FP_or_BRST_fields": [],
+      "composites_not_independent_fields": [
+        "induced gamma_mu_nu",
+        "bulk-side normals n_plus^M and n_minus^M",
+        "bulk extrinsic curvatures Theta_plus_mu_nu and Theta_minus_mu_nu",
+        "u_mu, h_mu_nu, Kcal_mu_nu, acceleration a_mu and leaf curvature Rcal",
+        "B^ab, B^(-1/2), E^a_mu and Acal^a"
+      ],
+      "continuous_Z2_even_traces": [
+        "Omega_Sigma",
+        "varphi^a"
+      ],
+      "independent_auxiliary_fields": [],
+      "independent_internal_gauge_fields": []
+    },
+    "mass_dimension_ledger": {
+      "B4_bar": 0.0,
+      "M5_cubed": 3.0,
+      "Omega": 0.0,
+      "Robin_integrand_dimension": 4.0,
+      "Robin_kappa_hat": 4.0,
+      "Robin_varphi_dimension": 0.0,
+      "Robin_y": -1.0,
+      "Robin_yAcal_dimension": 0.0,
+      "X": 0.0,
+      "acceleration_Acal": 1.0,
+      "boundary_Theta": 1.0,
+      "brane_Lagrangian_density": 4.0,
+      "brane_Mb_squared": 2.0,
+      "brane_beta": 4.0,
+      "bulk_R": 2.0,
+      "bulk_potential_U": 5.0,
+      "bulk_superpotential_W": 4.0,
+      "compensator_metric_G": 3.0,
+      "derivative": 1.0,
+      "dimensionless_V4_argument": true,
+      "dimensionless_radial_phi": 0.0,
+      "field_convention": "phi is the exact dimensionless radial field used by the existing gates; a dimension-3/2 canonical comparison field would be M^(3/2)*phi",
+      "five_dimensional_Lagrangian_density": 5.0,
+      "k_infinity": 1.0,
+      "khronon_T_coordinate_convention": -1.0,
+      "leaf_Kcal": 1.0,
+      "leaf_Rcal": 2.0,
+      "material_Z5_per_side": 3.0,
+      "material_mass_M": 1.0,
+      "potential_prefactor_Z5_M2_dimension": 5.0,
+      "solid_lambda": 0.0,
+      "solid_mu": 0.0,
+      "solid_rho": 2.0,
+      "solid_v": 1.0
+    },
+    "route_id": "canonical_one_Omega_backreacted_wall_with_rank_full_solid_v1",
+    "selection": {
+      "bifundamental_solder_selected": false,
+      "bulk_compensator": "Omega",
+      "bulk_compensator_count": 1,
+      "canonical_genealogy_selected_for_C1_and_N1": true,
+      "fixed_external_triad_selected": false,
+      "old_P3_gate_automatically_updated": false,
+      "solder_route": "three brane Stueckelberg solid scalars X^a"
+    },
+    "symmetries": [
+      "five-dimensional diffeomorphisms with matched interface action",
+      "four-dimensional reparametrizations of the moving brane",
+      "Z2 exchange of the two bulk sides",
+      "monotone khronon reparametrization T maps to f(T)",
+      "time-orientation reversal u_mu maps to minus u_mu",
+      "global internal ISO(3): X^a maps to R^a_b X^b+c^a and phi^a maps to R^a_b phi^b"
+    ],
+    "symmetry_breaking_pattern": {
+      "internal_translations": "global shifts X^a maps to X^a+c^a",
+      "relative_SO3": "explicitly broken by the Robin solder",
+      "relative_SO3_is_gauged": false,
+      "unbroken_on_X_equals_vx_background": "diagonal SO(3)\u22c9R^3_X"
+    },
+    "topology": {
+      "asymptotic_domain": "normalizable fields and compact-support variations at AdS5 infinity",
+      "cover": "M=M_plus union_Sigma M_minus",
+      "interface": "one timelike moving brane Sigma with no boundary of its own",
+      "physical_interface_interpretation": "Y_plus and Y_minus are two bulk-side representatives of one physical brane",
+      "reflection": "Z2 exchanges the two bulk sides",
+      "sides": "M_plus and M_minus are each R^(1,3) times R_ge_0"
+    },
+    "unit_convention": "numerical values use k_infinity=1 with dimensions restored by the explicit ledger"
+  },
+  "action_charter_digest": {
+    "algorithm": "sha256(canonical-json(action_charter))",
+    "sha256": "93105331d9da311afa7845f9939dbd60617b929ae9ede23286fa26bedaa815c1"
+  },
+  "algebraic_audits": {
+    "background_and_junctions": {
+      "GHY_sign_for_EH_plus_M5_cubed_R_over_2": 1,
+      "Israel_equation_momentum_equals_brane_stress_sign": 1,
+      "Israel_residual": 0.0,
+      "Omega_equals_expA_flow_residual_at_brane": 0.0,
+      "background": "ds^2=exp(2A(y))*eta_mu_nu*dx^mu*dx^nu+dy^2; Omega=exp(A); phi^a=0; A'=-k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+      "brane_values": {
+        "Lambda_Sigma_at_one": 4.912384518467891,
+        "Lambda_Sigma_prime_at_one": -1.9649538073871562,
+        "W_Omega_at_one": -0.9824769036935781,
+        "W_at_one": 2.4561922592339456,
+        "beta": 2.0,
+        "gamma": 0.19999999999999998,
+        "k_brane": 0.8187307530779818
+      },
+      "junction_convention": "M5^3*sum_eps(Theta_eps_mu_nu-Theta_eps*gamma_mu_nu)=tau_Sigma_mu_nu; sum_eps n_eps_M*[G*nabla^M Omega+3*Z5_per_side*phi^a*P_a^M/(2*Omega)]+partial_Omega Lambda_Sigma=0; Z5_per_side*sum_eps(n_eps.P^a)+kappa_hat*(varphi^a-y*Acal^a)=0",
+      "normal_orientation": "outward spacelike normals on both bulk sides",
+      "reason": "phi=0, a_mu=0, u^mu partial_mu X^a=0 and B^ab=v^2 delta^ab",
+      "scalar_junction_residual": 0.0,
+      "scalar_wall_derivative_enters_with_plus_sign": 1,
+      "solid_and_Robin_background_first_variations_vanish": true
+    },
+    "bare_parameter_window": {
+      "B4_bar": 0.8,
+      "M4_bulk_squared": 1.107013790800849,
+      "M_b_squared": 2.0,
+      "classification": "historical linear-family numbers imported as bare coefficients only",
+      "delta_UV": 1.607013790800849,
+      "eta": 3.107013790800849,
+      "eta_matching_residual": 0.0,
+      "full_new_action_ghost_certificate": false,
+      "hairy_multiscalar_M4_bulk_squared": 1.2298525754296912,
+      "hairy_multiscalar_M4_bulk_squared_imported": false,
+      "historical_linear_P4_consumed_as_certificate": false,
+      "lambda_K": 1.3107013790800848,
+      "lambda_matching_residual": 0.0,
+      "lower_2r0": 1.107013790800849,
+      "positive_scalar_coercivity_proxy_at_r_zero": true,
+      "positive_upper_lambda_branch": true,
+      "r0": 0.5535068954004245,
+      "strict_window": true,
+      "upper_2_xi_plus_r0": 3.107013790800849,
+      "xi": 1.0,
+      "y_squared_kappa": 1.5
+    },
+    "formula_and_signs": {
+      "coefficients": {
+        "EH_M5_cubed_R_coefficient": 0.5,
+        "GHY_M5_cubed_Theta_coefficient": 1.0,
+        "Omega_kinetic_G_coefficient": -0.5,
+        "Robin_kappa_hat_coefficient": -0.5,
+        "U_WOmega_squared_over_G_coefficient": 0.5,
+        "U_W_squared_over_M5_cubed_coefficient": -0.6666666666666666,
+        "foliation_B4_Rcal_squared_inside_sign": -1.0,
+        "foliation_overall_Mb_squared_coefficient": 0.5,
+        "solid_shear_mu_coefficient": -0.25,
+        "solid_velocity_rho_coefficient": 0.5,
+        "triplet_kinetic_Z5_per_side_coefficient": -0.5,
+        "wall_2W_sign": -1.0
+      },
+      "definitions_match_literal_CANONICAL_DEFINITIONS": true,
+      "exact_action_matches_literal_CANONICAL_ACTION": true,
+      "gluing_matches_literal_CANONICAL_GLUING": true,
+      "khronon_timelike_contraction": "-gamma^(mu nu)*D_mu T*D_nu T",
+      "solid_shear_operator": "tr[(B-v^2*I)^2]",
+      "spatial_triad_completeness": "sum_a E^(a mu)*E^(a nu)=h^(mu nu)"
+    },
+    "mass_dimensions": {
+      "N8_two_side_normalization": {
+        "Mb_squared_over_k_squared_divisor_for_T_and_kappa": 2.0,
+        "Z5_is_per_side": true,
+        "equation": "(T,kappa,y^2)=(2,1,3)/2_for_T_and_kappa=(1,0.5,3)",
+        "normalized_T_kappa_y_squared": {
+          "T": 1.0,
+          "kappa": 0.5,
+          "y_squared": 3.0
+        },
+        "raw_barred_T_kappa_y_squared": {
+          "T": 2.0,
+          "kappa": 1.0,
+          "y_squared": 3.0
+        }
+      },
+      "Robin_sum_is_homogeneous": true,
+      "arbitrary_k_reconstruction": {
+        "G": 24.95625,
+        "M5_cubed": 20.796875,
+        "Mb_squared": 15.125,
+        "Z5_per_side": 20.796875,
+        "kappa_hat": 57.19140625,
+        "material_M": 2.75,
+        "sample_k": 2.75,
+        "v": 2.75,
+        "y": 0.6298366572977735
+      },
+      "convention": "dimensionless radial triplet with dimension-three Z5",
+      "expected": {
+        "EH_bulk": 5.0,
+        "GHY": 4.0,
+        "Mb2_B4_Rcal_squared_over_k_squared": 4.0,
+        "Mb2_Kcal_squared": 4.0,
+        "Mb2_Rcal": 4.0,
+        "Mb2_acceleration_squared": 4.0,
+        "Omega_kinetic": 5.0,
+        "Robin_density": 4.0,
+        "Robin_phi": 0.0,
+        "Robin_yAcal": 0.0,
+        "U_from_WOmega_squared_over_G": 5.0,
+        "U_from_W_squared_over_M5_cubed": 5.0,
+        "V4_argument": 0.0,
+        "V4_prefactor": 5.0,
+        "beta_density": 4.0,
+        "phi_kinetic": 5.0,
+        "solid_B": 2.0,
+        "solid_lambda_strain_density": 4.0,
+        "solid_mu_strain_density": 4.0,
+        "solid_v_squared": 2.0,
+        "solid_velocity_density": 4.0,
+        "superpotential_W": 4.0,
+        "wall_2W": 4.0
+      },
+      "full_V4_term_has_dimension_five": true,
+      "kappa_b": 0.5,
+      "kappa_b_definition": "kappa_b=kappa_hat/(Mb^2*k_infinity^2)",
+      "kappa_hat_over_Z5_M": 1.0,
+      "kappa_hat_over_Z5_per_side_M_definition": "kappa_hat/(Z5_per_side*M) with kappa_hat~k^4, Z5~k^3 and M~k",
+      "maximum_absolute_residual": 0.0,
+      "residuals": {
+        "EH_bulk": 0.0,
+        "GHY": 0.0,
+        "Mb2_B4_Rcal_squared_over_k_squared": 0.0,
+        "Mb2_Kcal_squared": 0.0,
+        "Mb2_Rcal": 0.0,
+        "Mb2_acceleration_squared": 0.0,
+        "Omega_kinetic": 0.0,
+        "Robin_density": 0.0,
+        "Robin_phi": 0.0,
+        "Robin_yAcal": 0.0,
+        "U_from_WOmega_squared_over_G": 0.0,
+        "U_from_W_squared_over_M5_cubed": 0.0,
+        "V4_argument": 0.0,
+        "V4_prefactor": 0.0,
+        "beta_density": 0.0,
+        "phi_kinetic": 0.0,
+        "solid_B": 0.0,
+        "solid_lambda_strain_density": 0.0,
+        "solid_mu_strain_density": 0.0,
+        "solid_v_squared": 0.0,
+        "solid_velocity_density": 0.0,
+        "superpotential_W": 0.0,
+        "wall_2W": 0.0
+      },
+      "rows": {
+        "EH_bulk": 5.0,
+        "GHY": 4.0,
+        "Mb2_B4_Rcal_squared_over_k_squared": 4.0,
+        "Mb2_Kcal_squared": 4.0,
+        "Mb2_Rcal": 4.0,
+        "Mb2_acceleration_squared": 4.0,
+        "Omega_kinetic": 5.0,
+        "Robin_density": 4.0,
+        "Robin_phi": 0.0,
+        "Robin_yAcal": 0.0,
+        "U_from_WOmega_squared_over_G": 5.0,
+        "U_from_W_squared_over_M5_cubed": 5.0,
+        "V4_argument": 0.0,
+        "V4_prefactor": 5.0,
+        "beta_density": 4.0,
+        "phi_kinetic": 5.0,
+        "solid_B": 2.0,
+        "solid_lambda_strain_density": 4.0,
+        "solid_mu_strain_density": 4.0,
+        "solid_v_squared": 2.0,
+        "solid_velocity_density": 4.0,
+        "superpotential_W": 4.0,
+        "wall_2W": 4.0
+      }
+    },
+    "missing_variations": {
+      "N1_ACTION_pass": true,
+      "action_scope_closed_for_N1": "all independent fields, pullbacks, cross-couplings, coefficients, zero coefficients and the nonlinear derivative/amplitude scope are explicit",
+      "complete_first_variation_and_interface_terms_derived": false,
+      "displaced_brane_junction_system_derived": false,
+      "new_extended_linear_reduction_derived": false,
+      "nonlinear_characteristic_matrix_derived": false,
+      "nonlinear_primary_secondary_constraints_derived": false,
+      "required_second_variation": "derive the extended metric, compensator, bending, khronon, phi and phonon Hessian instead of importing the historical P4 matrix",
+      "variations_still_required_for_N2_through_N7": [
+        "bulk g_plus_MN and g_minus_MN including both GHY terms",
+        "bulk Omega_plus and Omega_minus including conformal-triplet momentum",
+        "bulk phi_plus^a and phi_minus^a including the nonlinear Robin condition",
+        "moving embeddings Y_plus^M and Y_minus^M including the normal shape equation",
+        "brane khronon T through u, h, Kcal, a, Rcal, B, E and Robin",
+        "solid X^a through B, B^(-1/2), E and Robin"
+      ],
+      "why_N1_does_not_imply_N2_through_N7": "N1 is the explicit-action item; equations, constraint closure, characteristics, coupled BVP, global stability and same-action linear reduction are separate items"
+    },
+    "positive_sigma": {
+      "Schur_complement_of_triplet_block": 1.2,
+      "completed_square_proof": "G>0 and Z5>0 make both displayed squares positive",
+      "determinant_four_field_metric": 1.2,
+      "field_space_line_element": "ds_field^2=G*dOmega^2+Z5*delta_ab*(dphi^a+3*phi^a*dOmega/(2*Omega))*(dphi^b+3*phi^b*dOmega/(2*Omega))",
+      "positive_for_Omega_positive": true,
+      "sample_OmegaOmega_entry": 2.42443235128542
+    },
+    "solid_Hessian": {
+      "dynamic_solid_changes_old_Hessian": true,
+      "fixed_external_triad_escape_is_covariant": false,
+      "fixed_external_triad_failure": "removes the X^a Euler-Lagrange equation and is not a field of the covariant action",
+      "isolated_solid_has_no_obvious_kinetic_or_gradient_ghost": true,
+      "longitudinal_speed_squared": 3.0,
+      "mixed_second_derivative_d2L_dpiDot_dShift": -1.0,
+      "new_phonon_field_count": 3,
+      "nonzero_metric_strain_mixing_coefficient": 1.0,
+      "old_P4_determinant_or_modes_inherited": false,
+      "shift_second_derivative_d2L_dShift2": 1.0,
+      "solid_bulk_modulus": 1.6666666666666665,
+      "transverse_speed_squared": 1.0,
+      "unitary_gauge_linearization": {
+        "strain": "B^ab-v^2*delta^ab=v*(partial^a pi_X^b+partial^b pi_X^a)-v^2*delta_h^ab",
+        "velocity": "u^mu*partial_mu X^a=dot(pi_X^a)-v*N^a"
+      },
+      "velocity_shift_Hessian_for_each_internal_index": [
+        [
+          1.0,
+          -1.0
+        ],
+        [
+          -1.0,
+          1.0
+        ]
+      ],
+      "zero_solid_action_escape_is_viable": false,
+      "zero_solid_action_failure": "three null quadratic operators and strong coupling"
+    },
+    "triad_rank": {
+      "Jacobian_dAcal_da_rank": 3,
+      "algebraic_identities": [
+        "E^a_mu*E^(b mu)=delta^ab",
+        "sum_a E^(a mu)*E^(a nu)=h^(mu nu)"
+      ],
+      "analytic_at_zero_acceleration": true,
+      "definition": "E^a_mu=h_mu^nu*partial_nu X^b*(B^(-1/2))_b^a",
+      "local_only_on_B_positive_definite_patch": true,
+      "sample_B_diagonal": [
+        4.0,
+        9.0,
+        16.0
+      ],
+      "sample_B_inverse_square_root_diagonal": [
+        0.5,
+        0.3333333333333333,
+        0.25
+      ],
+      "sample_E_determinant": 1.0,
+      "sample_E_diagonal": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sample_gradient_diagonal": [
+        2.0,
+        3.0,
+        4.0
+      ]
+    }
+  },
+  "calculation_digest": {
+    "algorithm": "sha256(canonical-json(DIGEST_KEYS))",
+    "keys": [
+      "upstream_bindings",
+      "action_charter",
+      "algebraic_audits",
+      "certificate_ledger",
+      "decision"
+    ],
+    "sha256": "12b753fc2646aebfbb117db95031c2765cdd2cc040025481de08613d183ad8db"
+  },
+  "certificate_ledger": {
+    "C1_through_C10": {
+      "P3_complete": false,
+      "all_items_pass": false,
+      "items": [
+        {
+          "current_evidence": "the exact bulk-plus-moving-wall action, gluing domain and all independent fields are frozen in this gate",
+          "id": "C1_ACTION",
+          "pass": true,
+          "required": "one covariant bulk-plus-delta-wall action with every gravity, compensator, khronon, solder, Goldstone/gauge and auxiliary field declared"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "C2_BRST",
+          "pass": false,
+          "required": "off-shell nilpotent BRST transformations and one gauge fermion for that same full action, including the relative-SO3 sector"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "C3_DOMAIN",
+          "pass": false,
+          "required": "bulk and wall boundary operators for fields and ghosts whose domains are BRST closed and satisfy the chosen elliptic or Lorentzian well-posedness test"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "C4_HESSIAN",
+          "pass": false,
+          "required": "the complete gauge-fixed quadratic super-Hessian, including wall delta terms, constraints, solder partners, FP and auxiliary blocks"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "C5_JACOBIANS",
+          "pass": false,
+          "required": "curved York/Hodge and internal field-redefinition Jacobians evaluated on the same domains as the Hessian"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "C6_ZERO_MODES",
+          "pass": false,
+          "required": "complete kernel bases, norms, primed prescriptions, gauge volumes and physical collective-coordinate measures"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "C7_REGULATOR",
+          "pass": false,
+          "required": "one regulator, renormalization scale, local bulk/wall counterterm basis and renormalization conditions applied to every boson and ghost block"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "C8_CONTOUR",
+          "pass": false,
+          "required": "a conformal/negative-mode contour with its phase and a reflection-positivity or Lorentzian unitarity prescription"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "C9_REDUCTION",
+          "pass": false,
+          "required": "an analytic or interval-certified equality reducing the full primed BRST superdeterminant to the stated physical P4 factors"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "C10_INDEPENDENCE_UNITARITY",
+          "pass": false,
+          "required": "gauge-parameter/regulator independence plus positivity or optical-theorem checks for the resulting renormalized physical determinant"
+        }
+      ],
+      "pass_ids": [
+        "C1_ACTION"
+      ]
+    },
+    "N1_through_N8": {
+      "all_items_pass": false,
+      "items": [
+        {
+          "current_evidence": "the exact action is explicit through its declared nonlinear order with moving pullbacks, ADM-khronon, compensator, full-V4 and Robin-solid couplings",
+          "id": "N1_ACTION",
+          "pass": true,
+          "required": "one explicit covariant bulk-plus-brane action through the nonlinear order being certified, including every ADM, khronon, compensator, bending and full-V4 material cross coupling with no ellipsis"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "N2_CONSTRAINTS",
+          "pass": false,
+          "required": "the complete nonlinear primary and secondary constraints, their Poisson/Dirac closure and constant physical rank over a declared field domain"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "N3_CHARACTERISTICS",
+          "pass": false,
+          "required": "the constraint-reduced nonlinear principal/characteristic matrix for scalar, vector, tensor, bending, compensator and material helicities, with strong hyperbolicity and positive kinetic cone on that domain"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "N4_JUNCTION_BENDING",
+          "pass": false,
+          "required": "nonlinear Israel, scalar, khronon and Robin junction equations on the displaced brane, including the normal/bending map and interface conservation"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "N5_COUPLED_BVP",
+          "pass": false,
+          "required": "an existence/uniqueness or interval-certified continuation theorem for the coupled nonlinear gravity-plus-full-V4 finite-q radial BVP"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "N6_GLOBAL_STABILITY",
+          "pass": false,
+          "required": "a same-action energy or symmetrizer estimate excluding ghosts, gradient loss, constraint bifurcation and boundary energy influx beyond linear order"
+        },
+        {
+          "current_evidence": "not derived for the selected solid-extended one-Omega action",
+          "id": "N7_LINEAR_REDUCTION",
+          "pass": false,
+          "required": "linearization of the selected nonlinear system reproduces the hash-bound wall ADM and independent all-helicity receipts including the q=0 quotient"
+        },
+        {
+          "current_evidence": "the direct nonlinear-Robin upstream certifies the prescribed-acceleration port at normalized (T,kappa,y^2)=(1,0.5,3); it does not certify dynamic gravity",
+          "id": "N8_MATERIAL_PORT",
+          "pass": true,
+          "required": "the full-V4 material sector has a positive Hamiltonian and a converged nonlinear finite-q solution for prescribed boundary acceleration"
+        }
+      ],
+      "nonlinear_gravitational_P4": false,
+      "pass_ids": [
+        "N1_ACTION",
+        "N8_MATERIAL_PORT"
+      ]
+    },
+    "scope": "C1 and N1 close the unique classical action. N8 is a direct prescribed-port certificate only. No determinant, nonlinear-gravity or P4 result is transported."
+  },
+  "checks": {
+    "C1_N1_and_prescribed_port_N8_are_exactly_the_passing_items": true,
+    "N1_is_action_only_while_N2_through_N7_remain_fail_closed": true,
+    "all": true,
+    "background_and_Z2_junctions_close": true,
+    "bare_numeric_window_and_obvious_signs_close_without_P4_transport": true,
+    "bulk_compensator_triplet_sigma_metric_is_positive": true,
+    "canonical_dimension_ledger_and_Robin_sum_are_homogeneous": true,
+    "classical_action_is_local_and_covariant_on_declared_rank_full_patch": true,
+    "dynamic_solid_is_individually_healthy_but_changes_full_Hessian": true,
+    "every_independent_classical_field_and_absent_field_class_declared": true,
+    "exact_action_has_no_ellipsis_and_unlisted_coefficients_are_zero": true,
+    "formula_indices_shear_and_signs_match_literal_constants": true,
+    "interface_configuration_and_variation_gluing_is_explicit": true,
+    "one_Omega_and_one_solid_route_uniquely_selected": true,
+    "solder_triad_has_rank_three_and_is_regular_at_zero_acceleration": true,
+    "three_direct_upstreams_byte_hash_schema_and_scope_bound_acyclic": true,
+    "two_side_material_port_normalizes_to_direct_N8_representative": true
+  },
+  "classification": "theory_only;exact_classical_one_Omega_action_charter;C1_N1_pass;prescribed_acceleration_material_port_N8_pass;dynamic_solid_extended_Hessian_uncomputed;N2_N7_P2_P3_P4_B4_B5_fail_closed",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C10_INDEPENDENCE_UNITARITY_pass": false,
+    "C1_ACTION_pass": true,
+    "C2_BRST_pass": false,
+    "C3_DOMAIN_pass": false,
+    "C4_HESSIAN_pass": false,
+    "C5_JACOBIANS_pass": false,
+    "C6_ZERO_MODES_pass": false,
+    "C7_REGULATOR_pass": false,
+    "C8_CONTOUR_pass": false,
+    "C9_REDUCTION_pass": false,
+    "N1_ACTION_pass": true,
+    "N2_CONSTRAINTS_pass": false,
+    "N3_CHARACTERISTICS_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "N5_COUPLED_BVP_pass": false,
+    "N6_GLOBAL_STABILITY_pass": false,
+    "N7_LINEAR_REDUCTION_pass": false,
+    "N8_MATERIAL_PORT_pass": true,
+    "P3_complete_gauge_fixed_unitary_determinant_pass": false,
+    "P4_full_same_action_pass": false,
+    "UV_or_top_down_derivation_pass": false,
+    "Ward_or_RG_protection_pass": false,
+    "a0_predicted": false,
+    "background_and_Z2_junctions_close": true,
+    "bare_linear_family_coefficients_can_be_inserted_with_no_obvious_isolated_sign_ghost": true,
+    "bulk_triplet_sigma_metric_positive_on_declared_domain": true,
+    "complete_same_action_ghost_freedom_proved": false,
+    "decisive_result": "One local covariant classical field content and action are now selected, which closes C1 and N1. The direct prescribed-acceleration material port retains N8. The rank-full solid adds phonon-shift-metric Hessian blocks, so the historical P4 determinant cannot be reused.",
+    "dynamic_solid_provably_changes_the_full_quadratic_Hessian": true,
+    "full_P2_pass": false,
+    "historical_linear_P4_receipt_reused": false,
+    "new_force_derived": false,
+    "next_action": "Vary g, Omega, phi, both embeddings, T and X from this exact action; derive all interface equations, constraints and the extended Hessian before reconsidering N2-N7, C4 or P4.",
+    "nonlinear_gravitational_P4_pass": false,
+    "old_P3_gate_already_consumes_this_C1": false,
+    "old_wall_ADM_Hessian_inherited_after_dynamic_solid": false,
+    "one_Omega_classical_action_charter_frozen": true,
+    "publication_authorized": false,
+    "rank_three_solder_regular_at_zero_acceleration": true,
+    "status": "ONE_OMEGA_EXACT_ACTION_C1_N1_PASS__PRESCRIBED_PORT_N8_PASS__DYNAMIC_SOLID_CHANGES_HESSIAN__N2_N7_C2_C10_P2_P3_P4_B4_B5_FAIL_CLOSED",
+    "unique_rank_full_solid_solder_route_selected": true,
+    "universal_matter_metric_and_lensing_derived": false
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_action_charter_gate.py",
+      "sha256": "fcf3dfb7ce32f51c40c911a44f8beb304244aa43f504f6d5e49129f2cc0da5e0"
+    },
+    "runtime": {
+      "python": "3.13.5"
+    },
+    "serialization": "json.dumps(indent=2,sort_keys=True,allow_nan=False)+newline",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_action_charter_gate.py",
+      "sha256": "a3824c0232e74e5046aba40ab55e12c641f7ab9f23e3c58e8f51139874aeceb3"
+    },
+    "upstreams": {
+      "backreacted_wall": {
+        "consumed_scope": "one-Omega on-shell background, GHY and Z2 junction data only",
+        "path": "first_principles_audit/prediction_factory/artifacts/backreacted_compensator_wall_gate.json",
+        "schema": "holo.backreacted-compensator-wall-gate.v1",
+        "sha256": "7cc97911d3265ac131d2fabad9a4676eb05643ecd8be1c3b7acd586d58e5e369"
+      },
+      "nonlinear_Robin_full_V4": {
+        "consumed_scope": "direct prescribed-acceleration full-V4 material port only; no nonlinear gravity, determinant or P4 transport",
+        "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_robin_full_v4_gate.json",
+        "schema": "holo.nonlinear-robin-full-v4-gate.v1",
+        "sha256": "e65b790fdd068c58e6b7597955c0d5fc93e419852f70561b54e997dddd04250b"
+      },
+      "wall_ADM": {
+        "consumed_scope": "bare coefficient point and numerical crossover window only; no P4 transport",
+        "path": "first_principles_audit/prediction_factory/artifacts/wall_adm_base_hessian_gate.json",
+        "schema": "holo.wall-adm-base-hessian-gate.v1",
+        "sha256": "f0b491d498b8a68ec24c0faacbe28622820e05290fa6f5cf15422d1feaea4764"
+      }
+    }
+  },
+  "schema": "holo.one-omega-action-charter-gate.v1",
+  "summary": "The canonical one-Omega wall now has one explicitly selected classical bulk-plus-moving-brane action with a rank-full solid solder and no hidden operator coefficients. This resolves the action items C1 and N1. N8 is retained only for prescribed acceleration with its two-side normalization checked. The solid changes the Hessian, and no historical P4 result is inherited.",
+  "upstream_bindings": {
+    "backreacted_wall": {
+      "consumed_scope": "one-Omega on-shell background, GHY and Z2 junction data only",
+      "path": "first_principles_audit/prediction_factory/artifacts/backreacted_compensator_wall_gate.json",
+      "schema": "holo.backreacted-compensator-wall-gate.v1",
+      "sha256": "7cc97911d3265ac131d2fabad9a4676eb05643ecd8be1c3b7acd586d58e5e369"
+    },
+    "nonlinear_Robin_full_V4": {
+      "consumed_scope": "direct prescribed-acceleration full-V4 material port only; no nonlinear gravity, determinant or P4 transport",
+      "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_robin_full_v4_gate.json",
+      "schema": "holo.nonlinear-robin-full-v4-gate.v1",
+      "sha256": "e65b790fdd068c58e6b7597955c0d5fc93e419852f70561b54e997dddd04250b"
+    },
+    "wall_ADM": {
+      "consumed_scope": "bare coefficient point and numerical crossover window only; no P4 transport",
+      "path": "first_principles_audit/prediction_factory/artifacts/wall_adm_base_hessian_gate.json",
+      "schema": "holo.wall-adm-base-hessian-gate.v1",
+      "sha256": "f0b491d498b8a68ec24c0faacbe28622820e05290fa6f5cf15422d1feaea4764"
+    }
+  }
+}

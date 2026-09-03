@@ -1,0 +1,372 @@
+{
+  "claim": "Deterministic freeze of v5.5.4 only as an independently reproduced selected-family 4D interface Ward lemma; no C1/N1/v5.6/B4/B5 promotion is authorized.",
+  "consumption_policy": {
+    "allowed": "selected local induced-ADM chain; full 5D internal SO(3) Ward in its declared trivial/null-homotopic sector; v5.5.4 interface Ward only on the audited selected 4D family",
+    "authorization_statement": "This deterministic freeze/quarantine receipt is evidence separation, not promotion authority.",
+    "forbidden": "promotion of C1, N1, frozen v5.6, B4, B5, BV-BFV, unrestricted large gauge, full bulk diffeomorphisms, complete moving embedding, continuum theorem, or publication",
+    "frozen_v5_6_modified": false
+  },
+  "decision": {
+    "ADM_induced_selected_local_chain_primary_redteam_pass": true,
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "N1_ACTION_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "P4_full_same_action_pass": false,
+    "complete_BV_BFV_boundary_complex_pass": false,
+    "complete_moving_embedding_Ward_pass": false,
+    "complete_v5_2_all_field_normal_embedding_pass": false,
+    "continuum_all_configurations_theorem_pass": false,
+    "frozen_v5_6_receipt_rehabilitated": false,
+    "full_bulk_diffeomorphism_Ward_pass": false,
+    "full_classical_variational_principle_selected_sector_pass": false,
+    "full_off_shell_Green_theorem_accepted": false,
+    "interface_diff_selected_family_primary_redteam_pass": true,
+    "internal_SO3_full_5D_primary_redteam_pass": true,
+    "publication_authorized": false,
+    "quarantine_active": true,
+    "quarantine_consistency_pass": true,
+    "scientific_invariants_coefficients_hashes_residuals_comparison_pass": true,
+    "status": "V5_5_4_SELECTED_4D_FAMILY_LEMMA_FROZEN__FULL_BULK_MOVING_CONTINUUM_C1_N1_V56_B4_B5_BV_LARGE_GAUGE_PUBLICATION_QUARANTINED",
+    "underresolved_Gauss_diagnostic_correctly_red_pass": true,
+    "unrestricted_large_gauge_sector_pass": false,
+    "v5_5_4_selected_4D_family_frozen_lemma_pass": true,
+    "v5_6_promotion_authorized": false
+  },
+  "earlier_gate_helpers_imported": [],
+  "open_obligations_before_C1_N1_gate": {
+    "convergence": "OPEN: local automatic/Stokes closure is green, while under-resolved Gauss volume quadrature remains an archived red diagnostic and no continuum theorem follows.",
+    "full_bulk": "OPEN: the complete 5D metric, scalar, BF and matter bulk diffeomorphism variation has not yet been combined with the interface identity.",
+    "moving_embedding": "OPEN: the 4D-to-5D pullback control is nontrivial, but all cross terms of one fully coupled moving embedding have not yet been derived together.",
+    "off_shell_continuous_extension": "OPEN: certificates cover declared analytic families and probes, not every smooth off-shell field/variation or noncompact boundary parameter."
+  },
+  "provenance": {
+    "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_v5_6_1_quarantine_gate.py",
+    "generator_sha256": "e31ab6f983ba7cef43a0e6b334d7f294612dd49726d88e5a34ba4d3a57b99bc2",
+    "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_v5_6_1_quarantine_gate.py",
+    "test_sha256": "00b06af19d4a9e1db85f1dfd83d42f1924a849167a36e7d70480876ab5b44581"
+  },
+  "schema": "holo.one-omega-topological-so3-v5-6-1-quarantine-gate.v2",
+  "scientific_comparison": {
+    "action_charter": {
+      "coefficient_policy_sha256": "d22aa2bdb48b7fc367063b8b1248cf5e5b73a48ae20d01c7fc259444bc026709",
+      "exact_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+      "exact_total_action": "S_v5_2=S_bulk_gauged+S_GHY+S_wall0+S_fol_lower+S_R_intrinsic+S_BF",
+      "reproduced_literal_keys": [
+        "Robin_intrinsic",
+        "bulk_gauged",
+        "foliation_lower",
+        "full_V4",
+        "gauged_conformal_derivative",
+        "wall_background"
+      ],
+      "route_id": "one_Omega_full_V4_topological_SO3_classical_v5_2"
+    },
+    "all_checks_pass": true,
+    "archived_red_Gauss_diagnostics": {
+      "primary": {
+        "xi_variant_0": {
+          "absolute_residuals": [
+            0.905969564639697,
+            0.8305116370570244
+          ],
+          "certified": false,
+          "high_order_integrated_divergence_absolute": 0.8305116370570246,
+          "orders": [
+            2,
+            3
+          ],
+          "reduction_factor_high_over_low": 0.9167103062532987
+        },
+        "xi_variant_1": {
+          "absolute_residuals": [
+            0.7699997799875777,
+            0.7107942806916593
+          ],
+          "certified": false,
+          "high_order_integrated_divergence_absolute": 0.7107942806916583,
+          "orders": [
+            2,
+            3
+          ],
+          "reduction_factor_high_over_low": 0.9231097192042398
+        }
+      },
+      "redteam": {
+        "xi_variant_0": {
+          "certified": false,
+          "convergence_to_zero_tested": false,
+          "integrated_coordinate_divergence": 0.370311760175908,
+          "quadrature_orders_evaluated": [
+            3
+          ],
+          "used_by_selected_family_decision": false,
+          "weak_Euler_sum": 0.3703117599229699,
+          "weak_sum_vs_divergence_error": 2.5293811489746076e-10
+        },
+        "xi_variant_1": {
+          "certified": false,
+          "convergence_to_zero_tested": false,
+          "integrated_coordinate_divergence": 0.2618237859002482,
+          "quadrature_orders_evaluated": [
+            3
+          ],
+          "used_by_selected_family_decision": false,
+          "weak_Euler_sum": 0.26182378665140504,
+          "weak_sum_vs_divergence_error": 7.511568589357864e-10
+        }
+      }
+    },
+    "checks": {
+      "input_lineages_match": true,
+      "primary_action_keyset_exact": true,
+      "primary_coefficient_keyset_exact": true,
+      "primary_declared_matches_v5_2": true,
+      "primary_interface_literals_match_v5_2": true,
+      "primary_residuals_within_fixed_tolerances": true,
+      "redteam_action_keyset_exact": true,
+      "redteam_coefficient_keyset_exact": true,
+      "redteam_declared_matches_v5_2": true,
+      "redteam_residuals_within_fixed_tolerances": true,
+      "redteam_six_literals_match_v5_2": true,
+      "redteam_tolerance_manifest_exact": true,
+      "selected_family_geometric_contract_matches": true,
+      "shared_coefficients_identical": true,
+      "underresolved_Gauss_preserved_red": true,
+      "v5_2_total_action_is_complete": true
+    },
+    "coefficient_comparison": {
+      "primary_declared": {
+        "B4_bar": 0.8,
+        "M5_cubed": 1.0,
+        "Robin_kappa_hat": 1.0,
+        "Robin_y": 1.7320508075688772,
+        "brane_Mb_squared": 2.0,
+        "brane_beta": 2.0,
+        "compensator_metric_G": 1.2,
+        "eta": 3.107013790800849,
+        "k_infinity": 1.0,
+        "lambda_K": -0.5535068954004245,
+        "xi": 1.0
+      },
+      "redteam_declared": {
+        "B4_bar": 0.8,
+        "M5_cubed": 1.0,
+        "Robin_kappa_hat": 1.0,
+        "Robin_y": 1.7320508075688772,
+        "brane_Mb_squared": 2.0,
+        "brane_beta": 2.0,
+        "compensator_metric_G": 1.2,
+        "eta": 3.107013790800849,
+        "k_infinity": 1.0,
+        "lambda_K": -0.5535068954004245,
+        "material_Z5_per_side": 1.0,
+        "material_mass_M": 1.0,
+        "xi": 1.0
+      },
+      "v5_2_parameters": {
+        "B4_bar": 0.8,
+        "M4_bulk_squared_selected_one_Omega_wall_value": 1.107013790800849,
+        "M5_cubed": 1.0,
+        "Robin_kappa_hat": 1.0,
+        "Robin_kappa_in_Mb_units": 0.5,
+        "Robin_y": 1.7320508075688772,
+        "Robin_y_squared": 3.0,
+        "brane_Mb_squared": 2.0,
+        "brane_beta": 2.0,
+        "compensator_metric_G": 1.2,
+        "eta": 3.107013790800849,
+        "k_BF_trace_equivalent": -0.5,
+        "k_infinity": 1.0,
+        "kappa_BF_inner_product": 1.0,
+        "lambda_K": -0.5535068954004245,
+        "material_Z5_per_side": 1.0,
+        "material_mass_M": 1.0,
+        "xi": 1.0
+      }
+    },
+    "fixed_tolerances": {
+      "primary": {
+        "Stokes_weak_max": 2e-07,
+        "action_vs_Euler_max": 2e-07,
+        "local_density_L2_max": 2e-08,
+        "local_density_Linf_max": 2e-07,
+        "local_route_max": 2e-09,
+        "mutant_residual_min": 1e-06
+      },
+      "redteam": {
+        "R_groupoid_nominal_max": 2e-10,
+        "component_action_vs_JVP_max": 2e-06,
+        "component_local_JVP_RMS_min": 1e-08,
+        "density_route_Linf_max": 2e-10,
+        "induced_pullback_nominal_max": 2e-09,
+        "local_density_L2_max": 5e-07,
+        "local_density_Linf_max": 5e-06,
+        "matter_shift_nominal_max": 2e-08,
+        "mutant_residual_min": 1e-06,
+        "radial_V4_gauge_derivative_max": 2e-10,
+        "required_mutant_minimum": 1e-06
+      },
+      "redteam_additional": {
+        "Stokes_weak_max": 2e-05,
+        "minimum_absolute_slot_pairing": 1e-07,
+        "minimum_coordinate_activity": 1e-05
+      }
+    },
+    "raw_residual_comparison": {
+      "note": "Independent analytic families are checked against fixed contracts; numerical equality is neither expected nor required.",
+      "primary": {
+        "Stokes_weak": {
+          "xi_variant_0": 2.673303242772817e-14,
+          "xi_variant_1": 1.5753394109196957e-14
+        },
+        "action_vs_Euler": [
+          3.604059273243365e-10,
+          1.3330891945884105e-11
+        ],
+        "local_density_L2": [
+          1.4606624312675158e-15,
+          9.820259667674257e-16
+        ],
+        "local_density_Linf": [
+          6.217248937900877e-15,
+          3.6637359812630166e-15
+        ],
+        "local_route": [
+          5.551115123125783e-16,
+          3.3306690738754696e-16
+        ],
+        "minimum_mutant_witness": 0.0025951675064985334
+      },
+      "redteam": {
+        "Stokes_weak": {
+          "xi_variant_0": 1.412891469954048e-13,
+          "xi_variant_1": 1.4964495676395024e-13
+        },
+        "component_action_vs_JVP": [
+          1.3235423867996587e-10,
+          9.809496270829499e-11
+        ],
+        "density_route_Linf": [
+          1.7763568394002505e-15,
+          1.7763568394002505e-15
+        ],
+        "local_density_L2": [
+          9.518761953148456e-15,
+          1.0018641083350439e-14
+        ],
+        "local_density_Linf": [
+          4.1300296516055823e-14,
+          4.374278717023117e-14
+        ],
+        "maximum_nominal_closure_error": 3.1086244689504383e-09,
+        "minimum_absolute_slot_pairing": [
+          0.004217803262207553,
+          8.833138664954275e-05
+        ],
+        "minimum_component_local_JVP_RMS": [
+          0.0001864801933784642,
+          0.00032160160767221395
+        ],
+        "minimum_coordinate_activity": 0.002626577484441154,
+        "minimum_mutant_witness": 8.833240425992761e-05,
+        "pointwise_16_component_additivity": [
+          3.68594044175552e-14,
+          2.353672812205332e-14
+        ],
+        "required_control_mutants": {
+          "R_groupoid_frozen": 0.051751328484065925,
+          "anisotropic_full_V4": 0.0018060271543898774,
+          "flip_T_ui_matter_sign": 0.5446113165295684,
+          "induced_pullback_broken": 1.0931052404825299,
+          "omit_T_ui_matter": 0.2723056582569862
+        }
+      }
+    },
+    "scientific_invariants": {
+      "ambient_pullback_control_dimension": 5,
+      "compact_xi_probe_count": 2,
+      "interface_dimension": 4,
+      "oriented_face_count_per_probe": 8,
+      "primary_action_scope": "literal v5.2 S_fol_lower+S_wall0+S_R_intrinsic",
+      "quadrature_point_count_per_probe": 81,
+      "redteam_action_scope": "literal v5.2 S_fol_lower+S_wall0+S_R_intrinsic plus independent literal controls for groupoid trace, induced pullback, bulk T_ui and full V4",
+      "signed_Euler_JVP_component_count": 16,
+      "signed_component_labels": [
+        "gamma_00",
+        "gamma_01",
+        "gamma_02",
+        "gamma_03",
+        "gamma_11",
+        "gamma_12",
+        "gamma_13",
+        "gamma_22",
+        "gamma_23",
+        "gamma_33",
+        "T",
+        "Omega",
+        "psi_0",
+        "psi_1",
+        "psi_2",
+        "psi_3"
+      ]
+    }
+  },
+  "scope_evidence": {
+    "ADM_induced_selected_local_chain_primary_redteam": true,
+    "BV_BFV_is_red": true,
+    "all_field_normal_embedding_is_red": true,
+    "continuum_theorem_is_red_in_both": true,
+    "full_bulk_diff_is_red": true,
+    "interface_diff_selected_family_primary_redteam": true,
+    "internal_SO3_full_5D_primary_redteam": true,
+    "large_gauge_is_red": true,
+    "moving_embedding_is_red": true,
+    "underresolved_Gauss_diagnostic_is_red_in_both": true
+  },
+  "source_hashes": {
+    "v5_2_action_charter": {
+      "generator_sha256": "62096c08848044400c0f51ee126597db71b3dcf75e11aaddacbd0afad98a45e8",
+      "schema": "holo.one-omega-topological-so3-classical-v5-2-gate.v1",
+      "sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b",
+      "test_sha256": "511ef10674fe622a6ab4b6d5c6fe4daf0142b22603dc33668b12cbc713c42f26"
+    },
+    "v5_5_2_primary": {
+      "generator_sha256": "00f8fa443bda37711d2456cb5e55c8a5c349d1c7f814a44c63203e3c02836e1e",
+      "schema": "holo.one-omega-topological-so3-adm-induced-chain-v5-5-2-gate.v1",
+      "sha256": "4e068475ae316684cebd0f68e10d183fff7c0d90c46b155f2dfc8be4b3b0d6e8",
+      "test_sha256": "4547d1e7f361b2c9b931dba3a9a5a5829d2a2563ab4a0c9c54a154f9292f7aca"
+    },
+    "v5_5_2_redteam": {
+      "generator_sha256": "470d3c8b2bc7429ad77083c39f9112cc1908501b176d72f3b464b2f37f62696d",
+      "schema": "holo.one-omega-topological-so3-adm-induced-chain-v5-5-2-redteam.v1",
+      "sha256": "4c94c2abeb24fb3444be4f79c93aa383659feac9e706eea7fe4fe2aac85bc7f6",
+      "test_sha256": "6b373b7cccac70316ca52172fe65cfad991f90d0ad160afa4cdb2994e67e6f4f"
+    },
+    "v5_5_3_primary": {
+      "generator_sha256": "3d9a57482d3a80832427d4d3e9e645e09d78166c3070de49de9f9cb89cbfd692",
+      "schema": "holo.one-omega-topological-so3-full-action-gauge-noether-v5-5-3-gate.v1",
+      "sha256": "0bae4d93de669a95becb3742e4e2f8ad2f99517e9b6efa7a7cfc518b9c6d832d",
+      "test_sha256": "9d88139a02ca6c708a921a51e27287480db65c81e0c6b008d5717f3775c99e34"
+    },
+    "v5_5_3_redteam": {
+      "generator_sha256": "7d4f636c1ef37dc96da13992d75ca96ff737a14a7b301f12997b9536b11aca1a",
+      "schema": "holo.one-omega-topological-so3-full-action-gauge-noether-v5-5-3-redteam-gate.v1",
+      "sha256": "21da830fcba7e08708723ba05a77d49be126fc25bea40660eb66c5fd979b1cc7",
+      "test_sha256": "eed63000a1b6a0c76466f8732d86a52327cf7d556b675c1881ba1f606053c4e0"
+    },
+    "v5_5_4_primary": {
+      "generator_sha256": "299d07965f0a6feb4f9f577664a7c13f09107fefe85ac80ac6efdf5b0e22c024",
+      "schema": "holo.one-omega-topological-so3-interface-diffeomorphism-khronon-v5-5-4-gate.v1",
+      "sha256": "d5e60c535cdfb19aeee7d8007e3c39afcff699e34128ca1a016d4ba4469cd23c",
+      "test_sha256": "2c37ccd958c9bee99d8d3a5b28bd345a22b90786d1b36b33cf01c23477c877c6"
+    },
+    "v5_5_4_redteam": {
+      "generator_sha256": "ddfbd9fc7bb3d50f09bebea927b6a63c1295aa729fa17e88be7bba7cd0f08bab",
+      "schema": "holo.one-omega-topological-so3-interface-diffeomorphism-khronon-v5-5-4-redteam.v1",
+      "sha256": "e1e70a013513ec154f3458891b28bb77a47739bcc264b571935cac1f06d1ade7",
+      "test_sha256": "04a44a3956056ee82da0a87543fd9696b5505e1c7077c35f8a64710a64bc5142"
+    }
+  }
+}

@@ -1,0 +1,562 @@
+{
+  "action_charter_v3": {
+    "coefficient_policy": {
+      "UV_derivation_claimed": false,
+      "all_displayed_coefficient_functions_are_constant_unless_formula_shown": true,
+      "all_unlisted_operator_coefficients_at_mu_star": 0.0,
+      "dimensionful_reconstruction": {
+        "B4_bar": "0.8",
+        "G": "1.2*k_infinity^3",
+        "M5_cubed": "1*k_infinity^3",
+        "Mb_squared": "2*k_infinity^2",
+        "beta": "2*k_infinity^4",
+        "kappa_hat": "1*k_infinity^4",
+        "material_M": "1*k_infinity",
+        "material_Z5_per_side": "1*k_infinity^3 on each of the two sides",
+        "material_energy_coefficient_CE_two_side": "2*k_infinity^4",
+        "material_kinetic_coefficient_two_side": "2*k_infinity^3",
+        "mu_star": "1*k_infinity",
+        "solid_lambda": "1",
+        "solid_mu": "1",
+        "solid_rho": "3*k_infinity^2",
+        "solid_v": "1*k_infinity",
+        "y_squared": "3/k_infinity^2"
+      },
+      "matching_scale_in_k_infinity_units": 1.0,
+      "matching_scale_symbol": "mu_star",
+      "parameters": {
+        "B4_bar": 0.8,
+        "M4_bulk_squared_selected_one_Omega_wall_value": 1.107013790800849,
+        "M5_cubed": 1.0,
+        "Robin_kappa_hat": 1.0,
+        "Robin_kappa_in_Mb_units": 0.5,
+        "Robin_y": 1.7320508075688772,
+        "Robin_y_squared": 3.0,
+        "brane_Mb_squared": 2.0,
+        "brane_beta": 2.0,
+        "compensator_metric_G": 1.2,
+        "eta": 3.107013790800849,
+        "k_infinity": 1.0,
+        "lambda_K": -0.5535068954004245,
+        "material_Z5_per_side": 1.0,
+        "material_mass_M": 1.0,
+        "solid_lambda": 1.0,
+        "solid_mu": 1.0,
+        "solid_rho": 3.0,
+        "solid_v": 1.0,
+        "xi": 1.0
+      },
+      "radiative_closure_proved": false
+    },
+    "definitions": {
+      "acceleration": "a_mu=u^nu*D_nu u_mu",
+      "bulk_extrinsic_curvature": "Theta_eps_mu_nu=e_mu^M e_nu^N nabla_M n_eps_N",
+      "conformal_derivative": "P_M^a=nabla_M phi^a+3*phi^a*nabla_M Omega/(2*Omega)",
+      "covariant_delta_wall_equivalence": "int_Sigma sqrt(-gamma)*L_Sigma=int_M sqrt(-g)*delta_Sigma*L_Sigma, where int_M sqrt(-g)*delta_Sigma*f=int_Sigma sqrt(-gamma)*f",
+      "embedding": "e_mu^M=partial_mu Y^M; gamma_mu_nu=g_MN(Y)e_mu^M e_nu^N",
+      "khronon_norm": "D_T_squared=gamma^(mu nu)*D_mu T*D_nu T<0",
+      "khronon_unit_vector": "u_mu=-D_mu T/sqrt(-gamma^(rho sigma)*D_rho T*D_sigma T)",
+      "leaf_extrinsic_curvature": "Kcal_mu_nu=h_mu^rho*h_nu^sigma*D_rho u_sigma",
+      "material_radius": "r_phi=sqrt(delta_ab*phi^a*phi^b)",
+      "normal_convention": "n_eps^M is outward pointing and n_eps^M*n_eps_M=+1",
+      "orthonormal_triad": "E^a_mu=h_mu^nu*partial_nu X^b*(B^(-1/2))_b^a",
+      "raised_triad": "E^(a mu)=h^(mu nu)*E^a_nu",
+      "soldered_acceleration": "Acal^a=E^(a mu)*a_mu",
+      "solid_metric": "B^ab=h^(mu nu)*partial_mu X^a*partial_nu X^b",
+      "spatial_metric": "h_mu_nu=gamma_mu_nu+u_mu*u_nu",
+      "triad_internal_identity": "E^a_mu*E^(b mu)=delta^ab",
+      "triad_spatial_identity": "sum_a E^(a mu)*E^(a nu)=h^(mu nu)"
+    },
+    "derivative_and_amplitude_scope": {
+      "Robin": "algebraic in varphi^a and Acal^a",
+      "bulk": "Einstein frame with at most two derivatives in each displayed bulk term",
+      "foliation": "at most two time derivatives and at most four leaf-spatial derivatives",
+      "nonlinear_amplitude": "exact in every displayed field",
+      "solid": "first derivatives of X^a with equations of motion of second differential order"
+    },
+    "domains": {
+      "BRST_closed_boundary_domain_selected": false,
+      "Omega": "Omega>0",
+      "excluded": [
+        "khronon caustics",
+        "solid defects with det(B)=0",
+        "a nondynamical external triad"
+      ],
+      "gluing_is_a_restricted_domain_not_a_multiplier_equation": true,
+      "interface_gluing": {
+        "configuration_Omega": "Omega_+(Y_+)=Omega_-(Y_-)=Omega_Sigma",
+        "configuration_metric": "gamma^+_{mu nu}[g_+,Y_+]=gamma^-_{mu nu}[g_-,Y_-]=gamma_{mu nu}",
+        "configuration_phi": "phi_+^a(Y_+)=phi_-^a(Y_-)=varphi^a",
+        "implementation": "the common induced metric and continuous even traces define the restricted configuration and variation spaces; no gluing Lagrange multiplier is required",
+        "variation_Omega": "delta[Omega_+(Y_+)]=delta[Omega_-(Y_-)]=delta Omega_Sigma",
+        "variation_metric": "delta gamma^+_{mu nu}=delta gamma^-_{mu nu}=delta gamma_{mu nu}",
+        "variation_phi": "delta[phi_+^a(Y_+)]=delta[phi_-^a(Y_-)]=delta varphi^a"
+      },
+      "khronon": "-gamma^(mu nu)*D_mu T*D_nu T>0 with a global time orientation",
+      "solder_patch": "rank-full orientation-preserving sector with det(B)>0",
+      "solid": "B^ab positive definite and det(partial_i X^a)>0"
+    },
+    "exact_action": {
+      "GHY": "S_GHY=+M5^3*sum_(eps in {plus,minus}) int_Sigma sqrt(-gamma)*Theta_eps for outward spacelike normals",
+      "Robin": "S_R=-kappa_hat*int_Sigma sqrt(-gamma)*delta_ab*(varphi^a-y*Acal^a)*(varphi^b-y*Acal^b)/2",
+      "bulk": "S_bulk=sum_(eps in {plus,minus}) int_Meps sqrt(-g)*[M5^3*R/2-G*(nabla Omega)^2/2-U(Omega)-Z5_per_side*P_M^a*P_a^M/2-Z5_per_side*M^2*Omega^(-5)*V_IE(Omega^(3/2)*r_phi)]",
+      "bulk_potential": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+      "dimensionless_material_argument": "r=Omega^(3/2)*r_phi",
+      "foliation": "S_fol=Mb^2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]/2",
+      "inverse_envelope_material_potential": {
+        "W4": "W4(x)=integral_(0 to x) dt*t*mu4(t)",
+        "covariant_to_normalized_map": "Abar=|Acal|/k_infinity; ybar=k_infinity*y; r=Omega^(3/2)*r_phi; kappa=kappa_hat/(Mb^2*k_infinity^2); Cb=Mb^2*k_infinity^2; CE=2*Z5_per_side*M",
+        "domain": "x,Abar,r>=0",
+        "global_branch": "D=kappa*ybar^2=3/2>sup(F'')=1.2724331660272812, so r(Abar) is the unique increasing half-line bijection",
+        "inverse_map": "r(Abar)=ybar*Abar-F'(Abar)/(kappa*ybar); E_norm(r(Abar))=F(Abar)-F'(Abar)^2/(2*kappa*ybar^2)",
+        "mu4": "mu4(x)=x/(1+x^4)^(1/4)",
+        "potential": "V_IE(r)=0.5*(Cb/CE)^2*[dE_norm(r)/dr]^2",
+        "selected_point": "Cb=CE=2*k_infinity^4, kappa=1/2, ybar^2=3, hence V_IE(r)=0.5*[E_norm'(r)]^2",
+        "target": "F(Abar)=W4(ybar*Abar)/ybar^2",
+        "target_derivatives": "F'(Abar)=Abar*mu4(ybar*Abar); F''(Abar)=W4''(ybar*Abar)"
+      },
+      "solid": "S_X=int_Sigma sqrt(-gamma)*[rho_X*(u^mu*partial_mu X^a)^2/2-mu_X*tr[(B-v^2*I)^2]/4-lambda_X*(tr(B-v^2*I))^2/8]",
+      "superpotential": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+      "total": "S_cand=S_bulk+S_GHY+S_wall0+S_fol+S_X+S_R",
+      "wall_background": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]"
+    },
+    "explicit_cross_couplings": {
+      "Robin_expansion": "(varphi-y*Acal)^2=varphi^2-2*y*varphi_a*E^(a mu)*a_mu+y^2*a_mu*a^mu",
+      "Robin_four_sector": "S_R couples gamma_mu_nu, T, X^a and varphi^a",
+      "conformal_kinetic_expansion": "P^2=(nabla phi)^2+3*phi^a*nabla_M phi^a*nabla^M Omega/Omega+9*phi^2*(nabla Omega)^2/(4*Omega^2)",
+      "direct_Robin_dressing": "f(Omega_Sigma)=1",
+      "foliation_metric": "u, h, Kcal, a and Rcal are exact functions of gamma_mu_nu and T",
+      "moving_pullbacks": "gamma_mu_nu, Omega_Sigma and varphi^a depend on Y^M, so bending is generated by varying the displayed action",
+      "solid_foliation_metric": "B and E are exact functions of gamma_mu_nu, T and X^a"
+    },
+    "independent_fields": {
+      "brane_dynamic": [
+        "embedding Y_plus^M(sigma) and Y_minus^M(sigma)",
+        "khronon T(sigma)",
+        "three solid Stueckelberg scalars X^a(sigma)"
+      ],
+      "bulk_dynamic": [
+        "g_MN on each Z2 side",
+        "one positive compensator Omega on each Z2 side",
+        "one real SO(3) triplet phi^a on each Z2 side"
+      ],
+      "classical_FP_or_BRST_fields": [],
+      "composites_not_independent_fields": [
+        "induced gamma_mu_nu",
+        "bulk-side normals n_plus^M and n_minus^M",
+        "bulk extrinsic curvatures Theta_plus_mu_nu and Theta_minus_mu_nu",
+        "u_mu, h_mu_nu, Kcal_mu_nu, acceleration a_mu and leaf curvature Rcal",
+        "B^ab, B^(-1/2), E^a_mu and Acal^a"
+      ],
+      "continuous_Z2_even_traces": [
+        "Omega_Sigma",
+        "varphi^a"
+      ],
+      "independent_auxiliary_fields": [],
+      "independent_internal_gauge_fields": []
+    },
+    "mass_dimension_ledger": {
+      "B4_bar": 0.0,
+      "M5_cubed": 3.0,
+      "Omega": 0.0,
+      "Robin_integrand_dimension": 4.0,
+      "Robin_kappa_hat": 4.0,
+      "Robin_varphi_dimension": 0.0,
+      "Robin_y": -1.0,
+      "Robin_yAcal_dimension": 0.0,
+      "X": 0.0,
+      "acceleration_Acal": 1.0,
+      "boundary_Theta": 1.0,
+      "brane_Lagrangian_density": 4.0,
+      "brane_Mb_squared": 2.0,
+      "brane_beta": 4.0,
+      "bulk_R": 2.0,
+      "bulk_potential_U": 5.0,
+      "bulk_superpotential_W": 4.0,
+      "compensator_metric_G": 3.0,
+      "derivative": 1.0,
+      "dimensionless_V_IE_argument": true,
+      "dimensionless_radial_phi": 0.0,
+      "field_convention": "phi is the exact dimensionless radial field used by the existing gates; a dimension-3/2 canonical comparison field would be M^(3/2)*phi",
+      "five_dimensional_Lagrangian_density": 5.0,
+      "k_infinity": 1.0,
+      "khronon_T_coordinate_convention": -1.0,
+      "leaf_Kcal": 1.0,
+      "leaf_Rcal": 2.0,
+      "material_Z5_per_side": 3.0,
+      "material_energy_coefficient_CE_two_side": 4.0,
+      "material_kinetic_coefficient_two_side": 3.0,
+      "material_mass_M": 1.0,
+      "potential_prefactor_Z5_M2_dimension": 5.0,
+      "solid_lambda": 0.0,
+      "solid_mu": 0.0,
+      "solid_rho": 2.0,
+      "solid_v": 1.0
+    },
+    "route_id": "canonical_one_Omega_lower_lambda_causal_solid_VIE_v3",
+    "selection": {
+      "bifundamental_solder_selected": false,
+      "bulk_compensator": "Omega",
+      "bulk_compensator_count": 1,
+      "canonical_genealogy_selected_for_C1_and_N1": true,
+      "fixed_external_triad_selected": false,
+      "lambda_K_formula": "lambda_K=-r0, r0=M4_bulk^2/Mb^2; lambda_total_IR=0",
+      "lambda_branch": "healthy lower branch",
+      "old_P3_gate_automatically_updated": false,
+      "solder_route": "three brane Stueckelberg solid scalars X^a",
+      "solid_cone_condition": "rho_X=(lambda_X+2*mu_X)*v^2 gives cL^2=1 and cT^2=1/3"
+    },
+    "symmetries": [
+      "five-dimensional diffeomorphisms with matched interface action",
+      "four-dimensional reparametrizations of the moving brane",
+      "Z2 exchange of the two bulk sides",
+      "monotone khronon reparametrization T maps to f(T)",
+      "time-orientation reversal u_mu maps to minus u_mu",
+      "global internal ISO(3): X^a maps to R^a_b X^b+c^a and phi^a maps to R^a_b phi^b"
+    ],
+    "symmetry_breaking_pattern": {
+      "internal_translations": "global shifts X^a maps to X^a+c^a",
+      "relative_SO3": "explicitly broken by the Robin solder",
+      "relative_SO3_is_gauged": false,
+      "unbroken_on_X_equals_vx_background": "diagonal SO(3)\u22c9R^3_X"
+    },
+    "topology": {
+      "asymptotic_domain": "normalizable fields and compact-support variations at AdS5 infinity",
+      "cover": "M=M_plus union_Sigma M_minus",
+      "interface": "one timelike moving brane Sigma with no boundary of its own",
+      "physical_interface_interpretation": "Y_plus and Y_minus are two bulk-side representatives of one physical brane",
+      "reflection": "Z2 exchanges the two bulk sides",
+      "sides": "M_plus and M_minus are each R^(1,3) times R_ge_0"
+    },
+    "unit_convention": "numerical values use k_infinity=1 with dimensions restored by the explicit ledger"
+  },
+  "branch_parameters": {
+    "M4_bulk_squared": 1.107013790800849,
+    "Mb_squared": 2.0,
+    "r0": 0.5535068954004245,
+    "solid_rho_dimensionless_coefficient": 3.0,
+    "v2_lambda_K": 1.3107013790800848,
+    "v2_qstar": 1.2685670060300955,
+    "v2_qstar_squared": 1.6092622487881607,
+    "v2_solid_rho": 1.0,
+    "v3_cL_squared": 1.0,
+    "v3_cT_squared": 0.3333333333333333,
+    "v3_lambda_K": -0.5535068954004245,
+    "v3_lambda_total_IR": 0.0,
+    "v3_solid_rho": 3.0
+  },
+  "changed_paths_from_v2": [
+    "coefficient_policy.dimensionful_reconstruction.solid_rho",
+    "coefficient_policy.parameters.lambda_K",
+    "coefficient_policy.parameters.solid_rho",
+    "route_id",
+    "selection.lambda_K_formula",
+    "selection.lambda_branch",
+    "selection.solid_cone_condition"
+  ],
+  "checks": {
+    "all": true,
+    "all_other_numeric_parameters_inherited": true,
+    "background_and_material_P0_action_terms_are_identical_to_v2": true,
+    "only_lambda_K_solid_rho_route_and_selection_metadata_changed": true,
+    "scalar_shift_and_reduced_kinetic_principal_minors_are_positive": true,
+    "solid_cones_are_luminal_or_subluminal": true,
+    "v2_bytes_schema_and_scope_bound": true,
+    "v2_upper_branch_has_exact_finite_q_shift_null": true,
+    "v3_total_IR_lambda_is_zero_on_lower_branch": true
+  },
+  "classification": "theory_only;complete_classical_action_selection;lower_lambda_and_causal_solid;N7_N8_P3_P4_B4_B5_fail_closed",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "N7_LINEAR_REDUCTION_pass": false,
+    "N8_MATERIAL_PORT_pass_for_v3": false,
+    "P4_linear_same_action_pass": false,
+    "Ward_or_RG_protection_pass": false,
+    "a0_predicted": false,
+    "causal_solid_rho_selected": true,
+    "complete_P3_pass": false,
+    "cutoff_hiding_the_v2_null_rejected": true,
+    "decisive_result": "The first solid Hessian refutes the frozen upper-lambda point. V3 changes only lambda_K and rho_X, retains the background and exact material envelope, removes the finite-q shift zero and places both solid sound cones at or inside the wall metric cone.",
+    "homogeneous_normalized_P0_inherited_from_identical_material_action": true,
+    "inverse_envelope_material_potential_retained": true,
+    "lower_lambda_branch_selected": true,
+    "new_force_validated": false,
+    "next_action": "Construct the complete scalar/vector/tensor v3 Hessian including solid phonons, bulk K_T/K_v, bending, Robin and the q=0 quotient.",
+    "nonlinear_gravitational_P4_pass": false,
+    "one_Omega_Z2_background_retained": true,
+    "publication_authorized": false,
+    "regular_rank_full_solid_retained": true,
+    "status": "ACTION_V3_LOWER_LAMBDA_CAUSAL_SOLID_SELECTED__V2_FINITE_Q_NULL_REMOVED__N7_N8_P3_P4_B4_B5_FAIL_CLOSED",
+    "total_IR_lambda_zero_constructive_point_selected": true,
+    "universal_matter_metric_and_lensing_derived": false,
+    "v2_upper_lambda_solid_shift_null_identified": true,
+    "v3_scalar_kinetic_principal_minors_positive_for_q_positive": true
+  },
+  "evidence_boundary": "The exact v2 finite-q obstruction and the v3 coefficient inequalities are derived here. The complete extended Hessian and P4 are not.",
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_lower_branch_action_v3_gate.py",
+      "sha256": "7ee6293b14251298ccd37b09a055b6a0c3b0a462e1c5417ed0871d7cbe94629b"
+    },
+    "python": "3.13.5",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_lower_branch_action_v3_gate.py",
+      "sha256": "a9257c523c04b2277e10c62e83dd61698944b45f9c5f471c29bedc9a990e55f7"
+    }
+  },
+  "scalar_kinetic_branch_audit": {
+    "a": 1.5535068954004245,
+    "analytic_HSS_positive_for_every_q_positive": true,
+    "analytic_c_positive_for_every_r_in_interval": true,
+    "analytic_three_a_minus_c_positive": true,
+    "b": 1.5,
+    "c_max_at_r0_zero": 2.6605206862012736,
+    "c_min_at_r0": 1.5535068954004245,
+    "definitions": {
+      "H_SS": "a+b/q^2",
+      "a": "1-lambda_K",
+      "b": "rho_X*v^2/Mb^2",
+      "c_r": "1-3*lambda_K-2*r, 0<=r<=r0",
+      "det_K_ZP_after_S": "(rho_X/Mb^2)*c_r*(3*a-c_r)/(a*q^2+b)"
+    },
+    "minimum_sampled_HSS": 1.5535069104004244,
+    "minimum_sampled_KZZ": 3.1070138058008485,
+    "minimum_sampled_kinetic_determinant": 4.660520641201274e-08,
+    "rows": [
+      {
+        "H_SS": 150000001.55350688,
+        "K_ZZ_after_S": 7.9815620114146855,
+        "det_K_ZP_after_S": 5.321041317294051,
+        "q": 0.0001,
+        "r": 0.0
+      },
+      {
+        "H_SS": 1668.2201735620672,
+        "K_ZZ_after_S": 7.977318991391301,
+        "det_K_ZP_after_S": 5.316086226436959,
+        "q": 0.03,
+        "r": 0.0
+      },
+      {
+        "H_SS": 18.220173562067092,
+        "K_ZZ_after_S": 7.5930712301497225,
+        "det_K_ZP_after_S": 4.867353352660079,
+        "q": 0.3,
+        "r": 0.0
+      },
+      {
+        "H_SS": 3.0535068954004245,
+        "K_ZZ_after_S": 5.663450272982106,
+        "det_K_ZP_after_S": 2.6139001259917416,
+        "q": 1.0,
+        "r": 0.0
+      },
+      {
+        "H_SS": 1.7201735620670913,
+        "K_ZZ_after_S": 3.8666457049313525,
+        "det_K_ZP_after_S": 0.5155527606575137,
+        "q": 3.0,
+        "r": 0.0
+      },
+      {
+        "H_SS": 1.5551735620670912,
+        "K_ZZ_after_S": 3.430063438542062,
+        "det_K_ZP_after_S": 0.005702516107301849,
+        "q": 30.0,
+        "r": 0.0
+      },
+      {
+        "H_SS": 1.5535069104004244,
+        "K_ZZ_after_S": 3.425180445933422,
+        "det_K_ZP_after_S": 5.137770553300295e-08,
+        "q": 10000.0,
+        "r": 0.0
+      },
+      {
+        "H_SS": 150000001.55350688,
+        "K_ZZ_after_S": 7.151301677620877,
+        "det_K_ZP_after_S": 5.427250222563634,
+        "q": 0.0001,
+        "r": 0.13837672385010613
+      },
+      {
+        "H_SS": 1668.2201735620672,
+        "K_ZZ_after_S": 7.147895482718444,
+        "det_K_ZP_after_S": 5.42219622723577,
+        "q": 0.03,
+        "r": 0.13837672385010613
+      },
+      {
+        "H_SS": 18.220173562067092,
+        "K_ZZ_after_S": 6.839430578381792,
+        "det_K_ZP_after_S": 4.9645065676644595,
+        "q": 0.3,
+        "r": 0.13837672385010613
+      },
+      {
+        "H_SS": 3.0535068954004245,
+        "K_ZZ_after_S": 5.290377066565781,
+        "det_K_ZP_after_S": 2.6660740247290637,
+        "q": 1.0,
+        "r": 0.13837672385010613
+      },
+      {
+        "H_SS": 1.7201735620670913,
+        "K_ZZ_after_S": 3.8479453724824038,
+        "det_K_ZP_after_S": 0.5258432829543771,
+        "q": 3.0,
+        "r": 0.13837672385010613
+      },
+      {
+        "H_SS": 1.5551735620670912,
+        "K_ZZ_after_S": 3.49746758023267,
+        "det_K_ZP_after_S": 0.005816339315377725,
+        "q": 30.0,
+        "r": 0.13837672385010613
+      },
+      {
+        "H_SS": 1.5535069104004244,
+        "K_ZZ_after_S": 3.4935476306588997,
+        "det_K_ZP_after_S": 5.2403213424134716e-08,
+        "q": 10000.0,
+        "r": 0.13837672385010613
+      },
+      {
+        "H_SS": 150000001.55350688,
+        "K_ZZ_after_S": 6.321041342805834,
+        "det_K_ZP_after_S": 5.380274187791802,
+        "q": 0.0001,
+        "r": 0.27675344770021226
+      },
+      {
+        "H_SS": 1668.2201735620672,
+        "K_ZZ_after_S": 6.318380148671422,
+        "det_K_ZP_after_S": 5.375263937758612,
+        "q": 0.03,
+        "r": 0.27675344770021226
+      },
+      {
+        "H_SS": 18.220173562067092,
+        "K_ZZ_after_S": 6.077382490696412,
+        "det_K_ZP_after_S": 4.921535850711329,
+        "q": 0.3,
+        "r": 0.27675344770021226
+      },
+      {
+        "H_SS": 3.0535068954004245,
+        "K_ZZ_after_S": 4.867136971101766,
+        "det_K_ZP_after_S": 2.642997589894852,
+        "q": 1.0,
+        "r": 0.27675344770021226
+      },
+      {
+        "H_SS": 1.7201735620670913,
+        "K_ZZ_after_S": 3.7401930135368784,
+        "det_K_ZP_after_S": 0.5212918008351446,
+        "q": 3.0,
+        "r": 0.27675344770021226
+      },
+      {
+        "H_SS": 1.5551735620670912,
+        "K_ZZ_after_S": 3.46637149959163,
+        "det_K_ZP_after_S": 0.005765995486234189,
+        "q": 30.0,
+        "r": 0.27675344770021226
+      },
+      {
+        "H_SS": 1.5535069104004244,
+        "K_ZZ_after_S": 3.4633089188786306,
+        "det_K_ZP_after_S": 5.1949632867680276e-08,
+        "q": 10000.0,
+        "r": 0.27675344770021226
+      },
+      {
+        "H_SS": 150000001.55350688,
+        "K_ZZ_after_S": 4.660520670112049,
+        "det_K_ZP_after_S": 4.826767298123889,
+        "q": 0.0001,
+        "r": 0.5535068954004245
+      },
+      {
+        "H_SS": 1668.2201735620672,
+        "K_ZZ_after_S": 4.65907400445488,
+        "det_K_ZP_after_S": 4.822272487976388,
+        "q": 0.03,
+        "r": 0.5535068954004245
+      },
+      {
+        "H_SS": 18.220173562067092,
+        "K_ZZ_after_S": 4.528064007573297,
+        "det_K_ZP_after_S": 4.415222620932534,
+        "q": 0.3,
+        "r": 0.5535068954004245
+      },
+      {
+        "H_SS": 3.0535068954004245,
+        "K_ZZ_after_S": 3.870156113030666,
+        "det_K_ZP_after_S": 2.3710937195118245,
+        "q": 1.0,
+        "r": 0.5535068954004245
+      },
+      {
+        "H_SS": 1.7201735620670913,
+        "K_ZZ_after_S": 3.2575322161560996,
+        "det_K_ZP_after_S": 0.4676628233483913,
+        "q": 3.0,
+        "r": 0.5535068954004245
+      },
+      {
+        "H_SS": 1.5551735620670912,
+        "K_ZZ_after_S": 3.1086786713146095,
+        "det_K_ZP_after_S": 0.005172806716288881,
+        "q": 30.0,
+        "r": 0.5535068954004245
+      },
+      {
+        "H_SS": 1.5535069104004244,
+        "K_ZZ_after_S": 3.1070138058008485,
+        "det_K_ZP_after_S": 4.660520641201274e-08,
+        "q": 10000.0,
+        "r": 0.5535068954004245
+      }
+    ],
+    "three_a_minus_c_at_r0": 3.107013790800849,
+    "three_a_minus_c_at_zero": 2.0
+  },
+  "schema": "holo.one-omega-lower-branch-action-v3-gate.v1",
+  "title": "One-Omega lower-lambda causal-solid action v3",
+  "unchanged_parameter_keys": [
+    "B4_bar",
+    "M4_bulk_squared_selected_one_Omega_wall_value",
+    "M5_cubed",
+    "Robin_kappa_hat",
+    "Robin_kappa_in_Mb_units",
+    "Robin_y",
+    "Robin_y_squared",
+    "brane_Mb_squared",
+    "brane_beta",
+    "compensator_metric_G",
+    "eta",
+    "k_infinity",
+    "material_Z5_per_side",
+    "material_mass_M",
+    "solid_lambda",
+    "solid_mu",
+    "solid_v",
+    "xi"
+  ],
+  "upstream": {
+    "path": "first_principles_audit/prediction_factory/artifacts/one_omega_inverse_envelope_action_v2_gate.json",
+    "schema": "holo.one-omega-inverse-envelope-action-v2-gate.v1",
+    "sha256": "42b0cd65b7a16a77216c5a4df943d4abb815cdd4d5c252404db418e46b8553a8"
+  },
+  "v2_action_digest": {
+    "algorithm": "sha256(canonical-json(action_charter_v2))",
+    "sha256": "143557fb164a8316a1af0e27d50293aa3ad3107003a9046fcd27b20c1db8fea5"
+  },
+  "v3_action_digest": {
+    "algorithm": "sha256(canonical-json(action_charter_v3))",
+    "sha256": "174413ea363918b38525fad83c64f9f74d61aa391c038f90aadb9166fc3c91d2"
+  }
+}

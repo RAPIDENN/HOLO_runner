@@ -1,0 +1,178 @@
+{
+  "checks": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "N1_ACTION_pass": false,
+    "all_frozen_input_pins_verified": true,
+    "flat_FLRW_witness_pass": true,
+    "primary_receipt_kept_C1_false": true,
+    "primary_receipt_kept_N1_false": true,
+    "primary_source_contains_opposite_Gauss_sign": true,
+    "redteam_receipt_kept_C1_false": true,
+    "redteam_receipt_kept_N1_false": true,
+    "redteam_source_contains_same_opposite_Gauss_sign": true,
+    "static_round_S3_witness_pass": true,
+    "v5_5_4_eligible_as_intrinsic_Rcal_dependency_for_C1_N1": false,
+    "v5_5_4_intrinsic_Rcal_binding_pass": false
+  },
+  "classification": "theory_only;manufactured_exact_witness;additive_corrigendum;fail_closed",
+  "conventions": {
+    "Riemann": "R^rho_{ sigma mu nu}=partial_mu Gamma^rho_{nu sigma}-partial_nu Gamma^rho_{mu sigma}+Gamma^rho_{mu lambda}Gamma^lambda_{nu sigma}-Gamma^rho_{nu lambda}Gamma^lambda_{mu sigma}",
+    "correct_Gauss_scalar": "R_leaf=h^ac h^bd R_abcd-K^2+K_ab K^ab=R4+2 Ricci(u,u)-K^2+K_ab K^ab",
+    "extrinsic_curvature": "K_mu_nu=h_mu^a h_nu^b nabla_a u_b",
+    "projector": "h_mu_nu=gamma_mu_nu+u_mu u_nu",
+    "signature": "(-,+,+,+)",
+    "unit_normal": "u_mu u^mu=-1",
+    "v5_5_4_opposite_combination": "h^ac h^bd R_abcd+K^2-K_ab K^ab"
+  },
+  "decision": {
+    "C1_N1_promotion_authorized": false,
+    "Gauss_sign_mismatch_reproduced": true,
+    "corrected_action_route_execution_authorized": true,
+    "v5_5_4_Ward_result_retracted": false,
+    "v5_5_4_Ward_scope_after_corrigendum": "the off-shell Ward/Stokes calculation remains evidence for covariance of the scalar density it actually implemented; it is not a certificate that this scalar equals the intrinsic leaf curvature in the v5.2 action",
+    "v5_5_4_may_be_consumed_as_intrinsic_Rcal_lemma": false
+  },
+  "manufactured_witnesses": {
+    "flat_FLRW": {
+      "K_tensor_squared": {
+        "decimal": 0.48,
+        "denominator": 25,
+        "numerator": 12
+      },
+      "K_trace_squared": {
+        "decimal": 1.44,
+        "denominator": 25,
+        "numerator": 36
+      },
+      "R4": {
+        "decimal": 1.062857142857143,
+        "denominator": 175,
+        "numerator": 186
+      },
+      "R4_plus_2_Ricci_uu": {
+        "decimal": 0.96,
+        "denominator": 25,
+        "numerator": 24
+      },
+      "Ricci_uu": {
+        "decimal": -0.05142857142857143,
+        "denominator": 175,
+        "numerator": -9
+      },
+      "checks": {
+        "flat_leaf_has_zero_intrinsic_curvature": true,
+        "inherited_v5_5_4_formula_is_nonzero": true,
+        "projected_routes_agree_exactly": true
+      },
+      "correct_intrinsic_R_leaf": {
+        "decimal": 0.0,
+        "denominator": 1,
+        "numerator": 0
+      },
+      "family": "spatially_flat_FLRW_at_one_point",
+      "parameters": {
+        "H": {
+          "decimal": 0.4,
+          "denominator": 5,
+          "numerator": 2
+        },
+        "Hdot": {
+          "decimal": -0.14285714285714285,
+          "denominator": 7,
+          "numerator": -1
+        }
+      },
+      "projected_ambient_R": {
+        "decimal": 0.96,
+        "denominator": 25,
+        "numerator": 24
+      },
+      "v5_5_4_inherited_combination": {
+        "decimal": 1.92,
+        "denominator": 25,
+        "numerator": 48
+      }
+    },
+    "static_round_S3": {
+      "K_tensor_squared": {
+        "decimal": 0.0,
+        "denominator": 1,
+        "numerator": 0
+      },
+      "K_trace_squared": {
+        "decimal": 0.0,
+        "denominator": 1,
+        "numerator": 0
+      },
+      "checks": {
+        "positive_curvature_sign_fixed": true,
+        "round_S3_value_exact": true
+      },
+      "correct_intrinsic_R_leaf": {
+        "decimal": 2.6666666666666665,
+        "denominator": 3,
+        "numerator": 8
+      },
+      "expected_round_S3_scalar": {
+        "decimal": 2.6666666666666665,
+        "denominator": 3,
+        "numerator": 8
+      },
+      "family": "static_product_time_x_round_S3_at_one_point",
+      "parameters": {
+        "radius": {
+          "decimal": 1.5,
+          "denominator": 2,
+          "numerator": 3
+        }
+      },
+      "projected_ambient_R": {
+        "decimal": 2.6666666666666665,
+        "denominator": 3,
+        "numerator": 8
+      }
+    }
+  },
+  "open_obligations": [
+    "bind the corrected Gauss convention in the additive pointwise primitive contract",
+    "verify two independent action routes on the same N2 member and free tangent",
+    "retain pointwise gluing at all action quadrature nodes",
+    "establish derivative, quadrature, radial and spectral convergence",
+    "run mutants and an independent clean-process red-team"
+  ],
+  "payload_sha256": "c91ef47ffaee66b02928df146cf7ad48cd35b87ab6ad702b255e7e348bb30640",
+  "schema": "holo.one-omega-topological-so3-v5-5-4-gauss-sign-corrigendum.v1",
+  "source_pins": {
+    "v5_2_artifact": {
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_classical_v5_2_gate.json",
+      "sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b"
+    },
+    "v5_5_4_primary_artifact": {
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_gate.json",
+      "sha256": "d5e60c535cdfb19aeee7d8007e3c39afcff699e34128ca1a016d4ba4469cd23c"
+    },
+    "v5_5_4_primary_source": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_gate.py",
+      "sha256": "299d07965f0a6feb4f9f577664a7c13f09107fefe85ac80ac6efdf5b0e22c024"
+    },
+    "v5_5_4_primary_test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_gate.py",
+      "sha256": "2c37ccd958c9bee99d8d3a5b28bd345a22b90786d1b36b33cf01c23477c877c6"
+    },
+    "v5_5_4_redteam_artifact": {
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_redteam.json",
+      "sha256": "e1e70a013513ec154f3458891b28bb77a47739bcc264b571935cac1f06d1ade7"
+    },
+    "v5_5_4_redteam_source": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_redteam.py",
+      "sha256": "ddfbd9fc7bb3d50f09bebea927b6a63c1295aa729fa17e88be7bba7cd0f08bab"
+    },
+    "v5_5_4_redteam_test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_redteam.py",
+      "sha256": "04a44a3956056ee82da0a87543fd9696b5505e1c7077c35f8a64710a64bc5142"
+    }
+  },
+  "title": "Additive Gauss-sign corrigendum for v5.5.4"
+}

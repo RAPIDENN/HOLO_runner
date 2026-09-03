@@ -1,0 +1,1428 @@
+{
+  "classification": "theory_only;route_C;independent_analytic_Euler_Green;N1_constant_tangential_mode;C2_radial;raw;fail_closed",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "Euler_Green_independent_route_pass": false,
+    "N1_ACTION_pass": false,
+    "clean_room_full_mutant_campaign_pass": false,
+    "route_C_N1_independent_Euler_Green_raw_pass": true,
+    "route_C_N2_N3_independent_Euler_Green_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false
+  },
+  "evidence_boundary": "This is an independent analytic Euler-Green reconstruction for the finite N=1 constant tangential member only. It reads no AD/FD result and cannot promote the multi-N Euler-Green gate, C1/N1, B4, or B5.",
+  "fixed_before_run": {
+    "K": 1,
+    "N": 1,
+    "Stokes_final_component_abs_tolerance": 5e-08,
+    "Stokes_final_total_abs_tolerance": 5e-08,
+    "decoder_JVP_step": 0.0001,
+    "local_EH_jet_step": 0.0001,
+    "radial_Gauss_order": 10,
+    "radial_refinement_orders": [
+      8,
+      10,
+      12,
+      16,
+      20
+    ],
+    "tangential_rule": "Q1 exact constant Fourier mode"
+  },
+  "independence_audit": {
+    "AD_or_FD_expected_values_read": false,
+    "action_formula_reconstructed_from_literal_hash": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "comparison_tolerances_read": false,
+    "primitive_bundle_only_scientific_input": true,
+    "project_action_or_Euler_modules_imported": []
+  },
+  "mathematical_contract": {
+    "BF": "E_B=F and E_A is the oriented covariant divergence of B; the radial integration-by-parts term is retained explicitly",
+    "EH_GHY": "delta(S_EH+S_GHY)=-M5^3/2 int sqrt(-g) G^MN delta g_MN-M5^3/2 int_Sigma sqrt(-gamma) pi^mn delta gamma_mn",
+    "Omega": "E_Omega=G box_g Omega with Green=-G int_Sigma sqrt(-gamma) n.dOmega deltaOmega",
+    "interface_N1": "constant tangential mode has Kcal=Rcal=a=0; wall and Robin are algebraic weak Euler terms and Sigma=T4 has no corners",
+    "matter": "E_phi=Z(D_M P^M-c_M P^M); E_Omega=(3Z/(2Omega)) div(phi.P); E_A=-Z phi cross P^M"
+  },
+  "open_obligations": {
+    "comparison": "compare this raw route to the separately frozen v5.6.5.8 values in a distinct gate",
+    "continuum": "prove the uniform N-to-infinity bridge separately",
+    "multi_N": "extend the independent Euler-Green evaluator to the genuinely x-dependent N=2 and N=3 members",
+    "mutants": "execute the complete clean-room mutant campaign after multi-N Euler-Green closure"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_n1_independent_euler_green_route_c_v5_6_6_1.py",
+      "sha256": "726f5aaf65bd046f791be81abf25984d3e875bc0229f76f9eeaebaa28e578339"
+    },
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_n1_independent_euler_green_route_c_v5_6_6_1.py",
+      "sha256": "1894c57857fc36cd512e1c1135fb4737a0fdd4c269fa8f9b2e78ae1fbc248d16"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-n1-independent-euler-green-route-c-v5-6-6-1.v1",
+  "scientific": {
+    "Stokes_convergence": {
+      "maximum_component_residual_series": [
+        0.0742080175857609,
+        0.00377256707279372,
+        0.00019685024388138572,
+        2.6666475605452433e-07,
+        8.051159738897695e-10
+      ],
+      "monotone_component_contraction": true,
+      "monotone_total_contraction": true,
+      "pass": true,
+      "total_residual_series": [
+        0.027737945506260075,
+        0.007794042887212527,
+        0.00037453793470376695,
+        2.441654487483902e-07,
+        2.0480683815549128e-09
+      ]
+    },
+    "Stokes_residual_direct_minus_Euler_Green": {
+      "BF_bulk_minus": 5.321298957028375e-12,
+      "BF_bulk_plus": -1.0693668173189508e-12,
+      "EH_bulk_minus": -0.0020621484156322367,
+      "EH_bulk_plus": -0.00377256707279372,
+      "GHY_minus": 0.0,
+      "GHY_plus": 0.0,
+      "K_foliation": 0.0,
+      "Omega_kinetic_bulk_minus": 3.4094648597715604e-05,
+      "Omega_kinetic_bulk_plus": 0.00014261367181234164,
+      "Omega_potential_bulk_minus": 0.0,
+      "Omega_potential_bulk_plus": 0.0,
+      "P_kinetic_bulk_minus": -0.0006882603011035826,
+      "P_kinetic_bulk_plus": -0.001447775422320774,
+      "R": 0.0,
+      "R_squared": 0.0,
+      "Robin": 0.0,
+      "S_total": -0.007794042887212527,
+      "a_squared": 0.0,
+      "full_V4_bulk_minus": 0.0,
+      "full_V4_bulk_plus": 0.0,
+      "wall": 0.0
+    },
+    "authoritative_free_central_sha256": "782065991a7af9029c93a02985686b59e8bfc0b2742a3a1dedc9fa8a7e969255",
+    "authoritative_free_tangent_sha256": "105b5a06735ecab8f1158e8fbaa0babebf14f69b16c98b6bbeeb0413be02ecb7",
+    "corner_residual": 0.0,
+    "direct_local_jet_JVP_by_component": {
+      "BF_bulk_minus": -0.5287188804532448,
+      "BF_bulk_plus": 10.593907262451385,
+      "EH_bulk_minus": -68.66284731826644,
+      "EH_bulk_plus": -25.319210783883214,
+      "GHY_minus": 7.2275048766767815,
+      "GHY_plus": -4.100270433233058,
+      "K_foliation": 0.0,
+      "Omega_kinetic_bulk_minus": -52.06722961582449,
+      "Omega_kinetic_bulk_plus": -57.70757134506959,
+      "Omega_potential_bulk_minus": -1005.6279572848483,
+      "Omega_potential_bulk_plus": -884.6277090701691,
+      "P_kinetic_bulk_minus": 123.51584973294688,
+      "P_kinetic_bulk_plus": 107.6929081204456,
+      "R": 0.0,
+      "R_squared": 0.0,
+      "Robin": 111.29350302304884,
+      "S_total": -799.2995189370707,
+      "a_squared": 0.0,
+      "full_V4_bulk_minus": 4.968236465190182,
+      "full_V4_bulk_plus": 4.469818027847975,
+      "wall": 929.5802682860691
+    },
+    "face_audit": {
+      "radial_interface_fluxes_Q20": {
+        "minus": {
+          "BF": 16.88465210858948,
+          "Omega_kinetic": 7.297325258415034,
+          "P_kinetic": 1.9087802173099693
+        },
+        "plus": {
+          "BF": -11.982795143246868,
+          "Omega_kinetic": -1.5866009192049628,
+          "P_kinetic": 3.754746754613549
+        }
+      },
+      "radial_outer_boundary_tangent_Linf": 7.401486830834376e-13,
+      "reason": "N=1 is the exact constant Fourier mode, so each oriented periodic face flux is identically zero",
+      "tangential_T4_eight_faces": {
+        "x0_minus": 0.0,
+        "x0_plus": 0.0,
+        "x1_minus": 0.0,
+        "x1_plus": 0.0,
+        "x2_minus": 0.0,
+        "x2_plus": 0.0,
+        "x3_minus": 0.0,
+        "x3_plus": 0.0
+      }
+    },
+    "member_id": "N1.K1.seed20260902",
+    "nontrivial_R_controls": {
+      "minus": {
+        "determinant": 0.9999999999999997,
+        "distance_from_identity_Frobenius": 0.26473557826664745
+      },
+      "plus": {
+        "determinant": 1.0000000000000002,
+        "distance_from_identity_Frobenius": 0.24974519871353884
+      }
+    },
+    "outer_boundary_tangent_Linf": 7.401486830834376e-13,
+    "predicted_Euler_Green_by_component": {
+      "BF_bulk_minus": -0.5287188804585661,
+      "BF_bulk_plus": 10.593907262452454,
+      "EH_bulk_minus": -68.66078516985081,
+      "EH_bulk_plus": -25.31543821681042,
+      "GHY_minus": 7.2275048766767815,
+      "GHY_plus": -4.100270433233058,
+      "K_foliation": 0.0,
+      "Omega_kinetic_bulk_minus": -52.067263710473085,
+      "Omega_kinetic_bulk_plus": -57.7077139587414,
+      "Omega_potential_bulk_minus": -1005.6279572848483,
+      "Omega_potential_bulk_plus": -884.6277090701691,
+      "P_kinetic_bulk_minus": 123.51653799324798,
+      "P_kinetic_bulk_plus": 107.69435589586791,
+      "R": 0.0,
+      "R_squared": 0.0,
+      "Robin": 111.29350302304884,
+      "S_total": -799.2917248941835,
+      "a_squared": 0.0,
+      "full_V4_bulk_minus": 4.968236465190182,
+      "full_V4_bulk_plus": 4.469818027847975,
+      "wall": 929.5802682860691
+    },
+    "radial_refinement_records": [
+      {
+        "Stokes_residual_direct_minus_Euler_Green": {
+          "BF_bulk_minus": -5.880185227624679e-12,
+          "BF_bulk_plus": 3.749711652289989e-11,
+          "EH_bulk_minus": 0.0742080175857609,
+          "EH_bulk_plus": -0.010413636602915943,
+          "GHY_minus": 0.0,
+          "GHY_plus": 0.0,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": 0.0018097591040131533,
+          "Omega_kinetic_bulk_plus": 0.005432142466545997,
+          "Omega_potential_bulk_minus": 0.0,
+          "Omega_potential_bulk_plus": 0.0,
+          "P_kinetic_bulk_minus": 0.018044724055613415,
+          "P_kinetic_bulk_plus": -0.06134306113442278,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 0.0,
+          "S_total": 0.027737945506260075,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 0.0,
+          "full_V4_bulk_plus": 0.0,
+          "wall": 0.0
+        },
+        "direct_local_jet_JVP_by_component": {
+          "BF_bulk_minus": -0.5287082625624184,
+          "BF_bulk_plus": 10.59390989365699,
+          "EH_bulk_minus": -68.59235549423217,
+          "EH_bulk_plus": -25.320670713729992,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.06703443950888,
+          "Omega_kinetic_bulk_plus": -57.70476901624594,
+          "Omega_potential_bulk_minus": -1005.6276627915794,
+          "Omega_potential_bulk_plus": -884.6263969730123,
+          "P_kinetic_bulk_minus": 123.52998644441394,
+          "P_kinetic_bulk_plus": 107.67867153880664,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.2246887587005,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968832605624812,
+          "full_V4_bulk_plus": 4.470502697106536,
+          "wall": 929.5802682860691
+        },
+        "maximum_absolute_component_Stokes_residual": 0.0742080175857609,
+        "outer_boundary_tangent_Linf": 7.401486830834376e-13,
+        "predicted_Euler_Green_by_component": {
+          "BF_bulk_minus": -0.5287082625565382,
+          "BF_bulk_plus": 10.593909893619493,
+          "EH_bulk_minus": -68.66656351181793,
+          "EH_bulk_plus": -25.310257077127076,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.068844198612894,
+          "Omega_kinetic_bulk_plus": -57.710201158712486,
+          "Omega_potential_bulk_minus": -1005.6276627915794,
+          "Omega_potential_bulk_plus": -884.6263969730123,
+          "P_kinetic_bulk_minus": 123.51194172035832,
+          "P_kinetic_bulk_plus": 107.74001459994106,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.2524267042068,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968832605624812,
+          "full_V4_bulk_plus": 4.470502697106536,
+          "wall": 929.5802682860691
+        },
+        "radial_Gauss_order": 8,
+        "side_ledgers": {
+          "minus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -64.7321060940578,
+              "Stokes_residual_direct_EH_minus_Euler_Green": 0.0742080175857609,
+              "combined_Brown_York_boundary": 3.293047458916653,
+              "direct_local_EH_jet_variation": -68.59235549423217,
+              "independent_GHY_variation": 7.2275048766767815,
+              "inferred_raw_EH_Green": -3.9344574177601284,
+              "predicted_EH_variation": -68.66656351181793,
+              "predicted_GHY_variation": 7.2275048766767815
+            },
+            "brown_york_combined_boundary": 3.293047458916653,
+            "extrinsic_trace": -0.0020004198270627254,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": -5.880185227624679e-12,
+                "bulk_Euler": -17.41336037114602,
+                "direct_local_jet_variation": -0.5287082625624184,
+                "interface_Green": 16.88465210858948,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.612023164862194
+              },
+              "EH": {
+                "bulk_Euler": -64.7321060940578,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.719712580575499
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0018097591040131533,
+                "bulk_Euler": -59.36616945702793,
+                "direct_local_jet_variation": -52.06703443950888,
+                "interface_Green": 7.297325258415034,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.46632172392508964
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -1005.6276627915794,
+                "direct_local_jet_variation": -1005.6276627915794,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.700602558935129
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.018044724055613415,
+                "bulk_Euler": 121.60316150304836,
+                "direct_local_jet_variation": 123.52998644441394,
+                "interface_Green": 1.9087802173099693,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 4.475086676288857
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": 4.968832605624812,
+                "direct_local_jet_variation": 4.968832605624812,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.05844030148461316
+              }
+            },
+            "normal_covector": [
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -1.0827802195364087
+            ]
+          },
+          "plus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -27.610767818605815,
+              "Stokes_residual_direct_EH_minus_Euler_Green": -0.010413636602915943,
+              "combined_Brown_York_boundary": -1.799759691754319,
+              "direct_local_EH_jet_variation": -25.320670713729992,
+              "independent_GHY_variation": -4.100270433233058,
+              "inferred_raw_EH_Green": 2.3005107414787394,
+              "predicted_EH_variation": -25.310257077127076,
+              "predicted_GHY_variation": -4.100270433233058
+            },
+            "brown_york_combined_boundary": -1.799759691754319,
+            "extrinsic_trace": 0.010165338040288519,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": 3.749711652289989e-11,
+                "bulk_Euler": 22.57670503686636,
+                "direct_local_jet_variation": 10.59390989365699,
+                "interface_Green": -11.982795143246868,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.7803980737338252
+              },
+              "EH": {
+                "bulk_Euler": -27.610767818605815,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.4212448489681204
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.005432142466545997,
+                "bulk_Euler": -56.123600239507525,
+                "direct_local_jet_variation": -57.70476901624594,
+                "interface_Green": -1.5866009192049628,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.9779021273221589
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -884.6263969730123,
+                "direct_local_jet_variation": -884.6263969730123,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.700662885565452
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -0.06134306113442278,
+                "bulk_Euler": 103.98526784532751,
+                "direct_local_jet_variation": 107.67867153880664,
+                "interface_Green": 3.754746754613549,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.457741523359552
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": 4.470502697106536,
+                "direct_local_jet_variation": 4.470502697106536,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.057767010749088105
+              }
+            },
+            "normal_covector": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.083374302821833
+            ]
+          }
+        },
+        "total_absolute_Stokes_residual": 0.027737945506260075
+      },
+      {
+        "Stokes_residual_direct_minus_Euler_Green": {
+          "BF_bulk_minus": 5.321298957028375e-12,
+          "BF_bulk_plus": -1.0693668173189508e-12,
+          "EH_bulk_minus": -0.0020621484156322367,
+          "EH_bulk_plus": -0.00377256707279372,
+          "GHY_minus": 0.0,
+          "GHY_plus": 0.0,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": 3.4094648597715604e-05,
+          "Omega_kinetic_bulk_plus": 0.00014261367181234164,
+          "Omega_potential_bulk_minus": 0.0,
+          "Omega_potential_bulk_plus": 0.0,
+          "P_kinetic_bulk_minus": -0.0006882603011035826,
+          "P_kinetic_bulk_plus": -0.001447775422320774,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 0.0,
+          "S_total": -0.007794042887212527,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 0.0,
+          "full_V4_bulk_plus": 0.0,
+          "wall": 0.0
+        },
+        "direct_local_jet_JVP_by_component": {
+          "BF_bulk_minus": -0.5287188804532448,
+          "BF_bulk_plus": 10.593907262451385,
+          "EH_bulk_minus": -68.66284731826644,
+          "EH_bulk_plus": -25.319210783883214,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.06722961582449,
+          "Omega_kinetic_bulk_plus": -57.70757134506959,
+          "Omega_potential_bulk_minus": -1005.6279572848483,
+          "Omega_potential_bulk_plus": -884.6277090701691,
+          "P_kinetic_bulk_minus": 123.51584973294688,
+          "P_kinetic_bulk_plus": 107.6929081204456,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.2995189370707,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968236465190182,
+          "full_V4_bulk_plus": 4.469818027847975,
+          "wall": 929.5802682860691
+        },
+        "maximum_absolute_component_Stokes_residual": 0.00377256707279372,
+        "outer_boundary_tangent_Linf": 7.401486830834376e-13,
+        "predicted_Euler_Green_by_component": {
+          "BF_bulk_minus": -0.5287188804585661,
+          "BF_bulk_plus": 10.593907262452454,
+          "EH_bulk_minus": -68.66078516985081,
+          "EH_bulk_plus": -25.31543821681042,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.067263710473085,
+          "Omega_kinetic_bulk_plus": -57.7077139587414,
+          "Omega_potential_bulk_minus": -1005.6279572848483,
+          "Omega_potential_bulk_plus": -884.6277090701691,
+          "P_kinetic_bulk_minus": 123.51653799324798,
+          "P_kinetic_bulk_plus": 107.69435589586791,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.2917248941835,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968236465190182,
+          "full_V4_bulk_plus": 4.469818027847975,
+          "wall": 929.5802682860691
+        },
+        "radial_Gauss_order": 10,
+        "side_ledgers": {
+          "minus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -64.72632775209068,
+              "Stokes_residual_direct_EH_minus_Euler_Green": -0.0020621484156322367,
+              "combined_Brown_York_boundary": 3.293047458916653,
+              "direct_local_EH_jet_variation": -68.66284731826644,
+              "independent_GHY_variation": 7.2275048766767815,
+              "inferred_raw_EH_Green": -3.9344574177601284,
+              "predicted_EH_variation": -68.66078516985081,
+              "predicted_GHY_variation": 7.2275048766767815
+            },
+            "brown_york_combined_boundary": 3.293047458916653,
+            "extrinsic_trace": -0.0020004198270627254,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": 5.321298957028375e-12,
+                "bulk_Euler": -17.413370989048047,
+                "direct_local_jet_variation": -0.5287188804532448,
+                "interface_Green": 16.88465210858948,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.7241988822920293
+              },
+              "EH": {
+                "bulk_Euler": -64.72632775209068,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.7824682338908244
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": 3.4094648597715604e-05,
+                "bulk_Euler": -59.36458896888812,
+                "direct_local_jet_variation": -52.06722961582449,
+                "interface_Green": 7.297325258415034,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.5122948645435924
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -1005.6279572848483,
+                "direct_local_jet_variation": -1005.6279572848483,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.70070647528355
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -0.0006882603011035826,
+                "bulk_Euler": 121.60775777593801,
+                "direct_local_jet_variation": 123.51584973294688,
+                "interface_Green": 1.9087802173099693,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 4.251953371904938
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": 4.968236465190182,
+                "direct_local_jet_variation": 4.968236465190182,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.058365196432884035
+              }
+            },
+            "normal_covector": [
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -1.0827802195364087
+            ]
+          },
+          "plus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -27.61594895828916,
+              "Stokes_residual_direct_EH_minus_Euler_Green": -0.00377256707279372,
+              "combined_Brown_York_boundary": -1.799759691754319,
+              "direct_local_EH_jet_variation": -25.319210783883214,
+              "independent_GHY_variation": -4.100270433233058,
+              "inferred_raw_EH_Green": 2.3005107414787394,
+              "predicted_EH_variation": -25.31543821681042,
+              "predicted_GHY_variation": -4.100270433233058
+            },
+            "brown_york_combined_boundary": -1.799759691754319,
+            "extrinsic_trace": 0.010165338040288519,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": -1.0693668173189508e-12,
+                "bulk_Euler": 22.576702405699322,
+                "direct_local_jet_variation": 10.593907262451385,
+                "interface_Green": -11.982795143246868,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.8893035704670549
+              },
+              "EH": {
+                "bulk_Euler": -27.61594895828916,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.542928191216056
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.00014261367181234164,
+                "bulk_Euler": -56.12111303953644,
+                "direct_local_jet_variation": -57.70757134506959,
+                "interface_Green": -1.5866009192049628,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.009985283732725
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -884.6277090701691,
+                "direct_local_jet_variation": -884.6277090701691,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.7006820091245025
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -0.001447775422320774,
+                "bulk_Euler": 103.93960914125437,
+                "direct_local_jet_variation": 107.6929081204456,
+                "interface_Green": 3.754746754613549,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.4904612933389987
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": 4.469818027847975,
+                "direct_local_jet_variation": 4.469818027847975,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.05791883390803002
+              }
+            },
+            "normal_covector": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.083374302821833
+            ]
+          }
+        },
+        "total_absolute_Stokes_residual": 0.007794042887212527
+      },
+      {
+        "Stokes_residual_direct_minus_Euler_Green": {
+          "BF_bulk_minus": 2.6299740163437946e-11,
+          "BF_bulk_plus": -7.87636622590071e-12,
+          "EH_bulk_minus": -0.00019685024388138572,
+          "EH_bulk_plus": -0.0001458473627984347,
+          "GHY_minus": 0.0,
+          "GHY_plus": 0.0,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -3.243401280883518e-07,
+          "Omega_kinetic_bulk_plus": 3.0868021312357996e-06,
+          "Omega_potential_bulk_minus": 0.0,
+          "Omega_potential_bulk_plus": 0.0,
+          "P_kinetic_bulk_minus": -1.2650862927898743e-05,
+          "P_kinetic_bulk_plus": -2.1951945555542807e-05,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 0.0,
+          "S_total": -0.00037453793470376695,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 0.0,
+          "full_V4_bulk_plus": -8.881784197001252e-16,
+          "wall": 0.0
+        },
+        "direct_local_jet_JVP_by_component": {
+          "BF_bulk_minus": -0.5287188803989099,
+          "BF_bulk_plus": 10.593907262432364,
+          "EH_bulk_minus": -68.66069288746802,
+          "EH_bulk_plus": -25.31568258858113,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.06723412070132,
+          "Omega_kinetic_bulk_plus": -57.707637643410806,
+          "Omega_potential_bulk_minus": -1005.6278929070569,
+          "Omega_potential_bulk_plus": -884.6277034516894,
+          "P_kinetic_bulk_minus": 123.51551580688212,
+          "P_kinetic_bulk_plus": 107.69316513722467,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.293934026766,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968228478194959,
+          "full_V4_bulk_plus": 4.469806015244666,
+          "wall": 929.5802682860691
+        },
+        "maximum_absolute_component_Stokes_residual": 0.00019685024388138572,
+        "outer_boundary_tangent_Linf": 7.401486830834376e-13,
+        "predicted_Euler_Green_by_component": {
+          "BF_bulk_minus": -0.5287188804252096,
+          "BF_bulk_plus": 10.59390726244024,
+          "EH_bulk_minus": -68.66049603722414,
+          "EH_bulk_plus": -25.31553674121833,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.067233796361194,
+          "Omega_kinetic_bulk_plus": -57.70764073021294,
+          "Omega_potential_bulk_minus": -1005.6278929070569,
+          "Omega_potential_bulk_plus": -884.6277034516894,
+          "P_kinetic_bulk_minus": 123.51552845774505,
+          "P_kinetic_bulk_plus": 107.69318708917022,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.2935594888313,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968228478194959,
+          "full_V4_bulk_plus": 4.469806015244667,
+          "wall": 929.5802682860691
+        },
+        "radial_Gauss_order": 12,
+        "side_ledgers": {
+          "minus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -64.726038619464,
+              "Stokes_residual_direct_EH_minus_Euler_Green": -0.00019685024388138572,
+              "combined_Brown_York_boundary": 3.293047458916653,
+              "direct_local_EH_jet_variation": -68.66069288746802,
+              "independent_GHY_variation": 7.2275048766767815,
+              "inferred_raw_EH_Green": -3.9344574177601284,
+              "predicted_EH_variation": -68.66049603722414,
+              "predicted_GHY_variation": 7.2275048766767815
+            },
+            "brown_york_combined_boundary": 3.293047458916653,
+            "extrinsic_trace": -0.0020004198270627254,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": 2.6299740163437946e-11,
+                "bulk_Euler": -17.41337098901469,
+                "direct_local_jet_variation": -0.5287188803989099,
+                "interface_Green": 16.88465210858948,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.7136586559765647
+              },
+              "EH": {
+                "bulk_Euler": -64.726038619464,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.8588199605055566
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -3.243401280883518e-07,
+                "bulk_Euler": -59.36455905477623,
+                "direct_local_jet_variation": -52.06723412070132,
+                "interface_Green": 7.297325258415034,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.5003886200464657
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -1005.6278929070569,
+                "direct_local_jet_variation": -1005.6278929070569,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.7007782065138537
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -1.2650862927898743e-05,
+                "bulk_Euler": 121.60674824043508,
+                "direct_local_jet_variation": 123.51551580688212,
+                "interface_Green": 1.9087802173099693,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 4.570787871962662
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": 4.968228478194959,
+                "direct_local_jet_variation": 4.968228478194959,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.05833825189437719
+              }
+            },
+            "normal_covector": [
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -1.0827802195364087
+            ]
+          },
+          "plus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -27.616047482697073,
+              "Stokes_residual_direct_EH_minus_Euler_Green": -0.0001458473627984347,
+              "combined_Brown_York_boundary": -1.799759691754319,
+              "direct_local_EH_jet_variation": -25.31568258858113,
+              "independent_GHY_variation": -4.100270433233058,
+              "inferred_raw_EH_Green": 2.3005107414787394,
+              "predicted_EH_variation": -25.31553674121833,
+              "predicted_GHY_variation": -4.100270433233058
+            },
+            "brown_york_combined_boundary": -1.799759691754319,
+            "extrinsic_trace": 0.010165338040288519,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": -7.87636622590071e-12,
+                "bulk_Euler": 22.576702405687108,
+                "direct_local_jet_variation": 10.593907262432364,
+                "interface_Green": -11.982795143246868,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.8628911915201005
+              },
+              "EH": {
+                "bulk_Euler": -27.616047482697073,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.612648265402821
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": 3.0868021312357996e-06,
+                "bulk_Euler": -56.121039811007975,
+                "direct_local_jet_variation": -57.707637643410806,
+                "interface_Green": -1.5866009192049628,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.0112043922491702
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -884.6277034516894,
+                "direct_local_jet_variation": -884.6277034516894,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.700795201727164
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -2.1951945555542807e-05,
+                "bulk_Euler": 103.93844033455667,
+                "direct_local_jet_variation": 107.69316513722467,
+                "interface_Green": 3.754746754613549,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.565550500975495
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": -8.881784197001252e-16,
+                "bulk_Euler": 4.469806015244667,
+                "direct_local_jet_variation": 4.469806015244666,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.05799687427749064
+              }
+            },
+            "normal_covector": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.083374302821833
+            ]
+          }
+        },
+        "total_absolute_Stokes_residual": 0.00037453793470376695
+      },
+      {
+        "Stokes_residual_direct_minus_Euler_Green": {
+          "BF_bulk_minus": -9.735878769845385e-12,
+          "BF_bulk_plus": 2.2145840716802923e-11,
+          "EH_bulk_minus": -2.6666475605452433e-07,
+          "EH_bulk_plus": 1.1285607115496532e-08,
+          "GHY_minus": 0.0,
+          "GHY_plus": 0.0,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -3.688995775519288e-10,
+          "Omega_kinetic_bulk_plus": -1.106812419493508e-10,
+          "Omega_potential_bulk_minus": 0.0,
+          "Omega_potential_bulk_plus": 0.0,
+          "P_kinetic_bulk_minus": 2.845567337317334e-09,
+          "P_kinetic_bulk_plus": 8.835272069518396e-09,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 0.0,
+          "S_total": -2.441654487483902e-07,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 0.0,
+          "full_V4_bulk_plus": 0.0,
+          "wall": 0.0
+        },
+        "direct_local_jet_JVP_by_component": {
+          "BF_bulk_minus": -0.5287188804554163,
+          "BF_bulk_plus": 10.5939072624318,
+          "EH_bulk_minus": -68.66047605764214,
+          "EH_bulk_plus": -25.315538128575113,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.06723406891707,
+          "Omega_kinetic_bulk_plus": -57.707638237339665,
+          "Omega_potential_bulk_minus": -1005.6278902806848,
+          "Omega_potential_bulk_plus": -884.6277029091585,
+          "P_kinetic_bulk_minus": 123.51551057223413,
+          "P_kinetic_bulk_plus": 107.69317279769534,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.2935670676862,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.96822903401285,
+          "full_V4_bulk_plus": 4.46980607615069,
+          "wall": 929.5802682860691
+        },
+        "maximum_absolute_component_Stokes_residual": 2.6666475605452433e-07,
+        "outer_boundary_tangent_Linf": 7.401486830834376e-13,
+        "predicted_Euler_Green_by_component": {
+          "BF_bulk_minus": -0.5287188804456804,
+          "BF_bulk_plus": 10.593907262409655,
+          "EH_bulk_minus": -68.66047579097739,
+          "EH_bulk_plus": -25.31553813986072,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.06723406854817,
+          "Omega_kinetic_bulk_plus": -57.707638237228984,
+          "Omega_potential_bulk_minus": -1005.6278902806848,
+          "Omega_potential_bulk_plus": -884.6277029091585,
+          "P_kinetic_bulk_minus": 123.51551056938857,
+          "P_kinetic_bulk_plus": 107.69317278886007,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.2935668235208,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.96822903401285,
+          "full_V4_bulk_plus": 4.46980607615069,
+          "wall": 929.5802682860691
+        },
+        "radial_Gauss_order": 16,
+        "side_ledgers": {
+          "minus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -64.72601837321726,
+              "Stokes_residual_direct_EH_minus_Euler_Green": -2.6666475605452433e-07,
+              "combined_Brown_York_boundary": 3.293047458916653,
+              "direct_local_EH_jet_variation": -68.66047605764214,
+              "independent_GHY_variation": 7.2275048766767815,
+              "inferred_raw_EH_Green": -3.9344574177601284,
+              "predicted_EH_variation": -68.66047579097739,
+              "predicted_GHY_variation": 7.2275048766767815
+            },
+            "brown_york_combined_boundary": 3.293047458916653,
+            "extrinsic_trace": -0.0020004198270627254,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": -9.735878769845385e-12,
+                "bulk_Euler": -17.413370989035162,
+                "direct_local_jet_variation": -0.5287188804554163,
+                "interface_Green": 16.88465210858948,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.7089006232331032
+              },
+              "EH": {
+                "bulk_Euler": -64.72601837321726,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.9382215038466266
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -3.688995775519288e-10,
+                "bulk_Euler": -59.3645593269632,
+                "direct_local_jet_variation": -52.06723406891707,
+                "interface_Green": 7.297325258415034,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.5100828204367127
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -1005.6278902806848,
+                "direct_local_jet_variation": -1005.6278902806848,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.700785066136718
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": 2.845567337317334e-09,
+                "bulk_Euler": 121.6067303520786,
+                "direct_local_jet_variation": 123.51551057223413,
+                "interface_Green": 1.9087802173099693,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 4.583069898716219
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": 4.96822903401285,
+                "direct_local_jet_variation": 4.96822903401285,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.05848904764599288
+              }
+            },
+            "normal_covector": [
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -1.0827802195364087
+            ]
+          },
+          "plus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -27.616048881339463,
+              "Stokes_residual_direct_EH_minus_Euler_Green": 1.1285607115496532e-08,
+              "combined_Brown_York_boundary": -1.799759691754319,
+              "direct_local_EH_jet_variation": -25.315538128575113,
+              "independent_GHY_variation": -4.100270433233058,
+              "inferred_raw_EH_Green": 2.3005107414787394,
+              "predicted_EH_variation": -25.31553813986072,
+              "predicted_GHY_variation": -4.100270433233058
+            },
+            "brown_york_combined_boundary": -1.799759691754319,
+            "extrinsic_trace": 0.010165338040288519,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": 2.2145840716802923e-11,
+                "bulk_Euler": 22.576702405656523,
+                "direct_local_jet_variation": 10.5939072624318,
+                "interface_Green": -11.982795143246868,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.8770810556538544
+              },
+              "EH": {
+                "bulk_Euler": -27.616048881339463,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.6847083128414668
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -1.106812419493508e-10,
+                "bulk_Euler": -56.12103731802402,
+                "direct_local_jet_variation": -57.707638237339665,
+                "interface_Green": -1.5866009192049628,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.0222591043606846
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -884.6277029091585,
+                "direct_local_jet_variation": -884.6277029091585,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.7007887906946157
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": 8.835272069518396e-09,
+                "bulk_Euler": 103.93842603424652,
+                "direct_local_jet_variation": 107.69317279769534,
+                "interface_Green": 3.754746754613549,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.5970366660594695
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": 4.46980607615069,
+                "direct_local_jet_variation": 4.46980607615069,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.05807317449694542
+              }
+            },
+            "normal_covector": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.083374302821833
+            ]
+          }
+        },
+        "total_absolute_Stokes_residual": 2.441654487483902e-07
+      },
+      {
+        "Stokes_residual_direct_minus_Euler_Green": {
+          "BF_bulk_minus": 1.0040746012407453e-11,
+          "BF_bulk_plus": -1.2011724948024494e-11,
+          "EH_bulk_minus": -8.051159738897695e-10,
+          "EH_bulk_plus": 1.5085532822922687e-10,
+          "GHY_minus": 0.0,
+          "GHY_plus": 0.0,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -3.190265829289274e-10,
+          "Omega_kinetic_bulk_plus": -3.126601200165169e-10,
+          "Omega_potential_bulk_minus": 0.0,
+          "Omega_potential_bulk_plus": 0.0,
+          "P_kinetic_bulk_minus": -6.377831596182659e-10,
+          "P_kinetic_bulk_plus": -1.2235545909788925e-10,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 0.0,
+          "S_total": -2.0480683815549128e-09,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 0.0,
+          "full_V4_bulk_plus": 0.0,
+          "wall": 0.0
+        },
+        "direct_local_jet_JVP_by_component": {
+          "BF_bulk_minus": -0.5287188804162809,
+          "BF_bulk_plus": 10.593907262412568,
+          "EH_bulk_minus": -68.66047576428129,
+          "EH_bulk_plus": -25.315538141537935,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.06723406888937,
+          "Omega_kinetic_bulk_plus": -57.70763823644613,
+          "Omega_potential_bulk_minus": -1005.6278902790351,
+          "Omega_potential_bulk_plus": -884.6277029048365,
+          "P_kinetic_bulk_minus": 123.5155105694954,
+          "P_kinetic_bulk_plus": 107.69317280499426,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.2935667785526,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968229032157207,
+          "full_V4_bulk_plus": 4.469806075268888,
+          "wall": 929.5802682860691
+        },
+        "maximum_absolute_component_Stokes_residual": 8.051159738897695e-10,
+        "outer_boundary_tangent_Linf": 7.401486830834376e-13,
+        "predicted_Euler_Green_by_component": {
+          "BF_bulk_minus": -0.5287188804263216,
+          "BF_bulk_plus": 10.59390726242458,
+          "EH_bulk_minus": -68.66047576347617,
+          "EH_bulk_plus": -25.31553814168879,
+          "GHY_minus": 7.2275048766767815,
+          "GHY_plus": -4.100270433233058,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -52.06723406857034,
+          "Omega_kinetic_bulk_plus": -57.70763823613347,
+          "Omega_potential_bulk_minus": -1005.6278902790351,
+          "Omega_potential_bulk_plus": -884.6277029048365,
+          "P_kinetic_bulk_minus": 123.51551057013319,
+          "P_kinetic_bulk_plus": 107.69317280511662,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302304884,
+          "S_total": -799.2935667765046,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.968229032157207,
+          "full_V4_bulk_plus": 4.469806075268888,
+          "wall": 929.5802682860691
+        },
+        "radial_Gauss_order": 20,
+        "side_ledgers": {
+          "minus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -64.72601834571604,
+              "Stokes_residual_direct_EH_minus_Euler_Green": -8.051159738897695e-10,
+              "combined_Brown_York_boundary": 3.293047458916653,
+              "direct_local_EH_jet_variation": -68.66047576428129,
+              "independent_GHY_variation": 7.2275048766767815,
+              "inferred_raw_EH_Green": -3.9344574177601284,
+              "predicted_EH_variation": -68.66047576347617,
+              "predicted_GHY_variation": 7.2275048766767815
+            },
+            "brown_york_combined_boundary": 3.293047458916653,
+            "extrinsic_trace": -0.0020004198270627254,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": 1.0040746012407453e-11,
+                "bulk_Euler": -17.413370989015803,
+                "direct_local_jet_variation": -0.5287188804162809,
+                "interface_Green": 16.88465210858948,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.7175507567647643
+              },
+              "EH": {
+                "bulk_Euler": -64.72601834571604,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.9763836047013452
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -3.190265829289274e-10,
+                "bulk_Euler": -59.36455932698538,
+                "direct_local_jet_variation": -52.06723406888937,
+                "interface_Green": 7.297325258415034,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.5132724301709289
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -1005.6278902790351,
+                "direct_local_jet_variation": -1005.6278902790351,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.7007736338551327
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -6.377831596182659e-10,
+                "bulk_Euler": 121.60673035282322,
+                "direct_local_jet_variation": 123.5155105694954,
+                "interface_Green": 1.9087802173099693,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 4.5773636050206195
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": 4.968229032157207,
+                "direct_local_jet_variation": 4.968229032157207,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.0584225650711065
+              }
+            },
+            "normal_covector": [
+              -0.0,
+              -0.0,
+              -0.0,
+              -0.0,
+              -1.0827802195364087
+            ]
+          },
+          "plus": {
+            "EH_GHY_split": {
+              "EH_bulk_Euler": -27.61604888316753,
+              "Stokes_residual_direct_EH_minus_Euler_Green": 1.5085532822922687e-10,
+              "combined_Brown_York_boundary": -1.799759691754319,
+              "direct_local_EH_jet_variation": -25.315538141537935,
+              "independent_GHY_variation": -4.100270433233058,
+              "inferred_raw_EH_Green": 2.3005107414787394,
+              "predicted_EH_variation": -25.31553814168879,
+              "predicted_GHY_variation": -4.100270433233058
+            },
+            "brown_york_combined_boundary": -1.799759691754319,
+            "extrinsic_trace": 0.010165338040288519,
+            "interface_measure": 1.9159572777183802,
+            "ledger": {
+              "BF": {
+                "Stokes_residual_direct_minus_Euler_Green": -1.2011724948024494e-11,
+                "bulk_Euler": 22.576702405671448,
+                "direct_local_jet_variation": 10.593907262412568,
+                "interface_Green": -11.982795143246868,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.8686479970878636
+              },
+              "EH": {
+                "bulk_Euler": -27.61604888316753,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.7189488466215965
+              },
+              "Omega_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -3.126601200165169e-10,
+                "bulk_Euler": -56.12103731692851,
+                "direct_local_jet_variation": -57.70763823644613,
+                "interface_Green": -1.5866009192049628,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 1.026821085424148
+              },
+              "Omega_potential": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": -884.6277029048365,
+                "direct_local_jet_variation": -884.6277029048365,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.7007680579805617
+              },
+              "P_kinetic": {
+                "Stokes_residual_direct_minus_Euler_Green": -1.2235545909788925e-10,
+                "bulk_Euler": 103.93842605050307,
+                "direct_local_jet_variation": 107.69317280499426,
+                "interface_Green": 3.754746754613549,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 3.6076151203182856
+              },
+              "full_V4": {
+                "Stokes_residual_direct_minus_Euler_Green": 0.0,
+                "bulk_Euler": 4.469806075268888,
+                "direct_local_jet_variation": 4.469806075268888,
+                "interface_Green": 0.0,
+                "outer_Green": 0.0,
+                "pointwise_Euler_activity_Linf": 0.05810860454790659
+              }
+            },
+            "normal_covector": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.083374302821833
+            ]
+          }
+        },
+        "total_absolute_Stokes_residual": 2.0480683815549128e-09
+      }
+    ],
+    "side_ledgers": {
+      "minus": {
+        "EH_GHY_split": {
+          "EH_bulk_Euler": -64.72632775209068,
+          "Stokes_residual_direct_EH_minus_Euler_Green": -0.0020621484156322367,
+          "combined_Brown_York_boundary": 3.293047458916653,
+          "direct_local_EH_jet_variation": -68.66284731826644,
+          "independent_GHY_variation": 7.2275048766767815,
+          "inferred_raw_EH_Green": -3.9344574177601284,
+          "predicted_EH_variation": -68.66078516985081,
+          "predicted_GHY_variation": 7.2275048766767815
+        },
+        "brown_york_combined_boundary": 3.293047458916653,
+        "extrinsic_trace": -0.0020004198270627254,
+        "interface_measure": 1.9159572777183802,
+        "ledger": {
+          "BF": {
+            "Stokes_residual_direct_minus_Euler_Green": 5.321298957028375e-12,
+            "bulk_Euler": -17.413370989048047,
+            "direct_local_jet_variation": -0.5287188804532448,
+            "interface_Green": 16.88465210858948,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 1.7241988822920293
+          },
+          "EH": {
+            "bulk_Euler": -64.72632775209068,
+            "interface_Green": 0.0,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 1.7824682338908244
+          },
+          "Omega_kinetic": {
+            "Stokes_residual_direct_minus_Euler_Green": 3.4094648597715604e-05,
+            "bulk_Euler": -59.36458896888812,
+            "direct_local_jet_variation": -52.06722961582449,
+            "interface_Green": 7.297325258415034,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 0.5122948645435924
+          },
+          "Omega_potential": {
+            "Stokes_residual_direct_minus_Euler_Green": 0.0,
+            "bulk_Euler": -1005.6279572848483,
+            "direct_local_jet_variation": -1005.6279572848483,
+            "interface_Green": 0.0,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 3.70070647528355
+          },
+          "P_kinetic": {
+            "Stokes_residual_direct_minus_Euler_Green": -0.0006882603011035826,
+            "bulk_Euler": 121.60775777593801,
+            "direct_local_jet_variation": 123.51584973294688,
+            "interface_Green": 1.9087802173099693,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 4.251953371904938
+          },
+          "full_V4": {
+            "Stokes_residual_direct_minus_Euler_Green": 0.0,
+            "bulk_Euler": 4.968236465190182,
+            "direct_local_jet_variation": 4.968236465190182,
+            "interface_Green": 0.0,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 0.058365196432884035
+          }
+        },
+        "normal_covector": [
+          -0.0,
+          -0.0,
+          -0.0,
+          -0.0,
+          -1.0827802195364087
+        ]
+      },
+      "plus": {
+        "EH_GHY_split": {
+          "EH_bulk_Euler": -27.61594895828916,
+          "Stokes_residual_direct_EH_minus_Euler_Green": -0.00377256707279372,
+          "combined_Brown_York_boundary": -1.799759691754319,
+          "direct_local_EH_jet_variation": -25.319210783883214,
+          "independent_GHY_variation": -4.100270433233058,
+          "inferred_raw_EH_Green": 2.3005107414787394,
+          "predicted_EH_variation": -25.31543821681042,
+          "predicted_GHY_variation": -4.100270433233058
+        },
+        "brown_york_combined_boundary": -1.799759691754319,
+        "extrinsic_trace": 0.010165338040288519,
+        "interface_measure": 1.9159572777183802,
+        "ledger": {
+          "BF": {
+            "Stokes_residual_direct_minus_Euler_Green": -1.0693668173189508e-12,
+            "bulk_Euler": 22.576702405699322,
+            "direct_local_jet_variation": 10.593907262451385,
+            "interface_Green": -11.982795143246868,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 1.8893035704670549
+          },
+          "EH": {
+            "bulk_Euler": -27.61594895828916,
+            "interface_Green": 0.0,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 1.542928191216056
+          },
+          "Omega_kinetic": {
+            "Stokes_residual_direct_minus_Euler_Green": 0.00014261367181234164,
+            "bulk_Euler": -56.12111303953644,
+            "direct_local_jet_variation": -57.70757134506959,
+            "interface_Green": -1.5866009192049628,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 1.009985283732725
+          },
+          "Omega_potential": {
+            "Stokes_residual_direct_minus_Euler_Green": 0.0,
+            "bulk_Euler": -884.6277090701691,
+            "direct_local_jet_variation": -884.6277090701691,
+            "interface_Green": 0.0,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 3.7006820091245025
+          },
+          "P_kinetic": {
+            "Stokes_residual_direct_minus_Euler_Green": -0.001447775422320774,
+            "bulk_Euler": 103.93960914125437,
+            "direct_local_jet_variation": 107.6929081204456,
+            "interface_Green": 3.754746754613549,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 3.4904612933389987
+          },
+          "full_V4": {
+            "Stokes_residual_direct_minus_Euler_Green": 0.0,
+            "bulk_Euler": 4.469818027847975,
+            "direct_local_jet_variation": 4.469818027847975,
+            "interface_Green": 0.0,
+            "outer_Green": 0.0,
+            "pointwise_Euler_activity_Linf": 0.05791883390803002
+          }
+        },
+        "normal_covector": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.083374302821833
+        ]
+      }
+    }
+  },
+  "source_pins": {
+    "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a"
+  }
+}

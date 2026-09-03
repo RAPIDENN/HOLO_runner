@@ -1,0 +1,1960 @@
+{
+  "classification": "theory_only;additive_diagnostics;primary_candidate_rejected;C1_N1_fail_closed;B4_B5_not_opened",
+  "evidence_boundary": "The v5.2 charter and upstream bytes are pinned. A selected regulated transcription has nonzero non-Abelian BF, five covariant P components, matching Dual/plain-FD JVPs and selected cross derivatives. The complete SO3 orbit is obstructed by the implemented Robin identification; normal and matter-shift results lack an independent same-action variational route; mutation results are activity/accounting diagnostics only. Primary-candidate, C1/N1 and freeze claims remain false.",
+  "excluded_inputs": {
+    "HOLO_TRANSDUCTOR": "not an upstream: different calibrated scalar system without Omega/SO3/BF/GHY/interface/Robin v5.2",
+    "legacy_modes_or_CSVs": "not consumed under LOCK-1 theory-only boundary",
+    "old_v5_6_receipt": "not imported, modified, or rehabilitated"
+  },
+  "limits": [
+    "No ordinary y or z dependence; only covariant P_y/P_z activity is sampled.",
+    "No independent runtime derivation of every bulk Eulerian and the complete Green pairing.",
+    "The internal SO3 bulk result covers only P/V4/BF algebra; raw Robin T2/T3 variations obstruct a complete same-action orbit.",
+    "The intrinsic torus divergence is a diagnostic, not the full bulk/moving/interface diffeomorphism Ward.",
+    "The corrected n^M P_M ADM decomposition is a same-formula local sanity, not an independent matter-shift or normal-variation certificate.",
+    "Route separation is a static source diagnostic, and component mutation witnesses are activity/accounting only.",
+    "No independent red-team generator exists yet for v5.6.2.",
+    "No convergence sequence, BV-BFV edge complex, large gauge sector, arbitrary topology, B4 or B5 is opened."
+  ],
+  "mathematical_contract": {
+    "BF_top_form": "<B_yzq,F_tx>-<B_xyz,F_tq>+<B_tyz,F_xq>; F contains nonzero commutators",
+    "Euler_Green_route": "not supplied by Dual/FD; fail-closed",
+    "GHY_orientation": "outward sign sigma_out=-epsilon",
+    "internal_gauge_and_diffeomorphism_Wards_kept_separate": true,
+    "mutation_activity_is_not_mutation_adequacy": true,
+    "one_action": "S_v5_2=S_bulk_gauged+S_GHY+S_wall0+S_fol_lower+S_R_intrinsic+S_BF",
+    "pullback": "q_epsilon=rho*epsilon+chi(rho)Y(t,x); scalar densities use |dq/drho|=1+epsilon chi'Y",
+    "route_separation_is_not_independence": true
+  },
+  "open_obligations_enumerated_before_promotion": {
+    "bulk_complete": {
+      "closed": false,
+      "reason": "selected sector formulas are present, but ordinary y,z dependence, explicit yz volume, radial-cutoff completion and a full bulk Euler derivation are absent"
+    },
+    "convergence": {
+      "closed": false,
+      "reason": "fixed finite Fourier/Gauss grid only; no h/p refinement or continuum theorem"
+    },
+    "moving_embedding": {
+      "closed": false,
+      "reason": "one nontrivial graph tangent and its collar are executed; arbitrary embedding and every normal Green slot are not proved"
+    },
+    "mutation_adequacy": {
+      "closed": false,
+      "reason": "component omit/flip values are activity accounting against the nominal assembly, not kills against an independent oracle"
+    },
+    "normal_and_matter_shift": {
+      "closed": false,
+      "reason": "normal slots and local ADM algebra are visible, but no independent variation of the same complete action is supplied"
+    },
+    "off_shell_continuous_extension": {
+      "closed": false,
+      "reason": "off-shell selected probes only; no dense variation class, BV-BFV interface completion, or large gauges"
+    },
+    "same_action_internal_SO3": {
+      "closed": false,
+      "reason": "bulk P/V4/BF orbit algebra closes, but the implemented Robin term has a nonzero T2/T3 orbit obstruction and no compensating frame map"
+    }
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_full_moving_c1_n1_v5_6_2_gate.py",
+      "sha256": "b9b0baf2c34620f5300ebf79084f9f8abf3a5f5b6374672c71c6add75222f372"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_full_moving_c1_n1_v5_6_2_gate.py",
+      "present_at_generation": true,
+      "sha256": "bc0ba559975e5bdd975850e26daa42251c90cc46330d1f9a77941d7249fe3ce7"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-full-moving-c1-n1-v5-6-2-gate.v1",
+  "scientific": {
+    "checks": {
+      "BF_components_and_nonabelian_commutators_are_active": true,
+      "all_five_covariant_P_slots_active_but_yz_coordinate_reduction_declared": true,
+      "all_upstream_bytes_and_literal_action_pinned": true,
+      "complete_normal_and_matter_shift_variational_route": false,
+      "complete_same_action_internal_SO3_orbit": false,
+      "component_action_JVP_matches_separate_plain_FD": true,
+      "component_mutation_activity_accounting_is_nonzero": true,
+      "independent_primary_mutant_suite": false,
+      "intrinsic_density_divergence_diagnostic_only": true,
+      "local_matter_shift_algebra_uses_correct_normal": true,
+      "normal_slot_activity_accounting_is_nonzero": true,
+      "one_timelike_curved_moving_family": true,
+      "plain_and_dual_codepaths_are_symbolically_separate": true,
+      "selected_bulk_P_V4_BF_orbit_algebra_sanity": true,
+      "selected_cross_derivatives_match_separate_four_corner_FD": true
+    },
+    "coefficients": {
+      "B4_bar": 0.8,
+      "M4_bulk_squared_selected_one_Omega_wall_value": 1.107013790800849,
+      "M5_cubed": 1.0,
+      "Robin_kappa_hat": 1.0,
+      "Robin_kappa_in_Mb_units": 0.5,
+      "Robin_y": 1.7320508075688772,
+      "Robin_y_squared": 3.0,
+      "brane_Mb_squared": 2.0,
+      "brane_beta": 2.0,
+      "compensator_metric_G": 1.2,
+      "eta": 3.107013790800849,
+      "k_BF_trace_equivalent": -0.5,
+      "k_infinity": 1.0,
+      "kappa_BF_inner_product": 1.0,
+      "lambda_K": -0.5535068954004245,
+      "material_Z5_per_side": 1.0,
+      "material_mass_M": 1.0,
+      "xi": 1.0
+    },
+    "component_JVP_FD": {
+      "central_step": 1e-05,
+      "maximum_component_JVP_error": 1.61994417879896e-10,
+      "maximum_component_value_route_error": 1.3322676295501878e-15,
+      "minimum_absolute_coupled_component_JVP": 0.001147948542389641,
+      "parameter_order": [
+        "moving_embedding",
+        "ambient_metric",
+        "Omega",
+        "associated_matter",
+        "SO3_connection",
+        "BF_three_form"
+      ],
+      "raw_rows": {
+        "basis_BF_three_form": {
+          "components": {
+            "BF_bulk_minus": {
+              "absolute_JVP_error": 1.796965354294855e-12,
+              "absolute_value_route_error": 1.3877787807814457e-17,
+              "dual_action_value": 0.020116505575983823,
+              "independent_central_FD": 0.05293817256658145,
+              "plain_numpy_action_value": 0.020116505575983837,
+              "runtime_dual_JVP": 0.05293817256837841
+            },
+            "BF_bulk_plus": {
+              "absolute_JVP_error": 1.7506230839958725e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.002830356630683856,
+              "independent_central_FD": 0.007448306921101557,
+              "plain_numpy_action_value": 0.002830356630683856,
+              "runtime_dual_JVP": 0.00744830692285218
+            },
+            "EH_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.6045363276420552,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 3.6045363276420552,
+              "runtime_dual_JVP": 0.0
+            },
+            "EH_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 6.938893903907228e-17,
+              "dual_action_value": 0.10527601466473445,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.10527601466473452,
+              "runtime_dual_JVP": 0.0
+            },
+            "GHY_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -1.705268055789633,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -1.705268055789633,
+              "runtime_dual_JVP": 0.0
+            },
+            "GHY_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 1.705268055789633,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 1.705268055789633,
+              "runtime_dual_JVP": 0.0
+            },
+            "K_foliation": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.009758348134811504,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.009758348134811504,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.004177052527624713,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.004177052527624713,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 8.673617379884035e-19,
+              "dual_action_value": 0.002696475801822367,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.002696475801822366,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 5.64431733725956,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 5.64431733725956,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.2973673481308987,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 3.2973673481308987,
+              "runtime_dual_JVP": 0.0
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.02825216831807434,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.02825216831807434,
+              "runtime_dual_JVP": 0.0
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.020078943660351664,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.020078943660351664,
+              "runtime_dual_JVP": 0.0
+            },
+            "R": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.00998453589683111,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.00998453589683111,
+              "runtime_dual_JVP": 0.0
+            },
+            "R_squared": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007276199408988976,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.007276199408988976,
+              "runtime_dual_JVP": 0.0
+            },
+            "Robin": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.10465501640462135,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.10465501640462135,
+              "runtime_dual_JVP": 0.0
+            },
+            "S_total": {
+              "absolute_JVP_error": 7.75429026544927e-12,
+              "absolute_value_route_error": 1.3322676295501878e-15,
+              "dual_action_value": 2.916123511833277,
+              "independent_central_FD": 0.0603864794834763,
+              "plain_numpy_action_value": 2.9161235118332756,
+              "runtime_dual_JVP": 0.06038647949123059
+            },
+            "a_squared": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.006318870749727131,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.006318870749727131,
+              "runtime_dual_JVP": 0.0
+            },
+            "full_V4_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007742430289798528,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.007742430289798528,
+              "runtime_dual_JVP": 0.0
+            },
+            "full_V4_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.0054411161949271345,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.0054411161949271345,
+              "runtime_dual_JVP": 0.0
+            },
+            "wall": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -9.617809786904695,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -9.617809786904695,
+              "runtime_dual_JVP": 0.0
+            }
+          },
+          "direction": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "basis_Omega": {
+          "components": {
+            "BF_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 1.3877787807814457e-17,
+              "dual_action_value": 0.020116505575983823,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.020116505575983837,
+              "runtime_dual_JVP": 0.0
+            },
+            "BF_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.002830356630683856,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.002830356630683856,
+              "runtime_dual_JVP": 0.0
+            },
+            "EH_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.6045363276420552,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 3.6045363276420552,
+              "runtime_dual_JVP": 0.0
+            },
+            "EH_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 6.938893903907228e-17,
+              "dual_action_value": 0.10527601466473445,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.10527601466473452,
+              "runtime_dual_JVP": 0.0
+            },
+            "GHY_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -1.705268055789633,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -1.705268055789633,
+              "runtime_dual_JVP": 0.0
+            },
+            "GHY_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 1.705268055789633,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 1.705268055789633,
+              "runtime_dual_JVP": 0.0
+            },
+            "K_foliation": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.009758348134811504,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.009758348134811504,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_JVP_error": 1.8602133722289693e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.004177052527624713,
+              "independent_central_FD": 0.025406077888787817,
+              "plain_numpy_action_value": 0.004177052527624713,
+              "runtime_dual_JVP": 0.025406077888601795
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_JVP_error": 6.858055789926709e-14,
+              "absolute_value_route_error": 8.673617379884035e-19,
+              "dual_action_value": 0.002696475801822367,
+              "independent_central_FD": 0.016354170037776936,
+              "plain_numpy_action_value": 0.002696475801822366,
+              "runtime_dual_JVP": 0.016354170037708355
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_JVP_error": 3.8011718772601455e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 5.64431733725956,
+              "independent_central_FD": -0.07079465911274951,
+              "plain_numpy_action_value": 5.64431733725956,
+              "runtime_dual_JVP": -0.07079465915076123
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_JVP_error": 5.633821534289929e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.2973673481308987,
+              "independent_central_FD": 0.012844020802482701,
+              "plain_numpy_action_value": 3.2973673481308987,
+              "runtime_dual_JVP": 0.01284402079684888
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_JVP_error": 7.75928800378356e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.02825216831807434,
+              "independent_central_FD": 0.0026594485225128746,
+              "plain_numpy_action_value": -0.02825216831807434,
+              "runtime_dual_JVP": 0.0026594485225904674
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_JVP_error": 1.3341546834313989e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.020078943660351664,
+              "independent_central_FD": 0.0004809808953898375,
+              "plain_numpy_action_value": -0.020078943660351664,
+              "runtime_dual_JVP": 0.00048098089525642205
+            },
+            "R": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.00998453589683111,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.00998453589683111,
+              "runtime_dual_JVP": 0.0
+            },
+            "R_squared": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007276199408988976,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.007276199408988976,
+              "runtime_dual_JVP": 0.0
+            },
+            "Robin": {
+              "absolute_JVP_error": 1.2916247932315272e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.10465501640462135,
+              "independent_central_FD": -0.009064362416211225,
+              "plain_numpy_action_value": -0.10465501640462135,
+              "runtime_dual_JVP": -0.0090643624149196
+            },
+            "S_total": {
+              "absolute_JVP_error": 5.7697808336643064e-11,
+              "absolute_value_route_error": 1.3322676295501878e-15,
+              "dual_action_value": 2.916123511833277,
+              "independent_central_FD": -0.024813313803662137,
+              "plain_numpy_action_value": 2.9161235118332756,
+              "runtime_dual_JVP": -0.024813313861359945
+            },
+            "a_squared": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.006318870749727131,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.006318870749727131,
+              "runtime_dual_JVP": 0.0
+            },
+            "full_V4_bulk_minus": {
+              "absolute_JVP_error": 3.530877847046643e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007742430289798528,
+              "independent_central_FD": -0.0008978498413064056,
+              "plain_numpy_action_value": -0.007742430289798528,
+              "runtime_dual_JVP": -0.0008978498412710968
+            },
+            "full_V4_bulk_plus": {
+              "absolute_JVP_error": 5.5250292188557815e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.0054411161949271345,
+              "independent_central_FD": -0.0009673952297648696,
+              "plain_numpy_action_value": -0.0054411161949271345,
+              "runtime_dual_JVP": -0.0009673952297096193
+            },
+            "wall": {
+              "absolute_JVP_error": 2.6269618750261736e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -9.617809786904695,
+              "independent_central_FD": -0.0008337453394346993,
+              "plain_numpy_action_value": -9.617809786904695,
+              "runtime_dual_JVP": -0.0008337453657043181
+            }
+          },
+          "direction": [
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "basis_SO3_connection": {
+          "components": {
+            "BF_bulk_minus": {
+              "absolute_JVP_error": 1.7517515216169954e-12,
+              "absolute_value_route_error": 1.3877787807814457e-17,
+              "dual_action_value": 0.020116505575983823,
+              "independent_central_FD": 0.05648657581611149,
+              "plain_numpy_action_value": 0.020116505575983837,
+              "runtime_dual_JVP": 0.05648657581435974
+            },
+            "BF_bulk_plus": {
+              "absolute_JVP_error": 1.8253627775965953e-15,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.002830356630683856,
+              "independent_central_FD": -0.0038988744821425235,
+              "plain_numpy_action_value": 0.002830356630683856,
+              "runtime_dual_JVP": -0.003898874482140698
+            },
+            "EH_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.6045363276420552,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 3.6045363276420552,
+              "runtime_dual_JVP": 0.0
+            },
+            "EH_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 6.938893903907228e-17,
+              "dual_action_value": 0.10527601466473445,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.10527601466473452,
+              "runtime_dual_JVP": 0.0
+            },
+            "GHY_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -1.705268055789633,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -1.705268055789633,
+              "runtime_dual_JVP": 0.0
+            },
+            "GHY_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 1.705268055789633,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 1.705268055789633,
+              "runtime_dual_JVP": 0.0
+            },
+            "K_foliation": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.009758348134811504,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.009758348134811504,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.004177052527624713,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.004177052527624713,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 8.673617379884035e-19,
+              "dual_action_value": 0.002696475801822367,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.002696475801822366,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 5.64431733725956,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 5.64431733725956,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.2973673481308987,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 3.2973673481308987,
+              "runtime_dual_JVP": 0.0
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_JVP_error": 1.5857974655641982e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.02825216831807434,
+              "independent_central_FD": -0.007516365869639218,
+              "plain_numpy_action_value": -0.02825216831807434,
+              "runtime_dual_JVP": -0.00751636586962336
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_JVP_error": 2.587634967410324e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.020078943660351664,
+              "independent_central_FD": -0.006304919945854247,
+              "plain_numpy_action_value": -0.020078943660351664,
+              "runtime_dual_JVP": -0.006304919946113011
+            },
+            "R": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.00998453589683111,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.00998453589683111,
+              "runtime_dual_JVP": 0.0
+            },
+            "R_squared": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007276199408988976,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.007276199408988976,
+              "runtime_dual_JVP": 0.0
+            },
+            "Robin": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.10465501640462135,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.10465501640462135,
+              "runtime_dual_JVP": 0.0
+            },
+            "S_total": {
+              "absolute_JVP_error": 5.657439794415353e-12,
+              "absolute_value_route_error": 1.3322676295501878e-15,
+              "dual_action_value": 2.916123511833277,
+              "independent_central_FD": 0.03876641552214011,
+              "plain_numpy_action_value": 2.9161235118332756,
+              "runtime_dual_JVP": 0.03876641551648267
+            },
+            "a_squared": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.006318870749727131,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.006318870749727131,
+              "runtime_dual_JVP": 0.0
+            },
+            "full_V4_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007742430289798528,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.007742430289798528,
+              "runtime_dual_JVP": 0.0
+            },
+            "full_V4_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.0054411161949271345,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.0054411161949271345,
+              "runtime_dual_JVP": 0.0
+            },
+            "wall": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -9.617809786904695,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -9.617809786904695,
+              "runtime_dual_JVP": 0.0
+            }
+          },
+          "direction": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "basis_ambient_metric": {
+          "components": {
+            "BF_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 1.3877787807814457e-17,
+              "dual_action_value": 0.020116505575983823,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.020116505575983837,
+              "runtime_dual_JVP": 0.0
+            },
+            "BF_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.002830356630683856,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.002830356630683856,
+              "runtime_dual_JVP": 0.0
+            },
+            "EH_bulk_minus": {
+              "absolute_JVP_error": 7.218303732514642e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.6045363276420552,
+              "independent_central_FD": -0.8915083701488412,
+              "plain_numpy_action_value": 3.6045363276420552,
+              "runtime_dual_JVP": -0.8915083702210242
+            },
+            "EH_bulk_plus": {
+              "absolute_JVP_error": 8.371456305944491e-12,
+              "absolute_value_route_error": 6.938893903907228e-17,
+              "dual_action_value": 0.10527601466473445,
+              "independent_central_FD": -0.07483845015157642,
+              "plain_numpy_action_value": 0.10527601466473452,
+              "runtime_dual_JVP": -0.07483845015994788
+            },
+            "GHY_minus": {
+              "absolute_JVP_error": 9.899303599070208e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -1.705268055789633,
+              "independent_central_FD": 0.4028464915872831,
+              "plain_numpy_action_value": -1.705268055789633,
+              "runtime_dual_JVP": 0.4028464915773838
+            },
+            "GHY_plus": {
+              "absolute_JVP_error": 9.899303599070208e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 1.705268055789633,
+              "independent_central_FD": -0.4028464915872831,
+              "plain_numpy_action_value": 1.705268055789633,
+              "runtime_dual_JVP": -0.4028464915773838
+            },
+            "K_foliation": {
+              "absolute_JVP_error": 5.988601541745409e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.009758348134811504,
+              "independent_central_FD": 0.0006520064611478804,
+              "plain_numpy_action_value": 0.009758348134811504,
+              "runtime_dual_JVP": 0.0006520064612077664
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_JVP_error": 3.8968719744125746e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.004177052527624713,
+              "independent_central_FD": -0.0008435011045540562,
+              "plain_numpy_action_value": 0.004177052527624713,
+              "runtime_dual_JVP": -0.0008435011045150875
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_JVP_error": 1.0670392520950589e-14,
+              "absolute_value_route_error": 8.673617379884035e-19,
+              "dual_action_value": 0.002696475801822367,
+              "independent_central_FD": -0.0005950865627742455,
+              "plain_numpy_action_value": 0.002696475801822366,
+              "runtime_dual_JVP": -0.0005950865627635751
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_JVP_error": 8.40274516633599e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 5.64431733725956,
+              "independent_central_FD": -2.239966402095561,
+              "plain_numpy_action_value": 5.64431733725956,
+              "runtime_dual_JVP": -2.2399664020115337
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_JVP_error": 4.7692516602637625e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.2973673481308987,
+              "independent_central_FD": -1.4303286379524491,
+              "plain_numpy_action_value": 3.2973673481308987,
+              "runtime_dual_JVP": -1.4303286379047566
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_JVP_error": 7.693628720217838e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.02825216831807434,
+              "independent_central_FD": 0.006796290090600731,
+              "plain_numpy_action_value": -0.02825216831807434,
+              "runtime_dual_JVP": 0.006796290089831368
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_JVP_error": 1.6663840446407008e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.020078943660351664,
+              "independent_central_FD": 0.005453446303912978,
+              "plain_numpy_action_value": -0.020078943660351664,
+              "runtime_dual_JVP": 0.005453446304079616
+            },
+            "R": {
+              "absolute_JVP_error": 5.716175146067148e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.00998453589683111,
+              "independent_central_FD": 0.0005391594473831696,
+              "plain_numpy_action_value": 0.00998453589683111,
+              "runtime_dual_JVP": 0.000539159446811552
+            },
+            "R_squared": {
+              "absolute_JVP_error": 1.6914854933380852e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007276199408988976,
+              "independent_central_FD": -0.0016411398788551688,
+              "plain_numpy_action_value": -0.007276199408988976,
+              "runtime_dual_JVP": -0.001641139878838254
+            },
+            "Robin": {
+              "absolute_JVP_error": 9.453618443622247e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.10465501640462135,
+              "independent_central_FD": 0.035115354037745794,
+              "plain_numpy_action_value": -0.10465501640462135,
+              "runtime_dual_JVP": 0.03511535403680043
+            },
+            "S_total": {
+              "absolute_JVP_error": 1.1801915000830832e-10,
+              "absolute_value_route_error": 1.3322676295501878e-15,
+              "dual_action_value": 2.916123511833277,
+              "independent_central_FD": -1.2190425483948886,
+              "plain_numpy_action_value": 2.9161235118332756,
+              "runtime_dual_JVP": -1.2190425485129077
+            },
+            "a_squared": {
+              "absolute_JVP_error": 3.810829690004125e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.006318870749727131,
+              "independent_central_FD": 0.00048122312419629493,
+              "plain_numpy_action_value": 0.006318870749727131,
+              "runtime_dual_JVP": 0.00048122312415818663
+            },
+            "full_V4_bulk_minus": {
+              "absolute_JVP_error": 6.080943040775999e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007742430289798528,
+              "independent_central_FD": 0.003028170442826924,
+              "plain_numpy_action_value": -0.007742430289798528,
+              "runtime_dual_JVP": 0.0030281704427661147
+            },
+            "full_V4_bulk_plus": {
+              "absolute_JVP_error": 1.1400559316032677e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.0054411161949271345,
+              "independent_central_FD": 0.002395177043550481,
+              "plain_numpy_action_value": -0.0054411161949271345,
+              "runtime_dual_JVP": 0.0023951770434364754
+            },
+            "wall": {
+              "absolute_JVP_error": 1.4908874135244332e-10,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -9.617809786904695,
+              "independent_central_FD": 3.366218212530469,
+              "plain_numpy_action_value": -9.617809786904695,
+              "runtime_dual_JVP": 3.3662182123813804
+            }
+          },
+          "direction": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "basis_associated_matter": {
+          "components": {
+            "BF_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 1.3877787807814457e-17,
+              "dual_action_value": 0.020116505575983823,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.020116505575983837,
+              "runtime_dual_JVP": 0.0
+            },
+            "BF_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.002830356630683856,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.002830356630683856,
+              "runtime_dual_JVP": 0.0
+            },
+            "EH_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.6045363276420552,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 3.6045363276420552,
+              "runtime_dual_JVP": 0.0
+            },
+            "EH_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 6.938893903907228e-17,
+              "dual_action_value": 0.10527601466473445,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.10527601466473452,
+              "runtime_dual_JVP": 0.0
+            },
+            "GHY_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -1.705268055789633,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -1.705268055789633,
+              "runtime_dual_JVP": 0.0
+            },
+            "GHY_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 1.705268055789633,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 1.705268055789633,
+              "runtime_dual_JVP": 0.0
+            },
+            "K_foliation": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.009758348134811504,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.009758348134811504,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.004177052527624713,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.004177052527624713,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 8.673617379884035e-19,
+              "dual_action_value": 0.002696475801822367,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.002696475801822366,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 5.64431733725956,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 5.64431733725956,
+              "runtime_dual_JVP": 0.0
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.2973673481308987,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 3.2973673481308987,
+              "runtime_dual_JVP": 0.0
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_JVP_error": 1.1068923555512811e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.02825216831807434,
+              "independent_central_FD": -0.13781545521000804,
+              "plain_numpy_action_value": -0.02825216831807434,
+              "runtime_dual_JVP": -0.13781545521011873
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_JVP_error": 5.181965967437918e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.020078943660351664,
+              "independent_central_FD": -0.09794606663591358,
+              "plain_numpy_action_value": -0.020078943660351664,
+              "runtime_dual_JVP": -0.09794606663586176
+            },
+            "R": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.00998453589683111,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.00998453589683111,
+              "runtime_dual_JVP": 0.0
+            },
+            "R_squared": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007276199408988976,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -0.007276199408988976,
+              "runtime_dual_JVP": 0.0
+            },
+            "Robin": {
+              "absolute_JVP_error": 3.4966474160569305e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.10465501640462135,
+              "independent_central_FD": -0.49306852603070433,
+              "plain_numpy_action_value": -0.10465501640462135,
+              "runtime_dual_JVP": -0.49306852603035467
+            },
+            "S_total": {
+              "absolute_JVP_error": 6.524991658096724e-11,
+              "absolute_value_route_error": 1.3322676295501878e-15,
+              "dual_action_value": 2.916123511833277,
+              "independent_central_FD": -0.856671931770414,
+              "plain_numpy_action_value": 2.9161235118332756,
+              "runtime_dual_JVP": -0.8566719317051641
+            },
+            "a_squared": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.006318870749727131,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": 0.006318870749727131,
+              "runtime_dual_JVP": 0.0
+            },
+            "full_V4_bulk_minus": {
+              "absolute_JVP_error": 4.170176703954809e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007742430289798528,
+              "independent_central_FD": -0.07510976158899875,
+              "plain_numpy_action_value": -0.007742430289798528,
+              "runtime_dual_JVP": -0.07510976154729698
+            },
+            "full_V4_bulk_plus": {
+              "absolute_JVP_error": 2.8981934907523765e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.0054411161949271345,
+              "independent_central_FD": -0.05273212231051392,
+              "plain_numpy_action_value": -0.0054411161949271345,
+              "runtime_dual_JVP": -0.052732122281531985
+            },
+            "wall": {
+              "absolute_JVP_error": 0.0,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -9.617809786904695,
+              "independent_central_FD": 0.0,
+              "plain_numpy_action_value": -9.617809786904695,
+              "runtime_dual_JVP": 0.0
+            }
+          },
+          "direction": [
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "basis_moving_embedding": {
+          "components": {
+            "BF_bulk_minus": {
+              "absolute_JVP_error": 1.0420324406948053e-12,
+              "absolute_value_route_error": 1.3877787807814457e-17,
+              "dual_action_value": 0.020116505575983823,
+              "independent_central_FD": 0.0001190718223673115,
+              "plain_numpy_action_value": 0.020116505575983837,
+              "runtime_dual_JVP": 0.00011907182340934394
+            },
+            "BF_bulk_plus": {
+              "absolute_JVP_error": 7.794271819757878e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.002830356630683856,
+              "independent_central_FD": -0.00011907182418877114,
+              "plain_numpy_action_value": 0.002830356630683856,
+              "runtime_dual_JVP": -0.00011907182340934396
+            },
+            "EH_bulk_minus": {
+              "absolute_JVP_error": 5.106273043287146e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.6045363276420552,
+              "independent_central_FD": -0.023480642608042498,
+              "plain_numpy_action_value": 3.6045363276420552,
+              "runtime_dual_JVP": -0.02348064261314877
+            },
+            "EH_bulk_plus": {
+              "absolute_JVP_error": 1.1767080365654436e-12,
+              "absolute_value_route_error": 6.938893903907228e-17,
+              "dual_action_value": 0.10527601466473445,
+              "independent_central_FD": 0.023480642600409714,
+              "plain_numpy_action_value": 0.10527601466473452,
+              "runtime_dual_JVP": 0.023480642599233006
+            },
+            "GHY_minus": {
+              "absolute_JVP_error": 3.1528252231183274e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -1.705268055789633,
+              "independent_central_FD": 0.03325734917458689,
+              "plain_numpy_action_value": -1.705268055789633,
+              "runtime_dual_JVP": 0.03325734917427161
+            },
+            "GHY_plus": {
+              "absolute_JVP_error": 3.1528252231183274e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 1.705268055789633,
+              "independent_central_FD": -0.03325734917458689,
+              "plain_numpy_action_value": 1.705268055789633,
+              "runtime_dual_JVP": -0.03325734917427161
+            },
+            "K_foliation": {
+              "absolute_JVP_error": 6.309362754475245e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.009758348134811504,
+              "independent_central_FD": 0.010047160519787574,
+              "plain_numpy_action_value": 0.009758348134811504,
+              "runtime_dual_JVP": 0.01004716051972448
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_JVP_error": 5.4815077978170846e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.004177052527624713,
+              "independent_central_FD": -1.7650170387739637e-06,
+              "plain_numpy_action_value": 0.004177052527624713,
+              "runtime_dual_JVP": -1.7650170935890416e-06
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_JVP_error": 3.1914847893892324e-14,
+              "absolute_value_route_error": 8.673617379884035e-19,
+              "dual_action_value": 0.002696475801822367,
+              "independent_central_FD": 1.7650171255101375e-06,
+              "plain_numpy_action_value": 0.002696475801822366,
+              "runtime_dual_JVP": 1.7650170935952896e-06
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_JVP_error": 1.2589226536241505e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 5.64431733725956,
+              "independent_central_FD": -0.006501126881275353,
+              "plain_numpy_action_value": 5.64431733725956,
+              "runtime_dual_JVP": -0.006501126868686127
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_JVP_error": 9.61528860005112e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.2973673481308987,
+              "independent_central_FD": 0.006501126859070893,
+              "plain_numpy_action_value": 3.2973673481308987,
+              "runtime_dual_JVP": 0.0065011268686861814
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_JVP_error": 1.5085642136929102e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.02825216831807434,
+              "independent_central_FD": 5.390952441397533e-06,
+              "plain_numpy_action_value": -0.02825216831807434,
+              "runtime_dual_JVP": 5.3909525922539546e-06
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_JVP_error": 2.262824293447572e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.020078943660351664,
+              "independent_central_FD": -5.390952614869881e-06,
+              "plain_numpy_action_value": -0.020078943660351664,
+              "runtime_dual_JVP": -5.390952592241638e-06
+            },
+            "R": {
+              "absolute_JVP_error": 4.0828798675285327e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.00998453589683111,
+              "independent_central_FD": 0.00571934207676053,
+              "plain_numpy_action_value": 0.00998453589683111,
+              "runtime_dual_JVP": 0.005719342077168818
+            },
+            "R_squared": {
+              "absolute_JVP_error": 1.7245753436423428e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007276199408988976,
+              "independent_central_FD": -0.005132439708649406,
+              "plain_numpy_action_value": -0.007276199408988976,
+              "runtime_dual_JVP": -0.00513243970863216
+            },
+            "Robin": {
+              "absolute_JVP_error": 1.230008282726569e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.10465501640462135,
+              "independent_central_FD": -0.0026613846459966335,
+              "plain_numpy_action_value": -0.10465501640462135,
+              "runtime_dual_JVP": -0.0026613846447666252
+            },
+            "S_total": {
+              "absolute_JVP_error": 1.1559303514374619e-10,
+              "absolute_value_route_error": 1.3322676295501878e-15,
+              "dual_action_value": 2.916123511833277,
+              "independent_central_FD": 0.06882823913034741,
+              "plain_numpy_action_value": 2.9161235118332756,
+              "runtime_dual_JVP": 0.06882823924594045
+            },
+            "a_squared": {
+              "absolute_JVP_error": 5.641424827285135e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.006318870749727131,
+              "independent_central_FD": 0.00683797425240877,
+              "plain_numpy_action_value": 0.006318870749727131,
+              "runtime_dual_JVP": 0.006837974251844628
+            },
+            "full_V4_bulk_minus": {
+              "absolute_JVP_error": 6.508056122176309e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007742430289798528,
+              "independent_central_FD": -1.4766840961827341e-06,
+              "plain_numpy_action_value": -0.007742430289798528,
+              "runtime_dual_JVP": -1.476684031102173e-06
+            },
+            "full_V4_bulk_plus": {
+              "absolute_JVP_error": 2.1662964399542955e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.0054411161949271345,
+              "independent_central_FD": 1.4766840528146472e-06,
+              "plain_numpy_action_value": -0.0054411161949271345,
+              "runtime_dual_JVP": 1.4766840311516828e-06
+            },
+            "wall": {
+              "absolute_JVP_error": 9.417622237606338e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -9.617809786904695,
+              "independent_central_FD": 0.05401758667034073,
+              "plain_numpy_action_value": -9.617809786904695,
+              "runtime_dual_JVP": 0.05401758676451695
+            }
+          },
+          "direction": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "coupled_audit": {
+          "components": {
+            "BF_bulk_minus": {
+              "absolute_JVP_error": 4.310328136081232e-13,
+              "absolute_value_route_error": 1.3877787807814457e-17,
+              "dual_action_value": 0.020116505575983823,
+              "independent_central_FD": 0.004656532904927235,
+              "plain_numpy_action_value": 0.020116505575983837,
+              "runtime_dual_JVP": 0.004656532905358268
+            },
+            "BF_bulk_plus": {
+              "absolute_JVP_error": 1.1854406345435109e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.002830356630683856,
+              "independent_central_FD": 0.002863882892791512,
+              "plain_numpy_action_value": 0.002830356630683856,
+              "runtime_dual_JVP": 0.0028638828939769527
+            },
+            "EH_bulk_minus": {
+              "absolute_JVP_error": 1.5622170224105503e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.6045363276420552,
+              "independent_central_FD": 0.2334282607652227,
+              "plain_numpy_action_value": 3.6045363276420552,
+              "runtime_dual_JVP": 0.23342826074960052
+            },
+            "EH_bulk_plus": {
+              "absolute_JVP_error": 3.669470977074596e-12,
+              "absolute_value_route_error": 6.938893903907228e-17,
+              "dual_action_value": 0.10527601466473445,
+              "independent_central_FD": 0.027485380752617635,
+              "plain_numpy_action_value": 0.10527601466473452,
+              "runtime_dual_JVP": 0.027485380748948164
+            },
+            "GHY_minus": {
+              "absolute_JVP_error": 2.9331467810145284e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -1.705268055789633,
+              "independent_central_FD": -0.09845877451120087,
+              "plain_numpy_action_value": -1.705268055789633,
+              "runtime_dual_JVP": -0.0984587744818694
+            },
+            "GHY_plus": {
+              "absolute_JVP_error": 2.9331467810145284e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 1.705268055789633,
+              "independent_central_FD": 0.09845877451120087,
+              "plain_numpy_action_value": 1.705268055789633,
+              "runtime_dual_JVP": 0.0984587744818694
+            },
+            "K_foliation": {
+              "absolute_JVP_error": 7.789602296526255e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.009758348134811504,
+              "independent_central_FD": 0.0029385780165105953,
+              "plain_numpy_action_value": 0.009758348134811504,
+              "runtime_dual_JVP": 0.0029385780165884913
+            },
+            "Omega_kinetic_bulk_minus": {
+              "absolute_JVP_error": 9.458579752763541e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.004177052527624713,
+              "independent_central_FD": 0.006070596057393059,
+              "plain_numpy_action_value": 0.004177052527624713,
+              "runtime_dual_JVP": 0.006070596057298473
+            },
+            "Omega_kinetic_bulk_plus": {
+              "absolute_JVP_error": 5.782093553952095e-14,
+              "absolute_value_route_error": 8.673617379884035e-19,
+              "dual_action_value": 0.002696475801822367,
+              "independent_central_FD": 0.003922679635975923,
+              "plain_numpy_action_value": 0.002696475801822366,
+              "runtime_dual_JVP": 0.003922679635918102
+            },
+            "Omega_potential_bulk_minus": {
+              "absolute_JVP_error": 8.792355732367696e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 5.64431733725956,
+              "independent_central_FD": 0.5864928076970699,
+              "plain_numpy_action_value": 5.64431733725956,
+              "runtime_dual_JVP": 0.5864928076091463
+            },
+            "Omega_potential_bulk_plus": {
+              "absolute_JVP_error": 5.626715759987633e-11,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 3.2973673481308987,
+              "independent_central_FD": 0.3911582064031193,
+              "plain_numpy_action_value": 3.2973673481308987,
+              "runtime_dual_JVP": 0.39115820634685217
+            },
+            "P_kinetic_bulk_minus": {
+              "absolute_JVP_error": 5.822495263707594e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.02825216831807434,
+              "independent_central_FD": -0.050785262881852804,
+              "plain_numpy_action_value": -0.02825216831807434,
+              "runtime_dual_JVP": -0.050785262881270554
+            },
+            "P_kinetic_bulk_plus": {
+              "absolute_JVP_error": 4.836617217840455e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.020078943660351664,
+              "independent_central_FD": -0.03640558595748716,
+              "plain_numpy_action_value": -0.020078943660351664,
+              "runtime_dual_JVP": -0.0364055859570035
+            },
+            "R": {
+              "absolute_JVP_error": 4.751960543808442e-13,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.00998453589683111,
+              "independent_central_FD": 0.0016274229928080195,
+              "plain_numpy_action_value": 0.00998453589683111,
+              "runtime_dual_JVP": 0.0016274229932832156
+            },
+            "R_squared": {
+              "absolute_JVP_error": 4.605842617022571e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007276199408988976,
+              "independent_central_FD": -0.0011479485423435826,
+              "plain_numpy_action_value": -0.007276199408988976,
+              "runtime_dual_JVP": -0.001147948542389641
+            },
+            "Robin": {
+              "absolute_JVP_error": 2.9434510384618306e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.10465501640462135,
+              "independent_central_FD": -0.19482633281941994,
+              "plain_numpy_action_value": -0.10465501640462135,
+              "runtime_dual_JVP": -0.1948263328164765
+            },
+            "S_total": {
+              "absolute_JVP_error": 5.369177324965335e-12,
+              "absolute_value_route_error": 1.3322676295501878e-15,
+              "dual_action_value": 2.916123511833277,
+              "independent_central_FD": 0.037949025455397134,
+              "plain_numpy_action_value": 2.9161235118332756,
+              "runtime_dual_JVP": 0.03794902545002796
+            },
+            "a_squared": {
+              "absolute_JVP_error": 3.706627019206543e-14,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": 0.006318870749727131,
+              "independent_central_FD": 0.001989841774512058,
+              "plain_numpy_action_value": 0.006318870749727131,
+              "runtime_dual_JVP": 0.001989841774549124
+            },
+            "full_V4_bulk_minus": {
+              "absolute_JVP_error": 2.778798025016016e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.007742430289798528,
+              "independent_central_FD": -0.02881518103036752,
+              "plain_numpy_action_value": -0.007742430289798528,
+              "runtime_dual_JVP": -0.02881518102758872
+            },
+            "full_V4_bulk_plus": {
+              "absolute_JVP_error": 1.959404860585323e-12,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -0.0054411161949271345,
+              "independent_central_FD": -0.020379626178637644,
+              "plain_numpy_action_value": -0.0054411161949271345,
+              "runtime_dual_JVP": -0.02037962617667824
+            },
+            "wall": {
+              "absolute_JVP_error": 1.61994417879896e-10,
+              "absolute_value_route_error": 0.0,
+              "dual_action_value": -9.617809786904695,
+              "independent_central_FD": -0.8923252270420788,
+              "plain_numpy_action_value": -9.617809786904695,
+              "runtime_dual_JVP": -0.8923252268800844
+            }
+          },
+          "direction": [
+            0.31,
+            -0.27,
+            0.23,
+            0.37,
+            -0.19,
+            0.29
+          ]
+        }
+      },
+      "routes_share_action_helper": false,
+      "theta": [
+        0.29,
+        0.24,
+        0.33,
+        0.41,
+        0.46,
+        0.38
+      ]
+    },
+    "decision": {
+      "B4_pass": false,
+      "B5_pass": false,
+      "C1_ACTION_pass": false,
+      "C1_ACTION_selected_family_pass": false,
+      "N1_ACTION_pass": false,
+      "N1_ACTION_selected_family_pass": false,
+      "all_five_ordinary_coordinate_directions_active_pass": false,
+      "all_upstream_bytes_and_literal_action_pinned_pass": true,
+      "complete_BV_BFV_boundary_complex_pass": false,
+      "complete_moving_embedding_Ward_pass": false,
+      "continuum_all_configurations_theorem_pass": false,
+      "deterministic_freeze_receipt_issued": false,
+      "full_bulk_diffeomorphism_Ward_pass": false,
+      "full_classical_variational_principle_selected_sector_pass": false,
+      "independent_redteam_replication_complete": false,
+      "internal_SO3_direct_orbit_diagnostic_pass": false,
+      "intrinsic_periodic_density_divergence_diagnostic_pass": true,
+      "primary_mutant_suite_pass": false,
+      "publication_authorized": false,
+      "same_action_independent_Euler_Green_identity_pass": false,
+      "same_action_internal_SO3_Euler_Ward_rederived_pass": false,
+      "selected_bulk_P_V4_BF_orbit_sanity_pass": true,
+      "selected_mixed_cross_terms_runtime_pass": true,
+      "selected_moving_family_action_JVP_FD_pass": true,
+      "selected_nonabelian_BF_activity_pass": true,
+      "selected_normal_slots_and_matter_shift_visible_pass": false,
+      "status": "V5_6_2_SELECTED_FAMILY_DIAGNOSTICS_ONLY__PRIMARY_CANDIDATE_FAIL_CLOSED__C1_N1_FAIL_CLOSED_PENDING_SAME_ACTION_WARD_EULER_GREEN_MUTANTS_AND_REDTEAM",
+      "unrestricted_large_gauge_sector_pass": false,
+      "v5_6_2_selected_family_primary_candidate_pass": false
+    },
+    "field_activity": {
+      "B_tyz_max_norm": 0.04281965452355158,
+      "B_xyz_max_norm": 0.05252512463154115,
+      "B_yzq_max_norm": 0.11628275395807801,
+      "F_tq_max_norm": 0.12108045784743303,
+      "F_tx_max_norm": 0.1266994213569795,
+      "F_xq_max_norm": 0.07062319127784517,
+      "P_q_max_norm": 0.05184973459267338,
+      "P_t_max_norm": 0.12983882994629986,
+      "P_x_max_norm": 0.19379977086881278,
+      "P_y_max_norm": 0.016765616148064783,
+      "P_z_max_norm": 0.012257463963498515,
+      "abelianized_Ftx_mutant_witness": 0.005501245806649683,
+      "all_five_ordinary_coordinate_derivatives_active": false,
+      "five_covariant_components_active": true,
+      "full_5D_coordinate_family_claimed": false,
+      "nonabelian_At_cross_Ax_max_norm": 0.005501245806649681,
+      "ordinary_coordinate_dependence": {
+        "q": true,
+        "t": true,
+        "x": true,
+        "y": false,
+        "z": false
+      }
+    },
+    "geometry": {
+      "ambient_warp_is_prescribed_not_solved": true,
+      "embedding_parameter_derivative_Linf": 0.08732435893653605,
+      "foliation_K_Linf": 0.1666668187568855,
+      "intrinsic_R_Linf": 0.8824547020304377,
+      "maximum_abs_graph_slope": 0.11104747455335492,
+      "maximum_abs_graph_velocity": 0.10049909664066888,
+      "minimum_timelike_D": 0.20209471991052166
+    },
+    "internal_SO3_Ward": {
+      "Euler_equations_imposed": false,
+      "Robin_obstruction_interpretation": "With the implemented fixed internal-axis identification of varphi_H, the declared delta_phi orbit does not leave Robin invariant. A compensating frame/groupoid map is not implemented.",
+      "anisotropic_V4_mutant_witness": 0.00037564960395946846,
+      "boundary_parameter": "BV-BFV/interface and compensating frame transformations remain open",
+      "bulk_probe_off_shell": true,
+      "complete_same_action_SO3_Ward_claimed": false,
+      "complete_same_action_SO3_orbit_claimed": false,
+      "convention": "delta_lambda A=-D_A lambda; delta_lambda phi=lambda cross phi; delta_lambda B=lambda cross B",
+      "generator_rows": {
+        "T_1": {
+          "BF_delta_B_integral": 0.0033245308995195457,
+          "BF_delta_F_integral": -0.0033245308995195474,
+          "P_material_variation_integral": -2.7740452853252995e-21,
+          "Robin_orbit_variation_Linf": 7.650659393954056e-20,
+          "Robin_orbit_variation_integral": 1.884019211836485e-20,
+          "anisotropic_V4_mutant_integral": 0.0,
+          "bulk_local_Linf_residual": 8.673617379884035e-19,
+          "bulk_total_integral_residual": -3.9289114300299237e-19,
+          "omit_delta_B_BF_mutant_integral": -0.0033245308995195474,
+          "radial_V4_variation_integral": 3.6198726625210554e-20
+        },
+        "T_2": {
+          "BF_delta_B_integral": -0.007131068288508516,
+          "BF_delta_F_integral": 0.007131068288508515,
+          "P_material_variation_integral": -9.359738971057156e-21,
+          "Robin_orbit_variation_Linf": 0.00023482353951836878,
+          "Robin_orbit_variation_integral": 0.00020023812311434708,
+          "anisotropic_V4_mutant_integral": -0.0001669881796028593,
+          "bulk_local_Linf_residual": 1.734723475976807e-18,
+          "bulk_total_integral_residual": -8.355235726253128e-19,
+          "omit_delta_B_BF_mutant_integral": 0.007131068288508515,
+          "radial_V4_variation_integral": -5.296293648498237e-19
+        },
+        "T_3": {
+          "BF_delta_B_integral": 0.017452137103228522,
+          "BF_delta_F_integral": -0.017452137103228522,
+          "P_material_variation_integral": -1.5561809984313844e-20,
+          "Robin_orbit_variation_Linf": 0.0003613956781291462,
+          "Robin_orbit_variation_integral": 0.0008906892208158087,
+          "anisotropic_V4_mutant_integral": -0.0002835447685758029,
+          "bulk_local_Linf_residual": 9.486769009248164e-19,
+          "bulk_total_integral_residual": -2.2176904165013167e-19,
+          "omit_delta_B_BF_mutant_integral": -0.017452137103228522,
+          "radial_V4_variation_integral": 1.9945849291778765e-19
+        }
+      },
+      "maximum_Robin_orbit_obstruction": 0.0008906892208158087,
+      "maximum_bulk_nominal_residual": 1.734723475976807e-18,
+      "omit_one_BF_orbit_contribution_witness": 0.017452137103228522,
+      "scope": "selected bulk P/V4/BF orbit algebra only; not the complete same-action SO3 Ward"
+    },
+    "intrinsic_diffeomorphism_diagnostic": {
+      "BV_BFV_interface_obligation_open": true,
+      "Ward": "delta_xi L=d(i_xi L) for the directly recomputed selected-family total density",
+      "interface_residue": "not forced to zero; the byte-pinned v5.5.4 eight-face lemma remains separate",
+      "khronon": "T=t is transported as a scalar in this selected slice; arbitrary moving T remains open",
+      "maximum_integrated_interior_residual": 1.9023371614637473e-18,
+      "minimum_advective_only_mutant_witness": 0.004557564071532054,
+      "raw_probe_rows": {
+        "xi_0": {
+          "eight_face_balance_consumed_from_upstream": false,
+          "omit_density_weight_mutant_integral": 0.01311759972223888,
+          "raw_interior_divergence_Linf": 0.051925049645467375,
+          "raw_interior_divergence_integral": -1.9023371614637473e-18
+        },
+        "xi_1": {
+          "eight_face_balance_consumed_from_upstream": false,
+          "omit_density_weight_mutant_integral": 0.004557564071532054,
+          "raw_interior_divergence_Linf": 0.06718392856624007,
+          "raw_interior_divergence_integral": 0.0
+        }
+      }
+    },
+    "literal_action": {
+      "BF": "S_BF=sum_eps int_Meps <B_eps wedge F[A_eps]>, <X,Y>=-tr_3(XY)/2",
+      "GHY": "S_GHY=M5^3*sum_eps int_Sigma sqrt(-gamma)*Theta_eps for outward normals",
+      "Robin_intrinsic": "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+      "bulk_gauged": "S_bulk_gauged=sum_eps int_Meps sqrt(-g_eps)*[M5^3*R_eps/2-G*(nabla Omega_eps)^2/2-U(Omega_eps)-Z5*delta_ab*P_eps_M^a*P_eps^(b M)/2-Z5*M^2*Omega_eps^(-5)*V4(Omega_eps^(3/2)*|phi_eps|)]",
+      "bulk_potential": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+      "foliation_lower": "S_fol_lower=Mb^2/2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]",
+      "full_V4": "V4(r)=r^4/(2*sqrt(1+r^4))",
+      "gauged_conformal_derivative": "P_eps_M=D_(A_eps,M)phi_eps+3*phi_eps*partial_M log(Omega_eps)/2",
+      "removed_terms": "S_X=0 and every bulk screen-clock term=0",
+      "superpotential": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+      "total": "S_v5_2=S_bulk_gauged+S_GHY+S_wall0+S_fol_lower+S_R_intrinsic+S_BF",
+      "wall_background": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]"
+    },
+    "mixed_cross_terms": {
+      "maximum_cross_route_error": 8.729128531115293e-10,
+      "minimum_absolute_cross_term": 6.9329050421569616e-06,
+      "mixed_step": 0.0008,
+      "raw_cross_terms": {
+        "BF_connection_B": {
+          "absolute_activity": 0.010260196018195706,
+          "absolute_error": 1.2601138882351037e-11,
+          "action_component": "BF_bulk_plus",
+          "dual_JVP_then_independent_parameter_FD": -0.010260196005594567,
+          "first_parameter": "SO3_connection",
+          "plain_action_four_corner_FD": -0.010260196018195706,
+          "second_parameter": "BF_three_form"
+        },
+        "EH_embedding_metric": {
+          "absolute_activity": 0.0038187306463472945,
+          "absolute_error": 6.4835289914633165e-12,
+          "action_component": "EH_bulk_plus",
+          "dual_JVP_then_independent_parameter_FD": -0.0038187306463472945,
+          "first_parameter": "moving_embedding",
+          "plain_action_four_corner_FD": -0.0038187306398637655,
+          "second_parameter": "ambient_metric"
+        },
+        "GHY_embedding_metric": {
+          "absolute_activity": 0.0047041225483251264,
+          "absolute_error": 1.2686900141556379e-10,
+          "action_component": "GHY_plus",
+          "dual_JVP_then_independent_parameter_FD": 0.0047041225483251264,
+          "first_parameter": "moving_embedding",
+          "plain_action_four_corner_FD": 0.004704122421456125,
+          "second_parameter": "ambient_metric"
+        },
+        "Omega_kinetic_embedding_Omega": {
+          "absolute_activity": 6.9329050421569616e-06,
+          "absolute_error": 2.2254255441889843e-13,
+          "action_component": "Omega_kinetic_bulk_plus",
+          "dual_JVP_then_independent_parameter_FD": 6.932904819614407e-06,
+          "first_parameter": "moving_embedding",
+          "plain_action_four_corner_FD": 6.9329050421569616e-06,
+          "second_parameter": "Omega"
+        },
+        "Omega_potential_metric_Omega": {
+          "absolute_activity": 0.02645516548882565,
+          "absolute_error": 8.729128531115293e-10,
+          "action_component": "Omega_potential_bulk_minus",
+          "dual_JVP_then_independent_parameter_FD": 0.026455164615912796,
+          "first_parameter": "ambient_metric",
+          "plain_action_four_corner_FD": 0.02645516548882565,
+          "second_parameter": "Omega"
+        },
+        "P_Omega_matter": {
+          "absolute_activity": 0.0023462487378292374,
+          "absolute_error": 4.682858580074001e-10,
+          "action_component": "P_kinetic_bulk_plus",
+          "dual_JVP_then_independent_parameter_FD": 0.0023462482695433794,
+          "first_parameter": "Omega",
+          "plain_action_four_corner_FD": 0.0023462487378292374,
+          "second_parameter": "associated_matter"
+        },
+        "P_matter_connection": {
+          "absolute_activity": 0.036665199365125065,
+          "absolute_error": 1.1188966420050406e-12,
+          "action_component": "P_kinetic_bulk_minus",
+          "dual_JVP_then_independent_parameter_FD": -0.03666519936400617,
+          "first_parameter": "associated_matter",
+          "plain_action_four_corner_FD": -0.036665199365125065,
+          "second_parameter": "SO3_connection"
+        },
+        "Robin_embedding_matter": {
+          "absolute_activity": 0.003294520868135989,
+          "absolute_error": 4.329219274734619e-12,
+          "action_component": "Robin",
+          "dual_JVP_then_independent_parameter_FD": 0.0032945208638067696,
+          "first_parameter": "moving_embedding",
+          "plain_action_four_corner_FD": 0.003294520868135989,
+          "second_parameter": "associated_matter"
+        },
+        "V4_Omega_matter": {
+          "absolute_activity": 0.009381283255991399,
+          "absolute_error": 5.634920551000899e-10,
+          "action_component": "full_V4_bulk_plus",
+          "dual_JVP_then_independent_parameter_FD": -0.009381282692499344,
+          "first_parameter": "Omega",
+          "plain_action_four_corner_FD": -0.009381283255991399,
+          "second_parameter": "associated_matter"
+        },
+        "acceleration_embedding_metric": {
+          "absolute_activity": 0.0008292908731683674,
+          "absolute_error": 7.839551490612662e-10,
+          "action_component": "a_squared",
+          "dual_JVP_then_independent_parameter_FD": 0.0008292900892132183,
+          "first_parameter": "moving_embedding",
+          "plain_action_four_corner_FD": 0.0008292908731683674,
+          "second_parameter": "ambient_metric"
+        },
+        "foliation_K_embedding_metric": {
+          "absolute_activity": 0.000698128847889971,
+          "absolute_error": 7.075720218074899e-11,
+          "action_component": "K_foliation",
+          "dual_JVP_then_independent_parameter_FD": 0.0006981287771327688,
+          "first_parameter": "moving_embedding",
+          "plain_action_four_corner_FD": 0.000698128847889971,
+          "second_parameter": "ambient_metric"
+        },
+        "intrinsic_R2_embedding_metric": {
+          "absolute_activity": 0.0011080331954288177,
+          "absolute_error": 6.505213034913027e-13,
+          "action_component": "R_squared",
+          "dual_JVP_then_independent_parameter_FD": -0.0011080331947782964,
+          "first_parameter": "moving_embedding",
+          "plain_action_four_corner_FD": -0.0011080331954288177,
+          "second_parameter": "ambient_metric"
+        },
+        "intrinsic_R_embedding_metric": {
+          "absolute_activity": 0.0002886429004069369,
+          "absolute_error": 2.701831813833877e-12,
+          "action_component": "R",
+          "dual_JVP_then_independent_parameter_FD": 0.0002886428977051051,
+          "first_parameter": "moving_embedding",
+          "plain_action_four_corner_FD": 0.0002886429004069369,
+          "second_parameter": "ambient_metric"
+        },
+        "wall_embedding_Omega": {
+          "absolute_activity": 0.0007772331891324827,
+          "absolute_error": 5.01725397339392e-11,
+          "action_component": "wall",
+          "dual_JVP_then_independent_parameter_FD": 0.0007772331891324827,
+          "first_parameter": "moving_embedding",
+          "plain_action_four_corner_FD": 0.000777233138959943,
+          "second_parameter": "Omega"
+        }
+      },
+      "scope": "displayed finite six-parameter tangent basis only"
+    },
+    "mutation_activity_accounting": {
+      "audit_direction": [
+        0.31,
+        -0.27,
+        0.23,
+        0.37,
+        -0.19,
+        0.29
+      ],
+      "classification": "component activity/accounting diagnostics only; omit/flip witnesses are algebraic changes to the nominal assembly and do not establish mutation adequacy",
+      "flip_each_action_contribution_witnesses": {
+        "BF_bulk_minus": 0.009313065810716559,
+        "BF_bulk_plus": 0.005727765787953754,
+        "EH_bulk_minus": 0.46685652149920087,
+        "EH_bulk_plus": 0.05497076149789626,
+        "GHY_minus": 0.19691754896373895,
+        "GHY_plus": 0.19691754896373867,
+        "K_foliation": 0.005877156033176956,
+        "Omega_kinetic_bulk_minus": 0.012141192114596855,
+        "Omega_kinetic_bulk_plus": 0.007845359271835939,
+        "Omega_potential_bulk_minus": 1.1729856152182925,
+        "Omega_potential_bulk_plus": 0.7823164126937042,
+        "P_kinetic_bulk_minus": 0.10157052576254125,
+        "P_kinetic_bulk_plus": 0.07281117191400724,
+        "R": 0.003254845986566446,
+        "R_squared": 0.002295897084779286,
+        "Robin": 0.389652665632953,
+        "a_squared": 0.003979683549098223,
+        "full_V4_bulk_minus": 0.05763036205517749,
+        "full_V4_bulk_plus": 0.04075925235335667,
+        "wall": 1.7846504537601693
+      },
+      "independent_mutant_oracle_supplied": false,
+      "minimum_omission_witness": 0.001147948542389643,
+      "minimum_sign_flip_witness": 0.002295897084779286,
+      "minimum_special_witness": 0.0,
+      "mutant_expected_route_is_nominal_independent_route": false,
+      "nominal_total_JVP": 0.03794902545002796,
+      "omit_each_action_contribution_witnesses": {
+        "BF_bulk_minus": 0.004656532905358279,
+        "BF_bulk_plus": 0.002863882893976877,
+        "EH_bulk_minus": 0.2334282607496003,
+        "EH_bulk_plus": 0.027485380748947907,
+        "GHY_minus": 0.09845877448186949,
+        "GHY_plus": 0.09845877448186924,
+        "K_foliation": 0.002938578016588478,
+        "Omega_kinetic_bulk_minus": 0.0060705960572984274,
+        "Omega_kinetic_bulk_plus": 0.003922679635917969,
+        "Omega_potential_bulk_minus": 0.5864928076091462,
+        "Omega_potential_bulk_plus": 0.39115820634685194,
+        "P_kinetic_bulk_minus": 0.05078526288127064,
+        "P_kinetic_bulk_plus": 0.03640558595700363,
+        "R": 0.001627422993283223,
+        "R_squared": 0.001147948542389643,
+        "Robin": 0.1948263328164765,
+        "a_squared": 0.0019898417745491115,
+        "full_V4_bulk_minus": 0.02881518102758876,
+        "full_V4_bulk_plus": 0.02037962617667824,
+        "wall": 0.8923252268800844
+      },
+      "primary_mutant_suite_complete": false,
+      "special_mutant_witnesses": {
+        "abelianize_commutators": 0.005501245806649683,
+        "anisotropic_V4": 0.057221254891816065,
+        "broken_pullback_jacobian": 0.0584524336096901,
+        "circular_expected_route": 0.0,
+        "freeze_R": 0.0017186374600093868,
+        "frozen_moving_embedding": 0.02133675416624109,
+        "omit_BF_pullback_minus": 0.019415302759474336,
+        "omit_BF_pullback_plus": 0.019415302759474336,
+        "omit_Pi_Omega_minus": 0.000465382784713301,
+        "omit_Pi_Omega_plus": 0.000465382784713301,
+        "omit_Pi_phi_minus": 0.00023667190473835307,
+        "omit_Pi_phi_plus": 0.00023667190473835307,
+        "remove_T_ui_matter": 0.023485179844396575,
+        "wrong_GHY_orientation": 0.19691754896373895
+      }
+    },
+    "normal_flux_and_matter_shift": {
+      "complete_normal_and_matter_shift_certificate": false,
+      "full_Euler_Green_identity_claimed": false,
+      "matter_shift": {
+        "P2_decomposition": {
+          "absolute_orthogonal_decomposition_error": 6.938893903907228e-18,
+          "ambient_P2": 0.05578418390022445,
+          "legacy_raw_Pq_ADM_P2": 0.05515028789436512,
+          "legacy_raw_Pq_decomposition_error": 0.0006338960058593288,
+          "orthogonal_ADM_P2": 0.055784183900224445
+        },
+        "T_ui": [
+          0.011005147520132529,
+          0.00023838667572326867,
+          0.00017733414043747425
+        ],
+        "T_ui_activity_witness": 0.023485179844396575,
+        "T_ui_norm": 0.011009157440258825,
+        "independent_same_action_variational_route_supplied": false,
+        "local_covariant_prediction_minus_Tui_over_N": [
+          -0.02348517984438849,
+          -0.0005087213907514676,
+          -0.0003784341984607922
+        ],
+        "local_identity_maximum_error": 4.0034170640038114e-13,
+        "normal_component": "n^M P_M",
+        "same_local_formula_ADM_shift_FD": [
+          -0.023485179844396575,
+          -0.0005087213906821628,
+          -0.0003784341980604505
+        ],
+        "sample_grid_index": [
+          4,
+          7
+        ]
+      },
+      "minimum_normal_slot_omission_witness": 0.00023667190473835307,
+      "missing_for_full_Green": [
+        "independently derived bulk Euler density for every v5.2 field",
+        "one equality between that Euler bulk pairing plus all boundary slots and the total action JVP",
+        "arbitrary compactly supported variations and continuum limit"
+      ],
+      "normal_slot_omission_mutant_witnesses": {
+        "omit_BF_pullback_minus": 0.019415302759474336,
+        "omit_BF_pullback_plus": 0.019415302759474336,
+        "omit_Pi_Omega_minus": 0.000465382784713301,
+        "omit_Pi_Omega_plus": 0.000465382784713301,
+        "omit_Pi_phi_minus": 0.00023667190473835307,
+        "omit_Pi_phi_plus": 0.00023667190473835307
+      },
+      "normal_slot_rows": {
+        "minus": {
+          "BF_boundary_pairing": 0.019415302759474336,
+          "Omega_boundary_pairing": -0.000465382784713301,
+          "Pi_Omega_L2": 0.024807770709181068,
+          "Pi_phi_L2": 0.04637507664283182,
+          "phi_boundary_pairing": 0.00023667190473835307,
+          "pulled_B_tyz_L2": 0.030806813681830792,
+          "pulled_B_xyz_L2": 0.04196154618973474
+        },
+        "plus": {
+          "BF_boundary_pairing": -0.019415302759474336,
+          "Omega_boundary_pairing": 0.000465382784713301,
+          "Pi_Omega_L2": 0.024807770709181068,
+          "Pi_phi_L2": 0.04637507664283182,
+          "phi_boundary_pairing": -0.00023667190473835307,
+          "pulled_B_tyz_L2": 0.030806813681830792,
+          "pulled_B_xyz_L2": 0.04196154618973474
+        }
+      },
+      "normal_slots_visible_as_accounting_diagnostics": true
+    },
+    "parameter_order": [
+      "moving_embedding",
+      "ambient_metric",
+      "Omega",
+      "associated_matter",
+      "SO3_connection",
+      "BF_three_form"
+    ],
+    "route_separation_diagnostic": {
+      "circular_expected_JVP_mutant_rejected": false,
+      "classification": "route-separation diagnostic only; correlated formula errors remain possible",
+      "dual_route_forbidden_references": [],
+      "independence_claimed": false,
+      "independent_assemblies": false,
+      "plain_route_forbidden_references": [],
+      "shared_infrastructure": [
+        "profiles",
+        "grid",
+        "quadrature",
+        "coefficients",
+        "selected action formulas"
+      ],
+      "symbolically_separate_codepaths": true,
+      "upstream_decisions_or_residuals_read": false,
+      "upstream_helpers_imported": []
+    },
+    "theta": [
+      0.29,
+      0.24,
+      0.33,
+      0.41,
+      0.46,
+      0.38
+    ]
+  },
+  "scientific_sha256": "7b142db158165c7b57e239ed534d8f5a472be4404641c0f44d03d286db0fe052",
+  "title": "One-Omega topological SO(3) full-moving v5.6.2 selected-family fail-closed diagnostics",
+  "upstream_byte_pins": {
+    "v5_2_action": {
+      "Eulerian_or_residual_consumed": false,
+      "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_classical_v5_2_gate.json",
+      "artifact_sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b",
+      "decision_boolean_consumed": false,
+      "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_classical_v5_2_gate.py",
+      "generator_sha256": "62096c08848044400c0f51ee126597db71b3dcf75e11aaddacbd0afad98a45e8",
+      "schema": "holo.one-omega-topological-so3-classical-v5-2-gate.v1",
+      "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_classical_v5_2_gate.py",
+      "test_sha256": "511ef10674fe622a6ab4b6d5c6fe4daf0142b22603dc33668b12cbc713c42f26"
+    },
+    "v5_5_2_primary": {
+      "Eulerian_or_residual_consumed": false,
+      "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_adm_induced_chain_v5_5_2_gate.json",
+      "artifact_sha256": "4e068475ae316684cebd0f68e10d183fff7c0d90c46b155f2dfc8be4b3b0d6e8",
+      "decision_boolean_consumed": false,
+      "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_adm_induced_chain_v5_5_2_gate.py",
+      "generator_sha256": "00f8fa443bda37711d2456cb5e55c8a5c349d1c7f814a44c63203e3c02836e1e",
+      "schema": "holo.one-omega-topological-so3-adm-induced-chain-v5-5-2-gate.v1",
+      "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_adm_induced_chain_v5_5_2_gate.py",
+      "test_sha256": "4547d1e7f361b2c9b931dba3a9a5a5829d2a2563ab4a0c9c54a154f9292f7aca"
+    },
+    "v5_5_2_redteam": {
+      "Eulerian_or_residual_consumed": false,
+      "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_adm_induced_chain_v5_5_2_redteam.json",
+      "artifact_sha256": "4c94c2abeb24fb3444be4f79c93aa383659feac9e706eea7fe4fe2aac85bc7f6",
+      "decision_boolean_consumed": false,
+      "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_adm_induced_chain_v5_5_2_redteam.py",
+      "generator_sha256": "470d3c8b2bc7429ad77083c39f9112cc1908501b176d72f3b464b2f37f62696d",
+      "schema": "holo.one-omega-topological-so3-adm-induced-chain-v5-5-2-redteam.v1",
+      "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_adm_induced_chain_v5_5_2_redteam.py",
+      "test_sha256": "6b373b7cccac70316ca52172fe65cfad991f90d0ad160afa4cdb2994e67e6f4f"
+    },
+    "v5_5_3_primary": {
+      "Eulerian_or_residual_consumed": false,
+      "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_full_action_gauge_noether_v5_5_3_gate.json",
+      "artifact_sha256": "0bae4d93de669a95becb3742e4e2f8ad2f99517e9b6efa7a7cfc518b9c6d832d",
+      "decision_boolean_consumed": false,
+      "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_full_action_gauge_noether_v5_5_3_gate.py",
+      "generator_sha256": "3d9a57482d3a80832427d4d3e9e645e09d78166c3070de49de9f9cb89cbfd692",
+      "schema": "holo.one-omega-topological-so3-full-action-gauge-noether-v5-5-3-gate.v1",
+      "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_full_action_gauge_noether_v5_5_3_gate.py",
+      "test_sha256": "9d88139a02ca6c708a921a51e27287480db65c81e0c6b008d5717f3775c99e34"
+    },
+    "v5_5_3_redteam": {
+      "Eulerian_or_residual_consumed": false,
+      "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_full_action_gauge_noether_v5_5_3_redteam_gate.json",
+      "artifact_sha256": "21da830fcba7e08708723ba05a77d49be126fc25bea40660eb66c5fd979b1cc7",
+      "decision_boolean_consumed": false,
+      "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_full_action_gauge_noether_v5_5_3_redteam_gate.py",
+      "generator_sha256": "7d4f636c1ef37dc96da13992d75ca96ff737a14a7b301f12997b9536b11aca1a",
+      "schema": "holo.one-omega-topological-so3-full-action-gauge-noether-v5-5-3-redteam-gate.v1",
+      "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_full_action_gauge_noether_v5_5_3_redteam_gate.py",
+      "test_sha256": "eed63000a1b6a0c76466f8732d86a52327cf7d556b675c1881ba1f606053c4e0"
+    },
+    "v5_5_4_primary": {
+      "Eulerian_or_residual_consumed": false,
+      "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_gate.json",
+      "artifact_sha256": "d5e60c535cdfb19aeee7d8007e3c39afcff699e34128ca1a016d4ba4469cd23c",
+      "decision_boolean_consumed": false,
+      "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_gate.py",
+      "generator_sha256": "299d07965f0a6feb4f9f577664a7c13f09107fefe85ac80ac6efdf5b0e22c024",
+      "schema": "holo.one-omega-topological-so3-interface-diffeomorphism-khronon-v5-5-4-gate.v1",
+      "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_gate.py",
+      "test_sha256": "2c37ccd958c9bee99d8d3a5b28bd345a22b90786d1b36b33cf01c23477c877c6"
+    },
+    "v5_5_4_redteam": {
+      "Eulerian_or_residual_consumed": false,
+      "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_redteam.json",
+      "artifact_sha256": "e1e70a013513ec154f3458891b28bb77a47739bcc264b571935cac1f06d1ade7",
+      "decision_boolean_consumed": false,
+      "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_redteam.py",
+      "generator_sha256": "ddfbd9fc7bb3d50f09bebea927b6a63c1295aa729fa17e88be7bba7cd0f08bab",
+      "schema": "holo.one-omega-topological-so3-interface-diffeomorphism-khronon-v5-5-4-redteam.v1",
+      "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_interface_diffeomorphism_khronon_v5_5_4_redteam.py",
+      "test_sha256": "04a44a3956056ee82da0a87543fd9696b5505e1c7077c35f8a64710a64bc5142"
+    },
+    "v5_6_1_freeze": {
+      "Eulerian_or_residual_consumed": false,
+      "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_v5_6_1_quarantine_gate.json",
+      "artifact_sha256": "b83c7ae67a7e285ca7feb05afae95b8e9ae685da0f31d84d55a5824007b23e03",
+      "decision_boolean_consumed": false,
+      "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_v5_6_1_quarantine_gate.py",
+      "generator_sha256": "e31ab6f983ba7cef43a0e6b334d7f294612dd49726d88e5a34ba4d3a57b99bc2",
+      "schema": "holo.one-omega-topological-so3-v5-6-1-quarantine-gate.v2",
+      "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_v5_6_1_quarantine_gate.py",
+      "test_sha256": "00b06af19d4a9e1db85f1dfd83d42f1924a849167a36e7d70480876ab5b44581"
+    }
+  }
+}

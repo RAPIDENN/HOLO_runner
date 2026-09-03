@@ -1,0 +1,433 @@
+{
+  "Green_form_certificate": {
+    "BF_boundary_form_error": 0.0,
+    "BF_shift_boundary_form_error": 0.0,
+    "BF_shift_wrong_incidence_witness": 0.08000000000000004,
+    "BF_wrong_incidence_witness": 0.30000000000000004,
+    "EH_plus_GHY_first_variation": "delta(S_EH+S_GHY)=M5^3/2*int_M sqrt(-g)*G_MN*Delta g^(MN)-M5^3/2*int_Sigma sqrt(-gamma)*(Theta^(mu nu)-Theta*gamma^(mu nu))*Delta gamma_mu_nu; no normal derivative of Delta gamma remains",
+    "GHY_removes_normal_metric_variation": true,
+    "Green_form": "Theta_Sigma=-M5^3/2*sum_eps int sqrt(-gamma)*pi_eps^(mu nu)Delta gamma_mu_nu-int sqrt(-gamma)*[sum_eps Pi_Omega,eps Delta Omega+<sum_eps Pi_phi,eps,Delta varphi_H>]-int <sum_eps s_eps b_eps wedge Delta A_Sigma>+delta(S_wall0+S_fol+S_R)",
+    "Sigma_has_no_boundary": true,
+    "adapted_foliation_variation": {
+      "Robin": "for r_i=varphi_i-y*D_i log(N), delta S_R=-kappa_hat/2*int N*sqrt(h)*[r^2*n+(h^ij*r^2/2-r^i*r^j)delta h_ij+2*r^i*(delta varphi_i-y*D_i n)]",
+      "covariant_khronon_chain_rule": "E_T=D_nu[N_T*h^nu_mu*E_u^mu]=0",
+      "definitions": "T=t; F_K=K_ij*K^ij-lambda_K*K^2; f(R)=xi*R-B4_bar*R^2/(16*k_infinity^2); C^ij=K^ij-lambda_K*K*h^ij",
+      "lapse": "H_fol=-F_K+f(R)-eta*(a^2+2*D_i a^i)",
+      "shift": "D_j C^ij=0 before the displayed matter and gravity sources",
+      "spatial_metric": "E_h^ij=-(partial_t-Lie_N)(sqrt(h)*C^ij)/(N*sqrt(h))+h^ij*F_K/2-2*K^i_k*K^(jk)+2*lambda_K*K*K^ij-f_R*R^ij+f*h^ij/2+(D^iD^j-h^ij*D^2)(N*f_R)/N+eta*(h^ij*a^2/2-a^i*a^j), with f_R=xi-B4_bar*R/(8*k_infinity^2)"
+    },
+    "bulk_equations_new_sector": {
+      "A": "D_A B+J_4=0 with J_4 proportional to Z*star(phi^[a P^(b])",
+      "B": "F[A]=0",
+      "BF_metric_stress": "T_MN^(BF)=0",
+      "phi": "Z*(D_M P^M-c_M P^M)-Z*M^2*Omega^(-7/2)*V4'(Omega^(3/2)|phi|)*phi_hat=0, c_M=3*d_M log(Omega)/2"
+    },
+    "compact_support_at_bulk_infinity": true,
+    "complete_expanded_N4_junction_solution_claimed": false,
+    "intrinsic_Sigma_integrations_have_no_corner_terms": true,
+    "momenta": {
+      "Pi_Omega_eps": "G*n_eps.nabla Omega+3*Z*<phi,n_eps.P>/(2*Omega)",
+      "Pi_phi_eps": "Z*j_eps(n_eps.P_eps)",
+      "pi_eps": "Theta_eps^(mu nu)-Theta_eps*gamma^(mu nu)"
+    },
+    "moving_bending_variations": {
+      "Omega": "Delta Omega_eps=Y_eps^*(delta Omega_eps+xi_eps.d Omega_eps)",
+      "bending_identity": "the normal-displacement residual is the Green form with H=2*f*Theta, Delta Omega=f*n.dOmega, Delta varphi=f*j(n.D_A phi), Delta A=f*Trans_iota(i_n F); in the fixed-reference material convention the displacement is already carried by Delta, so no separate i_xi L5 is added; the diffeomorphism Noether identity makes this residual dependent on the bulk and interface equations",
+      "connection": "Delta A_Sigma=Trans_iota[Y_eps^*(delta A_eps+i_xi F_eps)]",
+      "material": "Delta varphi_H=j_eps[Y_eps^*(delta phi_eps+i_xi D_A phi_eps)]+delta j_eps[Y_eps^*phi_eps]",
+      "metric": "H_eps_mu_nu=Y_eps^*delta g_eps+2*D_(mu xi_parallel_nu)+2*f_eps*Theta_eps_mu_nu"
+    },
+    "natural_interface_equations": {
+      "BF_flux": "sum_eps s_eps*b_eps=0",
+      "Israel": "M5^3*sum_eps pi_eps^(mu nu)=tau_Sigma^(mu nu)",
+      "Omega": "sum_eps Pi_Omega_eps+partial_Omega Lambda_Sigma=0",
+      "Robin": "sum_eps Pi_phi_eps+kappa_hat*(varphi_H-y*a_sharp)=0",
+      "khronon": "E_T=0"
+    }
+  },
+  "N8_functional_transport_certificate": {
+    "Euler_operator_intertwiner_max_error": 2.220446049250313e-16,
+    "K_equals_dG_Ginverse_finite_difference_max_error": 9.357997953478578e-11,
+    "Maurer_Cartan_component_norms": {
+      "01": 4.541107989297314e-12,
+      "02": 2.5377407385942356e-12,
+      "03": 2.1515811443660634e-12,
+      "12": 2.108666697658747e-12,
+      "13": 1.852159420817785e-12,
+      "23": 1.42692056868499e-12
+    },
+    "Maurer_Cartan_components_checked": 6,
+    "Maurer_Cartan_curvature_norm": 4.541107989297314e-12,
+    "Robin_intertwiner_max_error": 1.1102230246251565e-16,
+    "V4_prime_independent_finite_difference_max_error": 1.1230971708187099e-10,
+    "V4_reference_value_max_error": 0.0,
+    "all_direction_SO3_current_max_norm": 4.445093512076817e-16,
+    "all_five_upstream_rows_converged": true,
+    "all_upstream_row_parameters_match": true,
+    "derivative_intertwiner_max_error": 1.3322676295501878e-15,
+    "domain": [
+      "prescribed background metric g_eps=Omega^2*eta_hat on the canonical flat half-space",
+      "Omega>0 and Omega|Sigma=1",
+      "G is C2, time-independent, 2*pi-periodic in tangential x_i, tends to identity as z tends to infinity, and is null-homotopic and extendible",
+      "G_plus and G_minus have one common transported trace",
+      "u is signed; only V4 receives |u|",
+      "source acceleration is collinear and transported by the same G*n0",
+      "T=1, kappa=1/2 and y^2=3 after the two-side normalization"
+    ],
+    "dynamic_gravity_claimed": false,
+    "executable_global_gauge_map": "G(z,x)=prod_i exp(theta_i(z,x)*X_i), theta_0=a_0*z*exp(-z), theta_i=a_i*exp(-z)*sin(x_i) for i=1,2,3; K_mu=sum_i partial_mu(theta_i)*Ad_(prod_(j<i) exp(theta_j*X_j))X_i; H_s=prod_i exp(s*theta_i*X_i) contracts G to identity",
+    "expected_upstream_cases": [
+      [
+        0.08,
+        0.35,
+        0.0
+      ],
+      [
+        0.8,
+        0.35,
+        0.0
+      ],
+      [
+        0.8,
+        1.2,
+        0.0
+      ],
+      [
+        0.8,
+        5.0,
+        0.0
+      ],
+      [
+        2.0,
+        0.6,
+        0.25
+      ]
+    ],
+    "expected_upstream_row_parameters": {
+      "M": 1.0,
+      "T_equals_Ns_Z5": 1.0,
+      "kappa": 0.5,
+      "y": 1.7320508075688772,
+      "y_squared_kappa": 1.5
+    },
+    "finite_q_material_solution_transported": true,
+    "functional_energy_equality_error": 1.7763568394002505e-15,
+    "functional_transport_prerequisites_pass": true,
+    "global_G_SO3_max_error_along_null_homotopy": 5.061584238041281e-16,
+    "global_G_bulk_infinity_identity_error": 3.3136120270407464e-17,
+    "global_G_null_homotopy_identity_endpoint_error": 0.0,
+    "global_G_tangential_periodicity_max_error": 3.8321294114307615e-17,
+    "global_periodic_null_homotopic_gauge_certificate_pass": true,
+    "manufactured_nonzero_scalar_residual_norm": 3.9408023060392305,
+    "material_reduced_Hamiltonian_equality_error": 0.0,
+    "material_reduced_Hamiltonian_preserved": true,
+    "negative_controls": {
+      "absolute_value_would_destroy_signed_rows": 10,
+      "mismatched_boundary_G_witness": 0.19966683329365628,
+      "missing_Omega_minus_three_halves_witness": 0.5774343891506996,
+      "noncanonical_metric_conformal_factor_witness": 1.7006434052604837,
+      "wrong_Maurer_Cartan_component_norms": {
+        "01": 0.00355684096265762,
+        "02": 0.001487343194949852,
+        "03": 0.0022465583043244333,
+        "12": 0.003264899372457467,
+        "13": 0.0024344189388322483,
+        "23": 0.0018190534017592658
+      },
+      "wrong_Maurer_Cartan_sign_witness": 0.00355684096265762,
+      "wrong_connection_sign_witness": 0.566482112518461
+    },
+    "potential_argument_max_error": 2.220446049250313e-16,
+    "theorem": "for every signed canonical u in the upstream finite-energy domain, phi=Omega^(-3/2)G*n0*u, A=-(dG)G^(-1), B=0 intertwines the complete material functional, Euler operator and Robin residual",
+    "total_BF_gravity_Hamiltonian_positive_claimed": false,
+    "upstream_cases": [
+      [
+        0.08,
+        0.35,
+        0.0
+      ],
+      [
+        0.8,
+        0.35,
+        0.0
+      ],
+      [
+        0.8,
+        1.2,
+        0.0
+      ],
+      [
+        0.8,
+        5.0,
+        0.0
+      ],
+      [
+        2.0,
+        0.6,
+        0.25
+      ]
+    ],
+    "upstream_mode_tail_relative_energy_change": 1.4233836331811744e-10,
+    "worst_upstream_relative_EOM_RMS": 1.3930416063165974e-05
+  },
+  "acceleration_variation_certificate": {
+    "finite_difference_error": 3.190283696562473e-12,
+    "formula": "delta a_mu=delta u^nu D_nu u_mu+u^nu D_nu delta u_mu-u^nu*u_rho*delta Gamma^rho_(nu mu)",
+    "raised_formula": "delta a^mu=gamma^(mu nu)delta a_nu-gamma^(mu rho)delta gamma_rho_sigma*a^sigma"
+  },
+  "checks": {
+    "Green_form_records_BF_and_intrinsic_terms_but_full_moving_variation_stays_open": true,
+    "N8_is_a_full_functional_and_Euler_transport_not_a_point_sample": true,
+    "N8_negative_controls_expose_every_previous_false_shortcut": true,
+    "all": true,
+    "classical_and_quantum_or_dynamic_gravity_scopes_are_separated": true,
+    "direct_hash_bound_upstream_N8_rows_and_Hamiltonian_are_consumed": true,
+    "four_upstreams_byte_hash_schema_and_scope_bound": true,
+    "gauge_covariant_associated_connection_and_form_traces_replace_component_gluing": true,
+    "metric_khronon_frame_lift_and_Robin_differential_close": true,
+    "moving_pullbacks_and_domain_transgression_are_explicit": true,
+    "no_legacy_modes_or_CSV_used": true,
+    "one_literal_action_has_all_fields_coefficients_and_no_ellipsis": true
+  },
+  "classification": "theory_only;trivial_null_homotopic_sector;prescribed_N8_pass;C1_N1_moving_variation_hold;BRST_large_gauge_N2_N7_P2_P4_B4_B5_fail_closed",
+  "decision": {
+    "A_minus_frame_connection_edge_sector_eliminated": false,
+    "B4_pass": false,
+    "B5_pass": false,
+    "C10_INDEPENDENCE_UNITARITY_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_target_scope_is_classical_trivial_null_homotopic_sector": true,
+    "C2_BRST_pass": false,
+    "C3_DOMAIN_pass": false,
+    "C4_HESSIAN_pass": false,
+    "C5_JACOBIANS_pass": false,
+    "C6_ZERO_MODES_pass": false,
+    "C7_REGULATOR_pass": false,
+    "C8_CONTOUR_pass": false,
+    "C9_REDUCTION_pass": false,
+    "N1_ACTION_pass": false,
+    "N1_target_scope_is_exact_action_not_N2_through_N7": true,
+    "N2_CONSTRAINTS_pass": false,
+    "N3_CHARACTERISTICS_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "N5_COUPLED_BVP_pass": false,
+    "N6_GLOBAL_STABILITY_pass": false,
+    "N7_LINEAR_REDUCTION_pass": false,
+    "N8_MATERIAL_PORT_pass": true,
+    "N8_same_solution_functional_transport_theorem_pass": true,
+    "N8_scope_is_prescribed_acceleration_full_V4_only": true,
+    "P3_complete_gauge_fixed_unitary_determinant_pass": false,
+    "P4_full_same_action_pass": false,
+    "a0_predicted": false,
+    "all_boundary_topologies_pass": false,
+    "boundary_bundle_isomorphism_trivial_sector_pass": true,
+    "complete_BV_BFV_boundary_complex_pass": false,
+    "decisive_result": "One literal normalized classical action candidate now replaces the v5 patch recipe. Its connection and associated-vector traces are gauge-covariant, its metric-dependent frame and moving-pullback first variations are explicit, and the BF Green form has the required oriented flux equation. The corrected Omega^(-3/2) pure-gauge map is an isometry of the complete prescribed-port full-V4 functional and transports its finite-q Euler residuals, Robin data, convergence and reduced material Hamiltonian. This closes prescribed-background N8 only. C1 and N1 remain false until the complete moving-brane variational principle is derived on one geometric family without double counting.",
+    "dynamic_gravity_claimed": false,
+    "exact_single_classical_action_candidate_charter_pass": true,
+    "finite_q_material_solution_transported": true,
+    "full_P2_pass": false,
+    "full_classical_variational_principle_selected_sector_pass": false,
+    "full_same_action_ghost_freedom_pass": false,
+    "global_BF_edge_mode_absence_pass": false,
+    "legacy_modes_or_CSV_reused": false,
+    "material_reduced_Hamiltonian_preserved": true,
+    "new_force_validated": false,
+    "next_action": "Derive and independently red-team the complete moving-brane Green form on a nonflat geometric family. Then construct the relative BF BRST/BV-BFV and A_Sigma-frame edge complex before any fresh N7/P4 campaign. Do not import legacy modes, CSVs or determinants.",
+    "nonlinear_gravitational_P4_pass": false,
+    "orientation_null_modes_removed_in_selected_sector": true,
+    "publication_authorized": false,
+    "status": "TOPOLOGICAL_SO3_CLASSICAL_V5_2_TRIVIAL_SECTOR__PRESCRIBED_N8_PASS__C1_N1_MOVING_VARIATION_HOLD__C2_C10_N2_N7_P2_P4_B4_B5_FAIL_CLOSED",
+    "universal_matter_metric_and_lensing_derived": false,
+    "unrestricted_large_gauge_sector_pass": false
+  },
+  "evidence_boundary": "The gate proves prescribed-port N8 transport on the fixed contractible, extendible gauge component and writes an exact action candidate. It does not yet prove the complete moving-brane variational principle or C1/N1. It does not prove the complete BF edge/ghost complex, large gauges, dynamic gravity, N2-N7, P2-P4, B4, B5, force or lensing.",
+  "exact_classical_charter": {
+    "BRST_BV_BFV_completion_included": false,
+    "coefficient_policy": {
+      "BF_normalization_conversion": "kappa_BF*<B,F>=k_BF_trace*tr_3(BF) with kappa_BF=1 and k_BF_trace=-1/2",
+      "all_unlisted_local_classical_operator_coefficients_at_mu_star": 0.0,
+      "matching_scale": "mu_star=k_infinity",
+      "parameters": {
+        "B4_bar": 0.8,
+        "M4_bulk_squared_selected_one_Omega_wall_value": 1.107013790800849,
+        "M5_cubed": 1.0,
+        "Robin_kappa_hat": 1.0,
+        "Robin_kappa_in_Mb_units": 0.5,
+        "Robin_y": 1.7320508075688772,
+        "Robin_y_squared": 3.0,
+        "brane_Mb_squared": 2.0,
+        "brane_beta": 2.0,
+        "compensator_metric_G": 1.2,
+        "eta": 3.107013790800849,
+        "k_BF_trace_equivalent": -0.5,
+        "k_infinity": 1.0,
+        "kappa_BF_inner_product": 1.0,
+        "lambda_K": -0.5535068954004245,
+        "material_Z5_per_side": 1.0,
+        "material_mass_M": 1.0,
+        "xi": 1.0
+      }
+    },
+    "definitions": {
+      "acceleration": "a_mu=u^nu D_nu u_mu",
+      "adjoint_form_trace": "Trans_iota(B)=Ad_r(Y^*B)=b_eps",
+      "associated_trace": "j_eps(Y_eps^*phi_eps)=varphi_H in H_(gamma,T)",
+      "connection_trace": "Trans_iota(A)=r*(Y^*A)*r^(-1)-(d r)*r^(-1)=A_Sigma",
+      "frame_constraints": "u_mu*e_a^mu=0 and h_mu_nu*e_a^mu*e_b^nu=delta_ab",
+      "induced_metric": "gamma_mu_nu=Y_eps^*g_eps and is common on both sides",
+      "khronon": "N_T=(-gamma^(mu nu)D_mu T D_nu T)^(-1/2); u_mu=-N_T D_mu T; h_mu_nu=gamma_mu_nu+u_mu*u_nu",
+      "trace_normalization": "(T_I)^J_K=epsilon_IJK; tr_3(T_I*T_J)=-2*delta_IJ; <X,Y>=-tr_3(XY)/2"
+    },
+    "exact_action": {
+      "BF": "S_BF=sum_eps int_Meps <B_eps wedge F[A_eps]>, <X,Y>=-tr_3(XY)/2",
+      "GHY": "S_GHY=M5^3*sum_eps int_Sigma sqrt(-gamma)*Theta_eps for outward normals",
+      "Robin_intrinsic": "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+      "bulk_gauged": "S_bulk_gauged=sum_eps int_Meps sqrt(-g_eps)*[M5^3*R_eps/2-G*(nabla Omega_eps)^2/2-U(Omega_eps)-Z5*delta_ab*P_eps_M^a*P_eps^(b M)/2-Z5*M^2*Omega_eps^(-5)*V4(Omega_eps^(3/2)*|phi_eps|)]",
+      "bulk_potential": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+      "foliation_lower": "S_fol_lower=Mb^2/2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]",
+      "full_V4": "V4(r)=r^4/(2*sqrt(1+r^4))",
+      "gauged_conformal_derivative": "P_eps_M=D_(A_eps,M)phi_eps+3*phi_eps*partial_M log(Omega_eps)/2",
+      "removed_terms": "S_X=0 and every bulk screen-clock term=0",
+      "superpotential": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+      "total": "S_v5_2=S_bulk_gauged+S_GHY+S_wall0+S_fol_lower+S_R_intrinsic+S_BF",
+      "wall_background": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]"
+    },
+    "independent_fields": {
+      "absent": [
+        "solid Stueckelberg X^a",
+        "screen clock",
+        "bifundamental R field",
+        "classical ghosts and gauge-fixing auxiliaries"
+      ],
+      "boundary_groupoid_data": [
+        "equivariant iota_plus:P_plus|Sigma->Q",
+        "equivariant iota_minus:P_minus|Sigma->Q",
+        "Q=Fr^+_SO(H_(gamma,T))"
+      ],
+      "brane": [
+        "paired embeddings Y_plus and Y_minus of one physical Sigma",
+        "khronon T with timelike gradient and fixed time orientation"
+      ],
+      "bulk_each_side": [
+        "Lorentzian metric g_eps_MN",
+        "positive scalar Omega_eps",
+        "associated SO3 vector phi_eps",
+        "SO3 connection A_eps",
+        "adjoint-valued real three-form B_eps"
+      ],
+      "not_independent_Euler_Lagrange_fields": [
+        "gamma, normals, Theta, u, h, Kcal, a and Rcal are composites",
+        "the local frame representative e_a^mu is constrained by h and quotiented by SO3",
+        "iota_plus and iota_minus are groupoid gluing data modulo automorphisms"
+      ]
+    },
+    "interface_domain": {
+      "BF_shift_parameter": "sum_eps s_eps*Trans_iota_eps(Y_eps^*Lambda_eps)=0",
+      "asymptotic": "normalizable fields, compact-support variations and trivial flat holonomy at infinity",
+      "configuration": [
+        "Y_plus^*g_plus=Y_minus^*g_minus=gamma",
+        "Y_plus^*Omega_plus=Y_minus^*Omega_minus=Omega_Sigma",
+        "j_plus(Y_plus^*phi_plus)=j_minus(Y_minus^*phi_minus)=varphi_H",
+        "Trans_iota_plus(Y_plus^*A_plus)=Trans_iota_minus(Y_minus^*A_minus)=A_Sigma"
+      ],
+      "natural_B_flux_equation": "sum_eps s_eps*b_eps=0 with s_plus=1 and s_minus=-1",
+      "variations": [
+        "Delta gamma, Delta Omega_Sigma, Delta varphi_H and Delta A_Sigma are common",
+        "Delta A=Y^*(delta A+i_xi F) after the compensating gauge transformation",
+        "Delta phi=Y^*(delta phi+i_xi D_A phi) plus the constrained delta j"
+      ]
+    },
+    "mass_dimensions": {
+      "A_component": 1,
+      "B_component": 3,
+      "F_component": 2,
+      "G": 3,
+      "M5_cubed": 3,
+      "Mb_squared": 2,
+      "Omega": 0,
+      "Z5": 3,
+      "brane_Lagrangian": 4,
+      "bulk_Lagrangian": 5,
+      "derivative": 1,
+      "kappa_BF": 0,
+      "kappa_hat": 4,
+      "phi": 0,
+      "y": -1
+    },
+    "nonlinear_scope": "exact in displayed fields on the selected classical bundle component",
+    "route_id": "one_Omega_full_V4_topological_SO3_classical_v5_2",
+    "symmetries": [
+      "five-dimensional diffeomorphisms and four-dimensional brane reparametrizations",
+      "Z2 exchange of the two sides",
+      "monotone khronon reparametrization",
+      "local SO3 on P_plus, P_minus and Q with the boundary groupoid action",
+      "BF shift B->B+D_A Lambda with oriented boundary gluing"
+    ],
+    "topology": {
+      "bulk_halves": "M_plus=M_minus=R^(1,3)xR_>=0",
+      "bundle_sector": "trivial SO3 bundles and null-homotopic extendible gauges",
+      "interface": "Sigma=R^(1,3) with no boundary",
+      "reference_domain_formulation": "M_eps are fixed reference half-spaces; moving physical domains are pulled back in full by Y_eps, so the material variations include Lie_xi once and no separate i_xi L_5 term is added"
+    }
+  },
+  "frame_and_Robin_variation_certificate": {
+    "Robin_analytic_density_derivative": -0.021972844675832586,
+    "Robin_finite_difference_derivative": -0.021972844672750458,
+    "Robin_finite_difference_error": 3.0821283025783686e-12,
+    "Robin_first_variation": "delta S_R=-kappa_hat/2*int sqrt(-gamma)*[gamma^(mu nu)delta gamma_mu_nu*|q|_h^2/2+delta h(q,q)+2*h(q,delta varphi_H-y*delta a_sharp)]",
+    "delta_frame": "delta e_a^mu=u^mu*delta u_nu*e_a^nu-h^(mu rho)*delta h_rho_nu*e_a^nu/2+e_b^mu*lambda^b_a, lambda_ab=-lambda_ba",
+    "delta_h": "delta h_mu_nu=delta gamma_mu_nu+u_mu delta u_nu+u_nu delta u_mu",
+    "delta_u_covariant": "delta u_mu=-N_T*h_mu^nu*D_nu(delta T)-u_mu*u^rho*u^sigma*delta gamma_rho_sigma/2",
+    "linearized_frame_orthonormality_error": 8.498374721940739e-18,
+    "linearized_frame_spatiality_error": 0.0,
+    "linearized_u_norm_error": 0.0,
+    "vertical_frame_rotation_acceleration_cancellation_error": 0.0,
+    "vertical_frame_rotation_phi_cancellation_error": 0.0
+  },
+  "moving_pullback_certificate": {
+    "adjoint_form_material_variation": "Delta_xi B=Y^*(delta B+i_xi D_A B+D_A(i_xi B))",
+    "associated_scalar_material_variation": "Delta_xi phi=Y^*(delta phi+i_xi D_A phi)",
+    "connection_material_variation": "Delta_xi A=Y^*(delta A+i_xi F) after subtracting D_A(i_xi A)",
+    "finite_difference_error": 1.7233020566109758e-12,
+    "reference_domain_convention": "the complete bulk top form is pulled back to fixed M_eps and varied with Delta=delta+Lie_xi; adding a separate i_xi L_5 would double count",
+    "scalar_pullback": "delta(Y^*f)=Y^*(delta f+Lie_xi f)",
+    "separate_domain_transgression_added": false
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_classical_v5_2_gate.py",
+      "sha256": "62096c08848044400c0f51ee126597db71b3dcf75e11aaddacbd0afad98a45e8"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_classical_v5_2_gate.py",
+      "sha256": "511ef10674fe622a6ab4b6d5c6fe4daf0142b22603dc33668b12cbc713c42f26"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-classical-v5-2-gate.v1",
+  "title": "One-Omega topological SO(3) sectorial classical v5.2 gate",
+  "upstreams": {
+    "boundary_isomorphism_v5_1": {
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_boundary_isomorphism_v5_1_gate.json",
+      "schema": "holo.one-omega-topological-so3-boundary-isomorphism-v5-1-gate.v1",
+      "sha256": "81ef6e2133e47290b776b57ab71b92dd104099eb45a35156230dd682d00fffea"
+    },
+    "lower_branch_action_v3": {
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_lower_branch_action_v3_gate.json",
+      "schema": "holo.one-omega-lower-branch-action-v3-gate.v1",
+      "sha256": "4759a2c9a0036f8d93eb1224fcd955cd45843759a2e64c5703d00c31da5a5243"
+    },
+    "nonlinear_robin_full_V4": {
+      "path": "first_principles_audit/prediction_factory/artifacts/nonlinear_robin_full_v4_gate.json",
+      "schema": "holo.nonlinear-robin-full-v4-gate.v1",
+      "sha256": "e65b790fdd068c58e6b7597955c0d5fc93e419852f70561b54e997dddd04250b"
+    },
+    "one_Omega_action_charter": {
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_action_charter_gate.json",
+      "schema": "holo.one-omega-action-charter-gate.v1",
+      "sha256": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef"
+    }
+  }
+}

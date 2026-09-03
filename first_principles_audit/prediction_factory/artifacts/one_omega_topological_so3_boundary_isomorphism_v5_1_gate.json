@@ -1,0 +1,362 @@
+{
+  "bundle_groupoid_certificate": {
+    "Robin_coordinate_free": "S_R=-kappa_hat/2 int_Sigma sqrt(-gamma) ||varphi_H-y*aSigma_sharp||_h^2",
+    "adjoint_form_trace_gluing": "Trans_iota(B)=Ad_r(Y^*B); no inhomogeneous connection term",
+    "associated_vector_map": "j_eps([p,v])=[iota_eps(p),v] maps P_eps x_rho R3 to H_Sigma",
+    "composition_identity": "iota_minus o Phi_boundary=iota_plus",
+    "composition_identity_error": 1.594578259491282e-16,
+    "connection_trace_gluing": "Trans_iota_plus(Y_plus^*A_plus)=Trans_iota_minus(Y_minus^*A_minus)=A_Sigma; locally Trans_iota(A)=r*A*r^(-1)-(d r)*r^(-1)",
+    "gauge_action": "iota_eps -> G_Q o iota_eps o G_eps^(-1) under Aut(P_plus)xAut(P_minus)xAut(Q)",
+    "iota_is_gluing_groupoid_data_not_sigma_model_field": true,
+    "maps": {
+      "Phi_boundary": "Phi_boundary(x,g)=(x,r_minus(x)^(-1)*r_plus(x)*g): P_plus|Sigma -> P_minus|Sigma",
+      "iota_minus": "iota_minus(x,g)=q0(x)*r_minus(x)*g: P_minus|Sigma -> Q",
+      "iota_plus": "iota_plus(x,g)=q0(x)*r_plus(x)*g: P_plus|Sigma -> Q"
+    },
+    "material_trace_gluing": "j_plus(phi_plus|Sigma)=j_minus(phi_minus|Sigma)=varphi_H",
+    "no_physical_coframe_section_is_part_of_the_data": true,
+    "representative_section": "q0 is a chosen global oriented h-orthonormal frame representative; changing q0 is an Aut(Q) gauge change, not extra physical data",
+    "residual_gauge_group": "diagonal SO(3)",
+    "right_equivariance": "iota_eps(p*g)=iota_eps(p)*g",
+    "right_equivariance_error": 1.1102230246251565e-16,
+    "unitary_bundle_gauge_in_null_component": "iota_plus=iota_minus=id"
+  },
+  "checks": {
+    "all": true,
+    "classical_sector_and_quantum_boundary_are_separated": true,
+    "fixed_topology_has_no_bundle_characteristic_class_obstruction": true,
+    "iota_maps_and_Phi_boundary_are_explicit_and_equivariant": true,
+    "no_legacy_modes_or_CSV_used": true,
+    "orientation_aware_BF_variation_is_well_posed_but_full_variation_is_open": true,
+    "orientation_isomorphism_deformations_are_exact_after_gauge_quotient": true,
+    "selected_diagonal_Robin_and_D_A_are_gauge_covariant": true,
+    "v5_design_hash_schema_and_fail_closed_scope_bound": true,
+    "zero_current_ansatz_is_not_yet_an_N8_transport_theorem": true
+  },
+  "classical_domain_charter": {
+    "BF_coefficient": "S_BF=kappa_BF*int<B wedge F> with kappa_BF=-2*k_BF_trace because <X,Y>=-tr_3(XY)/2; a future exact charter must fix one of them",
+    "Z2_domain": [
+      "common A trace under iota_eps",
+      "equal B pullbacks in one common Sigma orientation",
+      "orientation incidence s_plus=1, s_minus=-1"
+    ],
+    "asymptotic_domain": [
+      "normalizable physical fields",
+      "compact-support variations at AdS5 infinity",
+      "trivial flat holonomy sector",
+      "gauge transformations are null-homotopic and extendible from Sigma into M_eps"
+    ],
+    "classical_action_and_variation_domain_complete_in_selected_sector": false,
+    "classical_action_domain_explicit_in_selected_sector": true,
+    "fields": [
+      "A_eps is an SO3 connection on P_eps",
+      "B_eps is a real adjoint-valued three-form",
+      "iota_eps are equivariant gluing morphisms in the boundary groupoid",
+      "no R sigma-model field and no fixed coframe section"
+    ],
+    "quantum_BRST_BV_BFV_domain_complete": false,
+    "trace_normalization": "adjoint anti-Hermitian (T_I)^J_K=epsilon_IJK with tr_3(T_I*T_J)=-2*delta_IJ and <X,Y>=-tr_3(XY)/2"
+  },
+  "classical_variation_certificate": {
+    "A_enters_material_action_without_derivatives": true,
+    "A_trace_domain": "Trans_iota_plus(Y_plus^*A_plus)=Trans_iota_minus(Y_minus^*A_minus)=A_Sigma",
+    "BF_A_boundary_term_error": 0.0,
+    "BF_A_variation_boundary_term": "-k_BF int_Sigma tr[(sum_eps s_eps iota_eps*B_eps) wedge delta A_Sigma]",
+    "BF_shift_boundary_term": "k_BF int_Sigma tr[(sum_eps s_eps iota_eps*Lambda_eps) wedge F_Sigma]",
+    "BF_shift_boundary_term_error": 0.0,
+    "BF_shift_parameter_domain": "s_plus*iota_plus*Lambda_plus+s_minus*iota_minus*Lambda_minus=0",
+    "BF_variation_well_posed_in_selected_sector": true,
+    "B_flux_domain": "s_plus*iota_plus*B_plus+s_minus*iota_minus*B_minus=0",
+    "B_variation_has_boundary_derivative": false,
+    "Robin_first_variation": "delta S_R=-kappa_hat/2 int sqrt(-gamma)[gamma^(mu nu)delta gamma_mu_nu*|r|_h^2/2+delta h(r,r)+2*h(r,delta varphi_H-y*delta aSigma_sharp)]",
+    "Robin_metric_T_variations_are_intrinsic_local_boundary_terms": true,
+    "common_orientation_incidence": {
+      "s_minus": -1,
+      "s_plus": 1
+    },
+    "complete_material_metric_khronon_moving_brane_variation_pass": false,
+    "full_BF_first_variation": "delta S_BF,eps=k_BF int_Meps [<delta B_eps wedge F_eps>+<delta A_eps wedge D_A B_eps>]-k_BF int_boundary <B_eps wedge delta A_eps>",
+    "full_classical_variational_principle_pass": false,
+    "intrinsic_acceleration_variation": "delta a_mu=delta u^nu D_nu u_mu+u^nu D_nu delta u_mu-u^nu*u_rho*delta Gamma^rho_(nu mu)",
+    "iota_variations_are_groupoid_gauge_not_physical_Euler_Lagrange_fields": true,
+    "material_boundary_equation": "sum_eps Z5*n_eps^M*j_eps(P_M,eps)+kappa_hat*(varphi_H-y*aSigma_sharp)=0",
+    "material_momenta": "Pi_eps=Z5*j_eps(n_eps^M*[D_A,M phi_eps+3*phi_eps*partial_M log(Omega)/2])",
+    "matter_trace_domain": "j_plus(phi_plus)=j_minus(phi_minus)=varphi_H",
+    "moving_brane_pullback_variation": "on fixed abstract M_eps with moving boundary pullbacks: Delta_Y A=Y_eps^*(delta A+i_xi F), Delta_Y phi=Y_eps^*(delta phi+i_xi D_A phi), and Delta_Y B=Y_eps^*(delta B+i_xi D_A B+D_A i_xi B), after the compensating gauge transformation; j_eps transports only the associated SO3 vector index",
+    "moving_domain_convention": "M_eps are fixed abstract manifolds; Y_eps varies their boundary pullback data, not the bulk integration domain",
+    "moving_domain_transgression_required": false,
+    "raised_acceleration_variation": "delta a^mu=gamma^(mu nu)*delta a_nu-gamma^(mu rho)*delta gamma_(rho sigma)*a^sigma",
+    "reducible_ghost_boundary_complex_complete": false
+  },
+  "classification": "theory_only;trivial_null_homotopic_boundary_isomorphism_pass;C1_N1_N8_fail_closed;large_gauge_BRST_N7_P4_B4_B5_fail_closed",
+  "decision": {
+    "A_minus_frame_connection_edge_sector_eliminated": false,
+    "B4_pass": false,
+    "B5_pass": false,
+    "C10_INDEPENDENCE_UNITARITY_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_target_scope_is_classical_null_homotopic_sector": true,
+    "C2_BRST_pass": false,
+    "C3_DOMAIN_pass": false,
+    "C4_HESSIAN_pass": false,
+    "C5_JACOBIANS_pass": false,
+    "C6_ZERO_MODES_pass": false,
+    "C7_REGULATOR_pass": false,
+    "C8_CONTOUR_pass": false,
+    "C9_REDUCTION_pass": false,
+    "N1_ACTION_pass": false,
+    "N1_target_scope_is_trivial_new_field_background": true,
+    "N2_CONSTRAINTS_pass": false,
+    "N3_CHARACTERISTICS_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "N5_COUPLED_BVP_pass": false,
+    "N6_GLOBAL_STABILITY_pass": false,
+    "N7_LINEAR_REDUCTION_pass": false,
+    "N8_MATERIAL_PORT_pass": false,
+    "N8_same_solution_transport_theorem_pass": false,
+    "N8_target_scope_is_prescribed_acceleration_full_V4_only": true,
+    "P3_complete_gauge_fixed_unitary_determinant_pass": false,
+    "P4_full_same_action_pass": false,
+    "a0_predicted": false,
+    "all_boundary_topologies_pass": false,
+    "boundary_bundle_isomorphism_trivial_sector_pass": true,
+    "bulk_screen_clock_removed": true,
+    "classical_orientation_aware_BF_variation_pass": true,
+    "complete_BV_BFV_boundary_complex_pass": false,
+    "decisive_result": "On the declared contractible/null-homotopic component, P_plus|Sigma, P_minus|Sigma and the spatial frame bundle are trivial with matching w2 and p1. Equivariant iota_plus/minus exist, the isomorphism deformation complex is onto with diagonal kernel, and its gauge quotient has zero relative modes. The orientation-aware BF boundary form and BF-shift variation cancel. The zero-current ansatz alone does not transport the upstream finite-q N8 certificate, and the complete moving-brane metric/khronon material variation is not closed. Therefore C1, N1 and N8 remain false. Large gauge sectors, A-omega edge modes, BRST/BV-BFV, N7, P4, B4 and B5 also remain open.",
+    "elastic_TT_and_scalar_inverse_contacts_absent_in_bare_bilinear": true,
+    "equivariant_iota_plus_iota_minus_and_Phi_boundary_pass": true,
+    "fresh_N7_campaign_authorized": false,
+    "full_P2_pass": false,
+    "full_classical_variational_principle_pass": false,
+    "full_same_action_ghost_freedom_pass": false,
+    "global_BF_edge_mode_absence_pass": false,
+    "legacy_modes_or_CSV_reused": false,
+    "new_force_validated": false,
+    "next_action": "First derive the complete moving-brane metric/khronon/material first variation and an equation-by-equation finite-q N8 transport theorem. Then construct the relative BF BRST/BV-BFV complex including the A_Sigma-omega_frame edge sector and prove its zero-mode/cohomology ledger. Do not begin active measurement or import modes/CSV; a fresh passive Phase-A preflight is required before any later N7 campaign.",
+    "nonlinear_gravitational_P4_pass": false,
+    "orientation_null_modes_removed_in_selected_sector": true,
+    "publication_authorized": false,
+    "relative_isomorphism_modes_after_gauge_quotient": 0,
+    "selected_diagonal_gauge_covariance_pass": true,
+    "standard_solid_removed": true,
+    "status": "TOPOLOGICAL_SO3_BOUNDARY_ISOMORPHISM_V5_1_TRIVIAL_SECTOR__ISOMORPHISM_AND_LOCAL_QUOTIENT_PASS__C1_N1_N8_C2_C10_N2_N7_P2_P4_B4_B5_FAIL_CLOSED",
+    "topological_characteristic_class_compatibility_pass": true,
+    "universal_matter_metric_and_lensing_derived": false,
+    "unrestricted_large_gauge_sector_pass": false
+  },
+  "evidence_boundary": "The gate proves the explicit classical bundle gluing only on the fixed contractible and extendible gauge component. It does not prove the full moving-brane variational principle, transport the finite-q N8 solution, or prove large gauge sectors, the BF edge/ghost determinant, N7, P4, B4, B5, force or lensing.",
+  "orientation_quotient_certificate": {
+    "A_minus_frame_connection_edge_sector_included_in_this_complex": false,
+    "d0_cokernel_dimension": 0,
+    "d0_kernel_dimension": 3,
+    "d0_matrix": [
+      [
+        -1.0,
+        -0.0,
+        -0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        -0.0,
+        -1.0,
+        -0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        -0.0,
+        -0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        -1.0,
+        -0.0,
+        -0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        -0.0,
+        -0.0,
+        -1.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "d0_on_diagonal_error": 0.0,
+    "d0_rank": 6,
+    "diagonal_embedding_matrix": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "diagonal_embedding_rank": 3,
+    "full_BF_boundary_zero_mode_complex_complete": false,
+    "gauge_algebra_domain_dimension": 9,
+    "isomorphism_deformation_codomain_dimension": 6,
+    "kernel_equals_diagonal_by_dimension_and_inclusion": true,
+    "relative_isomorphism_modes_after_gauge_quotient": 0
+  },
+  "prescribed_N8_lift_certificate": {
+    "B_equals_zero_solves_A_equation_when_current_zero": true,
+    "D_A_conformal_phi_collinearity_error": 6.359601310784502e-17,
+    "F_of_pure_gauge_A": 0.0,
+    "SO3_material_current_norm": 2.8726726951991504e-17,
+    "ansatz": "phi=Omega^(-3/2)*G*n0*psi_up; A=-(dG)G^-1; B=0",
+    "canonical_variable": "Psi_vec=Omega^(3/2)*phi=G*n0*u with signed scalar u; only the V4 argument is |u|",
+    "finite_q_or_dynamic_gravity_claimed": false,
+    "full_V4_radial_amplitude_and_Robin_equations_unchanged": true,
+    "narrow_prescribed_acceleration_N8_lift_pass": false,
+    "normalization": {
+      "T": 1.0,
+      "kappa": 0.5,
+      "y_squared": 3.0
+    },
+    "same_solution_transport_theorem_pass": false,
+    "topological_sector": "G is null-homotopic and extendible into each M_eps",
+    "unitary_bundle_gauge": "G=id gives A=B=0 and phi=Omega^(-3/2)*n0*u",
+    "upstream_nonlinear_finite_q_solution_lifted_equation_by_equation": false,
+    "upstream_positive_Hamiltonian_rederived_for_modified_action": false
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_boundary_isomorphism_v5_1_gate.py",
+      "sha256": "3d9d427ce78d50cebfeca3d1445de6b4ce893283f774606be3e64a59ef562492"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_boundary_isomorphism_v5_1_gate.py",
+      "sha256": "5f54c04864b3b1f6e91e047be9b8c7aa54f57e423f997ef7f520d25f5a48e00e"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-boundary-isomorphism-v5-1-gate.v1",
+  "selected_gauge_covariance_certificate": {
+    "D_A_phi_covariance_error": 1.1443916996305594e-16,
+    "Robin_norm_invariance_error": 0.0,
+    "connection_law": "A'=G A G^-1-(dG)G^-1",
+    "diagonal_Robin_q_covariance_error": 1.5515838457795457e-17,
+    "independent_relative_boundary_gauge_used": false
+  },
+  "title": "One-Omega topological SO(3) boundary-isomorphism v5.1 gate",
+  "topology_certificate": {
+    "Cech_cover": "one global contractible chart; every transition function is identity",
+    "all_boundary_topologies_classified": false,
+    "bulk_halves": "M_plus=M_minus=R^(1,3)xR_>=0",
+    "characteristic_classes_match": true,
+    "cohomology_obstructions": {
+      "H2_Sigma_Z2": 0,
+      "H4_Sigma_Z": 0,
+      "p1_P_minus_restricted": 0,
+      "p1_P_plus_restricted": 0,
+      "p1_spatial_frame_bundle": 0,
+      "w2_P_minus_restricted": 0,
+      "w2_P_plus_restricted": 0,
+      "w2_spatial_frame_bundle": 0
+    },
+    "contractible": {
+      "M_minus": true,
+      "M_plus": true,
+      "Sigma": true,
+      "leaf": true
+    },
+    "equivariant_isomorphisms_exist": true,
+    "explicit_contractions": {
+      "M_eps": "H_s(x,y)=(s*x,s*y), 0<=s<=1",
+      "Sigma": "h_s(x)=s*x, 0<=s<=1",
+      "leaf": "h_s(vec_x)=s*vec_x, 0<=s<=1"
+    },
+    "interface": "Sigma=R^(1,3)",
+    "pi3_SO3_large_leaf_gauge_sector_included": false,
+    "pi4_SO3_large_Sigma_gauge_sector_included": false,
+    "principal_bundles": {
+      "P_minus": "M_minus x SO(3)",
+      "P_plus": "M_plus x SO(3)",
+      "Q": "Fr^+_SO(H_Sigma) is isomorphic to Sigma x SO(3)"
+    },
+    "scope": "trivial bundle and null-homotopic gauge component",
+    "spatial_leaves": "R^3"
+  },
+  "upstream": {
+    "path": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_solder_v5_candidate_gate.json",
+    "schema": "holo.one-omega-topological-so3-solder-v5-candidate-gate.v1",
+    "sha256": "fa78cba426c3fcae92f436498944c6b5f4b4ca01ef979831ef1ede099de4ea75"
+  }
+}

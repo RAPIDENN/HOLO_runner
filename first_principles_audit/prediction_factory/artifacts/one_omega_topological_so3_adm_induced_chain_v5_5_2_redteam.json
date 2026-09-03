@@ -1,0 +1,387 @@
+{
+  "certificates": {
+    "bulk_matter_shift_and_wall_Robin": {
+      "T_ui_components": [
+        -0.22659069767441858,
+        0.06215968992248066,
+        0.30740232558139535
+      ],
+      "T_ui_norm": 0.3869151859215258,
+      "fake_wall_Robin_shift_current": [
+        -0.11843593136791207,
+        0.16933353375123486,
+        -0.0034310335163735112
+      ],
+      "fake_wall_Robin_shift_current_witness": 0.20667048043360195,
+      "flip_matter_current_sign_witness": 0.5998685053046912,
+      "matter_shift_error": 5.551115123125783e-17,
+      "minimum_absolute_T_ui_component": 0.06215968992248066,
+      "minus_T_ui_over_N_prediction": [
+        0.1756517036235803,
+        -0.04818580614145787,
+        -0.23829637641968632
+      ],
+      "numerical_bulk_matter_E_shift": [
+        0.17565170362358026,
+        -0.048185806141457815,
+        -0.23829637641968632
+      ],
+      "omit_matter_current_witness": 0.2999342526523456,
+      "wall_Robin_direct_shift_components": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "wall_Robin_direct_shift_norm": 0.0
+    },
+    "independent_mutant_witnesses": {
+      "Israel_Brown_York_sign": 0.4432957134582548,
+      "Israel_autonomous_metric": 15.321086859318564,
+      "Israel_flip_all_projection_signs": 16.79002046521849,
+      "Israel_omit_1_lapse_projection": 3.8724925123329648,
+      "Israel_omit_3_shift_projections": 0.35304573611276174,
+      "Israel_omit_6_spatial_projections": 7.618216412475352,
+      "Jacobian_autonomize_gamma_and_ADM": 4.467531884609219,
+      "Jacobian_flip_lapse_sign": 6.6564,
+      "Jacobian_omit_q_beta_terms": 0.5618611038326109,
+      "Robin_fake_shift_current": 0.20667048043360195,
+      "chain_double_offdiagonal_gamma_slots": 3.174868096095357,
+      "chain_flip_gamma_route_sign": 23.61592947392968,
+      "chain_omit_metric_slots": 6.394653570780827,
+      "chain_omit_shift_slot": 0.5088633448077617,
+      "matter_flip_T_ui_sign": 0.5998685053046912,
+      "matter_omit_T_ui": 0.2999342526523456,
+      "normal_flip_2fTheta_sign": 0.23510398040056016,
+      "normal_omit_2fTheta": 0.11755199020047889,
+      "psi_flip_coordinate_term": 0.3914621155241318,
+      "psi_omit_coordinate_term": 0.19573105776206584
+    },
+    "nontrivial_induced_pullback_and_ADM_Jacobian": {
+      "ADM_roundtrip_error": 0.0,
+      "Jacobian_condition_number": 4.021818823902912,
+      "Jacobian_determinant": -5.756787540000002,
+      "Jacobian_rank": 10,
+      "Y_star_g_error": 0.0,
+      "ambient_dimension": 5,
+      "ambient_metric_inertia": {
+        "negative": 1,
+        "positive": 4
+      },
+      "closed_inverse_probe_max_error": 2.7755575615628914e-17,
+      "complex_step_vs_closed_tangent_error": 4.440892098500626e-16,
+      "embedding_tangent_last_row_norm": 0.11874342087037917,
+      "inverse_chart_left_error": 1.0714318321447536e-11,
+      "inverse_chart_right_error": 2.032679797181897e-11,
+      "nonzero_shift_norm": 0.3159113799786263,
+      "offdiagonal_metric_norm": 0.25059928172283336
+    },
+    "normal_embedding_metric_subsector": {
+      "H_identity_error": 5.378170131464799e-12,
+      "H_norm": 0.11755199020047889,
+      "I_contract_Theta": -0.2751647079875079,
+      "I_contract_Theta_absolute": 0.2751647079875079,
+      "direct_metric_Green_pairing": -0.1680623125929771,
+      "embedding_family": "Y_s(sigma)=(sigma,r=s f) in Gaussian-normal ambient metric",
+      "f_bend": -0.36,
+      "flip_normal_bending_sign_witness": 0.23510398040056016,
+      "full_all_field_normal_embedding_claimed": false,
+      "normal_equation_pairing": -0.1680623125864665,
+      "normal_metric_identity": "H_mn=2 f Theta_mn",
+      "normal_pairing_error": 6.510597616582459e-12,
+      "omit_normal_bending_witness": 0.11755199020047889,
+      "still_missing_for_full_all_field_normal_embedding": "two-sided normal momenta and transport of Omega, phi, A, B, T, plus derivative EH/GHY and corner Green data"
+    },
+    "one_action_two_independent_routes": {
+      "ADM_action_value": -9.441827650522908,
+      "ADM_vs_gamma_gradient_chain_error": 8.881784197001252e-16,
+      "E_N": -5.843215938857889,
+      "E_Omega": 1.7954822217464605,
+      "E_h": [
+        [
+          -1.963280922961236,
+          -0.3207148592821586,
+          0.06941514823236146
+        ],
+        [
+          -0.3207148592821586,
+          -2.3253879956906,
+          0.1493150873010778
+        ],
+        [
+          0.06941514823236146,
+          0.1493150873010778,
+          -2.1034747876883833
+        ]
+      ],
+      "E_psi": [
+        0.28886812528759037,
+        -0.413008618905451,
+        0.008368374430179293
+      ],
+      "E_shift": [
+        0.17565170362358026,
+        -0.048185806141457815,
+        -0.23829637641968632
+      ],
+      "action_representation_error": 0.0,
+      "directional_pairing_max_error": 4.440892098500626e-16,
+      "gamma_action_value": -9.441827650522908,
+      "genuinely_off_shell": true,
+      "minimum_active_ADM_gradient": 0.0817512180371802,
+      "projection_1_plus_3_plus_6_max_error": 8.881784197001252e-16,
+      "tau": [
+        [
+          3.511337022329121,
+          0.8111512037125043,
+          -0.49980087568837006,
+          -0.9369555102542221
+        ],
+        [
+          0.8111512037125043,
+          -3.7450836550178024,
+          -0.7565514886709033,
+          -0.06943065607227343
+        ],
+        [
+          -0.49980087568837006,
+          -0.7565514886709033,
+          -4.579653951826107,
+          0.4315288214758281
+        ],
+        [
+          -0.9369555102542221,
+          -0.06943065607227343,
+          0.4315288214758281,
+          -3.968278223754707
+        ]
+      ],
+      "tau_norm": 8.256738040791584
+    },
+    "psi_coordinate_observation": {
+      "E_psi_from_action": [
+        0.28886812528759037,
+        -0.413008618905451,
+        0.008368374430179293
+      ],
+      "coordinate_chain_error": 2.914335439641036e-16,
+      "coordinate_term_norm": 0.19573105776206584,
+      "fixed_coordinate": "psi_i",
+      "flip_coordinate_term_witness": 0.3914621155241318,
+      "independent_coordinate_prediction": [
+        [
+          -0.05852932157536876,
+          0.08638334548078619,
+          0.02480790449480052
+        ],
+        [
+          0.08638334548078619,
+          -0.12736840061261503,
+          -0.03539079984540293
+        ],
+        [
+          0.02480790449480052,
+          -0.03539079984540293,
+          0.0014864665559348076
+        ]
+      ],
+      "observed_fixed_varphi_minus_fixed_psi": [
+        [
+          -0.05852932157536905,
+          0.08638334548078619,
+          0.024807904494800512
+        ],
+        [
+          0.08638334548078619,
+          -0.12736840061261478,
+          -0.03539079984540293
+        ],
+        [
+          0.024807904494800512,
+          -0.03539079984540293,
+          0.0014864665559350954
+        ]
+      ],
+      "omit_coordinate_term_witness": 0.19573105776206584,
+      "varphi_defined_afterwards_as": "varphi^i=h^ij psi_j"
+    },
+    "single_Israel_Brown_York_tensor": {
+      "Brown_York_convention": "pi^mn=Theta^mn-Theta gamma^mn",
+      "Brown_York_norm": 0.13598028020191866,
+      "Brown_York_sign_mutant_witness": 0.4432957134582548,
+      "Jacobian_rank": 10,
+      "Theta": [
+        [
+          0.09,
+          -0.028,
+          0.037,
+          -0.016
+        ],
+        [
+          -0.028,
+          -0.061,
+          0.021,
+          0.014
+        ],
+        [
+          0.037,
+          0.021,
+          0.074,
+          -0.023
+        ],
+        [
+          -0.016,
+          0.014,
+          -0.023,
+          -0.047
+        ]
+      ],
+      "autonomous_metric_mutant_witness": 15.321086859318564,
+      "junction": [
+        [
+          -3.521087936291112,
+          -0.781668214767597,
+          0.4726536607331348,
+          0.9399610557741459
+        ],
+        [
+          -0.781668214767597,
+          3.7662507031875183,
+          0.7830688820190691,
+          0.07439253025219149
+        ],
+        [
+          0.4726536607331348,
+          0.7830688820190691,
+          4.782157866765445,
+          -0.4664660843500456
+        ],
+        [
+          0.9399610557741459,
+          0.07439253025219149,
+          -0.4664660843500456,
+          3.9894796569349213
+        ]
+      ],
+      "junction_convention": "I^mn=M pi^mn-tau^mn",
+      "junction_norm": 8.395010232609245,
+      "pi": [
+        [
+          -0.005982155804902262,
+          0.01808772327908422,
+          -0.01665473310137132,
+          0.0018438929570084497
+        ],
+        [
+          0.01808772327908422,
+          0.012985919122525058,
+          0.016268339477402353,
+          0.003044094588906786
+        ],
+        [
+          -0.016654733101371322,
+          0.016268339477402353,
+          0.12423553063763054,
+          -0.021433903603814423
+        ],
+        [
+          0.0018438929570084488,
+          0.003044094588906787,
+          -0.021433903603814423,
+          0.013007014220990324
+        ]
+      ],
+      "projection_component_count": 10,
+      "projection_reconstruction_error": 1.3322676295501878e-15,
+      "slot_mutant_witnesses": {
+        "flip_all_projection_signs": 16.79002046521849,
+        "omit_1_lapse_projection": 3.8724925123329648,
+        "omit_3_shift_projections": 0.35304573611276174,
+        "omit_6_spatial_projections": 7.618216412475352
+      },
+      "tau": [
+        [
+          3.511337022329121,
+          0.8111512037125043,
+          -0.49980087568837006,
+          -0.9369555102542221
+        ],
+        [
+          0.8111512037125043,
+          -3.7450836550178024,
+          -0.7565514886709033,
+          -0.06943065607227343
+        ],
+        [
+          -0.49980087568837006,
+          -0.7565514886709033,
+          -4.579653951826107,
+          0.4315288214758281
+        ],
+        [
+          -0.9369555102542221,
+          -0.06943065607227343,
+          0.4315288214758281,
+          -3.968278223754707
+        ]
+      ],
+      "tau_norm": 8.256738040791584
+    }
+  },
+  "claim": "Independent reproduction of the selected local induced-ADM chain; not an all-field normal theorem and not a C1/N1/B4 promotion.",
+  "coordinate_ledger": {
+    "BF_trace_disambiguation": "b_BF=iota^*B is not b_shift",
+    "b_shift": "b_shift^i=δβ^i",
+    "chain_identity": "E_N n+E_shift_i b_shift^i+E_h^ij q_ij=(1/2)tau^mn H_mn",
+    "metric_status": "(N,beta,h)=ADM(Y^*g,T), not autonomous fields",
+    "n": "n=δN/N",
+    "omega": "omega=δOmegaSigma",
+    "primary_Robin_coordinate": "psi_i is fixed independently of h_ij",
+    "q": "q_ij=δh_ij",
+    "v": "v_i=δpsi_i"
+  },
+  "coordinate_ledger_sha256": "47c720d5dcc25a8925b675d2154b62483229fff6c03d1a2470a7afd1a4892e5e",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "N1_ACTION_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "bidirectional_ADM_Jacobian_rank10_pass": true,
+    "complete_v5_2_all_field_normal_embedding_pass": false,
+    "explicit_coordinate_contract_pass": true,
+    "full_classical_variational_principle_selected_sector_pass": false,
+    "full_off_shell_Green_theorem_accepted": false,
+    "independent_action_routes_chain_pass": true,
+    "independent_primary_lineage_pass": true,
+    "independent_redteam_checks_pass": true,
+    "matter_shift_T_ui_visible_pass": true,
+    "nontrivial_induced_pullback_pass": true,
+    "normal_embedding_metric_pairing_pass": true,
+    "off_shell_independent_mutants_pass": true,
+    "psi_coordinate_chain_observed_pass": true,
+    "publication_authorized": false,
+    "unique_Israel_Brown_York_reconstruction_pass": true,
+    "wall_Robin_shift_neutral_pass": true
+  },
+  "pinned_primary_v5_5_2": {
+    "artifact_sha256": "4e068475ae316684cebd0f68e10d183fff7c0d90c46b155f2dfc8be4b3b0d6e8",
+    "generator_sha256": "00f8fa443bda37711d2456cb5e55c8a5c349d1c7f814a44c63203e3c02836e1e",
+    "schema": "holo.one-omega-topological-so3-adm-induced-chain-v5-5-2-gate.v1",
+    "test_sha256": "4547d1e7f361b2c9b931dba3a9a5a5829d2a2563ab4a0c9c54a154f9292f7aca",
+    "v5_2_artifact_sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b"
+  },
+  "primary_helpers_imported": [],
+  "provenance": {
+    "deterministic_seed_used": false,
+    "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_adm_induced_chain_v5_5_2_redteam.py",
+    "generator_sha256": "470d3c8b2bc7429ad77083c39f9112cc1908501b176d72f3b464b2f37f62696d",
+    "numpy": "2.4.2",
+    "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_adm_induced_chain_v5_5_2_redteam.py",
+    "test_sha256": "6b373b7cccac70316ca52172fe65cfad991f90d0ad160afa4cdb2994e67e6f4f"
+  },
+  "schema": "holo.one-omega-topological-so3-adm-induced-chain-v5-5-2-redteam.v1",
+  "scope_boundary": {
+    "proved": "selected local SO(3)-matter/wall/Robin metric action, induced ADM chain, unique 1+3+6 junction tensor, and metric normal pairing",
+    "still_red": "complete v5.2 derivative action and all pulled-back field normal momenta; C1, N1, N4, B4, and B5"
+  }
+}

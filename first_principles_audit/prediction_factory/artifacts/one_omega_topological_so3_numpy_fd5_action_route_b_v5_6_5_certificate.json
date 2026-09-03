@@ -1,0 +1,1580 @@
+{
+  "checks": {
+    "Euler_Green_independent_route_pass": false,
+    "N2_seed0_R_exactly_identity": true,
+    "Q5_is_refinable_odd_grid": true,
+    "all_endpoint_action_nodes_Lorentzian": true,
+    "all_endpoint_pointwise_gluing_below_2e_12": true,
+    "central_all_action_nodes_Lorentzian": true,
+    "central_pointwise_gluing_below_2e_12": true,
+    "clean_process_redteam_pass": false,
+    "dyadic_FD5_window_and_endpoint_cache_complete": true,
+    "identity_all_action_nodes_Lorentzian": true,
+    "identity_pointwise_gluing_below_2e_12": true,
+    "independent_AD_agreement_pass": false,
+    "literal_v5_2_action_hash_verified": true,
+    "mandatory_Gauss_quarantine_embedded_in_bundle": true,
+    "multi_N_continuum_extension_pass": false,
+    "mutant_campaign_pass": false,
+    "sole_runtime_input_bundle_byte_pin_verified": true
+  },
+  "classification": "theory_only;finite_N2;raw_route_B;no_C1_N1_promotion",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "restricted_spectral_action_closure_claimed": false,
+    "route_B_Q5_literal_action_and_FD5_window_pass": true
+  },
+  "evidence_boundary": "This raw route-B receipt covers one finite N2 member, a Q5 FD5 step window, and a matched R=I control. It does not compare AD, derive Euler-Green, execute mutants, prove multi-N convergence, or promote C1/N1.",
+  "implementation_contract": {
+    "endpoint_rule": "free_endpoint=free_central+displacement*authoritative_free_tangent",
+    "external_project_module_imports": [],
+    "finite_difference_formula": "(S[-2]-8*S[-1]+8*S[1]-S[2])/(12*h)",
+    "numeric_stack": "NumPy float64 plus Python standard library",
+    "runtime_scientific_input": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_restricted_spectral_family_v5_6_4_2_pointwise_primitive_bundle.json",
+    "runtime_scientific_input_count": 1
+  },
+  "input_contract": {
+    "authoritative_free_central_sha256": "0febc03837763087bcd802a19431800b703278fa055ab3e11ddc9b4259458b67",
+    "authoritative_free_tangent_sha256": "96f2cb65c7ecb11f6893c6077d2538187a2fa1645cabf5b10980d36de97a0ffa",
+    "identity_control_member_id": "N2.K2.seed0",
+    "literal_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "member_id": "N2.K2.seed20260902",
+    "parent_ambient_tangent_sha256": "84ac494a2bd03d2fca9ca2490b4905436ef80719dcf4744f16ce2eae28b7812f",
+    "primitive_bundle": {
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_restricted_spectral_family_v5_6_4_2_pointwise_primitive_bundle.json",
+      "payload_sha256": "83034d2b7c3b3ef65fcc91b5b57d56bfe175113d626a61e7fe4720f6caf30736",
+      "sha256": "bcbb0037a2b025d9ece7387b5962a910e31eced7294ccb5324ab764c3bc7cb26"
+    }
+  },
+  "mutant_campaign_specification": {
+    "component_omission_mutants": [
+      "omit_EH_bulk_plus",
+      "omit_Omega_kinetic_bulk_plus",
+      "omit_Omega_potential_bulk_plus",
+      "omit_P_kinetic_bulk_plus",
+      "omit_full_V4_bulk_plus",
+      "omit_BF_bulk_plus",
+      "omit_GHY_plus",
+      "omit_EH_bulk_minus",
+      "omit_Omega_kinetic_bulk_minus",
+      "omit_Omega_potential_bulk_minus",
+      "omit_P_kinetic_bulk_minus",
+      "omit_full_V4_bulk_minus",
+      "omit_BF_bulk_minus",
+      "omit_GHY_minus",
+      "omit_wall",
+      "omit_K_foliation",
+      "omit_R",
+      "omit_R_squared",
+      "omit_a_squared",
+      "omit_Robin"
+    ],
+    "component_sign_mutants": [
+      "invert_sign_EH_bulk_plus",
+      "invert_sign_Omega_kinetic_bulk_plus",
+      "invert_sign_Omega_potential_bulk_plus",
+      "invert_sign_P_kinetic_bulk_plus",
+      "invert_sign_full_V4_bulk_plus",
+      "invert_sign_BF_bulk_plus",
+      "invert_sign_GHY_plus",
+      "invert_sign_EH_bulk_minus",
+      "invert_sign_Omega_kinetic_bulk_minus",
+      "invert_sign_Omega_potential_bulk_minus",
+      "invert_sign_P_kinetic_bulk_minus",
+      "invert_sign_full_V4_bulk_minus",
+      "invert_sign_BF_bulk_minus",
+      "invert_sign_GHY_minus",
+      "invert_sign_wall",
+      "invert_sign_K_foliation",
+      "invert_sign_R",
+      "invert_sign_R_squared",
+      "invert_sign_a_squared",
+      "invert_sign_Robin"
+    ],
+    "execution_status": "prepared_not_run",
+    "input_mutants": [
+      {
+        "id": "BF_insert_erroneous_inverse_factorial",
+        "intervention": "multiply the ordered-basis B wedge F coefficient by 1/(3!*2!)",
+        "target": "BF_bulk_plus and BF_bulk_minus exterior normalization"
+      },
+      {
+        "id": "BF_invert_complement_permutation_sign",
+        "intervention": "invert every complementary triple/pair permutation sign",
+        "target": "BF_bulk_plus and BF_bulk_minus exterior orientation"
+      },
+      {
+        "id": "BF_invert_collar_jacobian_sign",
+        "intervention": "replace s_epsilon by -s_epsilon",
+        "target": "BF_bulk_plus and BF_bulk_minus collar pullback"
+      },
+      {
+        "id": "freeze_relative_R",
+        "intervention": "replace each endpoint side.r_E0 free block by its central value before reevaluation",
+        "target": "primitive endpoint configurations"
+      },
+      {
+        "id": "rotate_phi_only",
+        "intervention": "apply the selected SO3 rotation to phi but not A or B before reevaluation",
+        "target": "primitive endpoint configurations"
+      },
+      {
+        "id": "break_Robin",
+        "intervention": "remove the acceleration contribution from varphi_H-y*a",
+        "target": "Robin interface component"
+      },
+      {
+        "id": "break_gluing",
+        "intervention": "explicitly bypass the free decoder and perturb one lateral trace without the matching common trace",
+        "target": "one decoded endpoint after common-first reconstruction"
+      },
+      {
+        "id": "impose_Z2",
+        "intervention": "replace minus data by the reflected plus data before reevaluation",
+        "target": "independent plus/minus primitive data"
+      }
+    ]
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_numpy_fd5_action_route_b_v5_6_5_certificate.py",
+      "sha256": "6c98724d0e51c1cad16c80303e6ad7625d661bd1c9c56c9ff96c5b8124992909"
+    },
+    "numpy": "2.4.2",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_numpy_fd5_action_route_b_v5_6_5_certificate.py",
+      "sha256": "a6ee90e92ae9584207753770f9fb9c8e5c20a1136356520283ba5f7d733fa2fa"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-numpy-fd5-action-route-b-v5-6-5.v1",
+  "scientific": {
+    "FD5_refinement_window": {
+      "derivatives": [
+        {
+          "FD5_action_directional_derivative": {
+            "BF_bulk_minus": -10.235531948460034,
+            "BF_bulk_plus": 26.832977974668683,
+            "EH_bulk_minus": -588.4128487650372,
+            "EH_bulk_plus": 215.98964020450117,
+            "GHY_minus": 5.58628657116473,
+            "GHY_plus": -3.1689365021888793,
+            "K_foliation": -0.015835972457121813,
+            "Omega_kinetic_bulk_minus": 0.4849949223169059,
+            "Omega_kinetic_bulk_plus": -0.4693502673067229,
+            "Omega_potential_bulk_minus": -54.96513580475042,
+            "Omega_potential_bulk_plus": 75.51109142668864,
+            "P_kinetic_bulk_minus": 311.8730645901338,
+            "P_kinetic_bulk_plus": 308.6083919569507,
+            "R": -7.231141144778156e-11,
+            "R_squared": -6.398550583108908e-14,
+            "Robin": 85.3578369832152,
+            "S_total": 384.95599857843297,
+            "a_squared": -0.022534407766839026,
+            "full_V4_bulk_minus": 4.628489202254892,
+            "full_V4_bulk_plus": 4.2889780283208685,
+            "wall": 3.084420386259505
+          },
+          "endpoint_displacements": [
+            -0.08,
+            -0.04,
+            0.04,
+            0.08
+          ],
+          "step": 0.04
+        },
+        {
+          "FD5_action_directional_derivative": {
+            "BF_bulk_minus": -10.235531945728793,
+            "BF_bulk_plus": 26.83297797255297,
+            "EH_bulk_minus": -588.4128492703752,
+            "EH_bulk_plus": 215.9896417271303,
+            "GHY_minus": 5.586286598779751,
+            "GHY_plus": -3.1689365088014565,
+            "K_foliation": -0.015835947100728585,
+            "Omega_kinetic_bulk_minus": 0.4849948975732025,
+            "Omega_kinetic_bulk_plus": -0.4693505116869427,
+            "Omega_potential_bulk_minus": -54.96513579437685,
+            "Omega_potential_bulk_plus": 75.51109136281251,
+            "P_kinetic_bulk_minus": 311.87306472412905,
+            "P_kinetic_bulk_plus": 308.60839094956015,
+            "R": -7.232718185659463e-11,
+            "R_squared": -6.398551534870137e-14,
+            "Robin": 85.35783740309704,
+            "S_total": 384.95599840975956,
+            "a_squared": -0.02253437117814052,
+            "full_V4_bulk_minus": 4.628488940823509,
+            "full_V4_bulk_plus": 4.2889778246381995,
+            "wall": 3.0844203579666405
+          },
+          "endpoint_displacements": [
+            -0.04,
+            -0.02,
+            0.02,
+            0.04
+          ],
+          "step": 0.02
+        },
+        {
+          "FD5_action_directional_derivative": {
+            "BF_bulk_minus": -10.235531945569454,
+            "BF_bulk_plus": 26.832977972421872,
+            "EH_bulk_minus": -588.4128493022729,
+            "EH_bulk_plus": 215.98964182011287,
+            "GHY_minus": 5.586286600506056,
+            "GHY_plus": -3.1689365092106847,
+            "K_foliation": -0.015835945516980116,
+            "Omega_kinetic_bulk_minus": 0.48499489602861584,
+            "Omega_kinetic_bulk_plus": -0.46935052694282814,
+            "Omega_potential_bulk_minus": -54.9651357940481,
+            "Omega_potential_bulk_plus": 75.51109135894953,
+            "P_kinetic_bulk_minus": 311.8730647323228,
+            "P_kinetic_bulk_plus": 308.6083908866963,
+            "R": -7.232591016367927e-11,
+            "R_squared": -6.398551597797255e-14,
+            "Robin": 85.35783742944882,
+            "S_total": 384.9559983903722,
+            "a_squared": -0.022534368893030225,
+            "full_V4_bulk_minus": 4.62848892449137,
+            "full_V4_bulk_plus": 4.2889778119135675,
+            "wall": 3.0844203499934038
+          },
+          "endpoint_displacements": [
+            -0.02,
+            -0.01,
+            0.01,
+            0.02
+          ],
+          "step": 0.01
+        },
+        {
+          "FD5_action_directional_derivative": {
+            "BF_bulk_minus": -10.235531945530182,
+            "BF_bulk_plus": 26.832977972413598,
+            "EH_bulk_minus": -588.4128493051321,
+            "EH_bulk_plus": 215.9896418307123,
+            "GHY_minus": 5.586286600618277,
+            "GHY_plus": -3.1689365092598605,
+            "K_foliation": -0.015835945418007858,
+            "Omega_kinetic_bulk_minus": 0.48499489592413647,
+            "Omega_kinetic_bulk_plus": -0.4693505279276996,
+            "Omega_potential_bulk_minus": -54.965135793212504,
+            "Omega_potential_bulk_plus": 75.51109135975102,
+            "P_kinetic_bulk_minus": 311.87306473346536,
+            "P_kinetic_bulk_plus": 308.60839088248895,
+            "R": -7.232645836340273e-11,
+            "R_squared": -6.398551571237003e-14,
+            "Robin": 85.3578374310312,
+            "S_total": 384.95599839880015,
+            "a_squared": -0.022534368750237458,
+            "full_V4_bulk_minus": 4.628488923458093,
+            "full_V4_bulk_plus": 4.288977811120262,
+            "wall": 3.0844203530856857
+          },
+          "endpoint_displacements": [
+            -0.01,
+            -0.005,
+            0.005,
+            0.01
+          ],
+          "step": 0.005
+        },
+        {
+          "FD5_action_directional_derivative": {
+            "BF_bulk_minus": -10.235531945568493,
+            "BF_bulk_plus": 26.832977972422707,
+            "EH_bulk_minus": -588.4128493079137,
+            "EH_bulk_plus": 215.98964182995437,
+            "GHY_minus": 5.586286600625753,
+            "GHY_plus": -3.168936509251452,
+            "K_foliation": -0.015835945411824003,
+            "Omega_kinetic_bulk_minus": 0.4849948958916883,
+            "Omega_kinetic_bulk_plus": -0.46935052795393045,
+            "Omega_potential_bulk_minus": -54.965135792673436,
+            "Omega_potential_bulk_plus": 75.51109136013756,
+            "P_kinetic_bulk_minus": 311.8730647340859,
+            "P_kinetic_bulk_plus": 308.6083908836012,
+            "R": -7.233294621226223e-11,
+            "R_squared": -6.398551548963442e-14,
+            "Robin": 85.35783743142437,
+            "S_total": 384.95599840559106,
+            "a_squared": -0.022534368741313766,
+            "full_V4_bulk_minus": 4.628488923393034,
+            "full_V4_bulk_plus": 4.288977811077185,
+            "wall": 3.0844203608163907
+          },
+          "endpoint_displacements": [
+            -0.005,
+            -0.0025,
+            0.0025,
+            0.005
+          ],
+          "step": 0.0025
+        }
+      ],
+      "dyadic_refinement": true,
+      "endpoint_records_by_float_hex": {
+        "-0x1.47ae147ae147bp-4": {
+          "S_rel_components": {
+            "BF_bulk_minus": 15.184817306100761,
+            "BF_bulk_plus": -3.71732618745081,
+            "EH_bulk_minus": -1337.3220300568378,
+            "EH_bulk_plus": 1160.3232127735644,
+            "GHY_minus": -6.420846267021183,
+            "GHY_plus": 30.60884139453919,
+            "K_foliation": 0.22088315827547164,
+            "Omega_kinetic_bulk_minus": -29.544495887614648,
+            "Omega_kinetic_bulk_plus": -32.23400709608575,
+            "Omega_potential_bulk_minus": -503.6399559737611,
+            "Omega_potential_bulk_plus": -399.01536233938975,
+            "P_kinetic_bulk_minus": -478.2583111459688,
+            "P_kinetic_bulk_plus": -508.43179862693887,
+            "R": -3.495733066360374e-07,
+            "R_squared": -1.0493599077529455e-10,
+            "Robin": -137.41613104352106,
+            "S_total": -16504.191573926422,
+            "a_squared": 0.31432772795309477,
+            "full_V4_bulk_minus": -3.935882177034145,
+            "full_V4_bulk_plus": -3.637205895391016,
+            "wall": -14267.270303240162
+          },
+          "authoritative_free_endpoint_sha256": "5d31de4bfb96ee43b97c86c87f499b36f237f384c7e3c93d823cb44094fe3c93",
+          "displacement": -0.08,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.552884132687753,
+              "minimum_positive_eigenvalue": 1.0969467693451438,
+              "minimum_spectral_margin_absolute": 1.0969467693451438,
+              "minimum_spectral_margin_relative": 0.6975647524471215,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.546233321149871,
+              "minimum_positive_eigenvalue": 1.0682182443197559,
+              "minimum_spectral_margin_absolute": 1.0682182443197559,
+              "minimum_spectral_margin_relative": 0.663087183253143,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.6437621107837663,
+              "minimum_positive_eigenvalue": 1.1663128779424519,
+              "minimum_spectral_margin_absolute": 1.1663128779424519,
+              "minimum_spectral_margin_relative": 0.7095191048282716,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.6437621107837663,
+              "minimum_positive_eigenvalue": 1.1663128779424519,
+              "minimum_spectral_margin_absolute": 1.1663128779424519,
+              "minimum_spectral_margin_relative": 0.7095191048282716,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.6437621107837663,
+              "minimum_positive_eigenvalue": 1.1663128779424519,
+              "minimum_spectral_margin_absolute": 1.1663128779424519,
+              "minimum_spectral_margin_relative": 0.7095191048282716,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "-0x1.47ae147ae147bp-5": {
+          "S_rel_components": {
+            "BF_bulk_minus": 14.77724792746263,
+            "BF_bulk_plus": -2.6418138610163897,
+            "EH_bulk_minus": -1363.5806152709793,
+            "EH_bulk_plus": 1166.5652202557637,
+            "GHY_minus": -6.197035240297368,
+            "GHY_plus": 30.481668119226015,
+            "K_foliation": 0.05551882581678817,
+            "Omega_kinetic_bulk_minus": -29.28904476127988,
+            "Omega_kinetic_bulk_plus": -31.966171334787923,
+            "Omega_potential_bulk_minus": -505.63308797314164,
+            "Omega_potential_bulk_plus": -395.8617916810833,
+            "P_kinetic_bulk_minus": -465.3391112012913,
+            "P_kinetic_bulk_plus": -495.6468189848587,
+            "R": -3.4951091301898697e-07,
+            "R_squared": -1.0489214894465802e-10,
+            "Robin": -133.7791551864604,
+            "S_total": -16492.600151829472,
+            "a_squared": 0.07899991748342793,
+            "full_V4_bulk_minus": -3.7375397245157465,
+            "full_V4_bulk_plus": -3.4528619919712273,
+            "wall": -14267.433759313926
+          },
+          "authoritative_free_endpoint_sha256": "f9549037191230e3b7ab7d4e3b0abf6fa02d8d9537e6d029800abac9926a7348",
+          "displacement": -0.04,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5524782755912847,
+              "minimum_positive_eigenvalue": 1.0952993580414403,
+              "minimum_spectral_margin_absolute": 1.0952993580414403,
+              "minimum_spectral_margin_relative": 0.7039946526909329,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.5492434000451727,
+              "minimum_positive_eigenvalue": 1.0677871907980923,
+              "minimum_spectral_margin_absolute": 1.0677871907980923,
+              "minimum_spectral_margin_relative": 0.662794858975747,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.643762114013498,
+              "minimum_positive_eigenvalue": 1.1664877373304365,
+              "minimum_spectral_margin_absolute": 1.1664877373304365,
+              "minimum_spectral_margin_relative": 0.7096254780981675,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.643762114013498,
+              "minimum_positive_eigenvalue": 1.1664877373304365,
+              "minimum_spectral_margin_absolute": 1.1664877373304365,
+              "minimum_spectral_margin_relative": 0.7096254780981675,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.643762114013498,
+              "minimum_positive_eigenvalue": 1.1664877373304365,
+              "minimum_spectral_margin_absolute": 1.1664877373304365,
+              "minimum_spectral_margin_relative": 0.7096254780981675,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "-0x1.47ae147ae147bp-6": {
+          "S_rel_components": {
+            "BF_bulk_minus": 14.573008139849978,
+            "BF_bulk_plus": -2.1046064886576406,
+            "EH_bulk_minus": -1376.0299089633002,
+            "EH_bulk_plus": 1170.285439685799,
+            "GHY_minus": -6.085225428349317,
+            "GHY_plus": 30.418187583942796,
+            "K_foliation": 0.014040003160852113,
+            "Omega_kinetic_bulk_minus": -29.220362881550624,
+            "Omega_kinetic_bulk_plus": -31.903832527819525,
+            "Omega_potential_bulk_minus": -506.68102308298603,
+            "Omega_potential_bulk_plus": -394.3183266862218,
+            "P_kinetic_bulk_minus": -458.9908267361702,
+            "P_kinetic_bulk_plus": -489.364438849706,
+            "R": -3.495112924862457e-07,
+            "R_squared": -1.04881833611103e-10,
+            "Robin": -132.0163305162587,
+            "S_total": -16485.85364760897,
+            "a_squared": 0.019975353351712417,
+            "full_V4_bulk_minus": -3.641709313339466,
+            "full_V4_bulk_plus": -3.3639259600334412,
+            "wall": -14267.443780591062
+          },
+          "authoritative_free_endpoint_sha256": "a1f8f1a57def73f5fbb74bd2e209e7a6692478ef47ca2947212e5813a9c9ec25",
+          "displacement": -0.02,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5522859445406902,
+              "minimum_positive_eigenvalue": 1.094425530326901,
+              "minimum_spectral_margin_absolute": 1.094425530326901,
+              "minimum_spectral_margin_relative": 0.7048810846181812,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.5507349531505341,
+              "minimum_positive_eigenvalue": 1.0675744814196602,
+              "minimum_spectral_margin_absolute": 1.0675744814196602,
+              "minimum_spectral_margin_relative": 0.662650391459244,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.6437621156320081,
+              "minimum_positive_eigenvalue": 1.1664846688655588,
+              "minimum_spectral_margin_absolute": 1.1664846688655588,
+              "minimum_spectral_margin_relative": 0.7096236107457566,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.6437621156320081,
+              "minimum_positive_eigenvalue": 1.1664846688655588,
+              "minimum_spectral_margin_absolute": 1.1664846688655588,
+              "minimum_spectral_margin_relative": 0.7096236107457566,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.6437621156320081,
+              "minimum_positive_eigenvalue": 1.1664846688655588,
+              "minimum_spectral_margin_absolute": 1.1664846688655588,
+              "minimum_spectral_margin_relative": 0.7096236107457566,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "-0x1.47ae147ae147bp-7": {
+          "S_rel_components": {
+            "BF_bulk_minus": 14.470771520744442,
+            "BF_bulk_plus": -1.8361398186306999,
+            "EH_bulk_minus": -1382.0843613354236,
+            "EH_bulk_plus": 1172.2954205831616,
+            "GHY_minus": -6.029342267657903,
+            "GHY_plus": 30.386473035424647,
+            "K_foliation": 0.003592337317618318,
+            "Omega_kinetic_bulk_minus": -29.20077098031653,
+            "Omega_kinetic_bulk_plus": -31.89058511830455,
+            "Omega_potential_bulk_minus": -507.21783251936864,
+            "Omega_potential_bulk_plus": -393.5549098003832,
+            "P_kinetic_bulk_minus": -455.8444205762874,
+            "P_kinetic_bulk_plus": -486.2507951741105,
+            "R": -3.495127088224831e-07,
+            "R_squared": -1.0487957500389228e-10,
+            "Robin": -131.148833881538,
+            "S_total": -16482.242356023307,
+            "a_squared": 0.005108514200085411,
+            "full_V4_bulk_minus": -3.5946142605934335,
+            "full_V4_bulk_plus": -3.3202520023004207,
+            "wall": -14267.430863929623
+          },
+          "authoritative_free_endpoint_sha256": "6fc1b953fa520183f482228961bd22ed1438d69e29f867dd5afb2152b3c473c0",
+          "displacement": -0.01,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5521924342622446,
+              "minimum_positive_eigenvalue": 1.0939781340456558,
+              "minimum_spectral_margin_absolute": 1.0939781340456558,
+              "minimum_spectral_margin_relative": 0.704641166318657,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.55148230738228,
+              "minimum_positive_eigenvalue": 1.0673005600562104,
+              "minimum_spectral_margin_absolute": 1.0673005600562104,
+              "minimum_spectral_margin_relative": 0.6625785785378153,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.643762116442177,
+              "minimum_positive_eigenvalue": 1.1664604882547929,
+              "minimum_spectral_margin_absolute": 1.1664604882547929,
+              "minimum_spectral_margin_relative": 0.7096089002873753,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.643762116442177,
+              "minimum_positive_eigenvalue": 1.1664604882547929,
+              "minimum_spectral_margin_absolute": 1.1664604882547929,
+              "minimum_spectral_margin_relative": 0.7096089002873753,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.643762116442177,
+              "minimum_positive_eigenvalue": 1.1664604882547929,
+              "minimum_spectral_margin_absolute": 1.1664604882547929,
+              "minimum_spectral_margin_relative": 0.7096089002873753,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "-0x1.47ae147ae147bp-8": {
+          "S_rel_components": {
+            "BF_bulk_minus": 14.419623659729156,
+            "BF_bulk_plus": -1.7019407141707574,
+            "EH_bulk_minus": -1385.0690146294562,
+            "EH_bulk_plus": 1173.3378871523003,
+            "GHY_minus": -6.001405851586474,
+            "GHY_plus": 30.370622090458472,
+            "K_foliation": 0.0009408986287163635,
+            "Omega_kinetic_bulk_minus": -29.194660941088024,
+            "Omega_kinetic_bulk_plus": -31.88844544158502,
+            "Omega_potential_bulk_minus": -507.48944770832776,
+            "Omega_potential_bulk_plus": -393.1752784527711,
+            "P_kinetic_bulk_minus": -454.2781401288432,
+            "P_kinetic_bulk_plus": -484.7008624248116,
+            "R": -3.495133045371855e-07,
+            "R_squared": -1.0487917033072213e-10,
+            "Robin": -130.71856490763557,
+            "S_total": -16480.377157472914,
+            "a_squared": 0.0013355829529102705,
+            "full_V4_bulk_minus": -3.5712698983280853,
+            "full_V4_bulk_plus": -3.298611684086213,
+            "wall": -14267.419923724674
+          },
+          "authoritative_free_endpoint_sha256": "73962fe9a4111b80841007ebbeb478bfbfd5e810b4773c7ec4c33544af7c98e0",
+          "displacement": -0.005,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5521463436681218,
+              "minimum_positive_eigenvalue": 1.0937520337212752,
+              "minimum_spectral_margin_absolute": 1.0937520337212752,
+              "minimum_spectral_margin_relative": 0.7045071442804787,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.55185638044666,
+              "minimum_positive_eigenvalue": 1.0671545790228785,
+              "minimum_spectral_margin_absolute": 1.0671545790228785,
+              "minimum_spectral_margin_relative": 0.6624868377906923,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.6437621168474896,
+              "minimum_positive_eigenvalue": 1.1664427415150809,
+              "minimum_spectral_margin_absolute": 1.1664427415150809,
+              "minimum_spectral_margin_relative": 0.7095981040018545,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.6437621168474896,
+              "minimum_positive_eigenvalue": 1.1664427415150809,
+              "minimum_spectral_margin_absolute": 1.1664427415150809,
+              "minimum_spectral_margin_relative": 0.7095981040018545,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.6437621168474896,
+              "minimum_positive_eigenvalue": 1.1664427415150809,
+              "minimum_spectral_margin_absolute": 1.1664427415150809,
+              "minimum_spectral_margin_relative": 0.7095981040018545,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "-0x1.47ae147ae147bp-9": {
+          "S_rel_components": {
+            "BF_bulk_minus": 14.394042295008296,
+            "BF_bulk_plus": -1.6348497165945206,
+            "EH_bulk_minus": -1386.5506950236825,
+            "EH_bulk_plus": 1173.8684905026118,
+            "GHY_minus": -5.987438900639676,
+            "GHY_plus": 30.36269818775754,
+            "K_foliation": 0.00025824717955800987,
+            "Omega_kinetic_bulk_minus": -29.192527239351644,
+            "Omega_kinetic_bulk_plus": -31.888497059349064,
+            "Omega_potential_bulk_minus": -507.6260579236637,
+            "Omega_potential_bulk_plus": -392.98598182693956,
+            "P_kinetic_bulk_minus": -453.4967291534461,
+            "P_kinetic_bulk_plus": -483.9276186411483,
+            "R": -3.495135477851207e-07,
+            "R_squared": -1.048791491447758e-10,
+            "Robin": -130.5043003358171,
+            "S_total": -16479.429664632262,
+            "a_squared": 0.00036418822378348116,
+            "full_V4_bulk_minus": -3.5596482744405202,
+            "full_V4_bulk_plus": -3.287840459131617,
+            "wall": -14267.41333314922
+          },
+          "authoritative_free_endpoint_sha256": "fa9ba115c4ed27e4506c05b39e5f835f76160e98eb65bdad4c61667c76ecdb72",
+          "displacement": -0.0025,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5521234645989654,
+              "minimum_positive_eigenvalue": 1.093638408174166,
+              "minimum_spectral_margin_absolute": 1.093638408174166,
+              "minimum_spectral_margin_relative": 0.7044392575343434,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.5520435161566626,
+              "minimum_positive_eigenvalue": 1.0670815892908279,
+              "minimum_spectral_margin_absolute": 1.0670815892908279,
+              "minimum_spectral_margin_relative": 0.6624382880485014,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.643762117050204,
+              "minimum_positive_eigenvalue": 1.166432455173646,
+              "minimum_spectral_margin_absolute": 1.166432455173646,
+              "minimum_spectral_margin_relative": 0.7095918462867,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.643762117050204,
+              "minimum_positive_eigenvalue": 1.166432455173646,
+              "minimum_spectral_margin_absolute": 1.166432455173646,
+              "minimum_spectral_margin_relative": 0.7095918462867,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.643762117050204,
+              "minimum_positive_eigenvalue": 1.166432455173646,
+              "minimum_spectral_margin_absolute": 1.166432455173646,
+              "minimum_spectral_margin_relative": 0.7095918462867,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "0x1.47ae147ae147bp-4": {
+          "S_rel_components": {
+            "BF_bulk_minus": 13.546987304283208,
+            "BF_bulk_plus": 0.5759597540532018,
+            "EH_bulk_minus": -1431.4586448889931,
+            "EH_bulk_plus": 1194.8847730820617,
+            "GHY_minus": -5.526934425612213,
+            "GHY_plus": 30.101772468650466,
+            "K_foliation": 0.21836950241287298,
+            "Omega_kinetic_bulk_minus": -29.46642423161546,
+            "Omega_kinetic_bulk_plus": -32.31052969733088,
+            "Omega_potential_bulk_minus": -512.4343972957524,
+            "Omega_potential_bulk_plus": -386.9328832298854,
+            "P_kinetic_bulk_minus": -428.3542628867466,
+            "P_kinetic_bulk_plus": -459.0554756320293,
+            "R": -3.495828501375635e-07,
+            "R_squared": -1.0494623740261327e-10,
+            "Robin": -123.75920820362157,
+            "S_total": -16442.58179009891,
+            "a_squared": 0.31074304078965537,
+            "full_V4_bulk_minus": -3.1945961061836345,
+            "full_V4_bulk_plus": -2.9502509698525192,
+            "wall": -14266.776787333849
+          },
+          "authoritative_free_endpoint_sha256": "d38bb7cb2c4186cd2eea3c5db74bc81e8e4e672cf883aa3dffb6c0bda5b0b820",
+          "displacement": 0.08,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5513107831928294,
+              "minimum_positive_eigenvalue": 1.0884558364597716,
+              "minimum_spectral_margin_absolute": 1.0884558364597716,
+              "minimum_spectral_margin_relative": 0.6957799721229084,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.558105443539452,
+              "minimum_positive_eigenvalue": 1.0587541877351536,
+              "minimum_spectral_margin_absolute": 1.0587541877351536,
+              "minimum_spectral_margin_relative": 0.6568234881885665,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.643762123761209,
+              "minimum_positive_eigenvalue": 1.1655692051379152,
+              "minimum_spectral_margin_absolute": 1.1655692051379152,
+              "minimum_spectral_margin_relative": 0.7090666907774431,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.643762123761209,
+              "minimum_positive_eigenvalue": 1.1655692051379152,
+              "minimum_spectral_margin_absolute": 1.1655692051379152,
+              "minimum_spectral_margin_relative": 0.7090666907774431,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.643762123761209,
+              "minimum_positive_eigenvalue": 1.1655692051379152,
+              "minimum_spectral_margin_absolute": 1.1655692051379152,
+              "minimum_spectral_margin_relative": 0.7090666907774431,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "0x1.47ae147ae147bp-5": {
+          "S_rel_components": {
+            "BF_bulk_minus": 13.958387260327834,
+            "BF_bulk_plus": -0.49517443984826737,
+            "EH_bulk_minus": -1410.652463050901,
+            "EH_bulk_plus": 1183.844793706596,
+            "GHY_minus": -5.750119065851363,
+            "GHY_plus": 30.22814831335859,
+            "K_foliation": 0.05425446048653603,
+            "Omega_kinetic_bulk_minus": -29.250186108940966,
+            "Omega_kinetic_bulk_plus": -32.00389767598197,
+            "Omega_potential_bulk_minus": -510.0303012866756,
+            "Omega_potential_bulk_plus": -389.8208163067939,
+            "P_kinetic_bulk_minus": -440.3887212934805,
+            "P_kinetic_bulk_plus": -470.958275093078,
+            "R": -3.495164446413646e-07,
+            "R_squared": -1.0489726890342272e-10,
+            "Robin": -126.95056961248005,
+            "S_total": -16461.801568936327,
+            "a_squared": 0.07719976712198766,
+            "full_V4_bulk_minus": -3.367169613524139,
+            "full_V4_bulk_plus": -3.109653944579663,
+            "wall": -14267.187004602461
+          },
+          "authoritative_free_endpoint_sha256": "1be28ac8e7004ccab6240e001bb913fb6c6b33d67f120dc8eacb66d6272fe4e6",
+          "displacement": 0.04,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.551693682113025,
+              "minimum_positive_eigenvalue": 1.0911310022551002,
+              "minimum_spectral_margin_absolute": 1.0911310022551002,
+              "minimum_spectral_margin_relative": 0.7024095322620336,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.5551779006591029,
+              "minimum_positive_eigenvalue": 1.063141423964844,
+              "minimum_spectral_margin_absolute": 1.063141423964844,
+              "minimum_spectral_margin_relative": 0.6597216172692786,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.6437621205021782,
+              "minimum_positive_eigenvalue": 1.1661140221423345,
+              "minimum_spectral_margin_absolute": 1.1661140221423345,
+              "minimum_spectral_margin_relative": 0.7093981281243948,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.643762120502179,
+              "minimum_positive_eigenvalue": 1.1661140221423345,
+              "minimum_spectral_margin_absolute": 1.1661140221423345,
+              "minimum_spectral_margin_relative": 0.7093981281243948,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.6437621205021786,
+              "minimum_positive_eigenvalue": 1.1661140221423345,
+              "minimum_spectral_margin_absolute": 1.1661140221423345,
+              "minimum_spectral_margin_relative": 0.7093981281243948,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "0x1.47ae147ae147bp-6": {
+          "S_rel_components": {
+            "BF_bulk_minus": 14.163584598086265,
+            "BF_bulk_plus": -1.0312872218350362,
+            "EH_bulk_minus": -1399.5662754139016,
+            "EH_bulk_plus": 1178.925075618967,
+            "GHY_minus": -5.861772308580174,
+            "GHY_plus": 30.291429512945324,
+            "K_foliation": 0.013406879081548738,
+            "Omega_kinetic_bulk_minus": -29.200955703081064,
+            "Omega_kinetic_bulk_plus": -31.92262883581939,
+            "Omega_potential_bulk_minus": -508.8796288210091,
+            "Omega_potential_bulk_plus": -391.29787202355124,
+            "P_kinetic_bulk_minus": -446.51583605597,
+            "P_kinetic_bulk_plus": -477.0201191347466,
+            "R": -3.495141537544986e-07,
+            "R_squared": -1.0488439317140905e-10,
+            "Robin": -128.60202219741825,
+            "S_total": -16470.455144795033,
+            "a_squared": 0.01907430342118817,
+            "full_V4_bulk_minus": -3.45655838124081,
+            "full_V4_bulk_plus": -3.1923556193703497,
+            "wall": -14267.32040364139
+          },
+          "authoritative_free_endpoint_sha256": "59bfaf9f968ba6a795a5604d70a68928fca588bb7e2a4b0004099ef9821aa0db",
+          "displacement": 0.02,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5518959538009995,
+              "minimum_positive_eigenvalue": 1.0923781995370299,
+              "minimum_spectral_margin_absolute": 1.0923781995370299,
+              "minimum_spectral_margin_relative": 0.7037686637384547,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.5537028554017707,
+              "minimum_positive_eigenvalue": 1.0653002108333616,
+              "minimum_spectral_margin_absolute": 1.0653002108333616,
+              "minimum_spectral_margin_relative": 0.6611621093525673,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.6437621188763438,
+              "minimum_positive_eigenvalue": 1.1662975741952695,
+              "minimum_spectral_margin_absolute": 1.1662975741952695,
+              "minimum_spectral_margin_relative": 0.7095097915349298,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.6437621188763443,
+              "minimum_positive_eigenvalue": 1.1662975741952695,
+              "minimum_spectral_margin_absolute": 1.1662975741952695,
+              "minimum_spectral_margin_relative": 0.7095097915349298,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.6437621188763443,
+              "minimum_positive_eigenvalue": 1.1662975741952695,
+              "minimum_spectral_margin_absolute": 1.1662975741952695,
+              "minimum_spectral_margin_relative": 0.7095097915349298,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "0x1.47ae147ae147bp-7": {
+          "S_rel_components": {
+            "BF_bulk_minus": 14.266060598840436,
+            "BF_bulk_plus": -1.2994802406915462,
+            "EH_bulk_minus": -1393.852599881283,
+            "EH_bulk_plus": 1176.6152197021092,
+            "GHY_minus": -5.917616328679169,
+            "GHY_plus": 30.323094228911803,
+            "K_foliation": 0.0032756576249506945,
+            "Omega_kinetic_bulk_minus": -29.191070159567406,
+            "Omega_kinetic_bulk_plus": -31.899974914708675,
+            "Omega_potential_bulk_minus": -508.31713527353224,
+            "Omega_potential_bulk_plus": -392.04468659716514,
+            "P_kinetic_bulk_minus": -449.60695077027754,
+            "P_kinetic_bulk_plus": -480.07862934644015,
+            "R": -3.495141513696672e-07,
+            "R_squared": -1.0488085473167021e-10,
+            "Robin": -129.4416777802412,
+            "S_total": -16474.54320319571,
+            "a_squared": 0.004657867425374426,
+            "full_V4_bulk_minus": -3.502043060213731,
+            "full_V4_bulk_plus": -3.2344710425388308,
+            "wall": -14267.369175505664
+          },
+          "authoritative_free_endpoint_sha256": "efc5abe93e5243f3a04aa5a58e2ef76e7c3e54d72d69387cd693878a4e7687a1",
+          "displacement": 0.01,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5519998009528746,
+              "minimum_positive_eigenvalue": 1.092978223906742,
+              "minimum_spectral_margin_absolute": 1.092978223906742,
+              "minimum_spectral_margin_relative": 0.704091491984805,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.5529672083950259,
+              "minimum_positive_eigenvalue": 1.066196926617043,
+              "minimum_spectral_margin_absolute": 1.066196926617043,
+              "minimum_spectral_margin_relative": 0.6618535367808525,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.6437621180643442,
+              "minimum_positive_eigenvalue": 1.166366911214723,
+              "minimum_spectral_margin_absolute": 1.166366911214723,
+              "minimum_spectral_margin_relative": 0.7095519726111451,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.6437621180643442,
+              "minimum_positive_eigenvalue": 1.166366911214723,
+              "minimum_spectral_margin_absolute": 1.166366911214723,
+              "minimum_spectral_margin_relative": 0.7095519726111451,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.6437621180643442,
+              "minimum_positive_eigenvalue": 1.166366911214723,
+              "minimum_spectral_margin_absolute": 1.166366911214723,
+              "minimum_spectral_margin_relative": 0.7095519726111451,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "0x1.47ae147ae147bp-8": {
+          "S_rel_components": {
+            "BF_bulk_minus": 14.31726830489968,
+            "BF_bulk_plus": -1.4336109321352613,
+            "EH_bulk_minus": -1390.953140817477,
+            "EH_bulk_plus": 1175.497784355899,
+            "GHY_minus": -5.9455429597094955,
+            "GHY_plus": 30.338932715824917,
+            "K_foliation": 0.0007825440764978516,
+            "Omega_kinetic_bulk_minus": -29.189810876774953,
+            "Omega_kinetic_bulk_plus": -31.893139295094993,
+            "Omega_potential_bulk_minus": -508.0390990710473,
+            "Omega_potential_bulk_plus": -392.42016736717073,
+            "P_kinetic_bulk_minus": -451.15940841759095,
+            "P_kinetic_bulk_plus": -481.6147787647341,
+            "R": -3.4951402730402126e-07,
+            "R_squared": -1.0487981018806221e-10,
+            "Robin": -129.86498661424073,
+            "S_total": -16476.527593381474,
+            "a_squared": 0.0011102443404446165,
+            "full_V4_bulk_minus": -3.5249848313546868,
+            "full_V4_bulk_plus": -3.2557217305326125,
+            "wall": -14267.389079519031
+          },
+          "authoritative_free_endpoint_sha256": "08cff8a43ae9885452f7fb055ddee2c137bdaa1cab6c5736718e741cf7b82ba8",
+          "displacement": 0.005,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5520524030664424,
+              "minimum_positive_eigenvalue": 1.0932715197199643,
+              "minimum_spectral_margin_absolute": 1.0932715197199643,
+              "minimum_spectral_margin_relative": 0.7042322231985677,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.5525998548315354,
+              "minimum_positive_eigenvalue": 1.066644634974962,
+              "minimum_spectral_margin_absolute": 1.066644634974962,
+              "minimum_spectral_margin_relative": 0.6621492037465709,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.6437621176585737,
+              "minimum_positive_eigenvalue": 1.166395949279726,
+              "minimum_spectral_margin_absolute": 1.166395949279726,
+              "minimum_spectral_margin_relative": 0.7095696379035455,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.6437621176585737,
+              "minimum_positive_eigenvalue": 1.166395949279726,
+              "minimum_spectral_margin_absolute": 1.166395949279726,
+              "minimum_spectral_margin_relative": 0.7095696379035455,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.6437621176585737,
+              "minimum_positive_eigenvalue": 1.166395949279726,
+              "minimum_spectral_margin_absolute": 1.166395949279726,
+              "minimum_spectral_margin_relative": 0.7095696379035455,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        },
+        "0x1.47ae147ae147bp-9": {
+          "S_rel_components": {
+            "BF_bulk_minus": 14.34286463085873,
+            "BF_bulk_plus": -1.5006848264434984,
+            "EH_bulk_minus": -1389.4927589820898,
+            "EH_bulk_plus": 1174.948438809924,
+            "GHY_minus": -5.959507464402707,
+            "GHY_plus": 30.346853504018654,
+            "K_foliation": 0.00017906806523635587,
+            "Omega_kinetic_bulk_minus": -29.190102250452917,
+            "Omega_kinetic_bulk_plus": -31.890843855517637,
+            "Omega_potential_bulk_minus": -507.9008836032262,
+            "Omega_potential_bulk_plus": -392.608426348639,
+            "P_kinetic_bulk_minus": -451.93736369678675,
+            "P_kinetic_bulk_plus": -482.3845767178251,
+            "R": -3.4951390937952344e-07,
+            "R_squared": -1.048794690726264e-10,
+            "Robin": -130.0775111587749,
+            "S_total": -16477.50488412681,
+            "a_squared": 0.0002515170144453478,
+            "full_V4_bulk_minus": -3.5365058076061215,
+            "full_V4_bulk_plus": -3.2663955481458773,
+            "wall": -14267.397911047161
+          },
+          "authoritative_free_endpoint_sha256": "e42f1e1e0873df092656b53f116ae7e17a3f339da1b3cda0fdff44a88ec096d4",
+          "displacement": 0.0025,
+          "lorentzian_inertia": {
+            "bulk_minus": {
+              "minimum_negative_magnitude": 1.5520780390473232,
+              "minimum_positive_eigenvalue": 1.0934100405279061,
+              "minimum_spectral_margin_absolute": 1.0934100405279061,
+              "minimum_spectral_margin_relative": 0.704301786504022,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "bulk_plus": {
+              "minimum_negative_magnitude": 1.5524162956641825,
+              "minimum_positive_eigenvalue": 1.0668683225736397,
+              "minimum_spectral_margin_absolute": 1.0668683225736397,
+              "minimum_spectral_margin_relative": 0.6622969132397138,
+              "negative_count_at_each_node": 1,
+              "node_count": 1875,
+              "positive_count_at_each_node": 4,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_minus": {
+              "minimum_negative_magnitude": 1.6437621174557453,
+              "minimum_positive_eigenvalue": 1.166409058591485,
+              "minimum_spectral_margin_absolute": 1.166409058591485,
+              "minimum_spectral_margin_relative": 0.7095776129549802,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_GHY_plus": {
+              "minimum_negative_magnitude": 1.6437621174557446,
+              "minimum_positive_eigenvalue": 1.166409058591485,
+              "minimum_spectral_margin_absolute": 1.166409058591485,
+              "minimum_spectral_margin_relative": 0.7095776129549802,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            },
+            "interface_common": {
+              "minimum_negative_magnitude": 1.6437621174557455,
+              "minimum_positive_eigenvalue": 1.166409058591485,
+              "minimum_spectral_margin_absolute": 1.166409058591485,
+              "minimum_spectral_margin_relative": 0.7095776129549802,
+              "negative_count_at_each_node": 1,
+              "node_count": 625,
+              "positive_count_at_each_node": 3,
+              "zero_count_at_each_node": 0
+            }
+          },
+          "pointwise_gluing_Linf": 4.440892098500626e-16
+        }
+      },
+      "steps": [
+        0.04,
+        0.02,
+        0.01,
+        0.005,
+        0.0025
+      ],
+      "unique_endpoint_count": 12
+    },
+    "R_equals_identity_control": {
+      "R_minus_identity_Linf_by_side": {
+        "minus": 0.0,
+        "plus": 0.0
+      },
+      "central_S_rel_components": {
+        "BF_bulk_minus": -31.65703844793002,
+        "BF_bulk_plus": 29.52457396035659,
+        "EH_bulk_minus": 172.73461676288056,
+        "EH_bulk_plus": 1313.2121725756942,
+        "GHY_minus": 77.26619474911257,
+        "GHY_plus": 109.7016251275532,
+        "K_foliation": 8.941031648938712e-06,
+        "Omega_kinetic_bulk_minus": -38.064385822340846,
+        "Omega_kinetic_bulk_plus": -22.984805361942215,
+        "Omega_potential_bulk_minus": -325.90401660861266,
+        "Omega_potential_bulk_plus": 735.8197883384211,
+        "P_kinetic_bulk_minus": -225.14342369496032,
+        "P_kinetic_bulk_plus": -265.9428434729673,
+        "R": -5.331902356327375e-07,
+        "R_squared": -2.9761535928381223e-08,
+        "Robin": -57.768725207308016,
+        "S_total": -12781.8456751538,
+        "a_squared": 1.0312724361983632e-05,
+        "full_V4_bulk_minus": -1.9248614902167809,
+        "full_V4_bulk_plus": -2.7060972622502373,
+        "wall": -14248.008467990094
+      },
+      "lorentzian_inertia": {
+        "bulk_minus": {
+          "minimum_negative_magnitude": 1.6152798170957232,
+          "minimum_positive_eigenvalue": 1.0450024875331496,
+          "minimum_spectral_margin_absolute": 1.0450024875331496,
+          "minimum_spectral_margin_relative": 0.6383891034184477,
+          "negative_count_at_each_node": 1,
+          "node_count": 1875,
+          "positive_count_at_each_node": 4,
+          "zero_count_at_each_node": 0
+        },
+        "bulk_plus": {
+          "minimum_negative_magnitude": 1.6395093362386781,
+          "minimum_positive_eigenvalue": 1.0601646148125738,
+          "minimum_spectral_margin_absolute": 1.0601646148125738,
+          "minimum_spectral_margin_relative": 0.6132654452541325,
+          "negative_count_at_each_node": 1,
+          "node_count": 1875,
+          "positive_count_at_each_node": 4,
+          "zero_count_at_each_node": 0
+        },
+        "interface_GHY_minus": {
+          "minimum_negative_magnitude": 1.6425380520907908,
+          "minimum_positive_eigenvalue": 1.1669482679858998,
+          "minimum_spectral_margin_absolute": 1.1669482679858998,
+          "minimum_spectral_margin_relative": 0.7104429674035032,
+          "negative_count_at_each_node": 1,
+          "node_count": 625,
+          "positive_count_at_each_node": 3,
+          "zero_count_at_each_node": 0
+        },
+        "interface_GHY_plus": {
+          "minimum_negative_magnitude": 1.6425380520907908,
+          "minimum_positive_eigenvalue": 1.1669482679858998,
+          "minimum_spectral_margin_absolute": 1.1669482679858998,
+          "minimum_spectral_margin_relative": 0.7104429674035032,
+          "negative_count_at_each_node": 1,
+          "node_count": 625,
+          "positive_count_at_each_node": 3,
+          "zero_count_at_each_node": 0
+        },
+        "interface_common": {
+          "minimum_negative_magnitude": 1.6425380520907908,
+          "minimum_positive_eigenvalue": 1.1669482679858998,
+          "minimum_spectral_margin_absolute": 1.1669482679858998,
+          "minimum_spectral_margin_relative": 0.7104429674035032,
+          "negative_count_at_each_node": 1,
+          "node_count": 625,
+          "positive_count_at_each_node": 3,
+          "zero_count_at_each_node": 0
+        }
+      },
+      "pointwise_gluing": {
+        "minus": {
+          "A": {
+            "Linf": 0.0,
+            "RMS": 0.0,
+            "scalar_entry_count": 7500
+          },
+          "Omega": {
+            "Linf": 0.0,
+            "RMS": 0.0,
+            "scalar_entry_count": 625
+          },
+          "gamma": {
+            "Linf": 4.440892098500626e-16,
+            "RMS": 8.599753303685164e-17,
+            "scalar_entry_count": 10000
+          },
+          "phi": {
+            "Linf": 0.0,
+            "RMS": 0.0,
+            "scalar_entry_count": 1875
+          }
+        },
+        "plus": {
+          "A": {
+            "Linf": 0.0,
+            "RMS": 0.0,
+            "scalar_entry_count": 7500
+          },
+          "Omega": {
+            "Linf": 0.0,
+            "RMS": 0.0,
+            "scalar_entry_count": 625
+          },
+          "gamma": {
+            "Linf": 4.440892098500626e-16,
+            "RMS": 7.021668611249056e-17,
+            "scalar_entry_count": 10000
+          },
+          "phi": {
+            "Linf": 0.0,
+            "RMS": 0.0,
+            "scalar_entry_count": 1875
+          }
+        }
+      }
+    },
+    "central_S_rel_components": {
+      "BF_bulk_minus": 14.368455956472076,
+      "BF_bulk_plus": -1.5677644209737105,
+      "EH_bulk_minus": -1388.0252767627544,
+      "EH_bulk_plus": 1174.405340956936,
+      "GHY_minus": -5.973472774812564,
+      "GHY_plus": 30.354775326803658,
+      "K_foliation": 4.3035167201415765e-06,
+      "Omega_kinetic_bulk_minus": -29.191007690334857,
+      "Omega_kinetic_bulk_plus": -31.88929648723178,
+      "Omega_potential_bulk_minus": -507.7632032213916,
+      "Omega_potential_bulk_plus": -392.79703114706604,
+      "P_kinetic_bulk_minus": -452.7164704759196,
+      "P_kinetic_bulk_plus": -483.1555233744946,
+      "R": -3.495137497824683e-07,
+      "R_squared": -1.0487924872526057e-10,
+      "Robin": -130.2906157430907,
+      "S_total": -16478.47224069675,
+      "a_squared": 2.833011160856131e-06,
+      "full_V4_bulk_minus": -3.5480602664236707,
+      "full_V4_bulk_plus": -3.2771017690913697,
+      "wall": -14267.405995590285
+    },
+    "central_lorentzian_inertia": {
+      "bulk_minus": {
+        "minimum_negative_magnitude": 1.552100696383309,
+        "minimum_positive_eigenvalue": 1.0935244082114663,
+        "minimum_spectral_margin_absolute": 1.0935244082114663,
+        "minimum_spectral_margin_relative": 0.7043708014130565,
+        "negative_count_at_each_node": 1,
+        "node_count": 1875,
+        "positive_count_at_each_node": 4,
+        "zero_count_at_each_node": 0
+      },
+      "bulk_plus": {
+        "minimum_negative_magnitude": 1.5522307180577646,
+        "minimum_positive_eigenvalue": 1.0670086001041326,
+        "minimum_spectral_margin_absolute": 1.0670086001041326,
+        "minimum_spectral_margin_relative": 0.6623897370849308,
+        "negative_count_at_each_node": 1,
+        "node_count": 1875,
+        "positive_count_at_each_node": 4,
+        "zero_count_at_each_node": 0
+      },
+      "interface_GHY_minus": {
+        "minimum_negative_magnitude": 1.6437621172529555,
+        "minimum_positive_eigenvalue": 1.1664212273837982,
+        "minimum_spectral_margin_absolute": 1.1664212273837982,
+        "minimum_spectral_margin_relative": 0.7095850158473124,
+        "negative_count_at_each_node": 1,
+        "node_count": 625,
+        "positive_count_at_each_node": 3,
+        "zero_count_at_each_node": 0
+      },
+      "interface_GHY_plus": {
+        "minimum_negative_magnitude": 1.6437621172529555,
+        "minimum_positive_eigenvalue": 1.1664212273837982,
+        "minimum_spectral_margin_absolute": 1.1664212273837982,
+        "minimum_spectral_margin_relative": 0.7095850158473124,
+        "negative_count_at_each_node": 1,
+        "node_count": 625,
+        "positive_count_at_each_node": 3,
+        "zero_count_at_each_node": 0
+      },
+      "interface_common": {
+        "minimum_negative_magnitude": 1.643762117252956,
+        "minimum_positive_eigenvalue": 1.1664212273837982,
+        "minimum_spectral_margin_absolute": 1.1664212273837982,
+        "minimum_spectral_margin_relative": 0.7095850158473124,
+        "negative_count_at_each_node": 1,
+        "node_count": 625,
+        "positive_count_at_each_node": 3,
+        "zero_count_at_each_node": 0
+      }
+    },
+    "central_pointwise_gluing": {
+      "minus": {
+        "A": {
+          "Linf": 2.0816681711721685e-17,
+          "RMS": 9.558943944217005e-18,
+          "scalar_entry_count": 7500
+        },
+        "Omega": {
+          "Linf": 0.0,
+          "RMS": 0.0,
+          "scalar_entry_count": 625
+        },
+        "gamma": {
+          "Linf": 4.440892098500626e-16,
+          "RMS": 9.93013720487134e-17,
+          "scalar_entry_count": 10000
+        },
+        "phi": {
+          "Linf": 8.326672684688674e-17,
+          "RMS": 4.132381739412937e-17,
+          "scalar_entry_count": 1875
+        }
+      },
+      "plus": {
+        "A": {
+          "Linf": 2.7755575615628914e-17,
+          "RMS": 1.012195880717409e-17,
+          "scalar_entry_count": 7500
+        },
+        "Omega": {
+          "Linf": 0.0,
+          "RMS": 0.0,
+          "scalar_entry_count": 625
+        },
+        "gamma": {
+          "Linf": 4.440892098500626e-16,
+          "RMS": 7.021667774201279e-17,
+          "scalar_entry_count": 10000
+        },
+        "phi": {
+          "Linf": 2.7755575615628914e-17,
+          "RMS": 1.7554167342883506e-17,
+          "scalar_entry_count": 1875
+        }
+      }
+    },
+    "published_small_h_endpoint_manifest": [
+      {
+        "free_endpoint_sha256": {
+          "-1": "3770db58043f1195aa93bc6d6ae63ec69f2163dd44b0dee4d6c250621236d8ff",
+          "-2": "d5f8dd656d4102ed3e13bea431c49bad89ebc0da0073d4ec1536761df02d96fa",
+          "1": "9dd600a75fc0ccf2bfe154cdad735d7e88e00ae0cd22c49c7337cddbcef10e77",
+          "2": "8f2b2bb9cb0982567fac41428d51bdac2a9fa8bdfd2e0f93fc6392845cf17dc5"
+        },
+        "label": "h",
+        "role": "archived_small_h_roundoff_stress_not_used_to_fit_the_h4_window",
+        "step": 2e-05
+      },
+      {
+        "free_endpoint_sha256": {
+          "-1": "ae67778d5492b389eb938c5dafedd5882e6bbcc2762efa2f5988d1bf8806240c",
+          "-2": "3770db58043f1195aa93bc6d6ae63ec69f2163dd44b0dee4d6c250621236d8ff",
+          "1": "0b12c90ce7554b0d471d7d60e97e085d1e69f7cd963cad472e4c4ebe450b8961",
+          "2": "9dd600a75fc0ccf2bfe154cdad735d7e88e00ae0cd22c49c7337cddbcef10e77"
+        },
+        "label": "h_over_2",
+        "role": "archived_small_h_roundoff_stress_not_used_to_fit_the_h4_window",
+        "step": 1e-05
+      },
+      {
+        "free_endpoint_sha256": {
+          "-1": "3751c54776905e424a8ba6da38e03b4651c5625ed5e1d1d851229818ba7fcd95",
+          "-2": "ae67778d5492b389eb938c5dafedd5882e6bbcc2762efa2f5988d1bf8806240c",
+          "1": "92a6fa4371efc3aa51b5b0f3a12d8f157c2ddf22efd9451686c26bacc05924a9",
+          "2": "0b12c90ce7554b0d471d7d60e97e085d1e69f7cd963cad472e4c4ebe450b8961"
+        },
+        "label": "h_over_4",
+        "role": "archived_small_h_roundoff_stress_not_used_to_fit_the_h4_window",
+        "step": 5e-06
+      }
+    ],
+    "quadrature": {
+      "radial_gauss_order": 3,
+      "tangential_points_per_axis": 5,
+      "tangential_total_points": 625
+    }
+  },
+  "scientific_payload_sha256": "981ff7a96c6dc8517444537c2c24f774e13b0e961d91f26331fa8d30e7bf1363"
+}

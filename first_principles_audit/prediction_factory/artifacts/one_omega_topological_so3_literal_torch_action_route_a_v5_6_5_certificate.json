@@ -1,0 +1,481 @@
+{
+  "checks": {
+    "Euler_Green_independent_route_pass": false,
+    "N2_seed0_R_exactly_identity": true,
+    "Q5_central_component_sum_residual_below_2e_10": true,
+    "Q5_chunked_AD_JVP_finite": true,
+    "Q5_off_shell_JVP_nonzero": true,
+    "clean_process_redteam_pass": false,
+    "identity_all_action_nodes_Lorentzian": true,
+    "identity_pointwise_gluing_below_2e_10": true,
+    "independent_FD5_agreement_pass": false,
+    "literal_v5_2_action_hash_verified": true,
+    "mandatory_Gauss_quarantine_embedded_in_bundle": true,
+    "multi_N_continuum_extension_pass": false,
+    "mutant_campaign_pass": false,
+    "primary_all_action_nodes_Lorentzian": true,
+    "primary_pointwise_gluing_below_2e_10": true,
+    "sole_runtime_input_bundle_byte_pin_verified": true
+  },
+  "classification": "theory_only;finite_N2;raw_route_A;no_C1_N1_promotion",
+  "coefficient_parameters": {
+    "B4_bar": 0.8,
+    "M4_bulk_squared_selected_one_Omega_wall_value": 1.107013790800849,
+    "M5_cubed": 1.0,
+    "Robin_kappa_hat": 1.0,
+    "Robin_kappa_in_Mb_units": 0.5,
+    "Robin_y": 1.7320508075688772,
+    "Robin_y_squared": 3.0,
+    "brane_Mb_squared": 2.0,
+    "brane_beta": 2.0,
+    "compensator_metric_G": 1.2,
+    "eta": 3.107013790800849,
+    "k_BF_trace_equivalent": -0.5,
+    "k_infinity": 1.0,
+    "kappa_BF_inner_product": 1.0,
+    "lambda_K": -0.5535068954004245,
+    "material_Z5_per_side": 1.0,
+    "material_mass_M": 1.0,
+    "xi": 1.0
+  },
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "restricted_spectral_action_closure_claimed": false,
+    "route_A_Q5_literal_action_and_AD_JVP_pass": true
+  },
+  "evidence_boundary": "This raw route-A receipt covers one finite N2 member and its matched R=I control at Q5/r3. It does not compare FD5, derive Euler-Green, execute mutants, prove multi-N convergence, or promote C1/N1.",
+  "literal_action": {
+    "BF": "S_BF=sum_eps int_Meps <B_eps wedge F[A_eps]>, <X,Y>=-tr_3(XY)/2",
+    "GHY": "S_GHY=M5^3*sum_eps int_Sigma sqrt(-gamma)*Theta_eps for outward normals",
+    "Robin_intrinsic": "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+    "bulk_gauged": "S_bulk_gauged=sum_eps int_Meps sqrt(-g_eps)*[M5^3*R_eps/2-G*(nabla Omega_eps)^2/2-U(Omega_eps)-Z5*delta_ab*P_eps_M^a*P_eps^(b M)/2-Z5*M^2*Omega_eps^(-5)*V4(Omega_eps^(3/2)*|phi_eps|)]",
+    "bulk_potential": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+    "foliation_lower": "S_fol_lower=Mb^2/2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]",
+    "full_V4": "V4(r)=r^4/(2*sqrt(1+r^4))",
+    "gauged_conformal_derivative": "P_eps_M=D_(A_eps,M)phi_eps+3*phi_eps*partial_M log(Omega_eps)/2",
+    "removed_terms": "S_X=0 and every bulk screen-clock term=0",
+    "superpotential": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+    "total": "S_v5_2=S_bulk_gauged+S_GHY+S_wall0+S_fol_lower+S_R_intrinsic+S_BF",
+    "wall_background": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]"
+  },
+  "mathematical_contract": {
+    "AD_object": "JVP of S_rel o common_first_pointwise_decode with respect to authoritative free coordinates",
+    "Gauss_sign_corrigendum": "v5.5.4's opposite intrinsic-curvature sign is quarantined; flat FLRW and static R x S3 witnesses fix this route's sign",
+    "bulk_relative_action": "integral_[T4 x 0,1] (L_i[X]-L_i[X_infinity]) separately for each of twelve bulk atoms",
+    "common_first_pointwise": "gamma,Omega,varphi_Q,A_Q are decoded first; both side traces are eliminated at every action node without N-node interpolation",
+    "corner_term": "zero/absent because partial T4 is empty and the radial compact variation is flat at rho=1; no unlisted corner action is invented",
+    "interface_action": "GHY plus wall,K,R,R_squared,a_squared,Robin are not reference-subtracted",
+    "literal_action_component_count": 20,
+    "literal_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "object": "S_rel_v5_2_on_finite_C_N_member",
+    "ordered_components": [
+      "EH_bulk_plus",
+      "Omega_kinetic_bulk_plus",
+      "Omega_potential_bulk_plus",
+      "P_kinetic_bulk_plus",
+      "full_V4_bulk_plus",
+      "BF_bulk_plus",
+      "GHY_plus",
+      "EH_bulk_minus",
+      "Omega_kinetic_bulk_minus",
+      "Omega_potential_bulk_minus",
+      "P_kinetic_bulk_minus",
+      "full_V4_bulk_minus",
+      "BF_bulk_minus",
+      "GHY_minus",
+      "wall",
+      "K_foliation",
+      "R",
+      "R_squared",
+      "a_squared",
+      "Robin",
+      "S_total"
+    ],
+    "output_component_count_including_total": 21,
+    "radial_support": "h0/h1 and compact bumps are flat at rho=1; no artificial outer-boundary term enters DS_rel",
+    "scope": "finite periodic T4 box and compact radial collar only",
+    "tensor_calculus": {
+      "BF": "full pullback top-form coefficient with det(J_collar)=s_epsilon; no factorial in unique-component storage",
+      "EH": "Christoffel, dChristoffel, Ricci and scalar curvature reconstructed directly from g,dg,ddg",
+      "GHY": "graph tangent, derived outward unit normal and trace of second fundamental form",
+      "Robin": "E_Q=E0 exp(-hat(q_Q)); varphi_H^mu=E_Q^mu_a varphi^a",
+      "SO3_tau": "D phi=d phi+A cross phi; F=dA+A cross A",
+      "foliation": "tau_T=x0+T; Rcal=h h R4-Kcal^2+Kcal_mu_nu Kcal^mu_nu in the stated Riemann convention"
+    }
+  },
+  "provenance": {
+    "generator": {
+      "path": "HOLO_runner/first_principles_audit/prediction_factory/derive_one_omega_topological_so3_literal_torch_action_route_a_v5_6_5_certificate.py",
+      "sha256": "dfb1692b3af96c1827ad7fd435b0de7a2af89dd7535a328bc49ba5431d492a7c"
+    },
+    "primitive_bundle": {
+      "path": "HOLO_runner/first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_restricted_spectral_family_v5_6_4_2_pointwise_primitive_bundle.json",
+      "payload_sha256": "83034d2b7c3b3ef65fcc91b5b57d56bfe175113d626a61e7fe4720f6caf30736",
+      "sha256": "bcbb0037a2b025d9ece7387b5962a910e31eced7294ccb5324ab764c3bc7cb26"
+    },
+    "runtime": {
+      "device": "cpu",
+      "dtype": "torch.float64",
+      "torch_threads": 1,
+      "torch_version": "2.12.0+cu130"
+    },
+    "test": {
+      "path": "HOLO_runner/first_principles_audit/prediction_factory/test_one_omega_topological_so3_literal_torch_action_route_a_v5_6_5_certificate.py",
+      "sha256": "ecf155ab10acc39f6b3e714833ea081758b353b5601ce5702e5d52400eb89987"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-literal-torch-action-route-a-v5-6-5-certificate.v1",
+  "scientific": {
+    "AD_JVP_by_component": {
+      "BF_bulk_minus": -10.235531945551422,
+      "BF_bulk_plus": 26.832977972412635,
+      "EH_bulk_minus": -588.4128493036999,
+      "EH_bulk_plus": 215.98964182855204,
+      "GHY_minus": 5.586286600621229,
+      "GHY_plus": -3.168936509245334,
+      "K_foliation": -0.01583594541141129,
+      "Omega_kinetic_bulk_minus": 0.4849948959325818,
+      "Omega_kinetic_bulk_plus": -0.4693505279756698,
+      "Omega_potential_bulk_minus": -54.965135793586896,
+      "Omega_potential_bulk_plus": 75.51109135871815,
+      "P_kinetic_bulk_minus": 311.87306473314806,
+      "P_kinetic_bulk_plus": 308.6083908824643,
+      "R": -7.232728217737696e-11,
+      "R_squared": -6.398551603923109e-14,
+      "Robin": 85.35783743110684,
+      "S_total": 384.9559983994854,
+      "a_squared": -0.022534368740718194,
+      "full_V4_bulk_minus": 4.628488923399619,
+      "full_V4_bulk_plus": 4.288977811065739,
+      "wall": 3.084420356348076
+    },
+    "AD_execution": {
+      "method": "torch.func.jvp summed over disjoint weighted tangential chunks",
+      "same_grid_chunk_equivalence_is_a_test_obligation": true,
+      "same_grid_chunk_equivalence_test_sha256": "ecf155ab10acc39f6b3e714833ea081758b353b5601ce5702e5d52400eb89987",
+      "tangential_chunk_size": 64
+    },
+    "R_equals_identity_control": {
+      "action_node_diagnostics": {
+        "SO3_cut_locus_margin": {
+          "Q_frame": 3.141592653589793,
+          "minus": 3.141592653589793,
+          "plus": 3.141592653589793
+        },
+        "bulk_min_Omega": {
+          "minus": 1.0000512381203077,
+          "plus": 0.9268226799719976
+        },
+        "bulk_min_minus_det_g": {
+          "minus": 4.269005288276544,
+          "plus": 4.253209935812002
+        },
+        "corner_term_status": "absent: periodic T4 has no boundary and compact radial variations are flat at rho=1",
+        "frame_gram_Linf": 4.440892098500626e-16,
+        "lorentzian_inertia_at_every_action_node": {
+          "bulk_g_minus": {
+            "all_nodes_lorentzian": true,
+            "label": "bulk_g_minus_at_action_nodes",
+            "matrix_dimension": 5,
+            "maximum_eigenvalue": 1.6374984950762372,
+            "minimum_absolute_eigenvalue": 1.0450024875331496,
+            "minimum_eigenvalue": -1.6421877082401095,
+            "negative_count_max": 1,
+            "negative_count_min": 1,
+            "node_count": 1875,
+            "positive_count_max": 4,
+            "positive_count_min": 4,
+            "symmetry_residual_Linf": 0.0,
+            "zero_count_max": 0,
+            "zero_tolerance": 1e-12
+          },
+          "bulk_g_plus": {
+            "all_nodes_lorentzian": true,
+            "label": "bulk_g_plus_at_action_nodes",
+            "matrix_dimension": 5,
+            "maximum_eigenvalue": 1.6073420977038313,
+            "minimum_absolute_eigenvalue": 1.0601646148125734,
+            "minimum_eigenvalue": -1.7294688732109464,
+            "negative_count_max": 1,
+            "negative_count_min": 1,
+            "node_count": 1875,
+            "positive_count_max": 4,
+            "positive_count_min": 4,
+            "symmetry_residual_Linf": 0.0,
+            "zero_count_max": 0,
+            "zero_tolerance": 1e-12
+          },
+          "common_gamma": {
+            "all_nodes_lorentzian": true,
+            "label": "common_gamma_at_action_nodes",
+            "matrix_dimension": 4,
+            "maximum_eigenvalue": 1.4617718224800527,
+            "minimum_absolute_eigenvalue": 1.1669482679858993,
+            "minimum_eigenvalue": -1.642567834280482,
+            "negative_count_max": 1,
+            "negative_count_min": 1,
+            "node_count": 625,
+            "positive_count_max": 3,
+            "positive_count_min": 3,
+            "symmetry_residual_Linf": 0.0,
+            "zero_count_max": 0,
+            "zero_tolerance": 1e-12
+          },
+          "induced_gamma_minus": {
+            "all_nodes_lorentzian": true,
+            "label": "induced_gamma_minus_at_action_nodes",
+            "matrix_dimension": 4,
+            "maximum_eigenvalue": 1.4617718224800527,
+            "minimum_absolute_eigenvalue": 1.1669482679858993,
+            "minimum_eigenvalue": -1.6425678342804821,
+            "negative_count_max": 1,
+            "negative_count_min": 1,
+            "node_count": 625,
+            "positive_count_max": 3,
+            "positive_count_min": 3,
+            "symmetry_residual_Linf": 0.0,
+            "zero_count_max": 0,
+            "zero_tolerance": 1e-12
+          },
+          "induced_gamma_plus": {
+            "all_nodes_lorentzian": true,
+            "label": "induced_gamma_plus_at_action_nodes",
+            "matrix_dimension": 4,
+            "maximum_eigenvalue": 1.4617718224800527,
+            "minimum_absolute_eigenvalue": 1.1669482679858993,
+            "minimum_eigenvalue": -1.6425678342804821,
+            "negative_count_max": 1,
+            "negative_count_min": 1,
+            "node_count": 625,
+            "positive_count_max": 3,
+            "positive_count_min": 3,
+            "symmetry_residual_Linf": 2.168404344971009e-19,
+            "zero_count_max": 0,
+            "zero_tolerance": 1e-12
+          }
+        },
+        "outward_normal_unit_residual_Linf": {
+          "minus": 4.440892098500626e-16,
+          "plus": 2.220446049250313e-16
+        },
+        "outward_orientation_signed_determinant_min": {
+          "minus": 0.9259203953869911,
+          "plus": 0.9229555608370446
+        },
+        "pointwise_full_gluing_Linf": 2.220446049250313e-16,
+        "pointwise_induced_minus_common_gamma_Linf": {
+          "minus": 2.220446049250313e-16,
+          "plus": 2.220446049250313e-16
+        },
+        "tau_norm_squared_max": -0.6087475365440901
+      },
+      "central_S_rel_components": {
+        "BF_bulk_minus": -31.657038447930034,
+        "BF_bulk_plus": 29.524573960356484,
+        "EH_bulk_minus": 172.7346167628832,
+        "EH_bulk_plus": 1313.2121725756865,
+        "GHY_minus": 77.2661947491127,
+        "GHY_plus": 109.70162512755381,
+        "K_foliation": 8.94103164893867e-06,
+        "Omega_kinetic_bulk_minus": -38.064385822340654,
+        "Omega_kinetic_bulk_plus": -22.98480536194225,
+        "Omega_potential_bulk_minus": -325.904016608617,
+        "Omega_potential_bulk_plus": 735.819788338421,
+        "P_kinetic_bulk_minus": -225.14342369496066,
+        "P_kinetic_bulk_plus": -265.94284347296497,
+        "R": -5.331902356598426e-07,
+        "R_squared": -2.976153592838139e-08,
+        "Robin": -57.76872520730811,
+        "S_total": -12781.845675153847,
+        "a_squared": 1.0312724361983648e-05,
+        "full_V4_bulk_minus": -1.92486149021678,
+        "full_V4_bulk_plus": -2.7060972622502275,
+        "wall": -14248.008467990134
+      },
+      "r_E0_exactly_zero_both_sides": true
+    },
+    "authoritative_free_central_sha256": "0febc03837763087bcd802a19431800b703278fa055ab3e11ddc9b4259458b67",
+    "authoritative_free_tangent_sha256": "96f2cb65c7ecb11f6893c6077d2538187a2fa1645cabf5b10980d36de97a0ffa",
+    "central_S_rel_components": {
+      "BF_bulk_minus": 14.368455956472094,
+      "BF_bulk_plus": -1.567764420973716,
+      "EH_bulk_minus": -1388.0252767627442,
+      "EH_bulk_plus": 1174.40534095694,
+      "GHY_minus": -5.973472774812557,
+      "GHY_plus": 30.354775326803754,
+      "K_foliation": 4.303516720141578e-06,
+      "Omega_kinetic_bulk_minus": -29.191007690334985,
+      "Omega_kinetic_bulk_plus": -31.889296487231757,
+      "Omega_potential_bulk_minus": -507.76320322139907,
+      "Omega_potential_bulk_plus": -392.7970311470618,
+      "P_kinetic_bulk_minus": -452.7164704759177,
+      "P_kinetic_bulk_plus": -483.15552337449185,
+      "R": -3.4951374979375754e-07,
+      "R_squared": -1.0487924872525827e-10,
+      "Robin": -130.29061574309088,
+      "S_total": -16478.47224069672,
+      "a_squared": 2.8330111608561297e-06,
+      "full_V4_bulk_minus": -3.548060266423725,
+      "full_V4_bulk_plus": -3.2771017690914044,
+      "wall": -14267.40599559027
+    },
+    "identity_control_member_id": "N2.K2.seed0",
+    "member_id": "N2.K2.seed20260902",
+    "parent_ambient_tangent_sha256": "84ac494a2bd03d2fca9ca2490b4905436ef80719dcf4744f16ce2eae28b7812f",
+    "primary_action_node_diagnostics": {
+      "SO3_cut_locus_margin": {
+        "Q_frame": 3.055328593311846,
+        "minus": 2.9404310278050647,
+        "plus": 3.0047310116842616
+      },
+      "bulk_min_Omega": {
+        "minus": 0.9999937563614844,
+        "plus": 1.000087667690216
+      },
+      "bulk_min_minus_det_g": {
+        "minus": 4.023751966552395,
+        "plus": 4.294476520142427
+      },
+      "corner_term_status": "absent: periodic T4 has no boundary and compact radial variations are flat at rho=1",
+      "frame_gram_Linf": 1.1102230246251565e-15,
+      "lorentzian_inertia_at_every_action_node": {
+        "bulk_g_minus": {
+          "all_nodes_lorentzian": true,
+          "label": "bulk_g_minus_at_action_nodes",
+          "matrix_dimension": 5,
+          "maximum_eigenvalue": 1.5301259405376575,
+          "minimum_absolute_eigenvalue": 1.0935244082114675,
+          "minimum_eigenvalue": -1.6465480431995214,
+          "negative_count_max": 1,
+          "negative_count_min": 1,
+          "node_count": 1875,
+          "positive_count_max": 4,
+          "positive_count_min": 4,
+          "symmetry_residual_Linf": 0.0,
+          "zero_count_max": 0,
+          "zero_tolerance": 1e-12
+        },
+        "bulk_g_plus": {
+          "all_nodes_lorentzian": true,
+          "label": "bulk_g_plus_at_action_nodes",
+          "matrix_dimension": 5,
+          "maximum_eigenvalue": 1.611250285381192,
+          "minimum_absolute_eigenvalue": 1.067008600104132,
+          "minimum_eigenvalue": -1.6422243582001137,
+          "negative_count_max": 1,
+          "negative_count_min": 1,
+          "node_count": 1875,
+          "positive_count_max": 4,
+          "positive_count_min": 4,
+          "symmetry_residual_Linf": 0.0,
+          "zero_count_max": 0,
+          "zero_tolerance": 1e-12
+        },
+        "common_gamma": {
+          "all_nodes_lorentzian": true,
+          "label": "common_gamma_at_action_nodes",
+          "matrix_dimension": 4,
+          "maximum_eigenvalue": 1.463156050439085,
+          "minimum_absolute_eigenvalue": 1.166421227383798,
+          "minimum_eigenvalue": -1.643807579548421,
+          "negative_count_max": 1,
+          "negative_count_min": 1,
+          "node_count": 625,
+          "positive_count_max": 3,
+          "positive_count_min": 3,
+          "symmetry_residual_Linf": 0.0,
+          "zero_count_max": 0,
+          "zero_tolerance": 1e-12
+        },
+        "induced_gamma_minus": {
+          "all_nodes_lorentzian": true,
+          "label": "induced_gamma_minus_at_action_nodes",
+          "matrix_dimension": 4,
+          "maximum_eigenvalue": 1.4631560504390853,
+          "minimum_absolute_eigenvalue": 1.166421227383798,
+          "minimum_eigenvalue": -1.643807579548421,
+          "negative_count_max": 1,
+          "negative_count_min": 1,
+          "node_count": 625,
+          "positive_count_max": 3,
+          "positive_count_min": 3,
+          "symmetry_residual_Linf": 2.168404344971009e-19,
+          "zero_count_max": 0,
+          "zero_tolerance": 1e-12
+        },
+        "induced_gamma_plus": {
+          "all_nodes_lorentzian": true,
+          "label": "induced_gamma_plus_at_action_nodes",
+          "matrix_dimension": 4,
+          "maximum_eigenvalue": 1.4631560504390853,
+          "minimum_absolute_eigenvalue": 1.166421227383798,
+          "minimum_eigenvalue": -1.643807579548421,
+          "negative_count_max": 1,
+          "negative_count_min": 1,
+          "node_count": 625,
+          "positive_count_max": 3,
+          "positive_count_min": 3,
+          "symmetry_residual_Linf": 2.168404344971009e-19,
+          "zero_count_max": 0,
+          "zero_tolerance": 1e-12
+        }
+      },
+      "outward_normal_unit_residual_Linf": {
+        "minus": 2.220446049250313e-16,
+        "plus": 3.3306690738754696e-16
+      },
+      "outward_orientation_signed_determinant_min": {
+        "minus": 0.9235255964892006,
+        "plus": 0.923030163926909
+      },
+      "pointwise_full_gluing_Linf": 2.220446049250313e-16,
+      "pointwise_induced_minus_common_gamma_Linf": {
+        "minus": 2.220446049250313e-16,
+        "plus": 2.220446049250313e-16
+      },
+      "tau_norm_squared_max": -0.6083192889848281
+    },
+    "published_endpoint_manifest_not_evaluated_by_route_A": [
+      {
+        "free_endpoint_sha256": {
+          "-1": "3770db58043f1195aa93bc6d6ae63ec69f2163dd44b0dee4d6c250621236d8ff",
+          "-2": "d5f8dd656d4102ed3e13bea431c49bad89ebc0da0073d4ec1536761df02d96fa",
+          "1": "9dd600a75fc0ccf2bfe154cdad735d7e88e00ae0cd22c49c7337cddbcef10e77",
+          "2": "8f2b2bb9cb0982567fac41428d51bdac2a9fa8bdfd2e0f93fc6392845cf17dc5"
+        },
+        "label": "h",
+        "step": 2e-05
+      },
+      {
+        "free_endpoint_sha256": {
+          "-1": "ae67778d5492b389eb938c5dafedd5882e6bbcc2762efa2f5988d1bf8806240c",
+          "-2": "3770db58043f1195aa93bc6d6ae63ec69f2163dd44b0dee4d6c250621236d8ff",
+          "1": "0b12c90ce7554b0d471d7d60e97e085d1e69f7cd963cad472e4c4ebe450b8961",
+          "2": "9dd600a75fc0ccf2bfe154cdad735d7e88e00ae0cd22c49c7337cddbcef10e77"
+        },
+        "label": "h_over_2",
+        "step": 1e-05
+      },
+      {
+        "free_endpoint_sha256": {
+          "-1": "3751c54776905e424a8ba6da38e03b4651c5625ed5e1d1d851229818ba7fcd95",
+          "-2": "ae67778d5492b389eb938c5dafedd5882e6bbcc2762efa2f5988d1bf8806240c",
+          "1": "92a6fa4371efc3aa51b5b0f3a12d8f157c2ddf22efd9451686c26bacc05924a9",
+          "2": "0b12c90ce7554b0d471d7d60e97e085d1e69f7cd963cad472e4c4ebe450b8961"
+        },
+        "label": "h_over_4",
+        "step": 5e-06
+      }
+    ],
+    "quadrature": {
+      "radial_gauss_order": 3,
+      "tangential_node_count": 625,
+      "tangential_points_per_axis": 5
+    }
+  },
+  "title": "Memory-bounded literal Torch route-A Q5 action and AD/JVP receipt"
+}

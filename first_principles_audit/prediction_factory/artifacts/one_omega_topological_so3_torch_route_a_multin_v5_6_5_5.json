@@ -1,0 +1,541 @@
+{
+  "classification": "theory_only;route_A;forward_AD;N1_N2_N3;finite_spectral;fail_closed",
+  "decision": {
+    "AD_vs_independent_FD5_multin_pass": false,
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "Euler_Green_independent_route_pass": false,
+    "N1_ACTION_pass": false,
+    "continuous_limit_pass": false,
+    "route_A_multin_raw_evaluations_pass": true
+  },
+  "evidence_boundary": "Raw Torch forward-AD values are evaluated independently for N=1,2,3 from primitive configurations. No comparison, convergence theorem, Euler-Green identity, or C1/N1 promotion is inferred by this route alone.",
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_torch_route_a_multin_v5_6_5_5.py",
+      "sha256": "5c24361ba431888ccaf473ba2ab17aa00354258ba70c31bb81bfb77ebf6d56b6"
+    },
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_torch_route_a_multin_v5_6_5_5.py",
+      "sha256": "378198df1b6cfb2cba684463394e4b2190a7a3a0e67d62be4ef4ee1a5a81594e"
+    }
+  },
+  "quadrature": {
+    "radial_Gauss_order": 4,
+    "tangential_chunk_size": 64,
+    "tangential_periodic_points_per_axis": 5
+  },
+  "schema": "holo.one-omega-topological-so3-torch-route-a-multin-v5-6-5-5.v1",
+  "scientific": {
+    "members": [
+      {
+        "AD_JVP_by_component": {
+          "BF_bulk_minus": 4.795059957799823,
+          "BF_bulk_plus": -1.0253493843083126,
+          "EH_bulk_minus": 218.22276447138745,
+          "EH_bulk_plus": 662.1834770032665,
+          "GHY_minus": 7.22750487674173,
+          "GHY_plus": -4.100270433214514,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -45.09033036482834,
+          "Omega_kinetic_bulk_plus": -11.634181631723495,
+          "Omega_potential_bulk_minus": -872.0953960592801,
+          "Omega_potential_bulk_plus": -758.0886725276669,
+          "P_kinetic_bulk_minus": 98.02969898944427,
+          "P_kinetic_bulk_plus": 121.43814453468485,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": 111.29350302286524,
+          "S_total": 469.94987990357936,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": 4.835453171720491,
+          "full_V4_bulk_plus": 4.378205994412921,
+          "wall": 929.5802682822775
+        },
+        "K": 1,
+        "N": 1,
+        "S_rel_components": {
+          "BF_bulk_minus": 36.66890999245395,
+          "BF_bulk_plus": 47.823649604182435,
+          "EH_bulk_minus": -543.7409252330118,
+          "EH_bulk_plus": 662.772323221183,
+          "GHY_minus": -5.973466668566051,
+          "GHY_plus": 30.354782099680772,
+          "K_foliation": 0.0,
+          "Omega_kinetic_bulk_minus": -10.619528385850339,
+          "Omega_kinetic_bulk_plus": -19.918910455198194,
+          "Omega_potential_bulk_minus": -464.9721815541569,
+          "Omega_potential_bulk_plus": -377.7312124294819,
+          "P_kinetic_bulk_minus": -525.3674902356005,
+          "P_kinetic_bulk_plus": -455.83495380996413,
+          "R": 0.0,
+          "R_squared": 0.0,
+          "Robin": -130.2843482854059,
+          "S_total": -16029.88003882979,
+          "a_squared": 0.0,
+          "full_V4_bulk_minus": -2.8309227318951304,
+          "full_V4_bulk_plus": -2.819765308784173,
+          "wall": -14267.405998649372
+        },
+        "action_node_diagnostics": {
+          "SO3_cut_locus_margin": {
+            "Q_frame": 3.055338974112298,
+            "minus": 2.9419076037120577,
+            "plus": 3.0060556009966115
+          },
+          "bulk_min_Omega": {
+            "minus": 0.9982151293838322,
+            "plus": 1.0000003577783574
+          },
+          "bulk_min_minus_det_g": {
+            "minus": 4.156614851939202,
+            "plus": 4.293782366923692
+          },
+          "corner_term_status": "absent: periodic T4 has no boundary and compact radial variations are flat at rho=1",
+          "frame_gram_Linf": 2.220446049250313e-16,
+          "lorentzian_inertia_at_every_action_node": {
+            "bulk_g_minus": {
+              "all_nodes_lorentzian": true,
+              "label": "bulk_g_minus_at_action_nodes",
+              "matrix_dimension": 5,
+              "maximum_eigenvalue": 1.4667525237286687,
+              "minimum_absolute_eigenvalue": 1.1260905321139867,
+              "minimum_eigenvalue": -1.645657588511503,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 2500,
+              "positive_count_max": 4,
+              "positive_count_min": 4,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "bulk_g_plus": {
+              "all_nodes_lorentzian": true,
+              "label": "bulk_g_plus_at_action_nodes",
+              "matrix_dimension": 5,
+              "maximum_eigenvalue": 1.5429862052748695,
+              "minimum_absolute_eigenvalue": 1.1080785950925502,
+              "minimum_eigenvalue": -1.6429536393991455,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 2500,
+              "positive_count_max": 4,
+              "positive_count_min": 4,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "common_gamma": {
+              "all_nodes_lorentzian": true,
+              "label": "common_gamma_at_action_nodes",
+              "matrix_dimension": 4,
+              "maximum_eigenvalue": 1.4631281776329033,
+              "minimum_absolute_eigenvalue": 1.1664392233924794,
+              "minimum_eigenvalue": -1.6437824480296954,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 625,
+              "positive_count_max": 3,
+              "positive_count_min": 3,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "induced_gamma_minus": {
+              "all_nodes_lorentzian": true,
+              "label": "induced_gamma_minus_at_action_nodes",
+              "matrix_dimension": 4,
+              "maximum_eigenvalue": 1.4631281776329033,
+              "minimum_absolute_eigenvalue": 1.1664392233924794,
+              "minimum_eigenvalue": -1.6437824480296954,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 625,
+              "positive_count_max": 3,
+              "positive_count_min": 3,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "induced_gamma_plus": {
+              "all_nodes_lorentzian": true,
+              "label": "induced_gamma_plus_at_action_nodes",
+              "matrix_dimension": 4,
+              "maximum_eigenvalue": 1.4631281776329033,
+              "minimum_absolute_eigenvalue": 1.1664392233924794,
+              "minimum_eigenvalue": -1.6437824480296954,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 625,
+              "positive_count_max": 3,
+              "positive_count_min": 3,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            }
+          },
+          "outward_normal_unit_residual_Linf": {
+            "minus": 3.3306690738754696e-16,
+            "plus": 1.1102230246251565e-16
+          },
+          "outward_orientation_signed_determinant_min": {
+            "minus": 0.923548456055236,
+            "plus": 0.9230420154837802
+          },
+          "pointwise_full_gluing_Linf": 1.3877787807814457e-16,
+          "pointwise_induced_minus_common_gamma_Linf": {
+            "minus": 0.0,
+            "plus": 0.0
+          },
+          "tau_norm_squared_max": -0.6083517539142531
+        },
+        "authoritative_free_central_sha256": "782065991a7af9029c93a02985686b59e8bfc0b2742a3a1dedc9fa8a7e969255",
+        "authoritative_free_tangent_sha256": "105b5a06735ecab8f1158e8fbaa0babebf14f69b16c98b6bbeeb0413be02ecb7",
+        "free_dimension": 370,
+        "member_id": "N1.K1.seed20260902"
+      },
+      {
+        "AD_JVP_by_component": {
+          "BF_bulk_minus": 3.7352145233087457,
+          "BF_bulk_plus": -0.8319310998991106,
+          "EH_bulk_minus": 156.32556033785346,
+          "EH_bulk_plus": 515.9338806580015,
+          "GHY_minus": 5.586286600621229,
+          "GHY_plus": -3.168936509245334,
+          "K_foliation": -0.01583594541141129,
+          "Omega_kinetic_bulk_minus": -0.4022355195530438,
+          "Omega_kinetic_bulk_plus": -0.6984108093561399,
+          "Omega_potential_bulk_minus": -34.76825297554558,
+          "Omega_potential_bulk_plus": 74.71206834461228,
+          "P_kinetic_bulk_minus": 121.05121499958634,
+          "P_kinetic_bulk_plus": 134.73738986060218,
+          "R": -7.232728217737696e-11,
+          "R_squared": -6.398551603923109e-14,
+          "Robin": 85.35783743110684,
+          "S_total": 1068.3338287740298,
+          "a_squared": -0.022534368740718194,
+          "full_V4_bulk_minus": 4.035681206808272,
+          "full_V4_bulk_plus": 3.6824116830046902,
+          "wall": 3.084420356348076
+        },
+        "K": 2,
+        "N": 2,
+        "S_rel_components": {
+          "BF_bulk_minus": 37.25357397766451,
+          "BF_bulk_plus": 49.8603314651196,
+          "EH_bulk_minus": -545.6717823563102,
+          "EH_bulk_plus": 663.7717015652233,
+          "GHY_minus": -5.973472774812557,
+          "GHY_plus": 30.354775326803754,
+          "K_foliation": 4.303516720141578e-06,
+          "Omega_kinetic_bulk_minus": -10.807065796137572,
+          "Omega_kinetic_bulk_plus": -20.04374823072569,
+          "Omega_potential_bulk_minus": -464.7595952539176,
+          "Omega_potential_bulk_plus": -377.5973763625629,
+          "P_kinetic_bulk_minus": -526.2120312259586,
+          "P_kinetic_bulk_plus": -456.42574904809976,
+          "R": -3.4951374979375754e-07,
+          "R_squared": -1.0487924872525827e-10,
+          "Robin": -130.29061574309088,
+          "S_total": -16029.58303128842,
+          "a_squared": 2.8330111608561297e-06,
+          "full_V4_bulk_minus": -2.8218622273239937,
+          "full_V4_bulk_plus": -2.8141258009311216,
+          "wall": -14267.40599559027
+        },
+        "action_node_diagnostics": {
+          "SO3_cut_locus_margin": {
+            "Q_frame": 3.055328593311846,
+            "minus": 2.9404310278050647,
+            "plus": 3.0047310116842616
+          },
+          "bulk_min_Omega": {
+            "minus": 0.9984624182647397,
+            "plus": 1.000000368903479
+          },
+          "bulk_min_minus_det_g": {
+            "minus": 4.154720706395258,
+            "plus": 4.29378225756041
+          },
+          "corner_term_status": "absent: periodic T4 has no boundary and compact radial variations are flat at rho=1",
+          "frame_gram_Linf": 1.1102230246251565e-15,
+          "lorentzian_inertia_at_every_action_node": {
+            "bulk_g_minus": {
+              "all_nodes_lorentzian": true,
+              "label": "bulk_g_minus_at_action_nodes",
+              "matrix_dimension": 5,
+              "maximum_eigenvalue": 1.4672133111476098,
+              "minimum_absolute_eigenvalue": 1.1244151678747478,
+              "minimum_eigenvalue": -1.6456747684101267,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 2500,
+              "positive_count_max": 4,
+              "positive_count_min": 4,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "bulk_g_plus": {
+              "all_nodes_lorentzian": true,
+              "label": "bulk_g_plus_at_action_nodes",
+              "matrix_dimension": 5,
+              "maximum_eigenvalue": 1.5433402664841767,
+              "minimum_absolute_eigenvalue": 1.1092541825098468,
+              "minimum_eigenvalue": -1.6429614167794109,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 2500,
+              "positive_count_max": 4,
+              "positive_count_min": 4,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "common_gamma": {
+              "all_nodes_lorentzian": true,
+              "label": "common_gamma_at_action_nodes",
+              "matrix_dimension": 4,
+              "maximum_eigenvalue": 1.463156050439085,
+              "minimum_absolute_eigenvalue": 1.166421227383798,
+              "minimum_eigenvalue": -1.643807579548421,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 625,
+              "positive_count_max": 3,
+              "positive_count_min": 3,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "induced_gamma_minus": {
+              "all_nodes_lorentzian": true,
+              "label": "induced_gamma_minus_at_action_nodes",
+              "matrix_dimension": 4,
+              "maximum_eigenvalue": 1.4631560504390853,
+              "minimum_absolute_eigenvalue": 1.166421227383798,
+              "minimum_eigenvalue": -1.643807579548421,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 625,
+              "positive_count_max": 3,
+              "positive_count_min": 3,
+              "symmetry_residual_Linf": 2.168404344971009e-19,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "induced_gamma_plus": {
+              "all_nodes_lorentzian": true,
+              "label": "induced_gamma_plus_at_action_nodes",
+              "matrix_dimension": 4,
+              "maximum_eigenvalue": 1.4631560504390853,
+              "minimum_absolute_eigenvalue": 1.166421227383798,
+              "minimum_eigenvalue": -1.643807579548421,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 625,
+              "positive_count_max": 3,
+              "positive_count_min": 3,
+              "symmetry_residual_Linf": 2.168404344971009e-19,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            }
+          },
+          "outward_normal_unit_residual_Linf": {
+            "minus": 2.220446049250313e-16,
+            "plus": 3.3306690738754696e-16
+          },
+          "outward_orientation_signed_determinant_min": {
+            "minus": 0.9235255964892006,
+            "plus": 0.923030163926909
+          },
+          "pointwise_full_gluing_Linf": 2.220446049250313e-16,
+          "pointwise_induced_minus_common_gamma_Linf": {
+            "minus": 2.220446049250313e-16,
+            "plus": 2.220446049250313e-16
+          },
+          "tau_norm_squared_max": -0.6083192889848281
+        },
+        "authoritative_free_central_sha256": "0febc03837763087bcd802a19431800b703278fa055ab3e11ddc9b4259458b67",
+        "authoritative_free_tangent_sha256": "96f2cb65c7ecb11f6893c6077d2538187a2fa1645cabf5b10980d36de97a0ffa",
+        "free_dimension": 996,
+        "member_id": "N2.K2.seed20260902"
+      },
+      {
+        "AD_JVP_by_component": {
+          "BF_bulk_minus": 4.422492866795615,
+          "BF_bulk_plus": -1.144276520133745,
+          "EH_bulk_minus": 182.40736601631525,
+          "EH_bulk_plus": 609.0076224893924,
+          "GHY_minus": 6.6348297131395855,
+          "GHY_plus": -3.675551641048222,
+          "K_foliation": -0.036088625808074135,
+          "Omega_kinetic_bulk_minus": -0.48633729697918193,
+          "Omega_kinetic_bulk_plus": -0.8415016154120523,
+          "Omega_potential_bulk_minus": -41.13233022057392,
+          "Omega_potential_bulk_plus": 88.1881029779922,
+          "P_kinetic_bulk_minus": 142.85981296513734,
+          "P_kinetic_bulk_plus": 158.99571489511268,
+          "R": 0.00020665906765019422,
+          "R_squared": -1.952102273290026e-13,
+          "Robin": 100.74505438897437,
+          "S_total": 1258.653732105175,
+          "a_squared": -0.04117263159854269,
+          "full_V4_bulk_minus": 4.763068972120669,
+          "full_V4_bulk_plus": 4.346532145856257,
+          "wall": 3.6401865668252924
+        },
+        "K": 3,
+        "N": 3,
+        "S_rel_components": {
+          "BF_bulk_minus": 37.20896983917635,
+          "BF_bulk_plus": 49.87798492164279,
+          "EH_bulk_minus": -544.487281336154,
+          "EH_bulk_plus": 662.9822541915454,
+          "GHY_minus": -5.973639917991806,
+          "GHY_plus": 30.354685963490546,
+          "K_foliation": 1.3527141599315948e-05,
+          "Omega_kinetic_bulk_minus": -10.841701706404988,
+          "Omega_kinetic_bulk_plus": -20.065171546145717,
+          "Omega_potential_bulk_minus": -464.8382099218264,
+          "Omega_potential_bulk_plus": -377.6440260560868,
+          "P_kinetic_bulk_minus": -526.3499825315267,
+          "P_kinetic_bulk_plus": -456.29828188993923,
+          "R": -1.127400077222102e-06,
+          "R_squared": -1.8855330390158635e-10,
+          "Robin": -130.29424478091767,
+          "S_total": -16029.411255469815,
+          "a_squared": 2.6108931316109404e-05,
+          "full_V4_bulk_minus": -2.8220367337436176,
+          "full_V4_bulk_plus": -2.814617787512803,
+          "wall": -14267.405994685909
+        },
+        "action_node_diagnostics": {
+          "SO3_cut_locus_margin": {
+            "Q_frame": 3.0546020135520906,
+            "minus": 2.9396343263883034,
+            "plus": 3.0039656787751303
+          },
+          "bulk_min_Omega": {
+            "minus": 0.9983464265257681,
+            "plus": 1.0000003687541752
+          },
+          "bulk_min_minus_det_g": {
+            "minus": 4.1544785580096395,
+            "plus": 4.293782250564657
+          },
+          "corner_term_status": "absent: periodic T4 has no boundary and compact radial variations are flat at rho=1",
+          "frame_gram_Linf": 1.1102230246251565e-15,
+          "lorentzian_inertia_at_every_action_node": {
+            "bulk_g_minus": {
+              "all_nodes_lorentzian": true,
+              "label": "bulk_g_minus_at_action_nodes",
+              "matrix_dimension": 5,
+              "maximum_eigenvalue": 1.4677099891726741,
+              "minimum_absolute_eigenvalue": 1.1240321369244575,
+              "minimum_eigenvalue": -1.6457067380795387,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 2500,
+              "positive_count_max": 4,
+              "positive_count_min": 4,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "bulk_g_plus": {
+              "all_nodes_lorentzian": true,
+              "label": "bulk_g_plus_at_action_nodes",
+              "matrix_dimension": 5,
+              "maximum_eigenvalue": 1.5439065455669145,
+              "minimum_absolute_eigenvalue": 1.109071654059741,
+              "minimum_eigenvalue": -1.642991229339398,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 2500,
+              "positive_count_max": 4,
+              "positive_count_min": 4,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "common_gamma": {
+              "all_nodes_lorentzian": true,
+              "label": "common_gamma_at_action_nodes",
+              "matrix_dimension": 4,
+              "maximum_eigenvalue": 1.463181785364777,
+              "minimum_absolute_eigenvalue": 1.166386553667588,
+              "minimum_eigenvalue": -1.6438340855178866,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 625,
+              "positive_count_max": 3,
+              "positive_count_min": 3,
+              "symmetry_residual_Linf": 0.0,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "induced_gamma_minus": {
+              "all_nodes_lorentzian": true,
+              "label": "induced_gamma_minus_at_action_nodes",
+              "matrix_dimension": 4,
+              "maximum_eigenvalue": 1.463181785364777,
+              "minimum_absolute_eigenvalue": 1.166386553667588,
+              "minimum_eigenvalue": -1.6438340855178857,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 625,
+              "positive_count_max": 3,
+              "positive_count_min": 3,
+              "symmetry_residual_Linf": 2.168404344971009e-19,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            },
+            "induced_gamma_plus": {
+              "all_nodes_lorentzian": true,
+              "label": "induced_gamma_plus_at_action_nodes",
+              "matrix_dimension": 4,
+              "maximum_eigenvalue": 1.463181785364777,
+              "minimum_absolute_eigenvalue": 1.166386553667588,
+              "minimum_eigenvalue": -1.6438340855178866,
+              "negative_count_max": 1,
+              "negative_count_min": 1,
+              "node_count": 625,
+              "positive_count_max": 3,
+              "positive_count_min": 3,
+              "symmetry_residual_Linf": 2.168404344971009e-19,
+              "zero_count_max": 0,
+              "zero_tolerance": 1e-12
+            }
+          },
+          "outward_normal_unit_residual_Linf": {
+            "minus": 2.220446049250313e-16,
+            "plus": 2.220446049250313e-16
+          },
+          "outward_orientation_signed_determinant_min": {
+            "minus": 0.9235252902249464,
+            "plus": 0.923008780840121
+          },
+          "pointwise_full_gluing_Linf": 2.220446049250313e-16,
+          "pointwise_induced_minus_common_gamma_Linf": {
+            "minus": 2.220446049250313e-16,
+            "plus": 2.220446049250313e-16
+          },
+          "tau_norm_squared_max": -0.608265742346612
+        },
+        "authoritative_free_central_sha256": "52d78abb8b7b6a5933d94faec1dacb2ba7bb0ca654ac07834ac5c7b90e9b347a",
+        "authoritative_free_tangent_sha256": "590f924cf1cc8c98b5b6e5963282d42fe23e48772984edf2ec6e556f9f5d5a64",
+        "free_dimension": 1878,
+        "member_id": "N3.K3.seed20260902"
+      }
+    ]
+  },
+  "source_pins": {
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "multi_N_primitive_bundle_sha256": "9ebf92cd760225667137247c65034bd56eccc714be9f3bb15d5a605a51656519",
+    "route_A_source_sha256": "dfb1692b3af96c1827ad7fd435b0de7a2af89dd7535a328bc49ba5431d492a7c"
+  }
+}

@@ -1,0 +1,710 @@
+{
+  "certificate": {
+    "boundary_Green_and_BFV": {
+      "boundary_Green_identity": {
+        "E_A_material_current_trace_L2": 0.025028903193710483,
+        "Theta_BF_L2": 0.004770193004329124,
+        "Theta_matter_current_L2": 0.0003046482764512199,
+        "charge_3form_L2": 0.007612884050258098,
+        "exact_4form_L2": 0.0093352726165463,
+        "exact_4form_integral": 0.0,
+        "formula": "Theta_gauge-<lambda,E_A>=-d_boundary<B lambda>",
+        "identity_L2_residual": 8.36622493424858e-18,
+        "identity_Linf_residual": 4.336808689942018e-17,
+        "lambda_E_A_L2": 0.007822236238268332,
+        "omit_material_J_from_E_A_mutant_L2": 0.00030464827645121975,
+        "omit_matter_from_Theta_mutant_L2": 0.0003046482764512201
+      },
+      "interface_lambda_and_BFV": {
+        "complete_BV_BFV_boundary_complex_claimed": false,
+        "global_or_large_gauge_gluing_claimed": false,
+        "lambda_interface_L2": 0.347694670796088,
+        "oriented_signs": {
+          "minus": -1,
+          "plus": 1
+        },
+        "selected_glued_BFV_residual_L2": 0.0,
+        "selected_glued_BFV_residual_integral": 0.0,
+        "selected_local_gluing_demonstrated": true,
+        "selected_local_trace_gluing_defect_L2": 0.0,
+        "unglued_BFV_residual_L2": 0.0011132195274660723,
+        "unglued_BFV_residual_integral": -0.007953563815102328,
+        "unglued_defect_L2": 0.030993992966379794
+      }
+    },
+    "bulk_sides": {
+      "minus": {
+        "Ward": {
+          "L2_residual": 4.179736725376643e-06,
+          "Linf_residual": 1.0493230487733374e-05,
+          "per_generator": {
+            "W_1": {
+              "L2": 2.499847732558257e-06,
+              "Linf": 1.0493230487733374e-05
+            },
+            "W_2": {
+              "L2": 2.077532531605822e-06,
+              "Linf": 9.169662450084215e-06
+            },
+            "W_3": {
+              "L2": 2.627702225824895e-06,
+              "Linf": 8.688174683323113e-06
+            }
+          },
+          "term_L2_norms": {
+            "B_cross_E_B": 0.010935501034294045,
+            "D_A_E_A": 0.06013588226268367,
+            "phi_cross_E_phi_volume": 0.05849280036535383
+          }
+        },
+        "action_sectors": {
+          "BF": 35.0901190965733,
+          "Einstein_Hilbert": 19.405638752716147,
+          "Omega_kinetic": -6.683150020828435,
+          "Omega_superpotential": 27060.589478301117,
+          "matter_full_V4": -467.812667629094,
+          "matter_kinetic": -92.02933808807823,
+          "total": 26548.560080412404
+        },
+        "action_to_Euler": {
+          "A_B_phi": {
+            "Euler_pairing": -19.571006329498204,
+            "absolute_error": 2.4157060352081317e-08,
+            "active_magnitude": 19.571006329498204,
+            "coarse_step": 4e-05,
+            "coarse_step_action_derivative": -19.57100635081588,
+            "direct_action_derivative": -19.571006305341143,
+            "fine_step": 2e-05,
+            "step_convergence_difference": 4.547473508864641e-08
+          },
+          "A_only": {
+            "Euler_pairing": -6.142667381063446,
+            "absolute_error": 1.0040466236205248e-08,
+            "active_magnitude": 6.142667381063446,
+            "coarse_step": 4e-05,
+            "coarse_step_action_derivative": -6.14266737102298,
+            "direct_action_derivative": -6.14266737102298,
+            "fine_step": 2e-05,
+            "step_convergence_difference": 0.0
+          },
+          "B_only": {
+            "Euler_pairing": -13.316853518641654,
+            "absolute_error": 9.880531948169846e-09,
+            "active_magnitude": 13.316853528522186,
+            "coarse_step": 4e-05,
+            "coarse_step_action_derivative": -13.316853483047451,
+            "direct_action_derivative": -13.316853528522186,
+            "fine_step": 2e-05,
+            "step_convergence_difference": 4.547473508864641e-08
+          },
+          "phi_only": {
+            "Euler_pairing": -0.11148542979309983,
+            "absolute_error": 6.695234498754754e-08,
+            "active_magnitude": 0.11148549674544482,
+            "coarse_step": 4e-05,
+            "coarse_step_action_derivative": -0.11148540579597464,
+            "direct_action_derivative": -0.11148549674544482,
+            "fine_step": 2e-05,
+            "step_convergence_difference": 9.094947017729282e-08
+          }
+        },
+        "circular_Euler_detector": {
+          "action_to_circular_Euler_mismatch": 19.571006305341143,
+          "actual_D_of_zero_E_A_vs_forced_D_L2": 0.06013588206707592,
+          "forced_W_L2": 2.6046341881478814e-18
+        },
+        "five_coordinate_activity": {
+          "A": [
+            0.028491207415622107,
+            0.030265784311661246,
+            0.03367982333682883,
+            0.03829735369447868,
+            0.016129401724800582
+          ],
+          "B": [
+            0.019508032960808733,
+            0.020723092192045087,
+            0.023060697083999868,
+            0.02622233685238598,
+            0.027437057969104485
+          ],
+          "Omega": [
+            0.011320331267237709,
+            0.012025418911622138,
+            0.013381909430271876,
+            0.015216579773391904,
+            0.02650074338579959
+          ],
+          "metric_sigma": [
+            0.008091356499376355,
+            0.00859532721890214,
+            0.009564896758460072,
+            0.010876251652108827,
+            0.010509393417319574
+          ],
+          "phi": [
+            0.03562782199349267,
+            0.0378469034400438,
+            0.04211610736998375,
+            0.04789025892600707,
+            0.027176464081995665
+          ]
+        },
+        "matter": {
+          "Omega_maximum": 1.3468677256764008,
+          "Omega_minimum": 1.1503702789480175,
+          "P_covector_L2": 0.07546710917539205,
+          "anisotropic_V4_mutant_E_phi_L2": 0.03340106825294376,
+          "anisotropic_V4_mutant_moment_L2": 0.012419713745062113,
+          "c_covector_L2": 0.020048525234322136,
+          "radial_V4_E_phi_L2": 0.29883460843640647,
+          "radial_V4_moment_L2": 8.162192265522985e-18,
+          "rho_zero_extension_Linf": 0.0
+        },
+        "mutant_witnesses": {
+          "abelianize_D_A_and_curvature_terms": 0.020057542039321356,
+          "flip_D_A_E_A_sign": 0.12027176425713157,
+          "flip_E_B_sign": 0.021871002359902077,
+          "flip_J_A_sign": 0.11698560087734758,
+          "omit_BF_from_Euler_action_mismatch": 19.72055158311056,
+          "omit_E_B_from_W": 0.010935501724999842,
+          "omit_J_from_E_A": 0.05849280036535383,
+          "omit_c_M_P_M_in_E_phi": 0.0018360891114995023,
+          "omit_c_phi_from_P_action_mismatch": 2.1991511578088634,
+          "omit_material_E_phi": 0.058492800586661904,
+          "omit_radial_V4_from_Euler_action_mismatch": 0.3072756565206376
+        },
+        "off_shell_Euler_norms": {
+          "E_A": 0.08569240531725097,
+          "E_B": 0.07449452813077206,
+          "E_phi": 0.35120457085663886
+        },
+        "separated_structural_identities": {
+          "D_A_F_Bianchi": {
+            "L2_residual": 8.083248427217387e-17,
+            "Linf_residual": 3.174543961037557e-16,
+            "component_count": 10,
+            "identity": "D_A F=0 as an adjoint-valued 3-form in five dimensions",
+            "ordinary_d_instead_of_D_A_mutant_L2": 0.011453391521585114
+          },
+          "D_A_squared_B": {
+            "D_A_squared_B_L2": 0.010935501034294045,
+            "F_cross_B_L2": 0.010935501034294045,
+            "L2_residual": 1.4038402501835156e-16,
+            "Linf_residual": 5.143455106271233e-16,
+            "flip_curvature_commutator_sign_mutant_L2": 0.02187100206858809,
+            "identity": "D_A^2 B=[F,B]:=F cross-wedge B=-B cross-wedge F"
+          },
+          "material_current": {
+            "D_A_J_A_L2": 0.058492800586661904,
+            "L2_residual": 4.179736725376519e-06,
+            "Linf_residual": 1.049323048776113e-05,
+            "flip_J_A_sign_mutant_L2": 0.11698560087734758,
+            "identity": "D_A J_A+sqrt(-g) phi cross E_phi d5x=0",
+            "matter_moment_L2": 0.05849280036535383,
+            "per_generator": {
+              "W_material_1": {
+                "L2": 2.499847732558285e-06,
+                "Linf": 1.049323048776113e-05
+              },
+              "W_material_2": {
+                "L2": 2.0775325316047315e-06,
+                "Linf": 9.169662450070337e-06
+              },
+              "W_material_3": {
+                "L2": 2.627702225825533e-06,
+                "Linf": 8.688174683364747e-06
+              }
+            }
+          }
+        },
+        "side": "-"
+      },
+      "plus": {
+        "Ward": {
+          "L2_residual": 4.862983067400098e-06,
+          "Linf_residual": 1.519543143346791e-05,
+          "per_generator": {
+            "W_1": {
+              "L2": 3.033047992268342e-06,
+              "Linf": 1.383063706891785e-05
+            },
+            "W_2": {
+              "L2": 2.3908014681065685e-06,
+              "Linf": 1.3918359480571962e-05
+            },
+            "W_3": {
+              "L2": 2.9552144643860484e-06,
+              "Linf": 1.519543143346791e-05
+            }
+          },
+          "term_L2_norms": {
+            "B_cross_E_B": 0.010976277740701385,
+            "D_A_E_A": 0.06093965775367293,
+            "phi_cross_E_phi_volume": 0.059642577724176034
+          }
+        },
+        "action_sectors": {
+          "BF": 35.0901190965733,
+          "Einstein_Hilbert": 19.7778145829741,
+          "Omega_kinetic": -6.781994589793795,
+          "Omega_superpotential": 27060.410581380016,
+          "matter_full_V4": -467.99445723795975,
+          "matter_kinetic": -93.12373962975177,
+          "total": 26547.378323602057
+        },
+        "action_to_Euler": {
+          "A_B_phi": {
+            "Euler_pairing": -37.18557855587772,
+            "absolute_error": 7.062617157771456e-09,
+            "active_magnitude": 37.18557855587772,
+            "coarse_step": 4e-05,
+            "coarse_step_action_derivative": -37.1855785488151,
+            "direct_action_derivative": -37.1855785488151,
+            "fine_step": 2e-05,
+            "step_convergence_difference": 0.0
+          },
+          "A_only": {
+            "Euler_pairing": -11.800399460019502,
+            "absolute_error": 1.7001253738158084e-08,
+            "active_magnitude": 11.800399460019502,
+            "coarse_step": 4e-05,
+            "coarse_step_action_derivative": -11.800399488492983,
+            "direct_action_derivative": -11.800399443018248,
+            "fine_step": 2e-05,
+            "step_convergence_difference": 4.547473508864641e-08
+          },
+          "B_only": {
+            "Euler_pairing": 8.421845519874296,
+            "absolute_error": 2.1432242647279054e-08,
+            "active_magnitude": 8.421845541306539,
+            "coarse_step": 4e-05,
+            "coarse_step_action_derivative": 8.421845541306539,
+            "direct_action_derivative": 8.421845541306539,
+            "fine_step": 2e-05,
+            "step_convergence_difference": 0.0
+          },
+          "phi_only": {
+            "Euler_pairing": -33.80702461573251,
+            "absolute_error": 5.95785891732703e-08,
+            "active_magnitude": 33.80702461573251,
+            "coarse_step": 4e-05,
+            "coarse_step_action_derivative": -33.807024601628655,
+            "direct_action_derivative": -33.80702455615392,
+            "fine_step": 2e-05,
+            "step_convergence_difference": 4.547473508864641e-08
+          }
+        },
+        "circular_Euler_detector": {
+          "action_to_circular_Euler_mismatch": 37.1855785488151,
+          "actual_D_of_zero_E_A_vs_forced_D_L2": 0.06093965725158333,
+          "forced_W_L2": 2.5601329965103725e-18
+        },
+        "five_coordinate_activity": {
+          "A": [
+            0.028491207415622107,
+            0.030265784311661246,
+            0.03367982333682883,
+            0.03829735369447868,
+            0.016129401724800582
+          ],
+          "B": [
+            0.019508032960808733,
+            0.020723092192045083,
+            0.02306069708399987,
+            0.02622233685238598,
+            0.027437057969104485
+          ],
+          "Omega": [
+            0.011320331267237709,
+            0.012025418911622138,
+            0.013381909430271875,
+            0.015216579773391904,
+            0.026500743385799594
+          ],
+          "metric_sigma": [
+            0.008091356499376357,
+            0.00859532721890214,
+            0.009564896758460072,
+            0.010876251652108827,
+            0.010509393417319575
+          ],
+          "phi": [
+            0.03562782199349267,
+            0.0378469034400438,
+            0.04211610736998376,
+            0.04789025892600707,
+            0.027176464081995665
+          ]
+        },
+        "matter": {
+          "Omega_maximum": 1.381196373044494,
+          "Omega_minimum": 1.1678746687256203,
+          "P_covector_L2": 0.07576435495357049,
+          "anisotropic_V4_mutant_E_phi_L2": 0.03332282701350532,
+          "anisotropic_V4_mutant_moment_L2": 0.012387649962929058,
+          "c_covector_L2": 0.019821793828888434,
+          "radial_V4_E_phi_L2": 0.2987480244034216,
+          "radial_V4_moment_L2": 8.13328386219801e-18,
+          "rho_zero_extension_Linf": 0.0
+        },
+        "mutant_witnesses": {
+          "abelianize_D_A_and_curvature_terms": 0.020201517971949173,
+          "flip_D_A_E_A_sign": 0.12187931490823979,
+          "flip_E_B_sign": 0.02195255604503048,
+          "flip_J_A_sign": 0.11928515585763406,
+          "omit_BF_from_Euler_action_mismatch": 22.67365647358904,
+          "omit_E_B_from_W": 0.010976278842958919,
+          "omit_J_from_E_A": 0.059642577724176034,
+          "omit_c_M_P_M_in_E_phi": 0.0018560626538617435,
+          "omit_c_phi_from_P_action_mismatch": 0.5399578040977957,
+          "omit_material_E_phi": 0.059642578232584384,
+          "omit_radial_V4_from_Euler_action_mismatch": 14.216421637759154
+        },
+        "off_shell_Euler_norms": {
+          "E_A": 0.08572633233860645,
+          "E_B": 0.07475825482561825,
+          "E_phi": 0.35242838095032314
+        },
+        "separated_structural_identities": {
+          "D_A_F_Bianchi": {
+            "L2_residual": 8.090256063783657e-17,
+            "Linf_residual": 3.5041414214731503e-16,
+            "component_count": 10,
+            "identity": "D_A F=0 as an adjoint-valued 3-form in five dimensions",
+            "ordinary_d_instead_of_D_A_mutant_L2": 0.011459997284419305
+          },
+          "D_A_squared_B": {
+            "D_A_squared_B_L2": 0.010976277740701385,
+            "F_cross_B_L2": 0.010976277740701385,
+            "L2_residual": 1.407872449621808e-16,
+            "Linf_residual": 4.631711680858075e-16,
+            "flip_curvature_commutator_sign_mutant_L2": 0.02195255548140277,
+            "identity": "D_A^2 B=[F,B]:=F cross-wedge B=-B cross-wedge F"
+          },
+          "material_current": {
+            "D_A_J_A_L2": 0.059642578232584384,
+            "L2_residual": 4.8629830673997855e-06,
+            "Linf_residual": 1.5195431433356887e-05,
+            "flip_J_A_sign_mutant_L2": 0.11928515585763406,
+            "identity": "D_A J_A+sqrt(-g) phi cross E_phi d5x=0",
+            "matter_moment_L2": 0.059642577724176034,
+            "per_generator": {
+              "W_material_1": {
+                "L2": 3.0330479922688796e-06,
+                "Linf": 1.383063706891785e-05
+              },
+              "W_material_2": {
+                "L2": 2.39080146810533e-06,
+                "Linf": 1.3918359480571962e-05
+              },
+              "W_material_3": {
+                "L2": 2.955214464385984e-06,
+                "Linf": 1.5195431433356887e-05
+              }
+            }
+          }
+        },
+        "side": "+"
+      }
+    },
+    "compact_lambda_first": {
+      "compact_lambda_is_first": true,
+      "sides": [
+        {
+          "Euler_pairing": -7.202347557086953e-07,
+          "anisotropic_V4_mutant_direct_gauge_derivative": -0.0009249561117030679,
+          "boundary_trace_max": 0.0,
+          "direct_full_action_derivative": -7.275957614183425e-07,
+          "direct_vs_Euler_error": 7.361005709647195e-09,
+          "side": "+",
+          "support_fraction": 0.014458261438686261,
+          "three_generator_L2": [
+            0.0033973339702161164,
+            0.0023831393420169337,
+            0.00208947119639224
+          ]
+        },
+        {
+          "Euler_pairing": -2.495071206943005e-07,
+          "anisotropic_V4_mutant_direct_gauge_derivative": -0.0011662450560834259,
+          "boundary_trace_max": 0.0,
+          "direct_full_action_derivative": -2.7284841053187847e-07,
+          "direct_vs_Euler_error": 2.3341289837577955e-08,
+          "side": "-",
+          "support_fraction": 0.014458261438686261,
+          "three_generator_L2": [
+            0.0033973339702161164,
+            0.0023831393420169337,
+            0.00208947119639224
+          ]
+        }
+      ]
+    },
+    "diffeomorphism_khronon_attempt": {
+      "bulk_translation_action_differences": {
+        "minus": [
+          0.0,
+          3.637978807091713e-12,
+          3.637978807091713e-12,
+          3.637978807091713e-12,
+          0.0
+        ],
+        "plus": [
+          3.637978807091713e-12,
+          3.637978807091713e-12,
+          3.637978807091713e-12,
+          3.637978807091713e-12,
+          3.637978807091713e-12
+        ]
+      },
+      "full_diffeomorphism_khronon_Ward_completed": false,
+      "independent_restricted_test": "constant periodic translations recomputed from the full 5D action",
+      "maximum_bulk_translation_action_difference": 3.637978807091713e-12,
+      "missing_for_full_diffeomorphism_khronon_Ward": [
+        "arbitrary local five-dimensional xi with independent metric Euler and GHY cancellation",
+        "moving two-sided embeddings and all normal pullback momenta on one common family",
+        "direct khronon T Euler variation of foliation and Robin terms beyond constant translations",
+        "regulated corners and the relative BF BV-BFV edge complex"
+      ]
+    },
+    "form_degree_contract": {
+      "A": {
+        "degree": 1,
+        "independent_components": 5
+      },
+      "B": {
+        "degree": 3,
+        "independent_components": 10
+      },
+      "D_B_J_and_E_A": {
+        "degree": 4,
+        "independent_components": 5
+      },
+      "F_and_E_B": {
+        "degree": 2,
+        "independent_components": 10
+      },
+      "W": {
+        "degree": 5,
+        "independent_components": 1
+      },
+      "active_coordinates": [
+        "x0",
+        "x1",
+        "x2",
+        "x3",
+        "x4"
+      ],
+      "ambient_dimension": 5,
+      "bulk_grid_shape": [
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "dealiasing_claimed": false,
+      "dimensional_reduction_or_spectator_ansatz_used": false,
+      "interface_grid_shape": [
+        7,
+        7,
+        7,
+        7
+      ],
+      "internal_generators": 3,
+      "metric_signature": [
+        -1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "spectral_grid_policy": "odd N=7 avoids a Nyquist singleton; all primitive waves use modes <=1, while non-polynomial composite aliasing is retained as a measured Ward residual"
+    },
+    "interface_4D": {
+      "all_literal_interface_terms": {
+        "Robin_uses": "h_mu_nu*(e_Q_a^mu varphi^a-y a^mu)*(e_Q_b^nu varphi^b-y a^nu)",
+        "action_values": {
+          "GHY": -1.699815022086973,
+          "Robin_intrinsic": -217.44096979460124,
+          "foliation_lower": 6.473601569417283,
+          "total": -7193.7073760793955,
+          "wall_background": -6981.040192832124
+        },
+        "frame_orthonormality_error": 6.661338147750939e-16,
+        "gauge_neutral_without_internal_indices": [
+          "GHY",
+          "wall_background",
+          "foliation_lower"
+        ],
+        "khronon_unit_norm_error": 6.661338147750939e-16,
+        "minimum_sector_activity": 1.699815022086973,
+        "terms": [
+          "GHY",
+          "wall_background",
+          "foliation_lower",
+          "Robin_intrinsic"
+        ]
+      },
+      "source_P_gauge_groupoid": {
+        "Robin_Euler_pairing": -1.7130928309633816e-17,
+        "Robin_direct_derivative": 0.0,
+        "convention": {
+          "A_Sigma": "R A R^-1-dR R^-1",
+          "b": "R B",
+          "delta_A": "-D_A lambda",
+          "delta_B": "lambda cross B",
+          "delta_R": "-R hat(lambda), with Q fixed",
+          "delta_phi": "lambda cross phi",
+          "varphi": "R phi"
+        },
+        "omit_delta_R_mutant_Euler_pairing": 0.004708757935222037,
+        "omit_delta_R_mutant_direct_derivative": 0.004708749656856526,
+        "trace_derivative_L2": {
+          "delta_A_Sigma": 4.1848351543569693e-07,
+          "delta_b": 3.269149119693678e-13,
+          "delta_varphi": 2.118349058354641e-12
+        }
+      },
+      "target_Q_frame_Ward": {
+        "Euler_pairing": -4.341503223321257e-18,
+        "delta_frame": "q cross e_Q on its internal index",
+        "delta_varphi": "q cross varphi",
+        "direct_derivative": 0.0,
+        "frame_fixed_mutant_direct_derivative": -0.04014848400402116
+      }
+    }
+  },
+  "checks": {
+    "Omega_c_and_full_radial_V4_are_active_and_covariant": true,
+    "all_bulk_mutants_are_killed": true,
+    "all_internal_gauge_Ward_checks": true,
+    "all_primary_scope_checks": true,
+    "all_v5_2_interface_terms_and_source_groupoid_Ward_execute": true,
+    "boundary_Green_charge_exact_and_material_current_close": true,
+    "bulk_SO3_Ward_closes_off_shell_on_both_sides": true,
+    "circular_W_oracle_is_rejected_by_action_variation": true,
+    "compact_lambda_is_tested_first_and_bad_V4_breaks_it": true,
+    "curvature_Bianchi_and_material_reductions_close_separately": true,
+    "every_literal_bulk_sector_is_nonzero_on_both_sides": true,
+    "full_action_variation_matches_independent_Euler_forms": true,
+    "local_interface_gluing_closes_but_unglued_BFV_residual_is_explicit": true,
+    "real_5D_exterior_form_degrees_and_all_coordinates_are_active": true,
+    "restricted_translation_attempt_is_not_promoted_to_full_diffeomorphism": true,
+    "separated_identity_mutants_exceed_numerical_residuals": true,
+    "target_Q_frame_and_varphi_Robin_Ward_executes": true,
+    "v5_2_full_literal_action_and_coefficients_are_hash_pinned": true,
+    "v5_5_2_ADM_controls_are_hash_pinned_not_Ward_inherited": true
+  },
+  "classification": "theory_only;full_5D_internal_gauge_Ward;selected_trivial_null_homotopic_sector;primary_not_independently_audited",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "N1_ACTION_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "P4_full_same_action_pass": false,
+    "boundary_Green_local_exact_identity_pass": true,
+    "bulk_full_v5_2_internal_SO3_Ward_pass": true,
+    "complete_BV_BFV_boundary_complex_pass": false,
+    "diffeomorphism_khronon_full_Ward_pass": false,
+    "interface_full_v5_2_internal_SO3_Ward_selected_sector_pass": true,
+    "internal_SO3_full_action_selected_trivial_sector_Ward_pass": true,
+    "publication_authorized": false,
+    "status": "FULL_5D_V5_2_INTERNAL_SO3_WARD_SELECTED_TRIVIAL_SECTOR_PRIMARY_PASS__DIFF_KHRONON_BV_BFV_C1_N1_N4_P4_V56_B4_B5_FAIL_CLOSED",
+    "unrestricted_large_gauge_sector_pass": false,
+    "v5_6_promotion_authorized": false
+  },
+  "equation_ledger": {
+    "BF_action": "S_BF=sum_eps int_Meps <B_eps wedge F[A_eps]>, <X,Y>=-tr_3(XY)/2",
+    "Bianchi": "D_A F=0 as a five-dimensional adjoint-valued 3-form",
+    "Euler_degrees": "E_B=F is a 2-form; E_A=D_A B+J_A is a 4-form; E_phi is a 0-form",
+    "Ward_5form": "W=D_A E_A+B cross-wedge E_B+sqrt(-g) phi cross E_phi d5x=0",
+    "boundary_Green": "Theta_gauge-<lambda,E_A>=-d_boundary<B lambda>",
+    "bulk_action": "S_bulk_gauged=sum_eps int_Meps sqrt(-g_eps)*[M5^3*R_eps/2-G*(nabla Omega_eps)^2/2-U(Omega_eps)-Z5*delta_ab*P_eps_M^a*P_eps^(b M)/2-Z5*M^2*Omega_eps^(-5)*V4(Omega_eps^(3/2)*|phi_eps|)]",
+    "curvature_on_B": "D_A^2 B=[F,B]=F cross-wedge B=-B cross-wedge F",
+    "material_reduction": "D_A J_A+sqrt(-g) phi cross E_phi d5x=0 componentwise",
+    "matter": "P_M=D_M phi+c_M phi, c_M=3 partial_M log(Omega)/2; E_phi=Z[D_M P^M-c_M P^M]-Z M^2 Omega^(-7/2)V4'(s)phi/|phi|",
+    "source_groupoid": "delta A=-D lambda, delta phi=lambda cross phi, delta B=lambda cross B, delta R=-R hat(lambda); varphi=R phi, A_Sigma=R A R^-1-dR R^-1, b=R B"
+  },
+  "evidence_boundary": "This gate independently executes the internal SO(3) Ward identity of the full five-dimensional v5.2 bulk action, its four-dimensional literal interface terms, and the local boundary Green exact form. The v5.5.1 two-dimensional receipt is preliminary and is neither consumed nor promoted. Arbitrary diffeomorphism/khronon Ward, large gauges, global gluing, BV-BFV, C1, N1, N4, P4, v5.6, B4 and B5 remain open.",
+  "pinned_v5_2": {
+    "coefficients": {
+      "B4_bar": 0.8,
+      "M4_bulk_squared_selected_one_Omega_wall_value": 1.107013790800849,
+      "M5_cubed": 1.0,
+      "Robin_kappa_hat": 1.0,
+      "Robin_kappa_in_Mb_units": 0.5,
+      "Robin_y": 1.7320508075688772,
+      "Robin_y_squared": 3.0,
+      "brane_Mb_squared": 2.0,
+      "brane_beta": 2.0,
+      "compensator_metric_G": 1.2,
+      "eta": 3.107013790800849,
+      "k_BF_trace_equivalent": -0.5,
+      "k_infinity": 1.0,
+      "kappa_BF_inner_product": 1.0,
+      "lambda_K": -0.5535068954004245,
+      "material_Z5_per_side": 1.0,
+      "material_mass_M": 1.0,
+      "xi": 1.0
+    },
+    "literal_actions": {
+      "BF": "S_BF=sum_eps int_Meps <B_eps wedge F[A_eps]>, <X,Y>=-tr_3(XY)/2",
+      "GHY": "S_GHY=M5^3*sum_eps int_Sigma sqrt(-gamma)*Theta_eps for outward normals",
+      "Robin_intrinsic": "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+      "bulk_gauged": "S_bulk_gauged=sum_eps int_Meps sqrt(-g_eps)*[M5^3*R_eps/2-G*(nabla Omega_eps)^2/2-U(Omega_eps)-Z5*delta_ab*P_eps_M^a*P_eps^(b M)/2-Z5*M^2*Omega_eps^(-5)*V4(Omega_eps^(3/2)*|phi_eps|)]",
+      "bulk_potential": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+      "foliation_lower": "S_fol_lower=Mb^2/2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]",
+      "full_V4": "V4(r)=r^4/(2*sqrt(1+r^4))",
+      "gauged_conformal_derivative": "P_eps_M=D_(A_eps,M)phi_eps+3*phi_eps*partial_M log(Omega_eps)/2",
+      "removed_terms": "S_X=0 and every bulk screen-clock term=0",
+      "superpotential": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+      "total": "S_v5_2=S_bulk_gauged+S_GHY+S_wall0+S_fol_lower+S_R_intrinsic+S_BF",
+      "wall_background": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]"
+    },
+    "path": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_classical_v5_2_gate.json",
+    "schema": "holo.one-omega-topological-so3-classical-v5-2-gate.v1",
+    "sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b"
+  },
+  "pinned_v5_5_2_ADM_controls": {
+    "ADM_Jacobian_rank": 10,
+    "Israel_projection_reconstruction_error": 2.220446049250313e-16,
+    "imported_control_flags": {
+      "bulk_matter_shift_momentum_witness_pass": true,
+      "induced_ADM_bidirectional_Jacobian_pass": true,
+      "literal_slot_coordinate_contract_pass": true,
+      "single_Israel_Brown_York_tensor_reconstruction_pass": true
+    },
+    "literal_slots": {
+      "b_shift": "b_shift^i=\u03b4\u03b2^i",
+      "omega": "omega=\u03b4OmegaSigma",
+      "v": "v_i=\u03b4psi_i"
+    },
+    "matter_T_ui_norm": 0.39341802740315596,
+    "path": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_adm_induced_chain_v5_5_2_gate.json",
+    "schema": "holo.one-omega-topological-so3-adm-induced-chain-v5-5-2-gate.v1",
+    "scope": "ADM/Israel/T_ui controls only; no inherited Ward boolean",
+    "sha256": "4e068475ae316684cebd0f68e10d183fff7c0d90c46b155f2dfc8be4b3b0d6e8"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_full_action_gauge_noether_v5_5_3_gate.py",
+      "sha256": "3d9a57482d3a80832427d4d3e9e645e09d78166c3070de49de9f9cb89cbfd692"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_full_action_gauge_noether_v5_5_3_gate.py",
+      "sha256": "9d88139a02ca6c708a921a51e27287480db65c81e0c6b008d5717f3775c99e34"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-full-action-gauge-noether-v5-5-3-gate.v1",
+  "title": "One-Omega topological SO(3) full-action gauge-Noether v5.5.3 gate",
+  "v5_5_1_preliminary_receipt": {
+    "consumed": false,
+    "promotable_by_this_gate": false,
+    "reason": "the prior receipt is dimensionally reduced and cannot source this 5D result"
+  }
+}

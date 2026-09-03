@@ -1,0 +1,524 @@
+{
+  "analytic_existence_uniqueness": {
+    "SO3_Hessian_eigenvalues": {
+      "radial": "r^2*(r^8+r^4+6)/(1+r^4)^(5/2)",
+      "transverse": "r^2*(r^4+2)/(1+r^4)^(3/2)"
+    },
+    "direct_method_existence": true,
+    "energy_space": "periodic finite-energy maps with grad(psi) in L2, V4(psi) in L1, L2 trace at z=0 and vanishing finite-energy tail",
+    "functional_coercive_for_T_kappa_positive": true,
+    "global_minimizer_unique": true,
+    "no_nonlinear_material_branch_ambiguity": true,
+    "potential": "V4(r)=r^4/[2*sqrt(1+r^4)]",
+    "potential_convex": true,
+    "potential_growth_bounds": {
+      "one_to_infinity": "V4(r)>=r^2/(2*sqrt(2))",
+      "zero_to_one": "V4(r)>=r^4/(2*sqrt(2))"
+    },
+    "potential_strictly_convex": true,
+    "sampled_eigenvalues": [
+      {
+        "lambda_radial": 0.0,
+        "lambda_transverse": 0.0,
+        "nonnegative": true,
+        "radius": 0.0
+      },
+      {
+        "lambda_radial": 6.000000000000001e-16,
+        "lambda_transverse": 2.0000000000000002e-16,
+        "nonnegative": true,
+        "radius": 1e-08
+      },
+      {
+        "lambda_radial": 6.000000000000001e-08,
+        "lambda_transverse": 2e-08,
+        "nonnegative": true,
+        "radius": 0.0001
+      },
+      {
+        "lambda_radial": 0.05998600247462506,
+        "lambda_transverse": 0.019998000224975006,
+        "nonnegative": true,
+        "radius": 0.1
+      },
+      {
+        "lambda_radial": 1.414213562373095,
+        "lambda_transverse": 1.0606601717798212,
+        "nonnegative": true,
+        "radius": 1.0
+      },
+      {
+        "lambda_radial": 0.9998500787328154,
+        "lambda_transverse": 1.0000499887515621,
+        "nonnegative": true,
+        "radius": 10.0
+      },
+      {
+        "lambda_radial": 1.0,
+        "lambda_transverse": 1.0000000000000002,
+        "nonnegative": true,
+        "radius": 10000.0
+      }
+    ],
+    "scope": "exact for the prescribed boundary port on the compensated conformal matter half-space; it is not a nonlinear gravitational theorem",
+    "second_variation": "T*int[|grad h|^2+h^T Hess(V4) h]+kappa*int_boundary|h|^2",
+    "second_variation_nonnegative": true,
+    "second_variation_zero_only_for_zero_finite_energy_perturbation": true,
+    "weakly_lower_semicontinuous": true
+  },
+  "canonical_material_Hamiltonian": {
+    "Hamiltonian": "H=int[pi^2/(2T)+T*|grad_spatial psi|^2/2+T*V4]+kappa/2*int_boundary|psi-yA|^2",
+    "Hamiltonian_lower_bound": 0.0,
+    "Lorentzian_lagrangian": "L=T*[dot(psi)^2-|grad_spatial psi|^2]/2-T*V4-kappa*|psi-yA|^2*delta(brane)/2",
+    "bounded_below_for_prescribed_A": true,
+    "canonical_momentum": "pi_a=T*dot(psi_a)",
+    "dynamical_gravitational_A_requires_coupled_constraint_audit": true,
+    "external_time_dependent_port_power": "dH/dt|explicit=-kappa*y*int_boundary (psi-yA).dot(A)",
+    "external_work_is_not_an_intrinsic_ghost": true,
+    "higher_time_derivatives": 0,
+    "kinetic_Hessian_eigenvalues": "T>0 with SO3 degeneracy three",
+    "potential_Hessian_rows": [
+      {
+        "lambda_radial": 0.0,
+        "lambda_transverse": 0.0,
+        "nonnegative": true,
+        "radius": 0.0
+      },
+      {
+        "lambda_radial": 6.000000000000001e-08,
+        "lambda_transverse": 2e-08,
+        "nonnegative": true,
+        "radius": 0.0001
+      },
+      {
+        "lambda_radial": 0.05998600247462506,
+        "lambda_transverse": 0.019998000224975006,
+        "nonnegative": true,
+        "radius": 0.1
+      },
+      {
+        "lambda_radial": 1.414213562373095,
+        "lambda_transverse": 1.0606601717798212,
+        "nonnegative": true,
+        "radius": 1.0
+      },
+      {
+        "lambda_radial": 0.9998500787328154,
+        "lambda_transverse": 1.0000499887515621,
+        "nonnegative": true,
+        "radius": 10.0
+      }
+    ],
+    "primary_material_constraints": 0,
+    "sample_Hamiltonian": 0.5939331182499673,
+    "sample_positive_terms": {
+      "Robin_square": 0.051435935394489825,
+      "T_V4": 0.17249718285547755,
+      "T_spatial_gradient_squared_over_2": 0.125,
+      "pi_squared_over_2T": 0.24499999999999997
+    }
+  },
+  "checks": {
+    "Robin_source_and_flux_close_pointwise": true,
+    "all": true,
+    "all_periodic_full_V4_BVPs_converged": true,
+    "canonical_material_Hamiltonian_positive_and_second_order": true,
+    "direct_method_existence_and_strict_uniqueness": true,
+    "finite_q_crossover_is_attenuation_not_instability": true,
+    "full_V4_SO3_potential_convexity_exact": true,
+    "integrated_EOM_energy_identity_closes": true,
+    "mode_and_tail_refinement_closes": true,
+    "pointwise_full_EOM_including_discarded_modes_closes": true,
+    "pointwise_local_Robin_energy_is_strict_lower_bound": true,
+    "source_envelope_finite_difference_closes": true,
+    "three_upstreams_schema_hash_bound_and_fail_closed": true,
+    "wall_ADM_q0_physical_quotient_consumed_without_determinant_promotion": true
+  },
+  "classification": "theory_only;exact_convexity_and_canonical_Hamiltonian;periodic_full_V4_BVP_numeric;nonlinear_gravity_B4_B5_fail_closed",
+  "crossover_theorem": {
+    "interpretation": "finite-q relaxation is nonlocal and attenuated but stays on the single convex stable branch",
+    "local_functional": "E_local[A]=<min_r {T*W4(|r|)+kappa*|r-yA(theta)|^2/2}>",
+    "lower_bound": "E_periodic[A,q]>=E_local[A]",
+    "proof": "drop the nonnegative lateral-gradient term, then enlarge the admissible set by minimizing each theta independently",
+    "strict_numeric_gap_for_nonconstant_sources": true
+  },
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "P4_pass": false,
+    "Ward_or_RG_protection_pass": false,
+    "a0_predicted": false,
+    "canonical_time_dependent_material_Hamiltonian_positive": true,
+    "compensated_wall_material_maps_exactly_to_canonical_conformal_halfspace": true,
+    "complete_gauge_fixed_all_q_functional_determinant_derived": false,
+    "complete_unquotiented_q0_determinant_nonzero": false,
+    "decisive_advance": "The finite-Robin full-V4 matter port is now closed beyond the linear and homogeneous approximations: its inhomogeneous solution is the unique global minimum and the measured finite-q crossover has a positive energy gap, exact source closure and a positive canonical Hamiltonian.",
+    "finite_Robin_full_V4_functional_coercive_convex": true,
+    "finite_q_nonlocal_crossover_is_not_material_instability": true,
+    "full_V4_periodic_EOM_energy_convergence_source_closure_pass": true,
+    "galaxy_force_law_validated": false,
+    "inhomogeneous_periodic_material_minimizer_exists_and_is_unique": true,
+    "linear_wall_ADM_all_physical_helicities_after_q0_quotient_consumed": true,
+    "new_force_detected": false,
+    "nonlinear_all_helicity_P4_pass": false,
+    "nonlinear_gravitational_constraint_rank_and_Schur_pass": false,
+    "nonlinear_inhomogeneous_finite_q_material_BVP_pass": true,
+    "nonlinear_metric_khronon_bending_compensator_coupling_derived": false,
+    "publication_authorized": false,
+    "q0_homogeneous_null_quotient_and_physical_stability_consumed": true,
+    "remaining_blocker": "Vary the full nonlinear wall ADM, khronon, bending and material action together and prove its nonlinear constraint/characteristic structure; independently derive Ward/RG protection before any B4 promotion.",
+    "status": "NONLINEAR_INHOMOGENEOUS_FULL_V4_ROBIN_MATERIAL_GATE_PASS__NONLOCAL_CROSSOVER_STABLE__NONLINEAR_GRAVITY_B4_B5_FAIL_CLOSED",
+    "universal_matter_metric_and_lensing_derived": false
+  },
+  "matched_wall_scope": {
+    "conformal_variable": "psi=Omega^(3/2)*phi",
+    "family_consumed": "positive-bare total-IR-matched wall ADM family with finite Robin port",
+    "family_transfer": "the convexity, existence, uniqueness and Hamiltonian proofs hold for every T>0, hence also for any exact matched member T>T_star",
+    "important_boundary": "the material port is solved for prescribed acceleration data; the nonlinear gravitational equations that determine those data are not",
+    "linear_gravity_input": {
+      "all_physical_helicities_after_q0_quotient": true,
+      "complete_gauge_fixed_all_q_functional_determinant_derived": false,
+      "complete_unquotiented_q0_determinant_nonzero": false,
+      "q0_Q_kinetic": 40.39117928041105,
+      "q0_Re_complete_physical_inverse_over_s": 16.99269563844318,
+      "q0_homogeneous_null": "X",
+      "q0_physical_open_RHP_zeros": 0,
+      "q0_quotient_constraint_rank": 2,
+      "q0_unquotiented_constraint_rank": 2,
+      "q_positive_scalar_constraint_rank": 3
+    },
+    "numerical_T_one_role": "the same T=1 regression point sampled by the wall-ADM gate; it is not used as an analytic proof that T=1 exceeds the exact T_star",
+    "numerical_representative": {
+      "T": 1.0,
+      "kappa": 0.5,
+      "y": 1.7320508075688772,
+      "y_squared_kappa": 1.5
+    },
+    "total_material_coefficient": "T=N_s*Z5>0"
+  },
+  "observational_inputs": [],
+  "periodic_full_V4_rows": [
+    {
+      "Galerkin": {
+        "converged": true,
+        "final_collocation_nodes": 180,
+        "initial_mesh_points": 180,
+        "maximum_boundary_vector_residual": 2.0275618530352534e-25,
+        "maximum_pointwise_full_EOM_residual": 4.9873299934333204e-18,
+        "maximum_rms_collocation_residual": 2.0096144667673602e-07,
+        "odd_cosine_harmonics": 9,
+        "relative_pointwise_full_EOM_RMS": 1.2259485014001024e-16,
+        "tail_extent_Mz": 42.85714285714286,
+        "tail_maximum_field": 2.0275618530352396e-25,
+        "tail_maximum_normal_derivative": 1.71427613409636e-08,
+        "theta_projection_points": 192
+      },
+      "amplitude_A": 0.08,
+      "energy": {
+        "EOM_identity_absolute_error": 1.6553262233154342e-11,
+        "bulk": 0.0005776345485662353,
+        "from_integrated_EOM_identity": 0.0009940080279057578,
+        "local_stationarity_maximum_residual": 1.0408340855860843e-17,
+        "nonlocal_positive_gap": 0.000711652660187881,
+        "pointwise_homogeneous_Robin_lower_bound": 0.00028235535116461445,
+        "quadrature_error_bound": 1.9563985105818874e-09,
+        "ratio_to_local_lower_bound": 3.5204149921457812,
+        "spring": 0.00041637346278626026,
+        "total": 0.0009940080113524956
+      },
+      "momentum_q_over_M": 0.35,
+      "parameters": {
+        "M": 1.0,
+        "T_equals_Ns_Z5": 1.0,
+        "kappa": 0.5,
+        "y": 1.7320508075688772,
+        "y_squared_kappa": 1.4999999999999998
+      },
+      "source_closure": {
+        "envelope_dE_dA": 0.02499117831357982,
+        "first_boundary_mode": 0.08084941049866518,
+        "first_mode_transmission": 0.5834803614403362,
+        "first_target_mode_yA": 0.13856406460551018,
+        "maximum_pointwise_Robin_residual": 2.0816681711721685e-17,
+        "maximum_pointwise_current_flux_mismatch": 3.469446951953614e-17
+      },
+      "stability": {
+        "crossover_interpretation": "positive lateral-gradient/nonlocal relaxation cost, not an instability",
+        "negative_mode_possible_in_material_functional": false,
+        "unique_global_minimizer": true
+      },
+      "third_harmonic_fraction": 0.0
+    },
+    {
+      "Galerkin": {
+        "converged": true,
+        "final_collocation_nodes": 256,
+        "initial_mesh_points": 180,
+        "maximum_boundary_vector_residual": 1.3183191012563879e-24,
+        "maximum_pointwise_full_EOM_residual": 2.881513284924697e-09,
+        "maximum_rms_collocation_residual": 2.993048007833269e-07,
+        "odd_cosine_harmonics": 9,
+        "relative_pointwise_full_EOM_RMS": 4.688708896403099e-09,
+        "tail_extent_Mz": 42.85714285714286,
+        "tail_maximum_field": 1.3183191012561998e-24,
+        "tail_maximum_normal_derivative": 9.44195395740919e-08,
+        "theta_projection_points": 192
+      },
+      "amplitude_A": 0.8,
+      "energy": {
+        "EOM_identity_absolute_error": 3.0601746137115526e-10,
+        "bulk": 0.04789343070698242,
+        "from_integrated_EOM_identity": 0.12164965138320412,
+        "local_stationarity_maximum_residual": 2.220446049250313e-16,
+        "nonlocal_positive_gap": 0.01673034985020745,
+        "pointwise_homogeneous_Robin_lower_bound": 0.1049193012269792,
+        "quadrature_error_bound": 4.527937906590278e-11,
+        "ratio_to_local_lower_bound": 1.1594592191765891,
+        "spring": 0.07375622037020424,
+        "total": 0.12164965107718666
+      },
+      "momentum_q_over_M": 0.35,
+      "parameters": {
+        "M": 1.0,
+        "T_equals_Ns_Z5": 1.0,
+        "kappa": 0.5,
+        "y": 1.7320508075688772,
+        "y_squared_kappa": 1.4999999999999998
+      },
+      "source_closure": {
+        "envelope_dE_dA": 0.3325062270214634,
+        "first_boundary_mode": 0.6177504073428269,
+        "first_mode_transmission": 0.44582295496422764,
+        "first_target_mode_yA": 1.3856406460551018,
+        "maximum_pointwise_Robin_residual": 1.6653345369377348e-16,
+        "maximum_pointwise_current_flux_mismatch": 2.7755575615628914e-16
+      },
+      "stability": {
+        "crossover_interpretation": "positive lateral-gradient/nonlocal relaxation cost, not an instability",
+        "negative_mode_possible_in_material_functional": false,
+        "unique_global_minimizer": true
+      },
+      "third_harmonic_fraction": 0.0
+    },
+    {
+      "Galerkin": {
+        "converged": true,
+        "final_collocation_nodes": 219,
+        "initial_mesh_points": 180,
+        "maximum_boundary_vector_residual": 1.722215884729546e-24,
+        "maximum_pointwise_full_EOM_residual": 1.3471168625045493e-13,
+        "maximum_rms_collocation_residual": 2.875292885857167e-07,
+        "odd_cosine_harmonics": 9,
+        "relative_pointwise_full_EOM_RMS": 6.532881629649655e-14,
+        "tail_extent_Mz": 12.5,
+        "tail_maximum_field": 1.722215884729571e-24,
+        "tail_maximum_normal_derivative": 2.8535509769719066e-07,
+        "theta_projection_points": 192
+      },
+      "amplitude_A": 0.8,
+      "energy": {
+        "EOM_identity_absolute_error": 3.535382819830346e-10,
+        "bulk": 0.048095348939049425,
+        "from_integrated_EOM_identity": 0.17041042862222278,
+        "local_stationarity_maximum_residual": 2.220446049250313e-16,
+        "nonlocal_positive_gap": 0.06549112704170529,
+        "pointwise_homogeneous_Robin_lower_bound": 0.1049193012269792,
+        "quadrature_error_bound": 4.0084479257642614e-10,
+        "ratio_to_local_lower_bound": 1.6242047580933063,
+        "spring": 0.12231507932963508,
+        "total": 0.1704104282686845
+      },
+      "momentum_q_over_M": 1.2,
+      "parameters": {
+        "M": 1.0,
+        "T_equals_Ns_Z5": 1.0,
+        "kappa": 0.5,
+        "y": 1.7320508075688772,
+        "y_squared_kappa": 1.4999999999999998
+      },
+      "source_closure": {
+        "envelope_dE_dA": 0.4283368185661492,
+        "first_boundary_mode": 0.39643913604312514,
+        "first_mode_transmission": 0.28610530238975124,
+        "first_target_mode_yA": 1.3856406460551018,
+        "maximum_pointwise_Robin_residual": 1.1102230246251565e-16,
+        "maximum_pointwise_current_flux_mismatch": 2.220446049250313e-16
+      },
+      "stability": {
+        "crossover_interpretation": "positive lateral-gradient/nonlocal relaxation cost, not an instability",
+        "negative_mode_possible_in_material_functional": false,
+        "unique_global_minimizer": true
+      },
+      "third_harmonic_fraction": 0.0
+    },
+    {
+      "Galerkin": {
+        "converged": true,
+        "final_collocation_nodes": 298,
+        "initial_mesh_points": 180,
+        "maximum_boundary_vector_residual": 6.165713243029195e-44,
+        "maximum_pointwise_full_EOM_residual": 1.0061396160665481e-15,
+        "maximum_rms_collocation_residual": 2.892862538511529e-07,
+        "odd_cosine_harmonics": 9,
+        "relative_pointwise_full_EOM_RMS": 1.0315916150993435e-16,
+        "tail_extent_Mz": 12.0,
+        "tail_maximum_field": 6.165713243029195e-44,
+        "tail_maximum_normal_derivative": 1.1036854746903815e-26,
+        "theta_projection_points": 192
+      },
+      "amplitude_A": 0.8,
+      "energy": {
+        "EOM_identity_absolute_error": 2.995492742741135e-11,
+        "bulk": 0.019828493675752575,
+        "from_integrated_EOM_identity": 0.21818417733339956,
+        "local_stationarity_maximum_residual": 2.220446049250313e-16,
+        "nonlocal_positive_gap": 0.11326487607646543,
+        "pointwise_homogeneous_Robin_lower_bound": 0.1049193012269792,
+        "quadrature_error_bound": 4.616773718949381e-10,
+        "ratio_to_local_lower_bound": 2.079542798626076,
+        "spring": 0.19835568362769207,
+        "total": 0.21818417730344464
+      },
+      "momentum_q_over_M": 5.0,
+      "parameters": {
+        "M": 1.0,
+        "T_equals_Ns_Z5": 1.0,
+        "kappa": 0.5,
+        "y": 1.7320508075688772,
+        "y_squared_kappa": 1.4999999999999998
+      },
+      "source_closure": {
+        "envelope_dE_dA": 0.5454663375870905,
+        "first_boundary_mode": 0.12594009869595782,
+        "first_mode_transmission": 0.0908894373548491,
+        "first_target_mode_yA": 1.3856406460551018,
+        "maximum_pointwise_Robin_residual": 1.1102230246251565e-16,
+        "maximum_pointwise_current_flux_mismatch": 2.220446049250313e-16
+      },
+      "stability": {
+        "crossover_interpretation": "positive lateral-gradient/nonlocal relaxation cost, not an instability",
+        "negative_mode_possible_in_material_functional": false,
+        "unique_global_minimizer": true
+      },
+      "third_harmonic_fraction": 0.0
+    },
+    {
+      "Galerkin": {
+        "converged": true,
+        "final_collocation_nodes": 272,
+        "initial_mesh_points": 180,
+        "maximum_boundary_vector_residual": 5.751490196657771e-25,
+        "maximum_pointwise_full_EOM_residual": 5.465305101010065e-05,
+        "maximum_rms_collocation_residual": 2.927518443648238e-07,
+        "odd_cosine_harmonics": 9,
+        "relative_pointwise_full_EOM_RMS": 1.3930416063165974e-05,
+        "tail_extent_Mz": 25.0,
+        "tail_maximum_field": 5.751490196663883e-25,
+        "tail_maximum_normal_derivative": 2.9206175538620546e-07,
+        "theta_projection_points": 192
+      },
+      "amplitude_A": 2.0,
+      "energy": {
+        "EOM_identity_absolute_error": 4.2495296170841357e-10,
+        "bulk": 0.2955556687943669,
+        "from_integrated_EOM_identity": 1.035231606743104,
+        "local_stationarity_maximum_residual": 6.661338147750939e-16,
+        "nonlocal_positive_gap": 0.09739644338191344,
+        "pointwise_homogeneous_Robin_lower_bound": 0.9378351629362376,
+        "quadrature_error_bound": 7.138581709421841e-11,
+        "ratio_to_local_lower_bound": 1.1038524116295427,
+        "spring": 0.7396759375237841,
+        "total": 1.035231606318151
+      },
+      "momentum_q_over_M": 0.6,
+      "parameters": {
+        "M": 1.0,
+        "T_equals_Ns_Z5": 1.0,
+        "kappa": 0.5,
+        "y": 1.7320508075688772,
+        "y_squared_kappa": 1.4999999999999998
+      },
+      "source_closure": {
+        "envelope_dE_dA": 1.0839366132049537,
+        "first_boundary_mode": 1.1422114127163738,
+        "first_mode_transmission": 0.3297280333016306,
+        "first_target_mode_yA": 3.4641016151377544,
+        "maximum_pointwise_Robin_residual": 6.661338147750939e-16,
+        "maximum_pointwise_current_flux_mismatch": 8.881784197001252e-16
+      },
+      "stability": {
+        "crossover_interpretation": "positive lateral-gradient/nonlocal relaxation cost, not an instability",
+        "negative_mode_possible_in_material_functional": false,
+        "unique_global_minimizer": true
+      },
+      "third_harmonic_fraction": 0.25
+    }
+  ],
+  "provenance": {
+    "generated_offline": true,
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_nonlinear_robin_full_v4_gate.py",
+      "sha256": "600361dd17a4fcc37416fdb46d3f15b7116d8750495f74d345b84d2b3b053025"
+    },
+    "serialization": "json.dumps(indent=2,sort_keys=True,allow_nan=False)+newline",
+    "software": {
+      "numpy": "2.4.2",
+      "python": "3.13.5",
+      "scipy": "1.15.3"
+    },
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_nonlinear_robin_full_v4_gate.py",
+      "sha256": "45d782a9d755e80ab4c45a3f435b900cd45a49e4eabd8c3460d6ba762c5198d4"
+    }
+  },
+  "resolution_and_tail_audit": {
+    "coarse": {
+      "energy": 0.5421180129099726,
+      "envelope_dE_dA": 0.7722418771126782,
+      "harmonics": 7,
+      "tail_extent_Mz": 31.11111111111111
+    },
+    "fine": {
+      "energy": 0.542118013052311,
+      "envelope_dE_dA": 0.7722418772173657,
+      "harmonics": 10,
+      "tail_extent_Mz": 37.77777777777778
+    },
+    "independent_mode_and_tail_refinement": true,
+    "relative_energy_change": 1.4233836331811744e-10,
+    "relative_source_response_change": 1.0468748090630697e-10
+  },
+  "schema": "holo.nonlinear-robin-full-v4-gate.v1",
+  "source_envelope_audit": {
+    "Robin_envelope_dE_dA": 0.39541463315582404,
+    "absolute_error": 1.9308954435359738e-10,
+    "amplitude": 0.8,
+    "centered_step": 0.0002,
+    "finite_difference_dE_dA": 0.3954146329627345,
+    "independent_energy_resolves": 3,
+    "q": 0.7,
+    "relative_error": 1.9308954435359738e-10,
+    "third_harmonic_fraction": 0.2
+  },
+  "title": "Nonlinear inhomogeneous full-V4 finite-Robin material gate",
+  "upstreams": {
+    "finite_Robin": {
+      "path": "first_principles_audit/prediction_factory/artifacts/robin_spring_radial_p4_escape.json",
+      "schema": "holo.robin-spring-radial-p4-escape.v1",
+      "sha256": "6a6fec8b9b9625aa492597a8f5265af7811a443ee949be142883610e0cd0dc88",
+      "status": "PASSIVE_ROBIN_FLAT_LINEAR_SCALAR_P4_SUBGATE_PASS__NONLINEAR_ASYMPTOTICS_PASS__FULL_RS2_P4_B4_B5_FAIL_CLOSED"
+    },
+    "radial_finite_q": {
+      "path": "first_principles_audit/prediction_factory/artifacts/radial_finite_q_crossover_redteam.json",
+      "schema": "holo.radial-finite-q-crossover-redteam.v1",
+      "sha256": "7cdf76212c0a12cc4ac96e7184e113486e4be900df43bdfe47f3b0bfa8cb204f",
+      "status": "FINITE_Q_CROSSOVER_SOLVED__UNIFORM_LOCAL_AQUAL_KILLED__FULL_COUPLED_NONLOCAL_BOUNDARY_EQUATION_PENDING"
+    },
+    "wall_ADM_matched": {
+      "path": "first_principles_audit/prediction_factory/artifacts/wall_adm_base_hessian_gate.json",
+      "schema": "holo.wall-adm-base-hessian-gate.v1",
+      "sha256": "f0b491d498b8a68ec24c0faacbe28622820e05290fa6f5cf15422d1feaea4764",
+      "status": "UNRENORMALIZED_5FIELD_KT_OMISSION_CAUGHT__POSITIVE_BARE_TOTAL_MATCHED_LINEAR_ALL_PHYSICAL_HELICITY_P4_PASS_AFTER_Q0_QUOTIENT__NONLINEAR_B4_B5_FAIL_CLOSED"
+    }
+  }
+}

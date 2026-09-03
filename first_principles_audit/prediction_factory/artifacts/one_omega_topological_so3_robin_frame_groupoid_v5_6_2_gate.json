@@ -1,0 +1,676 @@
+{
+  "checks": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "BV_BFV_interface_completion_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_ACTION_selected_family_pass": false,
+    "C1_N1_promotion_pass": false,
+    "C1_pass": false,
+    "LOCK_1_contamination_cleared_pass": false,
+    "N1_ACTION_pass": false,
+    "N1_ACTION_selected_family_pass": false,
+    "N1_pass": false,
+    "chosen_coordinate_adapted_Q_frame_from_induced_gamma_T_pass": true,
+    "combined_P_Q_groupoid_Robin_Ward_pass": true,
+    "complete_same_action_SO3_Ward_pass": false,
+    "continuum_convergence_pass": false,
+    "full_classical_variational_principle_selected_sector_pass": false,
+    "full_variational_principle_pass": false,
+    "independent_redteam_replication_pass": false,
+    "non_Z2_two_sided_interface_pass": false,
+    "passive_Phase_A_J_disengaged_pass": false,
+    "primary_R_identity_Robin_value_and_JVP_alignment_pass": true,
+    "primary_v5_6_2_bytes_theta_profiles_scope_pinned_pass": true,
+    "publication_authorized": false,
+    "required_Robin_groupoid_mutants_rejected_pass": true,
+    "same_action_bulk_embedding_interface_Euler_Green_pass": false,
+    "selected_Robin_metric_embedding_Omega_matter_JVP_FD_pass": true,
+    "source_P_groupoid_Robin_Ward_pass": true,
+    "target_Q_frame_Robin_Ward_pass": true,
+    "two_sided_distinct_R_plus_R_minus_execution_pass": false,
+    "two_sided_groupoid_master_integration_pass": false,
+    "unrestricted_large_gauge_sector_pass": false,
+    "v5_2_Robin_literal_and_coefficients_pinned_pass": true
+  },
+  "claim": "On one chosen coordinate-adapted local Q-frame section, the corrected literal v5.2 intrinsic Robin term closes pointwise under separate and combined finite/infinitesimal P x Q groupoid actions.",
+  "claim_limit": "This is only a local Robin corrective sublemma on the selected family per unit homogeneous y,z volume. The pinned primary v5.6.2 value/JVP is the aligned R=I section, but its orbit froze R/frame. JVP/FD shares one action evaluator. Neither result is a full variational principle, same-action Ward, C1/N1 promotion, or B4/B5 result.",
+  "classification": "LOCAL_ROBIN_FRAME_GROUPOID_SUBLEMMA_PASS__PRIMARY_R_IDENTITY_ALIGNED__PRIMARY_ORBIT_INCOMPLETE__C1_N1_FAIL_CLOSED",
+  "combined_P_Q_groupoid_Ward": {
+    "convention": {
+      "derived_identity": "delta(E R phi)=0",
+      "finite": "phi'=g_P phi; R'=g_Q R g_P^-1; E'=E g_Q^-1",
+      "infinitesimal": "delta phi=hat(lambda)phi; delta R=hat(q)R-Rhat(lambda); delta E=-Ehat(q)"
+    },
+    "raw": {
+      "Euler_pairing": 4.390957624030996e-19,
+      "central_direct_Robin_derivative": 3.4694469519536137e-13,
+      "delta_E_R_phi_Linf": 2.220446049250313e-16,
+      "direct_minus_Euler": 3.4694425609959895e-13,
+      "finite_combined_action_difference_at_scale_0_17": 0.0,
+      "finite_combined_spacetime_varphi_Linf": 4.440892098500626e-16,
+      "target_inverse_R_mutant": {
+        "Euler_pairing": -0.0014553582108461154,
+        "central_direct_derivative": -0.001455358210680768,
+        "delta_E_R_phi_Linf": 0.6827596894726485,
+        "direct_minus_Euler": 1.6534733651707434e-13,
+        "finite_rule": "R'=g_Q^-1 R g_P^-1"
+      }
+    }
+  },
+  "derivation_contract": {
+    "JVP_route": "complex-step through the corrective local Robin action",
+    "Robin": "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+    "acceleration": "a_mu=(delta_mu^nu+u_mu u^nu) partial_nu log(N_T)",
+    "combined_P_Q_Ward": "phi'=g_P phi; R'=g_Q R g_P^-1; E'=E g_Q^-1; delta R=hat(q)R-Rhat(lambda); delta(E R phi)=0",
+    "comparison_route": "central finite difference through the same action evaluator; derivative-route check only, not an independent action reconstruction",
+    "metric_khronon_frame": "N_T=(-gamma^munu T_mu T_nu)^(-1/2); u_mu=-N_T T_mu; H=ker(u); gamma,T define the oriented frame bundle and projected-coordinate Gram-Schmidt chooses one local section",
+    "source_P_Ward": "delta phi=hat(lambda)phi; delta R=-Rhat(lambda); delta(Rphi)=0",
+    "target_Q_Ward": "delta varphi=hat(q)varphi; delta E_Q=-E_Qhat(q); delta(E_Q varphi)=0"
+  },
+  "frame_and_groupoid_invariants": {
+    "R_determinant_Linf": 4.440892098500626e-16,
+    "R_orthogonality_Linf": 4.440892098500626e-16,
+    "acceleration_spatiality_Linf": 2.2363363873408038e-17,
+    "frame_orthonormality_Linf": 4.440892098500626e-16,
+    "frame_spatiality_Linf": 0.0,
+    "khronon_unit_norm_Linf": 2.220446049250313e-16,
+    "measure_closed_form_Linf": 3.469446951953614e-17,
+    "sqrt_minus_gamma_det_u_E_minus_one_Linf": 9.992007221626409e-16
+  },
+  "literal_input": {
+    "primary_consumption_boundary": "The primary bytes are consumed only to bind identity, theta and declared coordinate scope. No decision, Eulerian, residual or helper is consumed. The R=I value/JVP alignment is checked separately from the primary's incomplete orbit.",
+    "primary_v5_6_2_identity_and_scope_pin_only": {
+      "Eulerian_or_residual_consumed": false,
+      "decision_boolean_consumed": false,
+      "parameter_order": [
+        "moving_embedding",
+        "ambient_metric",
+        "Omega",
+        "associated_matter",
+        "SO3_connection",
+        "BF_three_form"
+      ],
+      "paths": {
+        "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_full_moving_c1_n1_v5_6_2_gate.json",
+        "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_full_moving_c1_n1_v5_6_2_gate.py",
+        "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_full_moving_c1_n1_v5_6_2_gate.py"
+      },
+      "primary_helper_imported_or_called": false,
+      "profiles_AST_executed": false,
+      "profiles_AST_sha256": "56b0036f22b80493291f1139948d749e0ddf16abb0ad11634a4ef7df2c05ebe2",
+      "schema": "holo.one-omega-topological-so3-full-moving-c1-n1-v5-6-2-gate.v1",
+      "scope": {
+        "all_five_ordinary_coordinate_derivatives_active": false,
+        "full_5D_coordinate_family_claimed": false,
+        "ordinary_coordinate_dependence": {
+          "q": true,
+          "t": true,
+          "x": true,
+          "y": false,
+          "z": false
+        }
+      },
+      "sha256": {
+        "artifact": "48c1a98c2071df36eccc4ce30f2bdf962ad73c425330404f2c6b7cdb5913a590",
+        "generator": "b9b0baf2c34620f5300ebf79084f9f8abf3a5f5b6374672c71c6add75222f372",
+        "test": "bc0ba559975e5bdd975850e26daa42251c90cc46330d1f9a77941d7249fe3ce7"
+      },
+      "theta": [
+        0.29,
+        0.24,
+        0.33,
+        0.41,
+        0.46,
+        0.38
+      ]
+    },
+    "v5_2_Robin_contract": {
+      "Eulerian_or_residual_consumed": false,
+      "coefficients": {
+        "Robin_kappa_hat": 1.0,
+        "Robin_y": 1.7320508075688772,
+        "Robin_y_squared": 3.0
+      },
+      "decision_boolean_consumed": false,
+      "literal": "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+      "paths": {
+        "artifact": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_classical_v5_2_gate.json",
+        "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_classical_v5_2_gate.py",
+        "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_classical_v5_2_gate.py"
+      },
+      "schema": "holo.one-omega-topological-so3-classical-v5-2-gate.v1",
+      "sha256": {
+        "artifact": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b",
+        "generator": "62096c08848044400c0f51ee126597db71b3dcf75e11aaddacbd0afad98a45e8",
+        "test": "511ef10674fe622a6ab4b6d5c6fe4daf0142b22603dc33668b12cbc713c42f26"
+      }
+    }
+  },
+  "open_obligations": {
+    "B4_B5": true,
+    "BV_BFV_and_large_gauges": true,
+    "C1_N1": true,
+    "complete_same_action_SO3_Ward": true,
+    "continuum_and_unrestricted_off_shell_extension": true,
+    "independent_redteam": true,
+    "passive_Phase_A_LOCK_1_clearance": true,
+    "publication": true,
+    "same_action_bulk_embedding_interface_Euler_Green": true,
+    "two_sided_distinct_R_plus_R_minus_and_non_Z2_master": true
+  },
+  "primary_R_identity_alignment_and_orbit_gap": {
+    "aligned_R_identity_action": -0.10465501640462135,
+    "aligned_R_identity_action_compatible": true,
+    "aligned_R_identity_minus_primary_action": 0.0,
+    "consequence": "The primary value/JVP is the aligned R=I section of the same Robin action. Its failure was orbital: varying phi while freezing R/frame is the omit-delta-R mutant. The full same-action Ward and affected variations still require reassembly and rederivation rather than Boolean composition.",
+    "maximum_absolute_aligned_R_identity_JVP_difference": 6.938893903907228e-18,
+    "maximum_absolute_nontrivial_R_configuration_JVP_difference": 0.0005241205349477696,
+    "nontrivial_R_action": -0.10444012698529272,
+    "nontrivial_R_minus_primary_configuration_difference": 0.00021488941932863714,
+    "primary_fixed_axis_action": -0.10465501640462135,
+    "primary_section": "R=I with the chosen coordinate-adapted Q-frame",
+    "raw_directional_JVPs": {
+      "Omega": {
+        "aligned_R_identity_groupoid_JVP": -0.009064362414919598,
+        "aligned_R_identity_minus_primary": -1.734723475976807e-18,
+        "nontrivial_R_groupoid_JVP": -0.0089917509681957,
+        "nontrivial_R_minus_primary_configuration_difference": 7.261144672389593e-05,
+        "primary_fixed_axis_JVP": -0.009064362414919596
+      },
+      "ambient_metric": {
+        "aligned_R_identity_groupoid_JVP": 0.035115354036800425,
+        "aligned_R_identity_minus_primary": -6.938893903907228e-18,
+        "nontrivial_R_groupoid_JVP": 0.035096484600382734,
+        "nontrivial_R_minus_primary_configuration_difference": -1.8869436417698338e-05,
+        "primary_fixed_axis_JVP": 0.03511535403680043
+      },
+      "associated_matter": {
+        "aligned_R_identity_groupoid_JVP": -0.49306852603035467,
+        "aligned_R_identity_minus_primary": 0.0,
+        "nontrivial_R_groupoid_JVP": -0.4925444054954069,
+        "nontrivial_R_minus_primary_configuration_difference": 0.0005241205349477696,
+        "primary_fixed_axis_JVP": -0.49306852603035467
+      },
+      "coupled": {
+        "aligned_R_identity_groupoid_JVP": -0.19482633281647652,
+        "aligned_R_identity_minus_primary": 0.0,
+        "nontrivial_R_groupoid_JVP": -0.19460001203138363,
+        "nontrivial_R_minus_primary_configuration_difference": 0.00022632078509288167,
+        "primary_fixed_axis_JVP": -0.19482633281647652
+      },
+      "moving_embedding": {
+        "aligned_R_identity_groupoid_JVP": -0.002661384644766625,
+        "aligned_R_identity_minus_primary": 0.0,
+        "nontrivial_R_groupoid_JVP": -0.002627188494499264,
+        "nontrivial_R_minus_primary_configuration_difference": 3.419615026736085e-05,
+        "primary_fixed_axis_JVP": -0.002661384644766625
+      }
+    }
+  },
+  "primary_v5_6_2_family_contract": {
+    "expected_profile_sample_sha256": "dcde57d89fad5488150ec3a6330bc2675ad75113ae02c5e1ce5567e054177c71",
+    "primary_parameter_order": [
+      "moving_embedding",
+      "ambient_metric",
+      "Omega",
+      "associated_matter",
+      "SO3_connection",
+      "BF_three_form"
+    ],
+    "primary_profiles_AST_sha256": "56b0036f22b80493291f1139948d749e0ddf16abb0ad11634a4ef7df2c05ebe2",
+    "primary_theta": [
+      0.29,
+      0.24,
+      0.33,
+      0.41,
+      0.46,
+      0.38
+    ],
+    "profile_order": [
+      "Y",
+      "Y_t",
+      "Y_x",
+      "Y_tt",
+      "Y_xx",
+      "Y_tx",
+      "dY",
+      "dY_t",
+      "dY_x",
+      "dY_tt",
+      "dY_xx",
+      "dY_tx"
+    ],
+    "profile_sample_sha256": "dcde57d89fad5488150ec3a6330bc2675ad75113ae02c5e1ce5567e054177c71",
+    "scope": {
+      "all_five_ordinary_coordinate_derivatives_active": false,
+      "full_5D_coordinate_family_claimed": false,
+      "ordinary_coordinate_dependence": {
+        "q": true,
+        "t": true,
+        "x": true,
+        "y": false,
+        "z": false
+      }
+    },
+    "scope_relation": "Same t,x,q-dependent trace family and homogeneous y,z sector; this sublemma explicitly reports per-unit y,z volume and does not claim a full 5D coordinate family.",
+    "sublemma_parameter_prefix": [
+      "moving_embedding",
+      "ambient_metric",
+      "Omega",
+      "associated_matter"
+    ],
+    "sublemma_theta_prefix": [
+      0.29,
+      0.24,
+      0.33,
+      0.41
+    ]
+  },
+  "provenance": {
+    "generator": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_robin_frame_groupoid_v5_6_2_gate.py",
+    "generator_sha256": "7ba65797c2d9b1f7c0bf45ce68a648b202688b673d0f795aeb7b38aaaeacd6c7",
+    "numpy": "2.4.2",
+    "primary_v5_6_2_helpers_imported": [],
+    "python": "3.13.5",
+    "test": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_robin_frame_groupoid_v5_6_2_gate.py",
+    "test_present": true,
+    "test_sha256": "71ac02ee2025b768b62a3cf4db5f1a793e9ac0c0e1b0bc9f78993a2b8d414afa",
+    "upstream_expected_Eulerian_residual_or_boolean_imported": []
+  },
+  "schema": "holo.one-omega-topological-so3-robin-frame-groupoid-v5-6-2-gate.v1",
+  "selected_family": {
+    "Q": "gamma,T define Fr^+_SO(H_(gamma,T)); coordinate-projected Gram-Schmidt chooses one local oriented section, not a canonical frame",
+    "ambient_metric": "ds^2=e^(2A(q))(-dt^2+dx^2+dy^2+dz^2)+dq^2",
+    "embedding": "X^M=(t,x,y,z,Y(t,x)); exact displayed v5.6.2 graph profiles",
+    "groupoid_solder": "varphi=R(t,x) phi; varphi_H^mu=E_Q^mu_a varphi^a",
+    "integration": "t,x in [0,2pi)^2; per unit coordinate y,z volume",
+    "khronon": "T=t; u_mu=-N_T partial_mu T",
+    "parameter_order": [
+      "moving_embedding",
+      "ambient_metric",
+      "Omega",
+      "associated_matter"
+    ],
+    "theta": [
+      0.29,
+      0.24,
+      0.33,
+      0.41
+    ]
+  },
+  "selected_family_JVP_FD": {
+    "central_step": 2e-05,
+    "complex_step": 1e-30,
+    "independent_action_reconstruction_claimed": false,
+    "interpretation": "Complex-step and central FD independently probe differentiation, but both evaluate the same local Robin implementation; their agreement is not an independent rederivation of the action.",
+    "maximum_raw_JVP_FD_error": 2.3735905602118024e-11,
+    "minimum_absolute_action_JVP": 0.002627188494499264,
+    "parameter_order": [
+      "moving_embedding",
+      "ambient_metric",
+      "Omega",
+      "associated_matter"
+    ],
+    "raw_rows": {
+      "Omega": {
+        "direction": [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "raw": {
+          "acceleration_contra": {
+            "JVP_minus_FD_Linf": 0.0,
+            "central_FD_Linf": 0.0,
+            "complex_step_JVP_Linf": 0.0
+          },
+          "action": {
+            "JVP_minus_FD_Linf": 2.5824828386866727e-13,
+            "central_FD": -0.008991750968453949,
+            "central_FD_Linf": 0.008991750968453949,
+            "complex_step_JVP": -0.0089917509681957,
+            "complex_step_JVP_Linf": 0.0089917509681957
+          },
+          "density": {
+            "JVP_minus_FD_Linf": 1.608474638203905e-13,
+            "central_FD_Linf": 0.0031679440790901773,
+            "complex_step_JVP_Linf": 0.0031679440789932106
+          },
+          "frame": {
+            "JVP_minus_FD_Linf": 0.0,
+            "central_FD_Linf": 0.0,
+            "complex_step_JVP_Linf": 0.0
+          },
+          "measure": {
+            "JVP_minus_FD_Linf": 0.0,
+            "central_FD_Linf": 0.0,
+            "complex_step_JVP_Linf": 0.0
+          },
+          "phi": {
+            "JVP_minus_FD_Linf": 3.772482326525051e-12,
+            "central_FD_Linf": 0.1383492015116783,
+            "complex_step_JVP_Linf": 0.13834920151045052
+          },
+          "residual": {
+            "JVP_minus_FD_Linf": 1.2158329898426246e-11,
+            "central_FD_Linf": 0.2803646510618485,
+            "complex_step_JVP_Linf": 0.2803646510598288
+          },
+          "varphi": {
+            "JVP_minus_FD_Linf": 4.694390709492069e-12,
+            "central_FD_Linf": 0.13634769240600253,
+            "complex_step_JVP_Linf": 0.1363476924043096
+          }
+        }
+      },
+      "ambient_metric": {
+        "direction": [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "raw": {
+          "acceleration_contra": {
+            "JVP_minus_FD_Linf": 2.6935606523004196e-12,
+            "central_FD_Linf": 0.04671612802084612,
+            "complex_step_JVP_Linf": 0.04671612802179858
+          },
+          "action": {
+            "JVP_minus_FD_Linf": 5.935321678585126e-13,
+            "central_FD": 0.0350964845997892,
+            "central_FD_Linf": 0.0350964845997892,
+            "complex_step_JVP": 0.035096484600382734,
+            "complex_step_JVP_Linf": 0.035096484600382734
+          },
+          "density": {
+            "JVP_minus_FD_Linf": 1.1603305122287466e-13,
+            "central_FD_Linf": 0.0014981084981054158,
+            "complex_step_JVP_Linf": 0.0014981084981172267
+          },
+          "frame": {
+            "JVP_minus_FD_Linf": 1.839869923081494e-11,
+            "central_FD_Linf": 0.20664453929120083,
+            "complex_step_JVP_Linf": 0.20664453929404644
+          },
+          "measure": {
+            "JVP_minus_FD_Linf": 1.5412011944437864e-12,
+            "central_FD_Linf": 0.018398311017048252,
+            "complex_step_JVP_Linf": 0.018398311017210355
+          },
+          "phi": {
+            "JVP_minus_FD_Linf": 0.0,
+            "central_FD_Linf": 0.0,
+            "complex_step_JVP_Linf": 0.0
+          },
+          "residual": {
+            "JVP_minus_FD_Linf": 1.097774648961547e-11,
+            "central_FD_Linf": 0.13505718412798462,
+            "complex_step_JVP_Linf": 0.1350571841343191
+          },
+          "varphi": {
+            "JVP_minus_FD_Linf": 0.0,
+            "central_FD_Linf": 0.0,
+            "complex_step_JVP_Linf": 0.0
+          }
+        }
+      },
+      "associated_matter": {
+        "direction": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "raw": {
+          "acceleration_contra": {
+            "JVP_minus_FD_Linf": 0.0,
+            "central_FD_Linf": 0.0,
+            "complex_step_JVP_Linf": 0.0
+          },
+          "action": {
+            "JVP_minus_FD_Linf": 4.774514117400486e-13,
+            "central_FD": -0.49254440549588435,
+            "central_FD_Linf": 0.49254440549588435,
+            "complex_step_JVP": -0.4925444054954069,
+            "complex_step_JVP_Linf": 0.4925444054954069
+          },
+          "density": {
+            "JVP_minus_FD_Linf": 1.0983575160494752e-13,
+            "central_FD_Linf": 0.021847575336613603,
+            "complex_step_JVP_Linf": 0.02184757533659018
+          },
+          "frame": {
+            "JVP_minus_FD_Linf": 0.0,
+            "central_FD_Linf": 0.0,
+            "complex_step_JVP_Linf": 0.0
+          },
+          "measure": {
+            "JVP_minus_FD_Linf": 0.0,
+            "central_FD_Linf": 0.0,
+            "complex_step_JVP_Linf": 0.0
+          },
+          "phi": {
+            "JVP_minus_FD_Linf": 2.9435343051886775e-12,
+            "central_FD_Linf": 0.9085073560344269,
+            "complex_step_JVP_Linf": 0.9085073560340641
+          },
+          "residual": {
+            "JVP_minus_FD_Linf": 1.0865530697401482e-11,
+            "central_FD_Linf": 1.8579266575113882,
+            "complex_step_JVP_Linf": 1.8579266575107463
+          },
+          "varphi": {
+            "JVP_minus_FD_Linf": 4.168776435165e-12,
+            "central_FD_Linf": 0.906697477887075,
+            "complex_step_JVP_Linf": 0.9066974778852572
+          }
+        }
+      },
+      "coupled": {
+        "direction": [
+          0.31,
+          -0.27,
+          0.23,
+          0.37
+        ],
+        "raw": {
+          "acceleration_contra": {
+            "JVP_minus_FD_Linf": 4.744184212146507e-12,
+            "central_FD_Linf": 0.054440838256897266,
+            "complex_step_JVP_Linf": 0.05444083825686277
+          },
+          "action": {
+            "JVP_minus_FD_Linf": 4.047651103178396e-12,
+            "central_FD": -0.19460001203543129,
+            "central_FD_Linf": 0.19460001203543129,
+            "complex_step_JVP": -0.19460001203138363,
+            "complex_step_JVP_Linf": 0.19460001203138363
+          },
+          "density": {
+            "JVP_minus_FD_Linf": 5.532258678941915e-13,
+            "central_FD_Linf": 0.009312549131531081,
+            "complex_step_JVP_Linf": 0.009312549131257826
+          },
+          "frame": {
+            "JVP_minus_FD_Linf": 2.0092087715806173e-11,
+            "central_FD_Linf": 0.06564046503010346,
+            "complex_step_JVP_Linf": 0.06564046503499855
+          },
+          "measure": {
+            "JVP_minus_FD_Linf": 1.5972466405056451e-12,
+            "central_FD_Linf": 0.0060347337750218935,
+            "complex_step_JVP_Linf": 0.006034733775011601
+          },
+          "phi": {
+            "JVP_minus_FD_Linf": 3.582856233919074e-12,
+            "central_FD_Linf": 0.35641174543077353,
+            "complex_step_JVP_Linf": 0.3564117454301666
+          },
+          "residual": {
+            "JVP_minus_FD_Linf": 1.3618661753866945e-11,
+            "central_FD_Linf": 0.7136687378728189,
+            "complex_step_JVP_Linf": 0.7136687378731735
+          },
+          "varphi": {
+            "JVP_minus_FD_Linf": 4.457212376962616e-12,
+            "central_FD_Linf": 0.3570972171268449,
+            "complex_step_JVP_Linf": 0.3570972171274353
+          }
+        }
+      },
+      "moving_embedding": {
+        "direction": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "raw": {
+          "acceleration_contra": {
+            "JVP_minus_FD_Linf": 7.870676332899507e-12,
+            "central_FD_Linf": 0.18916366500854734,
+            "complex_step_JVP_Linf": 0.18916366500407622
+          },
+          "action": {
+            "JVP_minus_FD_Linf": 1.419100514182814e-12,
+            "central_FD": -0.0026271884959183645,
+            "central_FD_Linf": 0.0026271884959183645,
+            "complex_step_JVP": -0.002627188494499264,
+            "complex_step_JVP_Linf": 0.002627188494499264
+          },
+          "density": {
+            "JVP_minus_FD_Linf": 3.416043489745668e-13,
+            "central_FD_Linf": 0.0023798820160880405,
+            "complex_step_JVP_Linf": 0.0023798820158767824
+          },
+          "frame": {
+            "JVP_minus_FD_Linf": 2.3735905602118024e-11,
+            "central_FD_Linf": 0.05749906013541305,
+            "complex_step_JVP_Linf": 0.05749906012904651
+          },
+          "measure": {
+            "JVP_minus_FD_Linf": 1.8893560218939676e-12,
+            "central_FD_Linf": 0.0043223856435042896,
+            "complex_step_JVP_Linf": 0.0043223856449680275
+          },
+          "phi": {
+            "JVP_minus_FD_Linf": 3.664626992160892e-12,
+            "central_FD_Linf": 0.002093748842357801,
+            "complex_step_JVP_Linf": 0.0020937488418089696
+          },
+          "residual": {
+            "JVP_minus_FD_Linf": 1.595573673185413e-11,
+            "central_FD_Linf": 0.32194587718248346,
+            "complex_step_JVP_Linf": 0.3219458771772717
+          },
+          "varphi": {
+            "JVP_minus_FD_Linf": 5.679261084307573e-12,
+            "central_FD_Linf": 0.002020610107011933,
+            "complex_step_JVP_Linf": 0.0020206101066104517
+          }
+        }
+      }
+    },
+    "routes_share_same_literal_action_evaluator": true,
+    "scope": "Robin term only; selected analytic t,x-dependent family per unit y,z volume",
+    "theta": [
+      0.29,
+      0.24,
+      0.33,
+      0.41
+    ]
+  },
+  "source_P_groupoid_Ward": {
+    "convention": {
+      "Q_frame_held_fixed": true,
+      "delta_R": "-R hat(lambda)",
+      "delta_phi": "hat(lambda) phi",
+      "delta_varphi": "delta_R phi + R delta_phi = 0",
+      "hat_lambda_v": "lambda cross v",
+      "varphi": "R phi"
+    },
+    "raw": {
+      "Euler_pairing": -1.6525095573271754e-19,
+      "central_direct_Robin_derivative": 0.0,
+      "central_varphi_plus_minus_Linf": 1.6653345369377348e-16,
+      "delta_varphi_Linf": 5.551115123125783e-17,
+      "direct_minus_Euler": 1.6525095573271754e-19,
+      "finite_source_gauge_action_difference_at_scale_0_23": 0.0,
+      "finite_source_gauge_varphi_Linf": 1.6653345369377348e-16,
+      "mutants": {
+        "omit_delta_R": {
+          "Euler_pairing": 0.00019235435021364465,
+          "central_direct_derivative": 0.00019235435050335423,
+          "delta_varphi_Linf": 0.15858118220558615,
+          "direct_minus_Euler": 2.897095811946887e-13
+        },
+        "wrong_left_compensation": {
+          "Euler_pairing": -1.3944024069973566e-05,
+          "central_direct_derivative": -1.3944024060408287e-05,
+          "delta_varphi_Linf": 0.00953060821615799,
+          "direct_minus_Euler": 9.56527879906327e-15
+        },
+        "wrong_source_sign": {
+          "Euler_pairing": 0.0003847087004272895,
+          "central_direct_derivative": 0.00038470869996587437,
+          "delta_varphi_Linf": 0.3171623644111723,
+          "direct_minus_Euler": -4.614151400371413e-13
+        }
+      }
+    }
+  },
+  "target_Q_frame_Ward": {
+    "convention": {
+      "R_target_action": "R -> g_Q R",
+      "delta_E_Q": "-E_Q hat(q)",
+      "delta_varphi": "hat(q) varphi",
+      "derived_delta_varphi_H": "delta_E_Q varphi + E_Q delta_varphi = 0",
+      "derived_varphi": "varphi'=(g_Q R)phi=g_Q varphi",
+      "gamma_and_T_held_fixed": true,
+      "interpretation": "vertical Aut(Q) change of the representative of Fr^+_SO(H_(gamma,T))"
+    },
+    "raw": {
+      "Euler_pairing": 2.9579315594167654e-19,
+      "central_direct_Robin_derivative": 3.4694469519536137e-13,
+      "delta_R_phi_minus_hat_q_varphi_Linf": 5.551115123125783e-17,
+      "delta_spacetime_varphi_Linf": 1.1102230246251565e-16,
+      "direct_minus_Euler": 3.4694439940220545e-13,
+      "finite_R_minus_gQ_R_Linf": 0.0,
+      "finite_target_gauge_action_difference_at_scale_0_19": 0.0,
+      "finite_target_gauge_frame_orthonormality_Linf": 5.551115123125783e-16,
+      "finite_target_gauge_spacetime_varphi_Linf": 3.3306690738754696e-16,
+      "mutants": {
+        "fixed_frame": {
+          "Euler_pairing": 0.0007276791054230577,
+          "central_direct_derivative": 0.0007276791055138564,
+          "delta_spacetime_varphi_Linf": 0.3413798447363243,
+          "direct_minus_Euler": 9.079867933914354e-14
+        },
+        "wrong_target_frame_sign": {
+          "Euler_pairing": 0.0014553582108461152,
+          "central_direct_derivative": 0.001455358210680768,
+          "delta_spacetime_varphi_Linf": 0.6827596894726486,
+          "direct_minus_Euler": -1.6534711967663984e-13
+        }
+      }
+    }
+  },
+  "two_sided_master_contract_not_executed": {
+    "bundles": "P_+|Sigma and P_-|Sigma map independently to Q=Fr^+_SO(H_(gamma,T))",
+    "current_control": "One local source bundle and one R are executed. It can baseline either side but does not constitute a two-sided interface theorem.",
+    "executed_here": false,
+    "finite_action": "phi_+'=g_+ phi_+; phi_-'=g_- phi_-; R_+'=g_Q R_+ g_+^-1; R_-'=g_Q R_- g_-^-1; E'=E g_Q^-1",
+    "future_master_obligations": [
+      "execute distinct non-commuting R_+ and R_-",
+      "execute independent g_+, g_- and common g_Q",
+      "use non-Z2 bulk/embedding/interface data",
+      "rederive both side traces and cross terms from the same action",
+      "reject mutations that identify R_+=R_- or restore Z2 by construction"
+    ],
+    "gluing_equation_if_imposed": "R_+ phi_+=R_- phi_-=varphi_H in Q components",
+    "solders": "varphi_+=R_+ phi_+ and varphi_-=R_- phi_-"
+  }
+}
