@@ -1,0 +1,207 @@
+{
+  "classification": "theory_only;symbolic_jacobian_bound;pointwise_retraction;restricted_spectral_family;fail_closed_bridge",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "density_union_C_N_pass": false,
+    "periodic_box_exhaustion_and_tail_control_pass": false,
+    "pointwise_retraction_jacobian_bound_proved_symbolic_pass": true,
+    "restricted_family_exact_action_identity_pass": false,
+    "spectral_N_convergence_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false,
+    "uniform_stability_pass": false
+  },
+  "evidence_boundary": "Machine-checked: a symbolic, N-free polynomial bound B_proved(M) on the operator norm of dPhi on the box max|u| <= M, derived entry by entry with asserted denominator structure, and its domination of the v5.6.6.9 sample design. Analytic: the Sobolev lift. Not proven: the bridge, C1/N1, B4/B5.",
+  "fixed_before_run": {
+    "CONSISTENCY_TOLERANCE": 1e-09,
+    "WITNESS_M_VALUES": [
+      0.001,
+      0.25,
+      0.5,
+      1.0,
+      1.5,
+      5.0,
+      10.0
+    ],
+    "WITNESS_RADIUS": 1.5,
+    "WITNESS_SAMPLES_BALL": 100,
+    "WITNESS_SEED": 20260904,
+    "rotation_chart": "Cayley (I-K)^{-1}(I+K); denominators are powers of 1 + |k|^2"
+  },
+  "independence_boundary": {
+    "imports_action_evaluators": false,
+    "imports_pinned_v5669_kinematic_module_for_witness_only": true,
+    "imports_route_c_or_ad_fd5_modules": false,
+    "pinned_v5669_derive": {
+      "path": "derive_one_omega_topological_so3_common_first_explicit_retraction_v5_6_6_9.py",
+      "sha256": "f625067230db6f6f7fc5a0a5ce23eccfb5572fefef4dd185365ca2f00ad65c38"
+    },
+    "reads_upstream_expected_values": false,
+    "symbolic_engine": "sympy 1.13.3"
+  },
+  "open_obligation": {
+    "gap_5": "finite DG_N on V_N and the gauge quotient H_N",
+    "sobolev_lift_formalisation": "optional: make the Moser constant explicit for the class norm"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_retraction_jacobian_bound_proved_symbolic_v5_6_6_14.py",
+      "sha256": "521b752a4f8bbdacba92cf78677449a0629bc48e72760561f5ca60860d47ab2c"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "sympy": "1.13.3",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_retraction_jacobian_bound_proved_symbolic_v5_6_6_14.py",
+      "sha256": "332d3134f0be7031b37b6105268d61b87b03c2af7be639ea333c3a6efcf8f0c9"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-retraction-jacobian-bound-proved-symbolic-v5-6-6-14.v1",
+  "scientific": {
+    "analytic_not_machine_checked": [
+      "Moser composition estimates and the Sobolev embedding (classical)"
+    ],
+    "consistency_witness": {
+      "B_proved_vs_v5669_formula": [
+        {
+          "B_proved": 9.055460031124499,
+          "B_sampled_formula_v5669": 21.11183804486475,
+          "M": 0.001
+        },
+        {
+          "B_proved": 18.874611512861417,
+          "B_sampled_formula_v5669": 45.291424078785504,
+          "M": 0.25
+        },
+        {
+          "B_proved": 118.9484218087035,
+          "B_sampled_formula_v5669": 71.54058757445685,
+          "M": 0.5
+        },
+        {
+          "B_proved": 3719.4527823323688,
+          "B_sampled_formula_v5669": 129.96818517861524,
+          "M": 1.0
+        },
+        {
+          "B_proved": 49443.071434326,
+          "B_sampled_formula_v5669": 196.3014769331946,
+          "M": 1.5
+        },
+        {
+          "B_proved": 344781818.6210695,
+          "B_sampled_formula_v5669": 881.9939554270367,
+          "M": 5.0
+        },
+        {
+          "B_proved": 76856742760.98195,
+          "B_sampled_formula_v5669": 2533.538641775449,
+          "M": 10.0
+        }
+      ],
+      "note": "B_proved is looser than the v5.6.6.9 analytic formula (denominators bounded below by 1, Frobenius over 2-norm) but it is fully machine-derived; the sampled norms are a consistency witness, not the proof",
+      "pass": true,
+      "samples_total": 478,
+      "violations": 0,
+      "worst_sampled_norm_over_B_proved": 0.24693232351019634
+    },
+    "machine_checked": {
+      "B_proved_dominates_v5669_sample_design": true,
+      "B_proved_polynomial_derived_symbolically": true,
+      "every_jacobian_entry_denominator_is_positive_power_of_1_plus_k2": true
+    },
+    "proved_bound": {
+      "B_proved_degree_in_M": 8.0,
+      "B_proved_squared_polynomial_in_M": {
+        "0": 82.0,
+        "10": 1535328.0,
+        "11": 2085504.0,
+        "12": 2445984.0,
+        "13": 2373120.0,
+        "14": 1902528.0,
+        "15": 1102464.0,
+        "16": 458784.0,
+        "2": 1354.0,
+        "3": 2360.0,
+        "4": 15257.0,
+        "5": 36192.0,
+        "6": 115896.0,
+        "7": 252048.0,
+        "8": 544356.0,
+        "9": 963072.0
+      },
+      "block_squared_polynomials": {
+        "A_4": {
+          "0": 3.0
+        },
+        "A_mu": {
+          "0": 60.0,
+          "10": 1535328.0,
+          "11": 2085504.0,
+          "12": 2445984.0,
+          "13": 2373120.0,
+          "14": 1902528.0,
+          "15": 1102464.0,
+          "16": 458784.0,
+          "2": 1224.0,
+          "3": 2112.0,
+          "4": 14664.0,
+          "5": 34943.99999999999,
+          "6": 113616.0,
+          "7": 249408.0,
+          "8": 541980.0,
+          "9": 963072.0
+        },
+        "g": {
+          "0": 15.0,
+          "2": 64.0,
+          "3": 56.0,
+          "4": 38.0
+        },
+        "log_Omega": {
+          "0": 1.0
+        },
+        "phi": {
+          "0": 3.0,
+          "2": 66.0,
+          "3": 192.0,
+          "4": 555.0,
+          "5": 1248.0,
+          "6": 2280.0,
+          "7": 2640.0,
+          "8": 2376.0
+        }
+      },
+      "formula": "B_proved(M) = sqrt(sum_d c_d M^d) with the coefficients above; ||dPhi(u)||_2 <= B_proved(max|u|) for all free data u",
+      "inputs": 53,
+      "max_denominator_power_of_1_plus_k2": 4,
+      "nonzero_jacobian_entries": 219,
+      "outputs": 34,
+      "reasoning": [
+        "each Jacobian entry is a rational function with denominator const * (1 + |k|^2)^p, const > 0 (asserted per entry)",
+        "on max|u| <= M every monomial is bounded by M^degree, so |numerator| <= sum |c| M^deg (triangle inequality)",
+        "(1 + |k|^2)^p >= 1, so |entry| <= numerator bound / const",
+        "||J||_2 <= ||J||_F = sqrt(sum entry^2) <= sqrt(sum entry_bound^2)"
+      ]
+    },
+    "sobolev_lift": {
+      "hypotheses": [
+        "s > d/2 = 2",
+        "margins on the whole collar (v5.6.6.13 for the pinned members; hypothesis for arbitrary class members)",
+        "Y, r, q_Q in H^{s+1}"
+      ],
+      "machine_checked": false,
+      "statement": "For s > 2 and free data u, v in the class ball ||.||_{H^s} <= M0 (with Y, r, q_Q in H^{s+1}) inside the margin set, ||Phi(u) - Phi(v)||_{H^s} <= C_s(M0) ||u - v||_{H^s}, where C_s(M0) depends only on s, M0 and the embedding constant c_s (max|u| <= c_s ||u||_{H^s}), through B_proved(c_s M0) and the Moser composition estimates for real-analytic maps with polynomially bounded derivatives. No N enters."
+    }
+  },
+  "scientific_payload_sha256": "ac54d1f7e97c4eac03736be3588c585c4971d99e75a9400899fc765759bfeb51",
+  "source_pins": {
+    "frozen_checkpoint_commit": "ea014fd1a8ed124c353058eb6f0a1c92b90353bc",
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "v5_6_6_9_derive_sha256": "f625067230db6f6f7fc5a0a5ce23eccfb5572fefef4dd185365ca2f00ad65c38",
+    "v5_6_6_9_receipt_sha256": "cad85cf53e70dcfea3f69b104be5fe5c084bc897ddb713eef7d30ae72c85326a"
+  }
+}
