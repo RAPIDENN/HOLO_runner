@@ -74,13 +74,14 @@ the Kronecker collocation before any DG_N uniform retraction can be claimed.
 
 from __future__ import annotations
 
+import base64
 import hashlib
 import itertools
 import json
 import math
 import platform
 from pathlib import Path
-from typing import Any
+from typing import Any, Mapping
 
 import numpy as np
 import sympy as sp
@@ -108,6 +109,7 @@ N_MAX_STABILITY = 160
 STABILITY_ALERT_CONDITION = 1.0e6
 STABILITY_ALERT_LEBESGUE = 1.0e4
 RADIAL_K_MAX = 8
+OFF_COLLOCATION_GLUING_TOLERANCE = 1.0e-12
 SYMBOLIC_CASES = (
     {"label": "T4xI_one_channel", "coordinates": ("x0", "x1", "x2", "x3", "rho"), "channels": 1},
     {"label": "theta_rho_two_channel_route_C", "coordinates": ("theta", "rho"), "channels": 2},
@@ -452,6 +454,48 @@ def collocation_stability_audit(N_max: int) -> dict[str, Any]:
 
 
 # --------------------------------------------------------------------------
+# (D) off-collocation gluing defects of the byte-pinned members (bundle diagnostics)
+# --------------------------------------------------------------------------
+
+def _decode_f64le(block: Mapping[str, Any]) -> np.ndarray:
+    raw = np.frombuffer(base64.b64decode(block["data"]), dtype=block["dtype"])
+    return raw.reshape(block["shape"]) if "shape" in block else raw
+
+
+def off_collocation_gluing_audit(bundle: Mapping[str, Any]) -> dict[str, Any]:
+    """Maximum raw gluing defect of the pinned members at the bundle's off-collocation points.
+
+    The v5.6.4.2 common-first pointwise decoder eliminates the lateral traces algebraically at
+    every evaluator node, so the gluing constraint is satisfied pointwise (not only at the N
+    Kronecker nodes).  These defects are read from the byte-pinned bundle, not recomputed.
+    """
+
+    rows = []
+    worst = 0.0
+    for N, record in sorted(bundle["off_collocation_validation_by_N"].items(), key=lambda kv: int(kv[0])):
+        points = _decode_f64le(record["points_f64le"])
+        member_worst = 0.0
+        for diagnostic in record["raw_pointwise_gluing_diagnostics"]:
+            for blocks in diagnostic["raw_defects_f64le"].values():
+                for block in blocks.values():
+                    member_worst = max(member_worst, float(np.max(np.abs(_decode_f64le(block)))))
+        rows.append({"N": int(N), "off_collocation_points": int(points.shape[0]), "max_abs_gluing_defect": member_worst})
+        worst = max(worst, member_worst)
+    return {
+        "tolerance": OFF_COLLOCATION_GLUING_TOLERANCE,
+        "rows": rows,
+        "worst_max_abs_gluing_defect": worst,
+        "members_glued_pointwise": bool(worst <= OFF_COLLOCATION_GLUING_TOLERANCE),
+        "reading": (
+            "The pinned N=1,2,3 members satisfy G(X)=0 at machine precision away from the Kronecker nodes because the "
+            "common-first decoder solves the trace variables explicitly; the collocation inverse is not used there. "
+            "The measured Kronecker instability therefore bears on the coefficient-chart gluing_map/kernel machinery of "
+            "v5.6.4 (tangent generation, ambient<->free codec), not on the pointwise class membership of the members."
+        ),
+    }
+
+
+# --------------------------------------------------------------------------
 # theorem statement
 # --------------------------------------------------------------------------
 
@@ -517,6 +561,7 @@ def build_payload() -> dict[str, Any]:
     symbolic = [symbolic_euler_green_case(tuple(case["coordinates"]), case["channels"]) for case in SYMBOLIC_CASES]
     radial = radial_junction_certificate(RADIAL_K_MAX)
     stability = collocation_stability_audit(N_MAX_STABILITY)
+    off_collocation = off_collocation_gluing_audit(bundle)
 
     # Cross-check the re-implemented enumeration against the byte-pinned bundle labels.
     labels_by_N = bundle["nested_truncations"]["basis_labels_by_N"]
@@ -549,6 +594,7 @@ def build_payload() -> dict[str, Any]:
         "symbolic_euler_green": symbolic,
         "radial_junction": radial,
         "collocation_stability": stability,
+        "off_collocation_gluing": off_collocation,
         "bundle_cross_check": {"basis_labels_match_bundle": label_match, "radial_profiles_match_bundle": profile_match},
         "machine_checked": {
             "algebraic_identity_all_cases": identity_all,
@@ -558,6 +604,7 @@ def build_payload() -> dict[str, Any]:
             "route_C_literal_current_is_Euler_operator_representative": route_c_literal_ok,
             "radial_C2_junction": radial["declared_C2_jets_pass"],
             "collocation_growth_measured": True,
+            "bundle_members_glued_pointwise_off_collocation": off_collocation["members_glued_pointwise"],
         },
         "route_C_observation": {
             "current": "literal v5.6.6.3 current == unit-diagonal symmetric-split representative (product rule on contraction fields)",
@@ -577,6 +624,7 @@ def build_payload() -> dict[str, Any]:
         "outer_radial_Green_form_vanishes_exactly_pass": bool(radial["outer_current_H_rho_at_1_vanishes_termwise"]),
         "route_C_literal_current_is_Euler_operator_representative_pass": bool(route_c_literal_ok),
         "declared_collocation_uniform_stability_pass": bool(stability["declared_collocation_uniformly_stable"]),
+        "bundle_members_glued_pointwise_off_collocation_pass": bool(off_collocation["members_glued_pointwise"]),
         "uniform_N_to_infinity_bridge_pass": False,
         "spectral_N_convergence_pass": False,
         "uniform_stability_pass": False,
@@ -615,13 +663,17 @@ def build_payload() -> dict[str, Any]:
                 "The N x N collocation matrix of the declared nested real Fourier basis at the Kronecker nodes has "
                 f"condition number up to {stability['worst_condition_number']:.3e} and Lebesgue constant up to "
                 f"{stability['worst_lebesgue_constant_inf']:.3e} for N <= {N_MAX_STABILITY} (first alert at N = "
-                f"{stability['first_alert_N']}). Since G_N is pushed to coefficients through this inverse, DG_N has no "
-                "right inverse bounded uniformly in N in the Euclidean coefficient chart. This is preserved as a red "
-                "witness; the finite N = 1,2,3 receipts are unaffected (condition <= 8.4)."
+                f"{stability['first_alert_N']}). In the v5.6.4 coefficient chart G_N is pushed to coefficients through "
+                "this inverse, so DG_N has no right inverse bounded uniformly in N there. SCOPE: this obstructs the "
+                "coefficient-chart formulation (kernel/tangent generation and the ambient<->free codec of v5.6.4); the "
+                "v5.6.4.2 common-first pointwise decoder consumed by Route C eliminates the traces explicitly and the "
+                f"pinned members are glued pointwise to {off_collocation['worst_max_abs_gluing_defect']:.1e}. The finite "
+                "N = 1,2,3 receipts are unaffected (condition <= 8.4). Preserved as a red witness for any uniform-in-N "
+                "claim made in the coefficient chart."
             )
         },
         "open_obligation": {
-            "uniformly_stable_discretization": "replace Kronecker collocation by Galerkin or tensor equispaced FFT collocation and re-certify DG_N with a uniform right-inverse bound",
+            "uniformly_stable_discretization": "for tangent generation and the ambient<->free codec, replace the Kronecker collocation inverse by Galerkin or tensor equispaced FFT projection, or certify the explicit common-first elimination as the retraction for all N (theorem part iii) and bound it uniformly",
             "finite_to_continuum_rate": "with a stable discretization, prove ||P_N X - X_N|| -> 0 for collocation-glued members and lift the Stokes certificates to part (i)",
             "periodic_box_exhaustion": "unchanged",
         },

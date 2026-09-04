@@ -6,6 +6,7 @@
     "C1_ACTION_pass": false,
     "C1_N1_promotion_authorized": false,
     "N1_ACTION_pass": false,
+    "bundle_members_glued_pointwise_off_collocation_pass": true,
     "declared_collocation_uniform_stability_pass": false,
     "density_union_C_N_pass": false,
     "outer_radial_Green_form_vanishes_exactly_pass": true,
@@ -64,24 +65,24 @@
     "symbolic_engine": "sympy 1.13.3"
   },
   "negative_result": {
-    "declared_Kronecker_collocation": "The N x N collocation matrix of the declared nested real Fourier basis at the Kronecker nodes has condition number up to 7.707e+11 and Lebesgue constant up to 3.681e+10 for N <= 160 (first alert at N = 87). Since G_N is pushed to coefficients through this inverse, DG_N has no right inverse bounded uniformly in N in the Euclidean coefficient chart. This is preserved as a red witness; the finite N = 1,2,3 receipts are unaffected (condition <= 8.4)."
+    "declared_Kronecker_collocation": "The N x N collocation matrix of the declared nested real Fourier basis at the Kronecker nodes has condition number up to 7.707e+11 and Lebesgue constant up to 3.681e+10 for N <= 160 (first alert at N = 87). In the v5.6.4 coefficient chart G_N is pushed to coefficients through this inverse, so DG_N has no right inverse bounded uniformly in N there. SCOPE: this obstructs the coefficient-chart formulation (kernel/tangent generation and the ambient<->free codec of v5.6.4); the v5.6.4.2 common-first pointwise decoder consumed by Route C eliminates the traces explicitly and the pinned members are glued pointwise to 4.4e-16. The finite N = 1,2,3 receipts are unaffected (condition <= 8.4). Preserved as a red witness for any uniform-in-N claim made in the coefficient chart."
   },
   "open_obligation": {
     "finite_to_continuum_rate": "with a stable discretization, prove ||P_N X - X_N|| -> 0 for collocation-glued members and lift the Stokes certificates to part (i)",
     "periodic_box_exhaustion": "unchanged",
-    "uniformly_stable_discretization": "replace Kronecker collocation by Galerkin or tensor equispaced FFT collocation and re-certify DG_N with a uniform right-inverse bound"
+    "uniformly_stable_discretization": "for tangent generation and the ambient<->free codec, replace the Kronecker collocation inverse by Galerkin or tensor equispaced FFT projection, or certify the explicit common-first elimination as the retraction for all N (theorem part iii) and bound it uniformly"
   },
   "provenance": {
     "generator": {
       "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.py",
-      "sha256": "2b50ff8fb0fbd20707457552ce5f25ceb7709ee42bf61a096918883cdd8d88ea"
+      "sha256": "8a46e851c4c20206a046fbdbb7441b33fe1c92c1d38fef5db4e7c6b0f59324ec"
     },
     "numpy": "2.4.2",
     "python": "3.13.5",
     "sympy": "1.13.3",
     "test": {
       "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.py",
-      "sha256": "d52dbfab0dfe628c4791aea4a11b5b9b04e887950d0ef6436f04efead76444de"
+      "sha256": "1fd2573904cd54ab317cd504f3c607680ef6fa75d752ae829db0d503eef6c0d3"
     }
   },
   "schema": "holo.one-omega-topological-so3-restricted-class-euler-green-identity-v5-6-6-8.v1",
@@ -278,12 +279,36 @@
     },
     "machine_checked": {
       "algebraic_identity_all_cases": true,
+      "bundle_members_glued_pointwise_off_collocation": true,
       "collocation_growth_measured": true,
       "interface_functional_after_periodic_IBP": true,
       "interface_jet_orders_within_class_regularity": true,
       "radial_C2_junction": true,
       "route_C_literal_current_is_Euler_operator_representative": true,
       "route_C_symmetric_split_representative_exact": true
+    },
+    "off_collocation_gluing": {
+      "members_glued_pointwise": true,
+      "reading": "The pinned N=1,2,3 members satisfy G(X)=0 at machine precision away from the Kronecker nodes because the common-first decoder solves the trace variables explicitly; the collocation inverse is not used there. The measured Kronecker instability therefore bears on the coefficient-chart gluing_map/kernel machinery of v5.6.4 (tangent generation, ambient<->free codec), not on the pointwise class membership of the members.",
+      "rows": [
+        {
+          "N": 1,
+          "max_abs_gluing_defect": 8.326672684688674e-17,
+          "off_collocation_points": 7
+        },
+        {
+          "N": 2,
+          "max_abs_gluing_defect": 4.440892098500626e-16,
+          "off_collocation_points": 7
+        },
+        {
+          "N": 3,
+          "max_abs_gluing_defect": 4.440892098500626e-16,
+          "off_collocation_points": 7
+        }
+      ],
+      "tolerance": 1e-12,
+      "worst_max_abs_gluing_defect": 4.440892098500626e-16
     },
     "radial_junction": {
       "K_max_checked": 8,
@@ -397,7 +422,7 @@
       "what_remains": "A uniformly stable finite discretization of the gluing map (Galerkin projection, or tensor equispaced FFT collocation with an aliasing-controlled quadrature) so that DG_N admits a right inverse bounded uniformly in N; only then can the finite Stokes certificates of v5.6.6.x be lifted to the continuum identity of part (i) with a rate. Periodic-box exhaustion to noncompact Sigma remains a separate, still-open key."
     }
   },
-  "scientific_payload_sha256": "2291e53ee59d313f20e605889a8bba68d67bd11e7eb9ff35a972b6cdc2289566",
+  "scientific_payload_sha256": "d61e82004805bf14a07efd724f42bbafb17fa2fa2c6e12984f28bac52b0a6a50",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "frozen_checkpoint_commit": "ea014fd",

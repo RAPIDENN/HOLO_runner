@@ -21,6 +21,7 @@ EXPECTED_TRUE_KEYS = frozenset(
         "restricted_class_continuity_bound_stated_pass",
         "outer_radial_Green_form_vanishes_exactly_pass",
         "route_C_literal_current_is_Euler_operator_representative_pass",
+        "bundle_members_glued_pointwise_off_collocation_pass",
     }
 )
 EXPECTED_FALSE_KEYS = frozenset(
@@ -154,6 +155,17 @@ def test_collocation_stability_negative_witness(receipt: dict) -> None:
     assert np.isclose(np.linalg.cond(V), rows[N]["condition_number"], rtol=1e-6)
     for row in stability["equispaced_1d_contrast"]:
         assert row["condition_number"] < 2.0
+
+
+def test_off_collocation_gluing_from_bundle(receipt: dict) -> None:
+    audit = receipt["scientific"]["off_collocation_gluing"]
+    assert [row["N"] for row in audit["rows"]] == [1, 2, 3]
+    assert all(row["off_collocation_points"] == 7 for row in audit["rows"])
+    assert audit["worst_max_abs_gluing_defect"] <= gate.OFF_COLLOCATION_GLUING_TOLERANCE
+    assert audit["members_glued_pointwise"] is True
+    bundle = json.loads(gate.BUNDLE_PATH.read_text())
+    assert gate.off_collocation_gluing_audit(bundle) == audit
+    assert "coefficient-chart" in receipt["negative_result"]["declared_Kronecker_collocation"]
 
 
 def test_theorem_statement_present(receipt: dict) -> None:
