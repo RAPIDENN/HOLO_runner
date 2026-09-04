@@ -22,14 +22,16 @@ never uses that inverse.  This gate turns the observation into a certificate.
     Hence the pointwise-glued class is the graph of Phi: free data -> traces, an
     explicit map built from polynomials, R and R^T dR.  Phi does not depend on N.
 
-(B) N-independent Lipschitz bound.  The pointwise Jacobian of Phi is bounded by
-    an explicit polynomial in M = max(|Y|, |d|, |a|, |A_Sigma|, |dR|) with |R| = 1:
-      |dPhi_g| <= |dgamma| + 2|Y||dd| + |Y|^2|da| + 2(|d| + |a||Y|)|dY|
-      |dPhi_A| <= |dA_Sigma| + 2|A_Sigma||dR| + |dR||dR_in| ... (recorded exactly below)
-    The bound is checked symbolically (degrees of the Jacobian entries) and on
-    random samples (operator norm of the exact Jacobian against the formula).
-    Because Phi is pointwise and N-free, the bound is uniform in N by
-    construction: this is the retraction of part (iii) of the v5.6.6.8 theorem.
+(B) N-independent Lipschitz bound.  With M the maximum absolute entry of ALL
+    free data (gamma, Y_mu, d_mu, a, varphi_H, A_Sigma, A_perp, k, kappa_mu,
+    log Omega), the pointwise Jacobian of Phi is bounded in operator norm by an
+    explicit polynomial B(M), obtained as the sum of block-wise Frobenius
+    bounds (docstring of lipschitz_bound_terms).  The bound is checked on a
+    random ball, on single-coordinate spikes at three scales and on random
+    corners at three scales (tiny, large, larger).  Because Phi is pointwise
+    and N-free, the bound is uniform in N by construction: this is the
+    retraction of part (iii) of the v5.6.6.8 theorem in the continuum
+    re-glued formulation.  It is NOT the finite DG_N obligation on V_N.
 
 (C) What still uses the Kronecker inverse in v5.6.4 (recorded, not repaired):
     gluing_map, ambient_to_free_coordinates, retract_ambient_point, the frame
@@ -62,24 +64,33 @@ OUTPUT = ARTIFACTS / "one_omega_topological_so3_common_first_explicit_retraction
 TEST = HERE / "test_one_omega_topological_so3_common_first_explicit_retraction_v5_6_6_9.py"
 SCHEMA = "holo.one-omega-topological-so3-common-first-explicit-retraction-v5-6-6-9.v1"
 
-FROZEN_COMMIT = "ea014fd"
+FROZEN_COMMIT = "ea014fd1a8ed124c353058eb6f0a1c92b90353bc"
+V5642_DECODER_PATH = HERE / "export_one_omega_topological_so3_restricted_spectral_family_v5_6_4_2_pointwise_primitives.py"
+V5642_DECODER_SHA256 = "4b7eda150cf2d22e04ef2b1b04391c31dc9e618839d7ead9e74a540371ab3d7f"
+V564_CERTIFICATE_PATH = HERE / "derive_one_omega_topological_so3_restricted_spectral_family_v5_6_4_certificate.py"
+V564_CERTIFICATE_SHA256 = "198808b829a708ca9bc0314bfc5db235317f42eb48aa8f17ced6070cc3c87b7e"
 LITERAL_V5_2_ACTION_SHA256 = "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a"
 BUNDLE_PATH = ARTIFACTS / "one_omega_topological_so3_restricted_spectral_family_v5_6_4_4_c2_radial_primitive_bundle.json"
 BUNDLE_SHA256 = "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf"
 V5668_PATH = ARTIFACTS / "one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.json"
-V5668_SHA256 = "cca4e3a4299b6f1817575e352f2888b2cedb30bedf04ac77102338e56bf4cce7"
+V5668_SHA256 = "175dae746dcbf19854d1bdb6e0b6b5541d3eb18acea0050d41fccd444f197091"
 
 # Fixed before run.
 SAMPLES = 400
 SAMPLE_SEED = 20260904
 SAMPLE_RADIUS = 1.5
 JACOBIAN_TOLERANCE = 1.0e-9
+FD_STEP = 1.0e-6
+GRAPH_RESIDUAL_TOLERANCE = 1.0e-11
+# v5.6.4 functions expected to touch the Kronecker collocation inverse (statically checked below on the pinned source):
 KRONECKER_INVERSE_USERS_V5_6_4 = (
-    "gluing_map (basis['inverse'] einsum)",
+    "gluing_map",
     "ambient_to_free_coordinates",
-    "retract_ambient_point (via construct_ambient_point)",
-    "finite_frame_gauge_action -> runtime_SO3_gauge_tangents",
-    "runtime_DG (differentiates gluing_map)",
+    "construct_ambient_point",
+    "retract_ambient_point",
+    "finite_frame_gauge_action",
+    "runtime_SO3_gauge_tangents",
+    "runtime_DG",
 )
 
 
@@ -222,131 +233,253 @@ def graph_structure_certificate() -> dict[str, Any]:
 # --------------------------------------------------------------------------
 # (B) N-independent Lipschitz bound with a numeric witness
 # --------------------------------------------------------------------------
+#
+# Free data vector u (53 entries):  gamma (10, packed upper triangle), Y_mu (4), d_mu (4), a (1),
+# varphi_H (3), A_Sigma,mu (4x3 = 12), A_perp (3), k (3, Cayley chart of R), kappa_mu (4x3 = 12, so that
+# dR_mu = (dR/dk) . kappa_mu), log_Omega_Sigma (1).
+# Output Phi(u) (34 entries): g (15 packed), phi (3), A_mu (12), A_4 (3), log_Omega_trace (1).
+# M := max |u_i| over ALL entries.  The bound is a sum of Frobenius bounds of the Jacobian blocks, each
+# entry bounded by an explicit monomial in M, using |R|_2 = 1, |(I-K)^{-1}|_2 <= 1 (eigenvalues 1 +- i|k|),
+# |dR/dk_i|_2 <= 2, |d(I-K)^{-1}/dk_i|_2 <= 1, |vee(S)|_2 = |S|_F/sqrt(2) for skew S, |hat(v)|_2 = |v|_2,
+# |v|_2 <= sqrt(3) M for 3-vectors, and ||J||_2 <= ||J||_F <= sum of block Frobenius norms.
 
-def _phi_numeric(free: dict[str, np.ndarray]) -> np.ndarray:
-    gamma, Y, d, a = free["gamma"], free["Y"], free["d"], free["a"]
-    A_Sigma, A_perp, k, kappa = free["A_Sigma"], free["A_perp"], free["k"], free["kappa"]
+U_SIZE = 53
+OUT_SIZE = 34
+_SL = {
+    "gamma": slice(0, 10), "Y": slice(10, 14), "d": slice(14, 18), "a": slice(18, 19), "varphi": slice(19, 22),
+    "A_Sigma": slice(22, 34), "A_perp": slice(34, 37), "k": slice(37, 40), "kappa": slice(40, 52), "log_Omega": slice(52, 53),
+}
+
+
+def _unpack(u: np.ndarray) -> dict[str, Any]:
+    if u.shape != (U_SIZE,):
+        raise RetractionGateError("free data size drift")
+    gamma = np.zeros((4, 4))
+    gamma[np.triu_indices(4)] = u[_SL["gamma"]]
+    gamma = gamma + gamma.T - np.diag(np.diag(gamma))
+    return {
+        "gamma": gamma,
+        "Y": u[_SL["Y"]],
+        "d": u[_SL["d"]],
+        "a": float(u[_SL["a"]][0]),
+        "varphi": u[_SL["varphi"]],
+        "A_Sigma": u[_SL["A_Sigma"]].reshape(4, 3),
+        "A_perp": u[_SL["A_perp"]],
+        "k": u[_SL["k"]],
+        "kappa": u[_SL["kappa"]].reshape(4, 3),
+        "log_Omega": float(u[_SL["log_Omega"]][0]),
+    }
+
+
+def _phi_numeric(u: np.ndarray) -> np.ndarray:
+    f = _unpack(u)
+    gamma, Y, d, a = f["gamma"], f["Y"], f["d"], f["a"]
     g = np.empty((5, 5))
     g[:4, :4] = gamma - np.outer(d, Y) - np.outer(Y, d) + a * np.outer(Y, Y)
     g[:4, 4] = d - a * Y
     g[4, :4] = g[:4, 4]
     g[4, 4] = a
-    R = _cayley_np(k)
-    # dR along kappa (exact derivative of Cayley map): dR = 2 (I-K)^{-1} hat(kappa) (I-K)^{-1}
-    K = _hat_np(k)
+    R = _cayley_np(f["k"])
+    K = _hat_np(f["k"])
     Minv = np.linalg.inv(np.eye(3) - K)
-    dR = 2.0 * Minv @ _hat_np(kappa) @ Minv
-    A_source = _vee_np(R.T @ _hat_np(A_Sigma) @ R + R.T @ dR)
-    Ymu = Y[0]
-    A_mu = A_source - Ymu * A_perp
-    return np.concatenate((g[np.triu_indices(5)], A_mu, A_perp))
+    phi = R.T @ f["varphi"]
+    A_mu = np.empty((4, 3))
+    for mu in range(4):
+        dR = 2.0 * Minv @ _hat_np(f["kappa"][mu]) @ Minv  # exact derivative of the Cayley map along kappa_mu
+        A_source = _vee_np(R.T @ _hat_np(f["A_Sigma"][mu]) @ R + R.T @ dR)
+        A_mu[mu] = A_source - Y[mu] * f["A_perp"]
+    out = np.concatenate((g[np.triu_indices(5)], phi, A_mu.reshape(-1), f["A_perp"], [f["log_Omega"]]))
+    if out.shape != (OUT_SIZE,):
+        raise RetractionGateError("output size drift")
+    return out
 
 
-def _pack(free: dict[str, np.ndarray]) -> np.ndarray:
-    return np.concatenate((free["gamma"][np.triu_indices(4)], free["Y"], free["d"], [free["a"]], free["A_Sigma"], free["A_perp"], free["k"], free["kappa"]))
+def lipschitz_bound_terms(M: float) -> dict[str, float]:
+    """Explicit block-wise Frobenius bounds of dPhi for free data with max-entry size <= M (no N anywhere).
 
+    metric block g (15 outputs):
+      d g_{mu nu}/d gamma: 10 unit entries                      -> sqrt(10)
+      d g_{mu nu}/d d_rho = -(delta Y + Y delta):  |.| <= 2M, 40 entries -> sqrt(40) 2M
+      d g_{mu nu}/d a = Y_mu Y_nu:                 |.| <= M^2, 10 entries -> sqrt(10) M^2
+      d g_{mu nu}/d Y_rho:                          |.| <= 2M + 2M^2, 40 entries -> sqrt(40)(2M + 2M^2)
+      d g_{mu 4}/d d = I (4 entries) -> 2;  d g_{mu 4}/d a = -Y -> 2M;  d g_{mu 4}/d Y = -a I -> 2M;  d g_44/d a -> 1
+    scalar block phi = R^T varphi (3 outputs):
+      d phi/d varphi = R^T -> |.|_F = sqrt(3);  d phi/d k_i = (d_i R)^T varphi, |.|_2 <= 2 sqrt(3) M, 3 columns -> 6M
+    connection block A_mu (12 outputs), per mu:
+      d A_mu/d A_Sigma,mu = Ad(R^T): |.|_F = sqrt(3) per mu -> 2 sqrt(3)
+      d A_mu/d kappa_mu = kappa -> vee(R^T 2 Minv hat(kappa) Minv): |.|_2 <= 2, |.|_F <= 2 sqrt(3) per mu -> 4 sqrt(3)
+      d A_mu/d k_i: from R^T hat(A) R: |.|_2 <= (2 |d_i R| |A|)/sqrt(2) <= 2 sqrt(6) M;
+                    from R^T dR: |(d_i R)^T dR| <= 2 * 2 sqrt(3) M and |R^T d_i dR| <= 2 * 2 * sqrt(3) M, /sqrt(2) -> 4 sqrt(6) M;
+                    per (mu, i) column norm <= 6 sqrt(6) M, 12 columns -> sqrt(12) 6 sqrt(6) M
+      d A_mu/d Y_mu = -A_perp: |.|_2 <= sqrt(3) M per mu -> 2 sqrt(3) M
+      d A_mu/d A_perp = -Y_mu I: |.|_F <= sqrt(3) M per mu -> 2 sqrt(3) M
+    A_4 = A_perp -> sqrt(3);  log_Omega -> 1.
+    """
 
-def _unpack(x: np.ndarray) -> dict[str, np.ndarray]:
-    gamma = np.zeros((4, 4))
-    gamma[np.triu_indices(4)] = x[:10]
-    gamma = gamma + gamma.T - np.diag(np.diag(gamma))
+    r10, r40, r3, r6, r12 = np.sqrt(10.0), np.sqrt(40.0), np.sqrt(3.0), np.sqrt(6.0), np.sqrt(12.0)
     return {
-        "gamma": gamma,
-        "Y": x[10:14],
-        "d": x[14:18],
-        "a": float(x[18]),
-        "A_Sigma": x[19:22],
-        "A_perp": x[22:25],
-        "k": x[25:28],
-        "kappa": x[28:31],
+        "metric": r10 + r40 * 2 * M + r10 * M**2 + r40 * (2 * M + 2 * M**2) + 2 + 2 * M + 2 * M + 1,
+        "scalar": r3 + 6 * M,
+        "connection": 2 * r3 + 4 * r3 + r12 * 6 * r6 * M + 2 * r3 * M + 2 * r3 * M,
+        "A_perp_identity": r3,
+        "log_Omega_identity": 1.0,
     }
 
 
 def lipschitz_bound_formula(M: float) -> float:
-    """Explicit pointwise bound on the operator norm of dPhi for free data of size <= M.
+    return float(sum(lipschitz_bound_terms(M).values()))
 
-    Metric block: entries of g are polynomials of degree <= 2 in Y and <= 1 in (gamma, d, a), so the
-    Frobenius norm of the Jacobian block is bounded by  sqrt(10) + 2*4*M + 4*M^2 + 2*4*(M + M^2)  (crude
-    but explicit).  Connection block with |R| = 1:  |dA_source| <= |dA_Sigma| + 2|A_Sigma||dR| + |d(R^T dR)|,
-    and for the Cayley chart |dR/dk| <= 2|(I-K)^{-1}|^2 <= 2, |d(R^T dR)| <= (2 + 4|kappa|)|dk| + 2|dkappa|.
-    The returned constant is a polynomial in M; N does not appear anywhere.
-    """
 
-    metric = np.sqrt(10.0) + 8.0 * M + 4.0 * M**2 + 8.0 * (M + M**2)
-    connection = 1.0 + 2.0 * M * 2.0 + (2.0 + 4.0 * M) + 2.0 + M + 1.0  # dA_Sigma, dR terms, d(R^T dR), Y*A_perp, dA_perp
-    return float(metric + connection + 1.0)
+def _jacobian(u: np.ndarray, h: float = FD_STEP) -> np.ndarray:
+    J = np.empty((OUT_SIZE, U_SIZE))
+    for j in range(U_SIZE):
+        e = np.zeros(U_SIZE)
+        e[j] = h
+        J[:, j] = (_phi_numeric(u + e) - _phi_numeric(u - e)) / (2.0 * h)
+    return J
+
+
+def _sample_set(samples: int, seed: int, radius: float) -> list[tuple[str, np.ndarray]]:
+    rng = np.random.default_rng(seed)
+    out: list[tuple[str, np.ndarray]] = []
+    for _ in range(samples):
+        out.append(("ball", rng.uniform(-radius, radius, size=U_SIZE)))
+    for scale in (1.0e-3, 1.0, 10.0):  # single-coordinate spikes at three scales
+        for j in range(U_SIZE):
+            u = np.zeros(U_SIZE)
+            u[j] = scale
+            out.append((f"spike_{scale:g}", u))
+            u2 = np.zeros(U_SIZE)
+            u2[j] = -scale
+            out.append((f"spike_{scale:g}", u2))
+    for scale in (1.0e-3, 5.0, 10.0):  # large / tiny random corners
+        for _ in range(20):
+            out.append((f"corner_{scale:g}", rng.choice([-scale, scale], size=U_SIZE) * rng.uniform(0.5, 1.0, size=U_SIZE)))
+    return out
 
 
 def lipschitz_witness(samples: int, seed: int, radius: float) -> dict[str, Any]:
-    rng = np.random.default_rng(seed)
     worst_ratio = 0.0
     worst_norm = 0.0
+    worst_M = 0.0
     violations = 0
-    rows = []
-    for index in range(samples):
-        x = rng.uniform(-radius, radius, size=31)
-        x[25:28] *= 0.5  # keep the Cayley chart away from its pole
-        free = _unpack(x)
-        M = float(max(np.abs(free["Y"]).max(), np.abs(free["d"]).max(), abs(free["a"]), np.abs(free["A_Sigma"]).max(), np.abs(free["kappa"]).max(), np.abs(free["k"]).max()))
-        base = _phi_numeric(free)
-        J = np.empty((base.size, 31))
-        h = 1.0e-6
-        for j in range(31):
-            e = np.zeros(31)
-            e[j] = h
-            J[:, j] = (_phi_numeric(_unpack(x + e)) - _phi_numeric(_unpack(x - e))) / (2.0 * h)
-        norm = float(np.linalg.norm(J, 2))
+    by_kind: dict[str, dict[str, float]] = {}
+    for kind, u in _sample_set(samples, seed, radius):
+        M = float(np.abs(u).max())
+        norm = float(np.linalg.norm(_jacobian(u), 2))
         bound = lipschitz_bound_formula(M)
         ratio = norm / bound
-        worst_ratio = max(worst_ratio, ratio)
-        worst_norm = max(worst_norm, norm)
+        record = by_kind.setdefault(kind, {"count": 0, "worst_ratio": 0.0})
+        record["count"] += 1
+        record["worst_ratio"] = max(record["worst_ratio"], ratio)
+        if ratio > worst_ratio:
+            worst_ratio, worst_norm, worst_M = ratio, norm, M
         if norm > bound * (1.0 + JACOBIAN_TOLERANCE):
             violations += 1
-        if index < 5:
-            rows.append({"M": M, "jacobian_operator_norm": norm, "bound": bound})
     return {
-        "samples": samples,
+        "samples_ball": samples,
+        "samples_total": sum(int(r["count"]) for r in by_kind.values()),
         "seed": seed,
         "radius": radius,
+        "M_definition": "max |u_i| over all 53 free-data entries (gamma, Y, d, a, varphi_H, A_Sigma, A_perp, k, kappa, log_Omega)",
         "violations": violations,
         "worst_norm_over_bound": worst_ratio,
-        "worst_jacobian_operator_norm": worst_norm,
-        "first_rows": rows,
+        "worst_case": {"jacobian_operator_norm": worst_norm, "M": worst_M, "bound": lipschitz_bound_formula(worst_M)},
+        "by_kind": by_kind,
         "bound_is_N_independent": True,
         "pass": bool(violations == 0),
     }
 
 
 def graph_numeric_witness(samples: int, seed: int, radius: float) -> dict[str, Any]:
-    """Numeric re-check of the gluing rows on random free data (independent of the symbolic path)."""
+    """Numeric re-check of all gluing rows (metric, scalar, connection for mu = 0..3) on random free data."""
 
     rng = np.random.default_rng(seed + 1)
     worst = 0.0
     for _ in range(samples):
-        x = rng.uniform(-radius, radius, size=31)
-        x[25:28] *= 0.5
-        free = _unpack(x)
-        out = _phi_numeric(free)
+        u = rng.uniform(-radius, radius, size=U_SIZE)
+        f = _unpack(u)
+        out = _phi_numeric(u)
         g = np.zeros((5, 5))
         g[np.triu_indices(5)] = out[:15]
         g = g + g.T - np.diag(np.diag(g))
         t = np.zeros((5, 4))
         t[:4, :] = np.eye(4)
-        t[4, :] = free["Y"]
-        worst = max(worst, float(np.abs(t.T @ g @ t - free["gamma"]).max()))
-        R = _cayley_np(free["k"])
-        K = _hat_np(free["k"])
+        t[4, :] = f["Y"]
+        worst = max(worst, float(np.abs(t.T @ g @ t - f["gamma"]).max()))
+        R = _cayley_np(f["k"])
+        K = _hat_np(f["k"])
         Minv = np.linalg.inv(np.eye(3) - K)
-        dR = 2.0 * Minv @ _hat_np(free["kappa"]) @ Minv
-        A_mu, A_perp = out[15:18], out[18:21]
-        pulled = A_mu + free["Y"][0] * A_perp
-        worst = max(worst, float(np.abs(R @ _hat_np(pulled) @ R.T - dR @ R.T - _hat_np(free["A_Sigma"])).max()))
+        phi = out[15:18]
+        worst = max(worst, float(np.abs(R @ phi - f["varphi"]).max()))
+        A_mu = out[18:30].reshape(4, 3)
+        A_perp = out[30:33]
+        for mu in range(4):
+            dR = 2.0 * Minv @ _hat_np(f["kappa"][mu]) @ Minv
+            pulled = A_mu[mu] + f["Y"][mu] * A_perp
+            worst = max(worst, float(np.abs(R @ _hat_np(pulled) @ R.T - dR @ R.T - _hat_np(f["A_Sigma"][mu])).max()))
         worst = max(worst, float(np.abs(R.T @ R - np.eye(3)).max()))
-    return {"samples": samples, "worst_abs_row_residual": worst, "pass": bool(worst < 1.0e-12)}
+        worst = max(worst, abs(out[33] - f["log_Omega"]))
+    return {"samples": samples, "worst_abs_row_residual": worst, "tolerance": GRAPH_RESIDUAL_TOLERANCE, "pass": bool(worst < GRAPH_RESIDUAL_TOLERANCE)}
+
+
+def kronecker_inverse_static_audit() -> dict[str, Any]:
+    """Static audit on the byte-pinned v5.6.4 source: which functions reference the collocation inverse.
+
+    A function counts as a direct user if its body contains basis["inverse"] / Finv / np.linalg.inv(values) style
+    references to the collocation matrix inverse, and as an indirect user if it calls a direct or indirect user.
+    """
+
+    import ast
+
+    source = V564_CERTIFICATE_PATH.read_text()
+    tree = ast.parse(source)
+    functions = {node.name: node for node in ast.walk(tree) if isinstance(node, ast.FunctionDef)}
+    direct: set[str] = set()
+    calls: dict[str, set[str]] = {}
+    for name, node in functions.items():
+        body = ast.get_source_segment(source, node) or ""
+        if '["inverse"]' in body or "Finv" in body:
+            direct.add(name)
+        calls[name] = {
+            child.func.id for child in ast.walk(node)
+            if isinstance(child, ast.Call) and isinstance(child.func, ast.Name) and child.func.id in functions
+        }
+    users = set(direct)
+    changed = True
+    while changed:
+        changed = False
+        for name, callees in calls.items():
+            if name not in users and callees & users:
+                users.add(name)
+                changed = True
+    expected = set(KRONECKER_INVERSE_USERS_V5_6_4)
+    return {
+        "direct_users": sorted(direct),
+        "all_users_transitive": sorted(users),
+        "expected_users_all_confirmed": bool(expected <= users),
+        "expected_not_confirmed": sorted(expected - users),
+        "decode_pointwise_boundary_in_decoder_uses_collocation_inverse": _decoder_uses_collocation_inverse(),
+    }
+
+
+def _decoder_uses_collocation_inverse() -> bool:
+    import ast
+
+    source = V5642_DECODER_PATH.read_text()
+    tree = ast.parse(source)
+    for node in ast.walk(tree):
+        if isinstance(node, ast.FunctionDef) and node.name == "decode_pointwise_boundary":
+            body = ast.get_source_segment(source, node) or ""
+            return '["inverse"]' in body or "Finv" in body
+    raise RetractionGateError("decode_pointwise_boundary not found in the pinned decoder")
 
 
 def build_payload() -> dict[str, Any]:
-    _load_json(BUNDLE_PATH, BUNDLE_SHA256)
+    _load_json(BUNDLE_PATH, BUNDLE_SHA256)  # lineage pin only: the class members live there
+    for path, expected in ((V5642_DECODER_PATH, V5642_DECODER_SHA256), (V564_CERTIFICATE_PATH, V564_CERTIFICATE_SHA256)):
+        if _sha256(path) != expected:
+            raise RetractionGateError(f"byte pin drift for {path.name}")
     v5668 = _load_json(V5668_PATH, V5668_SHA256)
     if v5668["decision"].get("declared_collocation_uniform_stability_pass") is not False:
         raise RetractionGateError("upstream v5.6.6.8 must record the coefficient-chart instability")
@@ -356,6 +489,7 @@ def build_payload() -> dict[str, Any]:
     graph = graph_structure_certificate()
     numeric_graph = graph_numeric_witness(SAMPLES, SAMPLE_SEED, SAMPLE_RADIUS)
     lipschitz = lipschitz_witness(SAMPLES, SAMPLE_SEED, SAMPLE_RADIUS)
+    inverse_audit = kronecker_inverse_static_audit()
 
     graph_pass = bool(
         graph["metric_row_vanishes_identically"]
@@ -368,45 +502,61 @@ def build_payload() -> dict[str, Any]:
         and numeric_graph["pass"]
     )
     degrees = graph["eliminated_metric_polynomial_degrees"]
-    bound_pass = bool(lipschitz["pass"] and degrees["Y"] <= 2 and degrees["gamma"] <= 1 and degrees["d"] <= 1 and degrees["a"] <= 1)
+    bound_pass = bool(
+        lipschitz["pass"]
+        and degrees["Y"] <= 2 and degrees["gamma"] <= 1 and degrees["d"] <= 1 and degrees["a"] <= 1
+        and inverse_audit["expected_users_all_confirmed"]
+        and not inverse_audit["decode_pointwise_boundary_in_decoder_uses_collocation_inverse"]
+    )
 
     scientific = {
         "graph_structure": graph,
         "graph_numeric_witness": numeric_graph,
         "lipschitz": lipschitz,
-        "lipschitz_bound_formula": lipschitz_bound_formula.__doc__.strip(),
+        "lipschitz_bound_terms_doc": lipschitz_bound_terms.__doc__.strip(),
+        "lipschitz_bound_terms_at_M1": lipschitz_bound_terms(1.0),
         "theorem": {
             "statement": (
-                "Let Phi be the common-first elimination map defined pointwise on T^4 by the formulas of section (A). "
-                "The pointwise-glued restricted class is exactly the graph {(u, Phi(u))} over the free data u, so the "
-                "retraction from any ambient point with the same free data onto the class is u -> (u, Phi(u)) and the "
-                "tangent space is {(du, dPhi(u).du)}. Since Phi contains no N, the Lipschitz constant of Phi on |u| <= M "
-                "is the N-independent polynomial recorded above, and by Moser composition estimates "
-                "||Phi(u) - Phi(u')||_{H^s} <= C_s(M) ||u - u'||_{H^s} for s > 2 on ||u||_{H^s} <= M. This discharges "
-                "the 'uniformly bounded right inverse/retraction of DG_N' obligation in the pointwise formulation; it is "
-                "the retraction used implicitly by the v5.6.4.2 decoder and by part (iii) of the v5.6.6.8 theorem."
+                "Let Phi be the common-first elimination map defined pointwise on T^4 by the formulas of section (A), "
+                "written chart-free in (R, dR_mu) (the Cayley chart is only used to certify it; the v5.6.4.2 decoder "
+                "uses expm with R = S R0, dR = dS R0 + S dR0, A_Sigma = vee(S hat(A0) S^T - dS S^T), all pointwise). "
+                "On the open margin set {a >= a_min > 0, gamma - d d^T / a Lorentzian with the signature margin, "
+                "Omega >= Omega_min, timelike khronon margin} the pointwise-glued restricted class is exactly the graph "
+                "{(u, Phi(u))} over the free data u, the retraction from any ambient point with the same free data is "
+                "u -> (u, Phi(u)), and the tangent space is {(du, dPhi(u).du)}. Since Phi contains no N, the pointwise "
+                "Lipschitz constant of Phi on max|u| <= M is the explicit polynomial recorded above, uniform in N by "
+                "construction. Because Phi consumes first derivatives (Y_mu = d_mu Y, dR_mu), the Sobolev lift is "
+                "Phi: H^{s+1}(Y, r, q_Q) x H^s(gamma, d, a, varphi, A, log Omega) -> H^s with "
+                "||Phi(u) - Phi(u')||_{H^s} <= C_s(M) ||u - u'|| for s > 2 (Moser composition); the v5.6.6.8 class must "
+                "therefore be read with r_+-, q_Q in H^{s+1} alongside Y_+-, otherwise the A trace lies only in H^{s-1} "
+                "and the classical-jet chain rule of its part (i) fails for the connection channel."
             ),
-            "not_claimed": (
-                "Uniform stability of the v5.6.4 coefficient-chart scheme (its key stays False); quadrature convergence "
-                "of the finite Route C certificates to the continuum identity with a rate; membership of Fourier-truncated "
-                "class points in the finite spectral space V_N (the eliminated traces are not trigonometric polynomials); "
-                "any statement about the literal v5.2 action beyond the class structure."
+            "discharges": (
+                "the 'uniformly bounded right inverse/retraction' obligation in the continuum re-glued formulation "
+                "(part (iii) of the v5.6.6.8 theorem: project the free data, then re-glue with Phi)."
+            ),
+            "does_not_discharge": (
+                "the finite obligation on DG_N over the spectral space V_N (Phi(u) is not a trigonometric polynomial, so "
+                "Phi(V_N) is not inside V_N); the v5.6.6.8 what_remains item about lifting the finite Stokes certificates "
+                "with a rate stays open; uniform stability of the v5.6.4 coefficient-chart scheme (its key stays False); "
+                "the gauge quotient H_N (the graph tangent space still contains the 9N orbit directions); any statement "
+                "about the literal v5.2 action beyond the class structure."
             ),
             "sobolev_lift": "analytic argument (Moser composition, s > d/2 = 2); not machine-checked",
         },
-        "kronecker_inverse_users_in_v5_6_4": list(KRONECKER_INVERSE_USERS_V5_6_4),
-        "pointwise_formulation_needs_collocation_inverse": False,
+        "kronecker_inverse_users_in_v5_6_4": inverse_audit,
+        "pointwise_formulation_needs_collocation_inverse": bool(inverse_audit["decode_pointwise_boundary_in_decoder_uses_collocation_inverse"]),
         "machine_checked": {
             "graph_rows_vanish_symbolically": graph_pass,
             "graph_rows_vanish_numerically": numeric_graph["pass"],
-            "lipschitz_bound_holds_on_samples": lipschitz["pass"],
+            "lipschitz_bound_holds_on_ball_spikes_and_corners": lipschitz["pass"],
             "metric_degrees_bounded": bool(degrees["Y"] <= 2 and degrees["gamma"] <= 1),
         },
     }
 
     decision = {
         "common_first_gluing_is_explicit_graph_pass": graph_pass,
-        "pointwise_retraction_N_independent_lipschitz_bound_pass": bound_pass,
+        "pointwise_jacobian_explicit_bound_sampled_pass": bound_pass,
         "uniform_stability_pass": False,
         "spectral_N_convergence_pass": False,
         "uniform_N_to_infinity_bridge_pass": False,
@@ -429,11 +579,15 @@ def build_payload() -> dict[str, Any]:
             "SAMPLE_SEED": SAMPLE_SEED,
             "SAMPLE_RADIUS": SAMPLE_RADIUS,
             "JACOBIAN_TOLERANCE": JACOBIAN_TOLERANCE,
-            "rotation_chart": "Cayley (I-K)^{-1}(I+K), exact rational; the v5.6.4.2 decoder uses expm, same group element set locally",
+            "FD_STEP": FD_STEP,
+            "GRAPH_RESIDUAL_TOLERANCE": GRAPH_RESIDUAL_TOLERANCE,
+            "adversarial_sample_design": "ball + single-coordinate spikes at 1e-3/1/10 + random corners at 1e-3/5/10",
+            "rotation_chart": "Cayley (I-K)^{-1}(I+K), exact rational, no finite pole (misses only the angle-pi rotations); the v5.6.4.2 decoder uses expm; the graph identity is chart-free in (R, dR)",
+            "free_data_layout": {k: [v.start, v.stop] for k, v in _SL.items()},
         },
         "scientific": scientific,
         "independence_boundary": {
-            "scientific_inputs": "the elimination formulas transcribed from the v5.6.4.2 pointwise decoder contract; no upstream module imported",
+            "scientific_inputs": "the elimination formulas transcribed from the byte-pinned v5.6.4.2 pointwise decoder (decode_pointwise_boundary); static AST audit of the byte-pinned v5.6.4 certificate; no upstream module imported",
             "imports_action_evaluators": False,
             "imports_one_omega_modules": False,
             "reads_upstream_expected_values": False,
@@ -455,6 +609,8 @@ def build_payload() -> dict[str, Any]:
             "literal_v5_2_action_sha256": LITERAL_V5_2_ACTION_SHA256,
             "C2_multi_N_primitive_bundle_sha256": BUNDLE_SHA256,
             "v5_6_6_8_receipt_sha256": V5668_SHA256,
+            "v5_6_4_2_pointwise_decoder_sha256": V5642_DECODER_SHA256,
+            "v5_6_4_certificate_sha256": V564_CERTIFICATE_SHA256,
         },
         "provenance": {
             "generator": {"path": str(Path(__file__).resolve().relative_to(REPO)), "sha256": _sha256(Path(__file__))},
@@ -476,7 +632,7 @@ def main() -> None:
     d = payload["decision"]
     print(
         f"graph={d['common_first_gluing_is_explicit_graph_pass']} "
-        f"lipschitz={d['pointwise_retraction_N_independent_lipschitz_bound_pass']} "
+        f"jacobian_bound={d['pointwise_jacobian_explicit_bound_sampled_pass']} "
         f"bridge={d['uniform_N_to_infinity_bridge_pass']}"
     )
 

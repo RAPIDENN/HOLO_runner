@@ -16,7 +16,7 @@ import derive_one_omega_topological_so3_common_first_explicit_retraction_v5_6_6_
 EXPECTED_TRUE_KEYS = frozenset(
     {
         "common_first_gluing_is_explicit_graph_pass",
-        "pointwise_retraction_N_independent_lipschitz_bound_pass",
+        "pointwise_jacobian_explicit_bound_sampled_pass",
     }
 )
 EXPECTED_FALSE_KEYS = frozenset(
@@ -67,6 +67,10 @@ def test_schema_and_pins(receipt: dict) -> None:
     assert pins["frozen_checkpoint_commit"] == gate.FROZEN_COMMIT
     assert pins["C2_multi_N_primitive_bundle_sha256"] == gate.BUNDLE_SHA256
     assert pins["v5_6_6_8_receipt_sha256"] == gate.V5668_SHA256
+    assert pins["v5_6_4_2_pointwise_decoder_sha256"] == gate.V5642_DECODER_SHA256
+    assert gate._sha256(gate.V5642_DECODER_PATH) == gate.V5642_DECODER_SHA256
+    assert gate._sha256(gate.V564_CERTIFICATE_PATH) == gate.V564_CERTIFICATE_SHA256
+    assert len(gate.FROZEN_COMMIT) == 40
     assert gate._sha256(gate.BUNDLE_PATH) == gate.BUNDLE_SHA256
     assert gate._sha256(gate.V5668_PATH) == gate.V5668_SHA256
 
@@ -101,7 +105,7 @@ def test_graph_structure(receipt: dict) -> None:
 def test_graph_numeric_witness(receipt: dict) -> None:
     witness = receipt["scientific"]["graph_numeric_witness"]
     assert witness["pass"] is True
-    assert witness["worst_abs_row_residual"] < 1.0e-12
+    assert witness["worst_abs_row_residual"] < gate.GRAPH_RESIDUAL_TOLERANCE
     assert witness["samples"] == gate.SAMPLES
 
 
@@ -111,9 +115,28 @@ def test_lipschitz_witness(receipt: dict) -> None:
     assert lip["violations"] == 0
     assert 0.0 < lip["worst_norm_over_bound"] <= 1.0
     assert lip["bound_is_N_independent"] is True
+    assert lip["samples_total"] > lip["samples_ball"] + 6 * gate.U_SIZE
+    assert set(lip["by_kind"]) >= {"ball", "spike_0.001", "spike_1", "spike_10", "corner_0.001", "corner_5", "corner_10"}
+    assert "all 53" in lip["M_definition"]
     regenerated = gate.lipschitz_witness(gate.SAMPLES, gate.SAMPLE_SEED, gate.SAMPLE_RADIUS)
     assert regenerated["violations"] == 0
     assert np.isclose(regenerated["worst_norm_over_bound"], lip["worst_norm_over_bound"], rtol=1e-9)
+
+
+def test_counterexamples_of_the_first_bound_are_now_covered() -> None:
+    # A_perp spike with everything else zero: the retracted v1 bound (M excluded A_perp) failed here.
+    u = np.zeros(gate.U_SIZE)
+    u[gate._SL["A_perp"].start] = 12.0
+    assert np.linalg.norm(gate._jacobian(u), 2) <= gate.lipschitz_bound_formula(12.0)
+    u = np.zeros(gate.U_SIZE)
+    u[gate._SL["varphi"].start] = 12.0
+    assert np.linalg.norm(gate._jacobian(u), 2) <= gate.lipschitz_bound_formula(12.0)
+
+
+def test_bound_terms_are_block_sums() -> None:
+    terms = gate.lipschitz_bound_terms(1.0)
+    assert set(terms) == {"metric", "scalar", "connection", "A_perp_identity", "log_Omega_identity"}
+    assert np.isclose(sum(terms.values()), gate.lipschitz_bound_formula(1.0))
 
 
 def test_bound_formula_is_polynomial_in_M_only() -> None:
@@ -130,11 +153,17 @@ def test_cayley_matches_numeric_rotation() -> None:
 
 def test_theorem_and_boundaries(receipt: dict) -> None:
     theorem = receipt["scientific"]["theorem"]
-    assert "N-independent" in theorem["statement"]
+    assert "uniform in N by construction" in theorem["statement"]
     assert "not machine-checked" in theorem["sobolev_lift"]
-    assert "quadrature convergence" in theorem["not_claimed"]
+    assert "H^{s+1}" in theorem["statement"]
     assert receipt["scientific"]["pointwise_formulation_needs_collocation_inverse"] is False
-    assert len(receipt["scientific"]["kronecker_inverse_users_in_v5_6_4"]) == 5
+    audit = receipt["scientific"]["kronecker_inverse_users_in_v5_6_4"]
+    assert audit["expected_users_all_confirmed"] is True
+    assert audit["expected_not_confirmed"] == []
+    assert "gluing_map" in audit["direct_users"]
+    assert audit["decode_pointwise_boundary_in_decoder_uses_collocation_inverse"] is False
+    assert gate.kronecker_inverse_static_audit() == audit
+    assert "does_not_discharge" in theorem and "V_N" in theorem["does_not_discharge"]
     assert "C1_N1_beyond_the_bridge" in receipt["open_obligation"]
     boundary = receipt["independence_boundary"]
     assert boundary["imports_one_omega_modules"] is False
