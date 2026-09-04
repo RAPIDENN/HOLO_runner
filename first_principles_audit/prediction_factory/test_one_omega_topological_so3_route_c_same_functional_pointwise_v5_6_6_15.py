@@ -15,10 +15,10 @@ import derive_one_omega_topological_so3_route_c_same_functional_pointwise_v5_6_6
 
 EXPECTED_TRUE_KEYS = frozenset(
     {
-        "route_c_sector_list_is_literal_action_term_list_pass",
-        "route_c_bulk_and_ghy_densities_equal_pinned_literal_implementation_pointwise_pass",
-        "route_c_interface_densities_equal_pinned_literal_implementation_pointwise_pass",
-        "route_c_closed_form_coefficients_match_literal_formula_strings_pass",
+        "route_c_sector_partition_and_literal_total_term_names_static_audit_pass",
+        "route_c_bulk_and_ghy_densities_match_pinned_literal_implementation_sampled_within_tolerance_pass",
+        "route_c_interface_densities_match_pinned_literal_implementation_sampled_within_tolerance_pass",
+        "route_c_closed_form_coefficients_match_literal_formula_strings_sampled_pass",
     }
 )
 EXPECTED_FALSE_KEYS = frozenset(
@@ -151,6 +151,7 @@ def test_closed_form_transcription_and_bijection(receipt: dict) -> None:
     assert "NO extra factorial" in c["BF_normalisation_note"]
     bijection = receipt["scientific"]["sector_term_bijection"]
     assert bijection["pass"] is True
+    assert bijection["scope"].startswith("static audit only")
     assert bijection["route_c_action_components"] == ALL_COMPONENTS
     assert bijection["removed_terms_declared"].startswith("S_X=0")
 

@@ -656,6 +656,7 @@ def sector_term_bijection(exact_action: Mapping[str, str]) -> dict[str, Any]:
         "literal_total": total,
         "literal_term_to_sectors": covered,
         "sector_to_literal_term": LITERAL_TERM_OF_SECTOR,
+        "scope": "static audit only: checks that the six literal term names occur in exact_action.total, that the hard-coded partition covers the twenty sector names, and the count; it does NOT validate the sector_to_literal_term map or any formula (those are covered, for the closed-form pieces, by block C and, for the rest, by the pinned Route B transcription in blocks A and B)",
         "removed_terms_declared": exact_action["removed_terms"],
         "pass": bool(every_term_present and every_sector_assigned and len(names) == 20),
     }
@@ -710,10 +711,10 @@ def build_payload() -> dict[str, Any]:
         ],
     }
     decision = {
-        "route_c_sector_list_is_literal_action_term_list_pass": bool(bijection["pass"]),
-        "route_c_bulk_and_ghy_densities_equal_pinned_literal_implementation_pointwise_pass": bool(block_a["pass"]),
-        "route_c_interface_densities_equal_pinned_literal_implementation_pointwise_pass": bool(block_b["pass"]),
-        "route_c_closed_form_coefficients_match_literal_formula_strings_pass": bool(block_c["pass"]),
+        "route_c_sector_partition_and_literal_total_term_names_static_audit_pass": bool(bijection["pass"]),
+        "route_c_bulk_and_ghy_densities_match_pinned_literal_implementation_sampled_within_tolerance_pass": bool(block_a["pass"]),
+        "route_c_interface_densities_match_pinned_literal_implementation_sampled_within_tolerance_pass": bool(block_b["pass"]),
+        "route_c_closed_form_coefficients_match_literal_formula_strings_sampled_pass": bool(block_c["pass"]),
         "same_functional_symbolic_identity_pass": False,
         "uniform_N_to_infinity_bridge_pass": False,
         "uniform_stability_pass": False,

@@ -9,10 +9,10 @@
     "density_union_C_N_pass": false,
     "periodic_box_exhaustion_and_tail_control_pass": false,
     "restricted_family_exact_action_identity_pass": false,
-    "route_c_bulk_and_ghy_densities_equal_pinned_literal_implementation_pointwise_pass": true,
-    "route_c_closed_form_coefficients_match_literal_formula_strings_pass": true,
-    "route_c_interface_densities_equal_pinned_literal_implementation_pointwise_pass": true,
-    "route_c_sector_list_is_literal_action_term_list_pass": true,
+    "route_c_bulk_and_ghy_densities_match_pinned_literal_implementation_sampled_within_tolerance_pass": true,
+    "route_c_closed_form_coefficients_match_literal_formula_strings_sampled_pass": true,
+    "route_c_interface_densities_match_pinned_literal_implementation_sampled_within_tolerance_pass": true,
+    "route_c_sector_partition_and_literal_total_term_names_static_audit_pass": true,
     "same_functional_symbolic_identity_pass": false,
     "spectral_N_convergence_pass": false,
     "uniform_N_to_infinity_bridge_pass": false,
@@ -306,6 +306,7 @@
         "a_squared",
         "Robin"
       ],
+      "scope": "static audit only: checks that the six literal term names occur in exact_action.total, that the hard-coded partition covers the twenty sector names, and the count; it does NOT validate the sector_to_literal_term map or any formula (those are covered, for the closed-form pieces, by block C and, for the rest, by the pinned Route B transcription in blocks A and B)",
       "sector_to_literal_term": {
         "BF": "BF:<B wedge F[A]>, <X,Y>=-tr_3(XY)/2",
         "EH": "bulk_gauged:M5^3*R/2",
@@ -331,7 +332,7 @@
       "any bridge, C1/N1, B4/B5 or promotion key"
     ]
   },
-  "scientific_payload_sha256": "578599b6348924f1e094be559f588beca7871405df3e9227c9a7b16ec0ba4ca7",
+  "scientific_payload_sha256": "c21082e216b307b9cc56f8a7976870a44fa4d47bcdaf13a9d9c1e9b8df4d02f9",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "coefficient_parameters_sha256": "12bb13017541b0a08554f61e46775843870499bbfc80c15127ef9cdee8481fa3",
