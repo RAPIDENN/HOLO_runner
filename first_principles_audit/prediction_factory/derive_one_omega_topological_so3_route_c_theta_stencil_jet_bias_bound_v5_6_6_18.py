@@ -1,59 +1,44 @@
 #!/usr/bin/env python3
-"""Rigorous tangential (theta) stencil bias bound of the production Route C
-jets, at the jet level, on the pinned members (v5.6.6.18).
+"""Ideal-rational theta-stencil truncation formula and float-evaluated
+candidate jet envelopes for the pinned Route C members (v5.6.6.18).
 
-Scope granted by the v12/v18 exchange in ~/.agent-bridge: bound the bias of
-the nine-point theta stencils (h = 0.03, formal order 8) that the precision
-Route C (v5.6.6.5, long double) uses to build the (theta, rho) 2-jets of the
-pulled-back channels, for the three pinned C2 members, with every constant
-explicit, without touching the density, the free-parameter FD5 axis, or the
-quadrature.  Nothing here is a bound on B_FD itself.
+Scope granted by the v12/v18 exchange in ~/.agent-bridge: analyse the bias of
+the nine-point theta stencils (h = 0.03, formal order 8) used by the precision
+Route C (v5.6.6.5, long double), without touching the density, free-parameter
+FD5 axis or quadrature.  Nothing here is a bound on B_FD itself.
 
-Why a rigorous bound is possible at the jet level.  A machine-checked
-inventory of the jet pipeline (the eleven functions of v5.6.6.5 that build a
-jet) shows that, as a function of theta, every pulled-back channel is an
-ENTIRE function: real trigonometric polynomials of degree <= 1 (the free
-data), the SO(3) exponential by Rodrigues (entire in the rotation-vector
-components since sin(sqrt x)/sqrt x and (1-cos sqrt x)/x are entire in x),
-finite linear combinations of real shifts (the inner nine-point derivative
-of the rotations inside the trace decoder), matrix products, 3x3 minors of
-the pull-back Jacobian (polynomial in Y'), and radial profiles that do not
-depend on theta.  No inverse, root, logarithm, absolute value or branch
-enters the jets except the small-angle Taylor switch of Rodrigues, which is
-certified inactive on the covered points with a Lipschitz margin.  Inverses,
-roots and exponentials appear only in the density, which is evaluated on
-the jets and never differentiated numerically.
+Analytic model.  A static, non-transitive lexical audit of thirteen named
+functions is consistent with a manually stated entire-function pipeline:
+degree-one trigonometric free data, Rodrigues rotations, finite real shifts,
+products, minors and radial polynomials.  It is not a closed call-graph proof.
+The Rodrigues switch is screened on a dense float grid with a float Lipschitz
+margin; neither that screen nor the strip arithmetic uses directed rounding.
 
-The bound.  For an entire F and the nine-point first-derivative stencil,
-D_h F - F' = sum_j w_j R_j(theta)/h with R_j the Taylor remainder of order 9
-(the stencil reproduces degrees <= 8 exactly; verified with exact rationals),
-so |D_h F - F'| <= h^8 C1 sup|F^(9)| with C1 = sum_j |w_j| |j|^9/9!; the
-second-derivative stencil has vanishing ninth moment by symmetry, so
-|D_h^2 F - F''| <= h^8 C2 sup|F^(10)| with C2 = sum_j |w_j| j^10/10!; the
-mixed stencil is the first-derivative stencil applied to the exact radial
-derivative (the radial leg is exact on polynomials of degree <= 8, which is
-the whole radial content for K <= 3).  The suprema come from Cauchy's
-estimate on a strip |Im theta| <= sigma: sup|F^(n)| <= n! M_sigma/sigma^n,
-with M_sigma an explicit strip bound of |F| obtained by propagating
-coefficient-magnitude bounds (|cos(theta+iy)|, |sin(theta+iy)| <= cosh y,
-||exp(hat r)|| <= exp(sqrt2 ||r||)) through the pipeline with nonnegative
-matrix arithmetic.  sigma (and the auxiliary radius delta used to bound the
-inner derivative on the strip) are scanned and the best valid bound is kept.
+Exact formula.  For an entire F and the ideal rational nine-point
+first-derivative stencil, D_h F - F' is bounded by h^8 C1 sup|F^(9)|.  The
+second-derivative analogue is h^8 C2 sup|F^(10)| because its ninth moment
+vanishes.  Taylor remainder and Cauchy's estimate give the analytic formula;
+ordinary float propagation through the stated pipeline produces the recorded
+candidate envelopes.  The two finite-difference layers are composed, with
+the inner R0 derivative error propagated into the outer jet.
 
-The two FD layers are composed, not added as if independent: the outer
-stencil samples the function F that CONTAINS the inner nine-point derivative
-of R0, so the total jet error is (D_h F - F') + (F' - F_true'), where the
-second term is the inner error e = D_h R0 - R0' propagated through
-R0^T e, with |e^(k)| bounded through the Taylor structure (D_h commutes
-with d/dtheta) and with the exact algebraic cancellation of the Q-frame
-terms (R = S R0) used only where it is an identity.  The ledger is complete:
-79 channel components x 6 jet entries x every production radial node x both
-collars x three members.
+The generator evaluates 79 channel components x 6 jet entries x 11 radial
+nodes x 2 collars x 3 members.  The receipt serializes maxima per node and
+one complete component vector per member/side, not the full 31,284-entry
+component ledger.  Radial exactness means exactness for the evaluator's
+polynomial continuation, not for the separately declared zero extension.
 
-Not established: the bias of the density or of the action JVP (needs a
-certified Lipschitz constant of the density on the jet range), the free FD5
-axis, any Q -> infinity statement, B_FD, the bridge, C1/N1, B4/B5.  The
-long-double rounding of the pipeline is declared, not certified.
+Crucial boundary: the rational moment identities and Taylor/Cauchy formula
+are exact mathematics, but the listed candidate envelopes do not enclose
+rounding in the production long-double weights, stencil sums, transcendental
+evaluations or upstream pipeline.  A pinned N=3, rho=0, log(Omega) qrr canary
+has exact polynomial curvature zero and ideal candidate zero, yet production
+returns a nonzero rounding residue.  This is not a production total-error
+bound.
+
+Also not established: density or action-JVP bias, the free FD5 axis, the
+declared radial zero-extension semantics, Q -> infinity, B_FD, the bridge,
+C1/N1 or B4/B5.
 """
 
 from __future__ import annotations
@@ -75,7 +60,7 @@ REPO = HERE.parents[1]
 ARTIFACTS = HERE / "artifacts"
 OUTPUT = ARTIFACTS / "one_omega_topological_so3_route_c_theta_stencil_jet_bias_bound_v5_6_6_18.json"
 TEST = HERE / "test_one_omega_topological_so3_route_c_theta_stencil_jet_bias_bound_v5_6_6_18.py"
-SCHEMA = "holo.one-omega-topological-so3-route-c-theta-stencil-jet-bias-bound-v5-6-6-18.v1"
+SCHEMA = "holo.one-omega-topological-so3-route-c-theta-stencil-jet-bias-bound-v5-6-6-18.v2"
 FROZEN_COMMIT = "ea014fd"
 
 LITERAL_V5_2_ACTION_SHA256 = "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a"
@@ -91,7 +76,7 @@ V56612_SHA256 = "2c7c170b1e23fb32cb2c53c9d232069e3a8100c2950ebe9206813c6a5809ab2
 SEED = 56618
 SIGMA_GRID = tuple(float(x) for x in np.linspace(0.3, 2.5, 23))
 DELTA_GRID = tuple(float(x) for x in np.linspace(0.2, 1.5, 14))
-BOUND_INFLATION = 1.0 + 1.0e-6  # guards the float evaluation of the bound arithmetic (declared, not certified)
+BOUND_INFLATION = 1.0 + 1.0e-6  # heuristic float cushion; not directed-rounding certification
 BRANCH_THRESHOLD = 1.0e-12  # the Rodrigues small-angle switch in v5.6.6.5
 BRANCH_CERTIFICATION_GRID = 20001
 BRANCH_MINIMUM_MARGIN = 1.0e-3
@@ -161,6 +146,8 @@ def stencil_certificate(precision: Any) -> dict[str, Any]:
     expected_second = {-4: Fraction(-1, 560), -3: Fraction(8, 315), -2: Fraction(-1, 5), -1: Fraction(8, 5), 0: Fraction(-205, 72), 1: Fraction(8, 5), 2: Fraction(-1, 5), 3: Fraction(8, 315), 4: Fraction(-1, 560)}
     if first != expected_first or second != expected_second:
         raise ThetaStencilGateError("stencil weights differ from the declared rationals")
+    actual_first_m0 = sum((precision.LD(v) for v in precision.FIRST_WEIGHTS.values()), precision.LD(0))
+    actual_second_m0 = sum((precision.LD(v) for v in precision.SECOND_WEIGHTS.values()), precision.LD(0))
     moments_first = [sum(w * Fraction(j) ** m for j, w in first.items()) / math.factorial(m) for m in range(11)]
     moments_second = [sum(w * Fraction(j) ** m for j, w in second.items()) / math.factorial(m) for m in range(11)]
     exact_first = moments_first[1] == 1 and all(moments_first[m] == 0 for m in range(11) if m not in (1, 9, 10)) and moments_first[10] == 0
@@ -175,6 +162,14 @@ def stencil_certificate(precision: Any) -> dict[str, Any]:
         "first_exact_through_degree_8_and_tenth_moment_zero": bool(exact_first),
         "second_exact_through_degree_8_and_ninth_moment_zero": bool(exact_second and moments_second[9] == 0),
         "remainder_constants": {"C1_first_order9": str(C1), "C2_second_order10": str(C2), "C1_float": float(C1), "C2_float": float(C2), "sum_abs_first_weights": float(sum(abs(w) for w in first.values()))},
+        "production_longdouble_weight_zero_moment_residuals": {
+            "first_m0": np.format_float_scientific(actual_first_m0, unique=False, precision=21),
+            "second_m0": np.format_float_scientific(actual_second_m0, unique=False, precision=21),
+            "second_m0_over_h_squared": np.format_float_scientific(
+                actual_second_m0 / precision.STABLE_RHO_STEP**2, unique=False, precision=21
+            ),
+            "note": "nonzero production-weight residuals are outside the ideal-rational moment certificate",
+        },
         "remainder_form": (
             "first: |D_h F - F'| <= h^8 C1 sup|F^(9)|; second: |D_h^2 F - F''| <= h^8 C2 sup|F^(10)| (ninth moment "
             "vanishes by symmetry); mixed: first-derivative bound applied to the exact radial derivative"
@@ -187,7 +182,7 @@ def stencil_certificate(precision: Any) -> dict[str, Any]:
 
 
 # --------------------------------------------------------------------------
-# machine-checked inventory of the jet pipeline
+# static lexical inventory of selected jet-pipeline functions
 # --------------------------------------------------------------------------
 def pipeline_inventory(precision: Any) -> dict[str, Any]:
     rows: dict[str, Any] = {}
@@ -203,15 +198,18 @@ def pipeline_inventory(precision: Any) -> dict[str, Any]:
     rodrigues = rows["_so3_exp_ld"]
     rodrigues_ok = rodrigues["small_angle_branch"] and set(rodrigues["transcendental_calls"]) == {"np.sin", "np.cos", "np.sqrt"}
     others_ok = all(not row["transcendental_calls"] for name, row in rows.items() if name not in ("_so3_exp_ld", "_basis_values_ld", "_series_ld"))
-    basis_ok = set(rows["_basis_values_ld"]["transcendental_calls"]) <= {"np.sin", "np.cos", "math.sin", "math.cos"} or True
+    basis_ok = set(rows["_basis_values_ld"]["transcendental_calls"]) <= {"np.sin", "np.cos"}
     return {
+        "scope": "nontransitive_static_lexical_audit",
+        "function_count": len(JET_FUNCTIONS),
         "functions": rows,
-        "entire_in_theta_argument": (
+        "manual_entire_in_theta_argument": (
             "trigonometric series of degree <= 1 (entire); Rodrigues exp(hat v) = I + sin(a)/a hat(v) + (1-cos a)/a^2 "
             "hat(v)^2 with a^2 = v.v is entire in the components of v because sin(sqrt x)/sqrt x and (1 - cos sqrt x)/x "
             "are entire in x; the inner derivative is a finite combination of real shifts; products, minors and the "
-            "radial profiles are polynomial; hence every pulled-back channel is entire in theta"
+            "radial profiles are polynomial; this mathematical description is not established by transitive call-graph analysis"
         ),
+        "basis_transcendentals_allowlisted": bool(basis_ok),
         "pass": bool(all_clean and rodrigues_ok and others_ok and basis_ok),
     }
 
@@ -299,7 +297,7 @@ def jet_bound_ledger(
     C2: float,
     sum_abs_first: float,
 ) -> dict[str, np.ndarray]:
-    """Best (over sigma, delta) rigorous bound of |jet_code - jet_true| per component and jet entry."""
+    """Best float-evaluated ideal-model candidate envelope over sigma and delta."""
     pairs5 = [tuple(int(x) for x in pair) for pair in route_c.SYMMETRIC5]
     pairs4 = [tuple(int(x) for x in pair) for pair in route_c.SYMMETRIC4]
     sign = bounds["sign"]
@@ -429,9 +427,9 @@ def jet_bound_ledger(
 
 
 # --------------------------------------------------------------------------
-# Rodrigues branch certification
+# Rodrigues branch float screen
 # --------------------------------------------------------------------------
-def certify_rodrigues_branch(route_c: Any, free: np.ndarray, contract: Mapping[str, Any]) -> dict[str, Any]:
+def screen_rodrigues_branch(route_c: Any, free: np.ndarray, contract: Mapping[str, Any]) -> dict[str, Any]:
     rows: dict[str, Any] = {}
     all_ok = True
     theta = np.linspace(0.0, 2.0 * math.pi, BRANCH_CERTIFICATION_GRID)
@@ -441,11 +439,16 @@ def certify_rodrigues_branch(route_c: Any, free: np.ndarray, contract: Mapping[s
         _b0, b1 = _series_bounds(coefficients)
         lipschitz = float(np.linalg.norm(b1))  # |d/dtheta ||s(theta)||| <= ||s'|| <= ||b1||
         norms = np.asarray([float(np.linalg.norm(route_c._series(coefficients, float(t)))) for t in theta])
-        certified_min = float(norms.min()) - lipschitz * spacing / 2.0
-        ok = certified_min >= BRANCH_MINIMUM_MARGIN
+        screened_min = float(norms.min()) - lipschitz * spacing / 2.0
+        ok = screened_min >= BRANCH_MINIMUM_MARGIN
         all_ok = all_ok and ok
-        rows[name] = {"grid_min": float(norms.min()), "lipschitz": lipschitz, "certified_min_over_theta": certified_min, "branch_threshold": BRANCH_THRESHOLD, "pass": bool(ok)}
-    return {"rows": rows, "pass": bool(all_ok), "note": "every stencil sample is a real shift of theta, so the certified minimum over the whole circle covers all sampled points"}
+        rows[name] = {"grid_min": float(norms.min()), "float_lipschitz": lipschitz, "grid_lipschitz_lower_screen": screened_min, "branch_threshold": BRANCH_THRESHOLD, "pass": bool(ok)}
+    return {
+        "rows": rows,
+        "pass": bool(all_ok),
+        "scope": "dense_float_grid_plus_float_lipschitz_screen_without_directed_rounding",
+        "note": "the whole-circle float screen covers real stencil shifts but is not an interval certificate",
+    }
 
 
 # --------------------------------------------------------------------------
@@ -478,11 +481,72 @@ def contrast(precision: Any, route_c: Any, bundle: Mapping[str, Any], member: Ma
                     worst_ratio = max(worst_ratio, ratio)
                     ok = bool(np.all(difference <= bound))
                     all_ok = all_ok and ok
-                    entry_rows[entry] = {"max_abs_difference": float(difference.max()), "max_difference_over_bound": ratio, "pass": ok}
+                    entry_rows[entry] = {"max_abs_difference": float(difference.max()), "max_difference_over_candidate_plus_allowance": ratio, "pass": ok}
                 rows.append({"side": side, "theta": theta, "rho": rho, "entries": entry_rows})
     finally:
         precision.STABLE_THETA_STEP = original
-    return {"points": rows, "worst_difference_over_bound": worst_ratio, "fine_theta_step": CONTRAST_FINE_THETA_STEP, "pass": bool(all_ok)}
+    return {"points": rows, "worst_difference_over_candidate_plus_allowance": worst_ratio, "fine_theta_step": CONTRAST_FINE_THETA_STEP, "pass": bool(all_ok)}
+
+
+# --------------------------------------------------------------------------
+def production_rounding_gap_canary(precision: Any, route_c: Any, bundle: Mapping[str, Any]) -> dict[str, Any]:
+    """Expose a production residue excluded by the ideal-rational candidate.
+
+    Component 15 is log(Omega), which the pullback leaves unchanged.  At
+    rho=0, h0'', h1'' and every K<=3 bump'' vanish, so its exact qrr under the
+    polynomial continuation is zero.  The ideal ledger therefore assigns
+    zero, while the long-double production stencil returns a nonzero residue.
+    """
+    member = next(row for row in bundle["primary_members"] if int(row["N"]) == 3)
+    N, K = int(member["N"]), int(member["K"])
+    contract = bundle["pointwise_decoder_contract_by_N"][str(N)]
+    free = route_c._decode_f64(member["authoritative_free_central_f64le"])
+    profiles = _radial_profiles(0.0, K)
+    radial_curvature_exact_zero = bool(
+        profiles["h0"][2] == 0.0
+        and profiles["h1"][2] == 0.0
+        and np.all(profiles["bumps"][2] == 0.0)
+    )
+    cert = stencil_certificate(precision)
+    rows: dict[str, Any] = {}
+    all_expose_gap = radial_curvature_exact_zero
+    for side in SIDES:
+        candidate = jet_bound_ledger(
+            route_c,
+            member_side_bounds(route_c, free, contract, side),
+            0.0,
+            K,
+            float(precision.STABLE_THETA_STEP),
+            cert["_C1"],
+            cert["_C2"],
+            cert["_sum_abs_first"],
+        )["bounds"]["qrr"][15]
+        produced = precision.LD(
+            precision.stable_bulk_jet(free, contract, side, theta=0.731, rho=0.0)["qrr"][15]
+        )
+        exposes_gap = bool(candidate == 0.0 and np.isfinite(produced) and abs(produced) > candidate)
+        all_expose_gap = all_expose_gap and exposes_gap
+        rows[side] = {
+            "ideal_candidate_qrr_bound": float(candidate),
+            "production_qrr": np.format_float_scientific(produced, unique=False, precision=21),
+            "absolute_production_qrr": float(abs(produced)),
+            "residue_exceeds_ideal_candidate": exposes_gap,
+        }
+    return {
+        "member_id": member["member_id"],
+        "N": N,
+        "K": K,
+        "theta": 0.731,
+        "rho": 0.0,
+        "component": 15,
+        "channel": "log_Omega",
+        "entry": "qrr",
+        "exact_polynomial_continuation_qrr": 0.0,
+        "radial_profile_second_derivatives_zero": radial_curvature_exact_zero,
+        "sides": rows,
+        "pass": bool(all_expose_gap),
+        "meaning": "PASS detects a missing production-rounding term; it does not certify the production bound",
+    }
 
 
 # --------------------------------------------------------------------------
@@ -508,7 +572,7 @@ def build_payload() -> dict[str, Any]:
         N, K = int(member["N"]), int(member["K"])
         contract = bundle["pointwise_decoder_contract_by_N"][str(N)]
         free = route_c._decode_f64(member["authoritative_free_central_f64le"])
-        branch = certify_rodrigues_branch(route_c, free, contract)
+        branch = screen_rodrigues_branch(route_c, free, contract)
         all_branch = all_branch and branch["pass"]
         ledger: dict[str, list[dict[str, np.ndarray]]] = {}
         summary: dict[str, Any] = {}
@@ -524,22 +588,23 @@ def build_payload() -> dict[str, Any]:
             summary[side] = {
                 "per_node_max_over_components": per_node,
                 "max_over_nodes": {entry: float(max(row[entry] for row in per_node)) for entry in JET_ENTRIES},
-                "worst_node_full_ledger": {"rho": rho_nodes[worst_node], **{entry: [float(x) for x in ledger[side][worst_node][entry]] for entry in JET_ENTRIES}},
+                "worst_node_component_candidate_envelope": {"rho": rho_nodes[worst_node], **{entry: [float(x) for x in ledger[side][worst_node][entry]] for entry in JET_ENTRIES}},
             }
             for entry in JET_ENTRIES:
                 overall_max[entry] = max(overall_max[entry], summary[side]["max_over_nodes"][entry])
         member_contrast = contrast(precision, route_c, bundle, member, free, contract, {"rho_nodes": rho_nodes, "ledger": ledger}, rng)
         all_contrast = all_contrast and member_contrast["pass"]
-        members[member["member_id"]] = {"N": N, "K": K, "rodrigues_branch": branch, "jet_bias_bounds": summary, "contrast": member_contrast}
+        members[member["member_id"]] = {"N": N, "K": K, "rodrigues_branch": branch, "jet_truncation_candidate_envelopes": summary, "contrast": member_contrast}
+    rounding_canary = production_rounding_gap_canary(precision, route_c, bundle)
     scientific = {
         "statement": (
-            "For the three pinned members, on both collars and at every production radial node (rho = 0 and the ten "
-            "Gauss-Legendre nodes), every component of the (theta, rho) 2-jet produced by the precision Route C nine-point "
-            "theta stencils at h = 0.03 differs from the exact jet of the same pulled-back channel by at most the listed "
-            "bound, obtained with explicit constants from the exact Taylor-remainder form of the stencils and Cauchy's "
-            "estimate on a strip, with the inner nine-point derivative of the relative rotations composed explicitly with "
-            "the outer stencil. The radial entries carry no stencil error (polynomial degree <= 8 against a stencil exact "
-            "through degree 8) and only the propagated inner error of the A channels."
+            "The ideal rational nine-point theta stencils obey the recorded exact moment identities and the stated "
+            "Taylor/Cauchy truncation formula. For the three pinned members, an ordinary-float evaluation of that formula "
+            "produces candidate envelopes at every production radial node, with the inner relative-rotation derivative "
+            "composed with the outer stencil. These numbers are not certified upper bounds for production: float evaluation "
+            "is not outward-rounded, the named-function inventory is not a transitive call-graph proof, and long-double "
+            "pipeline rounding is not enclosed. Radial exactness is only with respect to the evaluator's polynomial "
+            "continuation. The N=3 rho=0 log(Omega) qrr canary records a nonzero production residue against candidate zero."
         ),
         "production_theta_step": h,
         "stencil_certificate": certificate,
@@ -552,25 +617,40 @@ def build_payload() -> dict[str, Any]:
             "products_minors": "entrywise nonnegative bound matrices; 3x3 minors bounded by permanents",
             "cauchy": "sup_real |F^(n)| <= n! M_sigma / sigma^n for entire F with M_sigma = sup_{|Im z|<=sigma} |F|",
             "composition": "total = (D_h F - F') + (F' - F_true'), the second term from e = D_h R0 - R0' with |e^(k)| <= h^8 C1 (9+k)! M_R/sigma^(9+k) and ||R0^(k)|| <= k! M_R/sigma^k on the real line",
-            "search": "sigma in SIGMA_GRID and delta in DELTA_GRID; every pair yields a valid bound; the smallest is kept per component",
+            "search": "sigma in SIGMA_GRID and delta in DELTA_GRID; the smallest float-evaluated candidate is kept per component",
             "inflation": BOUND_INFLATION,
         },
-        "overall_max_bound": overall_max,
+        "overall_max_candidate_envelope": overall_max,
+        "candidate_envelope_accounting": {
+            "component_entry_node_side_member_values_computed": len(bundle["primary_members"]) * len(SIDES) * len(rho_nodes) * len(JET_ENTRIES) * 79,
+            "full_component_ledger_serialized": False,
+            "serialized_scope": "maxima per node plus one complete component vector per member and side",
+        },
+        "production_rounding_gap_canary": rounding_canary,
         "members": members,
         "what_is_not_established": [
             "any bound on the density or the action JVP (a certified Lipschitz constant of the density on the jet range would be needed)",
             "the free-parameter FD5 axis (Codex lane)",
-            "long-double rounding of the pipeline (declared, not certified; the contrast allowance absorbs it empirically only)",
+            "a directed-rounding enclosure of the float-evaluated candidate envelopes",
+            "a transitive call-graph proof of the manually stated entire-function pipeline",
+            "long-double weight, stencil-sum, transcendental and upstream-pipeline rounding; the sampled contrast allowance is empirical only",
+            "a full serialized component-by-component ledger at every node",
             "anything at Q -> infinity, B_FD as a whole, the bridge, C1/N1, B4/B5",
-            "the semantic gap that the pipeline continues the radial polynomials outside [0,1] instead of the declared zero extension (irrelevant for the theta stencils, recorded for the ledger)",
+            "equivalence between the evaluator's radial polynomial continuation outside [0,1] and the separately declared zero extension; this affects boundary radial and mixed entries",
         ],
     }
     decision = {
-        "route_c_theta_stencil_exact_moment_certificate_pass": bool(certificate["pass"]),
-        "route_c_jet_pipeline_entire_inventory_pass": bool(inventory["pass"]),
-        "rodrigues_small_angle_branch_inactive_certified_pass": bool(all_branch),
-        "route_c_theta_stencil_jet_bias_cauchy_bound_at_pinned_members_pass": bool(certificate["pass"] and inventory["pass"] and all_branch),
-        "route_c_theta_stencil_jet_bias_contrast_within_bound_sampled_pass": bool(all_contrast),
+        "route_c_ideal_rational_theta_stencil_moment_identities_pass": bool(certificate["pass"]),
+        "route_c_jet_pipeline_entire_static_lexical_audit_pass": bool(inventory["pass"]),
+        "rodrigues_small_angle_branch_inactive_grid_lipschitz_float_screen_pass": bool(all_branch),
+        "route_c_ideal_rational_theta_stencil_taylor_cauchy_bound_formula_pass": bool(certificate["pass"] and inventory["pass"] and all_branch),
+        "route_c_production_coarse_fine_jet_difference_within_candidate_envelope_plus_allowance_sampled_pass": bool(all_contrast),
+        "route_c_production_rounding_gap_canary_observed_pass": bool(rounding_canary["pass"]),
+        "route_c_ideal_rational_theta_stencil_numeric_enclosure_certified_pass": False,
+        "route_c_jet_pipeline_transitive_entire_callgraph_certificate_pass": False,
+        "route_c_full_component_node_candidate_envelope_ledger_serialized_pass": False,
+        "route_c_radial_entries_match_declared_zero_extension_semantics_pass": False,
+        "route_c_production_jet_total_error_bound_pass": False,
         "route_c_theta_stencil_density_bias_bound_pass": False,
         "B_FD_rigorous_bound_pass": False,
         "uniform_N_to_infinity_bridge_pass": False,
@@ -587,7 +667,7 @@ def build_payload() -> dict[str, Any]:
     }
     payload = {
         "schema": SCHEMA,
-        "classification": "theory_only;rigorous_jet_level_stencil_bound;cauchy_strip;pinned_members_N123;production_theta_step_0_03;fail_closed_bridge",
+        "classification": "theory_only;ideal_rational_stencil_truncation_formula;float_evaluated_candidate_envelopes;pinned_members_N123;production_total_error_uncertified;fail_closed_bridge",
         "source_pins": {
             "frozen_checkpoint_commit": FROZEN_COMMIT,
             "literal_v5_2_action_sha256": LITERAL_V5_2_ACTION_SHA256,
@@ -613,10 +693,11 @@ def build_payload() -> dict[str, Any]:
         "scientific": scientific,
         "decision": decision,
         "evidence_boundary": (
-            "Rigorous, explicit-constant bound of the theta-stencil error of the production jets at the jet level, on the "
-            "pinned members and production nodes, conditional only on the machine-checked entire-function inventory and "
-            "the certified inactivity of the Rodrigues branch; the numeric contrast is sampled. No statement about the "
-            "density, the free axis, B_FD, Q -> infinity or any bridge/C1/N1/B4/B5 key."
+            "Exact rational stencil moments and an analytic Taylor/Cauchy formula, followed by ordinary-float candidate "
+            "envelopes on pinned members and a sampled coarse/fine contrast. Neither candidate-envelope arithmetic nor "
+            "production long-double rounding is enclosed; the static lexical audit is non-transitive and the branch screen "
+            "uses float arithmetic. The production total-error gate is therefore FALSE, as witnessed by the serialized "
+            "rounding-gap canary. No statement about density, free FD5, B_FD, Q -> infinity or bridge/C1/N1/B4/B5."
         ),
         "independence_boundary": {
             "imports": {"precision_route_c": PRECISION_PATH.name, "route_c": ROUTE_C_PATH.name},
@@ -625,7 +706,9 @@ def build_payload() -> dict[str, Any]:
             "stencil_step_modified_only_inside_contrast_and_restored": True,
         },
         "open_obligation": [
-            "certified Lipschitz constant of the density on the jet range to lift the jet bound to the density and the JVP",
+            "directed-rounding enclosure of rational-weight representation, stencil sums, transcendental evaluation and upstream pipeline",
+            "transitive call-graph closure for the entire-function pipeline or an independent symbolic specification",
+            "a production jet-error enclosure, then a certified density Lipschitz constant, before any lift to density or JVP",
             "free FD5 axis (Codex, v5.6.6.12 follow-up)",
             "B_FD as a whole, N -> infinity, independent audit, v5.6.1 quarantine",
         ],
@@ -640,9 +723,12 @@ def main() -> None:
     OUTPUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in payload["decision"].items() if v}, indent=2))
     s = payload["scientific"]
-    print("overall max bound:", {k: f"{v:.3e}" for k, v in s["overall_max_bound"].items()})
+    print("overall max candidate envelope:", {k: f"{v:.3e}" for k, v in s["overall_max_candidate_envelope"].items()})
     for mid, row in s["members"].items():
-        print(f"{mid}: branch {row['rodrigues_branch']['pass']}, contrast worst ratio {row['contrast']['worst_difference_over_bound']:.3e}, pass {row['contrast']['pass']}")
+        print(
+            f"{mid}: branch screen {row['rodrigues_branch']['pass']}, contrast worst ratio "
+            f"{row['contrast']['worst_difference_over_candidate_plus_allowance']:.3e}, pass {row['contrast']['pass']}"
+        )
     print(f"wrote {OUTPUT.name}")
 
 

@@ -1,5 +1,5 @@
 {
-  "classification": "theory_only;rigorous_jet_level_stencil_bound;cauchy_strip;pinned_members_N123;production_theta_step_0_03;fail_closed_bridge",
+  "classification": "theory_only;ideal_rational_stencil_truncation_formula;float_evaluated_candidate_envelopes;pinned_members_N123;production_total_error_uncertified;fail_closed_bridge",
   "decision": {
     "B4_pass": false,
     "B5_pass": false,
@@ -10,17 +10,23 @@
     "density_union_C_N_pass": false,
     "periodic_box_exhaustion_and_tail_control_pass": false,
     "restricted_family_exact_action_identity_pass": false,
-    "rodrigues_small_angle_branch_inactive_certified_pass": true,
-    "route_c_jet_pipeline_entire_inventory_pass": true,
+    "rodrigues_small_angle_branch_inactive_grid_lipschitz_float_screen_pass": true,
+    "route_c_full_component_node_candidate_envelope_ledger_serialized_pass": false,
+    "route_c_ideal_rational_theta_stencil_moment_identities_pass": true,
+    "route_c_ideal_rational_theta_stencil_numeric_enclosure_certified_pass": false,
+    "route_c_ideal_rational_theta_stencil_taylor_cauchy_bound_formula_pass": true,
+    "route_c_jet_pipeline_entire_static_lexical_audit_pass": true,
+    "route_c_jet_pipeline_transitive_entire_callgraph_certificate_pass": false,
+    "route_c_production_coarse_fine_jet_difference_within_candidate_envelope_plus_allowance_sampled_pass": true,
+    "route_c_production_jet_total_error_bound_pass": false,
+    "route_c_production_rounding_gap_canary_observed_pass": true,
+    "route_c_radial_entries_match_declared_zero_extension_semantics_pass": false,
     "route_c_theta_stencil_density_bias_bound_pass": false,
-    "route_c_theta_stencil_exact_moment_certificate_pass": true,
-    "route_c_theta_stencil_jet_bias_cauchy_bound_at_pinned_members_pass": true,
-    "route_c_theta_stencil_jet_bias_contrast_within_bound_sampled_pass": true,
     "spectral_N_convergence_pass": false,
     "uniform_N_to_infinity_bridge_pass": false,
     "uniform_stability_pass": false
   },
-  "evidence_boundary": "Rigorous, explicit-constant bound of the theta-stencil error of the production jets at the jet level, on the pinned members and production nodes, conditional only on the machine-checked entire-function inventory and the certified inactivity of the Rodrigues branch; the numeric contrast is sampled. No statement about the density, the free axis, B_FD, Q -> infinity or any bridge/C1/N1/B4/B5 key.",
+  "evidence_boundary": "Exact rational stencil moments and an analytic Taylor/Cauchy formula, followed by ordinary-float candidate envelopes on pinned members and a sampled coarse/fine contrast. Neither candidate-envelope arithmetic nor production long-double rounding is enclosed; the static lexical audit is non-transitive and the branch screen uses float arithmetic. The production total-error gate is therefore FALSE, as witnessed by the serialized rounding-gap canary. No statement about density, free FD5, B_FD, Q -> infinity or bridge/C1/N1/B4/B5.",
   "fixed_before_run": {
     "bound_inflation": 1.000001,
     "branch_certification_grid": 20001,
@@ -112,7 +118,9 @@
     "stencil_step_modified_only_inside_contrast_and_restored": true
   },
   "open_obligation": [
-    "certified Lipschitz constant of the density on the jet range to lift the jet bound to the density and the JVP",
+    "directed-rounding enclosure of rational-weight representation, stencil sums, transcendental evaluation and upstream pipeline",
+    "transitive call-graph closure for the entire-function pipeline or an independent symbolic specification",
+    "a production jet-error enclosure, then a certified density Lipschitz constant, before any lift to density or JVP",
     "free FD5 axis (Codex, v5.6.6.12 follow-up)",
     "B_FD as a whole, N -> infinity, independent audit, v5.6.1 quarantine"
   ],
@@ -123,8 +131,13 @@
     "python": "3.13.5",
     "test": "test_one_omega_topological_so3_route_c_theta_stencil_jet_bias_bound_v5_6_6_18.py"
   },
-  "schema": "holo.one-omega-topological-so3-route-c-theta-stencil-jet-bias-bound-v5-6-6-18.v1",
+  "schema": "holo.one-omega-topological-so3-route-c-theta-stencil-jet-bias-bound-v5-6-6-18.v2",
   "scientific": {
+    "candidate_envelope_accounting": {
+      "component_entry_node_side_member_values_computed": 31284,
+      "full_component_ledger_serialized": false,
+      "serialized_scope": "maxima per node plus one complete component vector per member and side"
+    },
     "members": {
       "N1.K1.seed20260902": {
         "K": 1,
@@ -137,32 +150,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 1.734723475976807e-18,
-                  "max_difference_over_bound": 2.0516700452005616e-06,
+                  "max_difference_over_candidate_plus_allowance": 2.0516700452005616e-06,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 5.404246668679781e-18,
-                  "max_difference_over_bound": 5.404246668679781e-05,
+                  "max_difference_over_candidate_plus_allowance": 5.404246668679781e-05,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 2.0201735792015063e-17,
-                  "max_difference_over_bound": 7.31564245475806e-06,
+                  "max_difference_over_candidate_plus_allowance": 7.31564245475806e-06,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 3.4270092778071937e-16,
-                  "max_difference_over_bound": 0.0027199056439690954,
+                  "max_difference_over_candidate_plus_allowance": 0.0027199056439690954,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 4.432735171218567e-14,
-                  "max_difference_over_bound": 0.03970751520468669,
+                  "max_difference_over_candidate_plus_allowance": 0.03970751520468669,
                   "pass": true
                 }
               },
@@ -174,32 +187,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 1.734723475976807e-18,
-                  "max_difference_over_bound": 2.051709438149902e-06,
+                  "max_difference_over_candidate_plus_allowance": 2.051709438149902e-06,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 8.673617379884035e-19,
-                  "max_difference_over_bound": 8.363473754888819e-06,
+                  "max_difference_over_candidate_plus_allowance": 8.363473754888819e-06,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 1.1102230246251565e-16,
-                  "max_difference_over_bound": 0.00016797355782270862,
+                  "max_difference_over_candidate_plus_allowance": 0.00016797355782270862,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 1.0291450309139749e-17,
-                  "max_difference_over_bound": 7.70872162329472e-06,
+                  "max_difference_over_candidate_plus_allowance": 7.70872162329472e-06,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 3.4270092778071937e-16,
-                  "max_difference_over_bound": 0.0026610308474264064,
+                  "max_difference_over_candidate_plus_allowance": 0.0026610308474264064,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 3.603489915856607e-14,
-                  "max_difference_over_bound": 0.03970751520468669,
+                  "max_difference_over_candidate_plus_allowance": 0.03970751520468669,
                   "pass": true
                 }
               },
@@ -211,32 +224,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 9.147955830346444e-18,
-                  "max_difference_over_bound": 7.100146466600129e-06,
+                  "max_difference_over_candidate_plus_allowance": 7.100146466600129e-06,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 3.586986008274949e-16,
-                  "max_difference_over_bound": 0.0003781413439430395,
+                  "max_difference_over_candidate_plus_allowance": 0.0003781413439430395,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 3.922609578734665e-14,
-                  "max_difference_over_bound": 0.03970751520468669,
+                  "max_difference_over_candidate_plus_allowance": 0.03970751520468669,
                   "pass": true
                 }
               },
@@ -248,32 +261,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 1.3877787807814457e-17,
-                  "max_difference_over_bound": 1.5145540995244177e-05,
+                  "max_difference_over_candidate_plus_allowance": 1.5145540995244177e-05,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 1.734723475976807e-18,
-                  "max_difference_over_bound": 2.4288374122479686e-06,
+                  "max_difference_over_candidate_plus_allowance": 2.4288374122479686e-06,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 1.7025362239811437e-17,
-                  "max_difference_over_bound": 5.840893775489062e-06,
+                  "max_difference_over_candidate_plus_allowance": 5.840893775489062e-06,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 3.7982479367209925e-16,
-                  "max_difference_over_bound": 0.0029687607649683556,
+                  "max_difference_over_candidate_plus_allowance": 0.0029687607649683556,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 4.502615389367047e-14,
-                  "max_difference_over_bound": 0.03970751520468669,
+                  "max_difference_over_candidate_plus_allowance": 0.03970751520468669,
                   "pass": true
                 }
               },
@@ -285,32 +298,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 3.469446951953614e-18,
-                  "max_difference_over_bound": 8.763526586982533e-06,
+                  "max_difference_over_candidate_plus_allowance": 8.763526586982533e-06,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 1.0926725019580474e-17,
-                  "max_difference_over_bound": 7.215990715070564e-06,
+                  "max_difference_over_candidate_plus_allowance": 7.215990715070564e-06,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 3.4270092778071937e-16,
-                  "max_difference_over_bound": 0.0003781413439430395,
+                  "max_difference_over_candidate_plus_allowance": 0.0003781413439430395,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 3.7688730988080094e-14,
-                  "max_difference_over_bound": 0.03970751520468669,
+                  "max_difference_over_candidate_plus_allowance": 0.03970751520468669,
                   "pass": true
                 }
               },
@@ -322,32 +335,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 1.3877787807814457e-17,
-                  "max_difference_over_bound": 1.5145540995244177e-05,
+                  "max_difference_over_candidate_plus_allowance": 1.5145540995244177e-05,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 1.734723475976807e-18,
-                  "max_difference_over_bound": 2.4288374122479686e-06,
+                  "max_difference_over_candidate_plus_allowance": 2.4288374122479686e-06,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 1.7025362239811437e-17,
-                  "max_difference_over_bound": 5.840893775489062e-06,
+                  "max_difference_over_candidate_plus_allowance": 5.840893775489062e-06,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 3.7982479367209925e-16,
-                  "max_difference_over_bound": 0.0029687607649683556,
+                  "max_difference_over_candidate_plus_allowance": 0.0029687607649683556,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 4.502615389367047e-14,
-                  "max_difference_over_bound": 0.03970751520468669,
+                  "max_difference_over_candidate_plus_allowance": 0.03970751520468669,
                   "pass": true
                 }
               },
@@ -356,9 +369,9 @@
               "theta": 1.20269934427677
             }
           ],
-          "worst_difference_over_bound": 0.03970751520468669
+          "worst_difference_over_candidate_plus_allowance": 0.03970751520468669
         },
-        "jet_bias_bounds": {
+        "jet_truncation_candidate_envelopes": {
           "minus": {
             "max_over_nodes": {
               "q": 8.163130527676429e-13,
@@ -843,7 +856,7 @@
                 }
               }
             ],
-            "worst_node_full_ledger": {
+            "worst_node_component_candidate_envelope": {
               "q": [
                 0.0,
                 0.0,
@@ -1817,7 +1830,7 @@
                 }
               }
             ],
-            "worst_node_full_ledger": {
+            "worst_node_component_candidate_envelope": {
               "q": [
                 0.0,
                 0.0,
@@ -2309,31 +2322,32 @@
           }
         },
         "rodrigues_branch": {
-          "note": "every stencil sample is a real shift of theta, so the certified minimum over the whole circle covers all sampled points",
+          "note": "the whole-circle float screen covers real stencil shifts but is not an interval certificate",
           "pass": true,
           "rows": {
             "Q_frame.q": {
               "branch_threshold": 1e-12,
-              "certified_min_over_theta": 0.08625367947749517,
+              "float_lipschitz": 0.0,
+              "grid_lipschitz_lower_screen": 0.08625367947749517,
               "grid_min": 0.08625367947749517,
-              "lipschitz": 0.0,
               "pass": true
             },
             "minus.r_E0": {
               "branch_threshold": 1e-12,
-              "certified_min_over_theta": 0.19968504987773547,
+              "float_lipschitz": 0.0,
+              "grid_lipschitz_lower_screen": 0.19968504987773547,
               "grid_min": 0.19968504987773547,
-              "lipschitz": 0.0,
               "pass": true
             },
             "plus.r_E0": {
               "branch_threshold": 1e-12,
-              "certified_min_over_theta": 0.1355370525931818,
+              "float_lipschitz": 0.0,
+              "grid_lipschitz_lower_screen": 0.1355370525931818,
               "grid_min": 0.1355370525931818,
-              "lipschitz": 0.0,
               "pass": true
             }
-          }
+          },
+          "scope": "dense_float_grid_plus_float_lipschitz_screen_without_directed_rounding"
         }
       },
       "N2.K2.seed20260902": {
@@ -2347,32 +2361,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 1.3877787807814457e-17,
-                  "max_difference_over_bound": 3.390504939491676e-06,
+                  "max_difference_over_candidate_plus_allowance": 3.390504939491676e-06,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 1.5493249044817858e-16,
-                  "max_difference_over_bound": 0.00021742276458626032,
+                  "max_difference_over_candidate_plus_allowance": 0.00021742276458626032,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 2.8054815415234913e-15,
-                  "max_difference_over_bound": 0.0009979097514209426,
+                  "max_difference_over_candidate_plus_allowance": 0.0009979097514209426,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 1.0341445581818487e-13,
-                  "max_difference_over_bound": 0.04016788307969715,
+                  "max_difference_over_candidate_plus_allowance": 0.04016788307969715,
                   "pass": true
                 }
               },
@@ -2384,32 +2398,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 4.629543276513104e-17,
-                  "max_difference_over_bound": 0.0001880378471192249,
+                  "max_difference_over_candidate_plus_allowance": 0.0001880378471192249,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 1.5488912236127916e-15,
-                  "max_difference_over_bound": 0.001620733992617609,
+                  "max_difference_over_candidate_plus_allowance": 0.001620733992617609,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 6.503142208763579e-14,
-                  "max_difference_over_bound": 0.09927609530402742,
+                  "max_difference_over_candidate_plus_allowance": 0.09927609530402742,
                   "pass": true
                 }
               },
@@ -2421,32 +2435,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 1.3877787807814457e-17,
-                  "max_difference_over_bound": 2.3838644905223107e-05,
+                  "max_difference_over_candidate_plus_allowance": 2.3838644905223107e-05,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 1.3877787807814457e-17,
-                  "max_difference_over_bound": 9.532139888901464e-06,
+                  "max_difference_over_candidate_plus_allowance": 9.532139888901464e-06,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 1.2843458935263286e-15,
-                  "max_difference_over_bound": 0.0004548045731857983,
+                  "max_difference_over_candidate_plus_allowance": 0.0004548045731857983,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 3.649641353020705e-15,
-                  "max_difference_over_bound": 0.0008349013243641628,
+                  "max_difference_over_candidate_plus_allowance": 0.0008349013243641628,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 1.1789300004977354e-12,
-                  "max_difference_over_bound": 0.10604662871193905,
+                  "max_difference_over_candidate_plus_allowance": 0.10604662871193905,
                   "pass": true
                 }
               },
@@ -2458,32 +2472,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 3.694503606039082e-17,
-                  "max_difference_over_bound": 3.967346822482846e-05,
+                  "max_difference_over_candidate_plus_allowance": 3.967346822482846e-05,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 2.9305984722283185e-15,
-                  "max_difference_over_bound": 0.007591551542698758,
+                  "max_difference_over_candidate_plus_allowance": 0.007591551542698758,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 5.048998735377938e-14,
-                  "max_difference_over_bound": 0.06128914825184354,
+                  "max_difference_over_candidate_plus_allowance": 0.06128914825184354,
                   "pass": true
                 }
               },
@@ -2495,32 +2509,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 6.938893903907228e-18,
-                  "max_difference_over_bound": 3.189852463276057e-05,
+                  "max_difference_over_candidate_plus_allowance": 3.189852463276057e-05,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 4.85722573273506e-17,
-                  "max_difference_over_bound": 1.084403368961354e-05,
+                  "max_difference_over_candidate_plus_allowance": 1.084403368961354e-05,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 3.0735776337248444e-16,
-                  "max_difference_over_bound": 0.000391530774081305,
+                  "max_difference_over_candidate_plus_allowance": 0.000391530774081305,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 2.720696931635125e-15,
-                  "max_difference_over_bound": 0.0006532557971792352,
+                  "max_difference_over_candidate_plus_allowance": 0.0006532557971792352,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 3.7485373962850566e-13,
-                  "max_difference_over_bound": 0.13162510350511314,
+                  "max_difference_over_candidate_plus_allowance": 0.13162510350511314,
                   "pass": true
                 }
               },
@@ -2532,32 +2546,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 2.7755575615628914e-17,
-                  "max_difference_over_bound": 2.4654048692320593e-05,
+                  "max_difference_over_candidate_plus_allowance": 2.4654048692320593e-05,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 5.551115123125783e-17,
-                  "max_difference_over_bound": 1.239318135955833e-05,
+                  "max_difference_over_candidate_plus_allowance": 1.239318135955833e-05,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 3.043558786074152e-16,
-                  "max_difference_over_bound": 0.00037929275398299473,
+                  "max_difference_over_candidate_plus_allowance": 0.00037929275398299473,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 2.667137344314341e-15,
-                  "max_difference_over_bound": 0.0005558222228156526,
+                  "max_difference_over_candidate_plus_allowance": 0.0005558222228156526,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 2.6349723184632134e-13,
-                  "max_difference_over_bound": 0.09254377635000562,
+                  "max_difference_over_candidate_plus_allowance": 0.09254377635000562,
                   "pass": true
                 }
               },
@@ -2566,9 +2580,9 @@
               "theta": 0.37720898446796075
             }
           ],
-          "worst_difference_over_bound": 0.13162510350511314
+          "worst_difference_over_candidate_plus_allowance": 0.13162510350511314
         },
-        "jet_bias_bounds": {
+        "jet_truncation_candidate_envelopes": {
           "minus": {
             "max_over_nodes": {
               "q": 8.294114478334186e-13,
@@ -3053,7 +3067,7 @@
                 }
               }
             ],
-            "worst_node_full_ledger": {
+            "worst_node_component_candidate_envelope": {
               "q": [
                 0.0,
                 0.0,
@@ -4027,7 +4041,7 @@
                 }
               }
             ],
-            "worst_node_full_ledger": {
+            "worst_node_component_candidate_envelope": {
               "q": [
                 0.0,
                 0.0,
@@ -4519,31 +4533,32 @@
           }
         },
         "rodrigues_branch": {
-          "note": "every stencil sample is a real shift of theta, so the certified minimum over the whole circle covers all sampled points",
+          "note": "the whole-circle float screen covers real stencil shifts but is not an interval certificate",
           "pass": true,
           "rows": {
             "Q_frame.q": {
               "branch_threshold": 1e-12,
-              "certified_min_over_theta": 0.08625210036847346,
+              "float_lipschitz": 0.0009304225788280406,
+              "grid_lipschitz_lower_screen": 0.08625210036847346,
               "grid_min": 0.08625224651891038,
-              "lipschitz": 0.0009304225788280406,
               "pass": true
             },
             "minus.r_E0": {
               "branch_threshold": 1e-12,
-              "certified_min_over_theta": 0.19786334374917328,
+              "float_lipschitz": 0.002038174256019611,
+              "grid_lipschitz_lower_screen": 0.19786334374917328,
               "grid_min": 0.19786366390483676,
-              "lipschitz": 0.002038174256019611,
               "pass": true
             },
             "plus.r_E0": {
               "branch_threshold": 1e-12,
-              "certified_min_over_theta": 0.13390609637768894,
+              "float_lipschitz": 0.0019135627578516828,
+              "grid_lipschitz_lower_screen": 0.13390609637768894,
               "grid_min": 0.13390639695942405,
-              "lipschitz": 0.0019135627578516828,
               "pass": true
             }
-          }
+          },
+          "scope": "dense_float_grid_plus_float_lipschitz_screen_without_directed_rounding"
         }
       },
       "N3.K3.seed20260902": {
@@ -4557,32 +4572,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 3.469446951953614e-18,
-                  "max_difference_over_bound": 4.111636823603725e-06,
+                  "max_difference_over_candidate_plus_allowance": 4.111636823603725e-06,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 2.220446049250313e-16,
-                  "max_difference_over_bound": 5.144907837708465e-05,
+                  "max_difference_over_candidate_plus_allowance": 5.144907837708465e-05,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 1.5634195327240974e-15,
-                  "max_difference_over_bound": 0.0003645240891861982,
+                  "max_difference_over_candidate_plus_allowance": 0.0003645240891861982,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 1.8983295838048697e-15,
-                  "max_difference_over_bound": 0.0013909868160685314,
+                  "max_difference_over_candidate_plus_allowance": 0.0013909868160685314,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 5.77310985475088e-13,
-                  "max_difference_over_bound": 0.04897381847190036,
+                  "max_difference_over_candidate_plus_allowance": 0.04897381847190036,
                   "pass": true
                 }
               },
@@ -4594,32 +4609,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 5.204170427930421e-18,
-                  "max_difference_over_bound": 5.993382746237479e-06,
+                  "max_difference_over_candidate_plus_allowance": 5.993382746237479e-06,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 3.469446951953614e-18,
-                  "max_difference_over_bound": 3.341732202869321e-05,
+                  "max_difference_over_candidate_plus_allowance": 3.341732202869321e-05,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 5.551115123125783e-17,
-                  "max_difference_over_bound": 8.186032788255804e-05,
+                  "max_difference_over_candidate_plus_allowance": 8.186032788255804e-05,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 2.7677513059209957e-15,
-                  "max_difference_over_bound": 0.0006281411535009783,
+                  "max_difference_over_candidate_plus_allowance": 0.0006281411535009783,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 1.5832062223719578e-15,
-                  "max_difference_over_bound": 0.012478545668643926,
+                  "max_difference_over_candidate_plus_allowance": 0.012478545668643926,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 1.8093955153619667e-12,
-                  "max_difference_over_bound": 0.10235073368340085,
+                  "max_difference_over_candidate_plus_allowance": 0.10235073368340085,
                   "pass": true
                 }
               },
@@ -4631,32 +4646,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 6.938893903907228e-18,
-                  "max_difference_over_bound": 1.8332342328762007e-05,
+                  "max_difference_over_candidate_plus_allowance": 1.8332342328762007e-05,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 1.3877787807814457e-17,
-                  "max_difference_over_bound": 9.392884067115036e-06,
+                  "max_difference_over_candidate_plus_allowance": 9.392884067115036e-06,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 5.843849709696869e-16,
-                  "max_difference_over_bound": 0.00033884283375725844,
+                  "max_difference_over_candidate_plus_allowance": 0.00033884283375725844,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 2.847982266684923e-15,
-                  "max_difference_over_bound": 0.0005455581738201937,
+                  "max_difference_over_candidate_plus_allowance": 0.0005455581738201937,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 3.7748146622385015e-13,
-                  "max_difference_over_bound": 0.05784291951619205,
+                  "max_difference_over_candidate_plus_allowance": 0.05784291951619205,
                   "pass": true
                 }
               },
@@ -4668,32 +4683,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 3.469446951953614e-18,
-                  "max_difference_over_bound": 2.7364448990693624e-05,
+                  "max_difference_over_candidate_plus_allowance": 2.7364448990693624e-05,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 5.551115123125783e-17,
-                  "max_difference_over_bound": 1.1799124679318576e-05,
+                  "max_difference_over_candidate_plus_allowance": 1.1799124679318576e-05,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 1.4943016442281465e-16,
-                  "max_difference_over_bound": 0.0005753772710763178,
+                  "max_difference_over_candidate_plus_allowance": 0.0005753772710763178,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 2.552320334248126e-15,
-                  "max_difference_over_bound": 0.00153756934347947,
+                  "max_difference_over_candidate_plus_allowance": 0.00153756934347947,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 7.675498149388449e-14,
-                  "max_difference_over_bound": 0.10483125135419773,
+                  "max_difference_over_candidate_plus_allowance": 0.10483125135419773,
                   "pass": true
                 }
               },
@@ -4705,32 +4720,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 6.938893903907228e-18,
-                  "max_difference_over_bound": 1.2477185139219572e-05,
+                  "max_difference_over_candidate_plus_allowance": 1.2477185139219572e-05,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 5.551115123125783e-17,
-                  "max_difference_over_bound": 1.1799124679318576e-05,
+                  "max_difference_over_candidate_plus_allowance": 1.1799124679318576e-05,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 7.773729576721067e-17,
-                  "max_difference_over_bound": 0.00029932559648954826,
+                  "max_difference_over_candidate_plus_allowance": 0.00029932559648954826,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 2.1566949615081654e-15,
-                  "max_difference_over_bound": 0.0021671723480678655,
+                  "max_difference_over_candidate_plus_allowance": 0.0021671723480678655,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 5.385182046385023e-14,
-                  "max_difference_over_bound": 0.07355032360182133,
+                  "max_difference_over_candidate_plus_allowance": 0.07355032360182133,
                   "pass": true
                 }
               },
@@ -4742,32 +4757,32 @@
               "entries": {
                 "q": {
                   "max_abs_difference": 6.938893903907228e-18,
-                  "max_difference_over_bound": 7.38816899868851e-06,
+                  "max_difference_over_candidate_plus_allowance": 7.38816899868851e-06,
                   "pass": true
                 },
                 "qr": {
                   "max_abs_difference": 0.0,
-                  "max_difference_over_bound": 0.0,
+                  "max_difference_over_candidate_plus_allowance": 0.0,
                   "pass": true
                 },
                 "qrr": {
                   "max_abs_difference": 1.3877787807814457e-17,
-                  "max_difference_over_bound": 1.8973067665770698e-05,
+                  "max_difference_over_candidate_plus_allowance": 1.8973067665770698e-05,
                   "pass": true
                 },
                 "qt": {
                   "max_abs_difference": 2.9672445056583285e-15,
-                  "max_difference_over_bound": 0.000603290466481901,
+                  "max_difference_over_candidate_plus_allowance": 0.000603290466481901,
                   "pass": true
                 },
                 "qtr": {
                   "max_abs_difference": 1.454619844715177e-15,
-                  "max_difference_over_bound": 0.01114192650697339,
+                  "max_difference_over_candidate_plus_allowance": 0.01114192650697339,
                   "pass": true
                 },
                 "qtt": {
                   "max_abs_difference": 1.6998488120562039e-12,
-                  "max_difference_over_bound": 0.08610716741811332,
+                  "max_difference_over_candidate_plus_allowance": 0.08610716741811332,
                   "pass": true
                 }
               },
@@ -4776,9 +4791,9 @@
               "theta": 3.6522812046904765
             }
           ],
-          "worst_difference_over_bound": 0.10483125135419773
+          "worst_difference_over_candidate_plus_allowance": 0.10483125135419773
         },
-        "jet_bias_bounds": {
+        "jet_truncation_candidate_envelopes": {
           "minus": {
             "max_over_nodes": {
               "q": 8.392081929391494e-13,
@@ -5263,7 +5278,7 @@
                 }
               }
             ],
-            "worst_node_full_ledger": {
+            "worst_node_component_candidate_envelope": {
               "q": [
                 0.0,
                 0.0,
@@ -6237,7 +6252,7 @@
                 }
               }
             ],
-            "worst_node_full_ledger": {
+            "worst_node_component_candidate_envelope": {
               "q": [
                 0.0,
                 0.0,
@@ -6729,35 +6744,36 @@
           }
         },
         "rodrigues_branch": {
-          "note": "every stencil sample is a real shift of theta, so the certified minimum over the whole circle covers all sampled points",
+          "note": "the whole-circle float screen covers real stencil shifts but is not an interval certificate",
           "pass": true,
           "rows": {
             "Q_frame.q": {
               "branch_threshold": 1e-12,
-              "certified_min_over_theta": 0.08548279726862272,
+              "float_lipschitz": 0.00179092893260988,
+              "grid_lipschitz_lower_screen": 0.08548279726862272,
               "grid_min": 0.08548307858708161,
-              "lipschitz": 0.00179092893260988,
               "pass": true
             },
             "minus.r_E0": {
               "branch_threshold": 1e-12,
-              "certified_min_over_theta": 0.19741356339598842,
+              "float_lipschitz": 0.003294144394338641,
+              "grid_lipschitz_lower_screen": 0.19741356339598842,
               "grid_min": 0.19741408083897988,
-              "lipschitz": 0.003294144394338641,
               "pass": true
             },
             "plus.r_E0": {
               "branch_threshold": 1e-12,
-              "certified_min_over_theta": 0.1334444974496882,
+              "float_lipschitz": 0.0035821644747860352,
+              "grid_lipschitz_lower_screen": 0.1334444974496882,
               "grid_min": 0.1334450601347681,
-              "lipschitz": 0.0035821644747860352,
               "pass": true
             }
-          }
+          },
+          "scope": "dense_float_grid_plus_float_lipschitz_screen_without_directed_rounding"
         }
       }
     },
-    "overall_max_bound": {
+    "overall_max_candidate_envelope": {
       "q": 8.392081929391494e-13,
       "qr": 1.50453887794917e-12,
       "qrr": 4.6046837961840526e-12,
@@ -6766,7 +6782,8 @@
       "qtt": 1.9641366388767902e-11
     },
     "pipeline_inventory": {
-      "entire_in_theta_argument": "trigonometric series of degree <= 1 (entire); Rodrigues exp(hat v) = I + sin(a)/a hat(v) + (1-cos a)/a^2 hat(v)^2 with a^2 = v.v is entire in the components of v because sin(sqrt x)/sqrt x and (1 - cos sqrt x)/x are entire in x; the inner derivative is a finite combination of real shifts; products, minors and the radial profiles are polynomial; hence every pulled-back channel is entire in theta",
+      "basis_transcendentals_allowlisted": true,
+      "function_count": 13,
       "functions": {
         "_ambient_value_ld": {
           "forbidden_hits": [],
@@ -6841,10 +6858,40 @@
           "transcendental_calls": []
         }
       },
-      "pass": true
+      "manual_entire_in_theta_argument": "trigonometric series of degree <= 1 (entire); Rodrigues exp(hat v) = I + sin(a)/a hat(v) + (1-cos a)/a^2 hat(v)^2 with a^2 = v.v is entire in the components of v because sin(sqrt x)/sqrt x and (1 - cos sqrt x)/x are entire in x; the inner derivative is a finite combination of real shifts; products, minors and the radial profiles are polynomial; this mathematical description is not established by transitive call-graph analysis",
+      "pass": true,
+      "scope": "nontransitive_static_lexical_audit"
+    },
+    "production_rounding_gap_canary": {
+      "K": 3,
+      "N": 3,
+      "channel": "log_Omega",
+      "component": 15,
+      "entry": "qrr",
+      "exact_polynomial_continuation_qrr": 0.0,
+      "meaning": "PASS detects a missing production-rounding term; it does not certify the production bound",
+      "member_id": "N3.K3.seed20260902",
+      "pass": true,
+      "radial_profile_second_derivatives_zero": true,
+      "rho": 0.0,
+      "sides": {
+        "minus": {
+          "absolute_production_qrr": 1.245550184590959e-17,
+          "ideal_candidate_qrr_bound": 0.0,
+          "production_qrr": "-1.245550184590959005581e-17",
+          "residue_exceeds_ideal_candidate": true
+        },
+        "plus": {
+          "absolute_production_qrr": 4.2645756024956094e-19,
+          "ideal_candidate_qrr_bound": 0.0,
+          "production_qrr": "-4.264575602495609346134e-19",
+          "residue_exceeds_ideal_candidate": true
+        }
+      },
+      "theta": 0.731
     },
     "production_theta_step": 0.03,
-    "statement": "For the three pinned members, on both collars and at every production radial node (rho = 0 and the ten Gauss-Legendre nodes), every component of the (theta, rho) 2-jet produced by the precision Route C nine-point theta stencils at h = 0.03 differs from the exact jet of the same pulled-back channel by at most the listed bound, obtained with explicit constants from the exact Taylor-remainder form of the stencils and Cauchy's estimate on a strip, with the inner nine-point derivative of the relative rotations composed explicitly with the outer stencil. The radial entries carry no stencil error (polynomial degree <= 8 against a stencil exact through degree 8) and only the propagated inner error of the A channels.",
+    "statement": "The ideal rational nine-point theta stencils obey the recorded exact moment identities and the stated Taylor/Cauchy truncation formula. For the three pinned members, an ordinary-float evaluation of that formula produces candidate envelopes at every production radial node, with the inner relative-rotation derivative composed with the outer stencil. These numbers are not certified upper bounds for production: float evaluation is not outward-rounded, the named-function inventory is not a transitive call-graph proof, and long-double pipeline rounding is not enclosed. Radial exactness is only with respect to the evaluator's polynomial continuation. The N=3 rho=0 log(Omega) qrr canary records a nonzero production residue against candidate zero.",
     "stencil_certificate": {
       "first_exact_through_degree_8_and_tenth_moment_zero": true,
       "first_moments_0_to_10": [
@@ -6871,6 +6918,12 @@
         "4": "-1/280"
       },
       "pass": true,
+      "production_longdouble_weight_zero_moment_residuals": {
+        "first_m0": "1.715241718189958186613e-20",
+        "note": "nonzero production-weight residuals are outside the ideal-rational moment certificate",
+        "second_m0": "6.882142696441190254930e-21",
+        "second_m0_over_h_squared": "7.646825218267989172061e-18"
+      },
       "remainder_constants": {
         "C1_first_order9": "1957/198450",
         "C1_float": 0.009861426051902242,
@@ -6913,18 +6966,21 @@
       "inner_derivative_on_strip": "min( sum|w_j| M_R(sigma)/h , M_R(sigma+delta)/delta + h^8 C1 9! M_R(sigma+delta)/delta^9 )",
       "products_minors": "entrywise nonnegative bound matrices; 3x3 minors bounded by permanents",
       "rotation": "||exp(hat r(z))||_2 <= exp(sqrt2 ||r(z)||_2) with ||hat v||_2 <= sqrt2 ||v||_2 for complex v; on the real line ||R0|| = 1",
-      "search": "sigma in SIGMA_GRID and delta in DELTA_GRID; every pair yields a valid bound; the smallest is kept per component",
+      "search": "sigma in SIGMA_GRID and delta in DELTA_GRID; the smallest float-evaluated candidate is kept per component",
       "series": "|sum c_k e^{ik(theta+iy)}| <= |c_0| + sum_{k>=1} |c_k| cosh(sigma); same for the theta-derivatives of degree-1 series"
     },
     "what_is_not_established": [
       "any bound on the density or the action JVP (a certified Lipschitz constant of the density on the jet range would be needed)",
       "the free-parameter FD5 axis (Codex lane)",
-      "long-double rounding of the pipeline (declared, not certified; the contrast allowance absorbs it empirically only)",
+      "a directed-rounding enclosure of the float-evaluated candidate envelopes",
+      "a transitive call-graph proof of the manually stated entire-function pipeline",
+      "long-double weight, stencil-sum, transcendental and upstream-pipeline rounding; the sampled contrast allowance is empirical only",
+      "a full serialized component-by-component ledger at every node",
       "anything at Q -> infinity, B_FD as a whole, the bridge, C1/N1, B4/B5",
-      "the semantic gap that the pipeline continues the radial polynomials outside [0,1] instead of the declared zero extension (irrelevant for the theta stencils, recorded for the ledger)"
+      "equivalence between the evaluator's radial polynomial continuation outside [0,1] and the separately declared zero extension; this affects boundary radial and mixed entries"
     ]
   },
-  "scientific_payload_sha256": "25ccce2c734f700b6eb62e37e182dc4e9977837b07cc25a98c92fc001b6385ee",
+  "scientific_payload_sha256": "c63bd1cfc8fce3518060967618cf214d4755a6b8fb25a8ba010a347c1465339c",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "frozen_checkpoint_commit": "ea014fd",
