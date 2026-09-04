@@ -1,0 +1,291 @@
+{
+  "classification": "theory_only;free_data_formulation;explicit_gauge_kernel;pinned_members_N123;restricted_spectral_family;fail_closed_bridge",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_pass": true,
+    "Q_frame_coordinates_are_exact_kernel_of_the_decoder_symbolic_pass": true,
+    "density_union_C_N_pass": false,
+    "free_data_family_jacobian_kernel_is_explicit_gauge_generators_pass": true,
+    "interface_densities_independent_of_Q_frame_pass": true,
+    "periodic_box_exhaustion_and_tail_control_pass": false,
+    "restricted_family_exact_action_identity_pass": false,
+    "route_c_trace_decoder_matches_pinned_decoder_pass": true,
+    "spectral_N_convergence_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false,
+    "uniform_stability_pass": false
+  },
+  "evidence_boundary": "Exact symbolic kernel of the Q frame; numeric kernel and decoder agreement at the three pinned members; Richardson-FD Jacobian kernel with explicit generators at those members. Not a constant-rank theorem, not a statement about N -> infinity, B_FD, quadrature, or any bridge/C1/N1 key.",
+  "fixed_before_run": {
+    "decoder_agreement_tolerance": 1e-09,
+    "jacobian_step": 0.0001,
+    "kernel_gap_minimum": 1000.0,
+    "kernel_relative_threshold": 1e-07,
+    "kernel_span_tolerance": 1e-06,
+    "points_per_member": 8,
+    "q_independence_tolerance": 1e-12,
+    "q_perturbation_amplitude": 0.7,
+    "seed": 56616,
+    "symbolic_instances": 2,
+    "trace_common_blocks": [
+      "common.gamma",
+      "common.T",
+      "common.log_Omega",
+      "common.varphi_E0",
+      "common.A_E0",
+      "Q_frame.q"
+    ],
+    "trace_side_blocks": [
+      "Y",
+      "metric_free",
+      "A_perp",
+      "B0_full",
+      "r_E0"
+    ]
+  },
+  "independence_boundary": {
+    "dynamic_imports": {
+      "decoder": "export_one_omega_topological_so3_restricted_spectral_family_v5_6_4_2_pointwise_primitives.py",
+      "route_b": "derive_one_omega_topological_so3_numpy_fd5_action_route_b_v5_6_5_certificate.py",
+      "route_c": "derive_one_omega_topological_so3_multin_independent_euler_green_route_c_v5_6_6_3.py"
+    },
+    "no_route_c_pipeline_run": true,
+    "scipy_used_only_for": "expm/logm of the finite common-frame orbit at N = 1 (local import) and inside the pinned decoder"
+  },
+  "open_obligation": [
+    "B_FD bound (Codex, v5.6.6.12)",
+    "N -> infinity for arbitrary class members (density of the union of F_N modulo the continuum common-frame redundancy)",
+    "independent audit before uniform_N_to_infinity_bridge_pass",
+    "v5.6.1 quarantine obligations for C1/N1"
+  ],
+  "provenance": {
+    "generator": "derive_one_omega_topological_so3_free_data_family_gauge_kernel_v5_6_6_16.py",
+    "numpy": "2.4.2",
+    "platform": "Linux-6.12.101+deb13-amd64-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "sympy": "1.13.3",
+    "test": "test_one_omega_topological_so3_free_data_family_gauge_kernel_v5_6_6_16.py"
+  },
+  "schema": "holo.one-omega-topological-so3-free-data-family-gauge-kernel-v5-6-6-16.v1",
+  "scientific": {
+    "G1_symbolic_Q_frame_kernel": {
+      "instances": [
+        {
+          "A_source_equals_R0T_hatA_R0_plus_R0T_dR0": true,
+          "A_source_skew_symmetric": true,
+          "S_R0_orthogonal": true,
+          "instance": 0,
+          "phi_source_equals_R0T_varphi_E0": true,
+          "r_coefficients": [
+            "-3/5",
+            "-2/5",
+            "-1/5",
+            "4/5",
+            "-2/5",
+            "-1/5"
+          ],
+          "s_coefficients": [
+            "2/7",
+            "4/7",
+            "1/7",
+            "-1/7",
+            "1/7",
+            "4/7"
+          ]
+        },
+        {
+          "A_source_equals_R0T_hatA_R0_plus_R0T_dR0": true,
+          "A_source_skew_symmetric": true,
+          "S_R0_orthogonal": true,
+          "instance": 1,
+          "phi_source_equals_R0T_varphi_E0": true,
+          "r_coefficients": [
+            "4/5",
+            "4/5",
+            "-1/5",
+            "-1/5",
+            "3/5",
+            "-3/5"
+          ],
+          "s_coefficients": [
+            "-6/7",
+            "2/7",
+            "3/7",
+            "3/7",
+            "-6/7",
+            "-1/7"
+          ]
+        }
+      ],
+      "method": "exact rational Cayley rotation families S(theta), R0(theta) (linear rotation vectors), symbolic A_E0(theta), varphi_E0(theta); the decoder composition R = S R0, dR = dS R0 + S dR0, A_common = S hat(A_E0) S^T - dS S^T, phi_source = R^T S varphi_E0, A_source = R^T A_common R + R^T dR is simplified against R0^T varphi_E0 and R0^T hat(A_E0) R0 + R0^T dR0; the identity holds for every orthogonal S, R0 since only S^T S = I is used",
+      "pass": true
+    },
+    "G2_numeric_Q_frame_kernel_and_decoder_agreement": {
+      "agreement_pass": true,
+      "kernel_pass": true,
+      "members": {
+        "N1.K1.seed20260902": {
+          "N": 1,
+          "common_frame_outputs_change_under_q_perturbation": 0.5910970736717481,
+          "pinned_decoder_lateral_change_under_q_perturbation": 5.551115123125783e-17,
+          "q_block_size": 3,
+          "route_c_decoder_lateral_change_under_q_perturbation": 5.551115123125783e-17,
+          "route_c_vs_pinned_decoder_lateral_traces_max_abs": 1.5803330866148713e-15
+        },
+        "N2.K2.seed20260902": {
+          "N": 2,
+          "common_frame_outputs_change_under_q_perturbation": 0.6373484266410651,
+          "pinned_decoder_lateral_change_under_q_perturbation": 2.220446049250313e-16,
+          "q_block_size": 6,
+          "route_c_decoder_lateral_change_under_q_perturbation": 1.1102230246251565e-16,
+          "route_c_vs_pinned_decoder_lateral_traces_max_abs": 1.2906342661267445e-14
+        },
+        "N3.K3.seed20260902": {
+          "N": 3,
+          "common_frame_outputs_change_under_q_perturbation": 0.7656274953053429,
+          "pinned_decoder_lateral_change_under_q_perturbation": 2.2724877535296173e-16,
+          "q_block_size": 9,
+          "route_c_decoder_lateral_change_under_q_perturbation": 2.3592239273284576e-16,
+          "route_c_vs_pinned_decoder_lateral_traces_max_abs": 1.2243678293444304e-14
+        }
+      },
+      "smallest_common_frame_motion": 0.5910970736717481,
+      "worst_lateral_change": 2.3592239273284576e-16,
+      "worst_route_c_vs_pinned_agreement": 1.2906342661267445e-14
+    },
+    "G3_jacobian_kernel_on_trace_coordinates": {
+      "members": {
+        "N1.K1.seed20260902": {
+          "N": 1,
+          "explicit_generators": [
+            "Q_frame.q[0]",
+            "Q_frame.q[1]",
+            "Q_frame.q[2]",
+            "common.T constant mode",
+            "plus.Y constant mode",
+            "minus.Y constant mode",
+            "constant common-frame rotation about varphi_E0 (stabiliser of the interface scalar)"
+          ],
+          "gap_ratio": 187310189189.86902,
+          "generator_rank": 7,
+          "generators_inside_kernel_residual": 6.476097436092232e-11,
+          "jacobian_on_generators_relative": 2.85542450128987e-12,
+          "kernel_dimension": 7,
+          "kernel_inside_generators_residual": 3.227357270318976e-11,
+          "kernel_singular_max": 2.5257443717243702e-12,
+          "nonkernel_singular_min": 0.47309765611293864,
+          "outputs": 1360,
+          "pass": true,
+          "r_E0_blocks_smallest_singular_relative": [
+            0.10650035372480939,
+            0.10650784318169515
+          ],
+          "singular_max": 4.948221005548404,
+          "trace_coordinates": 114
+        },
+        "N2.K2.seed20260902": {
+          "N": 2,
+          "explicit_generators": [
+            "Q_frame.q[0]",
+            "Q_frame.q[1]",
+            "Q_frame.q[2]",
+            "Q_frame.q[3]",
+            "Q_frame.q[4]",
+            "Q_frame.q[5]",
+            "common.T constant mode",
+            "plus.Y constant mode",
+            "minus.Y constant mode"
+          ],
+          "gap_ratio": 237570534.3796919,
+          "generator_rank": 9,
+          "generators_inside_kernel_residual": 8.742239247753322e-11,
+          "jacobian_on_generators_relative": 2.9973339935463e-13,
+          "kernel_dimension": 9,
+          "kernel_inside_generators_residual": 9.597369397484575e-11,
+          "kernel_singular_max": 4.732664062352369e-12,
+          "nonkernel_singular_min": 0.0011243415303326158,
+          "outputs": 1360,
+          "pass": true,
+          "r_E0_blocks_smallest_singular_relative": [
+            0.09563952486675605,
+            0.09564481371116508
+          ],
+          "singular_max": 5.401717819005579,
+          "trace_coordinates": 228
+        },
+        "N3.K3.seed20260902": {
+          "N": 3,
+          "explicit_generators": [
+            "Q_frame.q[0]",
+            "Q_frame.q[1]",
+            "Q_frame.q[2]",
+            "Q_frame.q[3]",
+            "Q_frame.q[4]",
+            "Q_frame.q[5]",
+            "Q_frame.q[6]",
+            "Q_frame.q[7]",
+            "Q_frame.q[8]",
+            "common.T constant mode",
+            "plus.Y constant mode",
+            "minus.Y constant mode"
+          ],
+          "gap_ratio": 5084242.500898704,
+          "generator_rank": 12,
+          "generators_inside_kernel_residual": 9.87330638750169e-09,
+          "jacobian_on_generators_relative": 2.7898485449062144e-13,
+          "kernel_dimension": 12,
+          "kernel_inside_generators_residual": 1.88524349251895e-08,
+          "kernel_singular_max": 5.166925323089759e-12,
+          "nonkernel_singular_min": 2.6269901326622718e-05,
+          "outputs": 1360,
+          "pass": true,
+          "r_E0_blocks_smallest_singular_relative": [
+            0.09412792513529938,
+            0.09413346859830972
+          ],
+          "singular_max": 5.4718262812037635,
+          "trace_coordinates": 342
+        }
+      },
+      "method": "Richardson central-difference Jacobian (steps h, h/2) of the lateral traces (g, log Omega, phi, A, B, Y') at random T^4 points plus the interface consumables (gamma, T', T'', log Omega, varphi_E0) with respect to every trace coordinate (all blocks except the linear independent-profile blocks J1 and C); SVD; kernel = singular values below KERNEL_RELATIVE_THRESHOLD * sigma_max; compared with the explicit generators by two-sided projection residuals and by J G directly",
+      "pass": true
+    },
+    "G4_interface_densities_independent_of_Q_frame": {
+      "pass": true,
+      "q_norm_max": 1.9823631170313383,
+      "route_b_max_relative_change_under_q": 1.1102230246251565e-16,
+      "route_c_max_relative_change_under_q": 2.1650272411915564e-16
+    },
+    "gap_5_restated": {
+      "after": "F_N := Phi(U_N); kernel of DPhi listed with generators; no quotient enters the identity; the v5.6.4 'DG_N on V_N' and 'uniform_stability' obligations are retired by the change of formulation, not discharged (keys stay False)",
+      "before": "state the finite family in free data only (so Phi(V_N) need not lie in V_N) and treat the 9N gauge orbit explicitly, or prove the quotient is harmless for the identity"
+    },
+    "linear_blocks_not_in_the_jacobian": {
+      "blocks": [
+        "boundary_jet_J1",
+        "interior_bump_C"
+      ],
+      "reason": "they enter the bulk fields linearly through h1(rho) and the Legendre bumps b_j(rho), which are linearly independent radial profiles, so they add no kernel and no coupling to the trace coordinates"
+    },
+    "statement": "Finite family in free data only: F_N = Phi(U_N) with Phi the byte-pinned common-first decoder followed by the C2 radial profiles; every route differentiates S_rel o Phi along free-data curves, so the bridge identity is evaluated at (Phi(u), DPhi[u] du) and needs neither a finite gluing map nor a quotient. The 9N rotation coordinates of the v5.6.4 contract are treated explicitly: the 3N Q_frame coordinates are an exact kernel of Phi (symbolic and numeric), the 6N r_E0 coordinates are physical for N >= 2, and the complete kernel of DPhi on the trace coordinates at the pinned members is spanned by explicit generators (Q_frame, the constant modes of T, Y_plus, Y_minus, and at N = 1 the constant common-frame rotation about varphi_E0, the only constant rotation that leaves the interface scalar consumed by the Robin term fixed). Phi, hence S_rel o Phi and every sector density, is constant along these directions.",
+    "what_is_not_established": [
+      "anything about N -> infinity, density of the union of F_N, or the common-frame redundancy of the continuum decoder inside U_N for N >= 2 (shown numerically to be absent, not proven)",
+      "B_FD (Codex lane, v5.6.6.12) and quadrature",
+      "the kernel at points other than the three pinned members (constant rank is not proven)",
+      "any bridge, C1/N1, B4/B5 or promotion key"
+    ]
+  },
+  "scientific_payload_sha256": "b785daa482b1f5bff5ee4ebbfab3ee0da9bb6f428c3413afb912dbfff8c9ebb4",
+  "source_pins": {
+    "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
+    "frozen_checkpoint_commit": "ea014fd",
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "route_b_v5_6_5_certificate_derive_sha256": "6c98724d0e51c1cad16c80303e6ad7625d661bd1c9c56c9ff96c5b8124992909",
+    "route_c_v5_6_6_3_derive_sha256": "87cd1e05184a9fb2703faa08eecf5aa8544f4cf24ba8c12dd830828888821d0b",
+    "v5_6_4_2_pointwise_decoder_sha256": "4b7eda150cf2d22e04ef2b1b04391c31dc9e618839d7ead9e74a540371ab3d7f",
+    "v5_6_6_9_receipt_sha256": "cad85cf53e70dcfea3f69b104be5fe5c084bc897ddb713eef7d30ae72c85326a"
+  }
+}
