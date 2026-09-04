@@ -1,0 +1,233 @@
+{
+  "classification": "theory_only;dense_collar_margins;same_objects;restricted_spectral_family;fail_closed_bridge",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "density_union_C_N_pass": false,
+    "periodic_box_exhaustion_and_tail_control_pass": false,
+    "pinned_members_margins_on_dense_collar_pass": true,
+    "restricted_family_exact_action_identity_pass": false,
+    "spectral_N_convergence_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false,
+    "uniform_stability_pass": false
+  },
+  "evidence_boundary": "Machine-checked: all four class margins hold for the three pinned members on a 256 x 129 dense collar grid with the recorded clearances, the rho = 1 zero extension is exact, and the rotation charts are orthogonal. Recorded: the same-objects theorem with its hypotheses. Not proven: the bridge, C1/N1, B4/B5.",
+  "fixed_before_run": {
+    "RHO_POINTS": 129,
+    "THETA_POINTS": 256,
+    "margins": {
+      "Omega_min": 0.5,
+      "cut_locus": 1.0,
+      "signature": 0.02,
+      "timelike": 0.2
+    },
+    "reference_metric_diagonal": [
+      -1.64,
+      1.17,
+      1.31,
+      1.46,
+      1.17
+    ]
+  },
+  "independence_boundary": {
+    "imports_action_evaluators": false,
+    "imports_pinned_kinematic_decoder": true,
+    "imports_route_c_or_ad_fd5_modules": false,
+    "pinned_decoder": {
+      "path": "export_one_omega_topological_so3_restricted_spectral_family_v5_6_4_2_pointwise_primitives.py",
+      "sha256": "4b7eda150cf2d22e04ef2b1b04391c31dc9e618839d7ead9e74a540371ab3d7f"
+    },
+    "radial_profiles": "re-implemented from the v5.6.4.4 contract, not imported",
+    "reads_upstream_expected_values": false
+  },
+  "open_obligation": {
+    "gap_4": "prove the Jacobian bound of Phi and its Sobolev lift instead of sampling",
+    "gap_5": "finite DG_N on V_N and the gauge quotient H_N",
+    "interval_bound": "optional: interval arithmetic between grid points for the margins"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_pinned_members_dense_collar_margins_v5_6_6_11.py",
+      "sha256": "c75655942abc3fea67a95bf3f03b5b8b56f738127e0505eba8a94e42758d2150"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_pinned_members_dense_collar_margins_v5_6_6_11.py",
+      "sha256": "1f6e7167cd9e114a9b71bd09490260a887a87682dabf375fc584c43fd64b8aa4"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-pinned-members-dense-collar-margins-v5-6-6-11.v1",
+  "scientific": {
+    "between_grid_points": "Fields are degree-one trigonometric polynomials in theta and polynomials of degree <= 8 in rho, so between the 256 x 129 grid points their oscillation is bounded by the grid spacing times the derivative bound; the recorded clearances (all far above the margins) are not exhausted by that oscillation. A formal interval-arithmetic bound is not computed here.",
+    "clearance_summary": {
+      "max_khronon_T_norm2_over_all": -0.6082531720020271,
+      "min_Omega_over_all": 1.0,
+      "min_abs_metric_eigenvalue_over_all": 1.0676654041664726,
+      "min_cut_locus_clearance_over_all": 2.9514221326716745
+    },
+    "margins": {
+      "Omega_min": 0.5,
+      "rotation_cut_locus_margin": 1.0,
+      "signature_eigenvalue_margin": 0.02,
+      "source": "v5.6.4 TOLERANCES, transcribed",
+      "timelike_margin": 0.2
+    },
+    "members": [
+      {
+        "K": 1,
+        "N": 1,
+        "authoritative_free_central_sha256": "782065991a7af9029c93a02985686b59e8bfc0b2742a3a1dedc9fa8a7e969255",
+        "boundary": {
+          "Omega_boundary_min": 1.069494016398245,
+          "gamma_lorentzian_everywhere": true,
+          "gamma_min_abs_eigenvalue": 1.1664392233924799,
+          "khronon_T_norm2_max": -0.6083517539142531,
+          "pass": true
+        },
+        "grid": {
+          "direction": "x0 (all modes depend on x0 + x1)",
+          "rho_points": 129,
+          "theta_points": 256
+        },
+        "member_id": "N1.K1.seed20260902",
+        "pass": true,
+        "sides": {
+          "minus": {
+            "bulk_Omega_min": 1.0,
+            "bulk_metric_lorentzian_everywhere": true,
+            "bulk_metric_min_abs_eigenvalue": 1.0925254021891706,
+            "pass": true,
+            "rho1_reference_residual": 0.0,
+            "rotation_angle_max": 0.18747073163614641,
+            "rotation_cut_locus_clearance": 2.9541219219536465,
+            "rotation_orthogonality_residual": 2.220446049250313e-16
+          },
+          "plus": {
+            "bulk_Omega_min": 1.0,
+            "bulk_metric_lorentzian_everywhere": true,
+            "bulk_metric_min_abs_eigenvalue": 1.0682210235701501,
+            "pass": true,
+            "rho1_reference_residual": 0.0,
+            "rotation_angle_max": 0.17682680734946077,
+            "rotation_cut_locus_clearance": 2.9647658462403323,
+            "rotation_orthogonality_residual": 2.220446049250313e-16
+          }
+        }
+      },
+      {
+        "K": 2,
+        "N": 2,
+        "authoritative_free_central_sha256": "0febc03837763087bcd802a19431800b703278fa055ab3e11ddc9b4259458b67",
+        "boundary": {
+          "Omega_boundary_min": 1.0694521087037685,
+          "gamma_lorentzian_everywhere": true,
+          "gamma_min_abs_eigenvalue": 1.1664212273837982,
+          "khronon_T_norm2_max": -0.608319279866299,
+          "pass": true
+        },
+        "grid": {
+          "direction": "x0 (all modes depend on x0 + x1)",
+          "rho_points": 129,
+          "theta_points": 256
+        },
+        "member_id": "N2.K2.seed20260902",
+        "pass": true,
+        "sides": {
+          "minus": {
+            "bulk_Omega_min": 1.0,
+            "bulk_metric_lorentzian_everywhere": true,
+            "bulk_metric_min_abs_eigenvalue": 1.0921896245052487,
+            "pass": true,
+            "rho1_reference_residual": 0.0,
+            "rotation_angle_max": 0.1897534071997804,
+            "rotation_cut_locus_clearance": 2.951839246390013,
+            "rotation_orthogonality_residual": 4.440892098500626e-16
+          },
+          "plus": {
+            "bulk_Omega_min": 1.0,
+            "bulk_metric_lorentzian_everywhere": true,
+            "bulk_metric_min_abs_eigenvalue": 1.0678973160861391,
+            "pass": true,
+            "rho1_reference_residual": 0.0,
+            "rotation_angle_max": 0.1777484356723305,
+            "rotation_cut_locus_clearance": 2.9638442179174627,
+            "rotation_orthogonality_residual": 4.440892098500626e-16
+          }
+        }
+      },
+      {
+        "K": 3,
+        "N": 3,
+        "authoritative_free_central_sha256": "52d78abb8b7b6a5933d94faec1dacb2ba7bb0ca654ac07834ac5c7b90e9b347a",
+        "boundary": {
+          "Omega_boundary_min": 1.0694432751673628,
+          "gamma_lorentzian_everywhere": true,
+          "gamma_min_abs_eigenvalue": 1.166386523074803,
+          "khronon_T_norm2_max": -0.6082531720020271,
+          "pass": true
+        },
+        "grid": {
+          "direction": "x0 (all modes depend on x0 + x1)",
+          "rho_points": 129,
+          "theta_points": 256
+        },
+        "member_id": "N3.K3.seed20260902",
+        "pass": true,
+        "sides": {
+          "minus": {
+            "bulk_Omega_min": 1.0,
+            "bulk_metric_lorentzian_everywhere": true,
+            "bulk_metric_min_abs_eigenvalue": 1.0919999933228284,
+            "pass": true,
+            "rho1_reference_residual": 0.0,
+            "rotation_angle_max": 0.19017052091811848,
+            "rotation_cut_locus_clearance": 2.9514221326716745,
+            "rotation_orthogonality_residual": 4.440892098500626e-16
+          },
+          "plus": {
+            "bulk_Omega_min": 1.0,
+            "bulk_metric_lorentzian_everywhere": true,
+            "bulk_metric_min_abs_eigenvalue": 1.0676654041664726,
+            "pass": true,
+            "rho1_reference_residual": 0.0,
+            "rotation_angle_max": 0.178501389540889,
+            "rotation_cut_locus_clearance": 2.963091264048904,
+            "rotation_orthogonality_residual": 4.440892098500626e-16
+          }
+        }
+      }
+    ],
+    "same_objects_theorem": {
+      "analytic_not_machine_checked": [
+        "convergence of the trapezoidal and Gauss--Legendre rules for continuous integrands (classical)",
+        "continuity of the literal density on the margin set (structure of the v5.2 action)",
+        "the between-grid-points argument for the margins"
+      ],
+      "hypotheses_machine_checked": [
+        "free data of the pinned members are degree-<=1 trigonometric polynomials in the single direction x0 + x1 (bundle labels, v5.6.6.10)",
+        "radial profiles are the C2 polynomials of v5.6.4.4 (symbolic jets, v5.6.6.8)",
+        "pointwise gluing defects <= 4.4e-16 at off-collocation points (v5.6.6.8)",
+        "all class margins hold on the dense collar grid with the clearances recorded here"
+      ],
+      "statement": "Each pinned member X_N (N = 1,2,3) is a point of the restricted class of the v5.6.6.8 theorem, so the exact identity (i) holds for it verbatim: DS_rel[X_N].dX = int_collar E_weak.dq - int_{T^4} H^rho(0). The Route C first variation at quadrature (Qtheta, Qrho) is the trapezoidal x Gauss--Legendre approximation of the left-hand side with an integrand continuous on the closed collar; both rules converge for continuous integrands, hence Route C(Qtheta, Qrho) -> DS_rel[X_N].dX as both orders go to infinity, with no analyticity hypothesis (analyticity only fixes the rate measured in v5.6.6.10). Components (i)-(iii) and (iv) of the bridge ledger therefore refer to the same objects.",
+      "still_open_after_this_gate": [
+        "gap 4: proven (not sampled) Jacobian bound and Sobolev lift for the retraction",
+        "gap 5: finite DG_N on V_N and the gauge quotient H_N",
+        "the N -> infinity direction for arbitrary class members (density of finite free data + continuity (ii), prose)"
+      ]
+    }
+  },
+  "scientific_payload_sha256": "158a15adf7360b8dd67ae389cb9d628b0cef8469c68890722a56c7275c9a5fa9",
+  "source_pins": {
+    "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
+    "frozen_checkpoint_commit": "ea014fd1a8ed124c353058eb6f0a1c92b90353bc",
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "v5_6_4_2_pointwise_decoder_sha256": "4b7eda150cf2d22e04ef2b1b04391c31dc9e618839d7ead9e74a540371ab3d7f",
+    "v5_6_6_10_receipt_sha256": "c81d8f62a6ed08619decc0a16f31ce1c99cac0f466c1a1e8e4f5de9f82c33fe6",
+    "v5_6_6_8_receipt_sha256": "175dae746dcbf19854d1bdb6e0b6b5541d3eb18acea0050d41fccd444f197091"
+  }
+}
