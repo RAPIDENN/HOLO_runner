@@ -15,11 +15,13 @@ import derive_one_omega_topological_so3_free_data_family_gauge_kernel_v5_6_6_16 
 
 EXPECTED_TRUE_KEYS = frozenset(
     {
+        "pointwise_constraint_G_composed_with_free_embedding_zero_sampled_pass",
+        "pointwise_DG_composed_with_DI_zero_sampled_pass",
         "Q_frame_coordinates_are_exact_kernel_of_the_decoder_symbolic_pass",
-        "Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_pass",
-        "route_c_trace_decoder_matches_pinned_decoder_pass",
-        "free_data_family_jacobian_kernel_is_explicit_gauge_generators_pass",
-        "interface_densities_independent_of_Q_frame_pass",
+        "Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_at_pinned_members_pass",
+        "route_c_trace_decoder_matches_pinned_decoder_sampled_pass",
+        "free_data_family_trace_jacobian_kernel_rank_and_generators_sampled_at_pinned_members_pass",
+        "interface_densities_independent_of_Q_frame_sampled_pass",
     }
 )
 EXPECTED_FALSE_KEYS = frozenset(
@@ -93,6 +95,15 @@ def test_schema_pins_and_keys(receipt: dict) -> None:
         assert decision[key] is False, key
 
 
+def test_constraint_block_vanishes_with_its_derivative(receipt: dict) -> None:
+    fixed = receipt["fixed_before_run"]
+    g0 = receipt["scientific"]["G0_constraint_composed_with_free_embedding"]
+    assert set(g0["members"]) == {"N1.K1.seed20260902", "N2.K2.seed20260902", "N3.K3.seed20260902"}
+    for row in g0["members"].values():
+        assert row["max_abs_defect"] <= fixed["constraint_tolerance"]
+        assert row["max_abs_defect_derivative"] <= fixed["constraint_derivative_tolerance"]
+
+
 def test_symbolic_block_is_exact_on_every_instance(receipt: dict) -> None:
     g1 = receipt["scientific"]["G1_symbolic_Q_frame_kernel"]
     assert g1["pass"] is True
@@ -128,10 +139,13 @@ def test_jacobian_kernel_matches_explicit_generators(receipt: dict) -> None:
         assert row["jacobian_on_generators_relative"] <= fixed["kernel_span_tolerance"]
         assert min(row["r_E0_blocks_smallest_singular_relative"]) > 10.0 * fixed["kernel_relative_threshold"]
         labels = row["explicit_generators"]
-        assert sum(label.startswith("Q_frame.q[") for label in labels) == 3 * N
-        assert "common.T constant mode" in labels
-        assert "plus.Y constant mode" in labels and "minus.Y constant mode" in labels
-        assert sum("common-frame rotation" in label for label in labels) == (1 if N == 1 else 0)
+        assert sum(label.startswith("[SO(3) exact kernel] Q_frame.q[") for label in labels) == 3 * N
+        assert "[decoder zero-mode, not SO(3)] common.T constant mode" in labels
+        assert "[decoder zero-mode, not SO(3)] plus.Y constant mode" in labels
+        assert "[decoder zero-mode, not SO(3)] minus.Y constant mode" in labels
+        assert sum("[N=1 only stabiliser]" in label for label in labels) == (1 if N == 1 else 0)
+        categories = row["generator_categories"]
+        assert categories == {"SO3_exact_kernel_Q_frame": 3 * N, "decoder_zero_modes_not_SO3": 3, "N1_only_stabiliser": 1 if N == 1 else 0}
 
 
 def test_interface_block_and_boundaries(receipt: dict) -> None:

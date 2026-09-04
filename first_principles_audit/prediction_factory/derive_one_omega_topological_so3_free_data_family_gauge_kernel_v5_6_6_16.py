@@ -104,6 +104,8 @@ KERNEL_RELATIVE_THRESHOLD = 1.0e-7
 KERNEL_GAP_MINIMUM = 1.0e3
 KERNEL_SPAN_TOLERANCE = 1.0e-6
 SYMBOLIC_INSTANCES = 2
+CONSTRAINT_TOLERANCE = 1.0e-11
+CONSTRAINT_DERIVATIVE_TOLERANCE = 1.0e-8
 SIDES = ("plus", "minus")
 TRACE_COMMON_BLOCKS = ("common.gamma", "common.T", "common.log_Omega", "common.varphi_E0", "common.A_E0", "Q_frame.q")
 TRACE_SIDE_BLOCKS = ("Y", "metric_free", "A_perp", "B0_full", "r_E0")
@@ -149,6 +151,46 @@ def load_modules() -> tuple[Any, Any, Any]:
     route_b = _load_pinned_module(ROUTE_B_PATH, ROUTE_B_SHA256, "pinned_route_b_v5_6_5")
     return decoder, route_c, route_b
 
+
+# --------------------------------------------------------------------------
+# G0: the gluing constraint composed with the free embedding vanishes, and so does its derivative
+# --------------------------------------------------------------------------
+def constraint_composed_with_free_embedding(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: np.random.Generator) -> dict[str, Any]:
+    """G(I_N(u)) = 0 pointwise and D(G o I_N)[u] du = 0, on the byte-pinned decoder's own gluing defects."""
+    rows: dict[str, Any] = {}
+    worst_value = 0.0
+    worst_derivative = 0.0
+    for member in bundle["primary_members"]:
+        N = int(member["N"])
+        contract = bundle["pointwise_decoder_contract_by_N"][str(N)]
+        free = _member_free(route_c, member)
+        points = rng.uniform(0.0, 2.0 * math.pi, size=(POINTS_PER_MEMBER, 4))
+
+        def defects(vector: np.ndarray) -> np.ndarray:
+            decoded = decoder.decode_pointwise_boundary(vector, contract, points)
+            result = decoder.pointwise_gluing_defects(decoded)
+            return np.concatenate([np.asarray(result[side][name]).reshape(-1) for side in SIDES for name in ("gamma", "Omega", "phi", "A")])
+
+        value = float(np.max(np.abs(defects(free))))
+        derivative = 0.0
+        for _ in range(4):
+            direction = rng.normal(size=free.size)
+            direction /= np.linalg.norm(direction)
+            estimates = []
+            for h in (JACOBIAN_STEP, 0.5 * JACOBIAN_STEP):
+                estimates.append((defects(free + h * direction) - defects(free - h * direction)) / (2.0 * h))
+            derivative = max(derivative, float(np.max(np.abs((4.0 * estimates[1] - estimates[0]) / 3.0))))
+        rows[member["member_id"]] = {"N": N, "max_abs_defect": value, "max_abs_defect_derivative": derivative}
+        worst_value = max(worst_value, value)
+        worst_derivative = max(worst_derivative, derivative)
+    return {
+        "method": "pointwise_gluing_defects of the byte-pinned decoder (gamma, Omega, phi, A) at random T^4 points on the pinned members; derivative by Richardson central differences along four random unit directions of the whole free vector",
+        "members": rows,
+        "worst_defect": worst_value,
+        "worst_defect_derivative": worst_derivative,
+        "value_pass": bool(worst_value <= CONSTRAINT_TOLERANCE),
+        "derivative_pass": bool(worst_derivative <= CONSTRAINT_DERIVATIVE_TOLERANCE),
+    }
 
 # --------------------------------------------------------------------------
 # G1: symbolic kernel of the Q frame
@@ -449,18 +491,18 @@ def jacobian_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: 
         start, stop, _ = _block_slice(contract, "Q_frame.q")
         for index in range(start, stop):
             generators.append(unit(index))
-            labels.append(f"Q_frame.q[{index - start}]")
+            labels.append(f"[SO(3) exact kernel] Q_frame.q[{index - start}]")
         start, stop, shape = _block_slice(contract, "common.T")
         generators.append(unit(start))  # constant mode is the first row of the (N, 1) block
-        labels.append("common.T constant mode")
+        labels.append("[decoder zero-mode, not SO(3)] common.T constant mode")
         for side in SIDES:
             start, stop, shape = _block_slice(contract, f"{side}.Y")
             generators.append(unit(start))
-            labels.append(f"{side}.Y constant mode")
+            labels.append(f"[decoder zero-mode, not SO(3)] {side}.Y constant mode")
         if N == 1:
             frame = _global_frame_generators(decoder, route_c, contract, free, columns)
             generators.append(frame[:, 0])
-            labels.append("constant common-frame rotation about varphi_E0 (stabiliser of the interface scalar)")
+            labels.append("[N=1 only stabiliser] constant common-frame rotation about varphi_E0 (stabiliser of the interface scalar)")
         G = np.stack(generators, axis=-1)
         # kernel basis from the SVD
         _u, _s, vt = np.linalg.svd(jacobian, full_matrices=True)
@@ -496,6 +538,11 @@ def jacobian_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: 
             "nonkernel_singular_min": nonkernel_min,
             "gap_ratio": gap,
             "explicit_generators": labels,
+            "generator_categories": {
+                "SO3_exact_kernel_Q_frame": sum(label.startswith("[SO(3) exact kernel]") for label in labels),
+                "decoder_zero_modes_not_SO3": sum(label.startswith("[decoder zero-mode") for label in labels),
+                "N1_only_stabiliser": sum(label.startswith("[N=1 only") for label in labels),
+            },
             "generator_rank": generator_rank,
             "generators_inside_kernel_residual": residual_G_in_K,
             "kernel_inside_generators_residual": residual_K_in_G,
@@ -599,6 +646,7 @@ def build_payload() -> dict[str, Any]:
     decoder, route_c, route_b = load_modules()
     parameters = bundle["action_contract"]["coefficient_parameters"]
     rng = np.random.default_rng(SEED)
+    g0 = constraint_composed_with_free_embedding(decoder, route_c, bundle, rng)
     g1 = symbolic_q_frame_kernel(rng)
     g2 = numeric_q_frame_kernel(decoder, route_c, bundle, rng)
     g3 = jacobian_kernel(decoder, route_c, bundle, rng)
@@ -611,15 +659,19 @@ def build_payload() -> dict[str, Any]:
             "identity is evaluated at (Phi(u), DPhi[u] du) and needs neither a finite gluing map nor a quotient. The "
             "9N rotation coordinates of the v5.6.4 contract are treated explicitly: the 3N Q_frame coordinates are an "
             "exact kernel of Phi (symbolic and numeric), the 6N r_E0 coordinates are physical for N >= 2, and the "
-            "complete kernel of DPhi on the trace coordinates at the pinned members is spanned by explicit generators "
-            "(Q_frame, the constant modes of T, Y_plus, Y_minus, and at N = 1 the constant common-frame rotation about "
-            "varphi_E0, the only constant rotation that leaves the interface scalar consumed by the Robin term fixed). "
-            "Phi, hence S_rel o Phi and every sector density, is constant along these directions."
+            "complete kernel of DPhi on the trace coordinates at the pinned members is spanned by three kinds of explicit "
+            "generators, kept apart on purpose: (i) the 3N Q_frame directions, an exact SO(3) kernel proven symbolically; "
+            "(ii) three decoder zero-modes that are not SO(3) at all (the constant modes of T, Y_plus, Y_minus, which enter "
+            "only through derivatives); (iii) at N = 1 only, the constant common-frame rotation about varphi_E0. The rank "
+            "statement is sampled at the three pinned members; there is no constant-rank theorem and gap 5 stays open "
+            "globally (N -> infinity, continuum common-frame redundancy). Phi, hence S_rel o Phi and every sector density, "
+            "is constant along these directions."
         ),
         "gap_5_restated": {
             "before": "state the finite family in free data only (so Phi(V_N) need not lie in V_N) and treat the 9N gauge orbit explicitly, or prove the quotient is harmless for the identity",
-            "after": "F_N := Phi(U_N); kernel of DPhi listed with generators; no quotient enters the identity; the v5.6.4 'DG_N on V_N' and 'uniform_stability' obligations are retired by the change of formulation, not discharged (keys stay False)",
+            "after": "F_N := Phi(U_N); kernel of DPhi listed with generators at the pinned members (sampled, no constant-rank theorem); no quotient enters the identity; the v5.6.4 'DG_N on V_N' and 'uniform_stability' obligations are retired by the change of formulation, not discharged (keys stay False); gap 5 stays open globally",
         },
+        "G0_constraint_composed_with_free_embedding": g0,
         "G1_symbolic_Q_frame_kernel": g1,
         "G2_numeric_Q_frame_kernel_and_decoder_agreement": g2,
         "G3_jacobian_kernel_on_trace_coordinates": g3,
@@ -636,11 +688,13 @@ def build_payload() -> dict[str, Any]:
         ],
     }
     decision = {
+        "pointwise_constraint_G_composed_with_free_embedding_zero_sampled_pass": bool(g0["value_pass"]),
+        "pointwise_DG_composed_with_DI_zero_sampled_pass": bool(g0["derivative_pass"]),
         "Q_frame_coordinates_are_exact_kernel_of_the_decoder_symbolic_pass": bool(g1["pass"]),
-        "Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_pass": bool(g2["kernel_pass"]),
-        "route_c_trace_decoder_matches_pinned_decoder_pass": bool(g2["agreement_pass"]),
-        "free_data_family_jacobian_kernel_is_explicit_gauge_generators_pass": bool(g3["pass"]),
-        "interface_densities_independent_of_Q_frame_pass": bool(g4["pass"]),
+        "Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_at_pinned_members_pass": bool(g2["kernel_pass"]),
+        "route_c_trace_decoder_matches_pinned_decoder_sampled_pass": bool(g2["agreement_pass"]),
+        "free_data_family_trace_jacobian_kernel_rank_and_generators_sampled_at_pinned_members_pass": bool(g3["pass"]),
+        "interface_densities_independent_of_Q_frame_sampled_pass": bool(g4["pass"]),
         "uniform_N_to_infinity_bridge_pass": False,
         "uniform_stability_pass": False,
         "spectral_N_convergence_pass": False,
@@ -676,6 +730,8 @@ def build_payload() -> dict[str, Any]:
             "kernel_gap_minimum": KERNEL_GAP_MINIMUM,
             "kernel_span_tolerance": KERNEL_SPAN_TOLERANCE,
             "symbolic_instances": SYMBOLIC_INSTANCES,
+            "constraint_tolerance": CONSTRAINT_TOLERANCE,
+            "constraint_derivative_tolerance": CONSTRAINT_DERIVATIVE_TOLERANCE,
             "trace_common_blocks": list(TRACE_COMMON_BLOCKS),
             "trace_side_blocks": list(TRACE_SIDE_BLOCKS),
         },
@@ -716,6 +772,7 @@ def main() -> None:
     print(json.dumps({k: v for k, v in payload["decision"].items() if v}, indent=2))
     s = payload["scientific"]
     g2, g3, g4 = s["G2_numeric_Q_frame_kernel_and_decoder_agreement"], s["G3_jacobian_kernel_on_trace_coordinates"], s["G4_interface_densities_independent_of_Q_frame"]
+    print(f"G0 defect {s['G0_constraint_composed_with_free_embedding']['worst_defect']:.2e}, derivative {s['G0_constraint_composed_with_free_embedding']['worst_defect_derivative']:.2e}")
     print(f"G2 worst lateral change {g2['worst_lateral_change']:.2e}, common motion >= {g2['smallest_common_frame_motion']:.2e}, route C vs pinned {g2['worst_route_c_vs_pinned_agreement']:.2e}")
     for mid, row in g3["members"].items():
         print(f"G3 {mid}: kernel {row['kernel_dimension']} (generators {row['generator_rank']}), gap {row['gap_ratio']:.2e}, sigma_max {row['singular_max']:.3g}, pass {row['pass']}")

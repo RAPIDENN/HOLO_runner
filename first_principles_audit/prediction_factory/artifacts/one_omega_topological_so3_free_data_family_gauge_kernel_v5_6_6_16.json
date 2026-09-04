@@ -6,20 +6,24 @@
     "C1_ACTION_pass": false,
     "C1_N1_promotion_authorized": false,
     "N1_ACTION_pass": false,
-    "Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_pass": true,
+    "Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_at_pinned_members_pass": true,
     "Q_frame_coordinates_are_exact_kernel_of_the_decoder_symbolic_pass": true,
     "density_union_C_N_pass": false,
-    "free_data_family_jacobian_kernel_is_explicit_gauge_generators_pass": true,
-    "interface_densities_independent_of_Q_frame_pass": true,
+    "free_data_family_trace_jacobian_kernel_rank_and_generators_sampled_at_pinned_members_pass": true,
+    "interface_densities_independent_of_Q_frame_sampled_pass": true,
     "periodic_box_exhaustion_and_tail_control_pass": false,
+    "pointwise_DG_composed_with_DI_zero_sampled_pass": true,
+    "pointwise_constraint_G_composed_with_free_embedding_zero_sampled_pass": true,
     "restricted_family_exact_action_identity_pass": false,
-    "route_c_trace_decoder_matches_pinned_decoder_pass": true,
+    "route_c_trace_decoder_matches_pinned_decoder_sampled_pass": true,
     "spectral_N_convergence_pass": false,
     "uniform_N_to_infinity_bridge_pass": false,
     "uniform_stability_pass": false
   },
   "evidence_boundary": "Exact symbolic kernel of the Q frame; numeric kernel and decoder agreement at the three pinned members; Richardson-FD Jacobian kernel with explicit generators at those members. Not a constant-rank theorem, not a statement about N -> infinity, B_FD, quadrature, or any bridge/C1/N1 key.",
   "fixed_before_run": {
+    "constraint_derivative_tolerance": 1e-08,
+    "constraint_tolerance": 1e-11,
     "decoder_agreement_tolerance": 1e-09,
     "jacobian_step": 0.0001,
     "kernel_gap_minimum": 1000.0,
@@ -71,6 +75,30 @@
   },
   "schema": "holo.one-omega-topological-so3-free-data-family-gauge-kernel-v5-6-6-16.v1",
   "scientific": {
+    "G0_constraint_composed_with_free_embedding": {
+      "derivative_pass": true,
+      "members": {
+        "N1.K1.seed20260902": {
+          "N": 1,
+          "max_abs_defect": 4.163336342344337e-17,
+          "max_abs_defect_derivative": 1.1102230246251565e-12
+        },
+        "N2.K2.seed20260902": {
+          "N": 2,
+          "max_abs_defect": 4.440892098500626e-16,
+          "max_abs_defect_derivative": 1.1842378929335004e-11
+        },
+        "N3.K3.seed20260902": {
+          "N": 3,
+          "max_abs_defect": 4.440892098500626e-16,
+          "max_abs_defect_derivative": 1.1842378929335004e-11
+        }
+      },
+      "method": "pointwise_gluing_defects of the byte-pinned decoder (gamma, Omega, phi, A) at random T^4 points on the pinned members; derivative by Richardson central differences along four random unit directions of the whole free vector",
+      "value_pass": true,
+      "worst_defect": 4.440892098500626e-16,
+      "worst_defect_derivative": 1.1842378929335004e-11
+    },
     "G1_symbolic_Q_frame_kernel": {
       "instances": [
         {
@@ -80,20 +108,20 @@
           "instance": 0,
           "phi_source_equals_R0T_varphi_E0": true,
           "r_coefficients": [
-            "-3/5",
-            "-2/5",
             "-1/5",
-            "4/5",
-            "-2/5",
-            "-1/5"
+            "-3/5",
+            "-3/5",
+            "3/5",
+            "1/5",
+            "0"
           ],
           "s_coefficients": [
-            "2/7",
-            "4/7",
-            "1/7",
             "-1/7",
-            "1/7",
-            "4/7"
+            "5/7",
+            "6/7",
+            "-2/7",
+            "2/7",
+            "-5/7"
           ]
         },
         {
@@ -103,20 +131,20 @@
           "instance": 1,
           "phi_source_equals_R0T_varphi_E0": true,
           "r_coefficients": [
-            "4/5",
-            "4/5",
-            "-1/5",
-            "-1/5",
-            "3/5",
-            "-3/5"
+            "1/5",
+            "2/5",
+            "-2/5",
+            "-2/5",
+            "0",
+            "3/5"
           ],
           "s_coefficients": [
             "-6/7",
+            "-1/7",
             "2/7",
+            "1/7",
             "3/7",
-            "3/7",
-            "-6/7",
-            "-1/7"
+            "1/7"
           ]
         }
       ],
@@ -129,47 +157,52 @@
       "members": {
         "N1.K1.seed20260902": {
           "N": 1,
-          "common_frame_outputs_change_under_q_perturbation": 0.5910970736717481,
-          "pinned_decoder_lateral_change_under_q_perturbation": 5.551115123125783e-17,
+          "common_frame_outputs_change_under_q_perturbation": 0.440258056017347,
+          "pinned_decoder_lateral_change_under_q_perturbation": 4.163336342344337e-17,
           "q_block_size": 3,
           "route_c_decoder_lateral_change_under_q_perturbation": 5.551115123125783e-17,
           "route_c_vs_pinned_decoder_lateral_traces_max_abs": 1.5803330866148713e-15
         },
         "N2.K2.seed20260902": {
           "N": 2,
-          "common_frame_outputs_change_under_q_perturbation": 0.6373484266410651,
-          "pinned_decoder_lateral_change_under_q_perturbation": 2.220446049250313e-16,
+          "common_frame_outputs_change_under_q_perturbation": 0.6776331057961247,
+          "pinned_decoder_lateral_change_under_q_perturbation": 4.0245584642661925e-16,
           "q_block_size": 6,
-          "route_c_decoder_lateral_change_under_q_perturbation": 1.1102230246251565e-16,
-          "route_c_vs_pinned_decoder_lateral_traces_max_abs": 1.2906342661267445e-14
+          "route_c_decoder_lateral_change_under_q_perturbation": 2.220446049250313e-16,
+          "route_c_vs_pinned_decoder_lateral_traces_max_abs": 1.0397932515004982e-14
         },
         "N3.K3.seed20260902": {
           "N": 3,
-          "common_frame_outputs_change_under_q_perturbation": 0.7656274953053429,
-          "pinned_decoder_lateral_change_under_q_perturbation": 2.2724877535296173e-16,
+          "common_frame_outputs_change_under_q_perturbation": 0.9009455265824944,
+          "pinned_decoder_lateral_change_under_q_perturbation": 5.620504062164855e-16,
           "q_block_size": 9,
-          "route_c_decoder_lateral_change_under_q_perturbation": 2.3592239273284576e-16,
-          "route_c_vs_pinned_decoder_lateral_traces_max_abs": 1.2243678293444304e-14
+          "route_c_decoder_lateral_change_under_q_perturbation": 1.7954387976359953e-16,
+          "route_c_vs_pinned_decoder_lateral_traces_max_abs": 8.923417560424696e-15
         }
       },
-      "smallest_common_frame_motion": 0.5910970736717481,
-      "worst_lateral_change": 2.3592239273284576e-16,
-      "worst_route_c_vs_pinned_agreement": 1.2906342661267445e-14
+      "smallest_common_frame_motion": 0.440258056017347,
+      "worst_lateral_change": 5.620504062164855e-16,
+      "worst_route_c_vs_pinned_agreement": 1.0397932515004982e-14
     },
     "G3_jacobian_kernel_on_trace_coordinates": {
       "members": {
         "N1.K1.seed20260902": {
           "N": 1,
           "explicit_generators": [
-            "Q_frame.q[0]",
-            "Q_frame.q[1]",
-            "Q_frame.q[2]",
-            "common.T constant mode",
-            "plus.Y constant mode",
-            "minus.Y constant mode",
-            "constant common-frame rotation about varphi_E0 (stabiliser of the interface scalar)"
+            "[SO(3) exact kernel] Q_frame.q[0]",
+            "[SO(3) exact kernel] Q_frame.q[1]",
+            "[SO(3) exact kernel] Q_frame.q[2]",
+            "[decoder zero-mode, not SO(3)] common.T constant mode",
+            "[decoder zero-mode, not SO(3)] plus.Y constant mode",
+            "[decoder zero-mode, not SO(3)] minus.Y constant mode",
+            "[N=1 only stabiliser] constant common-frame rotation about varphi_E0 (stabiliser of the interface scalar)"
           ],
           "gap_ratio": 187310189189.86902,
+          "generator_categories": {
+            "N1_only_stabiliser": 1,
+            "SO3_exact_kernel_Q_frame": 3,
+            "decoder_zero_modes_not_SO3": 3
+          },
           "generator_rank": 7,
           "generators_inside_kernel_residual": 6.476097436092232e-11,
           "jacobian_on_generators_relative": 2.85542450128987e-12,
@@ -189,64 +222,74 @@
         "N2.K2.seed20260902": {
           "N": 2,
           "explicit_generators": [
-            "Q_frame.q[0]",
-            "Q_frame.q[1]",
-            "Q_frame.q[2]",
-            "Q_frame.q[3]",
-            "Q_frame.q[4]",
-            "Q_frame.q[5]",
-            "common.T constant mode",
-            "plus.Y constant mode",
-            "minus.Y constant mode"
+            "[SO(3) exact kernel] Q_frame.q[0]",
+            "[SO(3) exact kernel] Q_frame.q[1]",
+            "[SO(3) exact kernel] Q_frame.q[2]",
+            "[SO(3) exact kernel] Q_frame.q[3]",
+            "[SO(3) exact kernel] Q_frame.q[4]",
+            "[SO(3) exact kernel] Q_frame.q[5]",
+            "[decoder zero-mode, not SO(3)] common.T constant mode",
+            "[decoder zero-mode, not SO(3)] plus.Y constant mode",
+            "[decoder zero-mode, not SO(3)] minus.Y constant mode"
           ],
-          "gap_ratio": 237570534.3796919,
+          "gap_ratio": 263420789.40293634,
+          "generator_categories": {
+            "N1_only_stabiliser": 0,
+            "SO3_exact_kernel_Q_frame": 6,
+            "decoder_zero_modes_not_SO3": 3
+          },
           "generator_rank": 9,
-          "generators_inside_kernel_residual": 8.742239247753322e-11,
-          "jacobian_on_generators_relative": 2.9973339935463e-13,
+          "generators_inside_kernel_residual": 1.843075047652418e-10,
+          "jacobian_on_generators_relative": 2.8169174322766324e-13,
           "kernel_dimension": 9,
-          "kernel_inside_generators_residual": 9.597369397484575e-11,
-          "kernel_singular_max": 4.732664062352369e-12,
-          "nonkernel_singular_min": 0.0011243415303326158,
+          "kernel_inside_generators_residual": 1.6243233807213472e-10,
+          "kernel_singular_max": 5.810490346093897e-12,
+          "nonkernel_singular_min": 0.0015306039537861952,
           "outputs": 1360,
           "pass": true,
           "r_E0_blocks_smallest_singular_relative": [
-            0.09563952486675605,
-            0.09564481371116508
+            0.10324570152523972,
+            0.10325297685070686
           ],
-          "singular_max": 5.401717819005579,
+          "singular_max": 5.090806201994963,
           "trace_coordinates": 228
         },
         "N3.K3.seed20260902": {
           "N": 3,
           "explicit_generators": [
-            "Q_frame.q[0]",
-            "Q_frame.q[1]",
-            "Q_frame.q[2]",
-            "Q_frame.q[3]",
-            "Q_frame.q[4]",
-            "Q_frame.q[5]",
-            "Q_frame.q[6]",
-            "Q_frame.q[7]",
-            "Q_frame.q[8]",
-            "common.T constant mode",
-            "plus.Y constant mode",
-            "minus.Y constant mode"
+            "[SO(3) exact kernel] Q_frame.q[0]",
+            "[SO(3) exact kernel] Q_frame.q[1]",
+            "[SO(3) exact kernel] Q_frame.q[2]",
+            "[SO(3) exact kernel] Q_frame.q[3]",
+            "[SO(3) exact kernel] Q_frame.q[4]",
+            "[SO(3) exact kernel] Q_frame.q[5]",
+            "[SO(3) exact kernel] Q_frame.q[6]",
+            "[SO(3) exact kernel] Q_frame.q[7]",
+            "[SO(3) exact kernel] Q_frame.q[8]",
+            "[decoder zero-mode, not SO(3)] common.T constant mode",
+            "[decoder zero-mode, not SO(3)] plus.Y constant mode",
+            "[decoder zero-mode, not SO(3)] minus.Y constant mode"
           ],
-          "gap_ratio": 5084242.500898704,
+          "gap_ratio": 7151668.602061795,
+          "generator_categories": {
+            "N1_only_stabiliser": 0,
+            "SO3_exact_kernel_Q_frame": 9,
+            "decoder_zero_modes_not_SO3": 3
+          },
           "generator_rank": 12,
-          "generators_inside_kernel_residual": 9.87330638750169e-09,
-          "jacobian_on_generators_relative": 2.7898485449062144e-13,
+          "generators_inside_kernel_residual": 8.817349856901003e-09,
+          "jacobian_on_generators_relative": 2.856807968174195e-13,
           "kernel_dimension": 12,
-          "kernel_inside_generators_residual": 1.88524349251895e-08,
-          "kernel_singular_max": 5.166925323089759e-12,
-          "nonkernel_singular_min": 2.6269901326622718e-05,
+          "kernel_inside_generators_residual": 9.160427703919714e-09,
+          "kernel_singular_max": 4.518124765889081e-12,
+          "nonkernel_singular_min": 3.231213102840674e-05,
           "outputs": 1360,
           "pass": true,
           "r_E0_blocks_smallest_singular_relative": [
-            0.09412792513529938,
-            0.09413346859830972
+            0.10085325950487017,
+            0.10086068218849244
           ],
-          "singular_max": 5.4718262812037635,
+          "singular_max": 5.181648128463262,
           "trace_coordinates": 342
         }
       },
@@ -255,12 +298,12 @@
     },
     "G4_interface_densities_independent_of_Q_frame": {
       "pass": true,
-      "q_norm_max": 1.9823631170313383,
+      "q_norm_max": 1.9600719295598235,
       "route_b_max_relative_change_under_q": 1.1102230246251565e-16,
-      "route_c_max_relative_change_under_q": 2.1650272411915564e-16
+      "route_c_max_relative_change_under_q": 1.1102230246251565e-16
     },
     "gap_5_restated": {
-      "after": "F_N := Phi(U_N); kernel of DPhi listed with generators; no quotient enters the identity; the v5.6.4 'DG_N on V_N' and 'uniform_stability' obligations are retired by the change of formulation, not discharged (keys stay False)",
+      "after": "F_N := Phi(U_N); kernel of DPhi listed with generators at the pinned members (sampled, no constant-rank theorem); no quotient enters the identity; the v5.6.4 'DG_N on V_N' and 'uniform_stability' obligations are retired by the change of formulation, not discharged (keys stay False); gap 5 stays open globally",
       "before": "state the finite family in free data only (so Phi(V_N) need not lie in V_N) and treat the 9N gauge orbit explicitly, or prove the quotient is harmless for the identity"
     },
     "linear_blocks_not_in_the_jacobian": {
@@ -270,7 +313,7 @@
       ],
       "reason": "they enter the bulk fields linearly through h1(rho) and the Legendre bumps b_j(rho), which are linearly independent radial profiles, so they add no kernel and no coupling to the trace coordinates"
     },
-    "statement": "Finite family in free data only: F_N = Phi(U_N) with Phi the byte-pinned common-first decoder followed by the C2 radial profiles; every route differentiates S_rel o Phi along free-data curves, so the bridge identity is evaluated at (Phi(u), DPhi[u] du) and needs neither a finite gluing map nor a quotient. The 9N rotation coordinates of the v5.6.4 contract are treated explicitly: the 3N Q_frame coordinates are an exact kernel of Phi (symbolic and numeric), the 6N r_E0 coordinates are physical for N >= 2, and the complete kernel of DPhi on the trace coordinates at the pinned members is spanned by explicit generators (Q_frame, the constant modes of T, Y_plus, Y_minus, and at N = 1 the constant common-frame rotation about varphi_E0, the only constant rotation that leaves the interface scalar consumed by the Robin term fixed). Phi, hence S_rel o Phi and every sector density, is constant along these directions.",
+    "statement": "Finite family in free data only: F_N = Phi(U_N) with Phi the byte-pinned common-first decoder followed by the C2 radial profiles; every route differentiates S_rel o Phi along free-data curves, so the bridge identity is evaluated at (Phi(u), DPhi[u] du) and needs neither a finite gluing map nor a quotient. The 9N rotation coordinates of the v5.6.4 contract are treated explicitly: the 3N Q_frame coordinates are an exact kernel of Phi (symbolic and numeric), the 6N r_E0 coordinates are physical for N >= 2, and the complete kernel of DPhi on the trace coordinates at the pinned members is spanned by three kinds of explicit generators, kept apart on purpose: (i) the 3N Q_frame directions, an exact SO(3) kernel proven symbolically; (ii) three decoder zero-modes that are not SO(3) at all (the constant modes of T, Y_plus, Y_minus, which enter only through derivatives); (iii) at N = 1 only, the constant common-frame rotation about varphi_E0. The rank statement is sampled at the three pinned members; there is no constant-rank theorem and gap 5 stays open globally (N -> infinity, continuum common-frame redundancy). Phi, hence S_rel o Phi and every sector density, is constant along these directions.",
     "what_is_not_established": [
       "anything about N -> infinity, density of the union of F_N, or the common-frame redundancy of the continuum decoder inside U_N for N >= 2 (shown numerically to be absent, not proven)",
       "B_FD (Codex lane, v5.6.6.12) and quadrature",
@@ -278,7 +321,7 @@
       "any bridge, C1/N1, B4/B5 or promotion key"
     ]
   },
-  "scientific_payload_sha256": "b785daa482b1f5bff5ee4ebbfab3ee0da9bb6f428c3413afb912dbfff8c9ebb4",
+  "scientific_payload_sha256": "cb869de5f62758bdf024942a93c4e8c63ccd84460939d641176016438eea21d0",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "frozen_checkpoint_commit": "ea014fd",
