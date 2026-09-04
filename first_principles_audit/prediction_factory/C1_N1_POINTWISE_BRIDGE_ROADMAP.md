@@ -51,8 +51,11 @@ an independent Fourier canary.
 
 - Uniform approximation on an entire bounded `H^s` ball cannot converge in the
   same `H^s` norm: for every finite projector there is a normalized omitted
-  mode.  The bridge must lose regularity (`H^s -> H^{s0}`, `4 < s0 < s`), add
-  uniform tail control, or work on a compact subset.
+  mode.  This does not refute the pointwise-in-`X` convergence stated in
+  v5.6.6.8.  Any uniform-on-balls or uniform-rate strengthening must instead
+  lose regularity (`H^s -> H^{s0}`, `4 < s0 < s`), add uniform tail control, or
+  work on a compact subset; the final bridge must state this quantifier
+  explicitly.
 - Because each wavevector enters as cosine and then sine, even-dimensional
   `V_N` is not closed under differentiation.  Any commutation lemma must use
   complete sine/cosine pairs (preferably complete Fourier shells) or evaluate
