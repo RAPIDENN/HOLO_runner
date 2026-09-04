@@ -20,12 +20,12 @@ EXPECTED_TRUE_KEYS = frozenset(
         "restricted_family_exact_action_identity_pass",
         "restricted_class_continuity_bound_stated_pass",
         "outer_radial_Green_form_vanishes_exactly_pass",
+        "route_C_literal_current_is_Euler_operator_representative_pass",
     }
 )
 EXPECTED_FALSE_KEYS = frozenset(
     {
         "declared_collocation_uniform_stability_pass",
-        "route_C_literal_Euler_contraction_is_Euler_operator_pass",
         "uniform_N_to_infinity_bridge_pass",
         "spectral_N_convergence_pass",
         "uniform_stability_pass",
@@ -98,15 +98,18 @@ def test_symbolic_identity_all_cases(receipt: dict) -> None:
     route_c = [c for c in cases if tuple(c["coordinates"]) == ("theta", "rho")]
     assert len(route_c) == 1
     assert route_c[0]["route_C_symmetric_split_representative_exact"] is True
-    assert route_c[0]["route_C_literal_current_subtraction_is_derivative_free"] is False
-    assert route_c[0]["route_C_literal_current_offending_dq_derivatives"]
+    assert route_c[0]["route_C_literal_current_subtraction_is_derivative_free"] is True
+    assert route_c[0]["route_C_literal_current_offending_dq_derivatives"] == []
+    assert route_c[0]["route_C_literal_current_equals_symmetric_split_identically"] is True
+    assert route_c[0]["route_C_literal_subtraction_equals_formal_Euler_operator"] is True
 
 
 def test_symbolic_identity_regenerates_for_the_small_case() -> None:
     result = gate.symbolic_euler_green_case(("theta", "rho"), 1)
     assert result["identity_dL_equals_E_dq_plus_div_H"] is True
     assert result["route_C_symmetric_split_representative_exact"] is True
-    assert result["route_C_literal_current_subtraction_is_derivative_free"] is False
+    assert result["route_C_literal_current_subtraction_is_derivative_free"] is True
+    assert result["route_C_literal_current_equals_symmetric_split_identically"] is True
 
 
 def test_radial_junction(receipt: dict) -> None:
@@ -158,7 +161,8 @@ def test_theorem_statement_present(receipt: dict) -> None:
     for key in ("class", "norm", "margins", "part_i_exact_identity", "part_ii_continuity", "part_iii_convergence_on_the_continuum_class", "what_remains"):
         assert isinstance(theorem[key], str) and len(theorem[key]) > 80
     assert "not machine-checked" in receipt["scientific"]["analytic_only"]["sobolev_continuity_bound"]
-    assert receipt["scientific"]["machine_checked"]["route_C_literal_current_defines_an_Euler_contraction"] is False
+    assert receipt["scientific"]["machine_checked"]["route_C_literal_current_is_Euler_operator_representative"] is True
+    assert "independent of the action" in receipt["scientific"]["route_C_observation"]["Stokes_residual"]
 
 
 def test_independence_boundary(receipt: dict) -> None:

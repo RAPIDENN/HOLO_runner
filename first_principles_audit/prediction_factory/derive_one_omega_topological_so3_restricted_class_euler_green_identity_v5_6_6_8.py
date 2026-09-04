@@ -27,15 +27,21 @@ It does three things and nothing more.
                             + sum_mu Q^{mu rho} dq_mu ] dx,
 
     contains no tangential derivative of order > 2 of the field and no
-    radial derivative of order > 3.  It also tests the literal Route C
-    two-coordinate (theta, rho) current used by v5.6.6.1--v5.6.6.7, whose
-    Euler contraction is DEFINED by subtraction E.dq := dL - div H: with the
-    literal weights (2 Q^tt, 2 Q^rr, unit mixed, -1/2 mixed derivative) that
-    subtraction is NOT free of derivatives of dq, so the recorded
-    "bulk_Euler_contraction_integral" of those receipts is not an Euler
-    operator contraction and their Stokes residual verifies the discrete
-    divergence theorem of H, not the action identity.  The symmetric-split
-    representative with unit diagonal weights is exact.
+    radial derivative of order > 3.  It also transcribes the literal Route C
+    two-coordinate (theta, rho) current of v5.6.6.3 _bulk_grid_euler_green,
+    which differentiates the grid contraction fields Q.dq (product rule), and
+    verifies that it is IDENTICALLY the unit-diagonal symmetric-split
+    representative and that its subtraction-defined Euler contraction
+    E.dq := dL - div H equals the formal Euler operator contraction exactly.
+    Hence Route C's "bulk_Euler_contraction_integral" and "pointwise_Euler_Linf"
+    are genuine Euler-operator quantities up to discretization error.  A
+    separate, weaker observation is recorded: because E is defined by
+    subtraction, the quantity "Stokes_residual_direct_minus_Euler_Green" is an
+    identity of the discrete divergence theorem (zero-mean spectral derivative
+    plus exact Gauss--Legendre integration of the barycentric derivative) and
+    is therefore action-independent; the action-sensitive finite check in
+    those receipts is the chain residual and the three-way AD/FD5/Route C
+    comparison of first variations.
 
 (B) Radial junction.  It verifies symbolically that the declared C2 radial
     primitives h0, h1 and the Legendre bumps b_j (j < K, K up to 8) have the
@@ -275,14 +281,17 @@ def symbolic_euler_green_case(coordinates: tuple[str, ...], channels: int) -> di
     route_c_literal_derivative_free = None
     route_c_symmetric_split_exact = None
     route_c_literal_offending_terms = None
+    route_c_literal_equals_symmetric_split = None
+    route_c_literal_euler_matches = None
     if coordinates == ("theta", "rho"):
         # Literal Route C current (v5.6.6.3 _bulk_grid_euler_green) with E DEFINED by subtraction.
         t, r = 0, 1
         Ht = Hr = sp.S.Zero
         for a in range(channels):
             Qtt, Qtr, Qrr = Q[a][(0, 0)], Q[a][(0, 1)], Q[a][(1, 1)]
-            Ht += P[a][t] * dq0(a) + 2 * Qtt * dq1(a, t) - D(Qtt, t) * dq0(a) + Qtr * dq1(a, r) - sp.Rational(1, 2) * D(Qtr, r) * dq0(a)
-            Hr += P[a][r] * dq0(a) + 2 * Qrr * dq1(a, r) - D(Qrr, r) * dq0(a) + Qtr * dq1(a, t) - sp.Rational(1, 2) * D(Qtr, t) * dq0(a)
+            # v5.6.6.3 differentiates the grid CONTRACTION FIELDS Q.dq (qtt_q = Q_tt_dq etc.), not the momenta alone.
+            Ht += P[a][t] * dq0(a) + 2 * Qtt * dq1(a, t) - D(Qtt * dq0(a), t) + Qtr * dq1(a, r) - sp.Rational(1, 2) * D(Qtr * dq0(a), r)
+            Hr += P[a][r] * dq0(a) + 2 * Qrr * dq1(a, r) - D(Qrr * dq0(a), r) + Qtr * dq1(a, t) - sp.Rational(1, 2) * D(Qtr * dq0(a), t)
         rest = sp.expand(dL - D(Ht, t) - D(Hr, r))
         offending = sorted(str(sym) for sym in rest.free_symbols if J.inverse.get(sym, ("",))[0] == "d" and len(J.inverse[sym][1][1]) > 0)
         route_c_literal_derivative_free = len(offending) == 0
@@ -295,6 +304,8 @@ def symbolic_euler_green_case(coordinates: tuple[str, ...], channels: int) -> di
             Hr2 += P[a][r] * dq0(a) + Qrr * dq1(a, r) - D(Qrr, r) * dq0(a) + sp.Rational(1, 2) * Qtr * dq1(a, t) - sp.Rational(1, 2) * D(Qtr, t) * dq0(a)
         rest2 = sp.expand(dL - D(Ht2, t) - D(Hr2, r) - sum(E[a] * dq0(a) for a in range(channels)))
         route_c_symmetric_split_exact = rest2 == 0
+        route_c_literal_equals_symmetric_split = sp.expand(Ht - Ht2) == 0 and sp.expand(Hr - Hr2) == 0
+        route_c_literal_euler_matches = sp.expand(rest - sum(E[a] * dq0(a) for a in range(channels))) == 0
 
     jets = sum(1 + n + len(pairs) for _ in range(channels))
     return {
@@ -309,6 +320,8 @@ def symbolic_euler_green_case(coordinates: tuple[str, ...], channels: int) -> di
         "route_C_literal_current_subtraction_is_derivative_free": route_c_literal_derivative_free,
         "route_C_literal_current_offending_dq_derivatives": route_c_literal_offending_terms,
         "route_C_symmetric_split_representative_exact": route_c_symmetric_split_exact,
+        "route_C_literal_current_equals_symmetric_split_identically": route_c_literal_equals_symmetric_split,
+        "route_C_literal_subtraction_equals_formal_Euler_operator": route_c_literal_euler_matches,
     }
 
 
@@ -521,7 +534,12 @@ def build_payload() -> dict[str, Any]:
     )
     route_c_cases = [case for case in symbolic if case["route_C_symmetric_split_representative_exact"] is not None]
     route_c_ok = all(case["route_C_symmetric_split_representative_exact"] for case in route_c_cases)
-    route_c_literal_ok = all(case["route_C_literal_current_subtraction_is_derivative_free"] for case in route_c_cases)
+    route_c_literal_ok = all(
+        case["route_C_literal_current_subtraction_is_derivative_free"]
+        and case["route_C_literal_current_equals_symmetric_split_identically"]
+        and case["route_C_literal_subtraction_equals_formal_Euler_operator"]
+        for case in route_c_cases
+    )
 
     exact_identity_pass = bool(identity_all and interface_all and jet_order_ok and radial["declared_C2_jets_pass"] and label_match and profile_match)
     continuity_stated = bool(exact_identity_pass)
@@ -537,9 +555,15 @@ def build_payload() -> dict[str, Any]:
             "interface_functional_after_periodic_IBP": interface_all,
             "interface_jet_orders_within_class_regularity": jet_order_ok,
             "route_C_symmetric_split_representative_exact": route_c_ok,
-            "route_C_literal_current_defines_an_Euler_contraction": route_c_literal_ok,
+            "route_C_literal_current_is_Euler_operator_representative": route_c_literal_ok,
             "radial_C2_junction": radial["declared_C2_jets_pass"],
             "collocation_growth_measured": True,
+        },
+        "route_C_observation": {
+            "current": "literal v5.6.6.3 current == unit-diagonal symmetric-split representative (product rule on contraction fields)",
+            "Euler_contraction": "subtraction-defined E.dq equals the formal Euler operator contraction exactly (symbolic)",
+            "Stokes_residual": "direct - (Euler_integral + radial_Green) is a discrete divergence-theorem identity, independent of the action; not evidence about the action",
+            "action_sensitive_checks_in_route_C": ["chain_residual (free_direct vs chain_direct)", "three-way AD/FD5/Route C first-variation comparison (v5.6.6.6)"],
         },
         "analytic_only": {
             "sobolev_continuity_bound": "stated with hypotheses; not machine-checked; no numeric C(M)",
@@ -551,7 +575,7 @@ def build_payload() -> dict[str, Any]:
         "restricted_family_exact_action_identity_pass": exact_identity_pass,
         "restricted_class_continuity_bound_stated_pass": continuity_stated,
         "outer_radial_Green_form_vanishes_exactly_pass": bool(radial["outer_current_H_rho_at_1_vanishes_termwise"]),
-        "route_C_literal_Euler_contraction_is_Euler_operator_pass": bool(route_c_literal_ok),
+        "route_C_literal_current_is_Euler_operator_representative_pass": bool(route_c_literal_ok),
         "declared_collocation_uniform_stability_pass": bool(stability["declared_collocation_uniformly_stable"]),
         "uniform_N_to_infinity_bridge_pass": False,
         "spectral_N_convergence_pass": False,

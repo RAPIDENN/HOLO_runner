@@ -12,7 +12,7 @@
     "periodic_box_exhaustion_and_tail_control_pass": false,
     "restricted_class_continuity_bound_stated_pass": true,
     "restricted_family_exact_action_identity_pass": true,
-    "route_C_literal_Euler_contraction_is_Euler_operator_pass": false,
+    "route_C_literal_current_is_Euler_operator_representative_pass": true,
     "spectral_N_convergence_pass": false,
     "uniform_N_to_infinity_bridge_pass": false,
     "uniform_stability_pass": false
@@ -74,14 +74,14 @@
   "provenance": {
     "generator": {
       "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.py",
-      "sha256": "9d7f83fe671442f2c7079569795ad603242e1554db9bf94f5b9a988e4618600c"
+      "sha256": "2b50ff8fb0fbd20707457552ce5f25ceb7709ee42bf61a096918883cdd8d88ea"
     },
     "numpy": "2.4.2",
     "python": "3.13.5",
     "sympy": "1.13.3",
     "test": {
       "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.py",
-      "sha256": "1b310f1f7eac37435a73c760b8f924b9e23d64d9825941b102bf875a1a3a2558"
+      "sha256": "d52dbfab0dfe628c4791aea4a11b5b9b04e887950d0ef6436f04efead76444de"
     }
   },
   "schema": "holo.one-omega-topological-so3-restricted-class-euler-green-identity-v5-6-6-8.v1",
@@ -282,7 +282,7 @@
       "interface_functional_after_periodic_IBP": true,
       "interface_jet_orders_within_class_regularity": true,
       "radial_C2_junction": true,
-      "route_C_literal_current_defines_an_Euler_contraction": false,
+      "route_C_literal_current_is_Euler_operator_representative": true,
       "route_C_symmetric_split_representative_exact": true
     },
     "radial_junction": {
@@ -318,6 +318,15 @@
       ],
       "outer_current_H_rho_at_1_vanishes_termwise": true
     },
+    "route_C_observation": {
+      "Euler_contraction": "subtraction-defined E.dq equals the formal Euler operator contraction exactly (symbolic)",
+      "Stokes_residual": "direct - (Euler_integral + radial_Green) is a discrete divergence-theorem identity, independent of the action; not evidence about the action",
+      "action_sensitive_checks_in_route_C": [
+        "chain_residual (free_direct vs chain_direct)",
+        "three-way AD/FD5/Route C first-variation comparison (v5.6.6.6)"
+      ],
+      "current": "literal v5.6.6.3 current == unit-diagonal symmetric-split representative (product rule on contraction fields)"
+    },
     "symbolic_euler_green": [
       {
         "channels": 1,
@@ -334,8 +343,10 @@
         "interface_max_radial_field_derivative_order": 3,
         "interface_max_tangential_field_derivative_order": 2,
         "residual": "0",
+        "route_C_literal_current_equals_symmetric_split_identically": null,
         "route_C_literal_current_offending_dq_derivatives": null,
         "route_C_literal_current_subtraction_is_derivative_free": null,
+        "route_C_literal_subtraction_equals_formal_Euler_operator": null,
         "route_C_symmetric_split_representative_exact": null
       },
       {
@@ -350,19 +361,10 @@
         "interface_max_radial_field_derivative_order": 3,
         "interface_max_tangential_field_derivative_order": 2,
         "residual": "0",
-        "route_C_literal_current_offending_dq_derivatives": [
-          "dq0_0",
-          "dq0_00",
-          "dq0_01",
-          "dq0_1",
-          "dq0_11",
-          "dq1_0",
-          "dq1_00",
-          "dq1_01",
-          "dq1_1",
-          "dq1_11"
-        ],
-        "route_C_literal_current_subtraction_is_derivative_free": false,
+        "route_C_literal_current_equals_symmetric_split_identically": true,
+        "route_C_literal_current_offending_dq_derivatives": [],
+        "route_C_literal_current_subtraction_is_derivative_free": true,
+        "route_C_literal_subtraction_equals_formal_Euler_operator": true,
         "route_C_symmetric_split_representative_exact": true
       },
       {
@@ -378,8 +380,10 @@
         "interface_max_radial_field_derivative_order": 3,
         "interface_max_tangential_field_derivative_order": 2,
         "residual": "0",
+        "route_C_literal_current_equals_symmetric_split_identically": null,
         "route_C_literal_current_offending_dq_derivatives": null,
         "route_C_literal_current_subtraction_is_derivative_free": null,
+        "route_C_literal_subtraction_equals_formal_Euler_operator": null,
         "route_C_symmetric_split_representative_exact": null
       }
     ],
@@ -393,7 +397,7 @@
       "what_remains": "A uniformly stable finite discretization of the gluing map (Galerkin projection, or tensor equispaced FFT collocation with an aliasing-controlled quadrature) so that DG_N admits a right inverse bounded uniformly in N; only then can the finite Stokes certificates of v5.6.6.x be lifted to the continuum identity of part (i) with a rate. Periodic-box exhaustion to noncompact Sigma remains a separate, still-open key."
     }
   },
-  "scientific_payload_sha256": "d2022bd67b28ed514406a6a3dc3c74673e15047ae0225a199da9b1b4e65f0678",
+  "scientific_payload_sha256": "2291e53ee59d313f20e605889a8bba68d67bd11e7eb9ff35a972b6cdc2289566",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "frozen_checkpoint_commit": "ea014fd",
