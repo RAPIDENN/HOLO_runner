@@ -1,0 +1,430 @@
+{
+  "classification": "theory_only;margins_everywhere;weyl_lipschitz;restricted_spectral_family;fail_closed_bridge",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "density_union_C_N_pass": false,
+    "periodic_box_exhaustion_and_tail_control_pass": false,
+    "pinned_members_margins_everywhere_certified_pass": true,
+    "restricted_family_exact_action_identity_pass": false,
+    "spectral_N_convergence_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false,
+    "uniform_stability_pass": false
+  },
+  "evidence_boundary": "Machine-checked: exact harmonic structure of the pinned members' fields (verified off-grid), Weyl + Lipschitz clearances for the metric signature and Omega on the whole collar, the khronon margin on the whole boundary, and the SO(3) chart clearance everywhere, all with the v5.6.4 margins. Not proven: the bridge, C1/N1, B4/B5.",
+  "fixed_before_run": {
+    "EXACTNESS_TOLERANCE": 1e-12,
+    "FFT_POINTS": 16,
+    "MAX_HARMONIC": 7,
+    "RANDOM_CHECK_SEED": 20260904,
+    "RHO_GRID": 129,
+    "SAFETY": 1e-09,
+    "THETA_GRID": 256,
+    "margins": {
+      "Omega_min": 0.5,
+      "cut_locus": 1.0,
+      "signature": 0.02,
+      "timelike": 0.2
+    }
+  },
+  "independence_boundary": {
+    "edits_v5_6_6_11": false,
+    "imports_action_evaluators": false,
+    "imports_pinned_kinematic_decoder": true,
+    "imports_route_c_or_ad_fd5_modules": false,
+    "pinned_decoder": {
+      "path": "export_one_omega_topological_so3_restricted_spectral_family_v5_6_4_2_pointwise_primitives.py",
+      "sha256": "4b7eda150cf2d22e04ef2b1b04391c31dc9e618839d7ead9e74a540371ab3d7f"
+    },
+    "reads_upstream_expected_values": false
+  },
+  "open_obligation": {
+    "flip_upstream_key": "after independent review, v5.6.6.11's pinned_members_margins_everywhere_on_collar_pass may cite this receipt; not edited here (write lease)",
+    "interval_arithmetic": "optional hardening of the rounding padding"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_pinned_members_margins_everywhere_weyl_lipschitz_v5_6_6_13.py",
+      "sha256": "ffae8313cde809bf2a65a431677e41f330c6f802085b1decb07a029868cd4ae3"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_pinned_members_margins_everywhere_weyl_lipschitz_v5_6_6_13.py",
+      "sha256": "288d910159efc71ef683737e1d86c3a9407cdaa2a738507e4cd21dbaa6579d44"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-pinned-members-margins-everywhere-weyl-lipschitz-v5-6-6-13.v1",
+  "scientific": {
+    "analytic_not_machine_checked": [
+      "Weyl's inequality, the Lipschitz-to-oscillation step and the SO(3) triangle inequality (classical)",
+      "that floating-point rounding of the eigenvalue solver and FFT stays below SAFETY (not interval-certified)"
+    ],
+    "grid": {
+      "fft_points": 16,
+      "rho": 129,
+      "safety_padding": 1e-09,
+      "theta": 256
+    },
+    "machine_checked": {
+      "all_margins_everywhere": true,
+      "harmonic_structure_verified_off_grid": true
+    },
+    "margins": {
+      "Omega_min": 0.5,
+      "cut_locus": 1.0,
+      "signature": 0.02,
+      "source": "v5.6.4 TOLERANCES, transcribed",
+      "timelike": 0.2
+    },
+    "members": [
+      {
+        "K": 1,
+        "N": 1,
+        "authoritative_free_central_sha256": "782065991a7af9029c93a02985686b59e8bfc0b2742a3a1dedc9fa8a7e969255",
+        "harmonic_exactness": {
+          "pass": true,
+          "per_field": {
+            "gamma": 0.0,
+            "khronon_t": 0.0,
+            "log_Omega_common": 0.0,
+            "minus.C": 0.0,
+            "minus.J1": 0.0,
+            "minus.g_trace": 0.0,
+            "minus.r": 0.0,
+            "plus.C": 0.0,
+            "plus.J1": 0.0,
+            "plus.g_trace": 0.0,
+            "plus.r": 0.0,
+            "q": 0.0
+          },
+          "worst_reconstruction_error_off_grid": 0.0
+        },
+        "khronon": {
+          "T_norm2_lipschitz_theta": 0.0,
+          "T_norm2_max_everywhere": -0.6083517529142531,
+          "T_norm2_max_grid": -0.6083517539142531,
+          "gamma_lipschitz_theta": 0.0,
+          "gamma_lorentzian_on_grid": true,
+          "gamma_min_abs_eigenvalue_everywhere": 1.1664392223924798,
+          "gamma_min_abs_eigenvalue_grid": 1.1664392233924799,
+          "pass": true
+        },
+        "member_id": "N1.K1.seed20260902",
+        "pass": true,
+        "profile_sups": {
+          "bumps": [
+            3.2
+          ],
+          "dbumps": [
+            19.200000000000017
+          ],
+          "dh0": 5.0,
+          "dh1": 3.0,
+          "h0": 1.0,
+          "h1": 0.5
+        },
+        "sides": {
+          "minus": {
+            "Omega": {
+              "Omega_min_everywhere": 0.9981599369726374,
+              "lipschitz_rho": 0.4714897978674878,
+              "lipschitz_theta": 0.0,
+              "log_Omega_min_grid": 0.0,
+              "pass": true,
+              "radius": 0.001841758022919874
+            },
+            "metric": {
+              "lipschitz_rho": 8.30024639169312,
+              "lipschitz_theta": 0.0,
+              "lorentzian_on_grid": true,
+              "min_abs_eigenvalue_everywhere": 1.0601025637216193,
+              "min_abs_eigenvalue_grid": 1.0925254021891706,
+              "pass": true,
+              "weyl_radius": 0.03242283846755125
+            },
+            "pass": true,
+            "rotation": {
+              "angle_max_grid": 0.18747073163614641,
+              "angle_upper_bound": 0.2859387293552306,
+              "clearance_everywhere": 2.8556539242345624,
+              "pass": true,
+              "sup_q": 0.08625367947749517,
+              "sup_r": 0.19968504987773547
+            }
+          },
+          "plus": {
+            "Omega": {
+              "Omega_min_everywhere": 0.9960740062309983,
+              "lipschitz_rho": 1.0070322465601724,
+              "lipschitz_theta": 0.0,
+              "log_Omega_min_grid": 0.0,
+              "pass": true,
+              "radius": 0.003933720713125674
+            },
+            "metric": {
+              "lipschitz_rho": 7.206656529527184,
+              "lipschitz_theta": 0.0,
+              "lorentzian_on_grid": true,
+              "min_abs_eigenvalue_everywhere": 1.0400700205016846,
+              "min_abs_eigenvalue_grid": 1.0682210235701501,
+              "pass": true,
+              "weyl_radius": 0.02815100306846556
+            },
+            "pass": true,
+            "rotation": {
+              "angle_max_grid": 0.17682680734946077,
+              "angle_upper_bound": 0.22179073207067695,
+              "clearance_everywhere": 2.919801921519116,
+              "pass": true,
+              "sup_q": 0.08625367947749517,
+              "sup_r": 0.1355370525931818
+            }
+          }
+        }
+      },
+      {
+        "K": 2,
+        "N": 2,
+        "authoritative_free_central_sha256": "0febc03837763087bcd802a19431800b703278fa055ab3e11ddc9b4259458b67",
+        "harmonic_exactness": {
+          "pass": true,
+          "per_field": {
+            "gamma": 2.220446049250313e-16,
+            "khronon_t": 1.1102230246251565e-16,
+            "log_Omega_common": 1.3877787807814457e-17,
+            "minus.C": 2.7755575615628914e-17,
+            "minus.J1": 6.938893903907228e-18,
+            "minus.g_trace": 4.440892098500626e-16,
+            "minus.r": 0.0,
+            "plus.C": 2.7755575615628914e-17,
+            "plus.J1": 1.3877787807814457e-17,
+            "plus.g_trace": 6.661338147750939e-16,
+            "plus.r": 0.0,
+            "q": 1.3877787807814457e-17
+          },
+          "worst_reconstruction_error_off_grid": 6.661338147750939e-16
+        },
+        "khronon": {
+          "T_norm2_lipschitz_theta": 0.000134194012054164,
+          "T_norm2_max_everywhere": -0.6083176320580083,
+          "T_norm2_max_grid": -0.608319279866299,
+          "gamma_lipschitz_theta": 9.82975376726132e-05,
+          "gamma_lorentzian_on_grid": true,
+          "gamma_min_abs_eigenvalue_everywhere": 1.1664200200915238,
+          "gamma_min_abs_eigenvalue_grid": 1.1664212273837982,
+          "pass": true
+        },
+        "member_id": "N2.K2.seed20260902",
+        "pass": true,
+        "profile_sups": {
+          "bumps": [
+            3.2,
+            1.8285714285714285
+          ],
+          "dbumps": [
+            19.200000000000017,
+            25.599999999999994
+          ],
+          "dh0": 5.0,
+          "dh1": 3.0,
+          "h0": 1.0,
+          "h1": 0.5
+        },
+        "sides": {
+          "minus": {
+            "Omega": {
+              "Omega_min_everywhere": 0.9975195505699479,
+              "lipschitz_rho": 0.6225032616377584,
+              "lipschitz_theta": 0.0042272755267451795,
+              "log_Omega_min_grid": 0.0,
+              "pass": true,
+              "radius": 0.002483530841317504
+            },
+            "metric": {
+              "lipschitz_rho": 9.010242833546398,
+              "lipschitz_theta": 0.013917570163077531,
+              "lorentzian_on_grid": true,
+              "min_abs_eigenvalue_everywhere": 1.0568225681547543,
+              "min_abs_eigenvalue_grid": 1.0921896245052487,
+              "pass": true,
+              "weyl_radius": 0.03536705635049431
+            },
+            "pass": true,
+            "rotation": {
+              "angle_max_grid": 0.1897534071997804,
+              "angle_upper_bound": 0.2889073261900783,
+              "clearance_everywhere": 2.8526853273997146,
+              "pass": true,
+              "sup_q": 0.08718410205632324,
+              "sup_r": 0.2017232241337551
+            }
+          },
+          "plus": {
+            "Omega": {
+              "Omega_min_everywhere": 0.9956603246026513,
+              "lipschitz_rho": 1.1001934446649226,
+              "lipschitz_theta": 0.004195577081906119,
+              "log_Omega_min_grid": 0.0,
+              "pass": true,
+              "radius": 0.0043491191203242525
+            },
+            "metric": {
+              "lipschitz_rho": 7.835044588261633,
+              "lipschitz_theta": 0.013557458326170451,
+              "lorentzian_on_grid": true,
+              "min_abs_eigenvalue_everywhere": 1.0371252971184028,
+              "min_abs_eigenvalue_grid": 1.0678973160861391,
+              "pass": true,
+              "weyl_radius": 0.03077201896773625
+            },
+            "pass": true,
+            "rotation": {
+              "angle_max_grid": 0.1777484356723305,
+              "angle_upper_bound": 0.22463471740735674,
+              "clearance_everywhere": 2.9169579361824365,
+              "pass": true,
+              "sup_q": 0.08718410205632324,
+              "sup_r": 0.1374506153510335
+            }
+          }
+        }
+      },
+      {
+        "K": 3,
+        "N": 3,
+        "authoritative_free_central_sha256": "52d78abb8b7b6a5933d94faec1dacb2ba7bb0ca654ac07834ac5c7b90e9b347a",
+        "harmonic_exactness": {
+          "pass": true,
+          "per_field": {
+            "gamma": 2.220446049250313e-16,
+            "khronon_t": 2.220446049250313e-16,
+            "log_Omega_common": 1.3877787807814457e-17,
+            "minus.C": 2.7755575615628914e-17,
+            "minus.J1": 6.938893903907228e-18,
+            "minus.g_trace": 6.661338147750939e-16,
+            "minus.r": 2.7755575615628914e-17,
+            "plus.C": 2.7755575615628914e-17,
+            "plus.J1": 1.3877787807814457e-17,
+            "plus.g_trace": 4.440892098500626e-16,
+            "plus.r": 1.3877787807814457e-17,
+            "q": 1.3877787807814457e-17
+          },
+          "worst_reconstruction_error_off_grid": 6.661338147750939e-16
+        },
+        "khronon": {
+          "T_norm2_lipschitz_theta": 0.0003716271553254399,
+          "T_norm2_max_everywhere": -0.6082486104506949,
+          "T_norm2_max_grid": -0.6082531720020271,
+          "gamma_lipschitz_theta": 0.00021345868164559083,
+          "gamma_lorentzian_on_grid": true,
+          "gamma_min_abs_eigenvalue_everywhere": 1.1663839025426697,
+          "gamma_min_abs_eigenvalue_grid": 1.166386523074803,
+          "pass": true
+        },
+        "member_id": "N3.K3.seed20260902",
+        "pass": true,
+        "profile_sups": {
+          "bumps": [
+            3.2,
+            1.8285714285714285,
+            3.6571428571428566
+          ],
+          "dbumps": [
+            19.200000000000017,
+            25.599999999999994,
+            38.400000000000034
+          ],
+          "dh0": 5.0,
+          "dh1": 3.0,
+          "h0": 1.0,
+          "h1": 0.5
+        },
+        "sides": {
+          "minus": {
+            "Omega": {
+              "Omega_min_everywhere": 0.9973728113207952,
+              "lipschitz_rho": 0.648615340506986,
+              "lipschitz_theta": 0.007903547637223087,
+              "log_Omega_min_grid": 0.0,
+              "pass": true,
+              "radius": 0.0026306457957085273
+            },
+            "metric": {
+              "lipschitz_rho": 9.135802345383405,
+              "lipschitz_theta": 0.031101231826139747,
+              "lorentzian_on_grid": true,
+              "min_abs_eigenvalue_everywhere": 1.0559315948743675,
+              "min_abs_eigenvalue_grid": 1.0919999933228284,
+              "pass": true,
+              "weyl_radius": 0.03606839844846094
+            },
+            "pass": true,
+            "rotation": {
+              "angle_max_grid": 0.19017052091811848,
+              "angle_upper_bound": 0.2896737206075295,
+              "clearance_everywhere": 2.8519189329822634,
+              "pass": true,
+              "sup_q": 0.08752542726359341,
+              "sup_r": 0.20214829334393605
+            }
+          },
+          "plus": {
+            "Omega": {
+              "Omega_min_everywhere": 0.9955655130228126,
+              "lipschitz_rho": 1.1165594151686675,
+              "lipschitz_theta": 0.00674611314516463,
+              "log_Omega_min_grid": 0.0,
+              "pass": true,
+              "radius": 0.0044443484791632905
+            },
+            "metric": {
+              "lipschitz_rho": 7.9488874959668125,
+              "lipschitz_theta": 0.027614702235548582,
+              "lorentzian_on_grid": true,
+              "min_abs_eigenvalue_everywhere": 1.036276178003812,
+              "min_abs_eigenvalue_grid": 1.0676654041664726,
+              "pass": true,
+              "weyl_radius": 0.031389226162660475
+            },
+            "pass": true,
+            "rotation": {
+              "angle_max_grid": 0.178501389540889,
+              "angle_upper_bound": 0.22573169135560342,
+              "clearance_everywhere": 2.9158609622341896,
+              "pass": true,
+              "sup_q": 0.08752542726359341,
+              "sup_r": 0.13820626409201
+            }
+          }
+        }
+      }
+    ],
+    "method": {
+      "Omega": "Lipschitz on log Omega with the same constants",
+      "khronon": "derivative bound of t^T gamma^{-1} t with ||gamma^{-1}|| from the everywhere eigenvalue clearance of gamma",
+      "metric": "Weyl eigenvalue perturbation + Lipschitz constants from exact harmonics (theta) and Bernstein-bounded profile derivatives (rho)",
+      "rotation": "bi-invariant triangle inequality angle(exp(q) exp(r)) <= |q| + |r| and sup of degree-one vector fields",
+      "rounding": "not interval arithmetic; floating-point rounding is padded by SAFETY = 1e-9, far below every recorded clearance"
+    },
+    "summary": {
+      "max_T_norm2_everywhere": -0.6082486104506949,
+      "max_weyl_radius": 0.03606839844846094,
+      "min_Omega_everywhere": 0.9955655130228126,
+      "min_abs_metric_eigenvalue_everywhere": 1.036276178003812,
+      "min_cut_locus_clearance_everywhere": 2.8519189329822634,
+      "worst_harmonic_reconstruction_error": 6.661338147750939e-16
+    }
+  },
+  "scientific_payload_sha256": "823a85b19594946f90483b146c4492980af22829ac43bd2b3904f74dd5a6ed3b",
+  "source_pins": {
+    "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
+    "frozen_checkpoint_commit": "ea014fd1a8ed124c353058eb6f0a1c92b90353bc",
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "v5_6_4_2_pointwise_decoder_sha256": "4b7eda150cf2d22e04ef2b1b04391c31dc9e618839d7ead9e74a540371ab3d7f",
+    "v5_6_6_11_receipt_sha256": "89592cd0eb7a3357a7f0b6f69bebeed5fb18d7466719c226b482b8611201a7b6"
+  }
+}
