@@ -212,9 +212,10 @@
       "worst_relative_difference": 3.774758283725532e-15
     },
     "block_C_closed_form_literal_transcription": {
+      "BF_normalisation_note": "The literal ordered-basis coefficient of B wedge F is sum over stored triples and ordered complementary pairs of permutation_sign * dot(B_triple, F_pair) with NO extra factorial (primitive_component_convention). The oracle here is the full antisymmetric contraction (1/(3!2!)) sum_{all 120 permutations} epsilon * B_{abc} . F_{de}, which equals that ordered-basis sum identically because each unordered split is counted 3!2! times; the 1/12 divides the full permutation sum, it is not inserted into the ordered sum (which would be the erroneous mutant the contract lists).",
       "checks_max_relative_difference": {
-        "BF_5form_coefficient_vs_LeviCivita_over_3!2!": 8.576028489906829e-16,
         "BF_pairing_minus_half_trace_equals_dot": 0.0,
+        "BF_top_coefficient_vs_full_permutation_sum_over_3!2!": 8.576028489906829e-16,
         "BF_vanishes_on_constant_reference_data": 0.0,
         "EH_vanishes_on_constant_reference_data": 0.0,
         "K_foliation_vanishes_on_flat_static_interface": 0.0,
@@ -330,7 +331,7 @@
       "any bridge, C1/N1, B4/B5 or promotion key"
     ]
   },
-  "scientific_payload_sha256": "a36bca033aee827d69028625c19f835b00bdb732d15f6f619e294066c651c308",
+  "scientific_payload_sha256": "578599b6348924f1e094be559f588beca7871405df3e9227c9a7b16ec0ba4ca7",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "coefficient_parameters_sha256": "12bb13017541b0a08554f61e46775843870499bbfc80c15127ef9cdee8481fa3",

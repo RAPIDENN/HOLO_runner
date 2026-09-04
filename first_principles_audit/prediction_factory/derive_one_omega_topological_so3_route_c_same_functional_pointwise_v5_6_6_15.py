@@ -613,11 +613,20 @@ def closed_form_transcription(route_c: Any, parameters: Mapping[str, float], exa
             literal += eps * float(full_B[a, b, c] @ F[d, e])
         literal /= 12.0  # 3! 2!
         bf_worst = max(bf_worst, abs(atoms["BF"] - literal) / max(1.0, abs(literal)))
-    checks["BF_5form_coefficient_vs_LeviCivita_over_3!2!"] = bf_worst
+    checks["BF_top_coefficient_vs_full_permutation_sum_over_3!2!"] = bf_worst
     worst = max(checks.values())
+    normalisation_note = (
+        "The literal ordered-basis coefficient of B wedge F is sum over stored triples and ordered complementary "
+        "pairs of permutation_sign * dot(B_triple, F_pair) with NO extra factorial (primitive_component_convention). "
+        "The oracle here is the full antisymmetric contraction (1/(3!2!)) sum_{all 120 permutations} "
+        "epsilon * B_{abc} . F_{de}, which equals that ordered-basis sum identically because each unordered split "
+        "is counted 3!2! times; the 1/12 divides the full permutation sum, it is not inserted into the ordered sum "
+        "(which would be the erroneous mutant the contract lists)."
+    )
     return {
         "literal_strings_used": {key: exact_action[key] for key in ("superpotential", "bulk_potential", "full_V4", "wall_background", "Robin_intrinsic", "BF")},
         "checks_max_relative_difference": checks,
+        "BF_normalisation_note": normalisation_note,
         "worst": worst,
         "pass": bool(worst <= CLOSED_FORM_TOLERANCE),
         "scope": (

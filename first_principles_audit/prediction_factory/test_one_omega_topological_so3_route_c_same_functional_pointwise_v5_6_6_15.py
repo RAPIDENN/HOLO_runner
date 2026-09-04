@@ -143,11 +143,12 @@ def test_closed_form_transcription_and_bijection(receipt: dict) -> None:
         "wall_vs_literal_W_beta",
         "Robin_static_flat_vs_literal",
         "BF_pairing_minus_half_trace_equals_dot",
-        "BF_5form_coefficient_vs_LeviCivita_over_3!2!",
+        "BF_top_coefficient_vs_full_permutation_sum_over_3!2!",
     ):
         assert key in checks
     for key in c["literal_strings_used"]:
         assert c["literal_strings_used"][key]
+    assert "NO extra factorial" in c["BF_normalisation_note"]
     bijection = receipt["scientific"]["sector_term_bijection"]
     assert bijection["pass"] is True
     assert bijection["route_c_action_components"] == ALL_COMPONENTS
