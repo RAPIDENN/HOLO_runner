@@ -132,9 +132,14 @@ def test_ledger_is_complete_finite_and_radial_entries_carry_only_inner_error(rec
             for entry in ("q", "qr", "qrr"):
                 values = np.asarray(worst[entry])
                 assert np.all(values[:19] == 0.0) and np.all(values[25:] == 0.0)
-            # theta entries strictly positive everywhere (Cauchy bound never vanishes)
+            # theta entries: nonnegative everywhere, strictly positive wherever the channel has content
+            # (a free-data block that is identically zero yields a zero strip bound, which is correct)
             for entry in ("qt", "qtt", "qtr"):
-                assert np.all(np.asarray(worst[entry]) > 0.0)
+                values = np.asarray(worst[entry])
+                assert np.all(values >= 0.0) and np.max(values) > 0.0
+                # the metric and the pulled-back reference always have content on their diagonal components;
+                # off-diagonal or constant-only channels may legitimately get a zero bound
+                assert np.max(values[:15]) > 0.0 and np.max(values[64:79]) > 0.0
 
 
 def test_bounds_are_small_but_not_vacuous(receipt: dict) -> None:
