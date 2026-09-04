@@ -14,6 +14,8 @@ import sympy as sp
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import derive_one_omega_topological_so3_route_c_full_t4_dual_local_action_v5_6_7_1 as unit
+import derive_one_omega_topological_so3_multin_independent_euler_green_route_c_v5_6_6_3 as route_c
+import export_one_omega_topological_so3_restricted_spectral_family_v5_6_4_2_pointwise_primitives as pointwise
 
 
 TRUE_KEYS = frozenset(
@@ -21,11 +23,11 @@ TRUE_KEYS = frozenset(
         "taylor_dual3_independent_eta_spatial_degree_three_algebra_pass",
         "taylor_dual3_analytic_identities_sampled_within_tolerance_pass",
         "so3_entire_z_origin_regular_orthogonality_and_eta_jvp_sampled_pass",
+        "full_t4_decoder_implemented_and_sampled_against_pinned_oracles_pass",
     }
 )
 FALSE_KEYS = frozenset(
     {
-        "full_t4_decoder_implemented_pass",
         "local_bulk_density_implemented_pass",
         "local_ghy_density_implemented_pass",
         "local_interface_density_implemented_pass",
@@ -47,6 +49,45 @@ FALSE_KEYS = frozenset(
 @pytest.fixture(scope="session")
 def report() -> dict:
     return unit.build_report()
+
+
+@pytest.fixture(scope="session")
+def c2_bundle() -> dict:
+    return route_c.load_bundle()
+
+
+def _member_vectors(bundle: dict, N: int) -> tuple[dict, dict, np.ndarray, np.ndarray]:
+    member = next(item for item in bundle["primary_members"] if int(item["N"]) == N)
+    contract = bundle["pointwise_decoder_contract_by_N"][str(N)]
+    free = route_c._decode_f64(member["authoritative_free_central_f64le"])
+    curve = next(
+        item
+        for item in member["curves"]
+        if item["name"] == "joint_all_primitive_classes_control_candidate"
+    )
+    tangent = route_c._decode_f64(curve["authoritative_free_tangent_f64le"])
+    return member, contract, free, tangent
+
+
+def _td3_layer(value, eta_order: int = 0) -> np.ndarray:
+    array = np.asarray(value, dtype=object)
+    return np.asarray(
+        [entry.derivative(unit.ZERO_ALPHA, eta_order) for entry in array.flat],
+        dtype=float,
+    ).reshape(array.shape)
+
+
+def _pointwise_side_x64(side: dict, point_index: int) -> np.ndarray:
+    metric = np.asarray(side["g_trace"][point_index], dtype=float)
+    return np.concatenate(
+        (
+            [metric[i, j] for i, j in unit.SYMMETRIC5],
+            [side["log_Omega_trace"][point_index]],
+            np.asarray(side["phi_trace"][point_index]).reshape(3),
+            np.asarray(side["A_trace_full"][point_index]).reshape(15),
+            np.asarray(side["B_trace_full"][point_index]).reshape(30),
+        )
+    )
 
 
 def _numeric_skew(vector: np.ndarray) -> np.ndarray:
@@ -83,13 +124,14 @@ def test_upstream_source_is_byte_pinned_and_loaded_without_running_report() -> N
     assert upstream.N_MAX_CHECK == 11
 
 
-def test_report_has_only_three_true_scoped_decisions(report: dict) -> None:
+def test_report_has_only_four_true_scoped_decisions(report: dict) -> None:
     assert report["schema"] == unit.SCHEMA
     assert set(report["decision"]) == TRUE_KEYS | FALSE_KEYS
     assert {key for key, value in report["decision"].items() if value} == TRUE_KEYS
     assert {key for key, value in report["decision"].items() if not value} == FALSE_KEYS
     assert "sampled float64" in report["scope"]
-    assert "No decoder" in report["scope"]
+    assert "sampled against byte-pinned decoder oracles only at N=1,2,3" in report["scope"]
+    assert "No local density" in report["scope"]
     assert "No receipt" in report["scope"]
 
 
@@ -335,6 +377,336 @@ def test_so3_implementation_has_no_norm_sqrt_or_origin_switch() -> None:
     assert "1.0e-" not in source
     assert "_rodrigues_entire_derivatives" in source
     assert "component * component" in source
+
+
+def test_partial_and_rhojet2_product_rule_preserve_eta_spatial_layers() -> None:
+    x0, x1 = unit.TaylorDual3.variable(0), unit.TaylorDual3.variable(1)
+    eta = unit.TaylorDual3.eta()
+    field = 2.0 + 3.0 * x0 * x1 + eta * (5.0 * x0 * x0 * x1)
+    derivative = field.partial(0)
+    assert derivative.derivative((0, 1, 0, 0), 0) == 3.0
+    assert derivative.derivative((1, 1, 0, 0), 1) == 10.0
+
+    left = unit.RhoJet2(field, 2.0 + eta, 3.0 - x0)
+    right = unit.RhoJet2(4.0 + x1, -1.0 + 2.0 * eta, 0.5)
+    product = left * right
+    assert product.value.almost_equal(left.value * right.value)
+    assert product.rho_first.almost_equal(
+        left.rho_first * right.value + left.value * right.rho_first
+    )
+    assert product.rho_second.almost_equal(
+        left.rho_second * right.value
+        + 2.0 * left.rho_first * right.rho_first
+        + left.value * right.rho_second
+    )
+
+
+def test_decoder_oracles_and_c2_bundle_are_byte_pinned(c2_bundle: dict, report: dict) -> None:
+    assert unit._sha256(unit.POINTWISE_ORACLE_PATH) == unit.POINTWISE_ORACLE_SHA256
+    assert pointwise.SCHEMA == unit.POINTWISE_ORACLE_SCHEMA
+    assert route_c._sha256(route_c.BUNDLE) == route_c.BUNDLE_SHA256
+    assert route_c._sha256(Path(route_c.__file__)) == (
+        "87cd1e05184a9fb2703faa08eecf5aa8544f4cf24ba8c12dd830828888821d0b"
+    )
+    assert c2_bundle["schema"] == unit.C2_BUNDLE_SCHEMA
+    assert report["source_pins"]["pointwise_decoder_v5_6_4_2_sha256"] == (
+        unit.POINTWISE_ORACLE_SHA256
+    )
+
+
+def test_generated_layout_exactly_partitions_every_named_block(c2_bundle: dict) -> None:
+    expected_names = (
+        "common.gamma",
+        "common.T",
+        "common.log_Omega",
+        "common.varphi_E0",
+        "common.A_E0",
+        "Q_frame.q",
+        "plus.Y",
+        "plus.metric_free",
+        "plus.A_perp",
+        "plus.B0_full",
+        "plus.r_E0",
+        "plus.boundary_jet_J1",
+        "plus.interior_bump_C",
+        "minus.Y",
+        "minus.metric_free",
+        "minus.A_perp",
+        "minus.B0_full",
+        "minus.r_E0",
+        "minus.boundary_jet_J1",
+        "minus.interior_bump_C",
+    )
+    for N in (1, 2, 3):
+        K = N
+        contract = unit.full_t4_decoder_contract(N, K)
+        blocks = contract["free_layout"]["blocks"]
+        assert tuple(blocks) == expected_names
+        assert contract["free_coordinate_dimension"] == 242 * N + 128 * N * K
+        assert contract["matches_pinned_c2_bundle_contract"] is True
+        assert blocks == c2_bundle["pointwise_decoder_contract_by_N"][str(N)]["free_layout"]["blocks"]
+        cursor = 0
+        free = np.arange(contract["free_coordinate_dimension"], dtype=float)
+        tangent = -free - 0.25
+        for name, specification in blocks.items():
+            assert specification["start"] == cursor
+            cursor = specification["stop"]
+            decoded = unit._free_block_td3(free, tangent, contract, name).reshape(-1)
+            expected_slice = slice(specification["start"], specification["stop"])
+            np.testing.assert_array_equal([entry.body for entry in decoded], free[expected_slice])
+            np.testing.assert_array_equal(
+                [entry.derivative(unit.ZERO_ALPHA, 1) for entry in decoded],
+                tangent[expected_slice],
+            )
+        assert cursor == contract["free_coordinate_dimension"]
+
+
+def test_boundary_decoder_matches_pinned_pointwise_oracle_N1_to_N3(c2_bundle: dict) -> None:
+    points = np.asarray(((0.13, -0.27, 0.21, -0.08), (0.41, 0.19, -0.31, 0.07)))
+    for N in (1, 2, 3):
+        _member, contract, free, tangent = _member_vectors(c2_bundle, N)
+        oracle = pointwise.decode_pointwise_boundary(free, contract, points)
+        tables = pointwise.fourier_tables(contract["basis"], points)
+        q_coefficients = pointwise._free_get(free, contract["free_layout"]["blocks"], "Q_frame.q")
+        _oracle_S, oracle_dS = pointwise._rotation_field(q_coefficients, tables)
+        for point_index, point in enumerate(points):
+            decoded = unit.decode_common_first_boundary_td3(free, tangent, N, N, point)
+            for name in ("gamma", "log_Omega", "varphi", "A_Sigma", "E0", "E_Q", "S_Q"):
+                np.testing.assert_allclose(
+                    _td3_layer(decoded["common"][name]),
+                    np.asarray(oracle["common"][name][point_index]),
+                    atol=5.0e-13,
+                    rtol=0.0,
+                )
+            dS = np.asarray(
+                [
+                    [[decoded["common"]["dS_Q"][mu][i][j].body for j in range(3)] for i in range(3)]
+                    for mu in range(4)
+                ]
+            )
+            np.testing.assert_allclose(dS, oracle_dS[point_index], atol=5.0e-13, rtol=0.0)
+            aliases = (
+                ("Y_first", "Y_first"),
+                ("metric_trace", "g_trace"),
+                ("log_Omega_trace", "log_Omega_trace"),
+                ("phi_trace", "phi_trace"),
+                ("A_trace_full", "A_trace_full"),
+                ("B_trace_full", "B_trace_full"),
+                ("boundary_jet_J1", "boundary_jet_J1"),
+                ("interior_bump_C", "interior_bump_C"),
+                ("R_source_to_Q", "R_source_to_Q"),
+                ("dR_source_to_Q", "dR_source_to_Q"),
+            )
+            for side in unit.SIDES:
+                for mine, theirs in aliases:
+                    np.testing.assert_allclose(
+                        _td3_layer(decoded["sides"][side][mine]),
+                        np.asarray(oracle["sides"][side][theirs][point_index]),
+                        atol=5.0e-13,
+                        rtol=0.0,
+                    )
+                np.testing.assert_allclose(
+                    _td3_layer(decoded["sides"][side]["X64_trace"]),
+                    _pointwise_side_x64(oracle["sides"][side], point_index),
+                    atol=5.0e-13,
+                    rtol=0.0,
+                )
+
+
+def test_boundary_eta_jvp_matches_only_sampled_central_difference_oracle(c2_bundle: dict) -> None:
+    point = np.asarray((0.13, -0.27, 0.21, -0.08))
+    step = 2.0e-6
+    for N in (1, 2, 3):
+        _member, contract, free, tangent = _member_vectors(c2_bundle, N)
+        decoded = unit.decode_common_first_boundary_td3(free, tangent, N, N, point)
+        plus = pointwise.decode_pointwise_boundary(free + step * tangent, contract, point[None, :])
+        minus = pointwise.decode_pointwise_boundary(free - step * tangent, contract, point[None, :])
+        for name in ("S_Q", "A_Sigma", "E_Q"):
+            numeric = (np.asarray(plus["common"][name][0]) - np.asarray(minus["common"][name][0])) / (
+                2.0 * step
+            )
+            np.testing.assert_allclose(
+                _td3_layer(decoded["common"][name], 1), numeric, atol=5.0e-9, rtol=0.0
+            )
+        for side in unit.SIDES:
+            numeric_x64 = (
+                _pointwise_side_x64(plus["sides"][side], 0)
+                - _pointwise_side_x64(minus["sides"][side], 0)
+            ) / (2.0 * step)
+            np.testing.assert_allclose(
+                _td3_layer(decoded["sides"][side]["X64_trace"], 1),
+                numeric_x64,
+                atol=5.0e-9,
+                rtol=0.0,
+            )
+            for name in ("R_source_to_Q", "dR_source_to_Q"):
+                numeric = (
+                    np.asarray(plus["sides"][side][name][0])
+                    - np.asarray(minus["sides"][side][name][0])
+                ) / (2.0 * step)
+                np.testing.assert_allclose(
+                    _td3_layer(decoded["sides"][side][name], 1),
+                    numeric,
+                    atol=5.0e-9,
+                    rtol=0.0,
+                )
+
+
+def test_collar_values_and_eta_jvp_match_route_c_at_interior_and_endpoints(c2_bundle: dict) -> None:
+    point = (0.13, -0.27, 0.21, -0.08)
+    theta = point[0] + point[1]
+    step = 2.0e-6
+    for N in (1, 2, 3):
+        _member, contract, free, tangent = _member_vectors(c2_bundle, N)
+        for side in unit.SIDES:
+            for rho in (0.0, 0.37, 1.0):
+                decoded = unit.decode_full_t4_collar_point(free, tangent, N, N, point, rho, side)
+                ambient, _Y, _Y_theta = route_c._ambient_value(free, contract, side, theta, rho)
+                pulled, reference = route_c._pullback_vector(free, contract, side, theta, rho)
+                np.testing.assert_allclose(
+                    decoded["ambient_X64"]["primal"]["value"], ambient, atol=5.0e-11, rtol=0.0
+                )
+                np.testing.assert_allclose(
+                    decoded["pulled_X64"]["primal"]["value"], pulled, atol=5.0e-11, rtol=0.0
+                )
+                np.testing.assert_allclose(
+                    decoded["pulled_reference_metric15"]["primal"]["value"],
+                    reference,
+                    atol=5.0e-11,
+                    rtol=0.0,
+                )
+                np.testing.assert_allclose(
+                    decoded["pulled_X79"]["primal"]["value"],
+                    np.concatenate((pulled, reference)),
+                    atol=5.0e-11,
+                    rtol=0.0,
+                )
+            decoded = unit.decode_full_t4_collar_point(free, tangent, N, N, point, 0.37, side)
+            ambient_plus = route_c._ambient_value(free + step * tangent, contract, side, theta, 0.37)[0]
+            ambient_minus = route_c._ambient_value(free - step * tangent, contract, side, theta, 0.37)[0]
+            pulled_plus, reference_plus = route_c._pullback_vector(
+                free + step * tangent, contract, side, theta, 0.37
+            )
+            pulled_minus, reference_minus = route_c._pullback_vector(
+                free - step * tangent, contract, side, theta, 0.37
+            )
+            np.testing.assert_allclose(
+                decoded["ambient_X64"]["eta"]["value"],
+                (ambient_plus - ambient_minus) / (2.0 * step),
+                atol=3.0e-9,
+                rtol=0.0,
+            )
+            np.testing.assert_allclose(
+                decoded["pulled_X79"]["eta"]["value"],
+                np.concatenate(
+                    (
+                        (pulled_plus - pulled_minus) / (2.0 * step),
+                        (reference_plus - reference_minus) / (2.0 * step),
+                    )
+                ),
+                atol=3.0e-9,
+                rtol=0.0,
+            )
+
+
+def test_complete_primal_five_dimensional_two_jet_matches_pinned_pullback(c2_bundle: dict) -> None:
+    upstream = unit._load_pinned_upstream()
+    point = (0.13, -0.27, 0.21, -0.08)
+    units = tuple(tuple(int(i == j) for i in range(4)) for j in range(4))
+    for N in (1, 2, 3):
+        _member, _contract, free, tangent = _member_vectors(c2_bundle, N)
+        for side in unit.SIDES:
+            for rho in (0.0, 0.37, 1.0):
+                decoded = unit.decode_full_t4_collar_point(free, tangent, N, N, point, rho, side)
+                boundary = decoded["boundary"]["sides"][side]
+                Y_first = np.asarray([entry.body for entry in boundary["Y_first"]])
+                Y_second = np.asarray(
+                    [[boundary["Y_first"][mu].derivative(units[a]) for a in range(4)] for mu in range(4)]
+                )
+                Y_third = np.asarray(
+                    [
+                        [
+                            [
+                                boundary["Y_first"][mu].derivative(
+                                    tuple(units[a][i] + units[b][i] for i in range(4))
+                                )
+                                for b in range(4)
+                            ]
+                            for a in range(4)
+                        ]
+                        for mu in range(4)
+                    ]
+                )
+                expected = upstream.pulled_back_two_jet(
+                    decoded["ambient_X64"]["primal"]["value"],
+                    decoded["ambient_X64"]["primal"]["first"],
+                    decoded["ambient_X64"]["primal"]["second"],
+                    Y_first,
+                    Y_second,
+                    Y_third,
+                    side,
+                )
+                for derivative in ("value", "first", "second"):
+                    np.testing.assert_allclose(
+                        decoded["pulled_X79"]["primal"][derivative],
+                        expected[derivative],
+                        atol=5.0e-12,
+                        rtol=0.0,
+                    )
+
+
+def test_q_cancels_only_from_lateral_traces_not_full_decoder(c2_bundle: dict) -> None:
+    _member, contract, free, tangent = _member_vectors(c2_bundle, 3)
+    point = (0.13, -0.27, 0.21, -0.08)
+    q_block = contract["free_layout"]["blocks"]["Q_frame.q"]
+    q_slice = slice(q_block["start"], q_block["stop"])
+    zero_free, zero_tangent = free.copy(), tangent.copy()
+    zero_free[q_slice] = 0.0
+    zero_tangent[q_slice] = 0.0
+    actual = unit.decode_common_first_boundary_td3(free, tangent, 3, 3, point)
+    q_zero = unit.decode_common_first_boundary_td3(zero_free, zero_tangent, 3, 3, point)
+    for side in unit.SIDES:
+        for name in ("phi_trace", "A_trace_full"):
+            for left, right in zip(
+                np.asarray(actual["sides"][side][name], dtype=object).flat,
+                np.asarray(q_zero["sides"][side][name], dtype=object).flat,
+            ):
+                assert left.coefficients == right.coefficients
+    assert np.max(np.abs(_td3_layer(actual["common"]["S_Q"]) - np.eye(3))) > 1.0e-5
+
+
+def test_effective_frame_sign_side_parity_antisymmetry_and_B_mutants(report: dict) -> None:
+    decoder = report["decoder"]
+    assert decoder["q_zero_r_E0_spatial_activity"] > 1.0e-5
+    assert decoder["q_zero_r_E0_noncommuting_cross_activity"] > 1.0e-6
+    assert decoder["missing_R_transpose_dR_mutant_max_abs_failure"] > 1.0e-5
+    assert decoder["flipped_R_transpose_dR_mutant_max_abs_failure"] > 1.0e-5
+    assert decoder["side_radial_sign_mutant_max_abs_failure"] > 1.0e-3
+    assert decoder["symmetric_contamination_before_vee_rejected"] is True
+    assert decoder["B_pullback_radial_and_tangential_one_hot_max_abs_residual"] == 0.0
+
+    zero = unit.TaylorDual3.constant(0.0)
+    contaminated = ((unit.TaylorDual3.constant(1.0e-4), zero, zero), (zero, zero, zero), (zero, zero, zero))
+    with pytest.raises(unit.TaylorDual3NumericalError, match="not skew-symmetric"):
+        unit._vee_checked_td3(contaminated, "test contamination")
+
+
+def test_full_t4_axes_N9_N11_and_decoder_inputs_fail_closed(report: dict, c2_bundle: dict) -> None:
+    assert report["decoder"]["full_t4_axis_activity"] == {"N9_x2": 0.1, "N11_x3": 0.1}
+    _member, _contract, free, tangent = _member_vectors(c2_bundle, 1)
+    for call in (
+        lambda: unit.decode_common_first_boundary_td3(free[:-1], tangent, 1, 1, (0.0,) * 4),
+        lambda: unit.decode_common_first_boundary_td3(free, tangent[:-1], 1, 1, (0.0,) * 4),
+        lambda: unit.decode_common_first_boundary_td3(free, tangent, 1, 1, (0.0,) * 3),
+        lambda: unit.decode_full_t4_collar_point(free, tangent, 1, 1, (0.0,) * 4, -1.0e-9, "plus"),
+        lambda: unit.decode_full_t4_collar_point(free, tangent, 1, 1, (0.0,) * 4, 1.0 + 1.0e-9, "minus"),
+        lambda: unit.decode_full_t4_collar_point(free, tangent, 1, 1, (0.0,) * 4, True, "plus"),
+        lambda: unit.decode_full_t4_collar_point(free, tangent, 1, 1, (0.0,) * 4, 0.5, "bad"),
+        lambda: unit.full_t4_decoder_contract(True, 1),
+        lambda: unit.full_t4_decoder_contract(1, True),
+    ):
+        with pytest.raises(unit.TaylorDual3InputError):
+            call()
 
 
 def test_reserved_pair_writes_no_receipt_and_main_prints_current_report(report: dict, capsys) -> None:
