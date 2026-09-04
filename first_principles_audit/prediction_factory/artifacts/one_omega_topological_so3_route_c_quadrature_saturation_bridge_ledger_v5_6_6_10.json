@@ -15,7 +15,7 @@
     "uniform_N_to_infinity_bridge_pass": false,
     "uniform_stability_pass": false
   },
-  "evidence_boundary": "Machine-checked: tangential saturation and geometric radial contraction of the Route C refinement ladders of the three pinned members, and the degree-one structure of their tangential data. Analytic: exponential convergence of the trapezoidal and Gauss--Legendre rules for analytic integrands. The ledger collects the four bridge components with pins; it does not flip the bridge, C1/N1 or B4/B5.",
+  "evidence_boundary": "Machine-checked: tangential saturation at the stencil noise floor and per-component radial contraction of the Route C refinement ladders of the three pinned members, and the degree-one structure of their tangential data. Analytic: exponential convergence of the trapezoidal and Gauss--Legendre rules for analytic integrands. The ledger collects the four bridge components with pins; it does not flip the bridge, C1/N1 or B4/B5.",
   "fixed_before_run": {
     "EXPECTED_MEMBERS": [
       [
@@ -42,7 +42,7 @@
       "15"
     ],
     "MAX_TANGENTIAL_WAVEVECTOR_RADIUS": 1,
-    "RADIAL_CONTRACTION_RATIO_MAX": 0.1,
+    "RADIAL_CONTRACTION_RATIO_MAX": 0.2,
     "RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX": 1e-08,
     "TANGENTIAL_SATURATION_RELATIVE_TOLERANCE": 1e-09
   },
@@ -54,24 +54,33 @@
   },
   "open_obligation": {
     "C1_N1_beyond_the_bridge": "v5.6.1 quarantine obligations (bulk Ward, moving embedding, off-shell extension)",
-    "bridge_key": "operator or independent audit of components (ii) and the analyticity strip before flipping uniform_N_to_infinity_bridge_pass (v5.6.1 quarantine wording)",
-    "strip_width": "compute the analyticity strip of the pinned members with the action evaluator in a separate, evaluator-side gate if a numeric rate is wanted"
+    "bridge_theorem": "close the five genuine gaps listed in scientific.bridge_component_ledger.genuine_gaps_not_audit, then obtain an independent audit before flipping uniform_N_to_infinity_bridge_pass (v5.6.1 quarantine wording)",
+    "strip_width": "compute the analyticity strip, its supremum and the nearest singularity of the literal density with the action evaluator in a separate, evaluator-side gate if a numeric rate is wanted",
+    "third_radial_order": "add Qrho = 18 (or 20) to the v5.6.6.5 ladder to test the geometric law with two ratios instead of one"
   },
   "provenance": {
     "generator": {
       "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_route_c_quadrature_saturation_bridge_ledger_v5_6_6_10.py",
-      "sha256": "f7f8854b57904cc55abd2c9d03d6d7dd0d457ccec262a59e9100ce7fef375098"
+      "sha256": "2eaf4c39a318c4301c49ab4bb5639364a3e2f8c1da38400ce902d4bb72fd84b6"
     },
     "numpy": "2.4.2",
     "python": "3.13.5",
     "test": {
       "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_route_c_quadrature_saturation_bridge_ledger_v5_6_6_10.py",
-      "sha256": "eccbec6a6e296d6e7ae1f586284e7dcd1e13031d354cf076aa2e15bcfc6b8c29"
+      "sha256": "9d6dafc7c5c6eeec628f9c168090a55a285a1cf55b92ea295be9a6edad7d6595"
     }
   },
   "schema": "holo.one-omega-topological-so3-route-c-quadrature-saturation-bridge-ledger-v5-6-6-10.v1",
   "scientific": {
     "bridge_component_ledger": {
+      "and_then_audit": "Even once those gaps are closed, the v5.6.1 quarantine requires an independently audited gate before uniform_N_to_infinity_bridge_pass can flip; that decision belongs to the operator.",
+      "genuine_gaps_not_audit": [
+        "no theorem links the finite Route C (Qtheta, Qrho) certificates of three members to DS_rel of (i): (iv) converges a finite functional on fixed members, it is not P_N X -> X in the class",
+        "class drift: v5.6.6.8 records that the v5.6.4 nodal members are not class points and that the pinned common-first members are continuum points outside the spectral space V_N, so (i)-(iii) and (iv) live on different objects",
+        "margins: (ii) needs the margin hypotheses on the whole collar, but v5.6.4 checks them only at the N Kronecker nodes times 7 radial samples",
+        "(iii): the Jacobian bound is sampled (ball, spikes, corners), its Sobolev lift and the margin hypothesis are prose",
+        "finite DG_N on V_N (Phi(V_N) is not inside V_N) and the gauge quotient H_N remain outside all four components"
+      ],
       "i_exact_identity_on_class": {
         "analytic": "real-analyticity of the literal density on the margin set; classical jets from H^s embedding",
         "key": "generic_second_order_Euler_Green_identity_symbolic_pass",
@@ -93,13 +102,13 @@
         "receipt": "one_omega_topological_so3_common_first_explicit_retraction_v5_6_6_9.json",
         "sha256": "cad85cf53e70dcfea3f69b104be5fe5c084bc897ddb713eef7d30ae72c85326a"
       },
-      "iv_finite_certificates_at_saturation": {
-        "analytic": "exponential trapezoidal / geometric Gauss--Legendre convergence for analytic integrands; strip width and Bernstein parameter not computed from the evaluator",
+      "iv_finite_certificates_with_measured_contraction": {
+        "analytic": "exponential trapezoidal / geometric Gauss--Legendre convergence for analytic integrands; strip width, supremum and Bernstein parameter not computed",
         "keys": [
           "route_c_tangential_ladders_saturated_pass",
           "route_c_radial_ladders_geometric_contraction_pass"
         ],
-        "machine_checked": "tangential ladders of the three pinned members saturated at the round-off floor; radial ladders contract geometrically with extrapolated tail below tolerance; tangential data of radius <= 1",
+        "machine_checked": "tangential ladders of the three pinned members saturated at the ~1e-10 stencil noise floor; radial ladders contract per component with own-scale extrapolated tail below tolerance; tangential data of radius <= 1",
         "receipt": "one_omega_topological_so3_precision_stabilized_route_c_v5_6_6_5.json",
         "sha256": "06ad302a03d17e4ea718c9ab801113807a7f66c71102e69486f7869130f77654"
       },
@@ -109,13 +118,7 @@
         "periodic-box exhaustion to noncompact Sigma",
         "v5.6.1 quarantine obligations for C1/N1: full bulk diffeomorphism Ward identity, fully coupled moving-embedding cross terms, off-shell continuous extension"
       ],
-      "what_the_ledger_means": "In the pointwise formulation the exact identity of (i) holds for every class member, so no N-to-infinity limit is needed for the identity itself; (iii) supplies the retraction that makes re-glued Fourier projections converge in the class; (ii) makes S and DS continuous along them; (iv) shows that the finite Route C numbers of the pinned members are converged in theta and within a measured geometric tail in rho. The remaining gap between this ledger and uniform_N_to_infinity_bridge_pass is not mathematical content but audit: (ii) and the analyticity strip of (iv) are prose, and the v5.6.1 quarantine requires an independently audited gate before any fail-closed key flips. That decision belongs to the operator."
-    },
-    "implied_strip_width": {
-      "implied_d_lower_bound_assuming_M_d_order_one": 1.1512394524442295,
-      "observed_relative_change": 1.2581057580497304e-10,
-      "q_theta": 11,
-      "used_in_decision": false
+      "what_the_ledger_means": "In the pointwise formulation the exact identity of (i) is a statement about every class member, (iii) supplies the retraction that re-glues Fourier projections, (ii) is the continuity that would make S and DS converge along them, and (iv) shows that the finite Route C numbers of the three pinned members are converged in theta to the stencil floor and contracting in rho. These are four components, NOT a bridge theorem."
     },
     "integrand_structure": {
       "basis_labels_by_N": {
@@ -146,6 +149,12 @@
       "tangential_radius_at_most_one": true,
       "upstream_component_keys_true": true
     },
+    "quadrature_convergence_reference": {
+      "applied_here": false,
+      "gauss_legendre": "geometric convergence rho_B^{-2Q} for integrands analytic inside the Bernstein ellipse of parameter rho_B",
+      "trapezoidal": "Trefethen and Weideman, The exponentially convergent trapezoidal rule, SIAM Review 56 (2014) 385-458, eq. (3.16): for a 2*pi-periodic function analytic in the strip |Im theta| < a with |f| <= M there, the N-point trapezoidal error is at most 4*pi*M/(exp(a*N) - 1).",
+      "why_not": "the strip width, the strip supremum M and the nearest singularity of the literal density are not computed (they need the action evaluator); an observed small change does not invert the bound"
+    },
     "refinement_ladders": {
       "members": [
         {
@@ -158,64 +167,372 @@
           "radial": {
             "components": 21,
             "geometric_contraction": true,
-            "geometric_extrapolated_tail_abs": 3.9839564017457787e-07,
-            "geometric_extrapolated_tail_rel": 4.984346812730547e-10,
             "orders": [
               "12",
               "14",
               "16"
             ],
-            "saturated_at_relative": false,
-            "second_over_first_step_ratio": 0.0329316419170203,
-            "steps": [
-              {
-                "from": "12",
-                "max_abs_difference": 0.0003552589123501093,
-                "max_rel_difference": 5.608115343016825e-06,
-                "scale_at_worst": 799.2939340223993,
-                "to": "14"
+            "per_component": {
+              "BF_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 4.269251618893577e-12,
+                "step2": 1.8463008899516353e-13,
+                "tail_rel": null
               },
-              {
-                "from": "14",
-                "max_abs_difference": 1.16992592893439e-05,
-                "max_rel_difference": 1.3075174437766529e-07,
-                "scale_at_worst": 799.293578763487,
-                "to": "16"
+              "BF_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 10.593907262441869,
+                "step1": 4.4639847374128294e-12,
+                "step2": 1.8633983245308627e-12,
+                "tail_rel": null
+              },
+              "EH_bulk_minus": {
+                "ratio": 0.043192194881640084,
+                "resolvable": true,
+                "scale": 68.66069288650647,
+                "step1": 0.00020784954811858825,
+                "step2": 8.97747818839889e-06,
+                "tail_rel": 5.902374226147746e-09
+              },
+              "EH_bulk_plus": {
+                "ratio": 0.01751570477404658,
+                "resolvable": true,
+                "scale": 25.31568258854092,
+                "step1": 0.0001419732679437402,
+                "step2": 2.4867618471091646e-06,
+                "tail_rel": 1.7512435687722518e-09
+              },
+              "GHY_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 7.2275048767425885,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "GHY_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 4.1002704332160675,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "K_foliation": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 52.067234120678584,
+                "step1": 5.122371504739931e-08,
+                "step2": 5.830642635373806e-10,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_plus": {
+                "ratio": 0.03180847350120212,
+                "resolvable": true,
+                "scale": 57.70763825681494,
+                "step1": 6.133743468694774e-07,
+                "step2": 1.951050165871493e-08,
+                "tail_rel": 1.1107509305217926e-11
+              },
+              "Omega_potential_bulk_minus": {
+                "ratio": 0.028019347517124964,
+                "resolvable": true,
+                "scale": 1005.6278929067291,
+                "step1": 2.5565486794221215e-06,
+                "step2": 7.163282589317532e-08,
+                "tail_rel": 2.053407627642649e-12
+              },
+              "Omega_potential_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 884.6277034453384,
+                "step1": 5.301457122186548e-07,
+                "step2": 1.1705878932843916e-08,
+                "tail_rel": null
+              },
+              "P_kinetic_bulk_minus": {
+                "ratio": 0.025334286737997862,
+                "resolvable": true,
+                "scale": 123.51551580615913,
+                "step1": 5.104852689896688e-06,
+                "step2": 1.293278018010824e-07,
+                "tail_rel": 2.7215942107388892e-11
+              },
+              "P_kinetic_bulk_plus": {
+                "ratio": 0.037596252787981475,
+                "resolvable": true,
+                "scale": 107.69317279752993,
+                "step1": 7.38300987279672e-06,
+                "step2": 2.775735055138284e-07,
+                "tail_rel": 1.0068785612540648e-10
+              },
+              "R": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "R_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "Robin": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 111.29350302288752,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "S_total": {
+                "ratio": 0.0329316419170203,
+                "resolvable": true,
+                "scale": 799.2939340223993,
+                "step1": 0.0003552589123501093,
+                "step2": 1.16992592893439e-05,
+                "tail_rel": 4.984344597358264e-10
+              },
+              "a_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "full_V4_bulk_minus": {
+                "ratio": 0.01759523131333881,
+                "resolvable": true,
+                "scale": 4.968229043963114,
+                "step1": 5.657760970834147e-07,
+                "step2": 9.954961299740717e-09,
+                "tail_rel": 3.5887440492225314e-11
+              },
+              "full_V4_bulk_plus": {
+                "ratio": 0.09912186700623801,
+                "resolvable": true,
+                "scale": 4.46980608284839,
+                "step1": 6.76104843222447e-08,
+                "step2": 6.7016774352168795e-09,
+                "tail_rel": 1.6496745198359929e-10
+              },
+              "wall": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 929.5802682838397,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
               }
-            ],
+            },
+            "resolvable_components": 9,
+            "saturated_at_relative": false,
             "worst_absolute_difference": 0.0003552589123501093,
+            "worst_per_component_ratio": 0.09912186700623801,
+            "worst_per_component_tail_rel": 5.902374226147746e-09,
             "worst_relative_difference": 5.608115343016825e-06
           },
           "tangential": {
             "components": 21,
             "geometric_contraction": false,
-            "geometric_extrapolated_tail_abs": null,
-            "geometric_extrapolated_tail_rel": null,
             "orders": [
               "11",
               "13",
               "15"
             ],
-            "saturated_at_relative": true,
-            "second_over_first_step_ratio": 1.5,
-            "steps": [
-              {
-                "from": "11",
-                "max_abs_difference": 2.2737367544323206e-13,
-                "max_rel_difference": 8.278913093930304e-16,
-                "scale_at_worst": 799.293578763487,
-                "to": "13"
+            "per_component": {
+              "BF_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 3.3306690738754696e-16,
+                "step2": 5.551115123125783e-16,
+                "tail_rel": null
               },
-              {
-                "from": "13",
-                "max_abs_difference": 3.410605131648481e-13,
-                "max_rel_difference": 9.823608403053394e-16,
-                "scale_at_worst": 799.293578763487,
-                "to": "15"
+              "BF_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 10.59390726244187,
+                "step1": 1.7763568394002505e-15,
+                "step2": 3.552713678800501e-15,
+                "tail_rel": null
+              },
+              "EH_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 68.66048503695835,
+                "step1": 5.684341886080802e-14,
+                "step2": 2.842170943040401e-14,
+                "tail_rel": null
+              },
+              "EH_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 25.31554061527298,
+                "step1": 3.552713678800501e-15,
+                "step2": 2.4868995751603507e-14,
+                "tail_rel": null
+              },
+              "GHY_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 7.227504876742589,
+                "step1": 8.881784197001252e-16,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "GHY_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 4.100270433216068,
+                "step1": 8.881784197001252e-16,
+                "step2": 8.881784197001252e-16,
+                "tail_rel": null
+              },
+              "K_foliation": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 52.06723406945488,
+                "step1": 0.0,
+                "step2": 7.105427357601002e-15,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 57.70763825681494,
+                "step1": 7.105427357601002e-15,
+                "step2": 1.4210854715202004e-14,
+                "tail_rel": null
+              },
+              "Omega_potential_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1005.6278903501806,
+                "step1": 0.0,
+                "step2": 1.1368683772161603e-13,
+                "tail_rel": null
+              },
+              "Omega_potential_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 884.6277029151927,
+                "step1": 0.0,
+                "step2": 2.2737367544323206e-13,
+                "tail_rel": null
+              },
+              "P_kinetic_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 123.51551070130645,
+                "step1": 1.4210854715202004e-14,
+                "step2": 1.4210854715202004e-14,
+                "tail_rel": null
+              },
+              "P_kinetic_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 107.69317251995645,
+                "step1": 2.842170943040401e-14,
+                "step2": 1.4210854715202004e-14,
+                "tail_rel": null
+              },
+              "R": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "R_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "Robin": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 111.29350302288753,
+                "step1": 1.4210854715202004e-14,
+                "step2": 1.4210854715202004e-14,
+                "tail_rel": null
+              },
+              "S_total": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 799.293578763487,
+                "step1": 2.2737367544323206e-13,
+                "step2": 3.410605131648481e-13,
+                "tail_rel": null
+              },
+              "a_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "full_V4_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 4.968229043963116,
+                "step1": 1.7763568394002505e-15,
+                "step2": 8.881784197001252e-16,
+                "tail_rel": null
+              },
+              "full_V4_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 4.46980608284839,
+                "step1": 1.7763568394002505e-15,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "wall": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 929.5802682838398,
+                "step1": 1.1368683772161603e-13,
+                "step2": 1.1368683772161603e-13,
+                "tail_rel": null
               }
-            ],
+            },
+            "resolvable_components": 0,
+            "saturated_at_relative": true,
             "worst_absolute_difference": 3.410605131648481e-13,
-            "worst_relative_difference": 9.823608403053394e-16
+            "worst_per_component_ratio": null,
+            "worst_per_component_tail_rel": null,
+            "worst_relative_difference": 9.823608403053392e-16
           },
           "upstream_convergence_pass": true
         },
@@ -229,63 +546,371 @@
           "radial": {
             "components": 21,
             "geometric_contraction": true,
-            "geometric_extrapolated_tail_abs": 2.969595924358421e-07,
-            "geometric_extrapolated_tail_rel": 1.0207750369329238e-09,
             "orders": [
               "12",
               "14",
               "16"
             ],
-            "saturated_at_relative": false,
-            "second_over_first_step_ratio": 0.03261313963037722,
-            "steps": [
-              {
-                "from": "12",
-                "max_abs_difference": 0.0002700923745351247,
-                "max_rel_difference": 5.644051594143469e-06,
-                "scale_at_worst": 290.9157970168868,
-                "to": "14"
+            "per_component": {
+              "BF_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 1.3131162823754039e-12,
+                "step2": 5.844214001626824e-13,
+                "tail_rel": null
               },
-              {
-                "from": "14",
-                "max_abs_difference": 8.808560323814163e-06,
-                "max_rel_difference": 1.2441211663830641e-07,
-                "scale_at_worst": 290.91580582544714,
-                "to": "16"
+              "BF_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 8.166594305298585,
+                "step1": 1.0036416142611415e-12,
+                "step2": 4.085620730620576e-14,
+                "tail_rel": null
+              },
+              "EH_bulk_minus": {
+                "ratio": 0.0423397489713151,
+                "resolvable": true,
+                "scale": 53.598816415530415,
+                "step1": 0.00015749556308719548,
+                "step2": 6.668322605207777e-06,
+                "tail_rel": 5.500449980531565e-09
+              },
+              "EH_bulk_plus": {
+                "ratio": 0.01789803668252203,
+                "resolvable": true,
+                "scale": 19.3968107776633,
+                "step1": 0.00010947660079096977,
+                "step2": 1.9594162168345974e-06,
+                "tail_rel": 1.8409635235793052e-09
+              },
+              "GHY_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 5.5862866006236205,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "GHY_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 3.168936509244288,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "K_foliation": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_minus": {
+                "ratio": 0.10468340034866094,
+                "resolvable": true,
+                "scale": 1.0,
+                "step1": 1.2705867330486953e-09,
+                "step2": 1.3300933965343376e-10,
+                "tail_rel": 1.5551895227312627e-11
+              },
+              "Omega_kinetic_bulk_plus": {
+                "ratio": 0.0992075865771246,
+                "resolvable": true,
+                "scale": 1.0,
+                "step1": 2.1925073401263262e-07,
+                "step2": 2.1751336176656366e-08,
+                "tail_rel": 2.3955547746168213e-09
+              },
+              "Omega_potential_bulk_minus": {
+                "ratio": 0.02805013518365965,
+                "resolvable": true,
+                "scale": 46.93765693124816,
+                "step1": 1.9367100350109467e-06,
+                "step2": 5.4324978293607273e-08,
+                "tail_rel": 3.340175221880211e-11
+              },
+              "Omega_potential_bulk_plus": {
+                "ratio": 0.02212639125903491,
+                "resolvable": true,
+                "scale": 78.27916163436716,
+                "step1": 3.952379472593748e-07,
+                "step2": 8.74518946147873e-09,
+                "tail_rel": 2.5278477856872675e-12
+              },
+              "P_kinetic_bulk_minus": {
+                "ratio": 0.019771542347406003,
+                "resolvable": true,
+                "scale": 118.60477838562159,
+                "step1": 3.696458819035797e-06,
+                "step2": 7.308469207600865e-08,
+                "tail_rel": 1.2429036911273094e-11
+              },
+              "P_kinetic_bulk_plus": {
+                "ratio": 0.05601130532182189,
+                "resolvable": true,
+                "scale": 107.71417177682392,
+                "step1": 3.827140091061665e-06,
+                "step2": 2.1436311214984016e-07,
+                "tail_rel": 1.180826545646394e-10
+              },
+              "R": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "R_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "Robin": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 85.35783743110734,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "S_total": {
+                "ratio": 0.03261313963037722,
+                "resolvable": true,
+                "scale": 290.91580582544714,
+                "step1": 0.0002700923745351247,
+                "step2": 8.808560323814163e-06,
+                "tail_rel": 1.0207750369329238e-09
+              },
+              "a_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "full_V4_bulk_minus": {
+                "ratio": 0.11209490381903345,
+                "resolvable": true,
+                "scale": 4.144402961472973,
+                "step1": 2.8952732566978057e-07,
+                "step2": 3.245453772393603e-08,
+                "tail_rel": 9.88627694369448e-10
+              },
+              "full_V4_bulk_plus": {
+                "ratio": 0.08602645053854106,
+                "resolvable": true,
+                "scale": 3.7606188456893705,
+                "step1": 1.4753048338533858e-07,
+                "step2": 1.2691523831875884e-08,
+                "tail_rel": 3.176529027859863e-10
+              },
+              "wall": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 3.0844203565612585,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
               }
-            ],
+            },
+            "resolvable_components": 11,
+            "saturated_at_relative": false,
             "worst_absolute_difference": 0.0002700923745351247,
+            "worst_per_component_ratio": 0.11209490381903345,
+            "worst_per_component_tail_rel": 5.500449980531565e-09,
             "worst_relative_difference": 5.644051594143469e-06
           },
           "tangential": {
             "components": 21,
             "geometric_contraction": false,
-            "geometric_extrapolated_tail_abs": null,
-            "geometric_extrapolated_tail_rel": null,
             "orders": [
               "11",
               "13",
               "15"
             ],
-            "saturated_at_relative": true,
-            "second_over_first_step_ratio": 2.0715938675151864,
-            "steps": [
-              {
-                "from": "11",
-                "max_abs_difference": 3.930153980036266e-10,
-                "max_rel_difference": 4.603212578155696e-11,
-                "scale_at_worst": 290.9157970168868,
-                "to": "13"
+            "per_component": {
+              "BF_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 7.113754030285691e-13,
+                "step2": 3.074762666699371e-13,
+                "tail_rel": null
               },
-              {
-                "from": "13",
-                "max_abs_difference": 8.141682883433532e-10,
-                "max_rel_difference": 1.2581057580497304e-10,
-                "scale_at_worst": 290.9157970168868,
-                "to": "15"
+              "BF_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 8.166594305298906,
+                "step1": 3.623767952376511e-13,
+                "step2": 2.6645352591003757e-14,
+                "tail_rel": null
+              },
+              "EH_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 53.59865891996733,
+                "step1": 6.583178446817328e-11,
+                "step2": 3.453237695794087e-11,
+                "tail_rel": null
+              },
+              "EH_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 19.39670130106251,
+                "step1": 1.944044925039634e-11,
+                "step2": 1.4692602690047352e-10,
+                "tail_rel": null
+              },
+              "GHY_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 5.5862866006236205,
+                "step1": 2.9611868512802175e-12,
+                "step2": 8.899547765395255e-13,
+                "tail_rel": null
+              },
+              "GHY_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 3.1689365092468655,
+                "step1": 2.5774937739697634e-12,
+                "step2": 1.0746958878371515e-13,
+                "tail_rel": null
+              },
+              "K_foliation": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 1.734723475976807e-17,
+                "step2": 6.938893903907228e-18,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 3.7250758033735565e-13,
+                "step2": 1.7569279364693102e-14,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 1.9778623183697164e-13,
+                "step2": 5.767053501415376e-13,
+                "tail_rel": null
+              },
+              "Omega_potential_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 46.93765499480393,
+                "step1": 1.7337953295282205e-10,
+                "step2": 2.657998265931383e-10,
+                "tail_rel": null
+              },
+              "Omega_potential_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 78.27916162562197,
+                "step1": 1.5799628272361588e-10,
+                "step2": 3.3008973332471214e-10,
+                "tail_rel": null
+              },
+              "P_kinetic_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 118.60477468916426,
+                "step1": 2.1174173525650986e-12,
+                "step2": 1.4921397450962104e-12,
+                "tail_rel": null
+              },
+              "P_kinetic_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 107.71417156247044,
+                "step1": 9.634959496906959e-12,
+                "step2": 1.9184653865522705e-12,
+                "tail_rel": null
+              },
+              "R": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 5.050150439616556e-15,
+                "step2": 2.3569338165912393e-15,
+                "tail_rel": null
+              },
+              "R_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 3.374266062927666e-23,
+                "step2": 7.461237030375031e-23,
+                "tail_rel": null
+              },
+              "Robin": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 85.35783743110734,
+                "step1": 7.318590178329032e-12,
+                "step2": 1.3741896509600338e-11,
+                "tail_rel": null
+              },
+              "S_total": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 290.9157970168868,
+                "step1": 3.930153980036266e-10,
+                "step2": 8.141682883433532e-10,
+                "tail_rel": null
+              },
+              "a_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 3.469446951953614e-18,
+                "step2": 2.0816681711721685e-17,
+                "tail_rel": null
+              },
+              "full_V4_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 4.144402961472973,
+                "step1": 3.197442310920451e-14,
+                "step2": 4.884981308350689e-14,
+                "tail_rel": null
+              },
+              "full_V4_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 3.7606188456895864,
+                "step1": 2.1582735598713043e-13,
+                "step2": 3.5083047578154947e-14,
+                "tail_rel": null
+              },
+              "wall": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 3.0844203565612585,
+                "step1": 1.4198242581642262e-10,
+                "step2": 3.8805270108355217e-10,
+                "tail_rel": null
               }
-            ],
+            },
+            "resolvable_components": 0,
+            "saturated_at_relative": true,
             "worst_absolute_difference": 8.141682883433532e-10,
+            "worst_per_component_ratio": null,
+            "worst_per_component_tail_rel": null,
             "worst_relative_difference": 1.2581057580497304e-10
           },
           "upstream_convergence_pass": true
@@ -300,84 +925,394 @@
           "radial": {
             "components": 21,
             "geometric_contraction": true,
-            "geometric_extrapolated_tail_abs": 3.487499475380979e-07,
-            "geometric_extrapolated_tail_rel": 1.0154832204675936e-09,
             "orders": [
               "12",
               "14",
               "16"
             ],
-            "saturated_at_relative": false,
-            "second_over_first_step_ratio": 0.03268634744814555,
-            "steps": [
-              {
-                "from": "12",
-                "max_abs_difference": 0.00031575387038174085,
-                "max_rel_difference": 5.629876235812793e-06,
-                "scale_at_worst": 343.4324960060596,
-                "to": "14"
+            "per_component": {
+              "BF_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 5.102585021177219e-13,
+                "step2": 4.776179451937423e-13,
+                "tail_rel": null
               },
-              {
-                "from": "14",
-                "max_abs_difference": 1.0320840715394297e-05,
-                "max_rel_difference": 1.2361292750141869e-07,
-                "scale_at_worst": 343.4325063269003,
-                "to": "16"
+              "BF_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 9.538916487561329,
+                "step1": 6.998845947236987e-13,
+                "step2": 7.549516567451064e-13,
+                "tail_rel": null
+              },
+              "EH_bulk_minus": {
+                "ratio": 0.04255072248282356,
+                "resolvable": true,
+                "scale": 63.01008514325883,
+                "step1": 0.00018304832456550457,
+                "step2": 7.788838459532599e-06,
+                "tail_rel": 5.493558997642503e-09
+              },
+              "EH_bulk_plus": {
+                "ratio": 0.017963033514361796,
+                "resolvable": true,
+                "scale": 22.904642077091,
+                "step1": 0.0001289503001196124,
+                "step2": 2.3163385627356092e-06,
+                "tail_rel": 1.8498238387544224e-09
+              },
+              "GHY_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 6.6348297131402605,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "GHY_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 3.6755516410469444,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "K_foliation": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 2.3857521513903635e-10,
+                "step2": 2.1491740331835985e-10,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_plus": {
+                "ratio": 0.1038647965912449,
+                "resolvable": true,
+                "scale": 1.0,
+                "step1": 2.4691043015723224e-07,
+                "step2": 2.5645301604537707e-08,
+                "tail_rel": 2.9723684825061653e-09
+              },
+              "Omega_potential_bulk_minus": {
+                "ratio": 0.02807195867085086,
+                "resolvable": true,
+                "scale": 55.527458625666156,
+                "step1": 2.2831210415574787e-06,
+                "step2": 6.409167951915151e-08,
+                "tail_rel": 3.333745625205698e-11
+              },
+              "Omega_potential_bulk_plus": {
+                "ratio": 0.021817889195427456,
+                "resolvable": true,
+                "scale": 92.4104214814003,
+                "step1": 4.607374251008878e-07,
+                "step2": 1.0052318089037726e-08,
+                "tail_rel": 2.426265301539221e-12
+              },
+              "P_kinetic_bulk_minus": {
+                "ratio": 0.020026191793617153,
+                "resolvable": true,
+                "scale": 139.97115294173403,
+                "step1": 4.3327605396825675e-06,
+                "step2": 8.676869356349926e-08,
+                "tail_rel": 1.2668010694370474e-11
+              },
+              "P_kinetic_bulk_plus": {
+                "ratio": 0.05596783621162432,
+                "resolvable": true,
+                "scale": 127.13532067471299,
+                "step1": 4.578548015388151e-06,
+                "step2": 2.562514254123016e-07,
+                "tail_rel": 1.1949556654893692e-10
+              },
+              "R": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "R_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "Robin": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 100.74505438896902,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "S_total": {
+                "ratio": 0.03268634744814555,
+                "resolvable": true,
+                "scale": 343.4325063269003,
+                "step1": 0.00031575387038174085,
+                "step2": 1.0320840715394297e-05,
+                "tail_rel": 1.0154832204675936e-09
+              },
+              "a_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
+              },
+              "full_V4_bulk_minus": {
+                "ratio": 0.11141009945122834,
+                "resolvable": true,
+                "scale": 4.891564315005205,
+                "step1": 3.4528878245509986e-07,
+                "step2": 3.8468657592716227e-08,
+                "tail_rel": 9.8601257191907e-10
+              },
+              "full_V4_bulk_plus": {
+                "ratio": 0.08594586664549293,
+                "resolvable": true,
+                "scale": 4.438680706921233,
+                "step1": 1.7363893345390125e-07,
+                "step2": 1.4923548619094618e-08,
+                "tail_rel": 3.16134051821241e-10
+              },
+              "wall": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 3.640186566458537,
+                "step1": 0.0,
+                "step2": 0.0,
+                "tail_rel": null
               }
-            ],
+            },
+            "resolvable_components": 10,
+            "saturated_at_relative": false,
             "worst_absolute_difference": 0.00031575387038174085,
+            "worst_per_component_ratio": 0.11141009945122834,
+            "worst_per_component_tail_rel": 5.493558997642503e-09,
             "worst_relative_difference": 5.629876235812793e-06
           },
           "tangential": {
             "components": 21,
             "geometric_contraction": false,
-            "geometric_extrapolated_tail_abs": 6.120162662632137e-10,
-            "geometric_extrapolated_tail_rel": 6.622805702185885e-12,
             "orders": [
               "11",
               "13",
               "15"
             ],
-            "saturated_at_relative": true,
-            "second_over_first_step_ratio": 0.7474825318536786,
-            "steps": [
-              {
-                "from": "11",
-                "max_abs_difference": 2.766000761766918e-10,
-                "max_rel_difference": 7.578750335981407e-11,
-                "scale_at_worst": 343.4324960063362,
-                "to": "13"
+            "per_component": {
+              "BF_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 1.2967404927621828e-13,
+                "step2": 4.480860127387132e-13,
+                "tail_rel": null
               },
-              {
-                "from": "13",
-                "max_abs_difference": 2.0675372525147395e-10,
-                "max_rel_difference": 3.3150048434456175e-11,
-                "scale_at_worst": 92.41042147155474,
-                "to": "15"
+              "BF_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 9.538916487561329,
+                "step1": 1.8385293287792592e-12,
+                "step2": 9.237055564881302e-13,
+                "tail_rel": null
+              },
+              "EH_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 63.00990209493426,
+                "step1": 1.5729995084257098e-10,
+                "step2": 4.250466645316919e-11,
+                "tail_rel": null
+              },
+              "EH_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 22.90451312681377,
+                "step1": 2.2890134232511627e-11,
+                "step2": 3.0198066269804258e-12,
+                "tail_rel": null
+              },
+              "GHY_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 6.634829713140378,
+                "step1": 1.1723955140041653e-13,
+                "step2": 1.3091749906379846e-12,
+                "tail_rel": null
+              },
+              "GHY_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 3.6755516410500393,
+                "step1": 3.0948577034450864e-12,
+                "step2": 2.2377655284344655e-12,
+                "tail_rel": null
+              },
+              "K_foliation": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 2.7755575615628914e-17,
+                "step2": 6.938893903907228e-18,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 4.944655795924291e-14,
+                "step2": 2.8449465006019636e-15,
+                "tail_rel": null
+              },
+              "Omega_kinetic_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 3.40394379350073e-13,
+                "step2": 4.886646642887627e-13,
+                "tail_rel": null
+              },
+              "Omega_potential_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 55.527456342773014,
+                "step1": 2.2789947706769453e-10,
+                "step2": 2.0298784875194542e-10,
+                "tail_rel": null
+              },
+              "Omega_potential_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 92.41042147155474,
+                "step1": 9.266898359783227e-11,
+                "step2": 2.0675372525147395e-10,
+                "tail_rel": null
+              },
+              "P_kinetic_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 139.97114860897796,
+                "step1": 1.4779288903810084e-12,
+                "step2": 4.462208380573429e-12,
+                "tail_rel": null
+              },
+              "P_kinetic_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 127.13532041846386,
+                "step1": 2.3021584638627246e-12,
+                "step2": 9.805489753489383e-13,
+                "tail_rel": null
+              },
+              "R": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 4.622306227011763e-15,
+                "step2": 3.1877983325961923e-15,
+                "tail_rel": null
+              },
+              "R_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 8.337658971720678e-23,
+                "step2": 1.39610053407569e-22,
+                "tail_rel": null
+              },
+              "Robin": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 100.74505438897764,
+                "step1": 2.4442670110147446e-12,
+                "step2": 8.611777957412414e-12,
+                "tail_rel": null
+              },
+              "S_total": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 343.4324960063362,
+                "step1": 2.766000761766918e-10,
+                "step2": 1.71723968378501e-10,
+                "tail_rel": null
+              },
+              "a_squared": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 1.0,
+                "step1": 1.3877787807814457e-17,
+                "step2": 1.3877787807814457e-17,
+                "tail_rel": null
+              },
+              "full_V4_bulk_minus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 4.891564315005295,
+                "step1": 3.375077994860476e-14,
+                "step2": 9.059419880941277e-14,
+                "tail_rel": null
+              },
+              "full_V4_bulk_plus": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 4.438680706921296,
+                "step1": 8.526512829121202e-14,
+                "step2": 6.306066779870889e-14,
+                "tail_rel": null
+              },
+              "wall": {
+                "ratio": null,
+                "resolvable": false,
+                "scale": 3.6401865667344175,
+                "step1": 2.758806516567347e-10,
+                "step2": 1.2067236099255751e-10,
+                "tail_rel": null
               }
-            ],
+            },
+            "resolvable_components": 0,
+            "saturated_at_relative": true,
             "worst_absolute_difference": 2.766000761766918e-10,
+            "worst_per_component_ratio": null,
+            "worst_per_component_tail_rel": null,
             "worst_relative_difference": 7.578750335981407e-11
           },
           "upstream_convergence_pass": true
         }
       ],
+      "noise_floor_origin": "float64 five-point stencil in the free parameter (FREE_JVP_STEP = 2e-3 in v5.6.6.3, inherited by v5.6.6.5) applied to O(1e3) nodal densities with cancellation; the longdouble jets of v5.6.6.5 do not set the floor. The N = 1 member is theta-constant, so its 1e-16 tangential floor is degenerate.",
       "radial_all_geometric": true,
-      "radial_rate_per_node_estimate": 0.18147077427789934,
-      "reading": "Tangential refinement changes no first-variation component beyond the round-off floor of the longdouble pipeline, so the trapezoidal rule is converged for the pinned members. Radial refinement is still resolving a residual, but each extra pair of Gauss--Legendre nodes shrinks it by the recorded ratio, and the geometric extrapolation of the remaining tail beyond Qrho = 16 is below the declared relative tolerance. This is a measured rate for the three pinned members, not a theorem about the class.",
+      "radial_rate_per_node_estimate": 0.3348057702893327,
+      "reading": "Tangential refinement changes no first-variation component beyond the ~1e-10 stencil noise floor, so the trapezoidal rule is converged for the pinned members at that floor. Radial refinement is still resolving a residual in every component above the floor, and each extra pair of Gauss--Legendre nodes shrinks it by at most the recorded per-component ratio; the geometric extrapolation of the remaining tail over each component's own scale is below the declared tolerance. One ratio from two steps is not a rate law: the extrapolation assumes the contraction continues. Q-independent biases of the stencils are not measured by any ladder. This is a measurement on three pinned members, not a theorem about the class.",
       "tangential_all_saturated": true,
       "tolerances": {
-        "radial_contraction_ratio_max": 0.1,
-        "radial_extrapolated_tail_relative_max": 1e-08,
+        "noise_floor_relative": 1e-10,
+        "noise_mask_factor": 10.0,
+        "radial_contraction_ratio_max_per_component": 0.2,
+        "radial_extrapolated_tail_relative_max_own_scale": 1e-08,
         "tangential_saturation_relative": 1e-09
       },
-      "worst_radial_extrapolated_tail_rel": 1.0207750369329238e-09,
-      "worst_radial_ratio": 0.0329316419170203,
+      "worst_radial_extrapolated_tail_rel_own_scale": 5.902374226147746e-09,
+      "worst_radial_per_component_ratio": 0.11209490381903345,
       "worst_tangential_relative_difference": 1.2581057580497304e-10
-    },
-    "trapezoidal_rule_reference": "L. N. Trefethen and J. A. C. Weideman, The exponentially convergent trapezoidal rule, SIAM Review 56 (2014) 385-458, Theorem 3.2"
+    }
   },
-  "scientific_payload_sha256": "4d7bb29be7fca3248594e6b1bcb7899db41ad373e7b0ade24a1f3c3fc4b955bd",
+  "scientific_payload_sha256": "a30bda6d174799c49a28350671dce98ff687fe14b2a80543c4f376a163635e03",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "frozen_checkpoint_commit": "ea014fd1a8ed124c353058eb6f0a1c92b90353bc",

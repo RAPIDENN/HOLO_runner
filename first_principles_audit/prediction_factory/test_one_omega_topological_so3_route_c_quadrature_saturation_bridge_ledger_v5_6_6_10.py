@@ -82,16 +82,21 @@ def test_ladders(receipt: dict) -> None:
     for member in lad["members"]:
         t, r = member["tangential"], member["radial"]
         assert t["components"] == 21 and r["components"] == 21
-        assert len(t["steps"]) == 2 and len(r["steps"]) == 2
         assert t["saturated_at_relative"] is True
         assert t["worst_relative_difference"] <= gate.TANGENTIAL_SATURATION_RELATIVE_TOLERANCE
         assert r["geometric_contraction"] is True
-        assert 0.0 < r["second_over_first_step_ratio"] <= gate.RADIAL_CONTRACTION_RATIO_MAX
-        assert r["geometric_extrapolated_tail_rel"] <= gate.RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX
+        assert r["resolvable_components"] >= 8  # 4 components are identically zero, a few sit below the floor
+        assert 0.0 < r["worst_per_component_ratio"] <= gate.RADIAL_CONTRACTION_RATIO_MAX
+        assert r["worst_per_component_tail_rel"] <= gate.RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX
         assert r["saturated_at_relative"] is False, "radial ladders are honestly NOT saturated"
+        for key, rec in r["per_component"].items():
+            if rec["resolvable"]:
+                assert rec["ratio"] <= gate.RADIAL_CONTRACTION_RATIO_MAX, key
         assert member["upstream_convergence_pass"] is True
     assert lad["worst_tangential_relative_difference"] < 1.0e-9
-    assert 0.0 < lad["radial_rate_per_node_estimate"] < 0.5
+    assert 0.1 < lad["worst_radial_per_component_ratio"] < 0.2, "the review found per-component ratios ~0.11; a cross-component 0.033 would be the old mixed metric"
+    assert 0.3 < lad["radial_rate_per_node_estimate"] < 0.45
+    assert "float64" in lad["noise_floor_origin"]
     v5665 = json.loads(gate.V5665_PATH.read_text())
     assert gate.ladder_audit(v5665) == lad
 
@@ -105,8 +110,16 @@ def test_ladder_differences_detect_unsaturated_ladder() -> None:
     records = {"11": {"x": 1.0}, "13": {"x": 1.001}, "15": {"x": 1.0011}}
     result = gate._ladder_differences(records, gate.EXPECTED_TANGENTIAL_ORDERS)
     assert result["saturated_at_relative"] is False
-    assert 0.0 < result["second_over_first_step_ratio"] < 1.0
-    assert result["geometric_contraction"] is False  # ratio 0.1 but the extrapolated tail ~1e-5 exceeds 1e-8
+    assert result["resolvable_components"] == 1
+    assert abs(result["worst_per_component_ratio"] - 0.1) < 1e-9
+    assert result["geometric_contraction"] is False  # ratio 0.1 passes but the tail ~1.1e-5 exceeds 1e-8
+
+
+def test_noise_masked_components_do_not_count() -> None:
+    records = {"12": {"x": 1000.0, "y": 1.0}, "14": {"x": 1000.0 + 1e-9, "y": 1.0 + 1e-3}, "16": {"x": 1000.0 + 2e-9, "y": 1.0 + 1e-3 + 1e-4}}
+    result = gate._ladder_differences(records, gate.EXPECTED_RADIAL_ORDERS)
+    assert result["per_component"]["x"]["resolvable"] is False  # 1e-9 on scale 1e3 is below 10 * 1e-10 * scale
+    assert result["per_component"]["y"]["resolvable"] is True
 
 
 def test_integrand_structure(receipt: dict) -> None:
@@ -118,11 +131,12 @@ def test_integrand_structure(receipt: dict) -> None:
     assert gate.integrand_structure(bundle) == structure
 
 
-def test_strip_width_is_indicative_only(receipt: dict) -> None:
-    strip = receipt["scientific"]["implied_strip_width"]
-    assert strip["used_in_decision"] is False
-    assert strip["q_theta"] == 11
-    assert strip["implied_d_lower_bound_assuming_M_d_order_one"] > 1.0
+def test_quadrature_reference_not_applied(receipt: dict) -> None:
+    ref = receipt["scientific"]["quadrature_convergence_reference"]
+    assert ref["applied_here"] is False
+    assert "exp(a*N) - 1" in ref["trapezoidal"]
+    assert "does not invert the bound" in ref["why_not"]
+    assert "implied_strip_width" not in receipt["scientific"]
 
 
 def test_ledger(receipt: dict) -> None:
@@ -130,10 +144,12 @@ def test_ledger(receipt: dict) -> None:
     assert ledger["i_exact_identity_on_class"]["sha256"] == gate.V5668_SHA256
     assert ledger["ii_continuity_bound"]["machine_checked"] is None
     assert ledger["iii_N_independent_retraction"]["sha256"] == gate.V5669_SHA256
-    assert ledger["iv_finite_certificates_at_saturation"]["keys"] == ["route_c_tangential_ladders_saturated_pass", "route_c_radial_ladders_geometric_contraction_pass"]
-    assert "belongs to the operator" in ledger["what_the_ledger_means"]
+    assert ledger["iv_finite_certificates_with_measured_contraction"]["keys"] == ["route_c_tangential_ladders_saturated_pass", "route_c_radial_ladders_geometric_contraction_pass"]
+    assert "NOT a bridge theorem" in ledger["what_the_ledger_means"]
+    assert len(ledger["genuine_gaps_not_audit"]) == 5
+    assert "belongs to the operator" in ledger["and_then_audit"]
     assert len(ledger["still_outside_the_bridge"]) == 4
-    assert "bridge_key" in receipt["open_obligation"]
+    assert "bridge_theorem" in receipt["open_obligation"] and "third_radial_order" in receipt["open_obligation"]
 
 
 def test_canonical_bytes_and_provenance(receipt: dict) -> None:

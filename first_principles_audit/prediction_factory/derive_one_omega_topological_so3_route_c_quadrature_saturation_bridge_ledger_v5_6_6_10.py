@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Route C quadrature ladders (tangential saturation, radial geometric rate) and the pointwise-bridge component ledger (v5.6.6.10).
+"""Route C quadrature ladders (tangential saturation, per-component radial contraction) and the pointwise-bridge component ledger (v5.6.6.10).
 
 Fourth component of the continuum bridge in the pointwise (common-first) formulation.
 
@@ -9,27 +9,37 @@ Fourth component of the continuum bridge in the pointwise (common-first) formula
     Qtheta = 11, 13, 15 at fixed Qrho = 14, and radial Qrho = 12, 14, 16 at fixed
     Qtheta = 13.  This gate recomputes every consecutive difference and certifies
     two different facts:
-      - the TANGENTIAL ladders are saturated at the round-off floor of the
-        longdouble pipeline (relative change <= 1e-9; measured 1e-16 for N=1 and
-        ~1e-10 for N=2,3), i.e. the trapezoidal rule has converged;
-      - the RADIAL ladders are NOT saturated but contract geometrically: the
-        second step (14 -> 16) is at most a fixed fraction of the first (12 -> 14)
-        (measured ratio ~0.03 per two Gauss--Legendre nodes), and the geometric
-        extrapolation of the tail beyond Qrho = 16 is below a declared relative
-        tolerance.  This is a measured convergence rate, not a saturation claim.
+      - the TANGENTIAL ladders are saturated at a ~1e-10 relative noise floor
+        (relative change <= 1e-9; measured 1e-16 for the theta-constant N=1
+        member, which calibrates nothing, and ~1e-10 for N=2,3 with sign-flipping
+        same-size steps).  That floor is set by the float64 five-point stencil in
+        the free parameter (FREE_JVP_STEP = 2e-3) of the first variation, NOT by
+        the longdouble coordinate jets; the trapezoidal rule has converged to it.
+        The ladder measures quadrature error only: Q-independent biases (free
+        stencil h^4, theta stencil h^8) are invisible to it.
+      - the RADIAL ladders are NOT saturated but contract, component by
+        component: for every component whose first step (12 -> 14) is above the
+        noise floor, the second step (14 -> 16) is at most a declared fraction of
+        it (measured per-component worst ratio ~0.11 per two Gauss--Legendre
+        nodes, i.e. ~0.33 per node), and the geometric extrapolation of the tail
+        beyond Qrho = 16 over the component's OWN scale is below a declared
+        relative tolerance.  Two steps give one ratio, not a rate law; the
+        extrapolation assumes the contraction continues.
 
 (B) Why this is expected (analytic argument recorded, not machine-checked).
     For N <= 3 the tangential data of the pinned members are trigonometric
     polynomials of degree <= 1 in the single direction theta = x0 + x1 (basis
     labels of the byte-pinned bundle: 1, cos, sin), the radial profiles are
     polynomials, and the literal v5.2 density is real-analytic on the margin set.
-    The integrand is therefore 2*pi-periodic and analytic in a strip |Im theta| < d,
-    so the Qtheta-point trapezoidal rule converges like 4*pi*M_d/(exp(2*d*Qtheta)-1)
-    (Trefethen--Weideman 2014, Thm 3.2), and Gauss--Legendre in rho converges
-    geometrically like rho_B^{-2 Qrho} for integrands analytic inside the Bernstein
-    ellipse of parameter rho_B.  The measured radial ratio gives an empirical
-    rho_B; the tangential saturation at Qtheta = 11 gives an indicative lower
-    bound on d.  Neither number enters a decision key.
+    The integrand is therefore 2*pi-periodic and analytic in a strip |Im theta| < a,
+    so the Qtheta-point trapezoidal rule error is <= 4*pi*M/(exp(a*Qtheta)-1)
+    with M the supremum on the strip (Trefethen--Weideman 2014, SIAM Review 56,
+    eq. 3.16), and Gauss--Legendre in rho converges geometrically like
+    rho_B^{-2 Qrho} for integrands analytic inside the Bernstein ellipse of
+    parameter rho_B.  The strip width, M and the nearest singularity of the
+    literal density are NOT computed here (that needs the action evaluator), and
+    no inference from observed saturation to a strip width is made: an observed
+    small change is consistent with the bound, it does not invert it.
 
 (C) Bridge component ledger.  Records, with byte pins, which receipt carries each
     component of the pointwise bridge:
@@ -38,12 +48,15 @@ Fourth component of the continuum bridge in the pointwise (common-first) formula
       (iii) N-independent explicit retraction (graph of Phi)        -> v5.6.6.9
       (iv)  finite Route C certificates at saturation               -> this gate
     and states plainly which parts are machine-checked and which are analytic
-    arguments.  Component (iv) is "finite certificates with a measured geometric
-    radial rate and a saturated tangential rule", not "finite certificates at
-    saturation".  It does NOT flip uniform_N_to_infinity_bridge_pass: the v5.6.1
-    quarantine requires an independently audited gate for that, and components
-    (ii) and the analyticity strip of (iv) are prose.  It also does not flip
-    C1/N1, B4/B5 or any v5.6.4 fail-closed key.
+    arguments, and lists the GENUINE mathematical gaps that remain between the
+    four components and a bridge theorem (no theorem yet links the finite Route
+    C certificates to DS_rel of (i); the components live on different objects
+    because of the pointwise-vs-nodal class drift; margins are only checked at
+    nodes; the Jacobian bound of (iii) is sampled and its Sobolev lift is prose;
+    V_N mismatch and gauge quotient).  Component (iv) is "finite certificates
+    with a measured contraction", not "finite certificates at saturation".  It
+    does NOT flip uniform_N_to_infinity_bridge_pass, C1/N1, B4/B5 or any
+    v5.6.4 fail-closed key.
 """
 
 from __future__ import annotations
@@ -77,8 +90,11 @@ V5669_SHA256 = "cad85cf53e70dcfea3f69b104be5fe5c084bc897ddb713eef7d30ae72c85326a
 
 # Fixed before run.
 TANGENTIAL_SATURATION_RELATIVE_TOLERANCE = 1.0e-9
-RADIAL_CONTRACTION_RATIO_MAX = 0.1
-RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX = 1.0e-8
+NOISE_FLOOR_RELATIVE = 1.0e-10          # float64 FD5 free-parameter stencil floor observed on the tangential ladders
+NOISE_MASK_FACTOR = 10.0                # a first step below NOISE_MASK_FACTOR * floor * scale is not a resolvable residual
+RADIAL_CONTRACTION_RATIO_MAX = 0.2      # per-component, per two Gauss--Legendre nodes (revised from 0.1 after review: the
+                                        # earlier 0.033 was a cross-component max-abs ratio dominated by S_total)
+RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX = 1.0e-8   # over the component's own scale
 EXPECTED_TANGENTIAL_ORDERS = ("11", "13", "15")
 EXPECTED_RADIAL_ORDERS = ("12", "14", "16")
 EXPECTED_MEMBERS = ((1, 1), (2, 2), (3, 3))
@@ -113,42 +129,50 @@ def _load_json(path: Path, expected_sha256: str) -> Any:
 def _ladder_differences(records: dict[str, dict[str, float]], orders: tuple[str, ...]) -> dict[str, Any]:
     if tuple(sorted(records, key=int)) != orders:
         raise LedgerGateError(f"ladder orders drift: {sorted(records, key=int)} != {orders}")
+    if len(orders) != 3:
+        raise LedgerGateError("ladders must have exactly three orders")
     components = sorted(records[orders[0]])
-    steps = []
-    for lo, hi in zip(orders[:-1], orders[1:]):
-        rel_step = 0.0
-        abs_step = 0.0
-        scale_at_worst = 1.0
-        for key in components:
-            left, right = float(records[lo][key]), float(records[hi][key])
-            diff = abs(right - left)
-            scale = max(1.0, abs(left), abs(right))
-            if diff > abs_step:
-                abs_step, scale_at_worst = diff, scale
-            rel_step = max(rel_step, diff / scale)
-        steps.append({"from": lo, "to": hi, "max_abs_difference": abs_step, "max_rel_difference": rel_step, "scale_at_worst": scale_at_worst})
-    worst_relative = max(step["max_rel_difference"] for step in steps)
-    worst_absolute = max(step["max_abs_difference"] for step in steps)
-    ratio = None
-    tail_abs = None
-    tail_rel = None
-    if len(steps) == 2 and steps[0]["max_abs_difference"] > 0.0:
-        ratio = steps[1]["max_abs_difference"] / steps[0]["max_abs_difference"]
-        if ratio < 1.0:
-            # geometric tail beyond the last order: sum_{j>=1} last_step * ratio^j
-            tail_abs = steps[1]["max_abs_difference"] * ratio / (1.0 - ratio)
-            tail_rel = tail_abs / steps[1]["scale_at_worst"]
+    per_component = {}
+    worst_relative = 0.0
+    worst_absolute = 0.0
+    worst_ratio = None
+    worst_tail_rel = None
+    resolvable = 0
+    for key in components:
+        v0, v1, v2 = (float(records[o][key]) for o in orders)
+        d1, d2 = abs(v1 - v0), abs(v2 - v1)
+        scale = max(1.0, abs(v0), abs(v1), abs(v2))
+        worst_relative = max(worst_relative, d1 / scale, d2 / scale)
+        worst_absolute = max(worst_absolute, d1, d2)
+        record = {"step1": d1, "step2": d2, "scale": scale, "ratio": None, "tail_rel": None, "resolvable": False}
+        if d1 > NOISE_MASK_FACTOR * NOISE_FLOOR_RELATIVE * scale:
+            record["resolvable"] = True
+            resolvable += 1
+            ratio = d2 / d1
+            record["ratio"] = ratio
+            if ratio < 1.0:
+                record["tail_rel"] = d2 * ratio / (1.0 - ratio) / scale
+            worst_ratio = ratio if worst_ratio is None else max(worst_ratio, ratio)
+            if record["tail_rel"] is not None:
+                worst_tail_rel = record["tail_rel"] if worst_tail_rel is None else max(worst_tail_rel, record["tail_rel"])
+        per_component[key] = record
+    contraction = bool(
+        resolvable > 0
+        and worst_ratio is not None
+        and worst_ratio <= RADIAL_CONTRACTION_RATIO_MAX
+        and all(r["tail_rel"] is not None and r["tail_rel"] <= RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX for r in per_component.values() if r["resolvable"])
+    )
     return {
         "orders": list(orders),
         "components": len(components),
-        "steps": steps,
+        "resolvable_components": resolvable,
+        "per_component": per_component,
         "worst_relative_difference": worst_relative,
         "worst_absolute_difference": worst_absolute,
-        "second_over_first_step_ratio": ratio,
-        "geometric_extrapolated_tail_abs": tail_abs,
-        "geometric_extrapolated_tail_rel": tail_rel,
+        "worst_per_component_ratio": worst_ratio,
+        "worst_per_component_tail_rel": worst_tail_rel,
         "saturated_at_relative": bool(worst_relative <= TANGENTIAL_SATURATION_RELATIVE_TOLERANCE),
-        "geometric_contraction": bool(ratio is not None and ratio <= RADIAL_CONTRACTION_RATIO_MAX and tail_rel is not None and tail_rel <= RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX),
+        "geometric_contraction": contraction,
     }
 
 
@@ -176,26 +200,35 @@ def ladder_audit(v5665: dict[str, Any]) -> dict[str, Any]:
         )
     if [(m["N"], m["K"]) for m in members] != list(EXPECTED_MEMBERS):
         raise LedgerGateError("member set drift")
-    radial_ratios = [m["radial"]["second_over_first_step_ratio"] for m in members]
+    radial_ratios = [m["radial"]["worst_per_component_ratio"] for m in members]
     return {
         "tolerances": {
             "tangential_saturation_relative": TANGENTIAL_SATURATION_RELATIVE_TOLERANCE,
-            "radial_contraction_ratio_max": RADIAL_CONTRACTION_RATIO_MAX,
-            "radial_extrapolated_tail_relative_max": RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX,
+            "noise_floor_relative": NOISE_FLOOR_RELATIVE,
+            "noise_mask_factor": NOISE_MASK_FACTOR,
+            "radial_contraction_ratio_max_per_component": RADIAL_CONTRACTION_RATIO_MAX,
+            "radial_extrapolated_tail_relative_max_own_scale": RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX,
         },
         "members": members,
         "tangential_all_saturated": bool(tangential_ok),
         "radial_all_geometric": bool(radial_ok),
         "worst_tangential_relative_difference": max(m["tangential"]["worst_relative_difference"] for m in members),
-        "worst_radial_ratio": max(radial_ratios),
+        "worst_radial_per_component_ratio": max(radial_ratios),
         "radial_rate_per_node_estimate": float(max(radial_ratios) ** 0.5),
-        "worst_radial_extrapolated_tail_rel": max(m["radial"]["geometric_extrapolated_tail_rel"] for m in members),
+        "worst_radial_extrapolated_tail_rel_own_scale": max(m["radial"]["worst_per_component_tail_rel"] for m in members),
+        "noise_floor_origin": (
+            "float64 five-point stencil in the free parameter (FREE_JVP_STEP = 2e-3 in v5.6.6.3, inherited by "
+            "v5.6.6.5) applied to O(1e3) nodal densities with cancellation; the longdouble jets of v5.6.6.5 do not "
+            "set the floor. The N = 1 member is theta-constant, so its 1e-16 tangential floor is degenerate."
+        ),
         "reading": (
-            "Tangential refinement changes no first-variation component beyond the round-off floor of the longdouble "
-            "pipeline, so the trapezoidal rule is converged for the pinned members. Radial refinement is still "
-            "resolving a residual, but each extra pair of Gauss--Legendre nodes shrinks it by the recorded ratio, and "
-            "the geometric extrapolation of the remaining tail beyond Qrho = 16 is below the declared relative "
-            "tolerance. This is a measured rate for the three pinned members, not a theorem about the class."
+            "Tangential refinement changes no first-variation component beyond the ~1e-10 stencil noise floor, so the "
+            "trapezoidal rule is converged for the pinned members at that floor. Radial refinement is still resolving "
+            "a residual in every component above the floor, and each extra pair of Gauss--Legendre nodes shrinks it by "
+            "at most the recorded per-component ratio; the geometric extrapolation of the remaining tail over each "
+            "component's own scale is below the declared tolerance. One ratio from two steps is not a rate law: the "
+            "extrapolation assumes the contraction continues. Q-independent biases of the stencils are not measured "
+            "by any ladder. This is a measurement on three pinned members, not a theorem about the class."
         ),
     }
 
@@ -226,22 +259,16 @@ def integrand_structure(bundle: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def implied_strip_width(worst_relative: float, q_theta: int) -> dict[str, Any]:
-    """Lower bound on the analyticity strip half-width d implied by saturation at Qtheta.
-
-    Trefethen--Weideman (2014, Thm 3.2): for a 2*pi-periodic function analytic in |Im theta| < d with
-    |f| <= M_d there, the Qtheta-point trapezoidal error is <= 4*pi*M_d/(exp(2*d*Qtheta) - 1).  With the
-    normalisation M_d ~ 1 relative to the integral, an observed relative change <= eps at Qtheta implies
-    d >= log(1 + 4*pi/eps)/(2*Qtheta).  This is an inference about the pinned members only; M_d is not
-    computed, so the number is indicative and is not used in any decision key.
-    """
-
-    eps = max(worst_relative, 1.0e-16)
+def quadrature_convergence_reference() -> dict[str, Any]:
     return {
-        "q_theta": q_theta,
-        "observed_relative_change": eps,
-        "implied_d_lower_bound_assuming_M_d_order_one": float(np.log1p(4.0 * np.pi / eps) / (2.0 * q_theta)),
-        "used_in_decision": False,
+        "trapezoidal": (
+            "Trefethen and Weideman, The exponentially convergent trapezoidal rule, SIAM Review 56 (2014) 385-458, "
+            "eq. (3.16): for a 2*pi-periodic function analytic in the strip |Im theta| < a with |f| <= M there, the "
+            "N-point trapezoidal error is at most 4*pi*M/(exp(a*N) - 1)."
+        ),
+        "gauss_legendre": "geometric convergence rho_B^{-2Q} for integrands analytic inside the Bernstein ellipse of parameter rho_B",
+        "applied_here": False,
+        "why_not": "the strip width, the strip supremum M and the nearest singularity of the literal density are not computed (they need the action evaluator); an observed small change does not invert the bound",
     }
 
 
@@ -259,7 +286,7 @@ def build_payload() -> dict[str, Any]:
 
     ladders = ladder_audit(v5665)
     structure = integrand_structure(bundle)
-    strip = implied_strip_width(ladders["worst_tangential_relative_difference"], int(EXPECTED_TANGENTIAL_ORDERS[0]))
+    reference = quadrature_convergence_reference()
 
     tangential_pass = bool(ladders["tangential_all_saturated"] and structure["max_tangential_wavevector_radius"] <= MAX_TANGENTIAL_WAVEVECTOR_RADIUS)
     radial_pass = bool(ladders["radial_all_geometric"])
@@ -286,21 +313,29 @@ def build_payload() -> dict[str, Any]:
             "analytic": "Sobolev lift of the pointwise Lipschitz bound",
             "key": "pointwise_jacobian_explicit_bound_sampled_pass",
         },
-        "iv_finite_certificates_at_saturation": {
+        "iv_finite_certificates_with_measured_contraction": {
             "receipt": V5665_PATH.name,
             "sha256": V5665_SHA256,
-            "machine_checked": "tangential ladders of the three pinned members saturated at the round-off floor; radial ladders contract geometrically with extrapolated tail below tolerance; tangential data of radius <= 1",
-            "analytic": "exponential trapezoidal / geometric Gauss--Legendre convergence for analytic integrands; strip width and Bernstein parameter not computed from the evaluator",
+            "machine_checked": "tangential ladders of the three pinned members saturated at the ~1e-10 stencil noise floor; radial ladders contract per component with own-scale extrapolated tail below tolerance; tangential data of radius <= 1",
+            "analytic": "exponential trapezoidal / geometric Gauss--Legendre convergence for analytic integrands; strip width, supremum and Bernstein parameter not computed",
             "keys": ["route_c_tangential_ladders_saturated_pass", "route_c_radial_ladders_geometric_contraction_pass"],
         },
         "what_the_ledger_means": (
-            "In the pointwise formulation the exact identity of (i) holds for every class member, so no N-to-infinity "
-            "limit is needed for the identity itself; (iii) supplies the retraction that makes re-glued Fourier "
-            "projections converge in the class; (ii) makes S and DS continuous along them; (iv) shows that the finite "
-            "Route C numbers of the pinned members are converged in theta and within a measured geometric tail in rho. The remaining "
-            "gap between this ledger and uniform_N_to_infinity_bridge_pass is not mathematical content but audit: "
-            "(ii) and the analyticity strip of (iv) are prose, and the v5.6.1 quarantine requires an independently "
-            "audited gate before any fail-closed key flips. That decision belongs to the operator."
+            "In the pointwise formulation the exact identity of (i) is a statement about every class member, (iii) "
+            "supplies the retraction that re-glues Fourier projections, (ii) is the continuity that would make S and DS "
+            "converge along them, and (iv) shows that the finite Route C numbers of the three pinned members are converged "
+            "in theta to the stencil floor and contracting in rho. These are four components, NOT a bridge theorem."
+        ),
+        "genuine_gaps_not_audit": [
+            "no theorem links the finite Route C (Qtheta, Qrho) certificates of three members to DS_rel of (i): (iv) converges a finite functional on fixed members, it is not P_N X -> X in the class",
+            "class drift: v5.6.6.8 records that the v5.6.4 nodal members are not class points and that the pinned common-first members are continuum points outside the spectral space V_N, so (i)-(iii) and (iv) live on different objects",
+            "margins: (ii) needs the margin hypotheses on the whole collar, but v5.6.4 checks them only at the N Kronecker nodes times 7 radial samples",
+            "(iii): the Jacobian bound is sampled (ball, spikes, corners), its Sobolev lift and the margin hypothesis are prose",
+            "finite DG_N on V_N (Phi(V_N) is not inside V_N) and the gauge quotient H_N remain outside all four components",
+        ],
+        "and_then_audit": (
+            "Even once those gaps are closed, the v5.6.1 quarantine requires an independently audited gate before "
+            "uniform_N_to_infinity_bridge_pass can flip; that decision belongs to the operator."
         ),
         "still_outside_the_bridge": [
             "finite DG_N on the spectral space V_N (Phi(u) is not trigonometric)",
@@ -313,8 +348,7 @@ def build_payload() -> dict[str, Any]:
     scientific = {
         "refinement_ladders": ladders,
         "integrand_structure": structure,
-        "implied_strip_width": strip,
-        "trapezoidal_rule_reference": "L. N. Trefethen and J. A. C. Weideman, The exponentially convergent trapezoidal rule, SIAM Review 56 (2014) 385-458, Theorem 3.2",
+        "quadrature_convergence_reference": reference,
         "bridge_component_ledger": ledger,
         "machine_checked": {
             "tangential_ladders_saturated_all_members": ladders["tangential_all_saturated"],
@@ -361,13 +395,15 @@ def build_payload() -> dict[str, Any]:
             "reads_upstream_expected_values": False,
         },
         "open_obligation": {
-            "bridge_key": "operator or independent audit of components (ii) and the analyticity strip before flipping uniform_N_to_infinity_bridge_pass (v5.6.1 quarantine wording)",
-            "strip_width": "compute the analyticity strip of the pinned members with the action evaluator in a separate, evaluator-side gate if a numeric rate is wanted",
+            "bridge_theorem": "close the five genuine gaps listed in scientific.bridge_component_ledger.genuine_gaps_not_audit, then obtain an independent audit before flipping uniform_N_to_infinity_bridge_pass (v5.6.1 quarantine wording)",
+            "third_radial_order": "add Qrho = 18 (or 20) to the v5.6.6.5 ladder to test the geometric law with two ratios instead of one",
+            "strip_width": "compute the analyticity strip, its supremum and the nearest singularity of the literal density with the action evaluator in a separate, evaluator-side gate if a numeric rate is wanted",
             "C1_N1_beyond_the_bridge": "v5.6.1 quarantine obligations (bulk Ward, moving embedding, off-shell extension)",
         },
         "evidence_boundary": (
-            "Machine-checked: tangential saturation and geometric radial contraction of the Route C refinement ladders "
-            "of the three pinned members, and the degree-one structure of their tangential data. Analytic: exponential convergence of the trapezoidal and "
+            "Machine-checked: tangential saturation at the stencil noise floor and per-component radial contraction of "
+            "the Route C refinement ladders of the three pinned members, and the degree-one structure of their tangential "
+            "data. Analytic: exponential convergence of the trapezoidal and "
             "Gauss--Legendre rules for analytic integrands. The ledger collects the four bridge components with pins; it "
             "does not flip the bridge, C1/N1 or B4/B5."
         ),
