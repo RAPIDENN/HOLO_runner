@@ -1,0 +1,343 @@
+{
+  "classification": "theory_only;sampled_pointwise_density_identity;two_pinned_implementations;literal_closed_form_transcription;restricted_spectral_family;fail_closed_bridge",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "density_union_C_N_pass": false,
+    "periodic_box_exhaustion_and_tail_control_pass": false,
+    "restricted_family_exact_action_identity_pass": false,
+    "route_c_bulk_and_ghy_densities_equal_pinned_literal_implementation_pointwise_pass": true,
+    "route_c_closed_form_coefficients_match_literal_formula_strings_pass": true,
+    "route_c_interface_densities_equal_pinned_literal_implementation_pointwise_pass": true,
+    "route_c_sector_list_is_literal_action_term_list_pass": true,
+    "same_functional_symbolic_identity_pass": false,
+    "spectral_N_convergence_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false,
+    "uniform_stability_pass": false
+  },
+  "evidence_boundary": "Sampled pointwise agreement of two pinned implementations of the literal v5.2 relative action on exact random 2-jets, plus literal-text checks of the closed-form pieces. Not a symbolic identity, not a statement about the finite-difference jets or the quadrature of the real Route C pipeline, and not a bridge, C1/N1 or promotion result.",
+  "fixed_before_run": {
+    "bulk_samples_per_side": 12,
+    "closed_form_samples": 16,
+    "closed_form_tolerance": 1e-12,
+    "derivative_amplitude": 0.35,
+    "embedding_amplitude": 0.25,
+    "field_amplitude": 0.18,
+    "interface_samples": 24,
+    "margins": {
+      "khronon": 0.2,
+      "omega": 0.5,
+      "rotation_cut_locus": 1.0,
+      "signature_eigenvalue": 0.02
+    },
+    "relative_tolerance": 1e-09,
+    "seed": 56615
+  },
+  "independence_boundary": {
+    "dynamic_imports": {
+      "route_b": "derive_one_omega_topological_so3_numpy_fd5_action_route_b_v5_6_5_certificate.py",
+      "route_c": "derive_one_omega_topological_so3_multin_independent_euler_green_route_c_v5_6_6_3.py"
+    },
+    "no_finite_differences": true,
+    "no_route_c_pipeline_run": true,
+    "route_b_monkeypatch": "decode_bulk_state replaced only during ghy_component calls, restored afterwards"
+  },
+  "open_obligation": [
+    "B_FD bound (Codex, v5.6.6.12)",
+    "gap 5 of the bridge ledger (finite DG_N on V_N, gauge quotient H_N)",
+    "N -> infinity for arbitrary class members",
+    "independent audit before uniform_N_to_infinity_bridge_pass",
+    "v5.6.1 quarantine obligations for C1/N1"
+  ],
+  "provenance": {
+    "generator": "derive_one_omega_topological_so3_route_c_same_functional_pointwise_v5_6_6_15.py",
+    "numpy": "2.4.2",
+    "platform": "Linux-6.12.101+deb13-amd64-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "sympy": "1.13.3",
+    "test": "test_one_omega_topological_so3_route_c_same_functional_pointwise_v5_6_6_15.py"
+  },
+  "schema": "holo.one-omega-topological-so3-route-c-same-functional-pointwise-v5-6-6-15.v1",
+  "scientific": {
+    "block_A_bulk_and_GHY_pointwise": {
+      "margins_observed": {
+        "omega_max": 1.1968450104636044,
+        "omega_min": 0.8366926012604824,
+        "signature_bulk_min": 0.8003190995060995,
+        "signature_induced_min": 0.9260504413144327
+      },
+      "method": "exact sympy 2-jets: Route C on the pulled-back (theta,rho) channels through J(theta) = [[I4,0],[(Y',Y',0,0),collar_sign]] with the 3-form pulled back by 3x3 minors and the reference metric by J^T X_inf J; Route B on the ambient jet at (theta0, Y(theta0)+collar_sign*rho0) with Y_first=(Y',Y',0,0), Y_second=Y'' on the (x0,x1) block; unit weights; decode_bulk_state stubbed only inside ghy_component to inject the same ambient jet",
+      "pass": true,
+      "route_c_reference_leak_outside_Omega_potential_max_abs": 0.0,
+      "samples_per_side": 12,
+      "sectors": {
+        "BF_bulk_minus": {
+          "max_abs_difference": 2.220446049250313e-16,
+          "max_abs_value": 0.7351931393223637,
+          "max_relative_difference": 2.220446049250313e-16,
+          "samples": 12
+        },
+        "BF_bulk_plus": {
+          "max_abs_difference": 3.608224830031759e-16,
+          "max_abs_value": 0.42359017518431935,
+          "max_relative_difference": 3.608224830031759e-16,
+          "samples": 12
+        },
+        "EH_bulk_minus": {
+          "max_abs_difference": 7.632783294297951e-16,
+          "max_abs_value": 0.8955536149035785,
+          "max_relative_difference": 7.632783294297951e-16,
+          "samples": 12
+        },
+        "EH_bulk_plus": {
+          "max_abs_difference": 5.551115123125783e-16,
+          "max_abs_value": 0.9376476487080583,
+          "max_relative_difference": 5.551115123125783e-16,
+          "samples": 12
+        },
+        "GHY_minus": {
+          "max_abs_difference": 4.440892098500626e-16,
+          "max_abs_value": 0.9765673054620911,
+          "max_relative_difference": 4.440892098500626e-16,
+          "samples": 12
+        },
+        "GHY_plus": {
+          "max_abs_difference": 7.771561172376096e-16,
+          "max_abs_value": 0.9929014423199676,
+          "max_relative_difference": 7.771561172376096e-16,
+          "samples": 12
+        },
+        "Omega_kinetic_bulk_minus": {
+          "max_abs_difference": 1.1102230246251565e-16,
+          "max_abs_value": 0.17097599991073137,
+          "max_relative_difference": 1.1102230246251565e-16,
+          "samples": 12
+        },
+        "Omega_kinetic_bulk_plus": {
+          "max_abs_difference": 1.1796119636642288e-16,
+          "max_abs_value": 0.0894070450276348,
+          "max_relative_difference": 1.1796119636642288e-16,
+          "samples": 12
+        },
+        "Omega_potential_bulk_minus": {
+          "max_abs_difference": 3.552713678800501e-15,
+          "max_abs_value": 1.812230328650947,
+          "max_relative_difference": 3.552713678800501e-15,
+          "samples": 12
+        },
+        "Omega_potential_bulk_plus": {
+          "max_abs_difference": 3.552713678800501e-15,
+          "max_abs_value": 1.909285081983163,
+          "max_relative_difference": 3.552713678800501e-15,
+          "samples": 12
+        },
+        "P_kinetic_bulk_minus": {
+          "max_abs_difference": 1.6653345369377348e-16,
+          "max_abs_value": 0.3609839148821286,
+          "max_relative_difference": 1.6653345369377348e-16,
+          "samples": 12
+        },
+        "P_kinetic_bulk_plus": {
+          "max_abs_difference": 2.7755575615628914e-16,
+          "max_abs_value": 0.3497850635234658,
+          "max_relative_difference": 2.7755575615628914e-16,
+          "samples": 12
+        },
+        "full_V4_bulk_minus": {
+          "max_abs_difference": 2.0816681711721685e-17,
+          "max_abs_value": 0.028203890164718356,
+          "max_relative_difference": 2.0816681711721685e-17,
+          "samples": 12
+        },
+        "full_V4_bulk_plus": {
+          "max_abs_difference": 5.551115123125783e-17,
+          "max_abs_value": 0.06737519153503571,
+          "max_relative_difference": 5.551115123125783e-17,
+          "samples": 12
+        }
+      },
+      "worst_relative_difference": 3.552713678800501e-15
+    },
+    "block_B_interface_pointwise": {
+      "margins_observed": {
+        "khronon_norm_max": -0.5226119937715928,
+        "omega_min": 0.8582309512205466,
+        "rotation_norm_max": 2.1352746847938073,
+        "signature_common_min": 0.8840750786401714
+      },
+      "method": "reduced 2-jets (dependence on x0+x1 only, as in the pinned members): Route C _brane_density on [gamma, T, log_Omega, varphi_E0, q] with theta derivatives; Route B interface_action_components on a coefficient vector whose fifteen pseudo-modes are (value, four first, ten second derivatives) with first=(f',f',0,0) and second=f'' on the (x0,x1) block; unit weight",
+      "pass": true,
+      "samples": 24,
+      "sectors": {
+        "K_foliation": {
+          "max_abs_difference": 3.774758283725532e-15,
+          "max_abs_value": 1.2118214981504107,
+          "max_relative_difference": 3.774758283725532e-15,
+          "samples": 24
+        },
+        "R": {
+          "max_abs_difference": 3.552713678800501e-15,
+          "max_abs_value": 0.8229524675441195,
+          "max_relative_difference": 3.552713678800501e-15,
+          "samples": 24
+        },
+        "R_squared": {
+          "max_abs_difference": 5.117434254131581e-17,
+          "max_abs_value": 0.01982419328557186,
+          "max_relative_difference": 5.117434254131581e-17,
+          "samples": 24
+        },
+        "Robin": {
+          "max_abs_difference": 2.220446049250313e-16,
+          "max_abs_value": 0.8440846168391221,
+          "max_relative_difference": 2.220446049250313e-16,
+          "samples": 24
+        },
+        "a_squared": {
+          "max_abs_difference": 4.440892098500626e-16,
+          "max_abs_value": 1.0885630161480502,
+          "max_relative_difference": 4.0795911974072083e-16,
+          "samples": 24
+        },
+        "wall": {
+          "max_abs_difference": 0.0,
+          "max_abs_value": 10.623854408276562,
+          "max_relative_difference": 0.0,
+          "samples": 24
+        }
+      },
+      "worst_relative_difference": 3.774758283725532e-15
+    },
+    "block_C_closed_form_literal_transcription": {
+      "checks_max_relative_difference": {
+        "BF_5form_coefficient_vs_LeviCivita_over_3!2!": 8.576028489906829e-16,
+        "BF_pairing_minus_half_trace_equals_dot": 0.0,
+        "BF_vanishes_on_constant_reference_data": 0.0,
+        "EH_vanishes_on_constant_reference_data": 0.0,
+        "K_foliation_vanishes_on_flat_static_interface": 0.0,
+        "Omega_kinetic_vanishes_on_constant_reference_data": 0.0,
+        "Omega_potential_vs_literal_U_W": 4.821408968488287e-16,
+        "P_kinetic_vanishes_on_constant_reference_data": 0.0,
+        "R_squared_vanishes_on_flat_static_interface": 0.0,
+        "R_vanishes_on_flat_static_interface": 0.0,
+        "Robin_static_flat_vs_literal": 2.220446049250313e-16,
+        "a_squared_vanishes_on_flat_static_interface": 0.0,
+        "full_V4_vs_literal_V4": 2.013788691746585e-16,
+        "wall_vs_literal_W_beta": 2.4395870339247814e-16
+      },
+      "literal_strings_used": {
+        "BF": "S_BF=sum_eps int_Meps <B_eps wedge F[A_eps]>, <X,Y>=-tr_3(XY)/2",
+        "Robin_intrinsic": "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+        "bulk_potential": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+        "full_V4": "V4(r)=r^4/(2*sqrt(1+r^4))",
+        "superpotential": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+        "wall_background": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]"
+      },
+      "pass": true,
+      "scope": "closed-form pieces only (W, U, V4, wall, static-flat Robin, BF pairing and 5-form coefficient); curvature, kinetic, foliation and Robin-with-acceleration terms are tied to the literal text only through the pinned Route B transcription (blocks A and B)",
+      "worst": 8.576028489906829e-16
+    },
+    "conventions_verified": {
+      "BF_orientation": "Route C evaluates the pulled-back 3-form with unit-weight (theta,rho) measure; Route B multiplies the ambient coefficient by collar_sign = det J; equal pointwise on both sides",
+      "GHY_normal": "Route C: -d rho normalised by the pulled-back inverse metric at rho = 0; Route B: outward_sign * (-Y_first, 1) normalised by the ambient inverse metric",
+      "collar_sign": {
+        "minus": 1,
+        "plus": -1,
+        "route_b": "collar_sign in _physical_derivatives and _bf_coefficient",
+        "route_c": "SIDE_RADIAL_SIGN = J[4,4]"
+      },
+      "reference_subtraction": "Route C subtracts the pulled-back X_inf atoms in every bulk sector (exactly zero outside Omega_potential for exact jets, leak reported); Route B subtracts only the constant -sqrt(-X_inf) U(1) in Omega_potential; interface and GHY unsubtracted in both (compact_relative_action_contract)"
+    },
+    "hypothesis_discharged_from_v5_6_6_11": "that the Route C sector list evaluates the same functional S_rel as the v5.6.6.8 theorem (asserted from the sector names; this gate never touches the density)",
+    "sector_term_bijection": {
+      "literal_term_to_sectors": {
+        "S_BF": [
+          "BF"
+        ],
+        "S_GHY": [
+          "GHY"
+        ],
+        "S_R_intrinsic": [
+          "Robin"
+        ],
+        "S_bulk_gauged": [
+          "EH",
+          "Omega_kinetic",
+          "Omega_potential",
+          "P_kinetic",
+          "full_V4"
+        ],
+        "S_fol_lower": [
+          "K_foliation",
+          "R",
+          "R_squared",
+          "a_squared"
+        ],
+        "S_wall0": [
+          "wall"
+        ]
+      },
+      "literal_total": "S_v5_2=S_bulk_gauged+S_GHY+S_wall0+S_fol_lower+S_R_intrinsic+S_BF",
+      "pass": true,
+      "removed_terms_declared": "S_X=0 and every bulk screen-clock term=0",
+      "route_c_action_components": [
+        "EH_bulk_plus",
+        "Omega_kinetic_bulk_plus",
+        "Omega_potential_bulk_plus",
+        "P_kinetic_bulk_plus",
+        "full_V4_bulk_plus",
+        "BF_bulk_plus",
+        "EH_bulk_minus",
+        "Omega_kinetic_bulk_minus",
+        "Omega_potential_bulk_minus",
+        "P_kinetic_bulk_minus",
+        "full_V4_bulk_minus",
+        "BF_bulk_minus",
+        "GHY_plus",
+        "GHY_minus",
+        "wall",
+        "K_foliation",
+        "R",
+        "R_squared",
+        "a_squared",
+        "Robin"
+      ],
+      "sector_to_literal_term": {
+        "BF": "BF:<B wedge F[A]>, <X,Y>=-tr_3(XY)/2",
+        "EH": "bulk_gauged:M5^3*R/2",
+        "GHY": "GHY:M5^3*sqrt(-gamma)*Theta_eps (outward normals)",
+        "K_foliation": "foliation_lower:Mb^2/2*sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2]",
+        "Omega_kinetic": "bulk_gauged:-G*(nabla Omega)^2/2",
+        "Omega_potential": "bulk_gauged:-U(Omega) [bulk_potential, superpotential]",
+        "P_kinetic": "bulk_gauged:-Z5*delta_ab*P^a_M*P^(bM)/2 [gauged_conformal_derivative]",
+        "R": "foliation_lower:Mb^2/2*sqrt(-gamma)*xi*Rcal",
+        "R_squared": "foliation_lower:Mb^2/2*sqrt(-gamma)*[-B4_bar*Rcal^2/(16*k_infinity^2)]",
+        "Robin": "Robin_intrinsic:-kappa_hat/2*sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+        "a_squared": "foliation_lower:Mb^2/2*sqrt(-gamma)*eta*a_mu*a^mu",
+        "full_V4": "bulk_gauged:-Z5*M^2*Omega^(-5)*V4(Omega^(3/2)*|phi|) [full_V4]",
+        "wall": "wall_background:-sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]"
+      }
+    },
+    "statement": "For the twenty named components of S_rel_v5_2 the Route C sector densities (pulled-back formulation, v5.6.6.3) and the pinned Route B densities (ambient formulation, v5.6.5, byte-pinned to the literal v5.2 action) agree pointwise as functions of the local data at random generic 2-jets inside the v5.6.4 margins, on both collars, to the reported relative tolerance; the BF orientation (pulled-back 3-form versus collar_sign times the ambient 3-form), the outward GHY normal and the reference subtraction conventions are included in the comparison. The closed-form pieces of the literal formula strings are additionally checked against the Route C code directly.",
+    "what_is_not_established": [
+      "a symbolic identity of the densities (they are transcendental in the jets; this is a sampled identity)",
+      "the finite-difference stencil bias B_FD of the real Route C jets (Codex lane, v5.6.6.12); this gate uses exact jets",
+      "quadrature: nothing here concerns the (theta,rho) integration or its rate",
+      "the transcription of curvature, kinetic, foliation and Robin-with-acceleration terms from the literal text; for those the tie to the text is the pinned Route B implementation (v5.6.4/v5.6.5 pins), which this gate shows Route C reproduces",
+      "any bridge, C1/N1, B4/B5 or promotion key"
+    ]
+  },
+  "scientific_payload_sha256": "a36bca033aee827d69028625c19f835b00bdb732d15f6f619e294066c651c308",
+  "source_pins": {
+    "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
+    "coefficient_parameters_sha256": "12bb13017541b0a08554f61e46775843870499bbfc80c15127ef9cdee8481fa3",
+    "frozen_checkpoint_commit": "ea014fd",
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "route_b_v5_6_5_certificate_derive_sha256": "6c98724d0e51c1cad16c80303e6ad7625d661bd1c9c56c9ff96c5b8124992909",
+    "route_c_v5_6_6_3_derive_sha256": "87cd1e05184a9fb2703faa08eecf5aa8544f4cf24ba8c12dd830828888821d0b",
+    "v5_6_6_11_receipt_sha256": "89592cd0eb7a3357a7f0b6f69bebeed5fb18d7466719c226b482b8611201a7b6"
+  }
+}
