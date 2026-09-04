@@ -1,0 +1,389 @@
+{
+  "classification": "theory_only;quadrature_saturation;bridge_component_ledger;restricted_spectral_family;fail_closed_bridge",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "density_union_C_N_pass": false,
+    "periodic_box_exhaustion_and_tail_control_pass": false,
+    "restricted_family_exact_action_identity_pass": false,
+    "route_c_radial_ladders_geometric_contraction_pass": true,
+    "route_c_tangential_ladders_saturated_pass": true,
+    "spectral_N_convergence_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false,
+    "uniform_stability_pass": false
+  },
+  "evidence_boundary": "Machine-checked: tangential saturation and geometric radial contraction of the Route C refinement ladders of the three pinned members, and the degree-one structure of their tangential data. Analytic: exponential convergence of the trapezoidal and Gauss--Legendre rules for analytic integrands. The ledger collects the four bridge components with pins; it does not flip the bridge, C1/N1 or B4/B5.",
+  "fixed_before_run": {
+    "EXPECTED_MEMBERS": [
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "EXPECTED_RADIAL_ORDERS": [
+      "12",
+      "14",
+      "16"
+    ],
+    "EXPECTED_TANGENTIAL_ORDERS": [
+      "11",
+      "13",
+      "15"
+    ],
+    "MAX_TANGENTIAL_WAVEVECTOR_RADIUS": 1,
+    "RADIAL_CONTRACTION_RATIO_MAX": 0.1,
+    "RADIAL_EXTRAPOLATED_TAIL_RELATIVE_MAX": 1e-08,
+    "TANGENTIAL_SATURATION_RELATIVE_TOLERANCE": 1e-09
+  },
+  "independence_boundary": {
+    "imports_action_evaluators": false,
+    "imports_one_omega_modules": false,
+    "reads_upstream_expected_values": false,
+    "scientific_inputs": "byte-pinned v5.6.6.5 ladders, v5.6.4.4 bundle labels, v5.6.6.8 and v5.6.6.9 decision keys; no action evaluator imported; no expected values or tolerances of upstream receipts reused"
+  },
+  "open_obligation": {
+    "C1_N1_beyond_the_bridge": "v5.6.1 quarantine obligations (bulk Ward, moving embedding, off-shell extension)",
+    "bridge_key": "operator or independent audit of components (ii) and the analyticity strip before flipping uniform_N_to_infinity_bridge_pass (v5.6.1 quarantine wording)",
+    "strip_width": "compute the analyticity strip of the pinned members with the action evaluator in a separate, evaluator-side gate if a numeric rate is wanted"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_route_c_quadrature_saturation_bridge_ledger_v5_6_6_10.py",
+      "sha256": "f7f8854b57904cc55abd2c9d03d6d7dd0d457ccec262a59e9100ce7fef375098"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_route_c_quadrature_saturation_bridge_ledger_v5_6_6_10.py",
+      "sha256": "eccbec6a6e296d6e7ae1f586284e7dcd1e13031d354cf076aa2e15bcfc6b8c29"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-route-c-quadrature-saturation-bridge-ledger-v5-6-6-10.v1",
+  "scientific": {
+    "bridge_component_ledger": {
+      "i_exact_identity_on_class": {
+        "analytic": "real-analyticity of the literal density on the margin set; classical jets from H^s embedding",
+        "key": "generic_second_order_Euler_Green_identity_symbolic_pass",
+        "machine_checked": "generic second-order Euler--Green identity in jet space; interface functional; C2 radial junction",
+        "receipt": "one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.json",
+        "sha256": "175dae746dcbf19854d1bdb6e0b6b5541d3eb18acea0050d41fccd444f197091"
+      },
+      "ii_continuity_bound": {
+        "analytic": "Sobolev/Moser continuity on the class with r, q_Q, Y in H^{s+1}; recorded as hypothesis, no numeric C(M)",
+        "key": null,
+        "machine_checked": null,
+        "receipt": "one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.json",
+        "sha256": "175dae746dcbf19854d1bdb6e0b6b5541d3eb18acea0050d41fccd444f197091"
+      },
+      "iii_N_independent_retraction": {
+        "analytic": "Sobolev lift of the pointwise Lipschitz bound",
+        "key": "pointwise_jacobian_explicit_bound_sampled_pass",
+        "machine_checked": "graph structure of the common-first gluing; explicit block-wise Jacobian bound sampled on ball, spikes and corners; static inverse audit",
+        "receipt": "one_omega_topological_so3_common_first_explicit_retraction_v5_6_6_9.json",
+        "sha256": "cad85cf53e70dcfea3f69b104be5fe5c084bc897ddb713eef7d30ae72c85326a"
+      },
+      "iv_finite_certificates_at_saturation": {
+        "analytic": "exponential trapezoidal / geometric Gauss--Legendre convergence for analytic integrands; strip width and Bernstein parameter not computed from the evaluator",
+        "keys": [
+          "route_c_tangential_ladders_saturated_pass",
+          "route_c_radial_ladders_geometric_contraction_pass"
+        ],
+        "machine_checked": "tangential ladders of the three pinned members saturated at the round-off floor; radial ladders contract geometrically with extrapolated tail below tolerance; tangential data of radius <= 1",
+        "receipt": "one_omega_topological_so3_precision_stabilized_route_c_v5_6_6_5.json",
+        "sha256": "06ad302a03d17e4ea718c9ab801113807a7f66c71102e69486f7869130f77654"
+      },
+      "still_outside_the_bridge": [
+        "finite DG_N on the spectral space V_N (Phi(u) is not trigonometric)",
+        "gauge quotient H_N",
+        "periodic-box exhaustion to noncompact Sigma",
+        "v5.6.1 quarantine obligations for C1/N1: full bulk diffeomorphism Ward identity, fully coupled moving-embedding cross terms, off-shell continuous extension"
+      ],
+      "what_the_ledger_means": "In the pointwise formulation the exact identity of (i) holds for every class member, so no N-to-infinity limit is needed for the identity itself; (iii) supplies the retraction that makes re-glued Fourier projections converge in the class; (ii) makes S and DS continuous along them; (iv) shows that the finite Route C numbers of the pinned members are converged in theta and within a measured geometric tail in rho. The remaining gap between this ledger and uniform_N_to_infinity_bridge_pass is not mathematical content but audit: (ii) and the analyticity strip of (iv) are prose, and the v5.6.1 quarantine requires an independently audited gate before any fail-closed key flips. That decision belongs to the operator."
+    },
+    "implied_strip_width": {
+      "implied_d_lower_bound_assuming_M_d_order_one": 1.1512394524442295,
+      "observed_relative_change": 1.2581057580497304e-10,
+      "q_theta": 11,
+      "used_in_decision": false
+    },
+    "integrand_structure": {
+      "basis_labels_by_N": {
+        "1": [
+          "1"
+        ],
+        "2": [
+          "1",
+          "cos(1*x0+1*x1)"
+        ],
+        "3": [
+          "1",
+          "cos(1*x0+1*x1)",
+          "sin(1*x0+1*x1)"
+        ]
+      },
+      "density": "literal v5.2 density, real-analytic on the margin set (v5.6.6.8 theorem hypotheses)",
+      "max_tangential_wavevector_radius": 1,
+      "radial_profiles": "polynomials (h0 quintic, h1 = rho h0, Legendre bumps under 64 rho^3 (1-rho)^3)",
+      "single_direction": true,
+      "tangential_directions": [
+        "1*x0+1*x1"
+      ]
+    },
+    "machine_checked": {
+      "radial_ladders_geometric_all_members": true,
+      "tangential_ladders_saturated_all_members": true,
+      "tangential_radius_at_most_one": true,
+      "upstream_component_keys_true": true
+    },
+    "refinement_ladders": {
+      "members": [
+        {
+          "K": 1,
+          "N": 1,
+          "authoritative_free_central_sha256": "782065991a7af9029c93a02985686b59e8bfc0b2742a3a1dedc9fa8a7e969255",
+          "fixed_radial_order_for_tangential_ladder": 14,
+          "fixed_tangential_order_for_radial_ladder": 13,
+          "member_id": "N1.K1.seed20260902",
+          "radial": {
+            "components": 21,
+            "geometric_contraction": true,
+            "geometric_extrapolated_tail_abs": 3.9839564017457787e-07,
+            "geometric_extrapolated_tail_rel": 4.984346812730547e-10,
+            "orders": [
+              "12",
+              "14",
+              "16"
+            ],
+            "saturated_at_relative": false,
+            "second_over_first_step_ratio": 0.0329316419170203,
+            "steps": [
+              {
+                "from": "12",
+                "max_abs_difference": 0.0003552589123501093,
+                "max_rel_difference": 5.608115343016825e-06,
+                "scale_at_worst": 799.2939340223993,
+                "to": "14"
+              },
+              {
+                "from": "14",
+                "max_abs_difference": 1.16992592893439e-05,
+                "max_rel_difference": 1.3075174437766529e-07,
+                "scale_at_worst": 799.293578763487,
+                "to": "16"
+              }
+            ],
+            "worst_absolute_difference": 0.0003552589123501093,
+            "worst_relative_difference": 5.608115343016825e-06
+          },
+          "tangential": {
+            "components": 21,
+            "geometric_contraction": false,
+            "geometric_extrapolated_tail_abs": null,
+            "geometric_extrapolated_tail_rel": null,
+            "orders": [
+              "11",
+              "13",
+              "15"
+            ],
+            "saturated_at_relative": true,
+            "second_over_first_step_ratio": 1.5,
+            "steps": [
+              {
+                "from": "11",
+                "max_abs_difference": 2.2737367544323206e-13,
+                "max_rel_difference": 8.278913093930304e-16,
+                "scale_at_worst": 799.293578763487,
+                "to": "13"
+              },
+              {
+                "from": "13",
+                "max_abs_difference": 3.410605131648481e-13,
+                "max_rel_difference": 9.823608403053394e-16,
+                "scale_at_worst": 799.293578763487,
+                "to": "15"
+              }
+            ],
+            "worst_absolute_difference": 3.410605131648481e-13,
+            "worst_relative_difference": 9.823608403053394e-16
+          },
+          "upstream_convergence_pass": true
+        },
+        {
+          "K": 2,
+          "N": 2,
+          "authoritative_free_central_sha256": "0febc03837763087bcd802a19431800b703278fa055ab3e11ddc9b4259458b67",
+          "fixed_radial_order_for_tangential_ladder": 14,
+          "fixed_tangential_order_for_radial_ladder": 13,
+          "member_id": "N2.K2.seed20260902",
+          "radial": {
+            "components": 21,
+            "geometric_contraction": true,
+            "geometric_extrapolated_tail_abs": 2.969595924358421e-07,
+            "geometric_extrapolated_tail_rel": 1.0207750369329238e-09,
+            "orders": [
+              "12",
+              "14",
+              "16"
+            ],
+            "saturated_at_relative": false,
+            "second_over_first_step_ratio": 0.03261313963037722,
+            "steps": [
+              {
+                "from": "12",
+                "max_abs_difference": 0.0002700923745351247,
+                "max_rel_difference": 5.644051594143469e-06,
+                "scale_at_worst": 290.9157970168868,
+                "to": "14"
+              },
+              {
+                "from": "14",
+                "max_abs_difference": 8.808560323814163e-06,
+                "max_rel_difference": 1.2441211663830641e-07,
+                "scale_at_worst": 290.91580582544714,
+                "to": "16"
+              }
+            ],
+            "worst_absolute_difference": 0.0002700923745351247,
+            "worst_relative_difference": 5.644051594143469e-06
+          },
+          "tangential": {
+            "components": 21,
+            "geometric_contraction": false,
+            "geometric_extrapolated_tail_abs": null,
+            "geometric_extrapolated_tail_rel": null,
+            "orders": [
+              "11",
+              "13",
+              "15"
+            ],
+            "saturated_at_relative": true,
+            "second_over_first_step_ratio": 2.0715938675151864,
+            "steps": [
+              {
+                "from": "11",
+                "max_abs_difference": 3.930153980036266e-10,
+                "max_rel_difference": 4.603212578155696e-11,
+                "scale_at_worst": 290.9157970168868,
+                "to": "13"
+              },
+              {
+                "from": "13",
+                "max_abs_difference": 8.141682883433532e-10,
+                "max_rel_difference": 1.2581057580497304e-10,
+                "scale_at_worst": 290.9157970168868,
+                "to": "15"
+              }
+            ],
+            "worst_absolute_difference": 8.141682883433532e-10,
+            "worst_relative_difference": 1.2581057580497304e-10
+          },
+          "upstream_convergence_pass": true
+        },
+        {
+          "K": 3,
+          "N": 3,
+          "authoritative_free_central_sha256": "52d78abb8b7b6a5933d94faec1dacb2ba7bb0ca654ac07834ac5c7b90e9b347a",
+          "fixed_radial_order_for_tangential_ladder": 14,
+          "fixed_tangential_order_for_radial_ladder": 13,
+          "member_id": "N3.K3.seed20260902",
+          "radial": {
+            "components": 21,
+            "geometric_contraction": true,
+            "geometric_extrapolated_tail_abs": 3.487499475380979e-07,
+            "geometric_extrapolated_tail_rel": 1.0154832204675936e-09,
+            "orders": [
+              "12",
+              "14",
+              "16"
+            ],
+            "saturated_at_relative": false,
+            "second_over_first_step_ratio": 0.03268634744814555,
+            "steps": [
+              {
+                "from": "12",
+                "max_abs_difference": 0.00031575387038174085,
+                "max_rel_difference": 5.629876235812793e-06,
+                "scale_at_worst": 343.4324960060596,
+                "to": "14"
+              },
+              {
+                "from": "14",
+                "max_abs_difference": 1.0320840715394297e-05,
+                "max_rel_difference": 1.2361292750141869e-07,
+                "scale_at_worst": 343.4325063269003,
+                "to": "16"
+              }
+            ],
+            "worst_absolute_difference": 0.00031575387038174085,
+            "worst_relative_difference": 5.629876235812793e-06
+          },
+          "tangential": {
+            "components": 21,
+            "geometric_contraction": false,
+            "geometric_extrapolated_tail_abs": 6.120162662632137e-10,
+            "geometric_extrapolated_tail_rel": 6.622805702185885e-12,
+            "orders": [
+              "11",
+              "13",
+              "15"
+            ],
+            "saturated_at_relative": true,
+            "second_over_first_step_ratio": 0.7474825318536786,
+            "steps": [
+              {
+                "from": "11",
+                "max_abs_difference": 2.766000761766918e-10,
+                "max_rel_difference": 7.578750335981407e-11,
+                "scale_at_worst": 343.4324960063362,
+                "to": "13"
+              },
+              {
+                "from": "13",
+                "max_abs_difference": 2.0675372525147395e-10,
+                "max_rel_difference": 3.3150048434456175e-11,
+                "scale_at_worst": 92.41042147155474,
+                "to": "15"
+              }
+            ],
+            "worst_absolute_difference": 2.766000761766918e-10,
+            "worst_relative_difference": 7.578750335981407e-11
+          },
+          "upstream_convergence_pass": true
+        }
+      ],
+      "radial_all_geometric": true,
+      "radial_rate_per_node_estimate": 0.18147077427789934,
+      "reading": "Tangential refinement changes no first-variation component beyond the round-off floor of the longdouble pipeline, so the trapezoidal rule is converged for the pinned members. Radial refinement is still resolving a residual, but each extra pair of Gauss--Legendre nodes shrinks it by the recorded ratio, and the geometric extrapolation of the remaining tail beyond Qrho = 16 is below the declared relative tolerance. This is a measured rate for the three pinned members, not a theorem about the class.",
+      "tangential_all_saturated": true,
+      "tolerances": {
+        "radial_contraction_ratio_max": 0.1,
+        "radial_extrapolated_tail_relative_max": 1e-08,
+        "tangential_saturation_relative": 1e-09
+      },
+      "worst_radial_extrapolated_tail_rel": 1.0207750369329238e-09,
+      "worst_radial_ratio": 0.0329316419170203,
+      "worst_tangential_relative_difference": 1.2581057580497304e-10
+    },
+    "trapezoidal_rule_reference": "L. N. Trefethen and J. A. C. Weideman, The exponentially convergent trapezoidal rule, SIAM Review 56 (2014) 385-458, Theorem 3.2"
+  },
+  "scientific_payload_sha256": "4d7bb29be7fca3248594e6b1bcb7899db41ad373e7b0ade24a1f3c3fc4b955bd",
+  "source_pins": {
+    "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
+    "frozen_checkpoint_commit": "ea014fd1a8ed124c353058eb6f0a1c92b90353bc",
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "v5_6_6_5_receipt_sha256": "06ad302a03d17e4ea718c9ab801113807a7f66c71102e69486f7869130f77654",
+    "v5_6_6_8_receipt_sha256": "175dae746dcbf19854d1bdb6e0b6b5541d3eb18acea0050d41fccd444f197091",
+    "v5_6_6_9_receipt_sha256": "cad85cf53e70dcfea3f69b104be5fe5c084bc897ddb713eef7d30ae72c85326a"
+  }
+}
