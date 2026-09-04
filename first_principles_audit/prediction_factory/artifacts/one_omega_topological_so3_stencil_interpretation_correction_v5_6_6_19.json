@@ -1,0 +1,3370 @@
+{
+  "classification": "theory_only;additive_correction;byte_pinned_reanalysis;exact_FD5_counterexample;radial_field_channel_polynomial_ledger;oracle_domain_gap;fail_closed",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "B_FD_Q_to_infinity_estimate_pass": false,
+    "B_FD_rigorous_bound_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "FD5_formal_order_4_exact_arithmetic_p_minus_1_ladder_counterexample_pass": true,
+    "N1_ACTION_pass": false,
+    "Q_h_limit_commutation_proved_pass": false,
+    "all_assessed_components_support_formal_orders_pass": false,
+    "density_union_C_N_pass": false,
+    "extended_radial_continuation_oracle_certified_pass": false,
+    "extended_radial_continuation_oracle_gap_recorded_pass": true,
+    "fixed_Q_stencil_Richardson_estimate_available_pass": false,
+    "free_FD5_asymptotic_window_observed_pass": false,
+    "free_FD5_rigorous_roundoff_bound_pass": false,
+    "free_FD5_roundoff_dominance_certified_pass": false,
+    "periodic_box_exhaustion_and_tail_control_pass": false,
+    "pinned_members_margins_everywhere_certified_pass": true,
+    "pinned_members_margins_on_extended_radial_stencil_domain_pass": false,
+    "pinned_pullback_radial_degree_preservation_static_source_audit_pass": true,
+    "radial_nine_point_D1_D2_moments_exact_through_degree_8_pass": true,
+    "restricted_K_le_8_family_radial_stencil_exactness_pass": false,
+    "restricted_family_exact_action_identity_pass": false,
+    "rho_stencil_asymptotic_window_observed_pass": false,
+    "same_functional_symbolic_identity_pass": false,
+    "selected_K_le_3_full_qtr_stencil_exact_in_exact_arithmetic_pass": false,
+    "selected_K_le_3_pullback_rho_degree_at_most_8_ledger_pass": true,
+    "selected_K_le_3_qr_qrr_radial_stencil_exact_in_exact_arithmetic_pass": true,
+    "selected_K_le_3_qtr_radial_leg_exact_in_exact_arithmetic_pass": true,
+    "selected_radial_density_action_or_quadrature_exactness_pass": false,
+    "spectral_N_convergence_pass": false,
+    "theta_coordinate_stencil_rigorous_bound_pass": false,
+    "theta_stencil_asymptotic_window_observed_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false,
+    "uniform_stability_pass": false,
+    "v12_formal_order_not_supported_component_ledger_relabelled_pass": true,
+    "v12_measurements_reanalyzed_without_route_C_recomputation_pass": true,
+    "v5_6_6_12_artifact_byte_pinned_pass": true,
+    "v5_6_6_13_artifact_byte_pinned_pass": true,
+    "v5_6_6_13_interval_rounding_enclosure_pass": false
+  },
+  "evidence_boundary": "Machine-checked from byte-pinned receipts: a lossless reclassification of the finite ladders, an exact-arithmetic FD5 counterexample with observed order -1 and no roundoff, exact K<=3 radial profile degrees, exact D1/D2 stencil moments, and the later v5.6.6.13 whole-collar margin decision on rho in [0,1]. Static source audit propagates radial degree only through the pinned pulled-field construction. Not proven: roundoff dominance, K<=8 radial exactness, nonlinear density/action/quadrature exactness, the extended radial continuation oracle, margins on its out-of-collar reach, a theta/free B_FD bound, Q/h interchange, C1/N1, B4, or B5.",
+  "interpretation_correction": {
+    "does_not_change": "the pinned numerical values, tolerance comparisons, or any false B_FD/bridge/promotion decision",
+    "radial_boundary": "exactness is limited to pulled-back field-channel D1/D2 under the polynomial-continuation oracle; downstream densities, action, quadrature, theta differentiation and free FD5 remain uncertified",
+    "roundoff_boundary": "p_obs<=0 is compatible with roundoff but is not diagnostic; a rigorous bound needs error bounds for the four raw density evaluations propagated through quadrature",
+    "supersedes_wording_only": [
+      "v5.6.6.12 contradicted_components -> formal_order_not_supported_components",
+      "v5.6.6.12 resolution_floor -> heuristic_fixed_screening_floor"
+    ]
+  },
+  "open_obligation": {
+    "continuum": "Q/h limit interchange, arbitrary-member density, box exhaustion, and the uniform bridge remain open",
+    "free_roundoff": "certify forward errors of the four raw density evaluations and propagate them through quadrature, or use a certified higher-precision/interval evaluator",
+    "radial_domain": "authorize and prove the polynomial-continuation oracle or replace the out-of-collar stencil with analytic/one-sided C2 radial derivatives",
+    "theta": "bound the nine-point theta stencil across every actual nonlinear branch; no global analytic-strip bound is supplied here"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_stencil_interpretation_correction_v5_6_6_19.py",
+      "sha256": "f5d3163a50052a9d6174d590040105d11fd7db19eb354ed92d1e14d65dc92884"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "recomputed_Route_C": false,
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_stencil_interpretation_correction_v5_6_6_19.py",
+      "sha256": "2314990c77d195e3507bb0a2ba836436ade8ce7bd45b663588c57a03c3d7701e"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-stencil-interpretation-correction-v5-6-6-19.v1",
+  "scientific": {
+    "negative_observed_order_exact_counterexample": {
+      "FD5_moment_certificate": {
+        "exact_through_degree_4_pass": true,
+        "first_failure_degree": 5,
+        "first_failure_moment": "-4",
+        "formal_order": 4,
+        "moments_0_through_5": {
+          "0": "0",
+          "1": "1",
+          "2": "0",
+          "3": "0",
+          "4": "0",
+          "5": "-4"
+        }
+      },
+      "ladder": {
+        "D_2h": "-1472",
+        "D_2h_minus_D_h": "1260",
+        "D_h": "-2732",
+        "D_h_minus_D_h_over_2": "-2520",
+        "D_h_over_2": "-212",
+        "absolute_gap_ratio": "1/2",
+        "exact_arithmetic_no_roundoff": true,
+        "exact_derivative_at_zero": "0",
+        "formal_FD5_order": 4,
+        "function": "f(t)=903*t^5-44*t^7 at h0=1",
+        "gap_signs_are_opposite": true,
+        "negative_order_without_roundoff_pass": true,
+        "observed_order_log2_ratio": -1.0,
+        "observed_power_exact": "-1"
+      }
+    },
+    "radial_field_channel_exactness": {
+      "D1_qr_field_channel_truncation_zero_in_exact_arithmetic": true,
+      "D2_qrr_field_channel_truncation_zero_in_exact_arithmetic": true,
+      "nonlinear_density_action_or_quadrature_exact": false,
+      "pinned_pullback_source_audit": {
+        "abstract_degree_propagation": {
+          "maximum_profile_degree_for_K_le_3": 8,
+          "maximum_pulled_field_channel_rho_degree": 8,
+          "metric_connection_B_pullbacks_are_linear_in_fields_for_fixed_jacobian": true,
+          "pullback_jacobian_rho_degree": 0,
+          "trace_jet_interior_reference_rho_degree": 0
+        },
+        "missing_fragments": [],
+        "pass": true,
+        "precision_source_sha256": "5cf9c64fe8af45b55899275b2af1a9d55c706a138479e2cbd3a47ca4b270eca8",
+        "required_source_fragments": [
+          "def _ambient_value_ld(",
+          "trace, Y, Y_theta = _trace_ambient_value_ld(",
+          "value = reference + h0 * (trace - reference) + h1 * jet",
+          "value = value + np.sum(bumps[:, None] * interior, axis=0, dtype=LD)",
+          "def _pullback_vector_ld(",
+          "jacobian[4, :4] = Y_gradient",
+          "jacobian[4, 4] = sign",
+          "pulled_metric = jacobian.T @ metric @ jacobian",
+          "pulled_connection = jacobian.T @ connection",
+          "minor = jacobian[np.ix_(source, target)]"
+        ],
+        "scope": "static audit of the byte-pinned source plus abstract polynomial-degree propagation; not a symbolic audit of the downstream nonlinear densities"
+      },
+      "profile_degree_certificate": {
+        "degrees": {
+          "b0": 6,
+          "b1": 7,
+          "b2": 8,
+          "h0": 5,
+          "h1": 6
+        },
+        "exact_fraction_coefficients": {
+          "bumps_K_le_3": [
+            [
+              "0",
+              "0",
+              "0",
+              "64",
+              "-192",
+              "192",
+              "-64"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "-64",
+              "320",
+              "-576",
+              "448",
+              "-128"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "64",
+              "-576",
+              "1728",
+              "-2368",
+              "1536",
+              "-384"
+            ]
+          ],
+          "h0": [
+            "1",
+            "0",
+            "0",
+            "-10",
+            "15",
+            "-6"
+          ],
+          "h1": [
+            "0",
+            "1",
+            "0",
+            "0",
+            "-10",
+            "15",
+            "-6"
+          ]
+        },
+        "expected_degrees": {
+          "b0": 6,
+          "b1": 7,
+          "b2": 8,
+          "h0": 5,
+          "h1": 6
+        },
+        "same_profile_formula_beyond_selected_campaign": {
+          "K_le_8_degree_le_8": false,
+          "b3_degree_if_K_at_least_4": 9,
+          "b7_degree_if_K_equals_8": 13
+        },
+        "selected_K_le_3_degree_le_8_pass": true
+      },
+      "qtr_radial_D1_leg_truncation_zero_in_exact_arithmetic": true,
+      "qtr_theta_leg_exact": false,
+      "scope": "selected N=K=1,2,3 fields before nonlinear density evaluation, under the stabilized evaluator's polynomial continuation oracle",
+      "stencil_moment_certificate": {
+        "D1_and_D2_exact_through_selected_degree_8_pass": true,
+        "rows": {
+          "D1": {
+            "derivative_order": 1,
+            "exact_degrees": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              10
+            ],
+            "exact_through_selected_degree_8_pass": true,
+            "first_failure_degree": 9,
+            "first_failure_moment": "-576",
+            "moments_0_through_10": {
+              "0": "0",
+              "1": "1",
+              "10": "0",
+              "2": "0",
+              "3": "0",
+              "4": "0",
+              "5": "0",
+              "6": "0",
+              "7": "0",
+              "8": "0",
+              "9": "-576"
+            }
+          },
+          "D2": {
+            "derivative_order": 2,
+            "exact_degrees": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "exact_through_selected_degree_8_pass": true,
+            "first_failure_degree": 10,
+            "first_failure_moment": "-1152",
+            "moments_0_through_10": {
+              "0": "0",
+              "1": "0",
+              "10": "-1152",
+              "2": "2",
+              "3": "0",
+              "4": "0",
+              "5": "0",
+              "6": "0",
+              "7": "0",
+              "8": "0",
+              "9": "0"
+            }
+          }
+        }
+      }
+    },
+    "radial_stencil_domain": {
+      "declared_class_behavior": "the C2 family contract is stated on [0,1], fixes the reference/zero extension for rho>=1, and does not authorize the negative-rho values reached across the interface",
+      "evaluator_behavior": "the stabilized evaluator algebraically continues h0, h1 and the Legendre bumps outside [0,1]",
+      "radial_order": 10,
+      "rows": {
+        "0.015": {
+          "GHY_rho0_reach": [
+            -0.06,
+            0.06
+          ],
+          "bulk_GL10_reach": [
+            -0.04695326425858587,
+            1.046953264258586
+          ]
+        },
+        "0.03": {
+          "GHY_rho0_reach": [
+            -0.12,
+            0.12
+          ],
+          "bulk_GL10_reach": [
+            -0.10695326425858587,
+            1.106953264258586
+          ]
+        },
+        "0.06": {
+          "GHY_rho0_reach": [
+            -0.24,
+            0.24
+          ],
+          "bulk_GL10_reach": [
+            -0.22695326425858586,
+            1.2269532642585859
+          ]
+        }
+      },
+      "semantics_match_outside_collar": false
+    },
+    "v5_6_6_12_ladder_reinterpretation": {
+      "members": [
+        {
+          "K": 1,
+          "N": 1,
+          "axis_ladders_reinterpreted": {
+            "free": {
+              "all_fixed_floor_assessed_components_support_formal_order_pass": false,
+              "asymptotic_window_observed_pass": false,
+              "fixed_floor_assessed_component_count": 3,
+              "formal_order": 4,
+              "formal_order_not_supported_components": [
+                "EH_bulk_minus",
+                "S_total",
+                "wall"
+              ],
+              "legacy_contradicted_components_equal_new_ledger_pass": true,
+              "roundoff_dominance_certified_pass": false,
+              "rows": {
+                "BF_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "BF_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0211878145248916e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "noncontractive_gap_pattern_roundoff_compatible_not_diagnostic",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.137325694632904e-10,
+                  "observed_order_log2_ratio": -1.0620362867787798,
+                  "roundoff_compatible": true,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": false
+                },
+                "EH_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0506384215648326e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.014455009753485e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0082005408664322e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "K_foliation": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1041344592315884e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1154151426901654e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 4.011255914573495e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 3.7692554181457825e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2470316994649836e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2153858162405876e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Robin": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.222587006045775e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "S_total": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "noncontractive_gap_pattern_roundoff_compatible_not_diagnostic",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 3.5985990378847635e-10,
+                  "observed_order_log2_ratio": -0.9710552057485399,
+                  "roundoff_compatible": true,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": false
+                },
+                "a_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0099364729305072e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.008939636055796e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "wall": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "noncontractive_gap_pattern_roundoff_compatible_not_diagnostic",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 3.859160536567679e-10,
+                  "observed_order_log2_ratio": -0.08249003970385141,
+                  "roundoff_compatible": true,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": false
+                }
+              }
+            },
+            "rho": {
+              "all_fixed_floor_assessed_components_support_formal_order_pass": true,
+              "asymptotic_window_observed_pass": false,
+              "fixed_floor_assessed_component_count": 0,
+              "formal_order": 8,
+              "formal_order_not_supported_components": [],
+              "legacy_contradicted_components_equal_new_ledger_pass": true,
+              "roundoff_dominance_certified_pass": false,
+              "rows": {
+                "BF_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "BF_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0211878145248693e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1373256946320328e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0506384215648326e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.014455009753485e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0082005408664322e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "K_foliation": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1041344592315514e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.115415142690133e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 4.011255914573495e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 3.7692554181440687e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2470316994647947e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.215385816240335e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Robin": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.222587006045775e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "S_total": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 3.5985990378802327e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "a_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0099364729303803e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0089396360556816e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "wall": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 3.859160536567679e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                }
+              }
+            },
+            "theta": {
+              "all_fixed_floor_assessed_components_support_formal_order_pass": true,
+              "asymptotic_window_observed_pass": false,
+              "fixed_floor_assessed_component_count": 0,
+              "formal_order": 8,
+              "formal_order_not_supported_components": [],
+              "legacy_contradicted_components_equal_new_ledger_pass": true,
+              "roundoff_dominance_certified_pass": false,
+              "rows": {
+                "BF_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "BF_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0211878145248683e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1373256946318632e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0506384215649388e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.014455009753485e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0082005408664322e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "K_foliation": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1041344592315514e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1154151426901315e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 4.011255914573495e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 3.7692554181440687e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2470316994647947e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.215385816240335e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Robin": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.222587006045775e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "S_total": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 3.5985990378801923e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "a_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0099364729303803e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0089396360556816e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "wall": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 3.859160536567679e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                }
+              }
+            }
+          },
+          "member_id": "N1.K1.seed20260902"
+        },
+        {
+          "K": 2,
+          "N": 2,
+          "axis_ladders_reinterpreted": {
+            "free": {
+              "all_fixed_floor_assessed_components_support_formal_order_pass": false,
+              "asymptotic_window_observed_pass": false,
+              "fixed_floor_assessed_component_count": 5,
+              "formal_order": 4,
+              "formal_order_not_supported_components": [
+                "EH_bulk_plus",
+                "Omega_potential_bulk_minus",
+                "Omega_potential_bulk_plus",
+                "S_total",
+                "wall"
+              ],
+              "legacy_contradicted_components_equal_new_ledger_pass": true,
+              "roundoff_dominance_certified_pass": false,
+              "rows": {
+                "BF_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "BF_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0163331886105758e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1072008975531717e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "noncontractive_gap_pattern_roundoff_compatible_not_diagnostic",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0387989727608245e-10,
+                  "observed_order_log2_ratio": -0.31239563376190077,
+                  "roundoff_compatible": true,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": false
+                },
+                "GHY_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0111725732012408e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.006337873018496e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "K_foliation": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "noncontractive_gap_pattern_roundoff_compatible_not_diagnostic",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.093875412628296e-10,
+                  "observed_order_log2_ratio": -0.4325691908807536,
+                  "roundoff_compatible": true,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": false
+                },
+                "Omega_potential_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "sign_changing_preasymptotic_or_noise_pattern",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1565583139460823e-10,
+                  "observed_order_log2_ratio": 0.13570975983745504,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": false
+                },
+                "P_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2372100639450684e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2154282165828952e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Robin": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.170715674862316e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "S_total": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "sign_changing_preasymptotic_or_noise_pattern",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.5818227338090607e-10,
+                  "observed_order_log2_ratio": 0.3678052489592509,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": false
+                },
+                "a_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0082887937850366e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0075212448204717e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "wall": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "noncontractive_gap_pattern_roundoff_compatible_not_diagnostic",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0061688407127002e-10,
+                  "observed_order_log2_ratio": -0.31648744667039,
+                  "roundoff_compatible": true,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": false
+                }
+              }
+            },
+            "rho": {
+              "all_fixed_floor_assessed_components_support_formal_order_pass": true,
+              "asymptotic_window_observed_pass": false,
+              "fixed_floor_assessed_component_count": 0,
+              "formal_order": 8,
+              "formal_order_not_supported_components": [],
+              "legacy_contradicted_components_equal_new_ledger_pass": true,
+              "roundoff_dominance_certified_pass": false,
+              "rows": {
+                "BF_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "BF_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0163331886105585e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1072008975523838e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0387989727598528e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0111725732012488e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0063378730184917e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "K_foliation": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.093875412628296e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.156558313945068e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.237210063945038e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2154282165828241e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Robin": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1707156748621561e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "S_total": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.58182273380779e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "a_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0082887937849913e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0075212448204345e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "wall": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0061688407111774e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                }
+              }
+            },
+            "theta": {
+              "all_fixed_floor_assessed_components_support_formal_order_pass": true,
+              "asymptotic_window_observed_pass": false,
+              "fixed_floor_assessed_component_count": 0,
+              "formal_order": 8,
+              "formal_order_not_supported_components": [],
+              "legacy_contradicted_components_equal_new_ledger_pass": true,
+              "roundoff_dominance_certified_pass": false,
+              "rows": {
+                "BF_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "BF_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0163331886105616e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1072008975524637e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0387989727598083e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0111725732012408e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0063378730184912e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "K_foliation": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.093875412628296e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.156558313945068e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.237210063945038e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2154282165828272e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Robin": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1707156748621561e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "S_total": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.581822733806934e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "a_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0082887937849913e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0075212448204345e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "wall": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0061688407111774e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                }
+              }
+            }
+          },
+          "member_id": "N2.K2.seed20260902"
+        },
+        {
+          "K": 3,
+          "N": 3,
+          "axis_ladders_reinterpreted": {
+            "free": {
+              "all_fixed_floor_assessed_components_support_formal_order_pass": false,
+              "asymptotic_window_observed_pass": false,
+              "fixed_floor_assessed_component_count": 2,
+              "formal_order": 4,
+              "formal_order_not_supported_components": [
+                "Omega_potential_bulk_plus",
+                "S_total"
+              ],
+              "legacy_contradicted_components_equal_new_ledger_pass": true,
+              "roundoff_dominance_certified_pass": false,
+              "rows": {
+                "BF_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "BF_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0190778329745528e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1260239260959148e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0458156188966485e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.013269659426279e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0073511032820981e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "K_foliation": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.111055033706915e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "noncontractive_gap_pattern_roundoff_compatible_not_diagnostic",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1848208324646433e-10,
+                  "observed_order_log2_ratio": -0.3702971780636248,
+                  "roundoff_compatible": true,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": true
+                },
+                "P_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2799429011047104e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2542704873575502e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Robin": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2014901087779724e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "S_total": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": true,
+                  "classification": "noncontractive_gap_pattern_roundoff_compatible_not_diagnostic",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.6868546132571613e-10,
+                  "observed_order_log2_ratio": -0.027925061403238804,
+                  "roundoff_compatible": true,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": true
+                },
+                "a_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0097831141971318e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0088773697596986e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "wall": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    3.0,
+                    5.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0072803731334352e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                }
+              }
+            },
+            "rho": {
+              "all_fixed_floor_assessed_components_support_formal_order_pass": true,
+              "asymptotic_window_observed_pass": false,
+              "fixed_floor_assessed_component_count": 0,
+              "formal_order": 8,
+              "formal_order_not_supported_components": [],
+              "legacy_contradicted_components_equal_new_ledger_pass": true,
+              "roundoff_dominance_certified_pass": false,
+              "rows": {
+                "BF_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "BF_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0190778329745474e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1260239260957672e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.045815618896137e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0132696594262813e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0073511032820981e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "K_foliation": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.11105503370683e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1848208324639596e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2799429011046846e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2542704873574533e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Robin": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2014901087779569e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "S_total": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.6868546132564655e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "a_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0097831141970291e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.008877369759617e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "wall": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0072803731333892e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                }
+              }
+            },
+            "theta": {
+              "all_fixed_floor_assessed_components_support_formal_order_pass": true,
+              "asymptotic_window_observed_pass": false,
+              "fixed_floor_assessed_component_count": 0,
+              "formal_order": 8,
+              "formal_order_not_supported_components": [],
+              "legacy_contradicted_components_equal_new_ledger_pass": true,
+              "roundoff_dominance_certified_pass": false,
+              "rows": {
+                "BF_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "BF_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0190778329745474e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1260239260964706e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "EH_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.045815618896137e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.013269659426281e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "GHY_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0073511032821002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "K_foliation": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.11105503370683e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Omega_potential_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.1848208324639596e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2799429011046846e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "P_kinetic_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.254270487357454e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "R_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "Robin": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.2014901087779569e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "S_total": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.686854613256444e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "a_squared": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0020000000000002e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_minus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0097831141970291e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "full_V4_bulk_plus": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.008877369759617e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                },
+                "wall": {
+                  "Richardson_estimate_eligible": false,
+                  "above_heuristic_fixed_screening_floor": false,
+                  "classification": "below_heuristic_fixed_screening_floor",
+                  "formal_order_supported_on_this_component": false,
+                  "formal_order_window": [
+                    6.0,
+                    10.0
+                  ],
+                  "heuristic_fixed_screening_floor": 2.0072803731333892e-10,
+                  "observed_order_log2_ratio": null,
+                  "roundoff_compatible": false,
+                  "roundoff_dominance_certified": false,
+                  "same_leading_error_sign": null
+                }
+              }
+            }
+          },
+          "member_id": "N3.K3.seed20260902"
+        }
+      ],
+      "summary": {
+        "free": {
+          "fixed_floor_assessed_counts": [
+            3,
+            5,
+            2
+          ],
+          "formal_order_not_supported_components_by_N": {
+            "1": [
+              "EH_bulk_minus",
+              "S_total",
+              "wall"
+            ],
+            "2": [
+              "EH_bulk_plus",
+              "Omega_potential_bulk_minus",
+              "Omega_potential_bulk_plus",
+              "S_total",
+              "wall"
+            ],
+            "3": [
+              "Omega_potential_bulk_plus",
+              "S_total"
+            ]
+          }
+        },
+        "rho": {
+          "fixed_floor_assessed_counts": [
+            0,
+            0,
+            0
+          ],
+          "formal_order_not_supported_components_by_N": {
+            "1": [],
+            "2": [],
+            "3": []
+          }
+        },
+        "theta": {
+          "fixed_floor_assessed_counts": [
+            0,
+            0,
+            0
+          ],
+          "formal_order_not_supported_components_by_N": {
+            "1": [],
+            "2": [],
+            "3": []
+          }
+        }
+      }
+    },
+    "v5_6_6_13_margin_receipt": {
+      "artifact_sha256": "4051ecc137da00aedc8bd7acc613a4f341f3f48f218804291406ba46dc730a21",
+      "certified_rho_domain": [
+        0.0,
+        1.0
+      ],
+      "domain_source_fragments_present_pass": true,
+      "extended_radial_stencil_reach_certified": false,
+      "interval_rounding_enclosure_pass": false,
+      "optional_interval_arithmetic_hardening": "optional hardening of the rounding padding",
+      "pinned_members_margins_everywhere_certified_pass": true,
+      "producer_commit": "270f8d73e8708fe0acbd5eecee46d5ea44a1547b",
+      "rounding_scope": "not interval arithmetic; floating-point rounding is padded by SAFETY = 1e-9, far below every recorded clearance"
+    }
+  },
+  "scientific_payload_sha256": "ddfc7b8f50d0ed1c53e9955e8740c4243a00cdba828322fd2867121216b63799",
+  "source_pins": {
+    "precision_route_C_v5_6_6_5_source_sha256": "5cf9c64fe8af45b55899275b2af1a9d55c706a138479e2cbd3a47ca4b270eca8",
+    "v5_6_6_12_artifact_sha256": "2c7c170b1e23fb32cb2c53c9d232069e3a8100c2950ebe9206813c6a5809ab23",
+    "v5_6_6_12_producer_commit": "da7a8269286bdd228753dfa4d7a381516778e9d6",
+    "v5_6_6_12_source_sha256": "544b23cbb3052e83ce58b34ee175a73cb3f120ca8b4ac18b820d00d25defc862",
+    "v5_6_6_12_test_sha256": "b7109480bee0a5a66ef59d0c7c7d951ed5eb1e41966f234f4394a7fca5424fae",
+    "v5_6_6_13_artifact_sha256": "4051ecc137da00aedc8bd7acc613a4f341f3f48f218804291406ba46dc730a21",
+    "v5_6_6_13_producer_commit": "270f8d73e8708fe0acbd5eecee46d5ea44a1547b",
+    "v5_6_6_13_source_sha256": "ffae8313cde809bf2a65a431677e41f330c6f802085b1decb07a029868cd4ae3",
+    "v5_6_6_13_test_sha256": "288d910159efc71ef683737e1d86c3a9407cdaa2a738507e4cd21dbaa6579d44"
+  }
+}
