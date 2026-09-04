@@ -25,6 +25,7 @@ N-free map Phi (v5.6.6.9). All later gates live there.
 | v5.6.6.11 (+ Codex `fe80ef5`) | `pinned_members_margins_on_dense_collar_pass` (everywhere key kept False)                                                                                                                                                          | all four v5.6.4 margins on a 256x129 grid; same-objects theorem with the stencil bias `B_FD` explicit                                                                              | between-node bound (see v5.6.6.13), `B_FD` not bounded                             |
 | v5.6.6.13                     | `pinned_members_margins_everywhere_certified_pass`                                                                                                                                                                                 | Weyl + Lipschitz with exact harmonics and Bernstein-bounded profiles: min abs eig >= 1.036, Omega >= 0.9956, khronon <= -0.608, SO(3) clearance >= 2.852 everywhere                | rounding padded 1e-9, not interval-certified                                       |
 | v5.6.6.14                     | `pointwise_retraction_jacobian_bound_proved_symbolic_pass`                                                                                                                                                                         | symbolic entry-by-entry bound B_proved(M) (degree 8 in M, denominators asserted as powers of 1+abs(k)^2), dominates the v5.6.6.9 sample design                                     | Sobolev lift (Moser)                                                               |
+| v5.6.6.15 | `route_c_sector_list_is_literal_action_term_list_pass`, `route_c_bulk_and_ghy_densities_equal_pinned_literal_implementation_pointwise_pass`, `route_c_interface_densities_equal_pinned_literal_implementation_pointwise_pass`, `route_c_closed_form_coefficients_match_literal_formula_strings_pass` | all twenty sector densities of Route C (pulled-back formulation) agree pointwise with the pinned Route B implementation of the literal v5.2 action (ambient formulation) on exact random 2-jets inside the margins, both collars, worst 3.8e-15 relative; closed-form pieces checked against the literal strings | sampled, not symbolic; exact jets, so nothing about `B_FD` or quadrature |
 
 Still False everywhere, by design: `uniform_N_to_infinity_bridge_pass`,
 `uniform_stability_pass` (v5.6.4 key), `restricted_family_exact_action_identity_pass`
@@ -33,7 +34,9 @@ Still False everywhere, by design: `uniform_N_to_infinity_bridge_pass`,
 
 ## Ledger of the bridge (from v5.6.6.10, updated)
 
-1. Same objects: closed for the three pinned members **up to `B_FD`** (v5.6.6.11).
+1. Same objects: closed for the three pinned members **up to `B_FD`** (v5.6.6.11); the
+   same-functional hypothesis of that theorem is discharged at the density level by v5.6.6.15
+   (sampled pointwise identity with the pinned literal-action implementation, both collars).
 2. Class drift: the pinned members are continuum-class points (v5.6.6.11/13); the v5.6.4
    nodal family is not the theorem class and is not used any more.
 3. Margins on the whole collar: **closed** (v5.6.6.13).
@@ -52,8 +55,11 @@ Still False everywhere, by design: `uniform_N_to_infinity_bridge_pass`,
 - **N -> infinity for arbitrary class members**: density of degree-<=1 free data is
   false; use Fourier truncation of arbitrary free data plus re-gluing (part iii) and the
   continuity bound (ii) with the Moser constant made explicit.
-- **Same functional**: show that the Route C sector list evaluates exactly `S_rel` of the
-  v5.6.6.8 theorem (asserted from sector names so far).
+- **Same functional**: closed by v5.6.6.15 at the density level (sampled pointwise identity
+  of the twenty Route C sector densities with the pinned Route B implementation of the literal
+  action, plus literal-text checks of the closed-form pieces). Still open inside it: a symbolic
+  identity (not attempted), and the tie of the curvature/kinetic/foliation terms to the literal
+  text rests on the v5.6.4/v5.6.5 pins of Route B.
 - **Independent audit** (v5.6.1 quarantine wording) before `uniform_N_to_infinity_bridge_pass`.
 - **C1/N1 beyond the bridge**: v5.6.1 quarantine obligations (full bulk diffeomorphism
   Ward identity, fully coupled moving-embedding cross terms, off-shell continuous extension).
