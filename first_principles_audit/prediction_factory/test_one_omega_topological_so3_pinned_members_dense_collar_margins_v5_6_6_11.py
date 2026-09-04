@@ -17,6 +17,7 @@ EXPECTED_TRUE_KEYS = frozenset({"pinned_members_margins_on_dense_collar_pass"})
 EXPECTED_FALSE_KEYS = frozenset(
     {
         "uniform_N_to_infinity_bridge_pass",
+        "pinned_members_margins_everywhere_on_collar_pass",
         "uniform_stability_pass",
         "spectral_N_convergence_pass",
         "restricted_family_exact_action_identity_pass",
@@ -117,6 +118,8 @@ def test_dense_collar_margins(receipt: dict) -> None:
     assert clearance["min_Omega_boundary_over_all"] > 1.05  # the Omega sector is excited (log Omega ~ 0.067 on the boundary)
     assert clearance["max_khronon_T_norm2_over_all"] < -gate.TIMELIKE_MARGIN
     assert clearance["min_cut_locus_clearance_over_all"] > gate.ROTATION_CUT_LOCUS_MARGIN
+    assert receipt["decision"]["pinned_members_margins_everywhere_on_collar_pass"] is False
+    assert "sampled_dense_collar_grid" in receipt["classification"]
 
 
 def test_member_margins_regenerate_for_N1(receipt: dict) -> None:
@@ -154,9 +157,14 @@ def test_same_objects_theorem_recorded(receipt: dict) -> None:
     assert len(theorem["analytic_not_machine_checked"]) == 5
     assert any("B_FD" in item for item in theorem["still_open_after_this_gate"])
     assert any("classical" in item for item in theorem["analytic_not_machine_checked"])
+    assert "Conditional on a certified between-grid margin bound" in theorem["statement"]
+    assert any("gap 3" in item for item in theorem["still_open_after_this_gate"])
     assert any("gap 4" in item for item in theorem["still_open_after_this_gate"])
     assert any("gap 5" in item for item in theorem["still_open_after_this_gate"])
     assert "interval" in receipt["scientific"]["between_grid_points"].lower()
+    assert "continuity alone does not" in receipt["scientific"]["between_grid_points"]
+    assert receipt["open_obligation"]["interval_bound"].startswith("required:")
+    assert "degree-one trigonometric\n    polynomials" not in gate.__doc__
 
 
 def test_canonical_bytes_and_provenance(receipt: dict) -> None:

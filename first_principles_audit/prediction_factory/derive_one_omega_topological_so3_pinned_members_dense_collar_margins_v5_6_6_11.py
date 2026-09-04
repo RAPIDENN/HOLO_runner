@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Pinned members as class points: dense-collar margins and the same-objects theorem (v5.6.6.11).
 
-Closes two of the five genuine gaps listed by v5.6.6.10:
+Advances two of the five genuine gaps listed by v5.6.6.10 without claiming
+their unsampled or continuum parts are closed:
 
-(gap 3) MARGINS ON THE WHOLE COLLAR.  v5.6.4 checked the class margins (Lorentzian
+(gap 3) MARGINS ON A DENSE COLLAR GRID.  v5.6.4 checked the class margins (Lorentzian
     signature with eigenvalue margin, Omega >= Omega_min, timelike khronon margin,
     SO(3) cut-locus margin) only at the N Kronecker nodes times 7 radial samples.
     This gate decodes the three byte-pinned members with the byte-pinned v5.6.4.2
@@ -11,17 +12,18 @@ Closes two of the five genuine gaps listed by v5.6.6.10:
     points along the single direction theta = x0 + x1 that carries all modes,
     129 radial points including both endpoints), composes the bulk fields with the
     v5.6.4.4 C2 radial profiles, and measures every margin everywhere.  The pinned
-    members' membership in the margin set is thereby established on a dense grid;
-    between grid points it follows from continuity and the recorded minimal
-    clearance (the fields are polynomials in rho and degree-one trigonometric
-    polynomials in theta, so their oscillation between grid points is bounded).
+    members' membership in the margin set is thereby established on that finite
+    grid.  Membership on the whole collar does not follow from continuity alone:
+    it still needs a quantitative derivative/interval bound between grid points.
 
 (gap 1) SAME OBJECTS.  With (a) free data that are degree-<=1 trigonometric
     polynomials in theta and polynomial radial profiles (byte-pinned bundle),
     (b) pointwise gluing to <= 4.4e-16 (v5.6.6.8), and (c) the margins on the
     dense collar (this gate), each pinned member X_N is a point of the restricted
     class of the v5.6.6.8 theorem, hence the exact identity (i) applies to it
-    verbatim.  The Route C direct first variation at quadrature (Qtheta, Qrho)
+    verbatim only after the unsampled collar margins and the common-functional
+    identification are certified.  The Route C direct first variation at
+    quadrature (Qtheta, Qrho)
     is a trapezoidal x Gauss--Legendre sum of a NODAL integrand that is itself a
     finite-difference approximation (FD5 in the free parameter, 7-point
     coordinate stencils) of the continuum first-variation density; so
@@ -282,9 +284,9 @@ def build_payload() -> dict[str, Any]:
         "between_grid_points": (
             "The FREE data are degree-one trigonometric polynomials in theta and polynomials of degree <= 8 in rho; "
             "the COMPOSED fields (g_trace, R = exp(...), khronon normalisation) are smooth with harmonic content above "
-            "degree one at the 1e-6 level, so between the 256 x 129 grid points their oscillation is bounded by the "
-            "grid spacing times a derivative bound; the recorded clearances (all far above the margins) are not "
-            "exhausted by that oscillation. A formal interval-arithmetic bound is not computed here."
+            "degree one at the 1e-6 level. The 256 x 129 samples have large clearances, but continuity alone does not "
+            "turn a finite grid into an everywhere certificate. No quantitative derivative or interval-arithmetic "
+            "bound between grid points is computed here; whole-collar membership therefore remains open."
         ),
         "same_objects_theorem": {
             "hypotheses_machine_checked": [
@@ -294,8 +296,10 @@ def build_payload() -> dict[str, Any]:
                 "all class margins hold on the dense collar grid with the clearances recorded here",
             ],
             "statement": (
-                "Each pinned member X_N (N = 1,2,3) is a point of the restricted class of the v5.6.6.8 theorem, so the "
-                "exact identity (i) holds for it verbatim: DS_rel[X_N].dX = int_collar E_weak.dq - int_{T^4} H^rho(0). "
+                "This gate proves that each pinned member X_N (N = 1,2,3) satisfies the class margins on the finite "
+                "256 x 129 grid only. Conditional on a certified between-grid margin bound and on the Route C sector "
+                "list evaluating the same functional S_rel as the v5.6.6.8 theorem, X_N is a point of that restricted "
+                "class and exact identity (i) applies: DS_rel[X_N].dX = int_collar E_weak.dq - int_{T^4} H^rho(0). "
                 "The Route C direct first variation at quadrature (Qtheta, Qrho) is the trapezoidal (equispaced theta) x "
                 "Gauss--Legendre (interior rho nodes) sum of a nodal integrand that is a finite-difference approximation "
                 "of the continuum first-variation density: FD5 in the free parameter (FREE_JVP_STEP = 2e-3, O(h^4)) and "
@@ -310,11 +314,12 @@ def build_payload() -> dict[str, Any]:
             "analytic_not_machine_checked": [
                 "convergence of the trapezoidal and Gauss--Legendre rules for continuous integrands (classical)",
                 "continuity of the literal density on the margin set (structure of the v5.2 action)",
-                "the between-grid-points argument for the margins",
+                "a quantitative between-grid-points certificate for all class margins",
                 "that the Route C sector list evaluates the same functional S_rel as the v5.6.6.8 theorem (asserted from the sector names; this gate never touches the density)",
                 "the stencil bias B_FD is not bounded here",
             ],
             "still_open_after_this_gate": [
+                "gap 3: certify all class margins between the 256 x 129 samples with a quantitative derivative or interval bound",
                 "bound the Q-independent stencil bias B_FD (Richardson in FREE_JVP_STEP and in the coordinate stencil step, or complex-step / AD for the free-parameter derivative)",
                 "gap 4: proven (not sampled) Jacobian bound and Sobolev lift for the retraction",
                 "gap 5: finite DG_N on V_N and the gauge quotient H_N",
@@ -325,6 +330,7 @@ def build_payload() -> dict[str, Any]:
 
     decision = {
         "pinned_members_margins_on_dense_collar_pass": all_pass,
+        "pinned_members_margins_everywhere_on_collar_pass": False,
         "uniform_N_to_infinity_bridge_pass": False,
         "uniform_stability_pass": False,
         "spectral_N_convergence_pass": False,
@@ -340,7 +346,7 @@ def build_payload() -> dict[str, Any]:
 
     payload = {
         "schema": SCHEMA,
-        "classification": "theory_only;dense_collar_margins;same_objects;restricted_spectral_family;fail_closed_bridge",
+        "classification": "theory_only;sampled_dense_collar_grid;same_objects_conditional;restricted_spectral_family;fail_closed_bridge",
         "decision": decision,
         "fixed_before_run": {
             "THETA_POINTS": THETA_POINTS,
@@ -360,13 +366,14 @@ def build_payload() -> dict[str, Any]:
         "open_obligation": {
             "gap_4": "prove the Jacobian bound of Phi and its Sobolev lift instead of sampling",
             "gap_5": "finite DG_N on V_N and the gauge quotient H_N",
-            "interval_bound": "optional: interval arithmetic between grid points for the margins",
+            "interval_bound": "required: certify the margins between grid points using interval arithmetic or an explicit derivative bound",
             "stencil_bias": "bound B_FD before reading any Route C number as DS_rel itself",
         },
         "evidence_boundary": (
             "Machine-checked: all four class margins hold for the three pinned members on a 256 x 129 dense collar grid "
             "with the recorded clearances, the rho = 1 zero extension is exact, and the rotation charts are orthogonal. "
-            "Recorded: the same-objects theorem with its hypotheses. Not proven: the bridge, C1/N1, B4/B5."
+            "Recorded: a conditional same-objects implication with its unmet hypotheses. Not proven: whole-collar "
+            "membership, the unconditional same-objects result, the bridge, C1/N1, B4/B5."
         ),
         "source_pins": {
             "frozen_checkpoint_commit": FROZEN_COMMIT,
