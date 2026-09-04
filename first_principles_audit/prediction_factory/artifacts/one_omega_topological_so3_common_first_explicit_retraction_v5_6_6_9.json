@@ -1,0 +1,148 @@
+{
+  "classification": "theory_only;symbolic_graph_structure;pointwise_retraction;restricted_spectral_family;fail_closed_bridge",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "common_first_gluing_is_explicit_graph_pass": true,
+    "density_union_C_N_pass": false,
+    "periodic_box_exhaustion_and_tail_control_pass": false,
+    "pointwise_retraction_N_independent_lipschitz_bound_pass": true,
+    "restricted_family_exact_action_identity_pass": false,
+    "spectral_N_convergence_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false,
+    "uniform_stability_pass": false
+  },
+  "evidence_boundary": "Machine-checked: the common-first gluing is the graph of an explicit analytic map (all rows vanish symbolically and numerically), and its pointwise Lipschitz constant is an explicit N-independent polynomial verified on random samples. Analytic: the Sobolev lift. Not proven: the N-to-infinity bridge itself, C1/N1, B4/B5.",
+  "fixed_before_run": {
+    "JACOBIAN_TOLERANCE": 1e-09,
+    "SAMPLES": 400,
+    "SAMPLE_RADIUS": 1.5,
+    "SAMPLE_SEED": 20260904,
+    "rotation_chart": "Cayley (I-K)^{-1}(I+K), exact rational; the v5.6.4.2 decoder uses expm, same group element set locally"
+  },
+  "independence_boundary": {
+    "imports_action_evaluators": false,
+    "imports_one_omega_modules": false,
+    "reads_upstream_expected_values": false,
+    "scientific_inputs": "the elimination formulas transcribed from the v5.6.4.2 pointwise decoder contract; no upstream module imported",
+    "symbolic_engine": "sympy 1.13.3"
+  },
+  "open_obligation": {
+    "C1_N1_beyond_the_bridge": "v5.6.1 quarantine obligations remain: full bulk diffeomorphism Ward identity, fully coupled moving-embedding cross terms, off-shell continuous extension",
+    "finite_to_continuum_rate": "prove quadrature convergence of the finite Route C Stokes/chain certificates to the continuum identity of v5.6.6.8 with a rate in (Qtheta, Qrho)",
+    "periodic_box_exhaustion": "unchanged",
+    "spectral_space_mismatch": "either enlarge V_N to contain Phi(u) for u in V_N (not trigonometric) or state the finite family in free data only"
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_common_first_explicit_retraction_v5_6_6_9.py",
+      "sha256": "09d4454d2a72408db81fdcc9da299af8dc08bedc3537ebeb01864939b001a4c9"
+    },
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "sympy": "1.13.3",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_common_first_explicit_retraction_v5_6_6_9.py",
+      "sha256": "d5eb2b7cf88b58bc26781c9c1204beb88a44d31c40a638996d07349745c54b15"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-common-first-explicit-retraction-v5-6-6-9.v1",
+  "scientific": {
+    "graph_numeric_witness": {
+      "pass": true,
+      "samples": 400,
+      "worst_abs_row_residual": 1.7763568394002505e-15
+    },
+    "graph_structure": {
+      "RT_dR_skew_symmetric": true,
+      "cayley_R_det_one": true,
+      "cayley_R_orthogonal": true,
+      "connection_row_vanishes_identically": true,
+      "eliminated_metric_polynomial_degrees": {
+        "Y": 2,
+        "a": 1,
+        "d": 1,
+        "gamma": 1
+      },
+      "log_Omega_row": "identity (log_Omega_trace := log Omega_Sigma)",
+      "map_depends_on_N": false,
+      "map_operations": [
+        "polynomials in (gamma, Y, d, a)",
+        "R^T varphi",
+        "R^T hat(.) R",
+        "R^T dR (skew)",
+        "vee"
+      ],
+      "metric_row_vanishes_identically": true,
+      "pullback_consistency": true,
+      "scalar_row_vanishes_identically": true
+    },
+    "kronecker_inverse_users_in_v5_6_4": [
+      "gluing_map (basis['inverse'] einsum)",
+      "ambient_to_free_coordinates",
+      "retract_ambient_point (via construct_ambient_point)",
+      "finite_frame_gauge_action -> runtime_SO3_gauge_tangents",
+      "runtime_DG (differentiates gluing_map)"
+    ],
+    "lipschitz": {
+      "bound_is_N_independent": true,
+      "first_rows": [
+        {
+          "M": 1.3757316373852242,
+          "bound": 67.26721905203055,
+          "jacobian_operator_norm": 7.334710138274399
+        },
+        {
+          "M": 1.4064526284658339,
+          "bound": 69.06090132523566,
+          "jacobian_operator_norm": 5.16580356805471
+        },
+        {
+          "M": 1.467952171369658,
+          "bound": 72.71968487355656,
+          "jacobian_operator_norm": 8.813526545447376
+        },
+        {
+          "M": 1.4508181627244507,
+          "bound": 71.69121182377347,
+          "jacobian_operator_norm": 5.696324440720426
+        },
+        {
+          "M": 1.483339382489834,
+          "bound": 73.64931090615809,
+          "jacobian_operator_norm": 6.10143805063804
+        }
+      ],
+      "pass": true,
+      "radius": 1.5,
+      "samples": 400,
+      "seed": 20260904,
+      "violations": 0,
+      "worst_jacobian_operator_norm": 10.504484699039828,
+      "worst_norm_over_bound": 0.14142614280615734
+    },
+    "lipschitz_bound_formula": "Explicit pointwise bound on the operator norm of dPhi for free data of size <= M.\n\nMetric block: entries of g are polynomials of degree <= 2 in Y and <= 1 in (gamma, d, a), so the\nFrobenius norm of the Jacobian block is bounded by  sqrt(10) + 2*4*M + 4*M^2 + 2*4*(M + M^2)  (crude\nbut explicit).  Connection block with |R| = 1:  |dA_source| <= |dA_Sigma| + 2|A_Sigma||dR| + |d(R^T dR)|,\nand for the Cayley chart |dR/dk| <= 2|(I-K)^{-1}|^2 <= 2, |d(R^T dR)| <= (2 + 4|kappa|)|dk| + 2|dkappa|.\nThe returned constant is a polynomial in M; N does not appear anywhere.",
+    "machine_checked": {
+      "graph_rows_vanish_numerically": true,
+      "graph_rows_vanish_symbolically": true,
+      "lipschitz_bound_holds_on_samples": true,
+      "metric_degrees_bounded": true
+    },
+    "pointwise_formulation_needs_collocation_inverse": false,
+    "theorem": {
+      "not_claimed": "Uniform stability of the v5.6.4 coefficient-chart scheme (its key stays False); quadrature convergence of the finite Route C certificates to the continuum identity with a rate; membership of Fourier-truncated class points in the finite spectral space V_N (the eliminated traces are not trigonometric polynomials); any statement about the literal v5.2 action beyond the class structure.",
+      "sobolev_lift": "analytic argument (Moser composition, s > d/2 = 2); not machine-checked",
+      "statement": "Let Phi be the common-first elimination map defined pointwise on T^4 by the formulas of section (A). The pointwise-glued restricted class is exactly the graph {(u, Phi(u))} over the free data u, so the retraction from any ambient point with the same free data onto the class is u -> (u, Phi(u)) and the tangent space is {(du, dPhi(u).du)}. Since Phi contains no N, the Lipschitz constant of Phi on |u| <= M is the N-independent polynomial recorded above, and by Moser composition estimates ||Phi(u) - Phi(u')||_{H^s} <= C_s(M) ||u - u'||_{H^s} for s > 2 on ||u||_{H^s} <= M. This discharges the 'uniformly bounded right inverse/retraction of DG_N' obligation in the pointwise formulation; it is the retraction used implicitly by the v5.6.4.2 decoder and by part (iii) of the v5.6.6.8 theorem."
+    }
+  },
+  "scientific_payload_sha256": "36d2e8d396a1b6c6a1c4f2bf1d501c949b90c38c86398fc62ab620d86f6313d7",
+  "source_pins": {
+    "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
+    "frozen_checkpoint_commit": "ea014fd",
+    "literal_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "v5_6_6_8_receipt_sha256": "cca4e3a4299b6f1817575e352f2888b2cedb30bedf04ac77102338e56bf4cce7"
+  }
+}
