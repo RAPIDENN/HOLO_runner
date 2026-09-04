@@ -1,69 +1,45 @@
 #!/usr/bin/env python3
-"""The finite family in free data only, and the explicit gauge kernel of the
-common-first decoder (v5.6.6.16; bridge ledger gap 5).
+"""Free-data family, lateral-trace invariance, and sampled nullspaces.
 
-Gap 5 of the pointwise-bridge ledger (v5.6.6.10, restated in the roadmap):
-    "state the finite family in free data only (so Phi(V_N) need not lie in
-     V_N) and treat the 9N gauge orbit explicitly, or prove the quotient is
-     harmless for the identity".
+This corrected v5.6.6.16 receipt records finite evidence relevant to bridge
+ledger gap 5 without calling it a kernel or quotient theorem.
 
-Statement adopted here.  Let U_N be the free-data space of the byte-pinned
-v5.6.4.2 common-first decoder (blocks common.*, Q_frame.q, side.Y,
-side.metric_free, side.A_perp, side.B0_full, side.r_E0, side.boundary_jet_J1,
-side.interior_bump_C; real Fourier modes {1, cos(x0+x1), sin(x0+x1)}
-truncated at N) and Phi : U_N -> (interface data, lateral traces, bulk
-fields) the decoder followed by the C2 radial profiles.  The finite family
-is F_N := Phi(U_N), a subset of the v5.6.6.8 continuum class (v5.6.6.9:
-Phi is an explicit map with an N-independent Jacobian bound; v5.6.6.13:
-the pinned members satisfy the margins on the whole collar).  Route C, the
-AD route and the FD5 route all differentiate S_rel o Phi along free-data
-curves, so the bridge identity (i) is always evaluated at (Phi(u), DPhi[u]
-du); nothing in it needs a finite gluing map, a collocation inverse or a
-quotient.  The "9N gauge orbit" of the v5.6.4 contract (Q_frame.q and the
-two r_E0 blocks, 3N each) is treated explicitly:
+Let U_N be the free-data space of the byte-pinned v5.6.4.2 common-first
+decoder and let Phi map it to interface data, common and lateral traces, and
+the C2 bulk fields.  Defining F_N := Phi(U_N) avoids a finite collocation
+inverse in the selected Route A/Route C calculations.  It does not by itself
+prove that a gauge quotient is unnecessary or harmless for the continuum
+identity.  The checks here establish only:
 
-  (G1) symbolic: the decoder composes R = S R0 with S = exp(hat q), so the
-       lateral traces phi_source = R^T S varphi_E0 and A_source =
-       vee(R^T (S hat(A_E0) S^T - dS S^T) R + R^T dR) reduce identically to
-       R0^T varphi_E0 and vee(R0^T hat(A_E0) R0 + R0^T dR0): the 3N Q_frame
-       coordinates are an exact kernel of Phi (checked with exact rational
-       Cayley rotation families symbolic in theta).
-  (G2) numeric: the same on the byte-pinned decoder and on Route C's own
-       trace decoder (v5.6.6.3), at the pinned members N = 1, 2, 3, with the
-       common-frame outputs shown to move (non-vacuous); and Route C's trace
-       decoder agrees with the pinned decoder.
-  (G3) numeric: the full kernel of DPhi restricted to the trace coordinates
-       (everything except the linear, independent-profile blocks J1 and C)
-       at the pinned members, by a Richardson central-difference Jacobian
-       and its SVD; the kernel is compared with explicit generators: the 3N
-       Q_frame directions, the constant mode of the khronon offset T (only
-       its derivatives enter), the constant modes of Y_plus and Y_minus
-       (only Y' and Y'' enter the pulled-back densities), and, at N = 1
-       only, the constant common-frame rotation about the varphi_E0 axis
-       (U varphi_E0 = varphi_E0, Ad_U A_E0, log(U R0_eps)), which stays
-       inside U_1 because every block there is a constant.  The other two
-       constant rotations are symmetries of the lateral traces but move
-       varphi_E0, which the interface Robin term consumes directly with the
-       metric-determined frame E0, so only the one-parameter stabiliser of
-       varphi_E0 is a redundancy of the whole configuration.  For N >= 2 the
-       common-frame rotation is a symmetry of the continuum trace decoder but
-       log(U R0(x)) leaves the degree-N space, so it is not a redundancy of
-       the finite family: the 6N r_E0 coordinates are physical there.
-  (G4) numeric: the six interface densities (Route C _brane_density and the
-       pinned Route B interface_action_components) are exactly independent
-       of the Q_frame block.
+  (G0) the pinned decoder's gluing-defect map and four sampled directional
+       derivatives are within fixed tolerances at the three pinned members;
+  (G1) Q_frame cancels symbolically from the lateral phi/A trace formulas;
+  (G2) the same lateral-trace invariance is sampled in both pinned decoders,
+       while common-frame outputs are explicitly shown to move;
+  (G3) a finite output Jacobian, formed from lateral traces and interface
+       consumables at eight random T4 points and omitting the independent J1/C
+       radial-profile columns, has the reported sampled nullspace at the three
+       pinned members; and
+  (G4) six interface densities are invariant within tolerance under Q_frame
+       changes on 16 sampled jets in each implementation; and
+  (G5) the pinned Route C family is not dense in the declared H^s(T^4)
+       target class: every current field depends tangentially only on
+       theta=x0+x1, whereas cos(x2) is an exact orthogonal witness.
 
-Hence: on F_N no quotient is needed for the identity; the only exact
-redundancies of the finite family are listed explicitly with their
-generators and Phi (so S_rel o Phi and every density) is constant along
-them; the v5.6.4 obligations "DG_N on V_N" and "uniform_stability_pass"
-are retired by the change of formulation, not discharged, and their keys
-stay False.  Not established: anything about N -> infinity, B_FD,
-quadrature, or any bridge/C1/N1/B4/B5 key.
+G3 is not the complete kernel of DPhi and is not a constant-rank theorem.  A
+constant-only N=2 input has a nontrivial sampled-output fiber, serving as a
+canary against globalizing the pinned-member ranks.  G1/G2 do not make Q_frame a
+kernel of full Phi because its common-frame outputs move.  G4 does not prove
+that every density, the action, or S_rel is invariant.  Therefore the
+quotient/representative-independence part of gap 5 remains open.  G5
+definitively refutes the current Route C uniform-N strategy, not the existence
+of a different full-T4/arbitrary-N construction.  B_FD, quadrature, C1/N1,
+B4, and B5 remain open/false.
 """
 
 from __future__ import annotations
 
+import ast
 import hashlib
 import importlib.util
 import json
@@ -79,7 +55,7 @@ HERE = Path(__file__).resolve().parent
 ARTIFACTS = HERE / "artifacts"
 OUTPUT = ARTIFACTS / "one_omega_topological_so3_free_data_family_gauge_kernel_v5_6_6_16.json"
 TEST = HERE / "test_one_omega_topological_so3_free_data_family_gauge_kernel_v5_6_6_16.py"
-SCHEMA = "holo.one-omega-topological-so3-free-data-family-gauge-kernel-v5-6-6-16.v1"
+SCHEMA = "holo.one-omega-topological-so3-free-data-family-gauge-kernel-v5-6-6-16.v2"
 FROZEN_COMMIT = "ea014fd"
 
 LITERAL_V5_2_ACTION_SHA256 = "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a"
@@ -92,6 +68,8 @@ ROUTE_C_SHA256 = "87cd1e05184a9fb2703faa08eecf5aa8544f4cf24ba8c12dd830828888821d
 ROUTE_B_PATH = HERE / "derive_one_omega_topological_so3_numpy_fd5_action_route_b_v5_6_5_certificate.py"
 ROUTE_B_SHA256 = "6c98724d0e51c1cad16c80303e6ad7625d661bd1c9c56c9ff96c5b8124992909"
 V5669_PATH = ARTIFACTS / "one_omega_topological_so3_common_first_explicit_retraction_v5_6_6_9.json"
+TARGET_CLASS_PATH = HERE / "derive_one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.py"
+TARGET_CLASS_SHA256 = "a8b26f130189dacfef14faf9cb9e1d1f19208cb645e267f198fc2f21ede428e4"
 
 # Fixed before run.
 SEED = 56616
@@ -153,10 +131,10 @@ def load_modules() -> tuple[Any, Any, Any]:
 
 
 # --------------------------------------------------------------------------
-# G0: the gluing constraint composed with the free embedding vanishes, and so does its derivative
+# G0: sampled gluing defects and sampled directional derivatives are within tolerance
 # --------------------------------------------------------------------------
 def constraint_composed_with_free_embedding(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: np.random.Generator) -> dict[str, Any]:
-    """G(I_N(u)) = 0 pointwise and D(G o I_N)[u] du = 0, on the byte-pinned decoder's own gluing defects."""
+    """Sample G o I_N and directional FD estimates of D(G o I_N)."""
     rows: dict[str, Any] = {}
     worst_value = 0.0
     worst_derivative = 0.0
@@ -193,7 +171,7 @@ def constraint_composed_with_free_embedding(decoder: Any, route_c: Any, bundle: 
     }
 
 # --------------------------------------------------------------------------
-# G1: symbolic kernel of the Q frame
+# G1: symbolic Q-frame cancellation in the lateral phi/A traces
 # --------------------------------------------------------------------------
 def _hat_sym(v: sp.Matrix) -> sp.Matrix:
     return sp.Matrix([[0, -v[2], v[1]], [v[2], 0, -v[0]], [-v[1], v[0], 0]])
@@ -204,7 +182,9 @@ def _cayley(v: sp.Matrix) -> sp.Matrix:
     return (sp.eye(3) - X).inv() * (sp.eye(3) + X)
 
 
-def symbolic_q_frame_kernel(rng: np.random.Generator) -> dict[str, Any]:
+def symbolic_q_frame_lateral_trace_cancellation(
+    rng: np.random.Generator,
+) -> dict[str, Any]:
     theta = sp.symbols("theta", real=True)
     a = sp.Matrix([sp.Function(f"a{i}")(theta) for i in range(3)])
     v = sp.Matrix([sp.Function(f"v{i}")(theta) for i in range(3)])
@@ -335,9 +315,14 @@ def _trace_coordinate_columns(contract: Mapping[str, Any]) -> list[tuple[str, in
 
 
 # --------------------------------------------------------------------------
-# G2: numeric kernel of the Q frame and decoder agreement
+# G2: numeric lateral-trace invariance and decoder agreement
 # --------------------------------------------------------------------------
-def numeric_q_frame_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: np.random.Generator) -> dict[str, Any]:
+def numeric_q_frame_lateral_trace_invariance(
+    decoder: Any,
+    route_c: Any,
+    bundle: Mapping[str, Any],
+    rng: np.random.Generator,
+) -> dict[str, Any]:
     pairs5 = tuple(tuple(int(x) for x in pair) for pair in route_c.SYMMETRIC5)
     rows: dict[str, Any] = {}
     worst_kernel = 0.0
@@ -396,13 +381,16 @@ def numeric_q_frame_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any]
         "worst_lateral_change": worst_kernel,
         "smallest_common_frame_motion": smallest_common_motion,
         "worst_route_c_vs_pinned_agreement": worst_agreement,
-        "kernel_pass": bool(worst_kernel <= Q_INDEPENDENCE_TOLERANCE and smallest_common_motion > 1.0e-2),
+        "lateral_invariance_with_nonvacuous_common_motion_pass": bool(
+            worst_kernel <= Q_INDEPENDENCE_TOLERANCE
+            and smallest_common_motion > 1.0e-2
+        ),
         "agreement_pass": bool(worst_agreement <= DECODER_AGREEMENT_TOLERANCE),
     }
 
 
 # --------------------------------------------------------------------------
-# G3: Jacobian kernel on the trace coordinates
+# G3: nullspace of a sampled trace/interface-output Jacobian
 # --------------------------------------------------------------------------
 def _richardson_jacobian(function: Callable[[np.ndarray], np.ndarray], free: np.ndarray, columns: list[tuple[str, int]], step: float) -> np.ndarray:
     base = function(free)
@@ -455,7 +443,12 @@ def _global_frame_generators(decoder: Any, route_c: Any, contract: Mapping[str, 
     return np.stack(generators, axis=-1)
 
 
-def jacobian_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: np.random.Generator) -> dict[str, Any]:
+def sampled_trace_output_jacobian_nullspace(
+    decoder: Any,
+    route_c: Any,
+    bundle: Mapping[str, Any],
+    rng: np.random.Generator,
+) -> dict[str, Any]:
     pairs5 = tuple(tuple(int(x) for x in pair) for pair in route_c.SYMMETRIC5)
     rows: dict[str, Any] = {}
     all_pass = True
@@ -491,7 +484,9 @@ def jacobian_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: 
         start, stop, _ = _block_slice(contract, "Q_frame.q")
         for index in range(start, stop):
             generators.append(unit(index))
-            labels.append(f"[SO(3) exact kernel] Q_frame.q[{index - start}]")
+            labels.append(
+                f"[exact lateral-trace null direction] Q_frame.q[{index - start}]"
+            )
         start, stop, shape = _block_slice(contract, "common.T")
         generators.append(unit(start))  # constant mode is the first row of the (N, 1) block
         labels.append("[decoder zero-mode, not SO(3)] common.T constant mode")
@@ -502,7 +497,7 @@ def jacobian_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: 
         if N == 1:
             frame = _global_frame_generators(decoder, route_c, contract, free, columns)
             generators.append(frame[:, 0])
-            labels.append("[N=1 only stabiliser] constant common-frame rotation about varphi_E0 (stabiliser of the interface scalar)")
+            labels.append("[pinned N=1 member stabiliser] constant common-frame rotation about varphi_E0 (stabiliser of the interface scalar)")
         G = np.stack(generators, axis=-1)
         # kernel basis from the SVD
         _u, _s, vt = np.linalg.svd(jacobian, full_matrices=True)
@@ -539,9 +534,15 @@ def jacobian_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: 
             "gap_ratio": gap,
             "explicit_generators": labels,
             "generator_categories": {
-                "SO3_exact_kernel_Q_frame": sum(label.startswith("[SO(3) exact kernel]") for label in labels),
+                "exact_lateral_trace_null_directions_Q_frame": sum(
+                    label.startswith("[exact lateral-trace null direction]")
+                    for label in labels
+                ),
                 "decoder_zero_modes_not_SO3": sum(label.startswith("[decoder zero-mode") for label in labels),
-                "N1_only_stabiliser": sum(label.startswith("[N=1 only") for label in labels),
+                "pinned_N1_member_stabiliser": sum(
+                    label.startswith("[pinned N=1 member stabiliser]")
+                    for label in labels
+                ),
             },
             "generator_rank": generator_rank,
             "generators_inside_kernel_residual": residual_G_in_K,
@@ -554,7 +555,7 @@ def jacobian_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: 
         "method": (
             "Richardson central-difference Jacobian (steps h, h/2) of the lateral traces (g, log Omega, phi, A, B, Y') "
             "at random T^4 points plus the interface consumables (gamma, T', T'', log Omega, varphi_E0) with respect "
-            "to every trace coordinate (all blocks except the linear independent-profile blocks J1 and C); SVD; kernel "
+            "to the selected trace-coordinate columns (the independent-profile blocks J1 and C are omitted); SVD; nullspace "
             "= singular values below KERNEL_RELATIVE_THRESHOLD * sigma_max; compared with the explicit generators by "
             "two-sided projection residuals and by J G directly"
         ),
@@ -564,7 +565,178 @@ def jacobian_kernel(decoder: Any, route_c: Any, bundle: Mapping[str, Any], rng: 
 
 
 # --------------------------------------------------------------------------
-# G4: interface densities do not see the Q frame
+# Canary: a nontrivial sampled-output fiber blocks globalizing the pinned rank
+# --------------------------------------------------------------------------
+def constant_only_n2_nontrivial_sampled_output_fiber_canary(
+    decoder: Any, route_c: Any, bundle: Mapping[str, Any]
+) -> dict[str, Any]:
+    from scipy.linalg import expm, logm
+
+    member = bundle["primary_members"][1]
+    N = int(member["N"])
+    if N != 2:
+        raise GaugeKernelGateError("constant-only canary expects the pinned N=2 layout")
+    contract = bundle["pointwise_decoder_contract_by_N"][str(N)]
+    free = _member_free(route_c, member).copy()
+    for spec in contract["free_layout"]["blocks"].values():
+        shape = tuple(int(value) for value in spec["shape"])
+        if shape and shape[0] == N:
+            free[int(spec["start"]):int(spec["stop"])].reshape(shape)[1:] = 0.0
+
+    points = np.random.default_rng(1616).uniform(
+        0.0, 2.0 * math.pi, size=(4, 4)
+    )
+    pairs5 = tuple(tuple(int(value) for value in pair) for pair in route_c.SYMMETRIC5)
+    tables = _interface_tables(contract["basis"], points)
+
+    def outputs(vector: np.ndarray) -> np.ndarray:
+        decoded = decoder.decode_pointwise_boundary(vector, contract, points)
+        return np.concatenate(
+            (_side_outputs(decoded, pairs5), _interface_outputs(vector, contract, tables))
+        )
+
+    moved = free.copy()
+    start, stop, shape = _block_slice(contract, "common.varphi_E0")
+    phi = moved[start:stop].reshape(shape)
+    axis = phi[0] / np.linalg.norm(phi[0])
+    rotation = expm(route_c._hat(0.13 * axis))
+    phi[0] = rotation @ phi[0]
+    start, stop, shape = _block_slice(contract, "common.A_E0")
+    connection = moved[start:stop].reshape(shape)
+    connection[0] = connection[0] @ rotation.T
+    for side in SIDES:
+        start, stop, shape = _block_slice(contract, f"{side}.r_E0")
+        coordinate = moved[start:stop].reshape(shape)
+        old_rotation = expm(route_c._hat(coordinate[0]))
+        coordinate[0] = route_c._vee(np.real(logm(rotation @ old_rotation)))
+
+    parameter_motion = float(np.max(np.abs(moved - free)))
+    sampled_output_change = float(np.max(np.abs(outputs(moved) - outputs(free))))
+    return {
+        "N": N,
+        "construction": "zero every nonconstant Fourier coefficient, then apply a finite common-frame rotation about the constant varphi_E0 axis",
+        "sampled_T4_point_count": len(points),
+        "free_parameter_max_abs_motion": parameter_motion,
+        "sampled_trace_interface_output_max_abs_change": sampled_output_change,
+        "tolerance": Q_INDEPENDENCE_TOLERANCE,
+        "pass": bool(
+            parameter_motion > 1.0e-3
+            and sampled_output_change <= Q_INDEPENDENCE_TOLERANCE
+        ),
+        "interpretation": (
+            "two distinct U_2 parameter points have the same recorded sampled outputs within tolerance; this is a "
+            "nontrivial sampled-output fiber, not a computed tangent or Jacobian null direction, and it blocks "
+            "globalizing the pinned N=2 rank from the present evidence"
+        ),
+    }
+
+
+# --------------------------------------------------------------------------
+# G5: exact non-density obstruction for the current theta-only Route C family
+# --------------------------------------------------------------------------
+def route_c_theta_only_t4_density_obstruction(route_c: Any) -> dict[str, Any]:
+    if _sha256(TARGET_CLASS_PATH) != TARGET_CLASS_SHA256:
+        raise GaugeKernelGateError("v5.6.6.8 target-class source drift")
+    target_source = TARGET_CLASS_PATH.read_text(encoding="utf-8")
+    target_scope_ok = all(
+        token in target_source
+        for token in (
+            "in H^s(T^4)",
+            "Fourier truncations P_N X converge to X in the class norm",
+            "j < K, K up to 8",
+        )
+    )
+
+    route_c_tree = ast.parse(ROUTE_C_PATH.read_text(encoding="utf-8"))
+    basis_function = next(
+        node for node in route_c_tree.body
+        if isinstance(node, ast.FunctionDef) and node.name == "_basis_values"
+    )
+    arbitrary_n_rejection_guard = any(
+        isinstance(node, ast.If)
+        and isinstance(node.test, ast.Compare)
+        and isinstance(node.test.left, ast.Name)
+        and node.test.left.id == "N"
+        and len(node.test.ops) == 1
+        and isinstance(node.test.ops[0], ast.NotIn)
+        and len(node.test.comparators) == 1
+        and isinstance(node.test.comparators[0], (ast.Tuple, ast.List))
+        and [item.value for item in node.test.comparators[0].elts if isinstance(item, ast.Constant)] == [1, 2, 3]
+        for node in ast.walk(basis_function)
+    )
+
+    supported_N = []
+    rejected_N = []
+    for N in range(1, 7):
+        try:
+            route_c._basis_values(N, 0.271)
+        except route_c.RouteCMultiNError:
+            rejected_N.append(N)
+        else:
+            supported_N.append(N)
+
+    tangential = np.asarray([2.75])
+    radial = np.asarray([-1.25])
+    expanded_first = route_c._expand_first(tangential, radial).reshape(5)
+    theta_only_derivative_pattern = bool(
+        expanded_first[0] == tangential[0]
+        and expanded_first[1] == tangential[0]
+        and expanded_first[2] == 0.0
+        and expanded_first[3] == 0.0
+        and expanded_first[4] == radial[0]
+    )
+
+    x2 = sp.symbols("x2", real=True)
+    mean = sp.integrate(sp.cos(x2), (x2, 0, 2 * sp.pi)) / (2 * sp.pi)
+    unit_norm_squared = sp.integrate(sp.cos(x2) ** 2, (x2, 0, 2 * sp.pi)) / (2 * sp.pi)
+    epsilon = sp.Rational(1, 4)
+    witness_norm_squared = sp.simplify(epsilon**2 * unit_norm_squared)
+    omega_minimum = math.exp(-float(epsilon))
+    exact_orthogonal_witness = bool(
+        mean == 0
+        and unit_norm_squared == sp.Rational(1, 2)
+        and witness_norm_squared == sp.Rational(1, 32)
+        and omega_minimum > 0.5
+    )
+    current_route_refuted = bool(
+        target_scope_ok
+        and arbitrary_n_rejection_guard
+        and supported_N == [1, 2, 3]
+        and rejected_N == [4, 5, 6]
+        and theta_only_derivative_pattern
+        and exact_orthogonal_witness
+    )
+    return {
+        "target_class_source": TARGET_CLASS_PATH.name,
+        "target_class_source_sha256": TARGET_CLASS_SHA256,
+        "target_scope_static_audit_pass": target_scope_ok,
+        "route_c_basis_arbitrary_N_rejection_guard_ast_pass": arbitrary_n_rejection_guard,
+        "route_c_supported_N_probe": supported_N,
+        "route_c_rejected_N_probe": rejected_N,
+        "route_c_tangential_coordinate": "theta = x0 + x1",
+        "route_c_first_derivative_pattern_x0_x1_x2_x3_rho": [float(v) for v in expanded_first],
+        "theta_only_derivative_pattern_pass": theta_only_derivative_pattern,
+        "orthogonal_target_witness": "(1/4)*cos(x2) in common.log_Omega with all other background data fixed inside the open margins",
+        "witness_epsilon": str(epsilon),
+        "witness_Omega_lower_bound": omega_minimum,
+        "declared_Omega_margin": 0.5,
+        "witness_preserves_declared_Omega_margin": bool(omega_minimum > 0.5),
+        "normalized_inner_product_factorization": "<cos(x2),g(x0+x1)> = mean_x2(cos(x2))*mean_x0_x1(g) = 0 for every integrable g; x3 factors as 1",
+        "normalized_inner_product_with_every_g_x0_plus_x1": str(mean),
+        "normalized_unit_amplitude_cos_x2_L2_norm_squared": str(unit_norm_squared),
+        "normalized_witness_L2_norm_squared": str(witness_norm_squared),
+        "normalized_squared_distance_lower_bound_to_theta_only_family": str(witness_norm_squared),
+        "exact_orthogonality_pass": exact_orthogonal_witness,
+        "pass": current_route_refuted,
+        "scope": (
+            "refutes density and the uniform-N bridge strategy of the byte-pinned theta-only Route C implementation; "
+            "does not refute a future arbitrary-N full-T4 implementation or the continuum theorem itself"
+        ),
+    }
+
+
+# --------------------------------------------------------------------------
+# G4: sampled interface-density invariance under Q-frame changes
 # --------------------------------------------------------------------------
 def interface_q_independence(route_c: Any, route_b: Any, parameters: Mapping[str, float], rng: np.random.Generator) -> dict[str, Any]:
     reference4 = np.diag((-1.64, 1.17, 1.31, 1.46))
@@ -647,54 +819,75 @@ def build_payload() -> dict[str, Any]:
     parameters = bundle["action_contract"]["coefficient_parameters"]
     rng = np.random.default_rng(SEED)
     g0 = constraint_composed_with_free_embedding(decoder, route_c, bundle, rng)
-    g1 = symbolic_q_frame_kernel(rng)
-    g2 = numeric_q_frame_kernel(decoder, route_c, bundle, rng)
-    g3 = jacobian_kernel(decoder, route_c, bundle, rng)
+    g1 = symbolic_q_frame_lateral_trace_cancellation(rng)
+    g2 = numeric_q_frame_lateral_trace_invariance(decoder, route_c, bundle, rng)
+    g3 = sampled_trace_output_jacobian_nullspace(decoder, route_c, bundle, rng)
+    output_fiber_canary = constant_only_n2_nontrivial_sampled_output_fiber_canary(
+        decoder, route_c, bundle
+    )
     g4 = interface_q_independence(route_c, route_b, parameters, rng)
+    g5 = route_c_theta_only_t4_density_obstruction(route_c)
     v5669_sha = _sha256(V5669_PATH) if V5669_PATH.exists() else None
     scientific = {
         "statement": (
-            "Finite family in free data only: F_N = Phi(U_N) with Phi the byte-pinned common-first decoder followed "
-            "by the C2 radial profiles; every route differentiates S_rel o Phi along free-data curves, so the bridge "
-            "identity is evaluated at (Phi(u), DPhi[u] du) and needs neither a finite gluing map nor a quotient. The "
-            "9N rotation coordinates of the v5.6.4 contract are treated explicitly: the 3N Q_frame coordinates are an "
-            "exact kernel of Phi (symbolic and numeric), the 6N r_E0 coordinates are physical for N >= 2, and the "
-            "complete kernel of DPhi on the trace coordinates at the pinned members is spanned by three kinds of explicit "
-            "generators, kept apart on purpose: (i) the 3N Q_frame directions, an exact SO(3) kernel proven symbolically; "
-            "(ii) three decoder zero-modes that are not SO(3) at all (the constant modes of T, Y_plus, Y_minus, which enter "
-            "only through derivatives); (iii) at N = 1 only, the constant common-frame rotation about varphi_E0. The rank "
-            "statement is sampled at the three pinned members; there is no constant-rank theorem and gap 5 stays open "
-            "globally (N -> infinity, continuum common-frame redundancy). Phi, hence S_rel o Phi and every sector density, "
-            "is constant along these directions."
+            "Let Phi_N be the full common-first decoder and Psi_N be its projection to the sampled lateral traces and "
+            "interface consumables used in G3. Q_frame cancels algebraically from the lateral phi/A formulas, but it "
+            "moves the common-frame arrays, so it is not a kernel direction of the full decoder unless a physical "
+            "quotient target is separately defined. The SVD result is the numerical nullspace of D Psi_N evaluated at "
+            "eight random T4 points at each of the three pinned members. Its dimensions 7/9/12 and listed spans hold "
+            "within the fixed threshold only; they are not a theorem for ker D Phi_N or constant rank. r_E0 is non-null "
+            "only at the pinned N=2,3 samples. G4 samples six interface densities only; no constancy of every sector "
+            "density, nor along all listed generators, is established. A constant-only U_2 canary finds two distinct "
+            "parameter points with the same sampled outputs within tolerance; it is not a tangent calculation. Gap 5 "
+            "remains open globally. Independently, the exact cos(x2) orthogonality witness proves that the current "
+            "theta=x0+x1, N in {1,2,3} Route C family is not dense in the declared H^s(T4) class, so its present "
+            "uniform-N bridge strategy is refuted. This does not rule out a new arbitrary-N full-T4 implementation."
         ),
         "gap_5_restated": {
             "before": "state the finite family in free data only (so Phi(V_N) need not lie in V_N) and treat the 9N gauge orbit explicitly, or prove the quotient is harmless for the identity",
-            "after": "F_N := Phi(U_N); kernel of DPhi listed with generators at the pinned members (sampled, no constant-rank theorem); no quotient enters the identity; the v5.6.4 'DG_N on V_N' and 'uniform_stability' obligations are retired by the change of formulation, not discharged (keys stay False); gap 5 stays open globally",
+            "after": "F_N := Phi_N(U_N) avoids the finite collocation inverse for the fixed-member computations; Q_frame is invariant only after projection to the recorded lateral traces, and the reported nullspace belongs to a finite sampled D Psi_N. No physical quotient or representative-independence theorem is supplied; gap 5 remains open.",
         },
         "G0_constraint_composed_with_free_embedding": g0,
-        "G1_symbolic_Q_frame_kernel": g1,
-        "G2_numeric_Q_frame_kernel_and_decoder_agreement": g2,
-        "G3_jacobian_kernel_on_trace_coordinates": g3,
-        "G4_interface_densities_independent_of_Q_frame": g4,
-        "linear_blocks_not_in_the_jacobian": {
+        "G1_symbolic_Q_frame_lateral_trace_cancellation": g1,
+        "G2_numeric_Q_frame_lateral_trace_invariance_and_decoder_agreement": g2,
+        "G3_sampled_trace_output_jacobian_nullspace": g3,
+        "constant_only_N2_nontrivial_sampled_output_fiber_canary": output_fiber_canary,
+        "G4_six_interface_densities_Q_frame_invariance_sampled": g4,
+        "G5_current_route_c_theta_only_T4_density_obstruction": g5,
+        "linear_blocks_omitted_from_the_sampled_jacobian": {
             "blocks": list(LINEAR_INDEPENDENT_PROFILE_BLOCKS),
-            "reason": "they enter the bulk fields linearly through h1(rho) and the Legendre bumps b_j(rho), which are linearly independent radial profiles, so they add no kernel and no coupling to the trace coordinates",
+            "reason": "omitted by construction; this receipt draws no conclusion about their contribution to the complete D Phi_N kernel",
         },
         "what_is_not_established": [
-            "anything about N -> infinity, density of the union of F_N, or the common-frame redundancy of the continuum decoder inside U_N for N >= 2 (shown numerically to be absent, not proven)",
+            "Q_frame as a kernel of full Phi_N, a physical quotient target, or representative-independence of S_rel",
+            "the complete kernel of D Phi_N, constant rank, or the pinned N=2,3 r_E0 observation away from those members",
+            "all-density or full-action invariance under Q_frame or any other listed sampled-nullspace generator",
+            "anything about N -> infinity or density of the union of F_N",
+            "a replacement arbitrary-N full-T4 Route C family, including radial K(N), and convergence of its complete decoder",
             "B_FD (Codex lane, v5.6.6.12) and quadrature",
-            "the kernel at points other than the three pinned members (constant rank is not proven)",
             "any bridge, C1/N1, B4/B5 or promotion key",
         ],
     }
     decision = {
-        "pointwise_constraint_G_composed_with_free_embedding_zero_sampled_pass": bool(g0["value_pass"]),
-        "pointwise_DG_composed_with_DI_zero_sampled_pass": bool(g0["derivative_pass"]),
-        "Q_frame_coordinates_are_exact_kernel_of_the_decoder_symbolic_pass": bool(g1["pass"]),
-        "Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_at_pinned_members_pass": bool(g2["kernel_pass"]),
-        "route_c_trace_decoder_matches_pinned_decoder_sampled_pass": bool(g2["agreement_pass"]),
-        "free_data_family_trace_jacobian_kernel_rank_and_generators_sampled_at_pinned_members_pass": bool(g3["pass"]),
-        "interface_densities_independent_of_Q_frame_sampled_pass": bool(g4["pass"]),
+        "pointwise_gluing_defects_of_free_embedding_sampled_within_tolerance_pass": bool(g0["value_pass"]),
+        "directional_FD_of_gluing_defects_composed_with_free_embedding_sampled_within_tolerance_pass": bool(g0["derivative_pass"]),
+        "Q_frame_cancels_exactly_from_lateral_phi_and_A_trace_formulas_symbolic_pass": bool(g1["pass"]),
+        "Q_frame_lateral_trace_invariance_numeric_at_pinned_members_within_tolerance_pass": bool(g2["lateral_invariance_with_nonvacuous_common_motion_pass"]),
+        "route_c_and_pinned_lateral_trace_decoders_agree_sampled_within_tolerance_pass": bool(g2["agreement_pass"]),
+        "sampled_trace_output_jacobian_nullspace_matches_listed_generators_at_pinned_members_pass": bool(g3["pass"]),
+        "constant_only_N2_nontrivial_sampled_output_fiber_canary_pass": bool(
+            output_fiber_canary["pass"]
+        ),
+        "six_interface_density_Q_frame_invariance_sampled_within_tolerance_pass": bool(g4["pass"]),
+        "current_route_c_uniform_N_to_infinity_strategy_refuted_by_cos_x2_pass": bool(g5["pass"]),
+        "Q_frame_kernel_of_full_free_embedding_Phi_N_pass": False,
+        "complete_DPhi_N_kernel_and_constant_rank_theorem_pass": False,
+        "pinned_member_sampled_nullspace_dimension_globalizes_over_U_N_pass": False,
+        "r_E0_directions_globally_nonnull_for_all_U_N_with_N_ge_2_pass": False,
+        "physical_gauge_quotient_and_representative_independence_pass": False,
+        "all_sector_densities_and_action_invariant_under_listed_generators_pass": False,
+        "gap_5_closed_pass": False,
+        "current_route_c_supports_arbitrary_N_full_T4_spectral_projection_pass": False,
         "uniform_N_to_infinity_bridge_pass": False,
         "uniform_stability_pass": False,
         "spectral_N_convergence_pass": False,
@@ -709,7 +902,7 @@ def build_payload() -> dict[str, Any]:
     }
     payload = {
         "schema": SCHEMA,
-        "classification": "theory_only;free_data_formulation;explicit_gauge_kernel;pinned_members_N123;restricted_spectral_family;fail_closed_bridge",
+        "classification": "theory_only;free_data_formulation;sampled_trace_jacobian_kernel_decomposition;pinned_members_N123;current_theta_only_uniform_strategy_refuted;fail_closed_bridge",
         "source_pins": {
             "frozen_checkpoint_commit": FROZEN_COMMIT,
             "literal_v5_2_action_sha256": LITERAL_V5_2_ACTION_SHA256,
@@ -718,6 +911,7 @@ def build_payload() -> dict[str, Any]:
             "route_c_v5_6_6_3_derive_sha256": ROUTE_C_SHA256,
             "route_b_v5_6_5_certificate_derive_sha256": ROUTE_B_SHA256,
             "v5_6_6_9_receipt_sha256": v5669_sha,
+            "v5_6_6_8_target_class_derive_sha256": TARGET_CLASS_SHA256,
         },
         "fixed_before_run": {
             "seed": SEED,
@@ -738,18 +932,24 @@ def build_payload() -> dict[str, Any]:
         "scientific": scientific,
         "decision": decision,
         "evidence_boundary": (
-            "Exact symbolic kernel of the Q frame; numeric kernel and decoder agreement at the three pinned members; "
-            "Richardson-FD Jacobian kernel with explicit generators at those members. Not a constant-rank theorem, "
-            "not a statement about N -> infinity, B_FD, quadrature, or any bridge/C1/N1 key."
+            "Exact symbolic Q-frame cancellation from the lateral phi/A formulas; lateral-trace invariance and decoder "
+            "agreement sampled at the three pinned members; and a Richardson-FD nullspace decomposition for a finite "
+            "sampled trace/interface-output Jacobian at those members. The full decoder's common-frame arrays move. "
+            "The exact cos(x2) witness refutes density of the byte-pinned theta-only Route C family in the declared T4 "
+            "class and therefore its current uniform-N strategy; it does not refute a replacement full-T4 family or the "
+            "continuum theorem. Not a full-Phi kernel, constant-rank, quotient, representative-independence, all-density, "
+            "B_FD, quadrature, bridge, C1/N1, B4, or B5 theorem."
         ),
         "independence_boundary": {
             "dynamic_imports": {"decoder": DECODER_PATH.name, "route_c": ROUTE_C_PATH.name, "route_b": ROUTE_B_PATH.name},
-            "scipy_used_only_for": "expm/logm of the finite common-frame orbit at N = 1 (local import) and inside the pinned decoder",
+            "scipy_used_only_for": "expm/logm of the finite common-frame orbit candidates at N=1 and in the constant-only N=2 canary (local imports), plus use inside the pinned decoder",
             "no_route_c_pipeline_run": True,
         },
         "open_obligation": [
             "B_FD bound (Codex, v5.6.6.12)",
-            "N -> infinity for arbitrary class members (density of the union of F_N modulo the continuum common-frame redundancy)",
+            "define and prove any physical quotient target plus representative-independence of the action",
+            "complete D Phi_N kernel/constant-rank analysis rather than a finite sampled D Psi_N nullspace",
+            "replace the refuted theta-only N={1,2,3} family by an arbitrary-N full-T4 projection with radial K(N), then prove complete-decoder convergence",
             "independent audit before uniform_N_to_infinity_bridge_pass",
             "v5.6.1 quarantine obligations for C1/N1",
         ],
@@ -771,11 +971,13 @@ def main() -> None:
     OUTPUT.write_text(json.dumps(payload, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in payload["decision"].items() if v}, indent=2))
     s = payload["scientific"]
-    g2, g3, g4 = s["G2_numeric_Q_frame_kernel_and_decoder_agreement"], s["G3_jacobian_kernel_on_trace_coordinates"], s["G4_interface_densities_independent_of_Q_frame"]
+    g2 = s["G2_numeric_Q_frame_lateral_trace_invariance_and_decoder_agreement"]
+    g3 = s["G3_sampled_trace_output_jacobian_nullspace"]
+    g4 = s["G4_six_interface_densities_Q_frame_invariance_sampled"]
     print(f"G0 defect {s['G0_constraint_composed_with_free_embedding']['worst_defect']:.2e}, derivative {s['G0_constraint_composed_with_free_embedding']['worst_defect_derivative']:.2e}")
     print(f"G2 worst lateral change {g2['worst_lateral_change']:.2e}, common motion >= {g2['smallest_common_frame_motion']:.2e}, route C vs pinned {g2['worst_route_c_vs_pinned_agreement']:.2e}")
     for mid, row in g3["members"].items():
-        print(f"G3 {mid}: kernel {row['kernel_dimension']} (generators {row['generator_rank']}), gap {row['gap_ratio']:.2e}, sigma_max {row['singular_max']:.3g}, pass {row['pass']}")
+        print(f"G3 {mid}: sampled nullspace {row['kernel_dimension']} (generators {row['generator_rank']}), gap {row['gap_ratio']:.2e}, sigma_max {row['singular_max']:.3g}, pass {row['pass']}")
     print(f"G4 route C {g4['route_c_max_relative_change_under_q']:.2e}, route B {g4['route_b_max_relative_change_under_q']:.2e}")
     print(f"wrote {OUTPUT.name}")
 

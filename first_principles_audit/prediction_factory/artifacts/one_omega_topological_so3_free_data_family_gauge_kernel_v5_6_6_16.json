@@ -1,26 +1,36 @@
 {
-  "classification": "theory_only;free_data_formulation;explicit_gauge_kernel;pinned_members_N123;restricted_spectral_family;fail_closed_bridge",
+  "classification": "theory_only;free_data_formulation;sampled_trace_jacobian_kernel_decomposition;pinned_members_N123;current_theta_only_uniform_strategy_refuted;fail_closed_bridge",
   "decision": {
     "B4_pass": false,
     "B5_pass": false,
     "C1_ACTION_pass": false,
     "C1_N1_promotion_authorized": false,
     "N1_ACTION_pass": false,
-    "Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_at_pinned_members_pass": true,
-    "Q_frame_coordinates_are_exact_kernel_of_the_decoder_symbolic_pass": true,
+    "Q_frame_cancels_exactly_from_lateral_phi_and_A_trace_formulas_symbolic_pass": true,
+    "Q_frame_kernel_of_full_free_embedding_Phi_N_pass": false,
+    "Q_frame_lateral_trace_invariance_numeric_at_pinned_members_within_tolerance_pass": true,
+    "all_sector_densities_and_action_invariant_under_listed_generators_pass": false,
+    "complete_DPhi_N_kernel_and_constant_rank_theorem_pass": false,
+    "constant_only_N2_nontrivial_sampled_output_fiber_canary_pass": true,
+    "current_route_c_supports_arbitrary_N_full_T4_spectral_projection_pass": false,
+    "current_route_c_uniform_N_to_infinity_strategy_refuted_by_cos_x2_pass": true,
     "density_union_C_N_pass": false,
-    "free_data_family_trace_jacobian_kernel_rank_and_generators_sampled_at_pinned_members_pass": true,
-    "interface_densities_independent_of_Q_frame_sampled_pass": true,
+    "directional_FD_of_gluing_defects_composed_with_free_embedding_sampled_within_tolerance_pass": true,
+    "gap_5_closed_pass": false,
     "periodic_box_exhaustion_and_tail_control_pass": false,
-    "pointwise_DG_composed_with_DI_zero_sampled_pass": true,
-    "pointwise_constraint_G_composed_with_free_embedding_zero_sampled_pass": true,
+    "physical_gauge_quotient_and_representative_independence_pass": false,
+    "pinned_member_sampled_nullspace_dimension_globalizes_over_U_N_pass": false,
+    "pointwise_gluing_defects_of_free_embedding_sampled_within_tolerance_pass": true,
+    "r_E0_directions_globally_nonnull_for_all_U_N_with_N_ge_2_pass": false,
     "restricted_family_exact_action_identity_pass": false,
-    "route_c_trace_decoder_matches_pinned_decoder_sampled_pass": true,
+    "route_c_and_pinned_lateral_trace_decoders_agree_sampled_within_tolerance_pass": true,
+    "sampled_trace_output_jacobian_nullspace_matches_listed_generators_at_pinned_members_pass": true,
+    "six_interface_density_Q_frame_invariance_sampled_within_tolerance_pass": true,
     "spectral_N_convergence_pass": false,
     "uniform_N_to_infinity_bridge_pass": false,
     "uniform_stability_pass": false
   },
-  "evidence_boundary": "Exact symbolic kernel of the Q frame; numeric kernel and decoder agreement at the three pinned members; Richardson-FD Jacobian kernel with explicit generators at those members. Not a constant-rank theorem, not a statement about N -> infinity, B_FD, quadrature, or any bridge/C1/N1 key.",
+  "evidence_boundary": "Exact symbolic Q-frame cancellation from the lateral phi/A formulas; lateral-trace invariance and decoder agreement sampled at the three pinned members; and a Richardson-FD nullspace decomposition for a finite sampled trace/interface-output Jacobian at those members. The full decoder's common-frame arrays move. The exact cos(x2) witness refutes density of the byte-pinned theta-only Route C family in the declared T4 class and therefore its current uniform-N strategy; it does not refute a replacement full-T4 family or the continuum theorem. Not a full-Phi kernel, constant-rank, quotient, representative-independence, all-density, B_FD, quadrature, bridge, C1/N1, B4, or B5 theorem.",
   "fixed_before_run": {
     "constraint_derivative_tolerance": 1e-08,
     "constraint_tolerance": 1e-11,
@@ -57,11 +67,13 @@
       "route_c": "derive_one_omega_topological_so3_multin_independent_euler_green_route_c_v5_6_6_3.py"
     },
     "no_route_c_pipeline_run": true,
-    "scipy_used_only_for": "expm/logm of the finite common-frame orbit at N = 1 (local import) and inside the pinned decoder"
+    "scipy_used_only_for": "expm/logm of the finite common-frame orbit candidates at N=1 and in the constant-only N=2 canary (local imports), plus use inside the pinned decoder"
   },
   "open_obligation": [
     "B_FD bound (Codex, v5.6.6.12)",
-    "N -> infinity for arbitrary class members (density of the union of F_N modulo the continuum common-frame redundancy)",
+    "define and prove any physical quotient target plus representative-independence of the action",
+    "complete D Phi_N kernel/constant-rank analysis rather than a finite sampled D Psi_N nullspace",
+    "replace the refuted theta-only N={1,2,3} family by an arbitrary-N full-T4 projection with radial K(N), then prove complete-decoder convergence",
     "independent audit before uniform_N_to_infinity_bridge_pass",
     "v5.6.1 quarantine obligations for C1/N1"
   ],
@@ -73,7 +85,7 @@
     "sympy": "1.13.3",
     "test": "test_one_omega_topological_so3_free_data_family_gauge_kernel_v5_6_6_16.py"
   },
-  "schema": "holo.one-omega-topological-so3-free-data-family-gauge-kernel-v5-6-6-16.v1",
+  "schema": "holo.one-omega-topological-so3-free-data-family-gauge-kernel-v5-6-6-16.v2",
   "scientific": {
     "G0_constraint_composed_with_free_embedding": {
       "derivative_pass": true,
@@ -99,7 +111,7 @@
       "worst_defect": 4.440892098500626e-16,
       "worst_defect_derivative": 1.1842378929335004e-11
     },
-    "G1_symbolic_Q_frame_kernel": {
+    "G1_symbolic_Q_frame_lateral_trace_cancellation": {
       "instances": [
         {
           "A_source_equals_R0T_hatA_R0_plus_R0T_dR0": true,
@@ -151,9 +163,9 @@
       "method": "exact rational Cayley rotation families S(theta), R0(theta) (linear rotation vectors), symbolic A_E0(theta), varphi_E0(theta); the decoder composition R = S R0, dR = dS R0 + S dR0, A_common = S hat(A_E0) S^T - dS S^T, phi_source = R^T S varphi_E0, A_source = R^T A_common R + R^T dR is simplified against R0^T varphi_E0 and R0^T hat(A_E0) R0 + R0^T dR0; the identity holds for every orthogonal S, R0 since only S^T S = I is used",
       "pass": true
     },
-    "G2_numeric_Q_frame_kernel_and_decoder_agreement": {
+    "G2_numeric_Q_frame_lateral_trace_invariance_and_decoder_agreement": {
       "agreement_pass": true,
-      "kernel_pass": true,
+      "lateral_invariance_with_nonvacuous_common_motion_pass": true,
       "members": {
         "N1.K1.seed20260902": {
           "N": 1,
@@ -184,24 +196,24 @@
       "worst_lateral_change": 5.620504062164855e-16,
       "worst_route_c_vs_pinned_agreement": 1.0397932515004982e-14
     },
-    "G3_jacobian_kernel_on_trace_coordinates": {
+    "G3_sampled_trace_output_jacobian_nullspace": {
       "members": {
         "N1.K1.seed20260902": {
           "N": 1,
           "explicit_generators": [
-            "[SO(3) exact kernel] Q_frame.q[0]",
-            "[SO(3) exact kernel] Q_frame.q[1]",
-            "[SO(3) exact kernel] Q_frame.q[2]",
+            "[exact lateral-trace null direction] Q_frame.q[0]",
+            "[exact lateral-trace null direction] Q_frame.q[1]",
+            "[exact lateral-trace null direction] Q_frame.q[2]",
             "[decoder zero-mode, not SO(3)] common.T constant mode",
             "[decoder zero-mode, not SO(3)] plus.Y constant mode",
             "[decoder zero-mode, not SO(3)] minus.Y constant mode",
-            "[N=1 only stabiliser] constant common-frame rotation about varphi_E0 (stabiliser of the interface scalar)"
+            "[pinned N=1 member stabiliser] constant common-frame rotation about varphi_E0 (stabiliser of the interface scalar)"
           ],
           "gap_ratio": 187310189189.86902,
           "generator_categories": {
-            "N1_only_stabiliser": 1,
-            "SO3_exact_kernel_Q_frame": 3,
-            "decoder_zero_modes_not_SO3": 3
+            "decoder_zero_modes_not_SO3": 3,
+            "exact_lateral_trace_null_directions_Q_frame": 3,
+            "pinned_N1_member_stabiliser": 1
           },
           "generator_rank": 7,
           "generators_inside_kernel_residual": 6.476097436092232e-11,
@@ -222,21 +234,21 @@
         "N2.K2.seed20260902": {
           "N": 2,
           "explicit_generators": [
-            "[SO(3) exact kernel] Q_frame.q[0]",
-            "[SO(3) exact kernel] Q_frame.q[1]",
-            "[SO(3) exact kernel] Q_frame.q[2]",
-            "[SO(3) exact kernel] Q_frame.q[3]",
-            "[SO(3) exact kernel] Q_frame.q[4]",
-            "[SO(3) exact kernel] Q_frame.q[5]",
+            "[exact lateral-trace null direction] Q_frame.q[0]",
+            "[exact lateral-trace null direction] Q_frame.q[1]",
+            "[exact lateral-trace null direction] Q_frame.q[2]",
+            "[exact lateral-trace null direction] Q_frame.q[3]",
+            "[exact lateral-trace null direction] Q_frame.q[4]",
+            "[exact lateral-trace null direction] Q_frame.q[5]",
             "[decoder zero-mode, not SO(3)] common.T constant mode",
             "[decoder zero-mode, not SO(3)] plus.Y constant mode",
             "[decoder zero-mode, not SO(3)] minus.Y constant mode"
           ],
           "gap_ratio": 263420789.40293634,
           "generator_categories": {
-            "N1_only_stabiliser": 0,
-            "SO3_exact_kernel_Q_frame": 6,
-            "decoder_zero_modes_not_SO3": 3
+            "decoder_zero_modes_not_SO3": 3,
+            "exact_lateral_trace_null_directions_Q_frame": 6,
+            "pinned_N1_member_stabiliser": 0
           },
           "generator_rank": 9,
           "generators_inside_kernel_residual": 1.843075047652418e-10,
@@ -257,24 +269,24 @@
         "N3.K3.seed20260902": {
           "N": 3,
           "explicit_generators": [
-            "[SO(3) exact kernel] Q_frame.q[0]",
-            "[SO(3) exact kernel] Q_frame.q[1]",
-            "[SO(3) exact kernel] Q_frame.q[2]",
-            "[SO(3) exact kernel] Q_frame.q[3]",
-            "[SO(3) exact kernel] Q_frame.q[4]",
-            "[SO(3) exact kernel] Q_frame.q[5]",
-            "[SO(3) exact kernel] Q_frame.q[6]",
-            "[SO(3) exact kernel] Q_frame.q[7]",
-            "[SO(3) exact kernel] Q_frame.q[8]",
+            "[exact lateral-trace null direction] Q_frame.q[0]",
+            "[exact lateral-trace null direction] Q_frame.q[1]",
+            "[exact lateral-trace null direction] Q_frame.q[2]",
+            "[exact lateral-trace null direction] Q_frame.q[3]",
+            "[exact lateral-trace null direction] Q_frame.q[4]",
+            "[exact lateral-trace null direction] Q_frame.q[5]",
+            "[exact lateral-trace null direction] Q_frame.q[6]",
+            "[exact lateral-trace null direction] Q_frame.q[7]",
+            "[exact lateral-trace null direction] Q_frame.q[8]",
             "[decoder zero-mode, not SO(3)] common.T constant mode",
             "[decoder zero-mode, not SO(3)] plus.Y constant mode",
             "[decoder zero-mode, not SO(3)] minus.Y constant mode"
           ],
           "gap_ratio": 7151668.602061795,
           "generator_categories": {
-            "N1_only_stabiliser": 0,
-            "SO3_exact_kernel_Q_frame": 9,
-            "decoder_zero_modes_not_SO3": 3
+            "decoder_zero_modes_not_SO3": 3,
+            "exact_lateral_trace_null_directions_Q_frame": 9,
+            "pinned_N1_member_stabiliser": 0
           },
           "generator_rank": 12,
           "generators_inside_kernel_residual": 8.817349856901003e-09,
@@ -293,35 +305,86 @@
           "trace_coordinates": 342
         }
       },
-      "method": "Richardson central-difference Jacobian (steps h, h/2) of the lateral traces (g, log Omega, phi, A, B, Y') at random T^4 points plus the interface consumables (gamma, T', T'', log Omega, varphi_E0) with respect to every trace coordinate (all blocks except the linear independent-profile blocks J1 and C); SVD; kernel = singular values below KERNEL_RELATIVE_THRESHOLD * sigma_max; compared with the explicit generators by two-sided projection residuals and by J G directly",
+      "method": "Richardson central-difference Jacobian (steps h, h/2) of the lateral traces (g, log Omega, phi, A, B, Y') at random T^4 points plus the interface consumables (gamma, T', T'', log Omega, varphi_E0) with respect to the selected trace-coordinate columns (the independent-profile blocks J1 and C are omitted); SVD; nullspace = singular values below KERNEL_RELATIVE_THRESHOLD * sigma_max; compared with the explicit generators by two-sided projection residuals and by J G directly",
       "pass": true
     },
-    "G4_interface_densities_independent_of_Q_frame": {
+    "G4_six_interface_densities_Q_frame_invariance_sampled": {
       "pass": true,
       "q_norm_max": 1.9600719295598235,
       "route_b_max_relative_change_under_q": 1.1102230246251565e-16,
       "route_c_max_relative_change_under_q": 1.1102230246251565e-16
     },
+    "G5_current_route_c_theta_only_T4_density_obstruction": {
+      "declared_Omega_margin": 0.5,
+      "exact_orthogonality_pass": true,
+      "normalized_inner_product_factorization": "<cos(x2),g(x0+x1)> = mean_x2(cos(x2))*mean_x0_x1(g) = 0 for every integrable g; x3 factors as 1",
+      "normalized_inner_product_with_every_g_x0_plus_x1": "0",
+      "normalized_squared_distance_lower_bound_to_theta_only_family": "1/32",
+      "normalized_unit_amplitude_cos_x2_L2_norm_squared": "1/2",
+      "normalized_witness_L2_norm_squared": "1/32",
+      "orthogonal_target_witness": "(1/4)*cos(x2) in common.log_Omega with all other background data fixed inside the open margins",
+      "pass": true,
+      "route_c_basis_arbitrary_N_rejection_guard_ast_pass": true,
+      "route_c_first_derivative_pattern_x0_x1_x2_x3_rho": [
+        2.75,
+        2.75,
+        0.0,
+        0.0,
+        -1.25
+      ],
+      "route_c_rejected_N_probe": [
+        4,
+        5,
+        6
+      ],
+      "route_c_supported_N_probe": [
+        1,
+        2,
+        3
+      ],
+      "route_c_tangential_coordinate": "theta = x0 + x1",
+      "scope": "refutes density and the uniform-N bridge strategy of the byte-pinned theta-only Route C implementation; does not refute a future arbitrary-N full-T4 implementation or the continuum theorem itself",
+      "target_class_source": "derive_one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.py",
+      "target_class_source_sha256": "a8b26f130189dacfef14faf9cb9e1d1f19208cb645e267f198fc2f21ede428e4",
+      "target_scope_static_audit_pass": true,
+      "theta_only_derivative_pattern_pass": true,
+      "witness_Omega_lower_bound": 0.7788007830714049,
+      "witness_epsilon": "1/4",
+      "witness_preserves_declared_Omega_margin": true
+    },
+    "constant_only_N2_nontrivial_sampled_output_fiber_canary": {
+      "N": 2,
+      "construction": "zero every nonconstant Fourier coefficient, then apply a finite common-frame rotation about the constant varphi_E0 axis",
+      "free_parameter_max_abs_motion": 0.10277066600559764,
+      "interpretation": "two distinct U_2 parameter points have the same recorded sampled outputs within tolerance; this is a nontrivial sampled-output fiber, not a computed tangent or Jacobian null direction, and it blocks globalizing the pinned N=2 rank from the present evidence",
+      "pass": true,
+      "sampled_T4_point_count": 4,
+      "sampled_trace_interface_output_max_abs_change": 1.6653345369377348e-16,
+      "tolerance": 1e-12
+    },
     "gap_5_restated": {
-      "after": "F_N := Phi(U_N); kernel of DPhi listed with generators at the pinned members (sampled, no constant-rank theorem); no quotient enters the identity; the v5.6.4 'DG_N on V_N' and 'uniform_stability' obligations are retired by the change of formulation, not discharged (keys stay False); gap 5 stays open globally",
+      "after": "F_N := Phi_N(U_N) avoids the finite collocation inverse for the fixed-member computations; Q_frame is invariant only after projection to the recorded lateral traces, and the reported nullspace belongs to a finite sampled D Psi_N. No physical quotient or representative-independence theorem is supplied; gap 5 remains open.",
       "before": "state the finite family in free data only (so Phi(V_N) need not lie in V_N) and treat the 9N gauge orbit explicitly, or prove the quotient is harmless for the identity"
     },
-    "linear_blocks_not_in_the_jacobian": {
+    "linear_blocks_omitted_from_the_sampled_jacobian": {
       "blocks": [
         "boundary_jet_J1",
         "interior_bump_C"
       ],
-      "reason": "they enter the bulk fields linearly through h1(rho) and the Legendre bumps b_j(rho), which are linearly independent radial profiles, so they add no kernel and no coupling to the trace coordinates"
+      "reason": "omitted by construction; this receipt draws no conclusion about their contribution to the complete D Phi_N kernel"
     },
-    "statement": "Finite family in free data only: F_N = Phi(U_N) with Phi the byte-pinned common-first decoder followed by the C2 radial profiles; every route differentiates S_rel o Phi along free-data curves, so the bridge identity is evaluated at (Phi(u), DPhi[u] du) and needs neither a finite gluing map nor a quotient. The 9N rotation coordinates of the v5.6.4 contract are treated explicitly: the 3N Q_frame coordinates are an exact kernel of Phi (symbolic and numeric), the 6N r_E0 coordinates are physical for N >= 2, and the complete kernel of DPhi on the trace coordinates at the pinned members is spanned by three kinds of explicit generators, kept apart on purpose: (i) the 3N Q_frame directions, an exact SO(3) kernel proven symbolically; (ii) three decoder zero-modes that are not SO(3) at all (the constant modes of T, Y_plus, Y_minus, which enter only through derivatives); (iii) at N = 1 only, the constant common-frame rotation about varphi_E0. The rank statement is sampled at the three pinned members; there is no constant-rank theorem and gap 5 stays open globally (N -> infinity, continuum common-frame redundancy). Phi, hence S_rel o Phi and every sector density, is constant along these directions.",
+    "statement": "Let Phi_N be the full common-first decoder and Psi_N be its projection to the sampled lateral traces and interface consumables used in G3. Q_frame cancels algebraically from the lateral phi/A formulas, but it moves the common-frame arrays, so it is not a kernel direction of the full decoder unless a physical quotient target is separately defined. The SVD result is the numerical nullspace of D Psi_N evaluated at eight random T4 points at each of the three pinned members. Its dimensions 7/9/12 and listed spans hold within the fixed threshold only; they are not a theorem for ker D Phi_N or constant rank. r_E0 is non-null only at the pinned N=2,3 samples. G4 samples six interface densities only; no constancy of every sector density, nor along all listed generators, is established. A constant-only U_2 canary finds two distinct parameter points with the same sampled outputs within tolerance; it is not a tangent calculation. Gap 5 remains open globally. Independently, the exact cos(x2) orthogonality witness proves that the current theta=x0+x1, N in {1,2,3} Route C family is not dense in the declared H^s(T4) class, so its present uniform-N bridge strategy is refuted. This does not rule out a new arbitrary-N full-T4 implementation.",
     "what_is_not_established": [
-      "anything about N -> infinity, density of the union of F_N, or the common-frame redundancy of the continuum decoder inside U_N for N >= 2 (shown numerically to be absent, not proven)",
+      "Q_frame as a kernel of full Phi_N, a physical quotient target, or representative-independence of S_rel",
+      "the complete kernel of D Phi_N, constant rank, or the pinned N=2,3 r_E0 observation away from those members",
+      "all-density or full-action invariance under Q_frame or any other listed sampled-nullspace generator",
+      "anything about N -> infinity or density of the union of F_N",
+      "a replacement arbitrary-N full-T4 Route C family, including radial K(N), and convergence of its complete decoder",
       "B_FD (Codex lane, v5.6.6.12) and quadrature",
-      "the kernel at points other than the three pinned members (constant rank is not proven)",
       "any bridge, C1/N1, B4/B5 or promotion key"
     ]
   },
-  "scientific_payload_sha256": "cb869de5f62758bdf024942a93c4e8c63ccd84460939d641176016438eea21d0",
+  "scientific_payload_sha256": "56084f61a9813e501f5c7847be801d1ff3a970044d33cea7b40058fb8f81d4b8",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "frozen_checkpoint_commit": "ea014fd",
@@ -329,6 +392,7 @@
     "route_b_v5_6_5_certificate_derive_sha256": "6c98724d0e51c1cad16c80303e6ad7625d661bd1c9c56c9ff96c5b8124992909",
     "route_c_v5_6_6_3_derive_sha256": "87cd1e05184a9fb2703faa08eecf5aa8544f4cf24ba8c12dd830828888821d0b",
     "v5_6_4_2_pointwise_decoder_sha256": "4b7eda150cf2d22e04ef2b1b04391c31dc9e618839d7ead9e74a540371ab3d7f",
+    "v5_6_6_8_target_class_derive_sha256": "a8b26f130189dacfef14faf9cb9e1d1f19208cb645e267f198fc2f21ede428e4",
     "v5_6_6_9_receipt_sha256": "cad85cf53e70dcfea3f69b104be5fe5c084bc897ddb713eef7d30ae72c85326a"
   }
 }
