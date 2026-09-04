@@ -106,13 +106,15 @@ def test_dense_collar_margins(receipt: dict) -> None:
             assert s["pass"] is True
             assert s["bulk_metric_lorentzian_everywhere"] is True
             assert s["bulk_metric_min_abs_eigenvalue"] > gate.SIGNATURE_EIGENVALUE_MARGIN
-            assert s["bulk_Omega_min"] > gate.OMEGA_MIN
+            assert s["bulk_Omega_min_interior_rho_below_1"] > gate.OMEGA_MIN
+            assert s["bulk_Omega_min_including_rho1_reference"] == 1.0  # structural zero-extension value, not evidence
             assert s["rotation_cut_locus_clearance"] > gate.ROTATION_CUT_LOCUS_MARGIN
             assert s["rotation_orthogonality_residual"] < 1.0e-10
             assert s["rho1_reference_residual"] < 1.0e-12
     clearance = receipt["scientific"]["clearance_summary"]
     assert clearance["min_abs_metric_eigenvalue_over_all"] > gate.SIGNATURE_EIGENVALUE_MARGIN
-    assert clearance["min_Omega_over_all"] > gate.OMEGA_MIN
+    assert clearance["min_Omega_interior_over_all"] > gate.OMEGA_MIN
+    assert clearance["min_Omega_boundary_over_all"] > 1.05  # the Omega sector is excited (log Omega ~ 0.067 on the boundary)
     assert clearance["max_khronon_T_norm2_over_all"] < -gate.TIMELIKE_MARGIN
     assert clearance["min_cut_locus_clearance_over_all"] > gate.ROTATION_CUT_LOCUS_MARGIN
 
@@ -125,7 +127,7 @@ def test_member_margins_regenerate_for_N1(receipt: dict) -> None:
     assert regenerated["pass"] is True
     for side in ("plus", "minus"):
         assert np.isclose(regenerated["sides"][side]["bulk_metric_min_abs_eigenvalue"], recorded["sides"][side]["bulk_metric_min_abs_eigenvalue"], rtol=1e-12)
-        assert np.isclose(regenerated["sides"][side]["bulk_Omega_min"], recorded["sides"][side]["bulk_Omega_min"], rtol=1e-12)
+        assert np.isclose(regenerated["sides"][side]["bulk_Omega_min_interior_rho_below_1"], recorded["sides"][side]["bulk_Omega_min_interior_rho_below_1"], rtol=1e-12)
 
 
 def test_radial_profiles_match_the_c2_contract() -> None:
@@ -148,6 +150,9 @@ def test_same_objects_theorem_recorded(receipt: dict) -> None:
     theorem = receipt["scientific"]["same_objects_theorem"]
     assert len(theorem["hypotheses_machine_checked"]) == 4
     assert "no analyticity hypothesis" in theorem["statement"]
+    assert "B_FD" in theorem["statement"]
+    assert len(theorem["analytic_not_machine_checked"]) == 5
+    assert any("B_FD" in item for item in theorem["still_open_after_this_gate"])
     assert any("classical" in item for item in theorem["analytic_not_machine_checked"])
     assert any("gap 4" in item for item in theorem["still_open_after_this_gate"])
     assert any("gap 5" in item for item in theorem["still_open_after_this_gate"])

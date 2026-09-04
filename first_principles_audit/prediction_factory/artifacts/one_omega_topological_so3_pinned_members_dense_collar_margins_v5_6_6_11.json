@@ -46,26 +46,29 @@
   "open_obligation": {
     "gap_4": "prove the Jacobian bound of Phi and its Sobolev lift instead of sampling",
     "gap_5": "finite DG_N on V_N and the gauge quotient H_N",
-    "interval_bound": "optional: interval arithmetic between grid points for the margins"
+    "interval_bound": "optional: interval arithmetic between grid points for the margins",
+    "stencil_bias": "bound B_FD before reading any Route C number as DS_rel itself"
   },
   "provenance": {
     "generator": {
       "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_pinned_members_dense_collar_margins_v5_6_6_11.py",
-      "sha256": "c75655942abc3fea67a95bf3f03b5b8b56f738127e0505eba8a94e42758d2150"
+      "sha256": "f41b6f1825f526b7d88260b97ef135aad9041b04efc114533efefaa64a29be9c"
     },
     "numpy": "2.4.2",
     "python": "3.13.5",
     "test": {
       "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_pinned_members_dense_collar_margins_v5_6_6_11.py",
-      "sha256": "1f6e7167cd9e114a9b71bd09490260a887a87682dabf375fc584c43fd64b8aa4"
+      "sha256": "ad0d47f194b239392269b374585884a10638e22ec42ad7dc35dc229af5c86084"
     }
   },
   "schema": "holo.one-omega-topological-so3-pinned-members-dense-collar-margins-v5-6-6-11.v1",
   "scientific": {
-    "between_grid_points": "Fields are degree-one trigonometric polynomials in theta and polynomials of degree <= 8 in rho, so between the 256 x 129 grid points their oscillation is bounded by the grid spacing times the derivative bound; the recorded clearances (all far above the margins) are not exhausted by that oscillation. A formal interval-arithmetic bound is not computed here.",
+    "between_grid_points": "The FREE data are degree-one trigonometric polynomials in theta and polynomials of degree <= 8 in rho; the COMPOSED fields (g_trace, R = exp(...), khronon normalisation) are smooth with harmonic content above degree one at the 1e-6 level, so between the 256 x 129 grid points their oscillation is bounded by the grid spacing times a derivative bound; the recorded clearances (all far above the margins) are not exhausted by that oscillation. A formal interval-arithmetic bound is not computed here.",
     "clearance_summary": {
+      "Omega_at_rho1_is_structural_reference": 1.0,
       "max_khronon_T_norm2_over_all": -0.6082531720020271,
-      "min_Omega_over_all": 1.0,
+      "min_Omega_boundary_over_all": 1.0694432751673628,
+      "min_Omega_interior_over_all": 1.0000002243010935,
       "min_abs_metric_eigenvalue_over_all": 1.0676654041664726,
       "min_cut_locus_clearance_over_all": 2.9514221326716745
     },
@@ -97,7 +100,9 @@
         "pass": true,
         "sides": {
           "minus": {
-            "bulk_Omega_min": 1.0,
+            "bulk_Omega_min_including_rho1_reference": 1.0,
+            "bulk_Omega_min_interior_rho_below_1": 1.0000002243010935,
+            "bulk_log_Omega_max_interior": 0.06777238234289237,
             "bulk_metric_lorentzian_everywhere": true,
             "bulk_metric_min_abs_eigenvalue": 1.0925254021891706,
             "pass": true,
@@ -107,7 +112,9 @@
             "rotation_orthogonality_residual": 2.220446049250313e-16
           },
           "plus": {
-            "bulk_Omega_min": 1.0,
+            "bulk_Omega_min_including_rho1_reference": 1.0,
+            "bulk_Omega_min_interior_rho_below_1": 1.0000013328102846,
+            "bulk_log_Omega_max_interior": 0.07666363416438357,
             "bulk_metric_lorentzian_everywhere": true,
             "bulk_metric_min_abs_eigenvalue": 1.0682210235701501,
             "pass": true,
@@ -138,7 +145,9 @@
         "pass": true,
         "sides": {
           "minus": {
-            "bulk_Omega_min": 1.0,
+            "bulk_Omega_min_including_rho1_reference": 1.0,
+            "bulk_Omega_min_interior_rho_below_1": 1.000000331439578,
+            "bulk_log_Omega_max_interior": 0.06772317897002347,
             "bulk_metric_lorentzian_everywhere": true,
             "bulk_metric_min_abs_eigenvalue": 1.0921896245052487,
             "pass": true,
@@ -148,7 +157,9 @@
             "rotation_orthogonality_residual": 4.440892098500626e-16
           },
           "plus": {
-            "bulk_Omega_min": 1.0,
+            "bulk_Omega_min_including_rho1_reference": 1.0,
+            "bulk_Omega_min_interior_rho_below_1": 1.0000013726469053,
+            "bulk_log_Omega_max_interior": 0.07708402976187256,
             "bulk_metric_lorentzian_everywhere": true,
             "bulk_metric_min_abs_eigenvalue": 1.0678973160861391,
             "pass": true,
@@ -179,7 +190,9 @@
         "pass": true,
         "sides": {
           "minus": {
-            "bulk_Omega_min": 1.0,
+            "bulk_Omega_min_including_rho1_reference": 1.0,
+            "bulk_Omega_min_interior_rho_below_1": 1.000000321059373,
+            "bulk_log_Omega_max_interior": 0.06774009231849779,
             "bulk_metric_lorentzian_everywhere": true,
             "bulk_metric_min_abs_eigenvalue": 1.0919999933228284,
             "pass": true,
@@ -189,7 +202,9 @@
             "rotation_orthogonality_residual": 4.440892098500626e-16
           },
           "plus": {
-            "bulk_Omega_min": 1.0,
+            "bulk_Omega_min_including_rho1_reference": 1.0,
+            "bulk_Omega_min_interior_rho_below_1": 1.000001365298861,
+            "bulk_log_Omega_max_interior": 0.07725392169887736,
             "bulk_metric_lorentzian_everywhere": true,
             "bulk_metric_min_abs_eigenvalue": 1.0676654041664726,
             "pass": true,
@@ -205,7 +220,9 @@
       "analytic_not_machine_checked": [
         "convergence of the trapezoidal and Gauss--Legendre rules for continuous integrands (classical)",
         "continuity of the literal density on the margin set (structure of the v5.2 action)",
-        "the between-grid-points argument for the margins"
+        "the between-grid-points argument for the margins",
+        "that the Route C sector list evaluates the same functional S_rel as the v5.6.6.8 theorem (asserted from the sector names; this gate never touches the density)",
+        "the stencil bias B_FD is not bounded here"
       ],
       "hypotheses_machine_checked": [
         "free data of the pinned members are degree-<=1 trigonometric polynomials in the single direction x0 + x1 (bundle labels, v5.6.6.10)",
@@ -213,15 +230,16 @@
         "pointwise gluing defects <= 4.4e-16 at off-collocation points (v5.6.6.8)",
         "all class margins hold on the dense collar grid with the clearances recorded here"
       ],
-      "statement": "Each pinned member X_N (N = 1,2,3) is a point of the restricted class of the v5.6.6.8 theorem, so the exact identity (i) holds for it verbatim: DS_rel[X_N].dX = int_collar E_weak.dq - int_{T^4} H^rho(0). The Route C first variation at quadrature (Qtheta, Qrho) is the trapezoidal x Gauss--Legendre approximation of the left-hand side with an integrand continuous on the closed collar; both rules converge for continuous integrands, hence Route C(Qtheta, Qrho) -> DS_rel[X_N].dX as both orders go to infinity, with no analyticity hypothesis (analyticity only fixes the rate measured in v5.6.6.10). Components (i)-(iii) and (iv) of the bridge ledger therefore refer to the same objects.",
+      "statement": "Each pinned member X_N (N = 1,2,3) is a point of the restricted class of the v5.6.6.8 theorem, so the exact identity (i) holds for it verbatim: DS_rel[X_N].dX = int_collar E_weak.dq - int_{T^4} H^rho(0). The Route C direct first variation at quadrature (Qtheta, Qrho) is the trapezoidal (equispaced theta) x Gauss--Legendre (interior rho nodes) sum of a nodal integrand that is a finite-difference approximation of the continuum first-variation density: FD5 in the free parameter (FREE_JVP_STEP = 2e-3, O(h^4)) and 7-point coordinate stencils (h = 5e-3, O(h^8)). Hence lim Route C(Qtheta, Qrho) = DS_rel[X_N].dX + B_FD as both orders go to infinity, where B_FD is the Q-independent stencil bias; the direct sum converges for continuous integrands with no analyticity hypothesis (positive weights, Weierstrass), analyticity only fixing the rate measured in v5.6.6.10. The Euler-plus-Green split of Route C additionally uses barycentric and FFT differentiation, which needs smoothness (the pinned members are smooth), not just continuity. Components (i)-(iii) and (iv) of the bridge ledger therefore refer to the same objects up to B_FD.",
       "still_open_after_this_gate": [
+        "bound the Q-independent stencil bias B_FD (Richardson in FREE_JVP_STEP and in the coordinate stencil step, or complex-step / AD for the free-parameter derivative)",
         "gap 4: proven (not sampled) Jacobian bound and Sobolev lift for the retraction",
         "gap 5: finite DG_N on V_N and the gauge quotient H_N",
         "the N -> infinity direction for arbitrary class members (density of finite free data + continuity (ii), prose)"
       ]
     }
   },
-  "scientific_payload_sha256": "158a15adf7360b8dd67ae389cb9d628b0cef8469c68890722a56c7275c9a5fa9",
+  "scientific_payload_sha256": "6054b9bdc9ccfa257f71ccf8cd48b87fb031020bc3d4432ad8f800f0e259e037",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "frozen_checkpoint_commit": "ea014fd1a8ed124c353058eb6f0a1c92b90353bc",

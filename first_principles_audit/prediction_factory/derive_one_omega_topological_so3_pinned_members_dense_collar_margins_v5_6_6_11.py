@@ -21,14 +21,17 @@ Closes two of the five genuine gaps listed by v5.6.6.10:
     (b) pointwise gluing to <= 4.4e-16 (v5.6.6.8), and (c) the margins on the
     dense collar (this gate), each pinned member X_N is a point of the restricted
     class of the v5.6.6.8 theorem, hence the exact identity (i) applies to it
-    verbatim.  The Route C first variation at quadrature (Qtheta, Qrho) is a
-    trapezoidal x Gauss--Legendre approximation of DS_rel[X_N].dX_N with an
-    integrand continuous on the closed collar; both rules converge for continuous
-    integrands, so Route C(Q) -> DS_rel[X_N].dX_N as Q -> infinity WITHOUT any
-    analyticity hypothesis (analyticity only sets the rate, which v5.6.6.10
-    measured).  Components (i)-(iii) and (iv) of the ledger therefore live on the
-    same objects.  The theorem is recorded with its hypotheses; the quadrature
-    convergence statement is classical and not machine-checked here.
+    verbatim.  The Route C direct first variation at quadrature (Qtheta, Qrho)
+    is a trapezoidal x Gauss--Legendre sum of a NODAL integrand that is itself a
+    finite-difference approximation (FD5 in the free parameter, 7-point
+    coordinate stencils) of the continuum first-variation density; so
+    lim_{Q -> inf} Route C(Q) = DS_rel[X_N].dX_N + B_FD, where B_FD is the
+    Q-independent stencil bias, and the limit exists for continuous integrands
+    with no analyticity hypothesis (analyticity only sets the rate measured in
+    v5.6.6.10).  Components (i)-(iii) and (iv) of the ledger therefore refer to
+    the same objects up to B_FD, which no ladder can see and which is left as an
+    explicit open item.  The theorem is recorded with its hypotheses; the
+    quadrature convergence statement is classical and not machine-checked here.
 
 Independence: this gate imports the byte-pinned KINEMATIC decoder module of
 v5.6.4.2 (declared below); it imports no action evaluator, no Route C module and
@@ -197,7 +200,9 @@ def member_margins(decoder, bundle: dict[str, Any], member: dict[str, Any]) -> d
             + profiles["h1"][:, None] * J1[None, :, 15]
             + np.einsum("rk,pk->rp", profiles["bumps"], C[:, :, 15])
         )
-        omega_min = float(np.min(np.exp(log_omega_bulk)))
+        omega_bulk = np.exp(log_omega_bulk)
+        omega_min_interior = float(np.min(omega_bulk[:-1]))   # rho < 1; the rho = 1 row is the structural reference value 1
+        omega_min = float(np.min(omega_bulk))
         # rotation chart clearance from the cut locus
         R = block["R_source_to_Q"]
         cos_angle = np.clip((np.trace(R, axis1=-2, axis2=-1) - 1.0) / 2.0, -1.0, 1.0)
@@ -208,7 +213,9 @@ def member_margins(decoder, bundle: dict[str, Any], member: dict[str, Any]) -> d
         sides[side] = {
             "bulk_metric_lorentzian_everywhere": lorentzian,
             "bulk_metric_min_abs_eigenvalue": min_abs_eig,
-            "bulk_Omega_min": omega_min,
+            "bulk_Omega_min_including_rho1_reference": omega_min,
+            "bulk_Omega_min_interior_rho_below_1": omega_min_interior,
+            "bulk_log_Omega_max_interior": float(np.max(log_omega_bulk[:-1])),
             "rotation_angle_max": angle_max,
             "rotation_cut_locus_clearance": math.pi - angle_max,
             "rotation_orthogonality_residual": orthogonality,
@@ -216,7 +223,7 @@ def member_margins(decoder, bundle: dict[str, Any], member: dict[str, Any]) -> d
             "pass": bool(
                 lorentzian
                 and min_abs_eig > SIGNATURE_EIGENVALUE_MARGIN
-                and omega_min > OMEGA_MIN
+                and omega_min_interior > OMEGA_MIN
                 and math.pi - angle_max > ROTATION_CUT_LOCUS_MARGIN
                 and orthogonality < 1.0e-10
                 and reference_residual < 1.0e-12
@@ -255,7 +262,9 @@ def build_payload() -> dict[str, Any]:
     all_pass = bool(all(m["pass"] for m in members))
     clearance = {
         "min_abs_metric_eigenvalue_over_all": min(min(s["bulk_metric_min_abs_eigenvalue"] for s in m["sides"].values()) for m in members),
-        "min_Omega_over_all": min(min(s["bulk_Omega_min"] for s in m["sides"].values()) for m in members),
+        "min_Omega_interior_over_all": min(min(s["bulk_Omega_min_interior_rho_below_1"] for s in m["sides"].values()) for m in members),
+        "min_Omega_boundary_over_all": min(m["boundary"]["Omega_boundary_min"] for m in members),
+        "Omega_at_rho1_is_structural_reference": 1.0,
         "max_khronon_T_norm2_over_all": max(m["boundary"]["khronon_T_norm2_max"] for m in members),
         "min_cut_locus_clearance_over_all": min(min(s["rotation_cut_locus_clearance"] for s in m["sides"].values()) for m in members),
     }
@@ -271,10 +280,11 @@ def build_payload() -> dict[str, Any]:
         "members": members,
         "clearance_summary": clearance,
         "between_grid_points": (
-            "Fields are degree-one trigonometric polynomials in theta and polynomials of degree <= 8 in rho, so "
-            "between the 256 x 129 grid points their oscillation is bounded by the grid spacing times the "
-            "derivative bound; the recorded clearances (all far above the margins) are not exhausted by that "
-            "oscillation. A formal interval-arithmetic bound is not computed here."
+            "The FREE data are degree-one trigonometric polynomials in theta and polynomials of degree <= 8 in rho; "
+            "the COMPOSED fields (g_trace, R = exp(...), khronon normalisation) are smooth with harmonic content above "
+            "degree one at the 1e-6 level, so between the 256 x 129 grid points their oscillation is bounded by the "
+            "grid spacing times a derivative bound; the recorded clearances (all far above the margins) are not "
+            "exhausted by that oscillation. A formal interval-arithmetic bound is not computed here."
         ),
         "same_objects_theorem": {
             "hypotheses_machine_checked": [
@@ -286,18 +296,26 @@ def build_payload() -> dict[str, Any]:
             "statement": (
                 "Each pinned member X_N (N = 1,2,3) is a point of the restricted class of the v5.6.6.8 theorem, so the "
                 "exact identity (i) holds for it verbatim: DS_rel[X_N].dX = int_collar E_weak.dq - int_{T^4} H^rho(0). "
-                "The Route C first variation at quadrature (Qtheta, Qrho) is the trapezoidal x Gauss--Legendre "
-                "approximation of the left-hand side with an integrand continuous on the closed collar; both rules "
-                "converge for continuous integrands, hence Route C(Qtheta, Qrho) -> DS_rel[X_N].dX as both orders go "
-                "to infinity, with no analyticity hypothesis (analyticity only fixes the rate measured in v5.6.6.10). "
-                "Components (i)-(iii) and (iv) of the bridge ledger therefore refer to the same objects."
+                "The Route C direct first variation at quadrature (Qtheta, Qrho) is the trapezoidal (equispaced theta) x "
+                "Gauss--Legendre (interior rho nodes) sum of a nodal integrand that is a finite-difference approximation "
+                "of the continuum first-variation density: FD5 in the free parameter (FREE_JVP_STEP = 2e-3, O(h^4)) and "
+                "7-point coordinate stencils (h = 5e-3, O(h^8)). Hence lim Route C(Qtheta, Qrho) = DS_rel[X_N].dX + B_FD "
+                "as both orders go to infinity, where B_FD is the Q-independent stencil bias; the direct sum converges "
+                "for continuous integrands with no analyticity hypothesis (positive weights, Weierstrass), analyticity "
+                "only fixing the rate measured in v5.6.6.10. The Euler-plus-Green split of Route C additionally uses "
+                "barycentric and FFT differentiation, which needs smoothness (the pinned members are smooth), not just "
+                "continuity. Components (i)-(iii) and (iv) of the bridge ledger therefore refer to the same objects up "
+                "to B_FD."
             ),
             "analytic_not_machine_checked": [
                 "convergence of the trapezoidal and Gauss--Legendre rules for continuous integrands (classical)",
                 "continuity of the literal density on the margin set (structure of the v5.2 action)",
                 "the between-grid-points argument for the margins",
+                "that the Route C sector list evaluates the same functional S_rel as the v5.6.6.8 theorem (asserted from the sector names; this gate never touches the density)",
+                "the stencil bias B_FD is not bounded here",
             ],
             "still_open_after_this_gate": [
+                "bound the Q-independent stencil bias B_FD (Richardson in FREE_JVP_STEP and in the coordinate stencil step, or complex-step / AD for the free-parameter derivative)",
                 "gap 4: proven (not sampled) Jacobian bound and Sobolev lift for the retraction",
                 "gap 5: finite DG_N on V_N and the gauge quotient H_N",
                 "the N -> infinity direction for arbitrary class members (density of finite free data + continuity (ii), prose)",
@@ -343,6 +361,7 @@ def build_payload() -> dict[str, Any]:
             "gap_4": "prove the Jacobian bound of Phi and its Sobolev lift instead of sampling",
             "gap_5": "finite DG_N on V_N and the gauge quotient H_N",
             "interval_bound": "optional: interval arithmetic between grid points for the margins",
+            "stencil_bias": "bound B_FD before reading any Route C number as DS_rel itself",
         },
         "evidence_boundary": (
             "Machine-checked: all four class margins hold for the three pinned members on a 256 x 129 dense collar grid "
@@ -376,7 +395,7 @@ def main() -> None:
     c = payload["scientific"]["clearance_summary"]
     print(
         f"margins={payload['decision']['pinned_members_margins_on_dense_collar_pass']} "
-        f"min|eig|={c['min_abs_metric_eigenvalue_over_all']:.3f} minOmega={c['min_Omega_over_all']:.3f} "
+        f"min|eig|={c['min_abs_metric_eigenvalue_over_all']:.3f} minOmegaInterior={c['min_Omega_interior_over_all']:.6f} minOmegaBoundary={c['min_Omega_boundary_over_all']:.3f} "
         f"maxTnorm2={c['max_khronon_T_norm2_over_all']:.3f} cutlocus={c['min_cut_locus_clearance_over_all']:.3f}"
     )
 
