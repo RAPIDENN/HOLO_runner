@@ -26,6 +26,7 @@ N-free map Phi (v5.6.6.9). All later gates live there.
 | v5.6.6.13                     | `pinned_members_margins_everywhere_certified_pass`                                                                                                                                                                                 | Weyl + Lipschitz with exact harmonics and Bernstein-bounded profiles: min abs eig >= 1.036, Omega >= 0.9956, khronon <= -0.608, SO(3) clearance >= 2.852 everywhere                | rounding padded 1e-9, not interval-certified                                       |
 | v5.6.6.14                     | `pointwise_retraction_jacobian_bound_proved_symbolic_pass`                                                                                                                                                                         | symbolic entry-by-entry bound B_proved(M) (degree 8 in M, denominators asserted as powers of 1+abs(k)^2), dominates the v5.6.6.9 sample design                                     | Sobolev lift (Moser)                                                               |
 | v5.6.6.15 | `route_c_sector_list_is_literal_action_term_list_pass`, `route_c_bulk_and_ghy_densities_equal_pinned_literal_implementation_pointwise_pass`, `route_c_interface_densities_equal_pinned_literal_implementation_pointwise_pass`, `route_c_closed_form_coefficients_match_literal_formula_strings_pass` | all twenty sector densities of Route C (pulled-back formulation) agree pointwise with the pinned Route B implementation of the literal v5.2 action (ambient formulation) on exact random 2-jets inside the margins, both collars, worst 3.8e-15 relative; closed-form pieces checked against the literal strings | sampled, not symbolic; exact jets, so nothing about `B_FD` or quadrature |
+| v5.6.6.16 | `Q_frame_coordinates_are_exact_kernel_of_the_decoder_symbolic_pass`, `Q_frame_coordinates_are_exact_kernel_of_pinned_and_route_c_decoders_numeric_pass`, `route_c_trace_decoder_matches_pinned_decoder_pass`, `free_data_family_jacobian_kernel_is_explicit_gauge_generators_pass`, `interface_densities_independent_of_Q_frame_pass` | the finite family is stated in free data only, `F_N = Phi(U_N)`; the 3N `Q_frame` coordinates are an exact kernel of the decoder (symbolic: `R = S R0` cancels `S`), the 6N `r_E0` coordinates are physical for `N >= 2`, and the whole kernel of `DPhi` on the trace coordinates at the pinned members is spanned by explicit generators (`Q_frame`, constant modes of `T`, `Y_plus`, `Y_minus`; at `N = 1` also the constant rotation about `varphi_E0`): dimensions 7 / 9 / 12 with gaps `>= 5e6` | numeric at the three members only (no constant-rank theorem); nothing on `N -> infinity` |
 
 Still False everywhere, by design: `uniform_N_to_infinity_bridge_pass`,
 `uniform_stability_pass` (v5.6.4 key), `restricted_family_exact_action_identity_pass`
@@ -41,7 +42,10 @@ Still False everywhere, by design: `uniform_N_to_infinity_bridge_pass`,
    nodal family is not the theorem class and is not used any more.
 3. Margins on the whole collar: **closed** (v5.6.6.13).
 4. Proven Jacobian bound: **closed** (v5.6.6.14); Sobolev lift stays an analytic argument.
-5. Finite `DG_N` on `V_N` and the gauge quotient `H_N`: **open**.
+5. Finite `DG_N` on `V_N` and the gauge quotient `H_N`: **retired by the free-data formulation**
+   (v5.6.6.16): the family is `Phi(U_N)`, no finite gluing map or quotient enters the identity, and
+   the kernel of `DPhi` is listed with explicit generators at the pinned members. The v5.6.4 keys
+   `uniform_stability_pass` and `DG_N` stay False: retired, not discharged.
 
 ## What remains before any key flips
 
@@ -49,9 +53,10 @@ Still False everywhere, by design: `uniform_N_to_infinity_bridge_pass`,
   free-parameter stencil (`FREE_JVP_STEP = 2e-3`) and the 7-point coordinate stencils
   (`h = 5e-3`) by Richardson in both steps or complex-step / AD; optionally a Qrho = 18
   ladder to get two radial ratios instead of one.
-- **Gap 5**: state the finite family in free data only (so `Phi(V_N)` need not lie in
-  `V_N`) and treat the 9N gauge orbit explicitly, or prove the quotient is harmless for
-  the identity.
+- **Gap 5**: closed in the free-data formulation by v5.6.6.16 (family `Phi(U_N)`, 9N rotation
+  coordinates treated explicitly: 3N exact kernel, 6N physical for `N >= 2`; full kernel of
+  `DPhi` with generators at the three members). Still open inside it: constant rank away from
+  the pinned members, and the continuum common-frame redundancy for the `N -> infinity` count.
 - **N -> infinity for arbitrary class members**: density of degree-<=1 free data is
   false; use Fourier truncation of arbitrary free data plus re-gluing (part iii) and the
   continuity bound (ii) with the Moser constant made explicit.
