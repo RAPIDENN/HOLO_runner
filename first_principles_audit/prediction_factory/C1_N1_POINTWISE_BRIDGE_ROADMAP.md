@@ -45,26 +45,41 @@ an independent Fourier canary.
 | v5.6.6.16 (`65004db`) | Sampled gluing defects, exact lateral Q-frame cancellation, sampled projected-Jacobian spans, and the exact theta-only non-density obstruction | Full `ker D Phi`, constant rank, physical quotient, representative independence or a uniform bridge |
 | v5.6.6.17 (`6892511`) | Four published directions at `N=1,2,3`, `Q=5`, `R=10`: Route A AD and precision Route C agree within the fixed tolerance; worst absolute difference `1.94e-9` | Anything beyond the selected finite family, grids and tangents |
 | v5.6.6.18 (`c60234b`) | Exact ideal-rational stencil moments and Taylor/Cauchy formula; sampled coarse/fine contrast | Float candidate envelopes are not outward-rounded production bounds; the N=3 `qrr` canary has nonzero production residue against ideal zero |
+| v5.6.7 (`bb97849`) | Nested full-T4 Fourier enumeration through real shell transitions, analytic spectral/radial formulas checked through `K=8`, and a sampled pulled-back two-jet contrast; clean checkout `18/18` | No complete decoder, action, JVP, quadrature, uniform margin or bridge claim; arithmetic is float64 and the lexical derivative-path audit is only a canary |
+
+## Exact conditions on the replacement bridge
+
+- Uniform approximation on an entire bounded `H^s` ball cannot converge in the
+  same `H^s` norm: for every finite projector there is a normalized omitted
+  mode.  The bridge must lose regularity (`H^s -> H^{s0}`, `4 < s0 < s`), add
+  uniform tail control, or work on a compact subset.
+- Because each wavevector enters as cosine and then sine, even-dimensional
+  `V_N` is not closed under differentiation.  Any commutation lemma must use
+  complete sine/cosine pairs (preferably complete Fourier shells) or evaluate
+  derivatives outside `V_N` without claiming `P_N d = d P_N`.
+- `K(N) -> infinity` is compatible with radial density, but radial quadrature
+  cannot stay fixed: if `Q_rho < K`, a nonzero radial combination vanishes at
+  every node while its squared integral is positive.
+- The literal action contains exponentials, inverses and square roots, so its
+  composed integrands are not band-limited.  No finite T4 grid makes their
+  quadrature exactly alias-free; the route needs growing quadrature plus a
+  proved remainder bound, not a finite exactness claim.
 
 ## Remaining route
 
-The current theta-only bridge is closed as a no-go. A replacement must:
+The current theta-only bridge is closed as a no-go. The v5.6.7 primitive
+foundation now exists, but a replacement must still:
 
-1. implement the declared nested real Fourier basis on all four torus axes for
-   arbitrary `N`, with an explicit radial schedule `K(N)`;
-2. compute tangential and radial first/second derivatives analytically, not by
-   hidden stencils;
-3. evaluate the complete common-first decoder and pullback in those exact jets;
-4. obtain action JVPs by dual/AD propagation and integrate on a genuine T4
-   quadrature with aliasing control;
-5. prove margins and a uniform C1/Sobolev bound for the complete decoder, then
-   prove re-glued Fourier truncations converge in the target norm; and
+1. evaluate the complete common-first decoder and pullback in analytic jets;
+2. obtain local density JVPs by dual/AD propagation without hidden stencils;
+3. integrate on a growing genuine T4 x rho quadrature with aliasing and
+   nonlinear-remainder control;
+4. prove margins and C2/Moser bounds for the complete decoder, then prove
+   re-glued truncations converge in an explicitly weaker or tail-controlled
+   target norm;
+5. resolve the gauge quotient / representative-independence obligation; and
 6. discharge the independent v5.6.1 quarantine obligations before any C1/N1
    promotion.
-
-The first reusable foundation is being built as one source/test pair for
-full-T4 spectral and radial primitives; it intentionally has no action,
-quadrature, bridge or promotion claim.
 
 ## Working protocol
 
