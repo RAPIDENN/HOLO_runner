@@ -17,8 +17,7 @@ HERE = Path(__file__).resolve().parent
 
 EXPECTED_TRUE_KEYS = frozenset(
     {
-        "restricted_family_exact_action_identity_pass",
-        "restricted_class_continuity_bound_stated_pass",
+        "generic_second_order_Euler_Green_identity_symbolic_pass",
         "outer_radial_Green_form_vanishes_exactly_pass",
         "route_C_literal_current_is_Euler_operator_representative_pass",
         "bundle_members_glued_pointwise_off_collocation_pass",
@@ -27,6 +26,7 @@ EXPECTED_TRUE_KEYS = frozenset(
 EXPECTED_FALSE_KEYS = frozenset(
     {
         "declared_collocation_uniform_stability_pass",
+        "restricted_family_exact_action_identity_pass",
         "uniform_N_to_infinity_bridge_pass",
         "spectral_N_convergence_pass",
         "uniform_stability_pass",
@@ -125,6 +125,7 @@ def test_radial_junction(receipt: dict) -> None:
     assert radial["K_max_checked"] == gate.RADIAL_K_MAX
     assert radial["class_is_C2_across_zero_extension"] is True
     assert radial["class_is_C3_across_zero_extension"] is False
+    assert radial["second_order_density_regularity_across_rho1"].startswith("C0 only")
     regenerated = gate.radial_junction_certificate(gate.RADIAL_K_MAX)
     assert regenerated == radial
 
@@ -146,6 +147,8 @@ def test_collocation_stability_negative_witness(receipt: dict) -> None:
     assert stability["first_alert_N"] is not None
     assert stability["first_alert_N"] > 3, "the finite N=1,2,3 receipts must stay unaffected"
     assert stability["worst_condition_number"] > gate.STABILITY_ALERT_CONDITION
+    assert stability["first_condition_alert_N"] >= stability["first_alert_N"]
+    assert "LOWER-bounds" in stability["lebesgue_constant_definition"]
     rows = {row["N"]: row for row in stability["sampled_rows"]}
     for N in (1, 2, 3):
         assert rows[N]["condition_number"] < 10.0
@@ -173,6 +176,11 @@ def test_theorem_statement_present(receipt: dict) -> None:
     for key in ("class", "norm", "margins", "part_i_exact_identity", "part_ii_continuity", "part_iii_convergence_on_the_continuum_class", "what_remains"):
         assert isinstance(theorem[key], str) and len(theorem[key]) > 80
     assert "not machine-checked" in receipt["scientific"]["analytic_only"]["sobolev_continuity_bound"]
+    assert receipt["scientific"]["analytic_only"]["literal_v5_2_density_analyticity_checked"] is False
+    assert receipt["scientific"]["analytic_only"]["restricted_class_action_identity_theorem_recorded"] is True
+    assert "CLASS DRIFT" in theorem["class"]
+    assert "n_out" in theorem["part_i_exact_identity"]
+    assert "summability with s = 4" not in theorem["norm"]
     assert receipt["scientific"]["machine_checked"]["route_C_literal_current_is_Euler_operator_representative"] is True
     assert "independent of the action" in receipt["scientific"]["route_C_observation"]["Stokes_residual"]
 

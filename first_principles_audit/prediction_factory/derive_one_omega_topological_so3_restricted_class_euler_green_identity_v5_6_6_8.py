@@ -47,8 +47,12 @@ It does three things and nothing more.
     primitives h0, h1 and the Legendre bumps b_j (j < K, K up to 8) have the
     declared jets at rho=0 and vanish with first and second derivatives at
     rho=1, so that every term of the outer current H^rho at rho=1 is
-    identically zero on the class (dq, dq_mu, dq_rho all vanish there) and the
-    reference-subtracted density is C2 across the zero extension.
+    identically zero for tangent variations sharing the class profiles (dq,
+    dq_mu, dq_rho all vanish there).  The fields are C2 across the zero
+    extension; the second-order density itself is only C0 there (the third
+    derivatives of b_j and h0 do not vanish at rho=1), so no distribution
+    enters S or DS, while the formal fourth-order Euler operator would carry a
+    delta layer at rho=1 that tangent variations annihilate.
 
 (C) Uniform-in-N stability audit of the declared discretization.  It
     re-implements the declared nested real T^4 Fourier enumeration and the
@@ -60,9 +64,14 @@ It does three things and nothing more.
     not admit a uniform right inverse in the Euclidean coefficient chart.
 
 The theorem statement, hypotheses, norms, and the analytic continuity
-argument are recorded in the scientific payload.  Only (A) and (B) are
-machine-checked; the Sobolev continuity bound is an analytic argument whose
-hypotheses are stated explicitly and marked as such.
+argument are recorded in the scientific payload.  Only (A), (B), (C) and (D)
+are machine-checked; the class-specific content (real-analyticity of the
+literal v5.2 density on the margin set, Sobolev continuity, pointwise gluing
+of arbitrary class members) is an analytic argument recorded as such and does
+NOT flip the v5.6.4 key restricted_family_exact_action_identity_pass, which
+stays False.  The theorem class deliberately differs from the v5.6.4 nodal
+family: polynomial C2 radial profiles (v5.6.4.4) instead of exp-flat ones, and
+pointwise gluing instead of gluing at N Kronecker nodes.
 
 This gate does NOT flip uniform_N_to_infinity_bridge_pass, C1_ACTION_pass,
 N1_ACTION_pass, B4/B5 or any promotion key.  It discharges the exact-identity
@@ -367,7 +376,9 @@ def radial_junction_certificate(K_max: int) -> dict[str, Any]:
     # Consequence: every field of the class equals X_inf with zero first and second radial jets at rho=1,
     # so dq, dq_mu, dq_rho vanish at rho=1 and H^rho(1) == 0 term by term (each term is linear in one of them).
     record["outer_current_H_rho_at_1_vanishes_termwise"] = bool(ok)
+    record["outer_current_scope"] = "for tangent variations sharing the class profiles; D_rho Q^{rho rho}(1^-) is finite"
     record["class_is_C2_across_zero_extension"] = bool(ok)
+    record["second_order_density_regularity_across_rho1"] = "C0 only (third derivatives of h0 and b_j nonzero at rho=1); no distribution in S or DS"
     record["class_is_C3_across_zero_extension"] = bool(record["bumps_third_derivative_rho1_nonzero_count"] == 0)
     return record
 
@@ -419,15 +430,20 @@ def collocation_stability_audit(N_max: int) -> dict[str, Any]:
     worst_condition = 0.0
     worst_lebesgue = 0.0
     first_alert_N = None
+    first_condition_alert_N = None
+    worst_condition_N = None
     for N in range(1, N_max + 1):
         V, _ = declared_collocation_matrix(N)
         cond = float(np.linalg.cond(V))
         inv = np.linalg.inv(V)
         lebesgue = float(np.abs(inv).sum(axis=0).max())
-        worst_condition = max(worst_condition, cond)
+        if cond > worst_condition:
+            worst_condition, worst_condition_N = cond, N
         worst_lebesgue = max(worst_lebesgue, lebesgue)
         if first_alert_N is None and (cond > STABILITY_ALERT_CONDITION or lebesgue > STABILITY_ALERT_LEBESGUE):
             first_alert_N = N
+        if first_condition_alert_N is None and cond > STABILITY_ALERT_CONDITION:
+            first_condition_alert_N = N
         if N <= 12 or N % 8 == 0 or N == N_max:
             rows.append({"N": N, "condition_number": cond, "lebesgue_constant_inf": lebesgue})
     # Contrast: tensor equispaced 1-D trigonometric collocation is uniformly stable (unitary up to scale).
@@ -445,8 +461,19 @@ def collocation_stability_audit(N_max: int) -> dict[str, Any]:
         "N_max": N_max,
         "alert_thresholds": {"condition_number": STABILITY_ALERT_CONDITION, "lebesgue_constant_inf": STABILITY_ALERT_LEBESGUE},
         "first_alert_N": first_alert_N,
+        "first_condition_alert_N": first_condition_alert_N,
         "worst_condition_number": worst_condition,
+        "worst_condition_number_N": worst_condition_N,
         "worst_lebesgue_constant_inf": worst_lebesgue,
+        "lebesgue_constant_definition": (
+            "max column sum of |V^{-1}| (a cheap proxy that LOWER-bounds the true Lebesgue constant of the nested "
+            "trigonometric interpolation on T^4; the sampled true constant is larger)"
+        ),
+        "mechanism": (
+            "On the Kronecker sequence x_n = 2*pi*frac((n+0.173)*alpha) every 4-D mode k collapses to the 1-D frequency "
+            "k.alpha mod 1, so V is a non-harmonic 1-D Vandermonde whose conditioning is governed by the minimal "
+            "frequency gap times N; radius-2 modes enter at N = 82 and the gap shrinks with N."
+        ),
         "sampled_rows": rows,
         "equispaced_1d_contrast": contrast,
         "declared_collocation_uniformly_stable": bool(first_alert_N is None),
@@ -488,9 +515,12 @@ def off_collocation_gluing_audit(bundle: Mapping[str, Any]) -> dict[str, Any]:
         "members_glued_pointwise": bool(worst <= OFF_COLLOCATION_GLUING_TOLERANCE),
         "reading": (
             "The pinned N=1,2,3 members satisfy G(X)=0 at machine precision away from the Kronecker nodes because the "
-            "common-first decoder solves the trace variables explicitly; the collocation inverse is not used there. "
-            "The measured Kronecker instability therefore bears on the coefficient-chart gluing_map/kernel machinery of "
-            "v5.6.4 (tangent generation, ambient<->free codec), not on the pointwise class membership of the members."
+            "common-first decoder solves the trace variables explicitly; the collocation inverse is not used by the "
+            "decoder. The exporter pipeline that GENERATED the bundle primitives did use the v5.6.4 ambient<->free codec "
+            "(and therefore the inverse), but only at N = 1,2,3 where the condition number is <= 8.4, so numerically "
+            "innocuous. The measured Kronecker instability therefore bears on the coefficient-chart gluing_map/kernel "
+            "machinery of v5.6.4 (tangent generation, ambient<->free codec, runtime_DG), not on the pointwise class "
+            "membership of the pinned members."
         ),
     }
 
@@ -506,17 +536,26 @@ def theorem_statement() -> dict[str, Any]:
             "X (g_MN, log Omega, phi_a, A_Ma, B_MNPa) is X(rho,x) = X_inf + h0(rho)(X0(x)-X_inf) + h1(rho) J1(x) "
             "+ sum_{j<K} b_j(rho) C_j(x), with X0, J1, C_j in H^s(T^4), s = 4.75 > 2 + d/2 = 4, d = 4, extended by X_inf for rho >= 1; "
             "common base (gamma, T, Omega_Sigma, varphi_H, A_Sigma) in H^s(T^4); embeddings Y_+- in H^{s+1}; relative rotations "
-            "r_+- in H^s with |r| below the cut locus; gluing G(X) = 0 holds pointwise on T^4 (not only at collocation nodes)."
+            "r_+- in H^s with |r| below the cut locus (a chart condition for the SO(3) log, not an analyticity condition); "
+            "gluing G(X) = 0 holds pointwise on T^4. CLASS DRIFT, stated on purpose: the v5.6.4 contract uses exp-flat "
+            "C-infinity profiles and imposes G only at N Kronecker nodes, so its nodal members C_N are NOT elements of "
+            "this class; the v5.6.4.4 common-first members are class points, but the explicit elimination of the lateral "
+            "traces (nonlinear in R) pushes them outside the finite spectral space V_N, so they are continuum-class points, "
+            "not spectral-family points."
         ),
         "norm": (
-            "||X||^2 = ||X0||_{H^s}^2 + ||J1||_{H^s}^2 + sum_j (1+j^2)^4 ||C_j||_{H^s}^2 + base and embedding norms; "
-            "the (1+|k|^2)^{-4} coefficient weights of the certificate are the H^s summability with s = 4."
+            "||X||^2 = ||X0||_{H^s}^2 + ||J1||_{H^s}^2 + sum_j (1+j^2)^4 ||C_j||_{H^s}^2 + base and embedding norms. "
+            "The (1+|k|^2)^{-4} amplitude envelope of the certificate lies in H^s(T^4) for every s < 6 (d = 4), so it is "
+            "compatible with s = 4.75; H^4 itself would be critical and does not embed in C^2."
         ),
         "margins": (
             "Omega >= 0.5, timelike khronon margin 0.2, signature eigenvalue margin 0.02 for g and the induced metric, "
             "rotation cut-locus margin 1.0: an open set U_margin in the C0 jet space on which the literal v5.2 density "
             "is real-analytic in (q, q_i, q_ij) (its only non-polynomial operations are exp, powers of Omega, "
-            "1/det g, sqrt(-g), sqrt(1+r^4), the SO(3) exponential of r, and the khronon normalisation)."
+            "1/det g, sqrt(-g), sqrt(1+r^4), the SO(3) exponential of r, and the khronon normalisation). "
+            "Real-analyticity is asserted from the structure of the literal action, not machine-checked here; the "
+            "integration by parts producing G needs L in C^2 of the jets, which analyticity provides. The pinned members "
+            "are known to satisfy the margins only at the N nodes x 7 radial samples checked by v5.6.4."
         ),
         "part_i_exact_identity": (
             "For X in the class inside the margins and dX tangent (constraint preserving, compactly supported by the "
@@ -525,7 +564,13 @@ def theorem_statement() -> dict[str, Any]:
             "H^s(T^4) embeds in C^2 for s > 4 and the radial profiles are polynomials). By (A) this equals "
             "int_collar E_weak.dq + G[dq] with G the interface functional at rho = 0 and the rho = 1 current "
             "identically zero by (B). E_weak is the distribution defined by this identity; it coincides with the "
-            "formal second-order Euler operator E pointwise on the C^4 subclass (s > 6). Tangential faces cancel "
+            "formal fourth-order Euler operator E pointwise on the open collar (0,1) x T^4 for s > 6; at rho = 1 the formal "
+            "E carries a delta layer (the density is only C^0 there) that tangent variations annihilate, so no C^4 "
+            "subclass across rho = 1 exists or is needed. E_weak is a functional on the tangent space of the class, "
+            "not a distribution on the collar (the radial tangent space is (K+2)-dimensional). Orientation: with the "
+            "bundle contract n_out = -d/drho at rho = 0, int_0^1 D_rho H^rho drho = H^rho(1) - H^rho(0) = -H^rho(0), "
+            "so DS_rel[X].dX = int_collar E_weak.dq - int_{T^4} H^rho(0) dx and G[dq] := -int_{T^4} H^rho(0) dx "
+            "(equivalently the boundary term of the radial-only integration by parts). Tangential faces cancel "
             "exactly by periodicity of T^4."
         ),
         "part_ii_continuity": (
@@ -538,9 +583,11 @@ def theorem_statement() -> dict[str, Any]:
         ),
         "part_iii_convergence_on_the_continuum_class": (
             "For X in the class, the Fourier truncations P_N X converge to X in the class norm, and by (ii) "
-            "S_rel(P_N X) -> S_rel(X) and DS_rel[P_N X] -> DS_rel[X]. This is convergence of the exact functional "
-            "along exact Fourier projections; it says nothing about the finite collocation-glued members C_N, "
-            "whose gluing is imposed only at N Kronecker nodes (see (C))."
+            "S_rel(P_N X) -> S_rel(X) and DS_rel[P_N X] -> DS_rel[X], PROVIDED the projected point is re-glued: P_N acts on "
+            "the free data (X0, J1, C_j, base, Y, r) and the lateral traces are then eliminated explicitly, since a "
+            "naive Fourier truncation of a glued point leaves the class. This is convergence of the exact functional "
+            "along re-glued projections; it says nothing about the v5.6.4 nodal members C_N, whose gluing is imposed "
+            "only at N Kronecker nodes (see (C))."
         ),
         "what_remains": (
             "A uniformly stable finite discretization of the gluing map (Galerkin projection, or tensor equispaced "
@@ -586,8 +633,7 @@ def build_payload() -> dict[str, Any]:
         for case in route_c_cases
     )
 
-    exact_identity_pass = bool(identity_all and interface_all and jet_order_ok and radial["declared_C2_jets_pass"] and label_match and profile_match)
-    continuity_stated = bool(exact_identity_pass)
+    generic_identity_pass = bool(identity_all and interface_all and jet_order_ok and radial["declared_C2_jets_pass"] and label_match and profile_match)
 
     scientific = {
         "theorem": theorem_statement(),
@@ -613,14 +659,22 @@ def build_payload() -> dict[str, Any]:
             "action_sensitive_checks_in_route_C": ["chain_residual (free_direct vs chain_direct)", "three-way AD/FD5/Route C first-variation comparison (v5.6.6.6)"],
         },
         "analytic_only": {
+            "restricted_class_action_identity_theorem_recorded": True,
+            "literal_v5_2_density_analyticity_checked": False,
+            "continuity_bound_hypotheses_recorded": True,
             "sobolev_continuity_bound": "stated with hypotheses; not machine-checked; no numeric C(M)",
-            "exact_functional_convergence_along_Fourier_projections": "follows from the continuity bound",
+            "exact_functional_convergence_along_reglued_Fourier_projections": "follows from the continuity bound",
+            "why_the_v5_6_4_key_stays_False": (
+                "restricted_family_exact_action_identity_pass is a v5.6.4 FAIL_CLOSED key about the nodal exp-profile "
+                "family and the literal v5.2 action; this gate machine-checks only a generic-density identity and the "
+                "polynomial radial jets, so that key is not discharged here."
+            ),
         },
     }
 
     decision = {
-        "restricted_family_exact_action_identity_pass": exact_identity_pass,
-        "restricted_class_continuity_bound_stated_pass": continuity_stated,
+        "generic_second_order_Euler_Green_identity_symbolic_pass": generic_identity_pass,
+        "restricted_family_exact_action_identity_pass": False,
         "outer_radial_Green_form_vanishes_exactly_pass": bool(radial["outer_current_H_rho_at_1_vanishes_termwise"]),
         "route_C_literal_current_is_Euler_operator_representative_pass": bool(route_c_literal_ok),
         "declared_collocation_uniform_stability_pass": bool(stability["declared_collocation_uniformly_stable"]),
@@ -704,12 +758,12 @@ def build_payload() -> dict[str, Any]:
 
 def main() -> None:
     payload = build_payload()
-    if not payload["decision"]["restricted_family_exact_action_identity_pass"]:
-        raise EulerGreenGateError("exact identity certificate failed")
+    if not payload["decision"]["generic_second_order_Euler_Green_identity_symbolic_pass"]:
+        raise EulerGreenGateError("generic Euler--Green identity certificate failed")
     OUTPUT.write_text(json.dumps(payload, indent=2, sort_keys=True, allow_nan=False) + "\n")
     d = payload["decision"]
     print(
-        f"identity={d['restricted_family_exact_action_identity_pass']} "
+        f"identity={d['generic_second_order_Euler_Green_identity_symbolic_pass']} "
         f"outer_green_zero={d['outer_radial_Green_form_vanishes_exactly_pass']} "
         f"collocation_stable={d['declared_collocation_uniform_stability_pass']} "
         f"bridge={d['uniform_N_to_infinity_bridge_pass']}"

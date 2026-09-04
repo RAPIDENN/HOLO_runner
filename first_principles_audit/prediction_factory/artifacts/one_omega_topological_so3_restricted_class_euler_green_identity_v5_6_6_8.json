@@ -9,10 +9,10 @@
     "bundle_members_glued_pointwise_off_collocation_pass": true,
     "declared_collocation_uniform_stability_pass": false,
     "density_union_C_N_pass": false,
+    "generic_second_order_Euler_Green_identity_symbolic_pass": true,
     "outer_radial_Green_form_vanishes_exactly_pass": true,
     "periodic_box_exhaustion_and_tail_control_pass": false,
-    "restricted_class_continuity_bound_stated_pass": true,
-    "restricted_family_exact_action_identity_pass": true,
+    "restricted_family_exact_action_identity_pass": false,
     "route_C_literal_current_is_Euler_operator_representative_pass": true,
     "spectral_N_convergence_pass": false,
     "uniform_N_to_infinity_bridge_pass": false,
@@ -75,21 +75,25 @@
   "provenance": {
     "generator": {
       "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.py",
-      "sha256": "8a46e851c4c20206a046fbdbb7441b33fe1c92c1d38fef5db4e7c6b0f59324ec"
+      "sha256": "7da1f919581c84da4d45f38d69f965e2b325389db2e128a3a06bf3d211778b23"
     },
     "numpy": "2.4.2",
     "python": "3.13.5",
     "sympy": "1.13.3",
     "test": {
       "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_restricted_class_euler_green_identity_v5_6_6_8.py",
-      "sha256": "1fd2573904cd54ab317cd504f3c607680ef6fa75d752ae829db0d503eef6c0d3"
+      "sha256": "03f3c5a659b3cd4d41161590ae255d3559f551171f9f5073b4c2ff6dc86afc26"
     }
   },
   "schema": "holo.one-omega-topological-so3-restricted-class-euler-green-identity-v5-6-6-8.v1",
   "scientific": {
     "analytic_only": {
-      "exact_functional_convergence_along_Fourier_projections": "follows from the continuity bound",
-      "sobolev_continuity_bound": "stated with hypotheses; not machine-checked; no numeric C(M)"
+      "continuity_bound_hypotheses_recorded": true,
+      "exact_functional_convergence_along_reglued_Fourier_projections": "follows from the continuity bound",
+      "literal_v5_2_density_analyticity_checked": false,
+      "restricted_class_action_identity_theorem_recorded": true,
+      "sobolev_continuity_bound": "stated with hypotheses; not machine-checked; no numeric C(M)",
+      "why_the_v5_6_4_key_stays_False": "restricted_family_exact_action_identity_pass is a v5.6.4 FAIL_CLOSED key about the nodal exp-profile family and the literal v5.2 action; this gate machine-checks only a generic-density identity and the polynomial radial jets, so that key is not discharged here."
     },
     "bundle_cross_check": {
       "basis_labels_match_bundle": true,
@@ -117,6 +121,9 @@
         }
       ],
       "first_alert_N": 87,
+      "first_condition_alert_N": 88,
+      "lebesgue_constant_definition": "max column sum of |V^{-1}| (a cheap proxy that LOWER-bounds the true Lebesgue constant of the nested trigonometric interpolation on T^4; the sampled true constant is larger)",
+      "mechanism": "On the Kronecker sequence x_n = 2*pi*frac((n+0.173)*alpha) every 4-D mode k collapses to the 1-D frequency k.alpha mod 1, so V is a non-harmonic 1-D Vandermonde whose conditioning is governed by the minimal frequency gap times N; radius-2 modes enter at N = 82 and the gap shrinks with N.",
       "sampled_rows": [
         {
           "N": 1,
@@ -275,6 +282,7 @@
         }
       ],
       "worst_condition_number": 770667582737.2129,
+      "worst_condition_number_N": 159,
       "worst_lebesgue_constant_inf": 36808456493.73562
     },
     "machine_checked": {
@@ -289,7 +297,7 @@
     },
     "off_collocation_gluing": {
       "members_glued_pointwise": true,
-      "reading": "The pinned N=1,2,3 members satisfy G(X)=0 at machine precision away from the Kronecker nodes because the common-first decoder solves the trace variables explicitly; the collocation inverse is not used there. The measured Kronecker instability therefore bears on the coefficient-chart gluing_map/kernel machinery of v5.6.4 (tangent generation, ambient<->free codec), not on the pointwise class membership of the members.",
+      "reading": "The pinned N=1,2,3 members satisfy G(X)=0 at machine precision away from the Kronecker nodes because the common-first decoder solves the trace variables explicitly; the collocation inverse is not used by the decoder. The exporter pipeline that GENERATED the bundle primitives did use the v5.6.4 ambient<->free codec (and therefore the inverse), but only at N = 1,2,3 where the condition number is <= 8.4, so numerically innocuous. The measured Kronecker instability therefore bears on the coefficient-chart gluing_map/kernel machinery of v5.6.4 (tangent generation, ambient<->free codec, runtime_DG), not on the pointwise class membership of the pinned members.",
       "rows": [
         {
           "N": 1,
@@ -341,7 +349,9 @@
         "0",
         "0"
       ],
-      "outer_current_H_rho_at_1_vanishes_termwise": true
+      "outer_current_H_rho_at_1_vanishes_termwise": true,
+      "outer_current_scope": "for tangent variations sharing the class profiles; D_rho Q^{rho rho}(1^-) is finite",
+      "second_order_density_regularity_across_rho1": "C0 only (third derivatives of h0 and b_j nonzero at rho=1); no distribution in S or DS"
     },
     "route_C_observation": {
       "Euler_contraction": "subtraction-defined E.dq equals the formal Euler operator contraction exactly (symbolic)",
@@ -413,16 +423,16 @@
       }
     ],
     "theorem": {
-      "class": "Restricted C2 spectral class: on each oriented collar {rho in [0,1]} x T^4 every one of the 64 channels X (g_MN, log Omega, phi_a, A_Ma, B_MNPa) is X(rho,x) = X_inf + h0(rho)(X0(x)-X_inf) + h1(rho) J1(x) + sum_{j<K} b_j(rho) C_j(x), with X0, J1, C_j in H^s(T^4), s = 4.75 > 2 + d/2 = 4, d = 4, extended by X_inf for rho >= 1; common base (gamma, T, Omega_Sigma, varphi_H, A_Sigma) in H^s(T^4); embeddings Y_+- in H^{s+1}; relative rotations r_+- in H^s with |r| below the cut locus; gluing G(X) = 0 holds pointwise on T^4 (not only at collocation nodes).",
-      "margins": "Omega >= 0.5, timelike khronon margin 0.2, signature eigenvalue margin 0.02 for g and the induced metric, rotation cut-locus margin 1.0: an open set U_margin in the C0 jet space on which the literal v5.2 density is real-analytic in (q, q_i, q_ij) (its only non-polynomial operations are exp, powers of Omega, 1/det g, sqrt(-g), sqrt(1+r^4), the SO(3) exponential of r, and the khronon normalisation).",
-      "norm": "||X||^2 = ||X0||_{H^s}^2 + ||J1||_{H^s}^2 + sum_j (1+j^2)^4 ||C_j||_{H^s}^2 + base and embedding norms; the (1+|k|^2)^{-4} coefficient weights of the certificate are the H^s summability with s = 4.",
-      "part_i_exact_identity": "For X in the class inside the margins and dX tangent (constraint preserving, compactly supported by the zero extension), the Gateaux derivative DS_rel[X].dX exists and equals the collar integral of C.dq + P^i dq_i + Q^{ij} dq_ij (chain rule: L is C^1 in jets, the jets are classical because H^s(T^4) embeds in C^2 for s > 4 and the radial profiles are polynomials). By (A) this equals int_collar E_weak.dq + G[dq] with G the interface functional at rho = 0 and the rho = 1 current identically zero by (B). E_weak is the distribution defined by this identity; it coincides with the formal second-order Euler operator E pointwise on the C^4 subclass (s > 6). Tangential faces cancel exactly by periodicity of T^4.",
+      "class": "Restricted C2 spectral class: on each oriented collar {rho in [0,1]} x T^4 every one of the 64 channels X (g_MN, log Omega, phi_a, A_Ma, B_MNPa) is X(rho,x) = X_inf + h0(rho)(X0(x)-X_inf) + h1(rho) J1(x) + sum_{j<K} b_j(rho) C_j(x), with X0, J1, C_j in H^s(T^4), s = 4.75 > 2 + d/2 = 4, d = 4, extended by X_inf for rho >= 1; common base (gamma, T, Omega_Sigma, varphi_H, A_Sigma) in H^s(T^4); embeddings Y_+- in H^{s+1}; relative rotations r_+- in H^s with |r| below the cut locus (a chart condition for the SO(3) log, not an analyticity condition); gluing G(X) = 0 holds pointwise on T^4. CLASS DRIFT, stated on purpose: the v5.6.4 contract uses exp-flat C-infinity profiles and imposes G only at N Kronecker nodes, so its nodal members C_N are NOT elements of this class; the v5.6.4.4 common-first members are class points, but the explicit elimination of the lateral traces (nonlinear in R) pushes them outside the finite spectral space V_N, so they are continuum-class points, not spectral-family points.",
+      "margins": "Omega >= 0.5, timelike khronon margin 0.2, signature eigenvalue margin 0.02 for g and the induced metric, rotation cut-locus margin 1.0: an open set U_margin in the C0 jet space on which the literal v5.2 density is real-analytic in (q, q_i, q_ij) (its only non-polynomial operations are exp, powers of Omega, 1/det g, sqrt(-g), sqrt(1+r^4), the SO(3) exponential of r, and the khronon normalisation). Real-analyticity is asserted from the structure of the literal action, not machine-checked here; the integration by parts producing G needs L in C^2 of the jets, which analyticity provides. The pinned members are known to satisfy the margins only at the N nodes x 7 radial samples checked by v5.6.4.",
+      "norm": "||X||^2 = ||X0||_{H^s}^2 + ||J1||_{H^s}^2 + sum_j (1+j^2)^4 ||C_j||_{H^s}^2 + base and embedding norms. The (1+|k|^2)^{-4} amplitude envelope of the certificate lies in H^s(T^4) for every s < 6 (d = 4), so it is compatible with s = 4.75; H^4 itself would be critical and does not embed in C^2.",
+      "part_i_exact_identity": "For X in the class inside the margins and dX tangent (constraint preserving, compactly supported by the zero extension), the Gateaux derivative DS_rel[X].dX exists and equals the collar integral of C.dq + P^i dq_i + Q^{ij} dq_ij (chain rule: L is C^1 in jets, the jets are classical because H^s(T^4) embeds in C^2 for s > 4 and the radial profiles are polynomials). By (A) this equals int_collar E_weak.dq + G[dq] with G the interface functional at rho = 0 and the rho = 1 current identically zero by (B). E_weak is the distribution defined by this identity; it coincides with the formal fourth-order Euler operator E pointwise on the open collar (0,1) x T^4 for s > 6; at rho = 1 the formal E carries a delta layer (the density is only C^0 there) that tangent variations annihilate, so no C^4 subclass across rho = 1 exists or is needed. E_weak is a functional on the tangent space of the class, not a distribution on the collar (the radial tangent space is (K+2)-dimensional). Orientation: with the bundle contract n_out = -d/drho at rho = 0, int_0^1 D_rho H^rho drho = H^rho(1) - H^rho(0) = -H^rho(0), so DS_rel[X].dX = int_collar E_weak.dq - int_{T^4} H^rho(0) dx and G[dq] := -int_{T^4} H^rho(0) dx (equivalently the boundary term of the radial-only integration by parts). Tangential faces cancel exactly by periodicity of T^4.",
       "part_ii_continuity": "On the ball ||X|| <= M inside the margins, jets are bounded in C^0 by c_s M (Sobolev embedding) and the density is real-analytic on the compact closure of the jet range, so C, P, Q are Lipschitz in the jets. Hence |DS_rel[X].dX - DS_rel[X'].dX'| <= C(M) (||X - X'|| + ||dX - dX'||) and ||G[X] - G[X']|| <= C(M) ||X - X'|| with C(M) finite (Moser composition estimates, s > d/2). This is an analytic argument recorded here with its hypotheses; it is not machine-checked and no numerical value of C(M) is claimed.",
-      "part_iii_convergence_on_the_continuum_class": "For X in the class, the Fourier truncations P_N X converge to X in the class norm, and by (ii) S_rel(P_N X) -> S_rel(X) and DS_rel[P_N X] -> DS_rel[X]. This is convergence of the exact functional along exact Fourier projections; it says nothing about the finite collocation-glued members C_N, whose gluing is imposed only at N Kronecker nodes (see (C)).",
+      "part_iii_convergence_on_the_continuum_class": "For X in the class, the Fourier truncations P_N X converge to X in the class norm, and by (ii) S_rel(P_N X) -> S_rel(X) and DS_rel[P_N X] -> DS_rel[X], PROVIDED the projected point is re-glued: P_N acts on the free data (X0, J1, C_j, base, Y, r) and the lateral traces are then eliminated explicitly, since a naive Fourier truncation of a glued point leaves the class. This is convergence of the exact functional along re-glued projections; it says nothing about the v5.6.4 nodal members C_N, whose gluing is imposed only at N Kronecker nodes (see (C)).",
       "what_remains": "A uniformly stable finite discretization of the gluing map (Galerkin projection, or tensor equispaced FFT collocation with an aliasing-controlled quadrature) so that DG_N admits a right inverse bounded uniformly in N; only then can the finite Stokes certificates of v5.6.6.x be lifted to the continuum identity of part (i) with a rate. Periodic-box exhaustion to noncompact Sigma remains a separate, still-open key."
     }
   },
-  "scientific_payload_sha256": "d61e82004805bf14a07efd724f42bbafb17fa2fa2c6e12984f28bac52b0a6a50",
+  "scientific_payload_sha256": "48f0d17f4f48d7c5a041538ce4bb5a89ed2eec2cffb42e5f1e3e728552245c52",
   "source_pins": {
     "C2_multi_N_primitive_bundle_sha256": "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf",
     "frozen_checkpoint_commit": "ea014fd",
