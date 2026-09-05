@@ -6,7 +6,10 @@ It byte-pins the literal geometric ``S_v5.2`` charter and the v5.6.1 open
 obligation, binds every literal action term to a typed geometric expression,
 and checks finite pullback naturality with a small free-word normalizer.  A
 separate integer noncommutative word kernel proves the finite affine connection
-trace transport on both sides.  The unexpanded local/compact-support chain-rule
+trace transport on both sides.  A separate exact sign ledger binds the two real
+BF routes to the oriented off-shell incidence ``b_plus-b_minus`` and factors the
+common ``Delta A_Sigma`` without claiming cancellation before the natural
+interface equation is imposed.  The unexpanded local/compact-support chain-rule
 corollary is then recorded as the formal derivative of the finite action
 identity on smooth selected-sector fields and compactly supported generators.
 
@@ -90,6 +93,7 @@ TRUE_DECISION_KEYS = frozenset(
         "literal_v5_2_twenty_component_naturality_inventory_complete_pass",
         "finite_associated_matter_solder_groupoid_word_covariance_exact_pass",
         "finite_full_affine_connection_trace_transport_exact_pass",
+        "oriented_BF_incidence_aggregation_exact_pass",
         "finite_typed_geometric_S_v5_2_action_expression_covariance_exact_pass",
         "formal_local_compact_support_chain_rule_corollary_DS_G_zero_exact_pass",
     }
@@ -1005,6 +1009,27 @@ EXPECTED_CONNECTION_TRACE_DEFINITION = (
     "Trans_iota(A)=r*(Y^*A)*r^(-1)-(d r)*r^(-1)=A_Sigma"
 )
 EXPECTED_BF_INCIDENCE = "sum_eps s_eps*b_eps=0 with s_plus=1 and s_minus=-1"
+EXPECTED_BF_ACTION_LITERAL = (
+    "S_BF=sum_eps int_Meps <B_eps wedge F[A_eps]>, "
+    "<X,Y>=-tr_3(XY)/2"
+)
+EXPECTED_ADJOINT_FORM_TRACE_DEFINITION = (
+    "Trans_iota(B)=Ad_r(Y^*B)=b_eps"
+)
+EXPECTED_BF_GREEN_FORM = (
+    "Theta_Sigma=-M5^3/2*sum_eps int sqrt(-gamma)*pi_eps^(mu nu)"
+    "Delta gamma_mu_nu-int sqrt(-gamma)*[sum_eps Pi_Omega,eps Delta Omega+"
+    "<sum_eps Pi_phi,eps,Delta varphi_H>]-int <sum_eps s_eps b_eps wedge "
+    "Delta A_Sigma>+delta(S_wall0+S_fol+S_R)"
+)
+EXPECTED_BF_NATURAL_INTERFACE_EQUATION = "sum_eps s_eps*b_eps=0"
+EXPECTED_COMMON_INTERFACE_VARIATIONS = (
+    "Delta gamma, Delta Omega_Sigma, Delta varphi_H and Delta A_Sigma are common"
+)
+BF_ORIENTATION_SIGNS = {"plus": 1, "minus": -1}
+BF_TRACE_BINDING_MUTATIONS = frozenset(
+    {"exact", "detached_b_trace", "detached_affine_target"}
+)
 
 
 def _validate_literal_inventory(
@@ -1125,6 +1150,16 @@ def _load_pinned_contracts() -> tuple[dict[str, Any], Mapping[str, Any], Mapping
         raise NaturalityCertificateError(
             "v5.2 affine connection trace definition drift"
         )
+    adjoint_form_trace_definition = (
+        v52.get("exact_classical_charter", {})
+        .get("definitions", {})
+        .get("adjoint_form_trace")
+    )
+    if adjoint_form_trace_definition != EXPECTED_ADJOINT_FORM_TRACE_DEFINITION:
+        raise NaturalityCertificateError("v5.2 adjoint-form trace definition drift")
+    bf_action_literal = exact_action.get("BF")
+    if bf_action_literal != EXPECTED_BF_ACTION_LITERAL:
+        raise NaturalityCertificateError("v5.2 BF action literal drift")
     bf_incidence = (
         v52.get("exact_classical_charter", {})
         .get("interface_domain", {})
@@ -1132,6 +1167,25 @@ def _load_pinned_contracts() -> tuple[dict[str, Any], Mapping[str, Any], Mapping
     )
     if bf_incidence != EXPECTED_BF_INCIDENCE:
         raise NaturalityCertificateError("v5.2 BF incidence contract drift")
+    interface_variations = tuple(
+        v52.get("exact_classical_charter", {})
+        .get("interface_domain", {})
+        .get("variations", ())
+    )
+    if (
+        not interface_variations
+        or interface_variations[0] != EXPECTED_COMMON_INTERFACE_VARIATIONS
+    ):
+        raise NaturalityCertificateError("v5.2 common interface variation drift")
+    green_certificate = v52.get("Green_form_certificate", {})
+    bf_green_form = green_certificate.get("Green_form")
+    if bf_green_form != EXPECTED_BF_GREEN_FORM:
+        raise NaturalityCertificateError("v5.2 BF Green-form incidence drift")
+    bf_natural_equation = (
+        green_certificate.get("natural_interface_equations", {}).get("BF_flux")
+    )
+    if bf_natural_equation != EXPECTED_BF_NATURAL_INTERFACE_EQUATION:
+        raise NaturalityCertificateError("v5.2 BF natural interface equation drift")
 
     v561_decision = v561.get("decision", {})
     if v561_decision.get("full_bulk_diffeomorphism_Ward_pass") is not False:
@@ -1152,8 +1206,17 @@ def _load_pinned_contracts() -> tuple[dict[str, Any], Mapping[str, Any], Mapping
     observed["v5_2_artifact"]["connection_trace_definition"] = (
         connection_trace_definition
     )
-    observed["v5_2_artifact"]["pinned_BF_incidence_not_yet_consumed"] = (
-        bf_incidence
+    observed["v5_2_artifact"]["adjoint_form_trace_definition"] = (
+        adjoint_form_trace_definition
+    )
+    observed["v5_2_artifact"]["BF_action_literal"] = bf_action_literal
+    observed["v5_2_artifact"]["pinned_BF_incidence_contract"] = bf_incidence
+    observed["v5_2_artifact"]["common_interface_variations"] = list(
+        interface_variations
+    )
+    observed["v5_2_artifact"]["BF_Green_form"] = bf_green_form
+    observed["v5_2_artifact"]["BF_natural_interface_equation"] = (
+        bf_natural_equation
     )
     observed["v5_6_1_artifact"]["schema"] = V561_SCHEMA
     observed["v5_6_1_historical_target_false"] = True
@@ -2189,6 +2252,600 @@ def _linear(**terms: int) -> LinearCombination:
     return LinearCombination.from_mapping(terms)
 
 
+def _exact_bf_side_mapping(
+    name: str,
+    values: Mapping[str, Any],
+) -> dict[str, Any]:
+    if set(values) != set(SIDES):
+        raise NaturalityCertificateError(
+            f"{name} must contain exactly the plus and minus sides"
+        )
+    return {side: values[side] for side in SIDES}
+
+
+def _bf_action_route_binding_rows(
+    components: Mapping[str, Expression],
+) -> tuple[dict[str, Any], ...]:
+    rows: list[dict[str, Any]] = []
+    expected_signature = EXPECTED_SEMANTIC_SIGNATURES["BF"]
+    for side in SIDES:
+        component_name = f"BF_bulk_{side}"
+        expression = components.get(component_name)
+        expression_is_typed = isinstance(
+            expression, (PulledField, SolderedMatter, Construction)
+        )
+        b_nodes = (
+            tuple(
+                node
+                for node in _pulled_field_nodes(expression)
+                if node.type_tag == ADJOINT3_5
+            )
+            if expression_is_typed
+            else ()
+        )
+        a_nodes = (
+            tuple(
+                node
+                for node in _pulled_field_nodes(expression)
+                if node.type_tag == CONNECTION1_5
+            )
+            if expression_is_typed
+            else ()
+        )
+        expected_b = _bulk_field(side, "B", ADJOINT3_5, "finite")
+        expected_a = _bulk_field(side, "A", CONNECTION1_5, "finite")
+        signature = (
+            _expression_signature(expression) if expression_is_typed else None
+        )
+        exact = bool(
+            isinstance(expression, Construction)
+            and expression.operator == "invariant_B_wedge_F"
+            and expression.type_tag == FORM5
+            and signature == expected_signature
+            and b_nodes == (expected_b,)
+            and a_nodes == (expected_a,)
+        )
+        rows.append(
+            {
+                "side": side,
+                "component": component_name,
+                "root_operator": (
+                    expression.operator
+                    if isinstance(expression, Construction)
+                    else None
+                ),
+                "semantic_operator_signature": signature,
+                "B_occurrence_count": len(b_nodes),
+                "A_occurrence_count": len(a_nodes),
+                "B_symbols": [node.name for node in b_nodes],
+                "A_symbols": [node.name for node in a_nodes],
+                "B_pullback_words": [
+                    list(node.pullback_factors) for node in b_nodes
+                ],
+                "A_pullback_words": [
+                    list(node.pullback_factors) for node in a_nodes
+                ],
+                "expected_B_symbol_type_pullback": {
+                    "symbol": expected_b.name,
+                    "type": asdict(expected_b.type_tag),
+                    "pullback_word": list(expected_b.pullback_factors),
+                },
+                "expected_A_symbol_type_pullback": {
+                    "symbol": expected_a.name,
+                    "type": asdict(expected_a.type_tag),
+                    "pullback_word": list(expected_a.pullback_factors),
+                },
+                "pass": exact,
+            }
+        )
+    return tuple(rows)
+
+
+def _serialize_pulled_field(node: PulledField | None) -> dict[str, Any] | None:
+    if node is None:
+        return None
+    return {
+        "symbol": node.name,
+        "type": asdict(node.type_tag),
+        "pullback_word": list(node.pullback_factors),
+    }
+
+
+def _bf_trace_binding_rows(
+    v52: Mapping[str, Any],
+    components: Mapping[str, Expression],
+    affine_connection_trace: Mapping[str, Any],
+    *,
+    trace_binding_mutations: Mapping[str, str] | None = None,
+) -> tuple[dict[str, Any], ...]:
+    mutations = {side: "exact" for side in SIDES}
+    if trace_binding_mutations is not None:
+        if not set(trace_binding_mutations).issubset(SIDES):
+            raise NaturalityCertificateError(
+                "unknown side in BF trace-binding mutation map"
+            )
+        mutations.update(trace_binding_mutations)
+    if any(value not in BF_TRACE_BINDING_MUTATIONS for value in mutations.values()):
+        raise NaturalityCertificateError("unknown BF trace-binding mutation")
+
+    charter = v52.get("exact_classical_charter", {})
+    definition = charter.get("definitions", {}).get("adjoint_form_trace")
+    configuration = tuple(
+        charter.get("interface_domain", {}).get("configuration", ())
+    )
+    affine_bindings = tuple(affine_connection_trace.get("binding_rows", ()))
+    affine_identities = tuple(
+        affine_connection_trace.get("side_polynomial_identities", ())
+    )
+    common_target_terms = tuple(
+        (
+            tuple(term.get("word", ())),
+            int(term.get("coefficient", 0)),
+        )
+        for term in affine_connection_trace.get(
+            "common_transformed_A_Sigma_terms", ()
+        )
+    )
+    rows: list[dict[str, Any]] = []
+    for side in SIDES:
+        expression = components.get(f"BF_bulk_{side}")
+        expression_is_typed = isinstance(
+            expression, (PulledField, SolderedMatter, Construction)
+        )
+        b_nodes = (
+            tuple(
+                node
+                for node in _pulled_field_nodes(expression)
+                if node.type_tag == ADJOINT3_5
+            )
+            if expression_is_typed
+            else ()
+        )
+        a_nodes = (
+            tuple(
+                node
+                for node in _pulled_field_nodes(expression)
+                if node.type_tag == CONNECTION1_5
+            )
+            if expression_is_typed
+            else ()
+        )
+        source_b = b_nodes[0] if len(b_nodes) == 1 else None
+        source_a = a_nodes[0] if len(a_nodes) == 1 else None
+        expected_b = _bulk_field(side, "B", ADJOINT3_5, "finite")
+        expected_a = _bulk_field(side, "A", CONNECTION1_5, "finite")
+
+        side_affine_bindings = tuple(
+            row for row in affine_bindings if row.get("side") == side
+        )
+        side_affine_identities = tuple(
+            row for row in affine_identities if row.get("side") == side
+        )
+        affine_binding = (
+            side_affine_bindings[0] if len(side_affine_bindings) == 1 else {}
+        )
+        affine_identity = (
+            side_affine_identities[0]
+            if len(side_affine_identities) == 1
+            else {}
+        )
+        transition_atom = affine_binding.get("transition_atom")
+
+        mutation = mutations[side]
+        trace_source_b = source_b
+        if mutation == "detached_b_trace" and source_b is not None:
+            trace_source_b = PulledField(
+                name=f"detached_{source_b.name}",
+                type_tag=source_b.type_tag,
+                pullback_factors=source_b.pullback_factors,
+            )
+        adjoint_trace_output = f"b_{side}"
+        source_b_bound = bool(
+            definition == EXPECTED_ADJOINT_FORM_TRACE_DEFINITION
+            and source_b == expected_b
+            and trace_source_b == source_b
+            and transition_atom == f"r_{side}"
+            and adjoint_trace_output == f"b_{side}"
+        )
+
+        affine_target_atom = "A_Sigma"
+        if mutation == "detached_affine_target":
+            affine_target_atom = "detached_A_Sigma"
+        boundary_variation_atom = f"Delta_{affine_target_atom}"
+        affine_source_bound = bool(
+            source_a == expected_a
+            and affine_binding.get("pass") is True
+            and affine_binding.get("connection_atom") == source_a.name
+            and affine_identity.get("pass") is True
+            and affine_identity.get(
+                "source_connection_atom_from_actual_action_tree"
+            )
+            == source_a.name
+            and affine_identity.get("source_trace_matches_bound_Trans_r_A")
+            is True
+            and affine_identity.get("common_interface_substitution")
+            == "Trans_r_e(A_e)->A_Sigma"
+            and affine_identity.get("common_interface_substitution_applied")
+            is True
+            and configuration == EXPECTED_INTERFACE_CONFIGURATION
+            and affine_target_atom == "A_Sigma"
+            and boundary_variation_atom == "Delta_A_Sigma"
+            and common_target_terms
+            and tuple(
+                (
+                    tuple(term.get("word", ())),
+                    int(term.get("coefficient", 0)),
+                )
+                for term in affine_identity.get(
+                    "common_interface_target_terms", ()
+                )
+            )
+            == common_target_terms
+        )
+        rows.append(
+            {
+                "side": side,
+                "mutation": mutation,
+                "source_B_node_from_actual_BF_action": _serialize_pulled_field(
+                    source_b
+                ),
+                "adjoint_trace_input_node": _serialize_pulled_field(
+                    trace_source_b
+                ),
+                "adjoint_trace_transition_atom_from_affine_binding": (
+                    transition_atom
+                ),
+                "adjoint_trace_output_atom": adjoint_trace_output,
+                "adjoint_trace_equation": (
+                    f"Ad_{transition_atom}(Y_{side}^*{trace_source_b.name})="
+                    f"{adjoint_trace_output}"
+                    if trace_source_b is not None and transition_atom
+                    else None
+                ),
+                "source_B_node_bound_to_adjoint_trace": source_b_bound,
+                "source_A_node_from_actual_BF_action": _serialize_pulled_field(
+                    source_a
+                ),
+                "affine_source_connection_atom": affine_binding.get(
+                    "connection_atom"
+                ),
+                "affine_common_target_atom": affine_target_atom,
+                "boundary_variation_atom_derived_from_affine_target": (
+                    boundary_variation_atom
+                ),
+                "source_A_node_bound_through_affine_trace_to_variation": (
+                    affine_source_bound
+                ),
+                "affine_common_target_terms": [
+                    {"word": list(word), "coefficient": coefficient}
+                    for word, coefficient in common_target_terms
+                ],
+                "pass": bool(source_b_bound and affine_source_bound),
+            }
+        )
+    return tuple(rows)
+
+
+def _bf_incidence_aggregation_ledger(
+    v52: Mapping[str, Any],
+    *,
+    components: Mapping[str, Expression] | None = None,
+    affine_connection_trace: Mapping[str, Any] | None = None,
+    orientation_signs: Mapping[str, int] | None = None,
+    variation_atoms: Mapping[str, str] | None = None,
+    trace_binding_mutations: Mapping[str, str] | None = None,
+    boundary_prefactor: int = -1,
+) -> dict[str, Any]:
+    actual_components = (
+        build_component_expressions("finite")
+        if components is None
+        else components
+    )
+    signs = _exact_bf_side_mapping(
+        "BF orientation signs",
+        BF_ORIENTATION_SIGNS if orientation_signs is None else orientation_signs,
+    )
+    if any(isinstance(value, bool) or not isinstance(value, int) for value in signs.values()):
+        raise NaturalityCertificateError("BF orientation signs must be exact integers")
+    if isinstance(boundary_prefactor, bool) or not isinstance(boundary_prefactor, int):
+        raise NaturalityCertificateError("BF boundary prefactor must be an exact integer")
+
+    charter = v52.get("exact_classical_charter", {})
+    exact_action = charter.get("exact_action", {})
+    interface_domain = charter.get("interface_domain", {})
+    definitions = charter.get("definitions", {})
+    green_certificate = v52.get("Green_form_certificate", {})
+    interface_variation_rows = tuple(interface_domain.get("variations", ()))
+    literal_bf_bindings = tuple(
+        binding
+        for binding in literal_component_bindings()
+        if binding.name.startswith("BF_bulk_")
+    )
+    literal_binding_exact = bool(
+        tuple(binding.name for binding in literal_bf_bindings)
+        == ("BF_bulk_plus", "BF_bulk_minus")
+        and all(binding.source_keys == ("BF",) for binding in literal_bf_bindings)
+        and all(
+            binding.required_fragments == (("BF", "<B_eps wedge F[A_eps]>"),)
+            for binding in literal_bf_bindings
+        )
+    )
+    pinned_literals = {
+        "BF_action": exact_action.get("BF"),
+        "adjoint_form_trace": definitions.get("adjoint_form_trace"),
+        "common_interface_variations": (
+            interface_variation_rows[0] if interface_variation_rows else None
+        ),
+        "Green_form": green_certificate.get("Green_form"),
+        "natural_B_flux_equation": interface_domain.get(
+            "natural_B_flux_equation"
+        ),
+        "natural_interface_BF_flux": green_certificate.get(
+            "natural_interface_equations", {}
+        ).get("BF_flux"),
+    }
+    pinned_literals_exact = pinned_literals == {
+        "BF_action": EXPECTED_BF_ACTION_LITERAL,
+        "adjoint_form_trace": EXPECTED_ADJOINT_FORM_TRACE_DEFINITION,
+        "common_interface_variations": EXPECTED_COMMON_INTERFACE_VARIATIONS,
+        "Green_form": EXPECTED_BF_GREEN_FORM,
+        "natural_B_flux_equation": EXPECTED_BF_INCIDENCE,
+        "natural_interface_BF_flux": EXPECTED_BF_NATURAL_INTERFACE_EQUATION,
+    }
+
+    route_rows = _bf_action_route_binding_rows(actual_components)
+    actual_affine_connection_trace = (
+        _affine_connection_trace_ledger(
+            v52,
+            _interface_raw_pullback_ledger(),
+            components=actual_components,
+        )
+        if affine_connection_trace is None
+        else affine_connection_trace
+    )
+    trace_binding_rows = _bf_trace_binding_rows(
+        v52,
+        actual_components,
+        actual_affine_connection_trace,
+        trace_binding_mutations=trace_binding_mutations,
+    )
+    trace_rows_by_side = {row["side"]: row for row in trace_binding_rows}
+    derived_variations = {
+        side: trace_rows_by_side[side][
+            "boundary_variation_atom_derived_from_affine_target"
+        ]
+        for side in SIDES
+    }
+    variations = _exact_bf_side_mapping(
+        "BF variation atoms",
+        derived_variations if variation_atoms is None else variation_atoms,
+    )
+    if any(not isinstance(value, str) or not value for value in variations.values()):
+        raise NaturalityCertificateError("BF variation atoms must be nonempty strings")
+    oriented_flux = LinearCombination.from_mapping(
+        {
+            trace_rows_by_side[side]["adjoint_trace_output_atom"]: signs[side]
+            for side in SIDES
+        }
+    )
+    expected_flux = _linear(b_plus=1, b_minus=-1)
+    common_variation = (
+        len(set(variations.values())) == 1
+        and tuple(variations.values()) == ("Delta_A_Sigma", "Delta_A_Sigma")
+        and variations == derived_variations
+    )
+    boundary_integrand = LinearCombination.from_mapping(
+        {
+            (
+                f"{trace_rows_by_side[side]['adjoint_trace_output_atom']}"
+                f"_wedge_{variations[side]}"
+            ): (
+                boundary_prefactor * signs[side]
+            )
+            for side in SIDES
+        }
+    )
+    expected_boundary_integrand = _linear(
+        b_plus_wedge_Delta_A_Sigma=-1,
+        b_minus_wedge_Delta_A_Sigma=1,
+    )
+    quotient_rule_consumed = bool(
+        pinned_literals_exact
+        and all(row["pass"] for row in trace_binding_rows)
+        and oriented_flux == expected_flux
+    )
+    flux_mod_natural_interface_equation = (
+        LinearCombination(()) if quotient_rule_consumed else oriented_flux
+    )
+    off_shell_flux_is_nonzero = not oriented_flux.is_zero
+    pass_exact = bool(
+        literal_binding_exact
+        and pinned_literals_exact
+        and all(row["pass"] for row in route_rows)
+        and actual_affine_connection_trace.get("pass") is True
+        and len(trace_binding_rows) == len(SIDES)
+        and all(row["pass"] for row in trace_binding_rows)
+        and signs == BF_ORIENTATION_SIGNS
+        and common_variation
+        and boundary_prefactor == -1
+        and oriented_flux == expected_flux
+        and boundary_integrand == expected_boundary_integrand
+        and off_shell_flux_is_nonzero
+        and quotient_rule_consumed
+        and flux_mod_natural_interface_equation.is_zero
+    )
+    return {
+        "scope": (
+            "literal oriented BF boundary-incidence aggregation; not an "
+            "off-shell cancellation and not the complete Green ledger"
+        ),
+        "pinned_literals": pinned_literals,
+        "literal_BF_component_bindings_exact": literal_binding_exact,
+        "actual_BF_action_route_bindings": list(route_rows),
+        "typed_B_and_affine_target_trace_binding_rows": list(
+            trace_binding_rows
+        ),
+        "all_BF_boundary_atoms_derived_from_typed_trace_rows": bool(
+            len(trace_binding_rows) == len(SIDES)
+            and all(row["pass"] for row in trace_binding_rows)
+        ),
+        "orientation_sign_rows": [
+            {
+                "side": side,
+                "s_epsilon": signs[side],
+                "boundary_variation_atom": variations[side],
+            }
+            for side in SIDES
+        ],
+        "boundary_prefactor": boundary_prefactor,
+        "oriented_flux_terms": list(oriented_flux.terms),
+        "expected_b_plus_minus_b_minus_terms": list(expected_flux.terms),
+        "common_Delta_A_Sigma_factored": common_variation,
+        "oriented_boundary_integrand_terms": list(boundary_integrand.terms),
+        "expected_boundary_integrand_terms": list(
+            expected_boundary_integrand.terms
+        ),
+        "off_shell_oriented_flux_is_nonzero": off_shell_flux_is_nonzero,
+        "off_shell_cancellation_claimed": False,
+        "natural_interface_equation_imposed_for_quotient": (
+            EXPECTED_BF_NATURAL_INTERFACE_EQUATION
+        ),
+        "natural_interface_equation_quotient_rule_consumed": (
+            quotient_rule_consumed
+        ),
+        "flux_terms_mod_natural_interface_equation": list(
+            flux_mod_natural_interface_equation.terms
+        ),
+        "on_shell_cancellation_only": bool(
+            quotient_rule_consumed
+            and flux_mod_natural_interface_equation.is_zero
+        ),
+        "full_Green_or_Ward_identity_claimed": False,
+        "decision_also_requires_separate_affine_connection_trace_pass": True,
+        "pass": pass_exact,
+    }
+
+
+def _bf_incidence_mutant_campaign(
+    v52: Mapping[str, Any],
+    *,
+    affine_connection_trace: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    rows: dict[str, Any] = {}
+    cases = {
+        "same_orientation_sign": {"plus": 1, "minus": 1},
+        "reversed_orientation_signs": {"plus": -1, "minus": 1},
+        "minus_side_omitted": {"plus": 1, "minus": 0},
+    }
+    for name, signs in cases.items():
+        ledger = _bf_incidence_aggregation_ledger(
+            v52,
+            affine_connection_trace=affine_connection_trace,
+            orientation_signs=signs,
+        )
+        rows[name] = {
+            "killed": (
+                not ledger["pass"]
+                and ledger["oriented_flux_terms"]
+                != ledger["expected_b_plus_minus_b_minus_terms"]
+            ),
+            "oriented_flux_terms": ledger["oriented_flux_terms"],
+        }
+
+    split_variation = _bf_incidence_aggregation_ledger(
+        v52,
+        affine_connection_trace=affine_connection_trace,
+        variation_atoms={"plus": "Delta_A_plus", "minus": "Delta_A_minus"},
+    )
+    rows["split_Delta_A_between_sides"] = {
+        "killed": (
+            not split_variation["pass"]
+            and not split_variation["common_Delta_A_Sigma_factored"]
+        ),
+        "boundary_integrand_terms": split_variation[
+            "oriented_boundary_integrand_terms"
+        ],
+    }
+
+    wrong_prefactor = _bf_incidence_aggregation_ledger(
+        v52,
+        affine_connection_trace=affine_connection_trace,
+        boundary_prefactor=1,
+    )
+    rows["wrong_global_boundary_sign"] = {
+        "killed": (
+            not wrong_prefactor["pass"]
+            and wrong_prefactor["oriented_boundary_integrand_terms"]
+            != wrong_prefactor["expected_boundary_integrand_terms"]
+        ),
+        "boundary_integrand_terms": wrong_prefactor[
+            "oriented_boundary_integrand_terms"
+        ],
+    }
+
+    for role in ("B", "A"):
+        detached_components = build_component_expressions("finite")
+        detached_components["BF_bulk_plus"] = _replace_semantic_leaf_role(
+            detached_components["BF_bulk_plus"],
+            role,
+            f"detached_{role}",
+        )
+        detached = _bf_incidence_aggregation_ledger(
+            v52,
+            components=detached_components,
+        )
+        plus_route = next(
+            row
+            for row in detached["actual_BF_action_route_bindings"]
+            if row["side"] == "plus"
+        )
+        rows[f"detached_{role}_from_actual_BF_route"] = {
+            "killed": (
+                not detached["pass"]
+                and not plus_route["pass"]
+                and all(
+                    row["pass"]
+                    for row in detached["actual_BF_action_route_bindings"]
+                    if row["side"] == "minus"
+                )
+            ),
+            "plus_route": plus_route,
+        }
+    for mutation in ("detached_b_trace", "detached_affine_target"):
+        detached_trace = _bf_incidence_aggregation_ledger(
+            v52,
+            affine_connection_trace=affine_connection_trace,
+            trace_binding_mutations={"plus": mutation},
+        )
+        plus_trace = next(
+            row
+            for row in detached_trace[
+                "typed_B_and_affine_target_trace_binding_rows"
+            ]
+            if row["side"] == "plus"
+        )
+        minus_trace = next(
+            row
+            for row in detached_trace[
+                "typed_B_and_affine_target_trace_binding_rows"
+            ]
+            if row["side"] == "minus"
+        )
+        rows[mutation] = {
+            "killed": bool(
+                not detached_trace["pass"]
+                and not plus_trace["pass"]
+                and minus_trace["pass"]
+            ),
+            "plus_trace_binding": plus_trace,
+        }
+    return {
+        "rows": rows,
+        "mutant_count": len(rows),
+        "pass": bool(rows) and all(row["killed"] for row in rows.values()),
+    }
+
+
 def _cartan_ledger(mutant: str | None = None) -> dict[str, Any]:
     replacements = {
         "Lie_A": _linear(i_F=1, D_iA=1),
@@ -2806,6 +3463,14 @@ def build_report() -> dict[str, Any]:
             interface_raw_pullback,
         )
     )
+    bf_incidence_aggregation = _bf_incidence_aggregation_ledger(
+        v52,
+        affine_connection_trace=affine_connection_trace,
+    )
+    bf_incidence_mutants = _bf_incidence_mutant_campaign(
+        v52,
+        affine_connection_trace=affine_connection_trace,
+    )
     pin_pass = (
         source_pins["v5_2_artifact"]["canonical_exact_action_sha256"]
         == V52_EXACT_ACTION_SHA256
@@ -2846,6 +3511,12 @@ def build_report() -> dict[str, Any]:
         and affine_connection_trace["pass"]
         and affine_connection_trace_mutants["pass"]
     )
+    finite_bf_incidence_aggregation = bool(
+        pin_pass
+        and finite_affine_connection_trace
+        and bf_incidence_aggregation["pass"]
+        and bf_incidence_mutants["pass"]
+    )
     core = {
         "v5_2_geometric_action_and_v5_6_1_obligation_byte_pinned_pass": pin_pass,
         "finite_complete_domain_pullback_identity_exact_pass": bool(
@@ -2861,6 +3532,9 @@ def build_report() -> dict[str, Any]:
         ),
         "finite_full_affine_connection_trace_transport_exact_pass": (
             finite_affine_connection_trace
+        ),
+        "oriented_BF_incidence_aggregation_exact_pass": (
+            finite_bf_incidence_aggregation
         ),
         "finite_typed_geometric_S_v5_2_action_expression_covariance_exact_pass": (
             finite_geometric_covariance
@@ -2899,8 +3573,9 @@ def build_report() -> dict[str, Any]:
         "schema": SCHEMA,
         "claim": (
             "Exact finite covariance of the typed geometric S_v5.2 action "
-            "expression, exact finite affine connection-trace transport, and "
-            "the formal local compact-support chain-rule corollary only"
+            "expression, exact finite affine connection-trace transport, exact "
+            "off-shell oriented BF incidence aggregation, and the formal local "
+            "compact-support chain-rule corollary only"
         ),
         "source_pins": source_pins,
         "theorem_domain": {
@@ -2963,17 +3638,17 @@ def build_report() -> dict[str, Any]:
         "affine_connection_trace_effective_mutants": (
             affine_connection_trace_mutants
         ),
+        "oriented_BF_incidence_aggregation": bf_incidence_aggregation,
+        "oriented_BF_incidence_effective_mutants": bf_incidence_mutants,
         "formal_local_compact_support_chain_rule_corollary": formal_local,
         "effective_mutants": mutants,
         "excluded_fixed_background_relative_contract": fixed_background,
         "open_local_Ward_obligations": {
-            "oriented_BF_incidence": (
-                "OPEN: consume the literal two-side boundary Green form with s_plus=+1 and s_minus=-1"
-            ),
             "literal_bulk_interface_Green_ledger": (
-                "OPEN: type and normalize the bulk Euler pairings, d_5 current, "
-                "embedding Euler term, constrained iota term and d_4 interface "
-                "current"
+                "OPEN beyond the now-consumed BF row: type and normalize the "
+                "metric, Omega, matter and intrinsic-interface pairings, bulk "
+                "Euler pairings, d_5 current, embedding Euler term, constrained "
+                "iota term and d_4 interface current"
             ),
             "Noether_current_definition": (
                 "OPEN for the local ledger: J_e=theta_e(X_e,L_zeta X_e)-i_zeta L_e"
@@ -2990,6 +3665,11 @@ def build_report() -> dict[str, Any]:
             ),
             "relative_functional": (
                 "simultaneous covariance of (X,X_infinity) is not frozen-background gauge invariance"
+            ),
+            "BF_off_shell": (
+                "the oriented coefficient b_plus-b_minus is not zero off shell; "
+                "its cancellation uses the separately displayed natural "
+                "interface equation"
             ),
             "promotion": (
                 "this does not close the v5.6.1 full-bulk Ward key; C1, N1, P4, B4 and B5 remain false"

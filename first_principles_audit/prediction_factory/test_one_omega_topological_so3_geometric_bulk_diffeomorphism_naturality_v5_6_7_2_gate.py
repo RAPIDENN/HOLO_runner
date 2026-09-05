@@ -36,8 +36,18 @@ def test_exact_upstream_byte_pins_and_literal_action_hash(report: dict) -> None:
     assert pins["v5_2_artifact"]["connection_trace_definition"] == (
         gate.EXPECTED_CONNECTION_TRACE_DEFINITION
     )
-    assert pins["v5_2_artifact"]["pinned_BF_incidence_not_yet_consumed"] == (
+    assert pins["v5_2_artifact"]["pinned_BF_incidence_contract"] == (
         gate.EXPECTED_BF_INCIDENCE
+    )
+    assert pins["v5_2_artifact"]["BF_action_literal"] == (
+        gate.EXPECTED_BF_ACTION_LITERAL
+    )
+    assert pins["v5_2_artifact"]["adjoint_form_trace_definition"] == (
+        gate.EXPECTED_ADJOINT_FORM_TRACE_DEFINITION
+    )
+    assert pins["v5_2_artifact"]["BF_Green_form"] == gate.EXPECTED_BF_GREEN_FORM
+    assert pins["v5_2_artifact"]["BF_natural_interface_equation"] == (
+        gate.EXPECTED_BF_NATURAL_INTERFACE_EQUATION
     )
     assert pins["v5_6_1_historical_target_false"] is True
     assert "complete 5D metric, scalar, BF and matter" in pins[
@@ -436,6 +446,161 @@ def test_affine_mutants_are_effective_and_binding_is_not_detached(
     ] is True
 
 
+def test_oriented_BF_incidence_is_aggregated_off_shell_not_cancelled(
+    report: dict,
+) -> None:
+    ledger = report["oriented_BF_incidence_aggregation"]
+    assert ledger["pass"] is True
+    assert ledger["pinned_literals"] == {
+        "BF_action": gate.EXPECTED_BF_ACTION_LITERAL,
+        "adjoint_form_trace": gate.EXPECTED_ADJOINT_FORM_TRACE_DEFINITION,
+        "common_interface_variations": gate.EXPECTED_COMMON_INTERFACE_VARIATIONS,
+        "Green_form": gate.EXPECTED_BF_GREEN_FORM,
+        "natural_B_flux_equation": gate.EXPECTED_BF_INCIDENCE,
+        "natural_interface_BF_flux": gate.EXPECTED_BF_NATURAL_INTERFACE_EQUATION,
+    }
+    assert ledger["literal_BF_component_bindings_exact"] is True
+    assert len(ledger["actual_BF_action_route_bindings"]) == 2
+    for row in ledger["actual_BF_action_route_bindings"]:
+        side = row["side"]
+        assert row["pass"] is True
+        assert row["component"] == f"BF_bulk_{side}"
+        assert row["root_operator"] == "invariant_B_wedge_F"
+        assert row["B_occurrence_count"] == 1
+        assert row["A_occurrence_count"] == 1
+        assert row["B_symbols"] == [f"B_{side}"]
+        assert row["A_symbols"] == [f"A_{side}"]
+        assert row["expected_B_symbol_type_pullback"]["symbol"] == f"B_{side}"
+        assert row["expected_A_symbol_type_pullback"]["symbol"] == f"A_{side}"
+    assert ledger["all_BF_boundary_atoms_derived_from_typed_trace_rows"] is True
+    trace_rows = ledger["typed_B_and_affine_target_trace_binding_rows"]
+    assert len(trace_rows) == 2
+    for row in trace_rows:
+        side = row["side"]
+        assert row["pass"] is True
+        assert row["mutation"] == "exact"
+        assert row["source_B_node_from_actual_BF_action"]["symbol"] == f"B_{side}"
+        assert row["adjoint_trace_input_node"] == row[
+            "source_B_node_from_actual_BF_action"
+        ]
+        assert row["adjoint_trace_transition_atom_from_affine_binding"] == f"r_{side}"
+        assert row["adjoint_trace_output_atom"] == f"b_{side}"
+        assert row["source_B_node_bound_to_adjoint_trace"] is True
+        assert row["source_A_node_from_actual_BF_action"]["symbol"] == f"A_{side}"
+        assert row["affine_source_connection_atom"] == f"A_{side}"
+        assert row["affine_common_target_atom"] == "A_Sigma"
+        assert row[
+            "boundary_variation_atom_derived_from_affine_target"
+        ] == "Delta_A_Sigma"
+        assert row[
+            "source_A_node_bound_through_affine_trace_to_variation"
+        ] is True
+        assert row["affine_common_target_terms"]
+    assert ledger["orientation_sign_rows"] == [
+        {
+            "side": "plus",
+            "s_epsilon": 1,
+            "boundary_variation_atom": "Delta_A_Sigma",
+        },
+        {
+            "side": "minus",
+            "s_epsilon": -1,
+            "boundary_variation_atom": "Delta_A_Sigma",
+        },
+    ]
+    assert ledger["oriented_flux_terms"] == [
+        ("b_minus", -1),
+        ("b_plus", 1),
+    ]
+    assert ledger["expected_b_plus_minus_b_minus_terms"] == ledger[
+        "oriented_flux_terms"
+    ]
+    assert ledger["common_Delta_A_Sigma_factored"] is True
+    assert ledger["oriented_boundary_integrand_terms"] == [
+        ("b_minus_wedge_Delta_A_Sigma", 1),
+        ("b_plus_wedge_Delta_A_Sigma", -1),
+    ]
+    assert ledger["expected_boundary_integrand_terms"] == ledger[
+        "oriented_boundary_integrand_terms"
+    ]
+    assert ledger["off_shell_oriented_flux_is_nonzero"] is True
+    assert ledger["off_shell_cancellation_claimed"] is False
+    assert ledger["natural_interface_equation_quotient_rule_consumed"] is True
+    assert ledger["flux_terms_mod_natural_interface_equation"] == []
+    assert ledger["on_shell_cancellation_only"] is True
+    assert ledger["full_Green_or_Ward_identity_claimed"] is False
+    assert ledger[
+        "decision_also_requires_separate_affine_connection_trace_pass"
+    ] is True
+
+
+def test_BF_incidence_mutants_and_literal_drift_are_fail_closed(
+    report: dict,
+) -> None:
+    mutants = report["oriented_BF_incidence_effective_mutants"]
+    assert mutants["pass"] is True
+    assert mutants["mutant_count"] == 9
+    assert all(row["killed"] for row in mutants["rows"].values())
+    assert set(mutants["rows"]) == {
+        "same_orientation_sign",
+        "reversed_orientation_signs",
+        "minus_side_omitted",
+        "split_Delta_A_between_sides",
+        "wrong_global_boundary_sign",
+        "detached_B_from_actual_BF_route",
+        "detached_A_from_actual_BF_route",
+        "detached_b_trace",
+        "detached_affine_target",
+    }
+    assert mutants["rows"]["detached_b_trace"]["plus_trace_binding"][
+        "source_B_node_bound_to_adjoint_trace"
+    ] is False
+    assert mutants["rows"]["detached_affine_target"]["plus_trace_binding"][
+        "source_A_node_bound_through_affine_trace_to_variation"
+    ] is False
+
+    _pins, v52, _v561 = gate._load_pinned_contracts()
+    baseline = gate._bf_incidence_aggregation_ledger(v52)
+    assert baseline["pass"] is True
+    mutation_paths = (
+        ("exact_classical_charter", "exact_action", "BF"),
+        ("exact_classical_charter", "definitions", "adjoint_form_trace"),
+        ("exact_classical_charter", "interface_domain", "natural_B_flux_equation"),
+        ("Green_form_certificate", "Green_form"),
+        ("Green_form_certificate", "natural_interface_equations", "BF_flux"),
+    )
+    for path in mutation_paths:
+        mutated = json.loads(json.dumps(v52))
+        target = mutated
+        for key in path[:-1]:
+            target = target[key]
+        target[path[-1]] = "mutated"
+        assert gate._bf_incidence_aggregation_ledger(mutated)["pass"] is False
+    mutated = json.loads(json.dumps(v52))
+    mutated["exact_classical_charter"]["interface_domain"]["variations"][0] = (
+        "split variations"
+    )
+    assert gate._bf_incidence_aggregation_ledger(mutated)["pass"] is False
+
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._bf_incidence_aggregation_ledger(
+            v52,
+            orientation_signs={"plus": 1},
+        )
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._bf_incidence_aggregation_ledger(
+            v52,
+            orientation_signs={"plus": 1, "minus": False},
+        )
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._bf_incidence_aggregation_ledger(
+            v52,
+            variation_atoms={"plus": "Delta_A_Sigma", "detached": "Delta_A_Sigma"},
+        )
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._bf_incidence_aggregation_ledger(v52, boundary_prefactor=True)
+
+
 def test_Cartan_signs_reduce_as_exact_integer_combinations(report: dict) -> None:
     cartan = report["formal_local_compact_support_chain_rule_corollary"][
         "Cartan_bulk_sign_ledger"
@@ -553,6 +718,7 @@ def test_only_finite_covariance_and_formal_local_corollary_are_promoted(
     assert decision[
         "finite_full_affine_connection_trace_transport_exact_pass"
     ] is True
+    assert decision["oriented_BF_incidence_aggregation_exact_pass"] is True
     assert report["theorem_domain"][
         "full_affine_connection_trace_transport_in_this_certificate"
     ] is True
@@ -579,7 +745,6 @@ def test_only_finite_covariance_and_formal_local_corollary_are_promoted(
         assert decision[key] is False
     opens = report["open_local_Ward_obligations"]
     assert set(opens) == {
-        "oriented_BF_incidence",
         "literal_bulk_interface_Green_ledger",
         "Noether_current_definition",
     }
