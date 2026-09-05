@@ -106,7 +106,12 @@ EVALUATION_BINDING = {
     ),
     "graded_Leibniz": "s(uv)=s(u)v+(-1)^|u|u s(v)",
     "even_prolongation": (
-        "[s,D_M]=[s,d_mu]=[s,d_t]=0 on modeled support-needed families"
+        "[s,D_M]=0 checked for ten order-zero bulk c^M generators over five "
+        "axes (50 rows); [s,d_mu]=0 checked for four order-zero eta^mu "
+        "generators (16 rows), ten order-zero Ev_Y(c^M) generators (40 rows), "
+        "and order-zero Ev_T(kappa) (4 rows); [s,d_t]=0 checked for order-zero "
+        "kappa (1 row); exactly these 111 listed traces within observed "
+        "order-two support"
     ),
 }
 
@@ -682,6 +687,8 @@ class CandidateModel:
                 jet=_increment_multiindex(spec.jet, axis),
             )
         if spec.family == "EvY_c":
+            if "bad_EvY_sigma_prolongation" in self.mutations:
+                return Polynomial.scalar(self.algebra, 0)
             component = int(spec.component[0])
             result = Polynomial.scalar(self.algebra, 0)
             for ambient in range(D_BULK):
@@ -694,6 +701,8 @@ class CandidateModel:
                 )
             return result
         if spec.family == "EvT_kappa":
+            if "bad_EvT_sigma_prolongation" in self.mutations:
+                return Polynomial.scalar(self.algebra, 0)
             return self.T(_unit_multiindex(D_WORLDVOLUME, axis)) * self.evaluated_kappa(
                 spec.jet[0] + 1
             )
@@ -1185,6 +1194,10 @@ def _probe_generator(model: CandidateModel, mutant: str) -> tuple[str, Polynomia
         return "plus.Omega", model.scalar("plus", "Omega", 0)
     if mutant == "bad_target_prolongation":
         return "[s,d_t]kappa", model.kappa(0)
+    if mutant == "bad_EvY_sigma_prolongation":
+        return "[s,d_0]plus.C[0]", model.evaluated_c("plus", 0)
+    if mutant == "bad_EvT_sigma_prolongation":
+        return "[s,d_0]K", model.evaluated_kappa()
     raise SolidC2AGradedError(f"unknown mutant probe: {mutant}")
 
 
@@ -1214,11 +1227,19 @@ def _build_mutant_residue(mutant: str) -> dict[str, Any]:
         residue = model.s(model.D_target(generator)) - model.D_target(
             model.s(generator)
         )
+    elif mutant in {"bad_EvY_sigma_prolongation", "bad_EvT_sigma_prolongation"}:
+        residue = model.s(model.D_sigma(generator, 0)) - model.D_sigma(
+            model.s(generator), 0
+        )
     else:
         residue = model.s(model.s(generator))
     expected_parity = (
         1 - model._only_spec(generator).parity
-        if mutant == "bad_target_prolongation"
+        if mutant in {
+            "bad_target_prolongation",
+            "bad_EvY_sigma_prolongation",
+            "bad_EvT_sigma_prolongation",
+        }
         else model._only_spec(generator).parity
     )
     residue.require_homogeneous(expected_parity, f"mutant {mutant}")
@@ -1249,6 +1270,8 @@ MUTANTS = (
     "target_evaluation_odd_order",
     "local_kappa",
     "bad_target_prolongation",
+    "bad_EvY_sigma_prolongation",
+    "bad_EvT_sigma_prolongation",
     "commuting_odd_algebra",
     "omit_metric_first_leg",
     "omit_metric_second_leg",
@@ -1356,11 +1379,46 @@ def _prolongation_checks(model: CandidateModel) -> dict[str, Any]:
     if not target_difference.is_zero:
         raise SolidC2AGradedError("[s,d_t] failed on kappa")
     rows.append({"domain": "R_T", "generator": "kappa", "axis": 0})
+    # These are the non-tautological evaluation/prolongation checks.  Unlike
+    # fundamental jets whose s-rule is defined by prolongation, EvY and EvT
+    # each have an independently implemented BRST chain rule and sigma total
+    # derivative, so their commutators genuinely compare two code paths.
+    for side in SIDES:
+        for component in range(D_BULK):
+            for axis in range(D_WORLDVOLUME):
+                evaluated = model.evaluated_c(side, component)
+                difference = model.s(model.D_sigma(evaluated, axis)) - model.D_sigma(
+                    model.s(evaluated), axis
+                )
+                model.assert_certified_support(
+                    difference, "evaluated ambient ghost prolongation"
+                )
+                if not difference.is_zero:
+                    raise SolidC2AGradedError("[s,d_mu] failed on EvY(c^M)")
+                rows.append(
+                    {
+                        "domain": f"EvY_{side}",
+                        "generator": f"C[{component}]",
+                        "axis": axis,
+                    }
+                )
+    for axis in range(D_WORLDVOLUME):
+        evaluated = model.evaluated_kappa()
+        difference = model.s(model.D_sigma(evaluated, axis)) - model.D_sigma(
+            model.s(evaluated), axis
+        )
+        model.assert_certified_support(
+            difference, "evaluated target ghost prolongation"
+        )
+        if not difference.is_zero:
+            raise SolidC2AGradedError("[s,d_mu] failed on EvT(kappa)")
+        rows.append({"domain": "EvT", "generator": "K", "axis": axis})
     return {
         "checked_rows": len(rows),
         "rows": rows,
         "all_exact_zero": True,
         "kappa_first_jet_is_derived_not_primitive": True,
+        "non_tautological_evaluation_commutator_rows": 44,
     }
 
 
@@ -1776,7 +1834,7 @@ def validate_report(report: Any) -> None:
     )
     _require_exact(
         report["prolongation_commutators"]["checked_rows"],
-        67,
+        111,
         "report.prolongation.checked_rows",
     )
     _require_exact(
@@ -1788,6 +1846,13 @@ def validate_report(report: Any) -> None:
         report["prolongation_commutators"]["kappa_first_jet_is_derived_not_primitive"],
         True,
         "report.prolongation.kappa_first_jet",
+    )
+    _require_exact(
+        report["prolongation_commutators"][
+            "non_tautological_evaluation_commutator_rows"
+        ],
+        44,
+        "report.prolongation.non_tautological_evaluation_commutator_rows",
     )
     _require_exact(report["proof_boundary"], _proof_boundary(), "report.proof_boundary")
     _require_exact(report["decision"], _decision(), "report.decision")

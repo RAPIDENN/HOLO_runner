@@ -523,6 +523,64 @@ def _local_generators(model: _BitModel) -> list[tuple[str, _BitPoly]]:
     return rows
 
 
+def _local_prolongation_rows(model: _BitModel) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    for side in ("plus", "minus"):
+        for component in range(5):
+            for axis in range(5):
+                generator = model.c(side, component)
+                difference = model.s(model.D(generator, axis)) - model.D(
+                    model.s(generator), axis
+                )
+                if not difference.zero:
+                    raise AssertionError("test-local [s,D] failed on c")
+                rows.append(
+                    {"domain": side, "generator": f"c[{component}]", "axis": axis}
+                )
+    for component in range(4):
+        for axis in range(4):
+            generator = model.eta(component)
+            difference = model.s(model.d(generator, axis)) - model.d(
+                model.s(generator), axis
+            )
+            if not difference.zero:
+                raise AssertionError("test-local [s,d] failed on eta")
+            rows.append(
+                {"domain": "Sigma", "generator": f"eta[{component}]", "axis": axis}
+            )
+    kappa = model.kappa()
+    difference = model.s(model.dt(kappa)) - model.dt(model.s(kappa))
+    if not difference.zero:
+        raise AssertionError("test-local [s,d_t] failed on kappa")
+    rows.append({"domain": "R_T", "generator": "kappa", "axis": 0})
+
+    for side in ("plus", "minus"):
+        for component in range(5):
+            for axis in range(4):
+                evaluated = model.C(side, component)
+                difference = model.s(model.d(evaluated, axis)) - model.d(
+                    model.s(evaluated), axis
+                )
+                if not difference.zero:
+                    raise AssertionError("test-local [s,d] failed on EvY(c)")
+                rows.append(
+                    {
+                        "domain": f"EvY_{side}",
+                        "generator": f"C[{component}]",
+                        "axis": axis,
+                    }
+                )
+    for axis in range(4):
+        evaluated = model.K()
+        difference = model.s(model.d(evaluated, axis)) - model.d(
+            model.s(evaluated), axis
+        )
+        if not difference.zero:
+            raise AssertionError("test-local [s,d] failed on EvT(kappa)")
+        rows.append({"domain": "EvT", "generator": "K", "axis": axis})
+    return rows
+
+
 class _CountingPath:
     def __init__(self, raw: object) -> None:
         self.raw = raw
@@ -665,6 +723,26 @@ class SolidC2AGradedNilpotencyTests(unittest.TestCase):
         self.assertEqual(bad["probe"], "[s,d_t]kappa")
         self.assertGreater(bad["term_count"], 0)
 
+    def test_independent_bitmask_recalculates_all_111_prolongation_rows(self) -> None:
+        model = _BitModel()
+        rows = _local_prolongation_rows(model)
+        self.assertEqual(len(rows), 111)
+        self.assertEqual(rows, self.report["prolongation_commutators"]["rows"])
+        self.assertEqual(
+            self.report["prolongation_commutators"]["checked_rows"], 111
+        )
+        self.assertEqual(
+            self.report["prolongation_commutators"]
+            ["non_tautological_evaluation_commutator_rows"],
+            44,
+        )
+        wording = self.report["candidate_rule_binding"]["evaluation_rules"][
+            "even_prolongation"
+        ]
+        self.assertIn("ten order-zero Ev_Y(c^M) generators (40 rows)", wording)
+        self.assertIn("order-zero Ev_T(kappa) (4 rows)", wording)
+        self.assertIn("exactly these 111 listed traces", wording)
+
     def test_required_mutants_have_specific_nonzero_residues(self) -> None:
         rows = {row["id"]: row for row in self.report["mutant_campaign"]["rows"]}
         required = {
@@ -682,6 +760,8 @@ class SolidC2AGradedNilpotencyTests(unittest.TestCase):
             "local_kappa",
             "commuting_odd_algebra",
             "bad_target_prolongation",
+            "bad_EvY_sigma_prolongation",
+            "bad_EvT_sigma_prolongation",
         }
         self.assertTrue(required.issubset(rows))
         for identifier in required:
