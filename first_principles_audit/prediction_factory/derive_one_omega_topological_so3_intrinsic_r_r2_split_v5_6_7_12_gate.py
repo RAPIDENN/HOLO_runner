@@ -98,9 +98,6 @@ VARIABLES = ("xi", "B4_bar", "k_infinity", "Rcal")
 XI, B4_BAR, K_INFINITY, RCAL = range(4)
 COMPONENTS = ("R", "R_squared")
 COMPONENT_ORDINALS = {name: ordinal for ordinal, name in enumerate(COMPONENTS)}
-SOURCE_ID = "v5.2.S_fol_lower.intrinsic_Rcal"
-SOURCE_SIDE = "lower"
-SOURCE_DOMAIN = "Sigma"
 CORRECT_GAUSS = {
     "projected_ambient_Riemann": 1,
     "K_trace_squared": -1,
@@ -109,6 +106,7 @@ CORRECT_GAUSS = {
 
 MUTATIONS = (
     "shared_oracle_swap",
+    "correlated_source_side_domain_upper_M4_after_repin",
     "wrong_R2_derivative_factor",
     "wrong_Gauss_sign",
     "mix_xi_B4_across_blocks",
@@ -127,6 +125,10 @@ MUTATIONS = (
     "extra_public_field",
     "swap_aggregate_components_after_repin",
     "combined_swap_relabel_and_unconsumed_fields_after_repin",
+)
+
+CORRELATED_SOURCE_CONTEXT_MUTATION = (
+    "correlated_source_side_domain_upper_M4_after_repin"
 )
 
 TRUE_DECISION_KEYS = frozenset(
@@ -159,6 +161,52 @@ FALSE_DECISION_KEYS = frozenset(
 
 class IntrinsicRR2SplitError(ValueError):
     """A dependency, polynomial, post-adjoint row, or scope invariant failed."""
+
+
+def _derive_shared_source_identity_from_literal(literal: str) -> dict[str, str]:
+    """Derive producer/decoder source identity from their declared literal.
+
+    This shared route deliberately accepts a syntactically valid relabelling so
+    that the correlated mutant can poison every shared consumer.  The separate
+    byte-pinned parser below remains the independent authority that must reject
+    such a relabelling.
+    """
+
+    try:
+        source = literal.encode("ascii")
+    except (AttributeError, UnicodeEncodeError) as exc:
+        raise IntrinsicRR2SplitError(
+            "shared source identity requires an ASCII action literal"
+        ) from exc
+    match = re.match(
+        rb"\AS_fol_(?P<side>[A-Za-z][A-Za-z0-9_]*)="
+        rb"Mb\^2/2\*int_(?P<domain>[A-Za-z][A-Za-z0-9_]*) ",
+        source,
+    )
+    if match is None:
+        raise IntrinsicRR2SplitError(
+            "cannot derive shared source side/domain from action literal"
+        )
+    side = match.group("side").decode("ascii")
+    domain = match.group("domain").decode("ascii")
+    return {
+        "side": side,
+        "domain": domain,
+        "source_id": f"v5.2.S_fol_{side}.intrinsic_Rcal",
+    }
+
+
+def _correlated_source_identity_literal(literal: str) -> str:
+    """Co-mutate the shared side/domain declaration without touching semantics."""
+
+    mutated = literal.replace("S_fol_lower=", "S_fol_upper=", 1).replace(
+        "int_Sigma ", "int_M4 ", 1
+    )
+    if mutated == literal or "S_fol_upper=" not in mutated or "int_M4 " not in mutated:
+        raise IntrinsicRR2SplitError(
+            "correlated source-identity mutant did not change both declarations"
+        )
+    return mutated
 
 
 def _jsonable(value: Any) -> Any:
@@ -410,6 +458,18 @@ def _derive_intrinsic_components_from_pinned_literal_bytes(
             "independent intrinsic parser byte pin does not match v5.2"
         )
 
+    source_context_match = re.match(
+        rb"\AS_fol_(?P<side>[A-Za-z][A-Za-z0-9_]*)="
+        rb"Mb\^2/2\*int_(?P<domain>[A-Za-z][A-Za-z0-9_]*) ",
+        source,
+    )
+    if source_context_match is None:
+        raise IntrinsicRR2SplitError(
+            "independent intrinsic parser cannot derive source side/domain"
+        )
+    source_side = source_context_match.group("side").decode("ascii")
+    source_domain = source_context_match.group("domain").decode("ascii")
+
     token = re.compile(
         rb"(?P<sign>[+-])"
         rb"(?P<numerator>[A-Za-z_][A-Za-z0-9_]*)\*Rcal"
@@ -501,6 +561,8 @@ def _derive_intrinsic_components_from_pinned_literal_bytes(
         derived[owner] = {
             "schema": "holo.v5-2-independent-intrinsic-literal-monomial-v1",
             "owner": owner,
+            "side": source_side,
+            "domain": source_domain,
             "sign": sign,
             "coefficient": [
                 action_coefficient.numerator,
@@ -512,7 +574,7 @@ def _derive_intrinsic_components_from_pinned_literal_bytes(
             "denominator_power": denominator_power,
             "Rcal_power": rcal_power,
             "source_span": {
-                "source_id": "v5.2.S_fol_lower.intrinsic_Rcal",
+                "source_id": f"v5.2.S_fol_{source_side}.intrinsic_Rcal",
                 "start": source_start,
                 "end": source_end,
                 "text": source_text,
@@ -675,10 +737,17 @@ def _parse_literal_split(literal: str) -> dict[str, str]:
     return {"R": match.group("R"), "R_squared": match.group("R2")}
 
 
-def _literal_component_spans(literal: str) -> dict[str, dict[str, Any]]:
+def _literal_component_spans(
+    literal: str,
+    *,
+    source_identity_literal: str | None = None,
+) -> dict[str, dict[str, Any]]:
     """Bind each public component to its unique byte-exact literal occurrence."""
 
     parsed = _parse_literal_split(literal)
+    source_identity = _derive_shared_source_identity_from_literal(
+        literal if source_identity_literal is None else source_identity_literal
+    )
     spans: dict[str, dict[str, Any]] = {}
     for name in COMPONENTS:
         text = parsed[name]
@@ -691,7 +760,7 @@ def _literal_component_spans(literal: str) -> dict[str, dict[str, Any]]:
         if literal[start:end] != text:
             raise IntrinsicRR2SplitError(f"{name} literal source-span drift")
         spans[name] = {
-            "source_id": SOURCE_ID,
+            "source_id": source_identity["source_id"],
             "start": start,
             "end": end,
             "text": text,
@@ -824,6 +893,7 @@ def _post_adjoint_block(
     gauss: Mapping[str, int],
     *,
     source_span: Mapping[str, Any],
+    source_identity: Mapping[str, str],
     current_present: bool,
     cartan_occurrences: int,
 ) -> dict[str, Any]:
@@ -834,8 +904,8 @@ def _post_adjoint_block(
         "schema": BLOCK_SCHEMA,
         "component": name,
         "component_ordinal": COMPONENT_ORDINALS[name],
-        "side": SOURCE_SIDE,
-        "domain": SOURCE_DOMAIN,
+        "side": source_identity["side"],
+        "domain": source_identity["domain"],
         "source_span": dict(source_span),
         "stage": "post_adjoint_component_normal_form",
         "density_context": _density_context(),
@@ -889,7 +959,18 @@ def _post_adjoint_block(
 
 def _build_component_blocks(mutation: str | None) -> dict[str, Any]:
     r_action, r2_action = _expected_component_polynomials()
-    source_spans = _literal_component_spans(V52_FOLIATION_LITERAL)
+    source_identity_literal = (
+        _correlated_source_identity_literal(V52_FOLIATION_LITERAL)
+        if mutation == CORRELATED_SOURCE_CONTEXT_MUTATION
+        else V52_FOLIATION_LITERAL
+    )
+    source_identity = _derive_shared_source_identity_from_literal(
+        source_identity_literal
+    )
+    source_spans = _literal_component_spans(
+        V52_FOLIATION_LITERAL,
+        source_identity_literal=source_identity_literal,
+    )
     if mutation == "shared_oracle_swap":
         r_action, r2_action = r2_action, r_action
     elif mutation == "mix_xi_B4_across_blocks":
@@ -915,6 +996,7 @@ def _build_component_blocks(mutation: str | None) -> dict[str, Any]:
         r_derivative,
         r_gauss,
         source_span=source_spans["R"],
+        source_identity=source_identity,
         current_present=True,
         cartan_occurrences=1,
     )
@@ -924,6 +1006,7 @@ def _build_component_blocks(mutation: str | None) -> dict[str, Any]:
         r2_derivative,
         r2_gauss,
         source_span=source_spans["R_squared"],
+        source_identity=source_identity,
         current_present=mutation != "omit_R2_weighted_current",
         cartan_occurrences=2 if mutation == "double_Cartan" else 1,
     )
@@ -962,9 +1045,13 @@ def _build_component_blocks(mutation: str | None) -> dict[str, Any]:
     elif mutation == "wrong_source_span":
         blocks["R"]["row"]["source_span"]["start"] += 1
     elif mutation == "wrong_side":
-        blocks["R"]["row"]["side"] = "upper"
+        blocks["R"]["row"]["side"] = (
+            "upper" if source_identity["side"] != "upper" else "lower"
+        )
     elif mutation == "wrong_domain":
-        blocks["R_squared"]["row"]["domain"] = "M4"
+        blocks["R_squared"]["row"]["domain"] = (
+            "M4" if source_identity["domain"] != "M4" else "Sigma"
+        )
     elif mutation == "extra_public_field":
         blocks["R"]["row"]["untrusted"] = "ignored-before-fix"
     elif mutation == "swap_aggregate_components_after_repin":
@@ -978,8 +1065,8 @@ def _build_component_blocks(mutation: str | None) -> dict[str, Any]:
             row = blocks[name]["row"]
             row["component"] = name
             row["component_ordinal"] = COMPONENT_ORDINALS[name]
-            row["side"] = SOURCE_SIDE
-            row["domain"] = SOURCE_DOMAIN
+            row["side"] = source_identity["side"]
+            row["domain"] = source_identity["domain"]
             row["source_span"] = dict(source_spans[name])
             row["literal_derivative_expression"] = "forged-derivative"
             row["Gauss_formula"] = "forged-Gauss"
@@ -1050,6 +1137,7 @@ def _no_cross_cancellation_certificate(blocks: Mapping[str, Any]) -> dict[str, A
 
 def _independent_expected_public_blocks(
     dependency: Mapping[str, Any],
+    shared_source_literal: str | None = None,
 ) -> dict[str, Any]:
     """Build the expected public rows without calling the row exporter.
 
@@ -1059,16 +1147,19 @@ def _independent_expected_public_blocks(
     """
 
     literal = str(dependency["v5_2_foliation_literal"])
+    declared_identity = _derive_shared_source_identity_from_literal(
+        literal if shared_source_literal is None else shared_source_literal
+    )
     parsed = _parse_literal_split(literal)
     spans = {
         "R": {
-            "source_id": "v5.2.S_fol_lower.intrinsic_Rcal",
+            "source_id": declared_identity["source_id"],
             "start": 81,
             "end": 88,
             "text": "xi*Rcal",
         },
         "R_squared": {
-            "source_id": "v5.2.S_fol_lower.intrinsic_Rcal",
+            "source_id": declared_identity["source_id"],
             "start": 102,
             "end": 134,
             "text": "-B4_bar*Rcal^2/(16*k_infinity^2)",
@@ -1184,8 +1275,8 @@ def _independent_expected_public_blocks(
             "schema": BLOCK_SCHEMA,
             "component": name,
             "component_ordinal": COMPONENT_ORDINALS[name],
-            "side": SOURCE_SIDE,
-            "domain": SOURCE_DOMAIN,
+            "side": declared_identity["side"],
+            "domain": declared_identity["domain"],
             "source_span": spans[name],
             "stage": "post_adjoint_component_normal_form",
             "density_context": {
@@ -1272,8 +1363,16 @@ def _strict_equal(observed: Any, expected: Any) -> bool:
 def _public_block_schema_certificate(
     public_blocks: Mapping[str, Any],
     dependency: Mapping[str, Any],
+    *,
+    shared_source_literal: str | None = None,
 ) -> dict[str, Any]:
-    expected = _independent_expected_public_blocks(dependency)
+    expected = (
+        _independent_expected_public_blocks(dependency)
+        if shared_source_literal is None
+        else _independent_expected_public_blocks(
+            dependency, shared_source_literal
+        )
+    )
     top_level_exact = type(public_blocks) is dict and tuple(public_blocks) == COMPONENTS
     checks: dict[str, bool] = {"top_level_component_inventory_and_order_exact": top_level_exact}
     groups = {
@@ -1407,6 +1506,8 @@ def _decode_operator_term(
 def _strict_decode_public_blocks(
     public_blocks: Mapping[str, Any],
     dependency: Mapping[str, Any],
+    *,
+    shared_source_literal: str | None = None,
 ) -> tuple[dict[str, Any], list[str]]:
     """Decode only the closed component-local grammar, never expected rows.
 
@@ -1419,8 +1520,13 @@ def _strict_decode_public_blocks(
     if type(public_blocks) is not dict or tuple(public_blocks) != COMPONENTS:
         raise IntrinsicRR2SplitError("public component inventory/order drift")
     literal = str(dependency["v5_2_foliation_literal"])
+    identity_literal = literal if shared_source_literal is None else shared_source_literal
+    declared_identity = _derive_shared_source_identity_from_literal(identity_literal)
     parsed = _parse_literal_split(literal)
-    spans = _literal_component_spans(literal)
+    spans = _literal_component_spans(
+        literal,
+        source_identity_literal=identity_literal,
+    )
     expected_actions = dict(zip(COMPONENTS, _expected_component_polynomials(), strict=True))
     row_keys = (
         "schema",
@@ -1454,8 +1560,8 @@ def _strict_decode_public_blocks(
             row["schema"] != BLOCK_SCHEMA
             or row["component"] != name
             or row["component_ordinal"] != COMPONENT_ORDINALS[name]
-            or row["side"] != SOURCE_SIDE
-            or row["domain"] != SOURCE_DOMAIN
+            or row["side"] != declared_identity["side"]
+            or row["domain"] != declared_identity["domain"]
             or row["stage"] != "post_adjoint_component_normal_form"
             or not _strict_equal(row["source_span"], spans[name])
             or row["literal_expression"] != parsed[name]
@@ -1642,7 +1748,15 @@ def _strict_decode_public_blocks(
 
 def _build_pre_normalized_provenance_trace(
     decoded: Mapping[str, Any],
+    literal_source_context: Mapping[str, str],
 ) -> dict[str, Any]:
+    independent_context = dict(literal_source_context)
+    if set(independent_context) != {"side", "domain"} or not all(
+        type(value) is str and value for value in independent_context.values()
+    ):
+        raise IntrinsicRR2SplitError(
+            "independent literal source context is not a side/domain pair"
+        )
     components: dict[str, Any] = {}
     reachability: list[dict[str, str]] = []
     for name in COMPONENTS:
@@ -1789,6 +1903,10 @@ def _build_pre_normalized_provenance_trace(
             }
         )
         components[name] = {
+            "source_context": {
+                "side": row["side"],
+                "domain": row["domain"],
+            },
             "density_context": copy.deepcopy(row["density_context"]),
             "ADM_variations": copy.deepcopy(
                 row["independent_fixed_clock_ADM_variations"]
@@ -1807,6 +1925,7 @@ def _build_pre_normalized_provenance_trace(
     return {
         "schema": PROVENANCE_TRACE_SCHEMA,
         "component_order": list(COMPONENTS),
+        "independent_literal_source_context": independent_context,
         "components": components,
         "explicit_component_sums": {
             "f": {
@@ -1880,6 +1999,17 @@ def _fold_pre_normalized_provenance_trace(trace: Mapping[str, Any]) -> dict[str,
     if trace.get("schema") != PROVENANCE_TRACE_SCHEMA or trace.get("component_order") != list(COMPONENTS):
         raise IntrinsicRR2SplitError("pre-normalized provenance trace header drift")
     components = trace["components"]
+    literal_source_context = trace.get("independent_literal_source_context")
+    _require_exact_keys(
+        literal_source_context,
+        ("side", "domain"),
+        "independent literal source context",
+    )
+    component_source_context = _same_trace_value(trace, "source_context")
+    if not _strict_equal(component_source_context, literal_source_context):
+        raise IntrinsicRR2SplitError(
+            "component source side/domain do not match byte-derived literal context"
+        )
     sums = trace["explicit_component_sums"]
     total_f = _poly_from_row(sums["f"]["result"])
     total_f_r = _poly_from_row(sums["f_R"]["result"])
@@ -1980,9 +2110,33 @@ def _fold_pre_normalized_provenance_trace(trace: Mapping[str, Any]) -> dict[str,
 def _compose_v5678_adapter_with_trace(
     public_blocks: Mapping[str, Any],
     dependency: Mapping[str, Any],
+    *,
+    shared_source_literal: str | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
-    decoded, _ = _strict_decode_public_blocks(public_blocks, dependency)
-    trace = _build_pre_normalized_provenance_trace(decoded)
+    decoded, _ = (
+        _strict_decode_public_blocks(public_blocks, dependency)
+        if shared_source_literal is None
+        else _strict_decode_public_blocks(
+            public_blocks,
+            dependency,
+            shared_source_literal=shared_source_literal,
+        )
+    )
+    literal_semantics = _derive_intrinsic_components_from_pinned_literal_bytes(
+        str(dependency["v5_2_foliation_literal"])
+    )
+    literal_contexts = {
+        (row["side"], row["domain"]) for row in literal_semantics.values()
+    }
+    if len(literal_contexts) != 1:
+        raise IntrinsicRR2SplitError(
+            "independent literal components disagree on source side/domain"
+        )
+    literal_side, literal_domain = next(iter(literal_contexts))
+    trace = _build_pre_normalized_provenance_trace(
+        decoded,
+        {"side": literal_side, "domain": literal_domain},
+    )
     return _fold_pre_normalized_provenance_trace(trace), trace
 
 
@@ -1997,7 +2151,10 @@ def _compose_v5678_adapter(
 
 
 def _component_slot_source_binding_certificate(
-    public_blocks: Mapping[str, Any], dependency: Mapping[str, Any]
+    public_blocks: Mapping[str, Any],
+    dependency: Mapping[str, Any],
+    *,
+    shared_source_literal: str | None = None,
 ) -> dict[str, Any]:
     """Bind each typed slot to its own literal component outside the decoder.
 
@@ -2010,7 +2167,15 @@ def _component_slot_source_binding_certificate(
         literal_semantics = _derive_intrinsic_components_from_pinned_literal_bytes(
             str(dependency["v5_2_foliation_literal"])
         )
-        decoded, _ = _strict_decode_public_blocks(public_blocks, dependency)
+        decoded, _ = (
+            _strict_decode_public_blocks(public_blocks, dependency)
+            if shared_source_literal is None
+            else _strict_decode_public_blocks(
+                public_blocks,
+                dependency,
+                shared_source_literal=shared_source_literal,
+            )
+        )
     except IntrinsicRR2SplitError as exc:
         return {
             "pass": False,
@@ -2026,6 +2191,12 @@ def _component_slot_source_binding_certificate(
         public_row = public_blocks[name]
         rows[name] = {
             "independent_owner_matches_component": semantic["owner"] == name,
+            "side_matches_independent_literal_bytes": (
+                public_row["side"] == semantic["side"]
+            ),
+            "domain_matches_independent_literal_bytes": (
+                public_row["domain"] == semantic["domain"]
+            ),
             "source_span_matches_independent_literal_bytes": _strict_equal(
                 public_row["source_span"], semantic["source_span"]
             ),
@@ -2245,12 +2416,10 @@ def _semantic_payload_alternatives(
 def _metadata_inventory_certificate(
     public_blocks: Mapping[str, Any], snapshot_certificate: Mapping[str, Any]
 ) -> dict[str, Any]:
-    metadata_roots = {
+    validated_not_folded_roots = {
         "schema",
         "component",
         "component_ordinal",
-        "side",
-        "domain",
         "source_span",
         "stage",
         "action_polynomial",
@@ -2260,15 +2429,34 @@ def _metadata_inventory_certificate(
         "Gauss_formula",
         "raw_Frechet_rows_exported",
     }
+    fold_validated_provenance_roots = {"side", "domain"}
     paths = _public_leaf_paths(public_blocks)
-    metadata = [path for path in paths if len(path) > 1 and path[1] in metadata_roots]
+    metadata = [
+        path
+        for path in paths
+        if len(path) > 1 and path[1] in validated_not_folded_roots
+    ]
+    fold_validated = [
+        path
+        for path in paths
+        if len(path) > 1 and path[1] in fold_validated_provenance_roots
+    ]
     return {
-        "pass": bool(paths) and bool(metadata) and bool(snapshot_certificate["pass"]),
-        "classification": "validated_not_folded",
+        "pass": bool(paths)
+        and bool(metadata)
+        and len(fold_validated) == len(COMPONENTS) * 2
+        and bool(snapshot_certificate["pass"]),
+        "classification": (
+            "side_domain_fold_validated; remaining_metadata_validated_not_folded"
+        ),
         "validation_source": "strict independent expected-row snapshot certificate",
         "total_public_leaf_inventory": len(paths),
         "validated_not_folded_leaf_count": len(metadata),
         "validated_not_folded_paths": sorted(_path_label(path) for path in metadata),
+        "fold_validated_provenance_leaf_count": len(fold_validated),
+        "fold_validated_provenance_paths": sorted(
+            _path_label(path) for path in fold_validated
+        ),
         "claim_every_scalar_leaf_is_causally_consumed": False,
     }
 
@@ -2347,7 +2535,10 @@ def _semantic_payload_consumption_certificate(
         try:
             decoded, _ = _strict_decode_public_blocks(case["blocks"], dependency)
             decoder_accepted = True
-            observed_trace = _build_pre_normalized_provenance_trace(decoded)
+            observed_trace = _build_pre_normalized_provenance_trace(
+                decoded,
+                baseline_trace["independent_literal_source_context"],
+            )
             trace_changed = not _strict_equal(observed_trace, baseline_trace)
             changed_trace_paths = [
                 _path_label(path)
@@ -2705,9 +2896,22 @@ def _build_core(
     blocks = _build_component_blocks(mutation)
     public_blocks = _public_blocks(blocks)
     blocks_hash = _canonical_sha256(public_blocks)
-    schema = _public_block_schema_certificate(public_blocks, dependency)
+    shared_source_literal = (
+        _correlated_source_identity_literal(
+            str(dependency["v5_2_foliation_literal"])
+        )
+        if mutation == CORRELATED_SOURCE_CONTEXT_MUTATION
+        else None
+    )
+    schema = _public_block_schema_certificate(
+        public_blocks,
+        dependency,
+        shared_source_literal=shared_source_literal,
+    )
     slot_source_binding = _component_slot_source_binding_certificate(
-        public_blocks, dependency
+        public_blocks,
+        dependency,
+        shared_source_literal=shared_source_literal,
     )
     literal = _literal_split_certificate(dependency, blocks)
     polynomial = _polynomial_certificate(blocks)
@@ -2717,7 +2921,9 @@ def _build_core(
     metadata_inventory = _metadata_inventory_certificate(public_blocks, schema)
     try:
         adapter, provenance_trace = _compose_v5678_adapter_with_trace(
-            public_blocks, dependency
+            public_blocks,
+            dependency,
+            shared_source_literal=shared_source_literal,
         )
         composition_error = None
         consumption = _semantic_payload_consumption_certificate(
@@ -2815,6 +3021,9 @@ def _build_core(
 def _mutant_campaign(dependency: Mapping[str, Any]) -> dict[str, Any]:
     required_failure = {
         "shared_oracle_swap": "component_local_slots_bind_literal_derivative_exact",
+        CORRELATED_SOURCE_CONTEXT_MUTATION: (
+            "component_local_slots_bind_literal_derivative_exact"
+        ),
         "wrong_R2_derivative_factor": "formal_Laurent_polynomial_derivatives_exact",
         "wrong_Gauss_sign": "component_Gauss_sign_exact",
         "mix_xi_B4_across_blocks": "no_cross_component_monomial_cancellation",

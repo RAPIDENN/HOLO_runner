@@ -29,7 +29,7 @@ SPEC.loader.exec_module(gate)
 
 
 EXPECTED_PRODUCER_SHA256 = (
-    "1ee423bd8da0b5536ca3a4585e22b750fef440caede8a07024bb2ecc92728d2a"
+    "9481864177228daea95e9450e06258ee97bd24e15650c410ccc0076472ded183"
 )
 EXPECTED_V5678_SHA256 = {
     "derive_one_omega_topological_so3_moving_interface_variational_completion_v5_6_7_8_gate.py": (
@@ -396,6 +396,8 @@ def test_literal_parser_and_component_polynomials_are_exact(report):
     independent = certificate["independent_literal_semantic_derivation"]
     assert tuple(independent) == EXPECTED_COMPONENTS
     assert independent["R"]["owner"] == "R"
+    assert independent["R"]["side"] == "lower"
+    assert independent["R"]["domain"] == "Sigma"
     assert independent["R"]["sign"] == 1
     assert independent["R"]["coefficient"] == [1, 1]
     assert independent["R"]["numerator_symbol"] == "xi"
@@ -404,6 +406,8 @@ def test_literal_parser_and_component_polynomials_are_exact(report):
     assert independent["R"]["action_polynomial"] == R_ACTION_ROW
     assert independent["R"]["derivative_polynomial"] == R_DERIVATIVE_ROW
     assert independent["R_squared"]["owner"] == "R_squared"
+    assert independent["R_squared"]["side"] == "lower"
+    assert independent["R_squared"]["domain"] == "Sigma"
     assert independent["R_squared"]["sign"] == -1
     assert independent["R_squared"]["coefficient"] == [-1, 16]
     assert independent["R_squared"]["numerator_symbol"] == "B4_bar"
@@ -433,6 +437,8 @@ def test_independent_literal_derivator_has_no_shared_semantic_oracle():
         "_poly_from_row",
         "_poly_row",
         "_render_polynomial",
+        "SOURCE_SIDE",
+        "SOURCE_DOMAIN",
     ):
         assert forbidden not in source
     with pytest.raises(
@@ -442,6 +448,39 @@ def test_independent_literal_derivator_has_no_shared_semantic_oracle():
         gate._derive_intrinsic_components_from_pinned_literal_bytes(
             EXPECTED_V52_LITERAL.replace("16*k_infinity", "8*k_infinity")
         )
+
+
+def test_shared_source_identity_defaults_are_derived_from_the_literal():
+    assert not hasattr(gate, "SOURCE_ID")
+    assert not hasattr(gate, "SOURCE_SIDE")
+    assert not hasattr(gate, "SOURCE_DOMAIN")
+    assert gate._derive_shared_source_identity_from_literal(
+        EXPECTED_V52_LITERAL
+    ) == {
+        "side": "lower",
+        "domain": "Sigma",
+        "source_id": "v5.2.S_fol_lower.intrinsic_Rcal",
+    }
+    producer_source = inspect.getsource(gate._build_component_blocks)
+    expected_source = inspect.getsource(gate._independent_expected_public_blocks)
+    decoder_source = inspect.getsource(gate._strict_decode_public_blocks)
+    assert "_derive_shared_source_identity_from_literal" in producer_source
+    assert "V52_FOLIATION_LITERAL" in producer_source
+    for source in (expected_source, decoder_source):
+        assert "_derive_shared_source_identity_from_literal" in source
+        assert 'dependency["v5_2_foliation_literal"]' in source
+    consumer_sources = (
+        inspect.getsource(gate._post_adjoint_block),
+        expected_source,
+        decoder_source,
+    )
+    for source in (producer_source, *consumer_sources):
+        assert "SOURCE_SIDE" not in source
+        assert "SOURCE_DOMAIN" not in source
+        assert "SOURCE_ID" not in source
+    for source in consumer_sources:
+        assert '"side": "lower"' not in source
+        assert '"domain": "Sigma"' not in source
 
 
 def test_public_rows_have_strict_component_provenance_and_exact_schema(report):
@@ -664,12 +703,21 @@ def test_no_cross_cancellation_and_exact_v5678_recomposition(report):
 def test_metadata_inventory_is_honest_and_typed_units_are_causally_traced(report):
     inventory = report["public_field_inventory_certificate"]
     assert inventory["pass"] is True
-    assert inventory["classification"] == "validated_not_folded"
+    assert inventory["classification"] == (
+        "side_domain_fold_validated; remaining_metadata_validated_not_folded"
+    )
     assert inventory["validation_source"] == (
         "strict independent expected-row snapshot certificate"
     )
     assert inventory["total_public_leaf_inventory"] == 252
-    assert inventory["validated_not_folded_leaf_count"] == 54
+    assert inventory["validated_not_folded_leaf_count"] == 50
+    assert inventory["fold_validated_provenance_leaf_count"] == 4
+    assert inventory["fold_validated_provenance_paths"] == [
+        "R.domain",
+        "R.side",
+        "R_squared.domain",
+        "R_squared.side",
+    ]
     assert inventory["claim_every_scalar_leaf_is_causally_consumed"] is False
 
     certificate = report["semantic_payload_causal_consumption_certificate"]
@@ -692,6 +740,14 @@ def test_metadata_inventory_is_honest_and_typed_units_are_causally_traced(report
     trace = report["pre_normalized_component_provenance_trace"]
     assert trace["schema"].endswith("pre-normalized-provenance-trace-v1")
     assert trace["component_order"] == ["R", "R_squared"]
+    assert trace["independent_literal_source_context"] == {
+        "side": "lower",
+        "domain": "Sigma",
+    }
+    assert all(
+        row["source_context"] == trace["independent_literal_source_context"]
+        for row in trace["components"].values()
+    )
     assert len(trace["reachability"]) == 86
     expected_paths = _expected_causal_source_paths()
     assert len(expected_paths) == 86
@@ -742,6 +798,95 @@ def test_all_mutants_are_killed_after_internal_block_hash_repin(report):
         assert row["killed"] is True, name
         assert row["required_failure_observed"] is True, name
         assert row["failed_checks"], name
+
+
+def test_correlated_source_context_mutant_fails_literal_binding_and_fold_after_repin(
+    report,
+):
+    mutation = gate.CORRELATED_SOURCE_CONTEXT_MUTATION
+    campaign_row = report["mandatory_mutant_certificate"]["rows"][mutation]
+    assert campaign_row["internal_hashes_repinned"] is True
+    assert campaign_row["block_pin_pass_after_repin"] is True
+    assert campaign_row["killed"] is True
+    assert campaign_row["required_failure_surface"] == (
+        "component_local_slots_bind_literal_derivative_exact"
+    )
+    assert campaign_row["required_failure_observed"] is True
+
+    core = gate._build_core(
+        report["dependency_certificate"],
+        mutation,
+        repin_internal_hashes=True,
+    )
+    assert core["checks"]["component_blocks_canonical_pin"] is True
+    assert core["public_schema"]["pass"] is True
+    assert {
+        (row["side"], row["domain"]) for row in core["blocks"].values()
+    } == {("upper", "M4")}
+    assert {
+        row["source_span"]["source_id"] for row in core["blocks"].values()
+    } == {"v5.2.S_fol_upper.intrinsic_Rcal"}
+    binding = core["slot_source_binding"]
+    assert binding["pass"] is False
+    assert binding["error"] is None
+    for row in binding["rows"].values():
+        assert row["side_matches_independent_literal_bytes"] is False
+        assert row["domain_matches_independent_literal_bytes"] is False
+        assert row["source_span_matches_independent_literal_bytes"] is False
+        assert all(
+            value
+            for key, value in row.items()
+            if key
+            not in {
+                "side_matches_independent_literal_bytes",
+                "domain_matches_independent_literal_bytes",
+                "source_span_matches_independent_literal_bytes",
+            }
+        )
+    assert core["composition_error"] == (
+        "component source side/domain do not match byte-derived literal context"
+    )
+    assert core["checks"]["composer_decodes_and_folds_exported_rows"] is False
+    assert core["ready"] is False
+
+    mutated = gate.build_report(mutation, repin_internal_hashes=True)
+    assert mutated["status"] == "NOT_READY"
+    assert mutated["checks"]["all"] is False
+
+
+def test_shared_source_literal_co_mutation_fails_closed_at_both_pins(
+    report, monkeypatch
+):
+    mutated_literal = gate._correlated_source_identity_literal(EXPECTED_V52_LITERAL)
+    assert gate._derive_shared_source_identity_from_literal(mutated_literal) == {
+        "side": "upper",
+        "domain": "M4",
+        "source_id": "v5.2.S_fol_upper.intrinsic_Rcal",
+    }
+    with pytest.raises(
+        gate.IntrinsicRR2SplitError,
+        match="independent intrinsic parser byte pin",
+    ):
+        gate._derive_intrinsic_components_from_pinned_literal_bytes(mutated_literal)
+
+    monkeypatch.setattr(gate, "V52_FOLIATION_LITERAL", mutated_literal)
+    with pytest.raises(
+        gate.IntrinsicRR2SplitError,
+        match="semantic dependency is not certified",
+    ):
+        gate._dependency_certificate()
+
+    co_mutated_dependency = copy.deepcopy(report["dependency_certificate"])
+    co_mutated_dependency["v5_2_foliation_literal"] = mutated_literal
+    with pytest.raises(
+        gate.IntrinsicRR2SplitError,
+        match="v5.2 foliation literal is outside the exact grammar",
+    ):
+        gate._build_core(
+            co_mutated_dependency,
+            None,
+            repin_internal_hashes=True,
+        )
 
 
 @pytest.mark.parametrize("mutation", sorted(EXPECTED_NEW_REPIN_MUTANTS))
