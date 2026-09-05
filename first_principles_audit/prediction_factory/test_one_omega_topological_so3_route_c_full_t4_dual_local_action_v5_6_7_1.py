@@ -28,6 +28,8 @@ TRUE_KEYS = frozenset(
         "local_ghy_density_values_and_eta_jvps_sampled_N1_N3_against_pinned_torch_pass",
         "local_interface_density_values_and_eta_jvps_sampled_N1_N3_against_pinned_torch_pass",
         "twenty_separate_local_density_values_and_eta_jvps_sampled_pass",
+        "finite_full_t4_rho_quadrature_rules_and_alias_canaries_sampled_pass",
+        "finite_integrated_twenty_components_S_total_and_eta_jvp_same_grid_pinned_torch_sampled_pass",
     }
 )
 FALSE_KEYS = frozenset(
@@ -124,7 +126,7 @@ def test_upstream_source_is_byte_pinned_and_loaded_without_running_report() -> N
     assert upstream.N_MAX_CHECK == 11
 
 
-def test_report_has_only_eight_true_scoped_decisions(report: dict) -> None:
+def test_report_has_only_ten_true_scoped_decisions(report: dict) -> None:
     assert report["schema"] == unit.SCHEMA
     assert set(report["decision"]) == TRUE_KEYS | FALSE_KEYS
     assert {key for key, value in report["decision"].items() if value} == TRUE_KEYS
@@ -133,7 +135,8 @@ def test_report_has_only_eight_true_scoped_decisions(report: dict) -> None:
     assert "sampled against byte-pinned decoder oracles only at N=1,2,3" in report["scope"]
     assert "twelve relative bulk, two GHY and six shared-interface" in report["scope"]
     assert "no pointwise S_total is formed" in report["scope"]
-    assert "No integrated action" in report["scope"]
+    assert "the rule is full T4 but the sampled action does not activate x2 or x3" in report["scope"]
+    assert "Generic integrated_action_pass and quadrature_pass remain false" in report["scope"]
     assert "No receipt" in report["scope"]
 
 
@@ -860,6 +863,120 @@ def test_bulk_formula_does_not_duplicate_side_sign_and_local_inputs_fail_closed(
             call()
 
 
+def test_finite_full_t4_rho_rule_shapes_moments_aliases_and_resource_guards(report: dict) -> None:
+    quadrature = unit.finite_full_t4_rho_quadrature(2, 3)
+    assert quadrature["tangential_points"].shape == (16, 4)
+    assert quadrature["tangential_weights"].shape == (16,)
+    assert quadrature["rho_nodes"].shape == quadrature["radial_weights"].shape == (3,)
+    assert np.all(quadrature["tangential_points"] >= 0.0)
+    assert np.all(quadrature["tangential_points"] < 2.0 * math.pi)
+    assert np.all((quadrature["rho_nodes"] > 0.0) & (quadrature["rho_nodes"] < 1.0))
+    assert math.isclose(math.fsum(quadrature["tangential_weights"]), unit.T4_VOLUME)
+    assert math.isclose(math.fsum(quadrature["radial_weights"]), 1.0)
+    assert quadrature["bulk_node_count_per_side"] == 48
+    assert quadrature["boundary_node_count"] == 16
+
+    checked = report["finite_quadrature"]
+    assert checked["tangential_order_per_axis"] == 5
+    assert checked["tangential_node_count"] == 625
+    assert checked["radial_order"] == 4
+    assert tuple(checked["radial_exact_degrees"]) == tuple(range(8))
+    assert checked["constant_T4_moment_abs_residual"] <= checked["moment_tolerance"]
+    assert checked["worst_nonzero_Fourier_moment_abs_residual"] <= checked["moment_tolerance"]
+    assert checked["worst_radial_exact_moment_abs_residual"] <= checked["moment_tolerance"]
+    assert checked["periodic_alias_canary_abs_discrete_integral"] >= 0.99 * unit.T4_VOLUME
+    assert checked["periodic_alias_canary_continuum_integral"] == 0.0
+    assert checked["radial_first_nonexact_degree"] == 8
+    assert checked["radial_first_nonexact_moment_abs_error_canary"] > 1.0e-8
+    assert checked["pinned_torch_rule_max_abs_residual"] <= checked["pinned_torch_rule_tolerance"]
+    assert checked["pinned_torch_T4_point_order_compared_entrywise"] is True
+    assert min(checked["algebraic_mutant_witness_abs_failures"].values()) > checked["effective_mutant_threshold"]
+    assert checked["finite_rule_not_continuum_exact"] is True
+    assert checked["pass"] is True
+
+    for q, radial in (
+        (0, 1),
+        (True, 1),
+        (1.5, 1),
+        (unit.MAX_FINITE_T4_ORDER_PER_AXIS + 1, 1),
+        (1, 0),
+        (1, True),
+        (1, 1.5),
+        (1, unit.MAX_FINITE_RADIAL_ORDER + 1),
+    ):
+        with pytest.raises(unit.TaylorDual3InputError):
+            unit.finite_full_t4_rho_quadrature(q, radial)
+
+
+def test_integrated_action_same_grid_oracle_totals_scope_and_mutants(report: dict) -> None:
+    integrated = report["finite_integrated_action"]
+    assert tuple(integrated["output_names"]) == unit.INTEGRATED_ACTION_OUTPUTS
+    assert integrated["component_count_before_total"] == 20
+    assert set(integrated["sampled_cases"]) == {"N1_Q1_R2", "N3_Q2_R1"}
+    assert integrated["all_same_grid_comparisons_pass"] is True
+    assert integrated["all_S_total_values_and_jvps_are_post_integration_fsum"] is True
+    for label, expected_counts in {
+        "N1_Q1_R2": {
+            "common_boundary_decodes": 1,
+            "bulk_points_per_side": 2,
+            "boundary_points": 1,
+        },
+        "N3_Q2_R1": {
+            "common_boundary_decodes": 16,
+            "bulk_points_per_side": 16,
+            "boundary_points": 16,
+        },
+    }.items():
+        row = integrated["sampled_cases"][label]
+        assert row["same_explicit_nodes_and_weights_passed_to_both_routes"] is True
+        assert row["evaluation_counts"] == expected_counts
+        assert row["S_total_value_is_post_integration_fsum"] is True
+        assert row["S_total_eta_jvp_is_post_integration_fsum"] is True
+        for comparison_name in ("value_comparison", "eta_jvp_comparison"):
+            comparison = row[comparison_name]
+            assert tuple(comparison["rows"]) == unit.INTEGRATED_ACTION_OUTPUTS
+            assert max(
+                output["residual_over_fixed_tolerance"]
+                for output in comparison["rows"].values()
+            ) <= 1.0
+            assert comparison["max_residual_over_fixed_tolerance"] <= 1.0
+            assert comparison["pass"] is True
+    assert min(integrated["algebraic_mutant_witness_max_abs_failures"].values()) > integrated["effective_mutant_threshold"]
+    assert integrated["unmapped_Gauss_node_outside_unit_interval_rejected"] is True
+    assert integrated["sampled_N1_N3_members_are_theta_only_without_x2_x3_activity"] is True
+    assert integrated["full_T4_rule_but_not_full_axis_active_action_sample"] is True
+    assert integrated["finite_same_grid_result_not_continuum_quadrature_claim"] is True
+    assert integrated["pass"] is True
+
+
+def test_integrated_action_api_separates_domains_and_forms_total_last(c2_bundle: dict) -> None:
+    _member, _contract, free, tangent = _member_vectors(c2_bundle, 1)
+    result = unit.integrated_action_values_and_eta_jvps(free, tangent, 1, 1, 1, 1)
+    assert tuple(result["component_names"]) == unit.LOCAL_DENSITY_COMPONENTS
+    assert tuple(result["output_names"]) == unit.INTEGRATED_ACTION_OUTPUTS
+    assert tuple(result["components"]) == unit.LOCAL_DENSITY_COMPONENTS
+    assert "S_total" not in result["components"]
+    assert len(result["values"]) == len(result["eta_jvps"]) == 21
+    assert result["S_total"]["value"] == math.fsum(
+        result["components"][name]["value"] for name in unit.LOCAL_DENSITY_COMPONENTS
+    )
+    assert result["S_total"]["eta_jvp"] == math.fsum(
+        result["components"][name]["eta_jvp"] for name in unit.LOCAL_DENSITY_COMPONENTS
+    )
+    assert result["values"][-1] == result["S_total"]["value"]
+    assert result["eta_jvps"][-1] == result["S_total"]["eta_jvp"]
+    assert result["S_total_formed_only_after_twenty_domain_integrals"] is True
+    assert result["domain_separation"] == {
+        "bulk": "twelve atoms integrated on T4 x rho",
+        "GHY": "two atoms integrated once on the T4 boundary",
+        "interface": "six atoms integrated once on the shared T4 boundary",
+    }
+    for name in unit.BULK_COMPONENTS:
+        assert result["components"][name]["domain"] == "T4 x rho"
+    for name in unit.BOUNDARY_COMPONENTS:
+        assert result["components"][name]["domain"] == "T4 boundary"
+
+
 def test_reserved_pair_writes_no_receipt_and_main_prints_current_report(report: dict, capsys) -> None:
     source = Path(unit.__file__).read_text(encoding="utf-8")
     assert "write_text(" not in source
@@ -868,6 +985,9 @@ def test_reserved_pair_writes_no_receipt_and_main_prints_current_report(report: 
     output = capsys.readouterr().out
     assert unit.SCHEMA in output
     assert '"twenty_separate_local_density_values_and_eta_jvps_sampled_pass": true' in output
-    assert '"S_total"' not in output
+    assert '"finite_full_t4_rho_quadrature_rules_and_alias_canaries_sampled_pass": true' in output
+    assert '"finite_integrated_twenty_components_S_total_and_eta_jvp_same_grid_pinned_torch_sampled_pass": true' in output
+    assert '"all_S_total_values_and_jvps_are_post_integration_fsum": true' in output
     assert '"integrated_action_pass": false' in output
+    assert '"quadrature_pass": false' in output
     assert '"C1_N1_promotion_authorized": false' in output

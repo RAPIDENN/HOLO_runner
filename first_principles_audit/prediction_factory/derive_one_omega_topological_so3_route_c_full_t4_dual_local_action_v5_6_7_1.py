@@ -8,8 +8,10 @@ twenty separate local density values with exact eta-direction JVPs.  The
 decoder returns ambient X64, pulled X64, pulled reference metric 15 and their
 ordered X79 concatenation, each with primal and eta value/5D two-jet.  The
 density API keeps its twelve bulk, two GHY and six shared-interface outputs on
-their distinct domains; it deliberately does not form a pointwise S_total and
-does not implement integration or quadrature.
+their distinct domains and deliberately does not form a pointwise S_total.  A
+separate finite-action API applies an explicit periodic T4 trapezoid rule and
+open-interval Gauss--Legendre rho rule to those distinct domains, then forms
+S_total and its eta JVP only after all twenty components have been integrated.
 
 The algebra is
 
@@ -37,7 +39,9 @@ TRUE decision keys cover only the mixed algebra, sampled analytic identities,
 sampled SO(3) regularity/orthogonality/JVP consistency, the decoder sampled
 against byte-pinned finite-N oracles, and the three local-density domains
 sampled at N=1,2,3 against byte-pinned Torch Route A+C2 values and
-``torch.func.jvp``.  Integrated action, quadrature, margins, bridge, C1/N1,
+``torch.func.jvp``.  Two additional narrow keys cover only the finite
+quadrature construction/moment canaries and same-grid sampled finite action.
+The generic integrated-action and quadrature keys, margins, bridge, C1/N1,
 and B4/B5 keys remain FALSE.
 """
 
@@ -118,6 +122,12 @@ LOCAL_DENSITY_COMPONENTS = tuple(
     for name in tuple(f"{sector}_bulk_{side}" for sector in BULK_SECTORS)
     + (f"GHY_{side}",)
 ) + INTERFACE_SECTORS
+BULK_COMPONENTS = tuple(name for name in LOCAL_DENSITY_COMPONENTS if "_bulk_" in name)
+BOUNDARY_COMPONENTS = tuple(name for name in LOCAL_DENSITY_COMPONENTS if name not in BULK_COMPONENTS)
+INTEGRATED_ACTION_OUTPUTS = LOCAL_DENSITY_COMPONENTS + ("S_total",)
+T4_VOLUME = (2.0 * math.pi) ** 4
+MAX_FINITE_T4_ORDER_PER_AXIS = 8
+MAX_FINITE_RADIAL_ORDER = 16
 ACTION_COEFFICIENTS = {
     "B4_bar": 0.8,
     "M5_cubed": 1.0,
@@ -217,6 +227,8 @@ def _load_pinned_torch_c2_oracle() -> tuple[Any, Any, Mapping[str, Any]]:
         raise DualLocalActionError("literal Torch local-density names drift")
     if tuple(route_a.COMPONENT_NAMES) != LOCAL_DENSITY_COMPONENTS:
         raise DualLocalActionError("literal Torch twenty-component order drift")
+    if tuple(route_a.OUTPUT_NAMES) != INTEGRATED_ACTION_OUTPUTS:
+        raise DualLocalActionError("literal Torch integrated-output order drift")
     for name, expected in ACTION_COEFFICIENTS.items():
         if float(route_a.COEFFICIENTS[name]) != expected:
             raise DualLocalActionError(f"literal action coefficient drift: {name}")
@@ -2298,18 +2310,15 @@ def _interface_component_densities_td3(
     }
 
 
-def _local_density_td3(
-    free: Sequence[Real],
-    tangent: Sequence[Real],
-    N: int,
-    K: int,
-    x: Sequence[Real],
+def _bulk_components_from_boundary_td3(
+    boundary: Mapping[str, Any],
     rho: Real,
-) -> tuple[dict[str, TaylorDual3], dict[str, Any]]:
+) -> dict[str, TaylorDual3]:
+    """Evaluate only the twelve bulk densities at one collar radius."""
+
     rho_value = _finite_real("rho", rho)
     if not 0.0 <= rho_value <= 1.0:
         raise TaylorDual3InputError("rho must lie in [0, 1] for local density decoding")
-    boundary = decode_common_first_boundary_td3(free, tangent, N, K, x)
     K_value = int(boundary["contract"]["K"])
     components: dict[str, TaylorDual3] = {}
     for side in SIDES:
@@ -2323,7 +2332,20 @@ def _local_density_td3(
         bulk = _relative_bulk_densities_td3(pulled, reference15, side=side)
         for sector in BULK_SECTORS:
             components[f"{sector}_bulk_{side}"] = bulk[sector]
+    if tuple(components) != BULK_COMPONENTS:
+        raise DualLocalActionError("twelve bulk-density component order drift")
+    return components
 
+
+def _boundary_components_from_boundary_td3(
+    boundary: Mapping[str, Any],
+) -> dict[str, TaylorDual3]:
+    """Evaluate two GHY and six interface densities on their T4 boundary."""
+
+    K_value = int(boundary["contract"]["K"])
+    components: dict[str, TaylorDual3] = {}
+    for side in SIDES:
+        side_boundary = boundary["sides"][side]
         # GHY is a boundary density: it is always decoded at rho=0, never at
         # the supplied interior bulk node.
         boundary_ambient = _collar_ambient_x64(side_boundary, 0.0, K_value)
@@ -2337,6 +2359,29 @@ def _local_density_td3(
             side=side,
         )
     components.update(_interface_component_densities_td3(boundary))
+    if set(components) != set(BOUNDARY_COMPONENTS):
+        raise DualLocalActionError("eight boundary-density component set drift")
+    return components
+
+
+def _local_density_td3(
+    free: Sequence[Real],
+    tangent: Sequence[Real],
+    N: int,
+    K: int,
+    x: Sequence[Real],
+    rho: Real,
+) -> tuple[dict[str, TaylorDual3], dict[str, Any]]:
+    rho_value = _finite_real("rho", rho)
+    if not 0.0 <= rho_value <= 1.0:
+        raise TaylorDual3InputError("rho must lie in [0, 1] for local density decoding")
+    boundary = decode_common_first_boundary_td3(free, tangent, N, K, x)
+    bulk = _bulk_components_from_boundary_td3(boundary, rho_value)
+    boundary_components = _boundary_components_from_boundary_td3(boundary)
+    components = {
+        name: bulk[name] if name in bulk else boundary_components[name]
+        for name in LOCAL_DENSITY_COMPONENTS
+    }
     if tuple(components) != LOCAL_DENSITY_COMPONENTS:
         raise DualLocalActionError("twenty local-density component order drift")
     return components, boundary
@@ -2383,6 +2428,183 @@ def local_density_values_and_eta_jvps(
             "GHY": "rho=0 boundary on each pulled collar",
             "interface": "shared T4 boundary from common fields",
         },
+    }
+
+
+def finite_full_t4_rho_quadrature(
+    tangential_order_per_axis: int,
+    radial_order: int,
+) -> dict[str, Any]:
+    """Construct the explicit finite T4 trapezoid x Gauss--Legendre rule.
+
+    This is a rule constructor, not a convergence claim.  In particular, a
+    finite periodic grid aliases Fourier modes at integer multiples of its
+    order, and the nonlinear action densities are not band limited.  The
+    q<=8 and R<=16 limits are explicit resource guards for this pointwise
+    implementation, not mathematical bounds on a future quadrature sequence.
+    """
+
+    q = _strict_integer(
+        "tangential_order_per_axis",
+        tangential_order_per_axis,
+        1,
+        MAX_FINITE_T4_ORDER_PER_AXIS,
+    )
+    radial_q = _strict_integer(
+        "radial_order",
+        radial_order,
+        1,
+        MAX_FINITE_RADIAL_ORDER,
+    )
+    axis = 2.0 * math.pi * np.arange(q, dtype=float) / float(q)
+    points = np.asarray(tuple(product(axis, repeat=N_SPATIAL)), dtype=float)
+    if points.shape != (q**N_SPATIAL, N_SPATIAL):
+        raise DualLocalActionError("finite T4 quadrature point shape drift")
+    tangential_weights = np.full(
+        points.shape[0],
+        (2.0 * math.pi / float(q)) ** N_SPATIAL,
+        dtype=float,
+    )
+    raw_nodes, raw_weights = np.polynomial.legendre.leggauss(radial_q)
+    rho_nodes = 0.5 * (raw_nodes + 1.0)
+    radial_weights = 0.5 * raw_weights
+    arrays = (points, tangential_weights, rho_nodes, radial_weights)
+    if not all(np.all(np.isfinite(array)) for array in arrays):
+        raise TaylorDual3NumericalError("finite quadrature construction produced non-finite values")
+    if not np.all((rho_nodes > 0.0) & (rho_nodes < 1.0)):
+        raise DualLocalActionError("Gauss--Legendre rho nodes must lie in the open unit interval")
+    if not np.all(tangential_weights > 0.0) or not np.all(radial_weights > 0.0):
+        raise DualLocalActionError("finite quadrature weights must be strictly positive")
+    return {
+        "tangential_order_per_axis": q,
+        "radial_order": radial_q,
+        "tangential_points": points,
+        "tangential_weights": tangential_weights,
+        "rho_nodes": rho_nodes,
+        "radial_weights": radial_weights,
+        "tangential_node_count": int(points.shape[0]),
+        "bulk_node_count_per_side": int(points.shape[0] * radial_q),
+        "boundary_node_count": int(points.shape[0]),
+        "T4_volume": T4_VOLUME,
+        "rho_interval_length": 1.0,
+        "rule": "half-open periodic trapezoid on each T4 axis x open Gauss-Legendre on [0,1]",
+    }
+
+
+def integrated_action_values_and_eta_jvps(
+    free: Sequence[Real],
+    tangent: Sequence[Real],
+    N: int,
+    K: int,
+    tangential_order_per_axis: int,
+    radial_order: int,
+) -> dict[str, Any]:
+    """Integrate 20 separated domains, then form finite S_total and its JVP.
+
+    The twelve bulk terms use T4 x rho weights.  The two GHY and six shared
+    interface terms are evaluated once per T4 point and use only the T4
+    weights.  The result is one finite quadrature functional; it is not the
+    continuum action and carries no quadrature-remainder or bridge claim.
+    """
+
+    contract = full_t4_decoder_contract(N, K)
+    expected = int(contract["free_coordinate_dimension"])
+    free_values = _finite_vector("free", free, expected)
+    tangent_values = _finite_vector("tangent", tangent, expected)
+    quadrature = finite_full_t4_rho_quadrature(
+        tangential_order_per_axis,
+        radial_order,
+    )
+    value_terms: dict[str, list[float]] = {
+        name: [] for name in LOCAL_DENSITY_COMPONENTS
+    }
+    jvp_terms: dict[str, list[float]] = {
+        name: [] for name in LOCAL_DENSITY_COMPONENTS
+    }
+    points = quadrature["tangential_points"]
+    t_weights = quadrature["tangential_weights"]
+    rho_nodes = quadrature["rho_nodes"]
+    rho_weights = quadrature["radial_weights"]
+    for point, tangential_weight in zip(points, t_weights):
+        boundary = decode_common_first_boundary_td3(
+            free_values,
+            tangent_values,
+            int(contract["N"]),
+            int(contract["K"]),
+            point,
+        )
+        boundary_components = _boundary_components_from_boundary_td3(boundary)
+        for name in BOUNDARY_COMPONENTS:
+            component = boundary_components[name]
+            value_terms[name].append(float(tangential_weight) * component.body)
+            jvp_terms[name].append(
+                float(tangential_weight) * component.derivative(ZERO_ALPHA, 1)
+            )
+        for rho, radial_weight in zip(rho_nodes, rho_weights):
+            bulk_components = _bulk_components_from_boundary_td3(boundary, float(rho))
+            combined_weight = float(tangential_weight) * float(radial_weight)
+            for name in BULK_COMPONENTS:
+                component = bulk_components[name]
+                value_terms[name].append(combined_weight * component.body)
+                jvp_terms[name].append(
+                    combined_weight * component.derivative(ZERO_ALPHA, 1)
+                )
+
+    records = {
+        name: {
+            "value": math.fsum(value_terms[name]),
+            "eta_jvp": math.fsum(jvp_terms[name]),
+            "domain": "T4 x rho" if name in BULK_COMPONENTS else "T4 boundary",
+        }
+        for name in LOCAL_DENSITY_COMPONENTS
+    }
+    total = {
+        "value": math.fsum(records[name]["value"] for name in LOCAL_DENSITY_COMPONENTS),
+        "eta_jvp": math.fsum(
+            records[name]["eta_jvp"] for name in LOCAL_DENSITY_COMPONENTS
+        ),
+    }
+    values = tuple(records[name]["value"] for name in LOCAL_DENSITY_COMPONENTS) + (
+        total["value"],
+    )
+    eta_jvps = tuple(
+        records[name]["eta_jvp"] for name in LOCAL_DENSITY_COMPONENTS
+    ) + (total["eta_jvp"],)
+    if not all(math.isfinite(value) for value in values + eta_jvps):
+        raise TaylorDual3NumericalError("finite integrated action/JVP left the float64 domain")
+    return {
+        "N": int(contract["N"]),
+        "K": int(contract["K"]),
+        "component_names": LOCAL_DENSITY_COMPONENTS,
+        "output_names": INTEGRATED_ACTION_OUTPUTS,
+        "components": records,
+        "S_total": total,
+        "values": values,
+        "eta_jvps": eta_jvps,
+        "quadrature": {
+            key: quadrature[key]
+            for key in (
+                "tangential_order_per_axis",
+                "radial_order",
+                "tangential_node_count",
+                "bulk_node_count_per_side",
+                "boundary_node_count",
+                "T4_volume",
+                "rho_interval_length",
+                "rule",
+            )
+        },
+        "evaluation_counts": {
+            "common_boundary_decodes": int(quadrature["boundary_node_count"]),
+            "bulk_points_per_side": int(quadrature["bulk_node_count_per_side"]),
+            "boundary_points": int(quadrature["boundary_node_count"]),
+        },
+        "domain_separation": {
+            "bulk": "twelve atoms integrated on T4 x rho",
+            "GHY": "two atoms integrated once on the T4 boundary",
+            "interface": "six atoms integrated once on the shared T4 boundary",
+        },
+        "S_total_formed_only_after_twenty_domain_integrals": True,
     }
 
 
@@ -3292,6 +3514,50 @@ def _torch_local_density_value_jvp(
     return value_array, jvp_array
 
 
+def _torch_integrated_action_value_jvp(
+    free: np.ndarray,
+    tangent: np.ndarray,
+    N: int,
+    K: int,
+    quadrature: Mapping[str, Any],
+) -> tuple[np.ndarray, np.ndarray]:
+    """Pinned Torch+C2 oracle on exactly the supplied finite nodes/weights."""
+
+    c2, route_a, _bundle = _load_pinned_torch_c2_oracle()
+    torch = route_a.torch
+    free_tensor = torch.tensor(free, dtype=route_a.DTYPE)
+    tangent_tensor = torch.tensor(tangent, dtype=route_a.DTYPE)
+    points = torch.tensor(quadrature["tangential_points"], dtype=route_a.DTYPE)
+    t_weights = torch.tensor(quadrature["tangential_weights"], dtype=route_a.DTYPE)
+    rho = torch.tensor(quadrature["rho_nodes"], dtype=route_a.DTYPE)
+    rho_weights = torch.tensor(quadrature["radial_weights"], dtype=route_a.DTYPE)
+
+    def evaluate(trial: Any) -> Any:
+        with c2._profile_patch(route_a):
+            components = route_a.relative_action_components_on_nodes(
+                trial,
+                N,
+                K,
+                points,
+                t_weights,
+                rho,
+                rho_weights,
+            )
+        return torch.stack(
+            tuple(components[name] for name in INTEGRATED_ACTION_OUTPUTS)
+        )
+
+    value, jvp = torch.func.jvp(evaluate, (free_tensor,), (tangent_tensor,))
+    value_array = value.detach().cpu().numpy()
+    jvp_array = jvp.detach().cpu().numpy()
+    expected_shape = (len(INTEGRATED_ACTION_OUTPUTS),)
+    if value_array.shape != expected_shape or jvp_array.shape != expected_shape:
+        raise DualLocalActionError("Torch integrated-action oracle shape drift")
+    if not np.all(np.isfinite(value_array)) or not np.all(np.isfinite(jvp_array)):
+        raise DualLocalActionError("Torch integrated-action oracle produced non-finite output")
+    return value_array, jvp_array
+
+
 def _route_c_secondary_local_values(
     free: np.ndarray,
     N: int,
@@ -3648,6 +3914,318 @@ def _check_local_densities() -> dict[str, Any]:
     }
 
 
+@lru_cache(maxsize=1)
+def _check_finite_quadrature() -> dict[str, Any]:
+    """Check finite rule construction, exact moments and visible aliasing."""
+
+    tangential_order = 5
+    radial_order = 4
+    quadrature = finite_full_t4_rho_quadrature(tangential_order, radial_order)
+    points = quadrature["tangential_points"]
+    t_weights = quadrature["tangential_weights"]
+    rho = quadrature["rho_nodes"]
+    rho_weights = quadrature["radial_weights"]
+    moment_tolerance = 5.0e-12
+    constant_T4_residual = abs(math.fsum(float(value) for value in t_weights) - T4_VOLUME)
+    tested_wavevectors = (
+        (1, 0, 0, 0),
+        (0, 1, 0, 0),
+        (0, 0, 1, 0),
+        (0, 0, 0, 1),
+        (1, -2, 3, -4),
+    )
+    Fourier_residuals = {}
+    for wavevector in tested_wavevectors:
+        phase = points @ np.asarray(wavevector, dtype=float)
+        value = np.dot(t_weights, np.exp(1j * phase))
+        Fourier_residuals[str(wavevector)] = float(abs(value))
+    worst_Fourier_residual = max(Fourier_residuals.values())
+    periodic_alias_canary = abs(
+        float(np.dot(t_weights, np.cos(tangential_order * points[:, 0])))
+    )
+
+    radial_moment_residuals = {
+        str(degree): abs(
+            float(np.dot(rho_weights, rho**degree)) - 1.0 / float(degree + 1)
+        )
+        for degree in range(2 * radial_order)
+    }
+    worst_radial_exact_moment_residual = max(radial_moment_residuals.values())
+    first_nonexact_degree = 2 * radial_order
+    radial_nonexact_canary = abs(
+        float(np.dot(rho_weights, rho**first_nonexact_degree))
+        - 1.0 / float(first_nonexact_degree + 1)
+    )
+
+    _c2, route_a, _bundle = _load_pinned_torch_c2_oracle()
+    torch_points, torch_t_weights = route_a.periodic_t4_quadrature(tangential_order)
+    torch_rho, torch_rho_weights = route_a.gauss_legendre_unit_interval(radial_order)
+    torch_rule_max_abs_residual = max(
+        float(np.max(np.abs(points - torch_points.detach().cpu().numpy()))),
+        float(np.max(np.abs(t_weights - torch_t_weights.detach().cpu().numpy()))),
+        float(np.max(np.abs(rho - torch_rho.detach().cpu().numpy()))),
+        float(np.max(np.abs(rho_weights - torch_rho_weights.detach().cpu().numpy()))),
+    )
+    torch_rule_tolerance = 5.0e-14
+
+    wrong_T4_weight = 2.0 * math.pi / float(tangential_order)
+    wrong_T4_weight_power_failure = abs(
+        points.shape[0] * wrong_T4_weight - T4_VOLUME
+    )
+    raw_nodes, raw_weights = np.polynomial.legendre.leggauss(radial_order)
+    del raw_nodes
+    missing_half_radial_weight_failure = abs(float(np.sum(raw_weights)) - 1.0)
+    mutant_threshold = 1.0e-3
+    passed = bool(
+        constant_T4_residual <= moment_tolerance
+        and worst_Fourier_residual <= moment_tolerance
+        and periodic_alias_canary >= 0.99 * T4_VOLUME
+        and worst_radial_exact_moment_residual <= moment_tolerance
+        and radial_nonexact_canary > 1.0e-8
+        and torch_rule_max_abs_residual <= torch_rule_tolerance
+        and min(wrong_T4_weight_power_failure, missing_half_radial_weight_failure)
+        > mutant_threshold
+    )
+    return {
+        "tangential_order_per_axis": tangential_order,
+        "tangential_node_count": int(points.shape[0]),
+        "radial_order": radial_order,
+        "constant_T4_moment_abs_residual": constant_T4_residual,
+        "tested_nonzero_Fourier_wavevectors": tested_wavevectors,
+        "nonzero_Fourier_moment_abs_residuals": Fourier_residuals,
+        "worst_nonzero_Fourier_moment_abs_residual": worst_Fourier_residual,
+        "periodic_alias_canary_wavevector": (tangential_order, 0, 0, 0),
+        "periodic_alias_canary_abs_discrete_integral": periodic_alias_canary,
+        "periodic_alias_canary_continuum_integral": 0.0,
+        "radial_exact_degrees": tuple(range(2 * radial_order)),
+        "radial_moment_abs_residuals": radial_moment_residuals,
+        "worst_radial_exact_moment_abs_residual": worst_radial_exact_moment_residual,
+        "radial_first_nonexact_degree": first_nonexact_degree,
+        "radial_first_nonexact_moment_abs_error_canary": radial_nonexact_canary,
+        "moment_tolerance": moment_tolerance,
+        "pinned_torch_rule_max_abs_residual": torch_rule_max_abs_residual,
+        "pinned_torch_rule_tolerance": torch_rule_tolerance,
+        "pinned_torch_T4_point_order_compared_entrywise": True,
+        "algebraic_mutant_witness_abs_failures": {
+            "T4_weight_power_one_instead_of_four": wrong_T4_weight_power_failure,
+            "Gauss_weights_missing_unit_interval_half": missing_half_radial_weight_failure,
+        },
+        "effective_mutant_threshold": mutant_threshold,
+        "finite_rule_not_continuum_exact": True,
+        "pass": passed,
+    }
+
+
+def _comparison_row(
+    actual: np.ndarray,
+    expected: np.ndarray,
+    absolute_tolerance: float,
+    relative_tolerance: float,
+) -> dict[str, Any]:
+    difference = np.abs(actual - expected)
+    scale = np.maximum(np.abs(actual), np.abs(expected))
+    tolerance = absolute_tolerance + relative_tolerance * scale
+    ratios = difference / tolerance
+    worst_index = int(np.argmax(ratios))
+    output_rows = {
+        name: {
+            "actual": float(actual[index]),
+            "pinned_torch": float(expected[index]),
+            "absolute_residual": float(difference[index]),
+            "fixed_tolerance": float(tolerance[index]),
+            "residual_over_fixed_tolerance": float(ratios[index]),
+        }
+        for index, name in enumerate(INTEGRATED_ACTION_OUTPUTS)
+    }
+    return {
+        "rows": output_rows,
+        "max_abs_residual": float(np.max(difference)),
+        "max_residual_over_fixed_tolerance": float(ratios[worst_index]),
+        "worst_output": INTEGRATED_ACTION_OUTPUTS[worst_index],
+        "absolute_tolerance": absolute_tolerance,
+        "relative_tolerance": relative_tolerance,
+        "pass": bool(np.all(ratios <= 1.0)),
+    }
+
+
+@lru_cache(maxsize=1)
+def _check_integrated_action() -> dict[str, Any]:
+    """Compare the finite integrated action/JVP on exactly one shared grid."""
+
+    value_atol = 2.0e-11
+    value_rtol = 2.0e-14
+    jvp_atol = 2.0e-11
+    jvp_rtol = 3.0e-14
+    cases = (
+        ("N1_Q1_R2", 1, 1, 2),
+        ("N3_Q2_R1", 3, 2, 1),
+    )
+    rows: dict[str, Any] = {}
+    actual_by_case: dict[str, Mapping[str, Any]] = {}
+    all_totals_exact = True
+    all_comparisons_pass = True
+    for label, N, tangential_order, radial_order in cases:
+        free, tangent = _pinned_member_vectors(N)
+        quadrature = finite_full_t4_rho_quadrature(tangential_order, radial_order)
+        actual = integrated_action_values_and_eta_jvps(
+            free,
+            tangent,
+            N,
+            N,
+            tangential_order,
+            radial_order,
+        )
+        expected_value, expected_jvp = _torch_integrated_action_value_jvp(
+            free,
+            tangent,
+            N,
+            N,
+            quadrature,
+        )
+        actual_value = np.asarray(actual["values"], dtype=float)
+        actual_jvp = np.asarray(actual["eta_jvps"], dtype=float)
+        value_comparison = _comparison_row(
+            actual_value,
+            expected_value,
+            value_atol,
+            value_rtol,
+        )
+        jvp_comparison = _comparison_row(
+            actual_jvp,
+            expected_jvp,
+            jvp_atol,
+            jvp_rtol,
+        )
+        total_value_exact = actual["S_total"]["value"] == math.fsum(
+            actual["components"][name]["value"] for name in LOCAL_DENSITY_COMPONENTS
+        )
+        total_jvp_exact = actual["S_total"]["eta_jvp"] == math.fsum(
+            actual["components"][name]["eta_jvp"] for name in LOCAL_DENSITY_COMPONENTS
+        )
+        all_totals_exact = bool(all_totals_exact and total_value_exact and total_jvp_exact)
+        all_comparisons_pass = bool(
+            all_comparisons_pass and value_comparison["pass"] and jvp_comparison["pass"]
+        )
+        rows[label] = {
+            "N": N,
+            "K": N,
+            "tangential_order_per_axis": tangential_order,
+            "radial_order": radial_order,
+            "same_explicit_nodes_and_weights_passed_to_both_routes": True,
+            "value_comparison": value_comparison,
+            "eta_jvp_comparison": jvp_comparison,
+            "S_total_value_is_post_integration_fsum": total_value_exact,
+            "S_total_eta_jvp_is_post_integration_fsum": total_jvp_exact,
+            "evaluation_counts": actual["evaluation_counts"],
+        }
+        actual_by_case[label] = actual
+
+    N1 = actual_by_case["N1_Q1_R2"]
+    N3 = actual_by_case["N3_Q2_R1"]
+    N1_values = {
+        name: float(N1["components"][name]["value"])
+        for name in LOCAL_DENSITY_COMPONENTS
+    }
+    N3_vector = np.asarray(N3["values"], dtype=float)
+    q_N3 = int(N3["quadrature"]["tangential_order_per_axis"])
+    wrong_weight_ratio = (2.0 * math.pi / q_N3) / (
+        (2.0 * math.pi / q_N3) ** N_SPATIAL
+    )
+    wrong_T4_weight_failure = float(
+        np.max(np.abs(wrong_weight_ratio * N3_vector - N3_vector))
+    )
+    radial_unscaled = np.asarray(
+        [
+            2.0 * N1_values[name] if name in BULK_COMPONENTS else N1_values[name]
+            for name in LOCAL_DENSITY_COMPONENTS
+        ],
+        dtype=float,
+    )
+    radial_unscaled = np.concatenate((radial_unscaled, [math.fsum(radial_unscaled)]))
+    N1_vector = np.asarray(N1["values"], dtype=float)
+    missing_half_radial_weight_failure = float(
+        np.max(np.abs(radial_unscaled - N1_vector))
+    )
+    radial_order_N1 = int(N1["quadrature"]["radial_order"])
+    repeated_boundary = np.asarray(
+        [
+            N1_values[name]
+            if name in BULK_COMPONENTS
+            else radial_order_N1 * N1_values[name]
+            for name in LOCAL_DENSITY_COMPONENTS
+        ],
+        dtype=float,
+    )
+    repeated_boundary = np.concatenate((repeated_boundary, [math.fsum(repeated_boundary)]))
+    repeated_boundary_failure = float(np.max(np.abs(repeated_boundary - N1_vector)))
+    omitted_GHY_failure = abs(float(N1["components"]["GHY_plus"]["value"]))
+    dropped_jvp_failure = float(np.max(np.abs(np.asarray(N3["eta_jvps"], dtype=float))))
+
+    free1, tangent1 = _pinned_member_vectors(1)
+    unmapped_radial_node_rejected = False
+    raw_nodes, _raw_weights = np.polynomial.legendre.leggauss(2)
+    try:
+        local_density_values_and_eta_jvps(
+            free1,
+            tangent1,
+            1,
+            1,
+            (0.0, 0.0, 0.0, 0.0),
+            float(raw_nodes[0]),
+        )
+    except TaylorDual3InputError:
+        unmapped_radial_node_rejected = True
+
+    mutant_failures = {
+        "T4_weight_power_one_instead_of_four": wrong_T4_weight_failure,
+        "Gauss_weights_missing_unit_interval_half": missing_half_radial_weight_failure,
+        "boundary_repeated_once_per_radial_node_without_weights": repeated_boundary_failure,
+        "S_total_omits_GHY_plus": omitted_GHY_failure,
+        "integrated_eta_jvp_dropped": dropped_jvp_failure,
+    }
+    mutant_threshold = 1.0e-3
+    sampled_mode_support = {
+        str(N): tuple(
+            mode["label"] for mode in full_t4_decoder_contract(N, N)["modes"]
+        )
+        for N in (1, 3)
+    }
+    sampled_members_theta_only = all(
+        all(
+            int(mode["wavevector"][2]) == 0 and int(mode["wavevector"][3]) == 0
+            for mode in full_t4_decoder_contract(N, N)["modes"]
+        )
+        for N in (1, 3)
+    )
+    passed = bool(
+        all_comparisons_pass
+        and all_totals_exact
+        and all(value > mutant_threshold for value in mutant_failures.values())
+        and unmapped_radial_node_rejected
+        and sampled_members_theta_only
+    )
+    return {
+        "output_names": INTEGRATED_ACTION_OUTPUTS,
+        "component_count_before_total": len(LOCAL_DENSITY_COMPONENTS),
+        "sampled_cases": rows,
+        "same_grid_oracle": "explicit NumPy nodes and weights converted directly to pinned Torch float64 tensors",
+        "value_absolute_tolerance": value_atol,
+        "value_relative_tolerance": value_rtol,
+        "eta_jvp_absolute_tolerance": jvp_atol,
+        "eta_jvp_relative_tolerance": jvp_rtol,
+        "all_same_grid_comparisons_pass": all_comparisons_pass,
+        "all_S_total_values_and_jvps_are_post_integration_fsum": all_totals_exact,
+        "algebraic_mutant_witness_max_abs_failures": mutant_failures,
+        "effective_mutant_threshold": mutant_threshold,
+        "unmapped_Gauss_node_outside_unit_interval_rejected": unmapped_radial_node_rejected,
+        "sampled_member_mode_support": sampled_mode_support,
+        "sampled_N1_N3_members_are_theta_only_without_x2_x3_activity": sampled_members_theta_only,
+        "full_T4_rule_but_not_full_axis_active_action_sample": True,
+        "finite_same_grid_result_not_continuum_quadrature_claim": True,
+        "pass": passed,
+    }
+
+
 def build_report() -> dict[str, Any]:
     upstream = _load_pinned_upstream()
     algebra = _check_mixed_algebra()
@@ -3656,6 +4234,8 @@ def build_report() -> dict[str, Any]:
     rotation = _check_so3()
     decoder = _check_decoder()
     local_densities = _check_local_densities()
+    finite_quadrature = _check_finite_quadrature()
+    integrated_action = _check_integrated_action()
     decision = {
         "taylor_dual3_independent_eta_spatial_degree_three_algebra_pass": bool(
             algebra["pass"] and validation["pass"]
@@ -3679,6 +4259,14 @@ def build_report() -> dict[str, Any]:
         ),
         "twenty_separate_local_density_values_and_eta_jvps_sampled_pass": bool(
             local_densities["pass"]
+        ),
+        "finite_full_t4_rho_quadrature_rules_and_alias_canaries_sampled_pass": bool(
+            finite_quadrature["pass"]
+        ),
+        "finite_integrated_twenty_components_S_total_and_eta_jvp_same_grid_pinned_torch_sampled_pass": bool(
+            integrated_action["pass"]
+            and finite_quadrature["pass"]
+            and local_densities["pass"]
         ),
         "integrated_action_pass": False,
         "quadrature_pass": False,
@@ -3712,6 +4300,8 @@ def build_report() -> dict[str, Any]:
         "so3": rotation,
         "decoder": decoder,
         "local_densities": local_densities,
+        "finite_quadrature": finite_quadrature,
+        "finite_integrated_action": integrated_action,
         "decision": decision,
         "scope": (
             "M3 local-density milestone: sparse float64 Taylor algebra in four spatial variables through degree three "
@@ -3728,8 +4318,16 @@ def build_report() -> dict[str, Any]:
             "and bulk rho=0.23,0.71 against byte-pinned Torch Route A+C2 and torch.func.jvp. Route C v5.6.6.3 "
             "is a secondary value/sign check only and never certifies JVPs. Bulk rho and boundary GHY/interface "
             "domains remain separate; no pointwise S_total is formed. The regular V4 formula is finite at phi=0. "
-            "No integrated action, quadrature, density margin certificate, uniform bridge, C1/N1 or B4/B5 claim. No receipt "
-            "or artifact is written by design."
+            "The finite-rule API uses a half-open periodic tensor grid on T4 and open Gauss-Legendre nodes on "
+            "rho in [0,1], integrates the twelve bulk terms with T4 x rho weights, integrates GHY/interface only "
+            "on T4, and forms S_total plus its eta JVP after the twenty domain integrals. Its N=1,Q=1,R=2 and "
+            "N=3,Q=2,R=1 action samples use the pinned members, whose modes are only the constant and "
+            "theta=x0+x1; therefore the rule is full T4 but the sampled action does not activate x2 or x3. "
+            "Finite Fourier alias and first nonexact radial-moment canaries are retained explicitly. The same-grid "
+            "Torch comparison certifies only that finite functional, not continuum quadrature, a remainder bound, "
+            "or convergence. The q<=8 and R<=16 caps are implementation resource guards, not continuum bounds. "
+            "Generic integrated_action_pass and quadrature_pass remain false. No density margin "
+            "certificate, uniform bridge, C1/N1 or B4/B5 claim. No receipt or artifact is written by design."
         ),
     }
 
