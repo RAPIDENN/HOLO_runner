@@ -4,10 +4,11 @@
 This unit is deliberately independent of the numerical Route-C action units.
 It byte-pins the literal geometric ``S_v5.2`` charter and the v5.6.1 open
 obligation, binds every literal action term to a typed geometric expression,
-and checks finite pullback naturality with a small free-word normalizer.  The
-unexpanded local/compact-support chain-rule corollary is then recorded as the
-formal derivative of that finite identity on smooth selected-sector fields and
-compactly supported generators.
+and checks finite pullback naturality with a small free-word normalizer.  A
+separate integer noncommutative word kernel proves the finite affine connection
+trace transport on both sides.  The unexpanded local/compact-support chain-rule
+corollary is then recorded as the formal derivative of the finite action
+identity on smooth selected-sector fields and compactly supported generators.
 
 The certificate is exact relative to the finite list of standard
 differential-geometric axioms reported by :func:`build_report`.  It is not a
@@ -88,13 +89,13 @@ TRUE_DECISION_KEYS = frozenset(
         "finite_complete_domain_pullback_identity_exact_pass",
         "literal_v5_2_twenty_component_naturality_inventory_complete_pass",
         "finite_associated_matter_solder_groupoid_word_covariance_exact_pass",
+        "finite_full_affine_connection_trace_transport_exact_pass",
         "finite_typed_geometric_S_v5_2_action_expression_covariance_exact_pass",
         "formal_local_compact_support_chain_rule_corollary_DS_G_zero_exact_pass",
     }
 )
 FALSE_DECISION_KEYS = frozenset(
     {
-        "finite_full_affine_connection_trace_transport_exact_pass",
         "oriented_BF_incidence_cancellation_exact_pass",
         "literal_bulk_interface_Green_ledger_pass",
         "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass",
@@ -1000,6 +1001,9 @@ EXPECTED_INTERFACE_CONFIGURATION = (
     "j_plus(Y_plus^*phi_plus)=j_minus(Y_minus^*phi_minus)=varphi_H",
     "Trans_iota_plus(Y_plus^*A_plus)=Trans_iota_minus(Y_minus^*A_minus)=A_Sigma",
 )
+EXPECTED_CONNECTION_TRACE_DEFINITION = (
+    "Trans_iota(A)=r*(Y^*A)*r^(-1)-(d r)*r^(-1)=A_Sigma"
+)
 EXPECTED_BF_INCIDENCE = "sum_eps s_eps*b_eps=0 with s_plus=1 and s_minus=-1"
 
 
@@ -1112,6 +1116,15 @@ def _load_pinned_contracts() -> tuple[dict[str, Any], Mapping[str, Any], Mapping
     )
     if interface_configuration != EXPECTED_INTERFACE_CONFIGURATION:
         raise NaturalityCertificateError("v5.2 interface matching contract drift")
+    connection_trace_definition = (
+        v52.get("exact_classical_charter", {})
+        .get("definitions", {})
+        .get("connection_trace")
+    )
+    if connection_trace_definition != EXPECTED_CONNECTION_TRACE_DEFINITION:
+        raise NaturalityCertificateError(
+            "v5.2 affine connection trace definition drift"
+        )
     bf_incidence = (
         v52.get("exact_classical_charter", {})
         .get("interface_domain", {})
@@ -1135,6 +1148,9 @@ def _load_pinned_contracts() -> tuple[dict[str, Any], Mapping[str, Any], Mapping
     observed["v5_2_artifact"]["canonical_exact_action_sha256"] = action_digest
     observed["v5_2_artifact"]["interface_configuration"] = list(
         interface_configuration
+    )
+    observed["v5_2_artifact"]["connection_trace_definition"] = (
+        connection_trace_definition
     )
     observed["v5_2_artifact"]["pinned_BF_incidence_not_yet_consumed"] = (
         bf_incidence
@@ -1246,7 +1262,9 @@ def _interface_raw_pullback_ledger() -> dict[str, Any]:
                 "pinned_matching_premise": statement,
                 "transported_groupoid_data_required": name in {"phi", "A"},
                 "affine_connection_trace_transport_status": (
-                    "open" if name == "A" else "not_applicable"
+                    "checked_by_separate_exact_affine_ledger"
+                    if name == "A"
+                    else "not_applicable"
                 ),
                 "sides": side_rows,
                 "raw_side_pullback_words_reduce_exactly": all(
@@ -1258,7 +1276,7 @@ def _interface_raw_pullback_ledger() -> dict[str, Any]:
         "rows": rows,
         "logical_form": (
             "raw tensor/form pullbacks preserve a baseline equality; the affine "
-            "connection trace lift is a separate open obligation"
+            "connection trace lift is checked by a separate exact ledger"
         ),
         "scope": "raw spacetime pullback words only",
         "full_v5_2_groupoid_configuration_domain_transport_proved": False,
@@ -1346,6 +1364,786 @@ def _groupoid_ledger(groupoid_mode: str = "finite") -> dict[str, Any]:
         "baseline_word": list(baseline),
         "identity": "E' R' phi'=E gQ^-1 gQ R gP^-1 gP phi=E R phi",
         "pass": source_node_binding_exact and reduced == expected_baseline,
+    }
+
+
+AFFINE_GROUP_GENERATORS = frozenset(
+    {
+        "q",
+        "q_plus",
+        "q_minus",
+        "p_plus",
+        "p_minus",
+        "r_plus",
+        "r_minus",
+    }
+)
+EXPECTED_AFFINE_KERNEL_RULES = frozenset(
+    {
+        "integer_noncommutative_linear_collection",
+        "noncommutative_distributive_word_product",
+        "full_Leibniz_rule_for_group_words",
+        "group_inverse_derivative_rule",
+        "adjacent_group_inverse_cancellation",
+    }
+)
+AFFINE_SIDE_MUTATIONS = frozenset(
+    {
+        "exact",
+        "missing_source_affine_term",
+        "wrong_source_affine_sign",
+        "missing_target_affine_term",
+        "wrong_target_affine_sign",
+        "wrong_inverse_derivative_sign",
+        "wrong_inverse_derivative_order",
+        "omit_p_Leibniz_term",
+        "omit_r_Leibniz_term",
+        "omit_q_Leibniz_term",
+        "wrong_r_prime_inverse_order",
+        "frozen_r_transport",
+        "r_factor_omitted_from_transport",
+        "source_inverse_omitted_from_r_transport",
+    }
+)
+
+
+def _affine_group_base(atom: str) -> str | None:
+    base = atom[:-3] if atom.endswith("^-1") else atom
+    return base if base in AFFINE_GROUP_GENERATORS else None
+
+
+def _inverse_affine_group_atom(atom: str) -> str:
+    base = _affine_group_base(atom)
+    if base is None:
+        raise NaturalityCertificateError(f"not an affine group atom: {atom}")
+    return base if atom.endswith("^-1") else f"{base}^-1"
+
+
+def _inverse_affine_group_word(word: Sequence[str]) -> tuple[str, ...]:
+    return tuple(_inverse_affine_group_atom(atom) for atom in reversed(word))
+
+
+def _reduce_affine_word(
+    word: Sequence[str],
+) -> tuple[tuple[str, ...], tuple[dict[str, Any], ...]]:
+    stack: list[str] = []
+    steps: list[dict[str, Any]] = []
+    for atom in word:
+        if (
+            stack
+            and _affine_group_base(stack[-1]) is not None
+            and _affine_group_base(atom) is not None
+            and _inverse_affine_group_atom(stack[-1]) == atom
+        ):
+            cancelled = stack.pop()
+            steps.append(
+                {
+                    "rule": "adjacent_group_inverse_cancellation",
+                    "cancelled": [cancelled, atom],
+                    "remaining_prefix": list(stack),
+                }
+            )
+        else:
+            stack.append(atom)
+    return tuple(stack), tuple(steps)
+
+
+@dataclass(frozen=True)
+class NoncommutativePolynomial:
+    """Canonical integer polynomial in noncommuting connection/group atoms."""
+
+    terms: tuple[tuple[tuple[str, ...], int], ...]
+
+    @classmethod
+    def from_terms(
+        cls,
+        terms: Sequence[tuple[int, Sequence[str]]],
+    ) -> NoncommutativePolynomial:
+        collected: dict[tuple[str, ...], int] = {}
+        for coefficient, word in terms:
+            if not isinstance(coefficient, int):
+                raise NaturalityCertificateError(
+                    "affine polynomial coefficients must be exact integers"
+                )
+            reduced, _steps = _reduce_affine_word(word)
+            collected[reduced] = collected.get(reduced, 0) + coefficient
+        canonical = tuple(
+            sorted(
+                (word, coefficient)
+                for word, coefficient in collected.items()
+                if coefficient
+            )
+        )
+        return cls(canonical)
+
+    @classmethod
+    def zero(cls) -> NoncommutativePolynomial:
+        return cls(())
+
+    @classmethod
+    def word(cls, *atoms: str) -> NoncommutativePolynomial:
+        return cls.from_terms(((1, atoms),))
+
+    def add(
+        self,
+        other: NoncommutativePolynomial,
+    ) -> NoncommutativePolynomial:
+        return NoncommutativePolynomial.from_terms(
+            tuple((coefficient, word) for word, coefficient in self.terms)
+            + tuple((coefficient, word) for word, coefficient in other.terms)
+        )
+
+    def scale(self, coefficient: int) -> NoncommutativePolynomial:
+        return NoncommutativePolynomial.from_terms(
+            tuple(
+                (coefficient * value, word)
+                for word, value in self.terms
+            )
+        )
+
+    def subtract(
+        self,
+        other: NoncommutativePolynomial,
+    ) -> NoncommutativePolynomial:
+        return self.add(other.scale(-1))
+
+    def multiply(
+        self,
+        other: NoncommutativePolynomial,
+    ) -> NoncommutativePolynomial:
+        return NoncommutativePolynomial.from_terms(
+            tuple(
+                (left_coefficient * right_coefficient, left_word + right_word)
+                for left_word, left_coefficient in self.terms
+                for right_word, right_coefficient in other.terms
+            )
+        )
+
+    def containing(self, atom: str) -> NoncommutativePolynomial:
+        return NoncommutativePolynomial.from_terms(
+            tuple(
+                (coefficient, word)
+                for word, coefficient in self.terms
+                if atom in word
+            )
+        )
+
+
+def _nc_terms(value: NoncommutativePolynomial) -> list[dict[str, Any]]:
+    return [
+        {"coefficient": coefficient, "word": list(word)}
+        for word, coefficient in value.terms
+    ]
+
+
+def _differentiate_affine_group_atom(
+    atom: str,
+    *,
+    inverse_rule: str,
+    omitted_generators: frozenset[str],
+) -> tuple[NoncommutativePolynomial, str]:
+    base = _affine_group_base(atom)
+    if base is None:
+        raise NaturalityCertificateError(
+            f"cannot differentiate non-group atom: {atom}"
+        )
+    if base in omitted_generators:
+        return NoncommutativePolynomial.zero(), "omitted_mutant"
+    differential = f"d_{base}"
+    if not atom.endswith("^-1"):
+        return NoncommutativePolynomial.word(differential), "direct_generator"
+    inverse = f"{base}^-1"
+    if inverse_rule == "exact":
+        return (
+            NoncommutativePolynomial.from_terms(
+                ((-1, (inverse, differential, inverse)),)
+            ),
+            "d(g^-1)=-g^-1*(d g)*g^-1",
+        )
+    if inverse_rule == "wrong_sign":
+        return (
+            NoncommutativePolynomial.word(inverse, differential, inverse),
+            "mutant_wrong_positive_sign",
+        )
+    if inverse_rule == "wrong_order":
+        return (
+            NoncommutativePolynomial.from_terms(
+                ((-1, (differential, inverse, inverse)),)
+            ),
+            "mutant_wrong_factor_order",
+        )
+    raise NaturalityCertificateError(
+        f"unknown inverse derivative rule: {inverse_rule}"
+    )
+
+
+def _differentiate_affine_group_word(
+    word: Sequence[str],
+    *,
+    inverse_rule: str = "exact",
+    omitted_generators: frozenset[str] = frozenset(),
+) -> tuple[NoncommutativePolynomial, tuple[dict[str, Any], ...]]:
+    total = NoncommutativePolynomial.zero()
+    trace: list[dict[str, Any]] = []
+    for index, atom in enumerate(word):
+        atom_derivative, rule = _differentiate_affine_group_atom(
+            atom,
+            inverse_rule=inverse_rule,
+            omitted_generators=omitted_generators,
+        )
+        contribution = (
+            NoncommutativePolynomial.word(*word[:index])
+            .multiply(atom_derivative)
+            .multiply(NoncommutativePolynomial.word(*word[index + 1 :]))
+        )
+        total = total.add(contribution)
+        trace.append(
+            {
+                "Leibniz_slot": index,
+                "group_atom": atom,
+                "atom_rule": rule,
+                "atom_derivative_terms": _nc_terms(atom_derivative),
+                "contribution_terms": _nc_terms(contribution),
+            }
+        )
+    return total, tuple(trace)
+
+
+def _conjugate_affine_polynomial(
+    group_word: Sequence[str],
+    value: NoncommutativePolynomial,
+    *,
+    inverse_word: Sequence[str] | None = None,
+) -> NoncommutativePolynomial:
+    inverse = (
+        _inverse_affine_group_word(group_word)
+        if inverse_word is None
+        else tuple(inverse_word)
+    )
+    return (
+        NoncommutativePolynomial.word(*group_word)
+        .multiply(value)
+        .multiply(NoncommutativePolynomial.word(*inverse))
+    )
+
+
+def _pulled_field_nodes(value: Expression) -> tuple[PulledField, ...]:
+    if isinstance(value, PulledField):
+        return (value,)
+    if isinstance(value, SolderedMatter):
+        return ()
+    return tuple(
+        node
+        for argument in value.arguments
+        for node in _pulled_field_nodes(argument)
+    )
+
+
+def _connection_trace_binding_rows(
+    v52: Mapping[str, Any],
+    interface_raw_pullback: Mapping[str, Any],
+    components: Mapping[str, Expression],
+    target_gauges: Mapping[str, str],
+) -> tuple[dict[str, Any], ...]:
+    charter = v52.get("exact_classical_charter", {})
+    definition = charter.get("definitions", {}).get("connection_trace")
+    configuration = tuple(
+        charter.get("interface_domain", {}).get("configuration", ())
+    )
+    connection_statement = EXPECTED_INTERFACE_CONFIGURATION[3]
+    raw_rows = [
+        row
+        for row in interface_raw_pullback.get("rows", ())
+        if row.get("field") == "A"
+    ]
+    raw_row = raw_rows[0] if len(raw_rows) == 1 else {}
+    rows: list[dict[str, Any]] = []
+    for side in SIDES:
+        expected_node = _bulk_field(
+            side, "A", CONNECTION1_5, "finite"
+        )
+        component_names = (
+            f"P_kinetic_bulk_{side}",
+            f"BF_bulk_{side}",
+        )
+        expected_occurrence_counts = {
+            f"P_kinetic_bulk_{side}": 2,
+            f"BF_bulk_{side}": 1,
+        }
+        route_rows: list[dict[str, Any]] = []
+        route_connection_nodes: list[PulledField] = []
+        for component_name in component_names:
+            connection_nodes = tuple(
+                node
+                for node in _pulled_field_nodes(components[component_name])
+                if node.type_tag == CONNECTION1_5
+            )
+            structural_nodes = frozenset(connection_nodes)
+            route_connection_nodes.extend(connection_nodes)
+            route_rows.append(
+                {
+                    "component": component_name,
+                    "raw_AST_connection_occurrence_count": len(connection_nodes),
+                    "expected_raw_AST_connection_occurrence_count": (
+                        expected_occurrence_counts[component_name]
+                    ),
+                    "distinct_structural_connection_node_count": len(
+                        structural_nodes
+                    ),
+                    "connection_symbols": [node.name for node in connection_nodes],
+                    "pullback_words": [
+                        list(node.pullback_factors) for node in connection_nodes
+                    ],
+                    "all_occurrences_are_the_same_expected_A_e": bool(
+                        connection_nodes
+                        and all(node == expected_node for node in connection_nodes)
+                    ),
+                    "one_structural_A_e_symbol_type_pullback_on_this_route": (
+                        len(structural_nodes) == 1
+                    ),
+                    "structural_multiplicity_is_exact": (
+                        len(connection_nodes)
+                        == expected_occurrence_counts[component_name]
+                    ),
+                }
+            )
+        raw_side_rows = [
+            row for row in raw_row.get("sides", ()) if row.get("side") == side
+        ]
+        exact = (
+            definition == EXPECTED_CONNECTION_TRACE_DEFINITION
+            and configuration == EXPECTED_INTERFACE_CONFIGURATION
+            and raw_row.get("pinned_matching_premise") == connection_statement
+            and len(raw_side_rows) == 1
+            and raw_side_rows[0].get("transformed_reduces_to_baseline") is True
+            and len(route_rows) == 2
+            and all(
+                row["all_occurrences_are_the_same_expected_A_e"]
+                and row[
+                    "one_structural_A_e_symbol_type_pullback_on_this_route"
+                ]
+                and row["structural_multiplicity_is_exact"]
+                for row in route_rows
+            )
+            and frozenset(route_connection_nodes) == frozenset({expected_node})
+        )
+        rows.append(
+            {
+                "side": side,
+                "pinned_connection_trace_definition": definition,
+                "pinned_common_interface_configuration": connection_statement,
+                "connection_atom": expected_node.name,
+                "source_gauge_atom": f"p_{side}",
+                "transition_atom": f"r_{side}",
+                "target_gauge_atom": target_gauges[side],
+                "actual_action_component_routes": route_rows,
+                "exactly_two_action_component_routes": len(route_rows) == 2,
+                "two_semantic_routes_not_two_AST_visits": True,
+                "same_structural_A_e_symbol_type_pullback_on_both_routes": (
+                    frozenset(route_connection_nodes)
+                    == frozenset({expected_node})
+                ),
+                "raw_pullback_row_bound": len(raw_side_rows) == 1,
+                "pass": exact,
+            }
+        )
+    return tuple(rows)
+
+
+def _affine_side_identity(
+    binding: Mapping[str, Any],
+    mutation: str = "exact",
+) -> dict[str, Any]:
+    if mutation not in AFFINE_SIDE_MUTATIONS:
+        raise NaturalityCertificateError(
+            f"unknown affine side mutation: {mutation}"
+        )
+    side = str(binding["side"])
+    connection_atom = str(binding["connection_atom"])
+    p_atom = str(binding["source_gauge_atom"])
+    r_atom = str(binding["transition_atom"])
+    q_atom = str(binding["target_gauge_atom"])
+    p_inverse = _inverse_affine_group_atom(p_atom)
+    r_inverse = _inverse_affine_group_atom(r_atom)
+    q_inverse = _inverse_affine_group_atom(q_atom)
+    connection = NoncommutativePolynomial.word(connection_atom)
+
+    d_p, _d_p_trace = _differentiate_affine_group_word((p_atom,))
+    source_affine_coefficient = -1
+    if mutation == "missing_source_affine_term":
+        source_affine_coefficient = 0
+    elif mutation == "wrong_source_affine_sign":
+        source_affine_coefficient = 1
+    source_homogeneous = _conjugate_affine_polynomial((p_atom,), connection)
+    source_inhomogeneous = d_p.multiply(
+        NoncommutativePolynomial.word(p_inverse)
+    ).scale(source_affine_coefficient)
+    transformed_source_connection = source_homogeneous.add(source_inhomogeneous)
+
+    if mutation == "frozen_r_transport":
+        r_prime = (r_atom,)
+    elif mutation == "r_factor_omitted_from_transport":
+        r_prime = (q_atom, p_inverse)
+    elif mutation == "source_inverse_omitted_from_r_transport":
+        r_prime = (q_atom, r_atom)
+    else:
+        r_prime = (q_atom, r_atom, p_inverse)
+    expected_r_prime_inverse = _inverse_affine_group_word(r_prime)
+    r_prime_inverse = expected_r_prime_inverse
+    if mutation == "wrong_r_prime_inverse_order":
+        r_prime_inverse = (q_inverse, r_inverse, p_atom)
+
+    inverse_rule = "exact"
+    if mutation == "wrong_inverse_derivative_sign":
+        inverse_rule = "wrong_sign"
+    elif mutation == "wrong_inverse_derivative_order":
+        inverse_rule = "wrong_order"
+    omitted_generators = frozenset()
+    if mutation == "omit_p_Leibniz_term":
+        omitted_generators = frozenset({p_atom})
+    elif mutation == "omit_r_Leibniz_term":
+        omitted_generators = frozenset({r_atom})
+    elif mutation == "omit_q_Leibniz_term":
+        omitted_generators = frozenset({q_atom})
+    d_r_prime, d_r_prime_trace = _differentiate_affine_group_word(
+        r_prime,
+        inverse_rule=inverse_rule,
+        omitted_generators=omitted_generators,
+    )
+    lhs_homogeneous = _conjugate_affine_polynomial(
+        r_prime,
+        transformed_source_connection,
+        inverse_word=r_prime_inverse,
+    )
+    lhs_homogeneous_distributed = _conjugate_affine_polynomial(
+        r_prime,
+        source_homogeneous,
+        inverse_word=r_prime_inverse,
+    ).add(
+        _conjugate_affine_polynomial(
+            r_prime,
+            source_inhomogeneous,
+            inverse_word=r_prime_inverse,
+        )
+    )
+    lhs_inhomogeneous = d_r_prime.multiply(
+        NoncommutativePolynomial.word(*r_prime_inverse)
+    ).scale(-1)
+    lhs = lhs_homogeneous.add(lhs_inhomogeneous)
+
+    d_r, _d_r_trace = _differentiate_affine_group_word((r_atom,))
+    source_trace_homogeneous = _conjugate_affine_polynomial(
+        (r_atom,), connection
+    )
+    source_trace_inhomogeneous = d_r.multiply(
+        NoncommutativePolynomial.word(r_inverse)
+    ).scale(-1)
+    source_trace = source_trace_homogeneous.add(source_trace_inhomogeneous)
+    source_trace_expected = NoncommutativePolynomial.from_terms(
+        (
+            (1, (r_atom, connection_atom, r_inverse)),
+            (-1, (f"d_{r_atom}", r_inverse)),
+        )
+    )
+    rhs_homogeneous = _conjugate_affine_polynomial((q_atom,), source_trace)
+    rhs_homogeneous_distributed = _conjugate_affine_polynomial(
+        (q_atom,), source_trace_homogeneous
+    ).add(
+        _conjugate_affine_polynomial(
+            (q_atom,), source_trace_inhomogeneous
+        )
+    )
+    d_q, _d_q_trace = _differentiate_affine_group_word((q_atom,))
+    target_affine_coefficient = -1
+    if mutation == "missing_target_affine_term":
+        target_affine_coefficient = 0
+    elif mutation == "wrong_target_affine_sign":
+        target_affine_coefficient = 1
+    rhs_inhomogeneous = d_q.multiply(
+        NoncommutativePolynomial.word(q_inverse)
+    ).scale(target_affine_coefficient)
+    rhs = rhs_homogeneous.add(rhs_inhomogeneous)
+
+    expected_normal_form = NoncommutativePolynomial.from_terms(
+        (
+            (
+                1,
+                (
+                    q_atom,
+                    r_atom,
+                    connection_atom,
+                    r_inverse,
+                    q_inverse,
+                ),
+            ),
+            (-1, (q_atom, f"d_{r_atom}", r_inverse, q_inverse)),
+            (-1, (f"d_{q_atom}", q_inverse)),
+        )
+    )
+    residual = lhs.subtract(rhs)
+    lhs_source_dp_homogeneous = lhs_homogeneous.containing(f"d_{p_atom}")
+    lhs_source_dp_inhomogeneous = lhs_inhomogeneous.containing(f"d_{p_atom}")
+    source_dp_sum = lhs_source_dp_homogeneous.add(
+        lhs_source_dp_inhomogeneous
+    )
+    inverse_slot_rows = [
+        row for row in d_r_prime_trace if row["group_atom"] == p_inverse
+    ]
+    expected_inverse_derivative = NoncommutativePolynomial.from_terms(
+        ((-1, (p_inverse, f"d_{p_atom}", p_inverse)),)
+    )
+    inverse_derivative_exact = (
+        len(inverse_slot_rows) == 1
+        and inverse_slot_rows[0]["atom_derivative_terms"]
+        == _nc_terms(expected_inverse_derivative)
+    )
+    reduced_identity, inverse_cancellation_steps = _reduce_affine_word(
+        r_prime + tuple(r_prime_inverse)
+    )
+    kernel_checks = {
+        "integer_noncommutative_linear_collection": all(
+            isinstance(coefficient, int)
+            for polynomial in (lhs, rhs, expected_normal_form, residual)
+            for _word, coefficient in polynomial.terms
+        ),
+        "noncommutative_distributive_word_product": (
+            bool(source_homogeneous.terms)
+            and bool(source_inhomogeneous.terms)
+            and bool(source_trace_homogeneous.terms)
+            and bool(source_trace_inhomogeneous.terms)
+            and lhs_homogeneous == lhs_homogeneous_distributed
+            and rhs_homogeneous == rhs_homogeneous_distributed
+        ),
+        "full_Leibniz_rule_for_group_words": (
+            len(d_r_prime_trace) == len(r_prime)
+            and tuple(row["Leibniz_slot"] for row in d_r_prime_trace)
+            == tuple(range(len(r_prime)))
+            and all(
+                row["atom_rule"] != "omitted_mutant"
+                for row in d_r_prime_trace
+            )
+        ),
+        "group_inverse_derivative_rule": inverse_derivative_exact,
+        "adjacent_group_inverse_cancellation": (
+            not reduced_identity and bool(inverse_cancellation_steps)
+        ),
+    }
+    source_dp_cancels = (
+        bool(lhs_source_dp_homogeneous.terms)
+        and bool(lhs_source_dp_inhomogeneous.terms)
+        and not source_dp_sum.terms
+    )
+    identity_pass = (
+        binding.get("pass") is True
+        and all(kernel_checks.values())
+        and source_dp_cancels
+        and tuple(r_prime_inverse) == expected_r_prime_inverse
+        and lhs == rhs == expected_normal_form
+        and not residual.terms
+    )
+    source_trace_bound_to_common_interface = (
+        binding.get("pass") is True
+        and binding.get("pinned_connection_trace_definition")
+        == EXPECTED_CONNECTION_TRACE_DEFINITION
+        and binding.get("pinned_common_interface_configuration")
+        == EXPECTED_INTERFACE_CONFIGURATION[3]
+        and source_trace == source_trace_expected
+    )
+    substituted_source_trace = (
+        NoncommutativePolynomial.word("A_Sigma")
+        if source_trace_bound_to_common_interface
+        else NoncommutativePolynomial.zero()
+    )
+    common_interface_target = _conjugate_affine_polynomial(
+        (q_atom,), substituted_source_trace
+    ).add(rhs_inhomogeneous)
+    return {
+        "side": side,
+        "mutation": mutation,
+        "source_connection_atom_from_actual_action_tree": connection_atom,
+        "source_gauge_atom": p_atom,
+        "transition_atom": r_atom,
+        "shared_target_gauge_atom": q_atom,
+        "A_prime_identity": "A'=p A p^-1-(d p)p^-1",
+        "r_prime_identity": "r'=q r p^-1",
+        "r_prime_word": list(r_prime),
+        "r_prime_inverse_word": list(r_prime_inverse),
+        "expected_r_prime_inverse_word": list(expected_r_prime_inverse),
+        "d_r_prime_Leibniz_trace": list(d_r_prime_trace),
+        "source_trace_before_common_interface_substitution_terms": _nc_terms(
+            source_trace
+        ),
+        "expected_Trans_r_A_terms": _nc_terms(source_trace_expected),
+        "source_trace_matches_bound_Trans_r_A": (
+            source_trace_bound_to_common_interface
+        ),
+        "common_interface_substitution": "Trans_r_e(A_e)->A_Sigma",
+        "common_interface_substitution_applied": (
+            source_trace_bound_to_common_interface
+        ),
+        "lhs_terms": _nc_terms(lhs),
+        "rhs_terms": _nc_terms(rhs),
+        "expected_normal_form_terms": _nc_terms(expected_normal_form),
+        "residual_terms": _nc_terms(residual),
+        "source_dp_terms_from_r_prime_A_prime_r_prime_inverse": _nc_terms(
+            lhs_source_dp_homogeneous
+        ),
+        "source_dp_terms_from_minus_d_r_prime_r_prime_inverse": _nc_terms(
+            lhs_source_dp_inhomogeneous
+        ),
+        "source_dp_cancellation_terms": _nc_terms(source_dp_sum),
+        "source_dp_cancels_exactly": source_dp_cancels,
+        "distributive_expansion_witness": {
+            "lhs_conjugation_of_sum_terms": _nc_terms(lhs_homogeneous),
+            "lhs_sum_of_conjugated_terms": _nc_terms(
+                lhs_homogeneous_distributed
+            ),
+            "rhs_conjugation_of_sum_terms": _nc_terms(rhs_homogeneous),
+            "rhs_sum_of_conjugated_terms": _nc_terms(
+                rhs_homogeneous_distributed
+            ),
+        },
+        "kernel_rule_checks": kernel_checks,
+        "common_interface_target_terms": _nc_terms(common_interface_target),
+        "polynomial_identity_exact": lhs == rhs == expected_normal_form,
+        "pass": identity_pass,
+    }
+
+
+def _affine_connection_trace_ledger(
+    v52: Mapping[str, Any],
+    interface_raw_pullback: Mapping[str, Any],
+    *,
+    components: Mapping[str, Expression] | None = None,
+    side_mutations: Mapping[str, str] | None = None,
+    target_gauges: Mapping[str, str] | None = None,
+) -> dict[str, Any]:
+    actual_components = (
+        build_component_expressions("finite")
+        if components is None
+        else components
+    )
+    mutations = {side: "exact" for side in SIDES}
+    if side_mutations is not None:
+        if not set(side_mutations).issubset(SIDES):
+            raise NaturalityCertificateError(
+                "unknown side in affine mutation map"
+            )
+        mutations.update(side_mutations)
+    gauges = {side: "q" for side in SIDES}
+    if target_gauges is not None:
+        if not set(target_gauges).issubset(SIDES):
+            raise NaturalityCertificateError(
+                "unknown side in affine target-gauge map"
+            )
+        gauges.update(target_gauges)
+    bindings = _connection_trace_binding_rows(
+        v52,
+        interface_raw_pullback,
+        actual_components,
+        gauges,
+    )
+    side_rows = tuple(
+        _affine_side_identity(binding, mutations[str(binding["side"])])
+        for binding in bindings
+    )
+    common_target_terms = tuple(
+        tuple(
+            (tuple(term["word"]), int(term["coefficient"]))
+            for term in row["common_interface_target_terms"]
+        )
+        for row in side_rows
+    )
+    common_q = (
+        tuple(row["shared_target_gauge_atom"] for row in side_rows)
+        == ("q", "q")
+    )
+    common_target_exact = (
+        len(common_target_terms) == 2
+        and common_target_terms[0] == common_target_terms[1]
+    )
+    transported_trace_equality_exact = (
+        common_q
+        and common_target_exact
+        and all(binding["pass"] for binding in bindings)
+        and all(
+            row["pass"]
+            and row["polynomial_identity_exact"]
+            and row["common_interface_substitution_applied"]
+            for row in side_rows
+        )
+    )
+    consumed_rules = frozenset(
+        name
+        for row in side_rows
+        for name, value in row["kernel_rule_checks"].items()
+        if value
+    )
+    literal_definition = (
+        v52.get("exact_classical_charter", {})
+        .get("definitions", {})
+        .get("connection_trace")
+    )
+    literal_configuration = tuple(
+        v52.get("exact_classical_charter", {})
+        .get("interface_domain", {})
+        .get("configuration", ())
+    )
+    pass_exact = (
+        literal_definition == EXPECTED_CONNECTION_TRACE_DEFINITION
+        and literal_configuration == EXPECTED_INTERFACE_CONFIGURATION
+        and len(bindings) == len(SIDES)
+        and all(binding["pass"] for binding in bindings)
+        and all(row["pass"] for row in side_rows)
+        and transported_trace_equality_exact
+        and consumed_rules == EXPECTED_AFFINE_KERNEL_RULES
+    )
+    return {
+        "scope": "finite affine SO3 connection trace transport only",
+        "formal_domain": {
+            "connections": "Lie(SO3)-valued one-forms A_plus and A_minus",
+            "group_maps": (
+                "smooth SO3-valued zero-forms p_plus, p_minus, r_plus, "
+                "r_minus and one shared q"
+            ),
+            "differential_degree": (
+                "group maps have degree zero; d_p, d_r and d_q have degree one"
+            ),
+            "coefficient_ring": "exact integers",
+            "word_product": "associative and noncommutative",
+        },
+        "pinned_connection_trace_definition": literal_definition,
+        "pinned_common_interface_configuration": literal_configuration[3],
+        "finite_transformation_rules": {
+            "bulk_connection": "A'=p A p^-1-(d p)p^-1",
+            "interface_transition": "r'=q r p^-1",
+            "transition_inverse": "(r')^-1=p r^-1 q^-1",
+            "inverse_derivative": "d(p^-1)=-p^-1(d p)p^-1",
+            "target_connection": (
+                "A_Sigma'=q A_Sigma q^-1-(d q)q^-1"
+            ),
+        },
+        "binding_rows": list(bindings),
+        "side_polynomial_identities": list(side_rows),
+        "target_gauge_atoms_by_side": [
+            row["shared_target_gauge_atom"] for row in side_rows
+        ],
+        "same_literal_q_and_dq_used_on_both_sides": common_q,
+        "common_transformed_A_Sigma_terms": (
+            list(side_rows[0]["common_interface_target_terms"])
+            if transported_trace_equality_exact
+            else []
+        ),
+        "two_transformed_interface_traces_remain_equal": (
+            transported_trace_equality_exact
+        ),
+        "expected_kernel_rules": sorted(EXPECTED_AFFINE_KERNEL_RULES),
+        "consumed_kernel_rules": sorted(consumed_rules),
+        "every_affine_kernel_rule_consumed_exactly": (
+            consumed_rules == EXPECTED_AFFINE_KERNEL_RULES
+        ),
+        "BF_incidence_or_Green_identity_claimed": False,
+        "pass": pass_exact,
     }
 
 
@@ -1614,6 +2412,149 @@ def _replace_semantic_leaf_role(
     )
 
 
+def _affine_connection_trace_mutant_campaign(
+    v52: Mapping[str, Any],
+    interface_raw_pullback: Mapping[str, Any],
+) -> dict[str, Any]:
+    rows: dict[str, Any] = {}
+    algebra_mutations = (
+        "missing_source_affine_term",
+        "wrong_source_affine_sign",
+        "missing_target_affine_term",
+        "wrong_target_affine_sign",
+        "wrong_inverse_derivative_sign",
+        "wrong_inverse_derivative_order",
+        "omit_p_Leibniz_term",
+        "omit_r_Leibniz_term",
+        "omit_q_Leibniz_term",
+        "wrong_r_prime_inverse_order",
+        "frozen_r_transport",
+        "r_factor_omitted_from_transport",
+        "source_inverse_omitted_from_r_transport",
+    )
+    for mutation in algebra_mutations:
+        ledger = _affine_connection_trace_ledger(
+            v52,
+            interface_raw_pullback,
+            side_mutations={"plus": mutation},
+        )
+        plus_row = next(
+            row
+            for row in ledger["side_polynomial_identities"]
+            if row["side"] == "plus"
+        )
+        rows[mutation] = {
+            "killed": not ledger["pass"] and not plus_row["pass"],
+            "residual_terms": plus_row["residual_terms"],
+            "source_dp_cancels_exactly": plus_row[
+                "source_dp_cancels_exactly"
+            ],
+        }
+
+    split_target = _affine_connection_trace_ledger(
+        v52,
+        interface_raw_pullback,
+        target_gauges={"plus": "q_plus", "minus": "q_minus"},
+    )
+    rows["split_target_q_between_sides"] = {
+        "killed": (
+            not split_target["pass"]
+            and all(
+                row["polynomial_identity_exact"]
+                for row in split_target["side_polynomial_identities"]
+            )
+            and not split_target["same_literal_q_and_dq_used_on_both_sides"]
+            and not split_target[
+                "two_transformed_interface_traces_remain_equal"
+            ]
+        ),
+        "target_gauge_atoms": split_target["target_gauge_atoms_by_side"],
+    }
+
+    detached_components = build_component_expressions("finite")
+    detached_components["BF_bulk_plus"] = _replace_semantic_leaf_role(
+        detached_components["BF_bulk_plus"],
+        "A",
+        "detached_connection",
+    )
+    detached = _affine_connection_trace_ledger(
+        v52,
+        interface_raw_pullback,
+        components=detached_components,
+    )
+    plus_binding = next(
+        row for row in detached["binding_rows"] if row["side"] == "plus"
+    )
+    bf_route = next(
+        row
+        for row in plus_binding["actual_action_component_routes"]
+        if row["component"] == "BF_bulk_plus"
+    )
+    rows["detached_hard_coded_ledger_from_BF_connection_route"] = {
+        "killed": (
+            not detached["pass"]
+            and not plus_binding["pass"]
+            and not bf_route["all_occurrences_are_the_same_expected_A_e"]
+            and not detached[
+                "two_transformed_interface_traces_remain_equal"
+            ]
+            and all(
+                row["polynomial_identity_exact"]
+                for row in detached["side_polynomial_identities"]
+            )
+        ),
+        "detached_route": bf_route,
+    }
+
+    duplicated_components = build_component_expressions("finite")
+    original_p_route = duplicated_components["P_kinetic_bulk_plus"]
+    if not isinstance(original_p_route, Construction):
+        raise NaturalityCertificateError(
+            "P kinetic route root is not a typed construction"
+        )
+    duplicated_components["P_kinetic_bulk_plus"] = Construction(
+        operator=original_p_route.operator,
+        arguments=original_p_route.arguments
+        + (_bulk_field("plus", "A", CONNECTION1_5, "finite"),),
+        type_tag=original_p_route.type_tag,
+    )
+    duplicated = _affine_connection_trace_ledger(
+        v52,
+        interface_raw_pullback,
+        components=duplicated_components,
+    )
+    duplicated_plus_binding = next(
+        row for row in duplicated["binding_rows"] if row["side"] == "plus"
+    )
+    duplicated_p_route = next(
+        row
+        for row in duplicated_plus_binding["actual_action_component_routes"]
+        if row["component"] == "P_kinetic_bulk_plus"
+    )
+    rows["duplicated_A_occurrence_on_P_kinetic_route"] = {
+        "killed": (
+            not duplicated["pass"]
+            and not duplicated_plus_binding["pass"]
+            and not duplicated[
+                "two_transformed_interface_traces_remain_equal"
+            ]
+            and not duplicated_p_route["structural_multiplicity_is_exact"]
+            and duplicated_p_route[
+                "all_occurrences_are_the_same_expected_A_e"
+            ]
+            and duplicated_p_route[
+                "one_structural_A_e_symbol_type_pullback_on_this_route"
+            ]
+        ),
+        "duplicated_route": duplicated_p_route,
+    }
+    return {
+        "rows": rows,
+        "mutant_count": len(rows),
+        "pass": bool(rows) and all(row["killed"] for row in rows.values()),
+    }
+
+
 def _mutant_campaign(exact_action: Mapping[str, Any]) -> dict[str, Any]:
     baseline = build_component_expressions("baseline")
     rows: dict[str, Any] = {}
@@ -1855,9 +2796,21 @@ def build_report() -> dict[str, Any]:
     finite = _finite_naturality_ledger()
     interface_raw_pullback = _interface_raw_pullback_ledger()
     groupoid = _groupoid_ledger()
+    affine_connection_trace = _affine_connection_trace_ledger(
+        v52,
+        interface_raw_pullback,
+    )
+    affine_connection_trace_mutants = (
+        _affine_connection_trace_mutant_campaign(
+            v52,
+            interface_raw_pullback,
+        )
+    )
     pin_pass = (
         source_pins["v5_2_artifact"]["canonical_exact_action_sha256"]
         == V52_EXACT_ACTION_SHA256
+        and source_pins["v5_2_artifact"]["connection_trace_definition"]
+        == EXPECTED_CONNECTION_TRACE_DEFINITION
         and source_pins["v5_6_1_historical_target_false"] is True
     )
     formal_local_prerequisites = {
@@ -1888,6 +2841,11 @@ def build_report() -> dict[str, Any]:
         and kernel_axioms_consumed_exactly
         and mutants["pass"]
     )
+    finite_affine_connection_trace = bool(
+        pin_pass
+        and affine_connection_trace["pass"]
+        and affine_connection_trace_mutants["pass"]
+    )
     core = {
         "v5_2_geometric_action_and_v5_6_1_obligation_byte_pinned_pass": pin_pass,
         "finite_complete_domain_pullback_identity_exact_pass": bool(
@@ -1901,6 +2859,9 @@ def build_report() -> dict[str, Any]:
         "finite_associated_matter_solder_groupoid_word_covariance_exact_pass": bool(
             groupoid["pass"]
         ),
+        "finite_full_affine_connection_trace_transport_exact_pass": (
+            finite_affine_connection_trace
+        ),
         "finite_typed_geometric_S_v5_2_action_expression_covariance_exact_pass": (
             finite_geometric_covariance
         ),
@@ -1910,7 +2871,6 @@ def build_report() -> dict[str, Any]:
     }
     decision: dict[str, bool] = {
         **core,
-        "finite_full_affine_connection_trace_transport_exact_pass": False,
         "oriented_BF_incidence_cancellation_exact_pass": False,
         "literal_bulk_interface_Green_ledger_pass": False,
         "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass": False,
@@ -1939,8 +2899,8 @@ def build_report() -> dict[str, Any]:
         "schema": SCHEMA,
         "claim": (
             "Exact finite covariance of the typed geometric S_v5.2 action "
-            "expression and its formal local compact-support chain-rule "
-            "corollary only"
+            "expression, exact finite affine connection-trace transport, and "
+            "the formal local compact-support chain-rule corollary only"
         ),
         "source_pins": source_pins,
         "theorem_domain": {
@@ -1957,12 +2917,13 @@ def build_report() -> dict[str, Any]:
             "diffeomorphisms": (
                 "orientation- and time-orientation-preserving, connected to "
                 "identity, compactly supported, with compatible base-map/raw "
-                "pullback traces; affine connection trace transport remains open"
+                "pullback traces and exact finite affine connection-trace "
+                "transport"
             ),
             "bundle_sector": "trivial SO3 bundles and null-homotopic extendible gauges",
             "abstract_interface_and_T_fixed_in_this_bulk_gauge_bookkeeping": True,
             "interface_matching": list(EXPECTED_INTERFACE_CONFIGURATION),
-            "full_affine_connection_trace_transport_in_this_certificate": False,
+            "full_affine_connection_trace_transport_in_this_certificate": True,
             "functional_meaning": (
                 "finite covariance and its unexpanded local compact-support "
                 "chain-rule derivative; no local Green decomposition"
@@ -1998,13 +2959,14 @@ def build_report() -> dict[str, Any]:
         "finite_naturality": finite,
         "two_side_raw_spacetime_pullback_words": interface_raw_pullback,
         "finite_associated_matter_solder_groupoid": groupoid,
+        "finite_affine_connection_trace_transport": affine_connection_trace,
+        "affine_connection_trace_effective_mutants": (
+            affine_connection_trace_mutants
+        ),
         "formal_local_compact_support_chain_rule_corollary": formal_local,
         "effective_mutants": mutants,
         "excluded_fixed_background_relative_contract": fixed_background,
         "open_local_Ward_obligations": {
-            "affine_connection_trace_transport": (
-                "OPEN: prove Trans_iota(A)=r(Y^*A)r^-1-(d r)r^-1 under the finite transported bundle/frame data"
-            ),
             "oriented_BF_incidence": (
                 "OPEN: consume the literal two-side boundary Green form with s_plus=+1 and s_minus=-1"
             ),
@@ -2036,11 +2998,13 @@ def build_report() -> dict[str, Any]:
         "decision": decision,
         "evidence_boundary": (
             "This is an exact typed/free-word certificate relative to explicitly "
-            "listed standard geometric axioms. It is neither a numerical check "
-            "nor a proof-assistant derivation. The local compact-support DS "
-            "statement is only the formal chain-rule derivative of the finite "
-            "covariance ledger for the action expression; it is not a consumed "
-            "local Green/interface Ward identity and does not promote the v5.6.1 "
+            "listed standard geometric axioms, plus an exact integer "
+            "noncommutative polynomial certificate for the finite affine "
+            "connection trace. It is neither a numerical check nor a "
+            "proof-assistant derivation. The local compact-support DS statement "
+            "is only the formal chain-rule derivative of the finite covariance "
+            "ledger for the action expression; it is not a consumed local "
+            "Green/interface Ward identity and does not promote the v5.6.1 "
             "full-bulk key."
         ),
     }

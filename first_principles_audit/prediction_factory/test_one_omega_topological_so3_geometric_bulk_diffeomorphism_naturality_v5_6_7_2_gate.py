@@ -33,6 +33,9 @@ def test_exact_upstream_byte_pins_and_literal_action_hash(report: dict) -> None:
     assert tuple(pins["v5_2_artifact"]["interface_configuration"]) == (
         gate.EXPECTED_INTERFACE_CONFIGURATION
     )
+    assert pins["v5_2_artifact"]["connection_trace_definition"] == (
+        gate.EXPECTED_CONNECTION_TRACE_DEFINITION
+    )
     assert pins["v5_2_artifact"]["pinned_BF_incidence_not_yet_consumed"] == (
         gate.EXPECTED_BF_INCIDENCE
     )
@@ -146,7 +149,9 @@ def test_two_side_raw_pullback_words_reduce_without_claiming_full_matching(
     assert matching["scope"] == "raw spacetime pullback words only"
     assert matching["full_v5_2_groupoid_configuration_domain_transport_proved"] is False
     connection = next(row for row in matching["rows"] if row["field"] == "A")
-    assert connection["affine_connection_trace_transport_status"] == "open"
+    assert connection["affine_connection_trace_transport_status"] == (
+        "checked_by_separate_exact_affine_ledger"
+    )
     assert report["theorem_domain"]["interface_matching"] == list(
         gate.EXPECTED_INTERFACE_CONFIGURATION
     )
@@ -266,6 +271,171 @@ def test_groupoid_ledger_reads_the_actual_Robin_soldered_node(
         gate.build_report()
 
 
+def test_affine_connection_trace_is_exact_on_both_real_A_routes(
+    report: dict,
+) -> None:
+    affine = report["finite_affine_connection_trace_transport"]
+    assert affine["pass"] is True
+    assert affine["pinned_connection_trace_definition"] == (
+        gate.EXPECTED_CONNECTION_TRACE_DEFINITION
+    )
+    assert affine["pinned_common_interface_configuration"] == (
+        gate.EXPECTED_INTERFACE_CONFIGURATION[3]
+    )
+    assert "one shared q" in affine["formal_domain"]["group_maps"]
+    assert affine["formal_domain"]["coefficient_ring"] == "exact integers"
+    assert affine["formal_domain"]["word_product"] == (
+        "associative and noncommutative"
+    )
+    assert affine["target_gauge_atoms_by_side"] == ["q", "q"]
+    assert affine["same_literal_q_and_dq_used_on_both_sides"] is True
+    assert affine["two_transformed_interface_traces_remain_equal"] is True
+    assert affine["common_transformed_A_Sigma_terms"] == [
+        {"coefficient": -1, "word": ["d_q", "q^-1"]},
+        {"coefficient": 1, "word": ["q", "A_Sigma", "q^-1"]},
+    ]
+    assert set(affine["consumed_kernel_rules"]) == (
+        gate.EXPECTED_AFFINE_KERNEL_RULES
+    )
+    assert affine["every_affine_kernel_rule_consumed_exactly"] is True
+    assert affine["BF_incidence_or_Green_identity_claimed"] is False
+
+    assert len(affine["binding_rows"]) == 2
+    for binding in affine["binding_rows"]:
+        side = binding["side"]
+        assert binding["pass"] is True
+        assert binding["connection_atom"] == f"A_{side}"
+        assert binding["source_gauge_atom"] == f"p_{side}"
+        assert binding["transition_atom"] == f"r_{side}"
+        assert binding["target_gauge_atom"] == "q"
+        assert binding["exactly_two_action_component_routes"] is True
+        assert binding["two_semantic_routes_not_two_AST_visits"] is True
+        assert binding[
+            "same_structural_A_e_symbol_type_pullback_on_both_routes"
+        ] is True
+        routes = binding["actual_action_component_routes"]
+        assert [row["component"] for row in routes] == [
+            f"P_kinetic_bulk_{side}",
+            f"BF_bulk_{side}",
+        ]
+        assert [row["raw_AST_connection_occurrence_count"] for row in routes] == [
+            2,
+            1,
+        ]
+        assert [
+            row["distinct_structural_connection_node_count"] for row in routes
+        ] == [1, 1]
+        assert all(
+            row["all_occurrences_are_the_same_expected_A_e"]
+            and row[
+                "one_structural_A_e_symbol_type_pullback_on_this_route"
+            ]
+            and row["structural_multiplicity_is_exact"]
+            for row in routes
+        )
+
+    assert len(affine["side_polynomial_identities"]) == 2
+    for row in affine["side_polynomial_identities"]:
+        side = row["side"]
+        assert row["pass"] is True
+        assert row["r_prime_word"] == ["q", f"r_{side}", f"p_{side}^-1"]
+        assert row["r_prime_inverse_word"] == [
+            f"p_{side}",
+            f"r_{side}^-1",
+            "q^-1",
+        ]
+        assert row["r_prime_inverse_word"] == row[
+            "expected_r_prime_inverse_word"
+        ]
+        assert [
+            item["Leibniz_slot"] for item in row["d_r_prime_Leibniz_trace"]
+        ] == [0, 1, 2]
+        inverse_row = row["d_r_prime_Leibniz_trace"][2]
+        assert inverse_row["group_atom"] == f"p_{side}^-1"
+        assert inverse_row["atom_derivative_terms"] == [
+            {
+                "coefficient": -1,
+                "word": [f"p_{side}^-1", f"d_p_{side}", f"p_{side}^-1"],
+            }
+        ]
+        assert row["source_dp_cancels_exactly"] is True
+        assert row["source_dp_cancellation_terms"] == []
+        assert row["source_trace_matches_bound_Trans_r_A"] is True
+        assert row["common_interface_substitution"] == (
+            "Trans_r_e(A_e)->A_Sigma"
+        )
+        assert row["common_interface_substitution_applied"] is True
+        assert row["residual_terms"] == []
+        assert row["polynomial_identity_exact"] is True
+        assert row["lhs_terms"] == row["rhs_terms"]
+        assert row["lhs_terms"] == row["expected_normal_form_terms"]
+        distribution = row["distributive_expansion_witness"]
+        assert distribution["lhs_conjugation_of_sum_terms"] == distribution[
+            "lhs_sum_of_conjugated_terms"
+        ]
+        assert distribution["rhs_conjugation_of_sum_terms"] == distribution[
+            "rhs_sum_of_conjugated_terms"
+        ]
+        assert all(row["kernel_rule_checks"].values())
+
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._affine_side_identity(affine["binding_rows"][0], "unknown_mutant")
+    _pins, v52, _v561 = gate._load_pinned_contracts()
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._affine_connection_trace_ledger(
+            v52,
+            gate._interface_raw_pullback_ledger(),
+            side_mutations={"detached_side": "exact"},
+        )
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._affine_connection_trace_ledger(
+            v52,
+            gate._interface_raw_pullback_ledger(),
+            target_gauges={"detached_side": "q"},
+        )
+
+
+def test_affine_mutants_are_effective_and_binding_is_not_detached(
+    report: dict,
+) -> None:
+    mutants = report["affine_connection_trace_effective_mutants"]
+    assert mutants["pass"] is True
+    assert mutants["mutant_count"] == 16
+    assert all(row["killed"] for row in mutants["rows"].values())
+    for name in (
+        "missing_source_affine_term",
+        "wrong_source_affine_sign",
+        "missing_target_affine_term",
+        "wrong_target_affine_sign",
+        "wrong_inverse_derivative_sign",
+        "wrong_inverse_derivative_order",
+        "omit_p_Leibniz_term",
+        "omit_r_Leibniz_term",
+        "omit_q_Leibniz_term",
+        "wrong_r_prime_inverse_order",
+        "frozen_r_transport",
+        "r_factor_omitted_from_transport",
+        "source_inverse_omitted_from_r_transport",
+    ):
+        assert mutants["rows"][name]["residual_terms"]
+    split = mutants["rows"]["split_target_q_between_sides"]
+    assert split["target_gauge_atoms"] == ["q_plus", "q_minus"]
+    detached = mutants["rows"][
+        "detached_hard_coded_ledger_from_BF_connection_route"
+    ]["detached_route"]
+    assert detached["all_occurrences_are_the_same_expected_A_e"] is False
+    duplicated = mutants["rows"][
+        "duplicated_A_occurrence_on_P_kinetic_route"
+    ]["duplicated_route"]
+    assert duplicated["raw_AST_connection_occurrence_count"] == 3
+    assert duplicated["structural_multiplicity_is_exact"] is False
+    assert duplicated["all_occurrences_are_the_same_expected_A_e"] is True
+    assert duplicated["distinct_structural_connection_node_count"] == 1
+    assert duplicated[
+        "one_structural_A_e_symbol_type_pullback_on_this_route"
+    ] is True
+
+
 def test_Cartan_signs_reduce_as_exact_integer_combinations(report: dict) -> None:
     cartan = report["formal_local_compact_support_chain_rule_corollary"][
         "Cartan_bulk_sign_ledger"
@@ -380,9 +550,14 @@ def test_only_finite_covariance_and_formal_local_corollary_are_promoted(
     assert decision[
         "formal_local_compact_support_chain_rule_corollary_DS_G_zero_exact_pass"
     ] is True
+    assert decision[
+        "finite_full_affine_connection_trace_transport_exact_pass"
+    ] is True
+    assert report["theorem_domain"][
+        "full_affine_connection_trace_transport_in_this_certificate"
+    ] is True
     for key in (
         "fixed_reference_S_rel_diffeomorphism_Ward_pass",
-        "finite_full_affine_connection_trace_transport_exact_pass",
         "oriented_BF_incidence_cancellation_exact_pass",
         "literal_bulk_interface_Green_ledger_pass",
         "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass",
@@ -404,7 +579,6 @@ def test_only_finite_covariance_and_formal_local_corollary_are_promoted(
         assert decision[key] is False
     opens = report["open_local_Ward_obligations"]
     assert set(opens) == {
-        "affine_connection_trace_transport",
         "oriented_BF_incidence",
         "literal_bulk_interface_Green_ledger",
         "Noether_current_definition",
