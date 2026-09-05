@@ -16,7 +16,10 @@ normalizer, while recording EH+GHY and the six intrinsic interface variations
 only as the explicitly named geometric axioms.  The unexpanded
 local/compact-support chain-rule corollary is also recorded as the formal
 derivative of the finite action identity on smooth selected-sector fields and
-compactly supported generators.
+compactly supported generators.  Finally, a typed local variational AST proves
+the off-shell Noether-current identity separately on each bulk half for smooth
+generators whose support is compactly contained in the interior and separated
+from a full collar of the interface.
 
 The certificate is exact relative to the finite list of standard
 differential-geometric axioms reported by :func:`build_report`.  It is not a
@@ -102,12 +105,12 @@ TRUE_DECISION_KEYS = frozenset(
         "literal_bulk_interface_Green_ledger_pass",
         "finite_typed_geometric_S_v5_2_action_expression_covariance_exact_pass",
         "formal_local_compact_support_chain_rule_corollary_DS_G_zero_exact_pass",
+        "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass",
     }
 )
 FALSE_DECISION_KEYS = frozenset(
     {
         "oriented_BF_incidence_cancellation_exact_pass",
-        "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass",
         "full_bulk_diffeomorphism_Ward_pass",
         "fixed_reference_S_rel_diffeomorphism_Ward_pass",
         "complete_moving_embedding_Ward_pass",
@@ -169,14 +172,21 @@ class GeometricType:
 
 METRIC5 = GeometricType("Lorentzian_metric", 5)
 INVERSE_METRIC5 = GeometricType("inverse_metric", 5)
+VECTOR5 = GeometricType("vector", 5)
 SCALAR5 = GeometricType("scalar", 5, 0)
 COVECTOR5 = GeometricType("covector", 5, 1)
 FORM5 = GeometricType("top_form", 5, 5)
+BULK_FORM4 = GeometricType("bulk_four_form", 5, 4)
 ASSOCIATED0_5 = GeometricType("SO3_associated_form", 5, 0)
 ASSOCIATED1_5 = GeometricType("SO3_associated_form", 5, 1)
+ASSOCIATED4_5 = GeometricType("SO3_associated_form", 5, 4)
 CONNECTION1_5 = GeometricType("SO3_connection", 5, 1)
 ADJOINT2_5 = GeometricType("SO3_adjoint_form", 5, 2)
 ADJOINT3_5 = GeometricType("SO3_adjoint_form", 5, 3)
+ADJOINT4_5 = GeometricType("SO3_adjoint_form", 5, 4)
+METRIC_EULER5 = GeometricType("inverse_metric_Euler_top_form", 5, 5)
+SCALAR_EULER5 = GeometricType("scalar_Euler_top_form", 5, 5)
+ASSOCIATED_EULER5 = GeometricType("SO3_associated_Euler_top_form", 5, 5)
 
 METRIC4 = GeometricType("induced_metric", 4)
 INVERSE_METRIC4 = GeometricType("inverse_metric", 4)
@@ -4955,6 +4965,2238 @@ def _formal_local_chain_rule_ledger(
     }
 
 
+@dataclass(frozen=True)
+class TypedWardExpression:
+    """Small typed AST used only by the local interior Ward proof."""
+
+    operator: str
+    arguments: tuple[TypedWardExpression, ...]
+    type_tag: GeometricType
+    atom: str | None = None
+    coefficient: ExactCoefficient | None = None
+
+    def __post_init__(self) -> None:
+        if not self.operator:
+            raise NaturalityCertificateError("Ward AST operator cannot be empty")
+        if self.operator == "atom":
+            if (
+                not isinstance(self.atom, str)
+                or not self.atom
+                or self.arguments
+                or self.coefficient is not None
+            ):
+                raise NaturalityCertificateError("malformed Ward AST atom")
+        elif self.atom is not None:
+            raise NaturalityCertificateError("only Ward AST atoms may carry names")
+        elif self.operator == "scale":
+            if len(self.arguments) != 1 or self.coefficient is None:
+                raise NaturalityCertificateError("malformed Ward AST scale")
+        elif self.coefficient is not None:
+            raise NaturalityCertificateError(
+                "only Ward AST scales may carry coefficients"
+            )
+
+
+def _ward_atom(name: str, type_tag: GeometricType) -> TypedWardExpression:
+    return TypedWardExpression("atom", (), type_tag, atom=name)
+
+
+def _ward_typed_operator(
+    operator: str,
+    arguments: Sequence[TypedWardExpression],
+    expected_inputs: Sequence[GeometricType],
+    output: GeometricType,
+) -> TypedWardExpression:
+    actual_arguments = tuple(arguments)
+    if tuple(value.type_tag for value in actual_arguments) != tuple(expected_inputs):
+        raise NaturalityCertificateError(
+            f"ill-typed Ward operator {operator}: "
+            f"{tuple(value.type_tag for value in actual_arguments)} != "
+            f"{tuple(expected_inputs)}"
+        )
+    return TypedWardExpression(operator, actual_arguments, output)
+
+
+def _ward_zero(type_tag: GeometricType) -> TypedWardExpression:
+    return TypedWardExpression("zero", (), type_tag)
+
+
+def _ward_scale(
+    coefficient: ExactCoefficient,
+    value: TypedWardExpression,
+) -> TypedWardExpression:
+    if coefficient.is_zero:
+        return _ward_zero(value.type_tag)
+    if value.operator == "zero":
+        return value
+    if value.operator == "scale" and value.coefficient is not None:
+        return _ward_scale(
+            coefficient.multiply(value.coefficient), value.arguments[0]
+        )
+    return TypedWardExpression(
+        "scale", (value,), value.type_tag, coefficient=coefficient
+    )
+
+
+def _ward_add(
+    type_tag: GeometricType,
+    values: Sequence[TypedWardExpression],
+) -> TypedWardExpression:
+    flattened: list[TypedWardExpression] = []
+    for value in values:
+        if value.type_tag != type_tag:
+            raise NaturalityCertificateError("Ward AST sum mixed geometric types")
+        if value.operator == "zero":
+            continue
+        if value.operator == "add":
+            flattened.extend(value.arguments)
+        else:
+            flattened.append(value)
+    if not flattened:
+        return _ward_zero(type_tag)
+    if len(flattened) == 1:
+        return flattened[0]
+    return TypedWardExpression("add", tuple(flattened), type_tag)
+
+
+def _ward_lie(
+    zeta: TypedWardExpression,
+    value: TypedWardExpression,
+    *,
+    compensated: bool = False,
+) -> TypedWardExpression:
+    operator = "compensated_Lie_derivative" if compensated else "Lie_derivative"
+    return _ward_typed_operator(
+        operator, (zeta, value), (VECTOR5, value.type_tag), value.type_tag
+    )
+
+
+def _ward_inverse_metric_lie(
+    zeta: TypedWardExpression,
+    metric: TypedWardExpression,
+    *,
+    wrong_covariant_convention: bool = False,
+) -> TypedWardExpression:
+    if wrong_covariant_convention:
+        return _ward_lie(zeta, metric)
+    return _ward_typed_operator(
+        "inverse_metric_Lie_variation",
+        (zeta, metric),
+        (VECTOR5, METRIC5),
+        INVERSE_METRIC5,
+    )
+
+
+def _ward_interior_product(
+    zeta: TypedWardExpression,
+    top_form: TypedWardExpression,
+) -> TypedWardExpression:
+    return _ward_typed_operator(
+        "interior_product",
+        (zeta, top_form),
+        (VECTOR5, FORM5),
+        BULK_FORM4,
+    )
+
+
+def _ward_d5(value: TypedWardExpression) -> TypedWardExpression:
+    if value.operator == "zero":
+        return _ward_zero(FORM5)
+    return _ward_typed_operator(
+        "d_5", (value,), (BULK_FORM4,), FORM5
+    )
+
+
+def _serialize_ward_expression(value: TypedWardExpression) -> dict[str, Any]:
+    return {
+        "operator": value.operator,
+        "type": asdict(value.type_tag),
+        "atom": value.atom,
+        "coefficient": (
+            _serialize_coefficient(value.coefficient)
+            if value.coefficient is not None
+            else None
+        ),
+        "arguments": [
+            _serialize_ward_expression(argument) for argument in value.arguments
+        ],
+    }
+
+
+def _ward_expression_atoms(value: TypedWardExpression) -> tuple[str, ...]:
+    if value.operator == "atom":
+        return (str(value.atom),)
+    return tuple(
+        atom
+        for argument in value.arguments
+        for atom in _ward_expression_atoms(argument)
+    )
+
+
+def _independent_ward_atom(
+    name: str,
+    type_tag: GeometricType,
+) -> TypedWardExpression:
+    return TypedWardExpression("atom", (), type_tag, atom=name)
+
+
+def _independent_ward_operator(
+    operator: str,
+    arguments: Sequence[TypedWardExpression],
+    expected_inputs: Sequence[GeometricType],
+    output: GeometricType,
+) -> TypedWardExpression:
+    actual_arguments = tuple(arguments)
+    if tuple(value.type_tag for value in actual_arguments) != tuple(expected_inputs):
+        raise NaturalityCertificateError(
+            f"ill-typed independent Ward target {operator}"
+        )
+    return TypedWardExpression(operator, actual_arguments, output)
+
+
+def _independent_ward_zero(type_tag: GeometricType) -> TypedWardExpression:
+    return TypedWardExpression("zero", (), type_tag)
+
+
+def _independent_ward_scale(
+    coefficient: ExactCoefficient,
+    value: TypedWardExpression,
+) -> TypedWardExpression:
+    if coefficient.is_zero or value.operator == "zero":
+        return _independent_ward_zero(value.type_tag)
+    if value.operator == "scale" and value.coefficient is not None:
+        return _independent_ward_scale(
+            coefficient.multiply(value.coefficient), value.arguments[0]
+        )
+    return TypedWardExpression(
+        "scale", (value,), value.type_tag, coefficient=coefficient
+    )
+
+
+def _independent_ward_add(
+    type_tag: GeometricType,
+    values: Sequence[TypedWardExpression],
+) -> TypedWardExpression:
+    flattened: list[TypedWardExpression] = []
+    for value in values:
+        if value.type_tag != type_tag:
+            raise NaturalityCertificateError(
+                "independent Ward target sum mixed geometric types"
+            )
+        if value.operator == "zero":
+            continue
+        if value.operator == "add":
+            flattened.extend(value.arguments)
+        else:
+            flattened.append(value)
+    if not flattened:
+        return _independent_ward_zero(type_tag)
+    if len(flattened) == 1:
+        return flattened[0]
+    return TypedWardExpression("add", tuple(flattened), type_tag)
+
+
+def _independent_ward_interior_product(
+    zeta: TypedWardExpression,
+    top_form: TypedWardExpression,
+) -> TypedWardExpression:
+    return _independent_ward_operator(
+        "interior_product",
+        (zeta, top_form),
+        (
+            _independent_expected_ward_type("VECTOR5"),
+            _independent_expected_ward_type("FORM5"),
+        ),
+        _independent_expected_ward_type("BULK_FORM4"),
+    )
+
+
+def _ward_ast_sha256(value: TypedWardExpression) -> str:
+    payload = json.dumps(
+        _serialize_ward_expression(value),
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+BULK_WARD_COMPONENT_NAMES = tuple(
+    f"{sector}_bulk_{side}" for side in SIDES for sector in BULK_SECTORS
+)
+WARD_FIELD_ORDER = ("g", "Omega", "phi", "A", "B")
+WARD_FIELD_TYPES: Mapping[str, GeometricType] = {
+    "g": METRIC5,
+    "Omega": SCALAR5,
+    "phi": ASSOCIATED0_5,
+    "A": CONNECTION1_5,
+    "B": ADJOINT3_5,
+}
+WARD_EULER_TYPES: Mapping[str, GeometricType] = {
+    "g": METRIC_EULER5,
+    "Omega": SCALAR_EULER5,
+    "phi": ASSOCIATED_EULER5,
+    "A": ADJOINT4_5,
+    "B": ADJOINT2_5,
+}
+EXPECTED_WARD_TYPE_SPECS_LITERAL: Mapping[
+    str, tuple[str, int, int | None]
+] = {
+    "METRIC5": ("Lorentzian_metric", 5, None),
+    "INVERSE_METRIC5": ("inverse_metric", 5, None),
+    "VECTOR5": ("vector", 5, None),
+    "SCALAR5": ("scalar", 5, 0),
+    "COVECTOR5": ("covector", 5, 1),
+    "FORM5": ("top_form", 5, 5),
+    "BULK_FORM4": ("bulk_four_form", 5, 4),
+    "ASSOCIATED0_5": ("SO3_associated_form", 5, 0),
+    "ASSOCIATED1_5": ("SO3_associated_form", 5, 1),
+    "ASSOCIATED4_5": ("SO3_associated_form", 5, 4),
+    "CONNECTION1_5": ("SO3_connection", 5, 1),
+    "ADJOINT2_5": ("SO3_adjoint_form", 5, 2),
+    "ADJOINT3_5": ("SO3_adjoint_form", 5, 3),
+    "ADJOINT4_5": ("SO3_adjoint_form", 5, 4),
+    "METRIC_EULER5": ("inverse_metric_Euler_top_form", 5, 5),
+    "SCALAR_EULER5": ("scalar_Euler_top_form", 5, 5),
+    "ASSOCIATED_EULER5": ("SO3_associated_Euler_top_form", 5, 5),
+}
+EXPECTED_WARD_FIELD_TYPES_LITERAL = (
+    ("g", ("Lorentzian_metric", 5, None)),
+    ("Omega", ("scalar", 5, 0)),
+    ("phi", ("SO3_associated_form", 5, 0)),
+    ("A", ("SO3_connection", 5, 1)),
+    ("B", ("SO3_adjoint_form", 5, 3)),
+)
+EXPECTED_WARD_EULER_TYPES_LITERAL = (
+    ("g", ("inverse_metric_Euler_top_form", 5, 5)),
+    ("Omega", ("scalar_Euler_top_form", 5, 5)),
+    ("phi", ("SO3_associated_Euler_top_form", 5, 5)),
+    ("A", ("SO3_adjoint_form", 5, 4)),
+    ("B", ("SO3_adjoint_form", 5, 2)),
+)
+
+
+def _ward_type_from_literal_spec(
+    spec: tuple[str, int, int | None],
+) -> GeometricType:
+    return GeometricType(spec[0], spec[1], spec[2])
+
+
+def _independent_expected_ward_type(symbol: str) -> GeometricType:
+    try:
+        spec = EXPECTED_WARD_TYPE_SPECS_LITERAL[symbol]
+    except KeyError as exc:
+        raise NaturalityCertificateError(
+            f"unknown independent Ward type symbol: {symbol}"
+        ) from exc
+    return _ward_type_from_literal_spec(spec)
+
+
+def _ward_type_matches_literal_symbol(
+    value: GeometricType,
+    symbol: str,
+) -> bool:
+    spec = EXPECTED_WARD_TYPE_SPECS_LITERAL[symbol]
+    return bool(
+        (value.name, value.dimension, value.form_degree) == spec
+        and asdict(value)
+        == {
+            "name": spec[0],
+            "dimension": spec[1],
+            "form_degree": spec[2],
+        }
+    )
+
+
+def _independent_expected_ward_field_type(role: str) -> GeometricType:
+    for expected_role, spec in EXPECTED_WARD_FIELD_TYPES_LITERAL:
+        if role == expected_role:
+            return _ward_type_from_literal_spec(spec)
+    raise NaturalityCertificateError(f"unknown independent Ward field role: {role}")
+
+
+def _independent_expected_ward_euler_type(role: str) -> GeometricType:
+    for expected_role, spec in EXPECTED_WARD_EULER_TYPES_LITERAL:
+        if role == expected_role:
+            return _ward_type_from_literal_spec(spec)
+    raise NaturalityCertificateError(f"unknown independent Ward Euler role: {role}")
+
+
+def _ward_runtime_type_literal_ledger() -> dict[str, Any]:
+    runtime_types = {
+        "METRIC5": METRIC5,
+        "INVERSE_METRIC5": INVERSE_METRIC5,
+        "VECTOR5": VECTOR5,
+        "SCALAR5": SCALAR5,
+        "COVECTOR5": COVECTOR5,
+        "FORM5": FORM5,
+        "BULK_FORM4": BULK_FORM4,
+        "ASSOCIATED0_5": ASSOCIATED0_5,
+        "ASSOCIATED1_5": ASSOCIATED1_5,
+        "ASSOCIATED4_5": ASSOCIATED4_5,
+        "CONNECTION1_5": CONNECTION1_5,
+        "ADJOINT2_5": ADJOINT2_5,
+        "ADJOINT3_5": ADJOINT3_5,
+        "ADJOINT4_5": ADJOINT4_5,
+        "METRIC_EULER5": METRIC_EULER5,
+        "SCALAR_EULER5": SCALAR_EULER5,
+        "ASSOCIATED_EULER5": ASSOCIATED_EULER5,
+    }
+    rows = []
+    for symbol, expected_spec in EXPECTED_WARD_TYPE_SPECS_LITERAL.items():
+        actual = runtime_types[symbol]
+        actual_spec = (actual.name, actual.dimension, actual.form_degree)
+        rows.append(
+            {
+                "symbol": symbol,
+                "actual": {
+                    "name": actual.name,
+                    "dimension": actual.dimension,
+                    "form_degree": actual.form_degree,
+                },
+                "literal_expected": {
+                    "name": expected_spec[0],
+                    "dimension": expected_spec[1],
+                    "form_degree": expected_spec[2],
+                },
+                "attributes_match_literal": actual_spec == expected_spec,
+                "asdict_matches_literal": asdict(actual)
+                == {
+                    "name": expected_spec[0],
+                    "dimension": expected_spec[1],
+                    "form_degree": expected_spec[2],
+                },
+                "pass": bool(
+                    actual_spec == expected_spec
+                    and asdict(actual)
+                    == {
+                        "name": expected_spec[0],
+                        "dimension": expected_spec[1],
+                        "form_degree": expected_spec[2],
+                    }
+                ),
+            }
+        )
+    return {
+        "literal_spec_count": len(EXPECTED_WARD_TYPE_SPECS_LITERAL),
+        "rows": rows,
+        "pass": bool(rows) and all(row["pass"] for row in rows),
+    }
+
+
+WARD_COMPONENT_FIELDS: Mapping[str, tuple[str, ...]] = {
+    "EH": ("g",),
+    "Omega_kinetic": ("g", "Omega"),
+    "Omega_potential": ("g", "Omega"),
+    "P_kinetic": ("g", "Omega", "phi", "A"),
+    "full_V4": ("g", "Omega", "phi"),
+    "BF": ("A", "B"),
+}
+WARD_COMPONENT_SOURCE_KEYS: Mapping[str, tuple[str, ...]] = {
+    "EH": ("bulk_gauged",),
+    "Omega_kinetic": ("bulk_gauged",),
+    "Omega_potential": ("bulk_gauged", "bulk_potential", "superpotential"),
+    "P_kinetic": ("bulk_gauged", "gauged_conformal_derivative"),
+    "full_V4": ("bulk_gauged", "full_V4"),
+    "BF": ("BF",),
+}
+WARD_COMPONENT_DERIVATIONS: Mapping[str, str] = {
+    "EH": "explicit_local_EH_first_variation_inverse_metric_axiom",
+    "Omega_kinetic": "exact_local_scalar_product_rule_and_IBP",
+    "Omega_potential": "exact_algebraic_variation_zero_theta",
+    "P_kinetic": "exact_local_Delta_P_product_rule_and_covariant_IBP",
+    "full_V4": "exact_algebraic_variation_zero_theta",
+    "BF": "exact_local_BF_covariant_IBP",
+}
+WARD_REQUIRED_AXIOMS = frozenset(
+    {
+        "local_EH_first_variation_in_inverse_metric_convention",
+        "local_scalar_P_and_BF_first_variations_by_exact_product_rule_and_covariant_IBP",
+        "pointwise_differentiated_naturality_of_each_literal_bulk_top_form",
+        "flow_pullback_derivative_is_Lie_derivative",
+        "Cartan_magic_formula_for_spacetime_forms",
+        "exterior_derivative_of_a_5_form_vanishes_in_dimension_5",
+        "linearity_of_d_and_interior_product",
+        "compact_support_separated_from_interface_collar_removes_all_boundary_flux",
+    }
+)
+WARD_REQUIRED_PREREQUISITES = frozenset(
+    {
+        "byte_pins_and_canonical_v5_2_action",
+        "finite_typed_bulk_top_form_naturality",
+        "formal_local_flow_chain_rule_and_Cartan_signs",
+        "scoped_literal_Green_ledger",
+    }
+)
+EXPECTED_INTERIOR_SUPPORT_CONTRACT: Mapping[str, Any] = {
+    "generator_space": "C_c^infinity(int M_epsilon,TM_epsilon)",
+    "support_compactly_contained_in_bulk_interior": True,
+    "support_separated_from_a_full_collar_of_Sigma": True,
+    "zeta_and_all_jets_zero_on_that_collar": True,
+    "compact_support_at_bulk_infinity": True,
+    "trace_zero_only_is_accepted_as_sufficient": False,
+    "normal_component_at_Sigma_is_allowed": False,
+}
+EXPECTED_INTERFACE_REMAINDERS = frozenset(
+    {
+        "scoped_Green_metric_Omega_matter_and_oriented_BF_form",
+        "bulk_Noether_current_pullbacks_sum_s_epsilon_iota_star_J_epsilon",
+        "intrinsic_four_dimensional_Noether_current",
+        "normal_i_zeta_L_transgression",
+        "normal_embedding_and_bending_Euler_term",
+        "constrained_delta_iota_and_delta_j_terms",
+    }
+)
+WARD_MUTATIONS = frozenset(
+    {
+        "omit_i_zeta_L",
+        "flip_i_zeta_L",
+        "duplicate_i_zeta_L",
+        "omit_top_form_Cartan",
+        "infer_pointwise_from_integrated_only",
+        "omit_theta_EH",
+        "detach_theta_EH",
+        "omit_theta_Omega_kinetic",
+        "detach_theta_Omega_kinetic",
+        "omit_theta_P_kinetic",
+        "detach_theta_P_kinetic",
+        "omit_theta_BF",
+        "detach_theta_BF",
+        "spurious_theta_Omega_potential",
+        "spurious_theta_full_V4",
+        "EH_wrong_metric_variation_convention",
+        "component_omitted",
+        "component_duplicated",
+        "component_swapped",
+        "component_detached",
+        "wrong_action_weight",
+        "field_leaf_detached",
+        "zeta_detached",
+        "Cartan_connection_sign",
+        "Cartan_matter_sign",
+        "Cartan_omit_D_iB",
+        "compensated_substitution_without_gauge_bridge",
+        "support_trace_zero_only",
+        "support_allows_normal_component",
+        "omit_support_at_infinity",
+        "BF_offshell_cancelled",
+        "Green_interface_silently_dropped",
+        "embedding_remainder_omitted",
+        "intrinsic_d4_remainder_omitted",
+        "duplicate_reference_domain_i_zeta_L",
+        "frozen_X_infinity_promoted",
+        "Euler_equations_imposed",
+        "string_only_local_divergence",
+        "missing_required_axiom",
+        "unexpected_magic_axiom",
+        "interface_Ward_key_promoted",
+        "wider_Ward_key_promoted",
+    }
+)
+EXPECTED_WARD_THETA_SHA256_LITERAL: Mapping[str, str] = {
+    "EH_bulk_plus": "a8f0b18c68856aa752c9193f0f3945c887f198102554364a321c1f52843471af",
+    "Omega_kinetic_bulk_plus": (
+        "8f90f534462d39dadf776bae4445b39bde1eb3eef54c2ddd8b8f234b86f1f5ac"
+    ),
+    "Omega_potential_bulk_plus": (
+        "25c8b0331c0aa939d7f6f08c7ffacc3c2cb21386a1b2d052812bb9ef66b92f13"
+    ),
+    "P_kinetic_bulk_plus": (
+        "2921b494c29622fe35029d019840271a2b595c1153af471587f7571335ef312f"
+    ),
+    "full_V4_bulk_plus": (
+        "25c8b0331c0aa939d7f6f08c7ffacc3c2cb21386a1b2d052812bb9ef66b92f13"
+    ),
+    "BF_bulk_plus": "88eb84ffd72a17f81436a1969266715a5ff0e2cbde8ae4c05fe35b73f4cb7d2f",
+    "EH_bulk_minus": "0298407478b8da86e8f36033dfb62cec1d9e84c02e2170f9057eb6f98a7337e2",
+    "Omega_kinetic_bulk_minus": (
+        "005d53669e954a84ddc017cd6f87ec2aac805efafa6d2cd3c96e557e0d886b58"
+    ),
+    "Omega_potential_bulk_minus": (
+        "25c8b0331c0aa939d7f6f08c7ffacc3c2cb21386a1b2d052812bb9ef66b92f13"
+    ),
+    "P_kinetic_bulk_minus": (
+        "14615025e43118b326176bd7a02101a08f67f5d30d769d2798c2252118cd77d8"
+    ),
+    "full_V4_bulk_minus": (
+        "25c8b0331c0aa939d7f6f08c7ffacc3c2cb21386a1b2d052812bb9ef66b92f13"
+    ),
+    "BF_bulk_minus": "96b3291d6950b4795b7cc06eec6987cd70fbde03f4a282ba013ef1827d5b8a1d",
+    "side:plus": "5073af30db7252a906aee221dab3fb1936f677740da93c5ccbb2605d8b4e6471",
+    "side:minus": "4112862f6089ad49a6395d37fee86e4081cc76172db8e7aeca3975d0c0305954",
+}
+
+
+def _ward_component_side(component: str) -> str:
+    for side in SIDES:
+        if component.endswith(f"_bulk_{side}"):
+            return side
+    raise NaturalityCertificateError(f"not a bulk Ward component: {component}")
+
+
+def _ward_field_atom_from_pulled(node: PulledField) -> TypedWardExpression:
+    pullback = " ".join(node.pullback_factors) or "Id"
+    return _ward_atom(f"field:{node.name}:PB[{pullback}]", node.type_tag)
+
+
+def _independent_expected_ward_field(
+    side: str,
+    role: str,
+) -> TypedWardExpression:
+    return _independent_ward_atom(
+        f"field:{role}_{side}:PB[F_{side}]",
+        _independent_expected_ward_field_type(role),
+    )
+
+
+def _ward_component_field_nodes(
+    expression: Expression,
+) -> tuple[dict[str, TypedWardExpression], dict[str, Any]]:
+    by_role: dict[str, list[PulledField]] = {}
+    for node in _pulled_field_nodes(expression):
+        by_role.setdefault(_field_role(node.name), []).append(node)
+    fields: dict[str, TypedWardExpression] = {}
+    consistency: dict[str, Any] = {}
+    for role, nodes in sorted(by_role.items()):
+        unique = tuple(dict.fromkeys(nodes))
+        consistency[role] = {
+            "occurrence_count": len(nodes),
+            "structurally_unique_leaf_count": len(unique),
+            "all_occurrences_same_leaf": len(unique) == 1,
+        }
+        if len(unique) == 1:
+            fields[role] = _ward_field_atom_from_pulled(unique[0])
+    return fields, consistency
+
+
+def _ward_component_fingerprint(
+    component: str,
+    expression: Expression,
+) -> str:
+    return f"L:{component}:{_expression_signature(expression)!r}"
+
+
+def _independent_expected_component_fingerprint(component: str) -> str:
+    family = _component_family(component)
+    return f"L:{component}:{EXPECTED_SEMANTIC_SIGNATURES[family]!r}"
+
+
+def _ward_component_lagrangian(
+    component: str,
+    expression: Expression,
+    weight: ExactCoefficient,
+) -> TypedWardExpression:
+    return _ward_scale(
+        weight,
+        _ward_atom(_ward_component_fingerprint(component, expression), FORM5),
+    )
+
+
+def _independent_expected_component_lagrangian(
+    component: str,
+) -> TypedWardExpression:
+    return _independent_ward_scale(
+        _expected_green_component_weight(component),
+        _independent_ward_atom(
+            _independent_expected_component_fingerprint(component),
+            _independent_expected_ward_type("FORM5"),
+        ),
+    )
+
+
+def _ward_variation_for_role(
+    role: str,
+    field: TypedWardExpression,
+    zeta: TypedWardExpression,
+    *,
+    compensated: bool = False,
+) -> TypedWardExpression:
+    if role == "g":
+        return _ward_inverse_metric_lie(zeta, field)
+    return _ward_lie(
+        zeta,
+        field,
+        compensated=compensated and role in {"phi", "A", "B"},
+    )
+
+
+def _ward_euler_pair(
+    component: str,
+    role: str,
+    variation: TypedWardExpression,
+    weight: ExactCoefficient,
+) -> TypedWardExpression:
+    expected_variation_type = (
+        _independent_expected_ward_type("INVERSE_METRIC5")
+        if role == "g"
+        else _independent_expected_ward_field_type(role)
+    )
+    if variation.type_tag != expected_variation_type:
+        raise NaturalityCertificateError(
+            f"wrong Ward variation type for {component}/{role}"
+        )
+    euler = _ward_atom(
+        _actual_ward_euler_literal_atom(component, role),
+        WARD_EULER_TYPES[role],
+    )
+    operator = {
+        "g": "pair_metric_Euler_with_inverse_metric_variation",
+        "Omega": "pair_scalar_Euler_with_variation",
+        "phi": "pair_associated_Euler_with_variation",
+        "A": "pair_adjoint_four_form_Euler_with_connection_variation",
+        "B": "pair_adjoint_three_form_variation_with_two_form_Euler",
+    }[role]
+    pair = _ward_typed_operator(
+        operator,
+        (euler, variation),
+        (WARD_EULER_TYPES[role], expected_variation_type),
+        _independent_expected_ward_type("FORM5"),
+    )
+    return _ward_scale(weight, pair)
+
+
+def _actual_ward_euler_literal_atom(component: str, role: str) -> str:
+    """Bind an Euler leaf to the actual literal component expression."""
+
+    try:
+        side = _ward_component_side(component)
+        expression = build_component_expressions("baseline")[component]
+        literal_fingerprint = _ward_component_fingerprint(component, expression)
+    except (KeyError, NaturalityCertificateError):
+        side = "UNBOUND"
+        literal_fingerprint = f"UNBOUND_LITERAL:{component}"
+    return (
+        f"Euler:component={component}:side={side}:role={role}:"
+        f"literal={literal_fingerprint}"
+    )
+
+
+def _independent_expected_euler_literal_atom(
+    component: str,
+    role: str,
+) -> str:
+    side = _ward_component_side(component)
+    return (
+        f"Euler:component={component}:side={side}:role={role}:"
+        f"literal={_independent_expected_component_fingerprint(component)}"
+    )
+
+
+def _independent_expected_euler_pair(
+    component: str,
+    role: str,
+    variation: TypedWardExpression,
+    weight: ExactCoefficient,
+) -> TypedWardExpression:
+    """Independent Euler target; never calls the production pair builder."""
+
+    expected_variation_type = (
+        _independent_expected_ward_type("INVERSE_METRIC5")
+        if role == "g"
+        else _independent_expected_ward_field_type(role)
+    )
+    if variation.type_tag != expected_variation_type:
+        raise NaturalityCertificateError(
+            f"wrong independent Ward variation type for {component}/{role}"
+        )
+    euler = _independent_ward_atom(
+        _independent_expected_euler_literal_atom(component, role),
+        _independent_expected_ward_euler_type(role),
+    )
+    operator = {
+        "g": "pair_metric_Euler_with_inverse_metric_variation",
+        "Omega": "pair_scalar_Euler_with_variation",
+        "phi": "pair_associated_Euler_with_variation",
+        "A": "pair_adjoint_four_form_Euler_with_connection_variation",
+        "B": "pair_adjoint_three_form_variation_with_two_form_Euler",
+    }[role]
+    pair = _independent_ward_operator(
+        operator,
+        (euler, variation),
+        (
+            _independent_expected_ward_euler_type(role),
+            expected_variation_type,
+        ),
+        _independent_expected_ward_type("FORM5"),
+    )
+    return _independent_ward_scale(weight, pair)
+
+
+def _ward_derived_P(
+    fields: Mapping[str, TypedWardExpression],
+) -> TypedWardExpression:
+    d_phi = _ward_typed_operator(
+        "covariant_derivative_phi",
+        (fields["A"], fields["phi"]),
+        (CONNECTION1_5, ASSOCIATED0_5),
+        ASSOCIATED1_5,
+    )
+    d_log = _ward_typed_operator(
+        "d_log_Omega",
+        (fields["Omega"],),
+        (SCALAR5,),
+        COVECTOR5,
+    )
+    return _ward_typed_operator(
+        "conformal_P",
+        (d_phi, fields["phi"], d_log),
+        (ASSOCIATED1_5, ASSOCIATED0_5, COVECTOR5),
+        ASSOCIATED1_5,
+    )
+
+
+def _ward_theta_ast(
+    family: str,
+    fields: Mapping[str, TypedWardExpression],
+    zeta: TypedWardExpression,
+    action_weight: ExactCoefficient,
+    *,
+    mutation: str | None = None,
+    compensated: bool = False,
+) -> TypedWardExpression:
+    local_fields = dict(fields)
+    detach_role = {
+        "EH": "g",
+        "Omega_kinetic": "Omega",
+        "P_kinetic": "phi",
+        "BF": "B",
+    }.get(family)
+    if mutation == f"detach_theta_{family}" and detach_role is not None:
+        original = local_fields[detach_role]
+        local_fields[detach_role] = _ward_atom(
+            f"detached_theta:{detach_role}", original.type_tag
+        )
+    if mutation == f"omit_theta_{family}":
+        return _ward_zero(BULK_FORM4)
+
+    if family == "EH":
+        wrong_convention = mutation == "EH_wrong_metric_variation_convention"
+        delta_g = _ward_inverse_metric_lie(
+            zeta,
+            local_fields["g"],
+            wrong_covariant_convention=wrong_convention,
+        )
+        if wrong_convention:
+            raw = _ward_typed_operator(
+                "theta_EH_covariant_metric_mutant",
+                (local_fields["g"], delta_g),
+                (METRIC5, METRIC5),
+                BULK_FORM4,
+            )
+        else:
+            raw = _ward_typed_operator(
+                "theta_EH_local_inverse_metric_axiom",
+                (local_fields["g"], delta_g),
+                (METRIC5, INVERSE_METRIC5),
+                BULK_FORM4,
+            )
+        return _ward_scale(action_weight, raw)
+    if family == "Omega_kinetic":
+        delta_omega = _ward_lie(zeta, local_fields["Omega"])
+        d_omega = _ward_typed_operator(
+            "d_Omega",
+            (local_fields["Omega"],),
+            (SCALAR5,),
+            COVECTOR5,
+        )
+        star_d_omega = _ward_typed_operator(
+            "hodge_star_one_form",
+            (local_fields["g"], d_omega),
+            (METRIC5, COVECTOR5),
+            BULK_FORM4,
+        )
+        raw = _ward_typed_operator(
+            "scalar_times_four_form",
+            (delta_omega, star_d_omega),
+            (SCALAR5, BULK_FORM4),
+            BULK_FORM4,
+        )
+        return _ward_scale(action_weight.multiply(_coefficient(2)), raw)
+    if family == "P_kinetic":
+        delta_phi = _ward_lie(
+            zeta, local_fields["phi"], compensated=compensated
+        )
+        delta_omega = _ward_lie(zeta, local_fields["Omega"])
+        p_form = _ward_derived_P(local_fields)
+        star_p = _ward_typed_operator(
+            "hodge_star_associated_one_form",
+            (local_fields["g"], p_form),
+            (METRIC5, ASSOCIATED1_5),
+            ASSOCIATED4_5,
+        )
+        phi_term = _ward_typed_operator(
+            "pair_associated_scalar_with_four_form",
+            (delta_phi, star_p),
+            (ASSOCIATED0_5, ASSOCIATED4_5),
+            BULK_FORM4,
+        )
+        omega_term = _ward_typed_operator(
+            "conformal_phi_deltaOmega_over_Omega_pair_starP",
+            (
+                local_fields["Omega"],
+                local_fields["phi"],
+                delta_omega,
+                star_p,
+            ),
+            (SCALAR5, ASSOCIATED0_5, SCALAR5, ASSOCIATED4_5),
+            BULK_FORM4,
+        )
+        twice_weight = action_weight.multiply(_coefficient(2))
+        return _ward_add(
+            BULK_FORM4,
+            (
+                _ward_scale(twice_weight, phi_term),
+                _ward_scale(
+                    twice_weight.multiply(_coefficient(3, 2, Omega=-1)),
+                    omega_term,
+                ),
+            ),
+        )
+    if family == "BF":
+        delta_a = _ward_lie(
+            zeta, local_fields["A"], compensated=compensated
+        )
+        raw = _ward_typed_operator(
+            "B_wedge_delta_A",
+            (local_fields["B"], delta_a),
+            (ADJOINT3_5, CONNECTION1_5),
+            BULK_FORM4,
+        )
+        return _ward_scale(action_weight.multiply(_coefficient(-1)), raw)
+    if family in {"Omega_potential", "full_V4"}:
+        if mutation == f"spurious_theta_{family}":
+            return _ward_typed_operator(
+                f"spurious_theta_{family}",
+                (zeta,),
+                (VECTOR5,),
+                BULK_FORM4,
+            )
+        return _ward_zero(BULK_FORM4)
+    raise NaturalityCertificateError(f"unknown Ward theta family: {family}")
+
+
+def _independent_expected_theta_ast(
+    family: str,
+    side: str,
+) -> TypedWardExpression:
+    fields = {
+        role: _independent_expected_ward_field(side, role)
+        for role in WARD_FIELD_ORDER
+    }
+    vector_type = _independent_expected_ward_type("VECTOR5")
+    metric_type = _independent_expected_ward_type("METRIC5")
+    inverse_metric_type = _independent_expected_ward_type("INVERSE_METRIC5")
+    scalar_type = _independent_expected_ward_type("SCALAR5")
+    covector_type = _independent_expected_ward_type("COVECTOR5")
+    bulk_form4_type = _independent_expected_ward_type("BULK_FORM4")
+    associated0_type = _independent_expected_ward_type("ASSOCIATED0_5")
+    associated1_type = _independent_expected_ward_type("ASSOCIATED1_5")
+    associated4_type = _independent_expected_ward_type("ASSOCIATED4_5")
+    connection1_type = _independent_expected_ward_type("CONNECTION1_5")
+    adjoint3_type = _independent_expected_ward_type("ADJOINT3_5")
+    zeta = _independent_ward_atom(f"zeta_{side}", vector_type)
+    if family == "EH":
+        raw = _independent_ward_operator(
+            "theta_EH_local_inverse_metric_axiom",
+            (
+                fields["g"],
+                _independent_ward_operator(
+                    "inverse_metric_Lie_variation",
+                    (zeta, fields["g"]),
+                    (vector_type, metric_type),
+                    inverse_metric_type,
+                ),
+            ),
+            (metric_type, inverse_metric_type),
+            bulk_form4_type,
+        )
+        return _independent_ward_scale(_coefficient(1, 2, M5=3), raw)
+    if family == "Omega_kinetic":
+        d_omega = _independent_ward_operator(
+            "d_Omega", (fields["Omega"],), (scalar_type,), covector_type
+        )
+        star_d_omega = _independent_ward_operator(
+            "hodge_star_one_form",
+            (fields["g"], d_omega),
+            (metric_type, covector_type),
+            bulk_form4_type,
+        )
+        raw = _independent_ward_operator(
+            "scalar_times_four_form",
+            (
+                _independent_expected_ward_variation(side, "Omega"),
+                star_d_omega,
+            ),
+            (scalar_type, bulk_form4_type),
+            bulk_form4_type,
+        )
+        return _independent_ward_scale(_coefficient(-1, 1, G=1), raw)
+    if family == "P_kinetic":
+        star_p = _independent_ward_operator(
+            "hodge_star_associated_one_form",
+            (fields["g"], _independent_expected_derived_P(fields)),
+            (metric_type, associated1_type),
+            associated4_type,
+        )
+        phi_term = _independent_ward_operator(
+            "pair_associated_scalar_with_four_form",
+            (
+                _independent_expected_ward_variation(side, "phi"),
+                star_p,
+            ),
+            (associated0_type, associated4_type),
+            bulk_form4_type,
+        )
+        omega_term = _independent_ward_operator(
+            "conformal_phi_deltaOmega_over_Omega_pair_starP",
+            (
+                fields["Omega"],
+                fields["phi"],
+                _independent_expected_ward_variation(side, "Omega"),
+                star_p,
+            ),
+            (scalar_type, associated0_type, scalar_type, associated4_type),
+            bulk_form4_type,
+        )
+        return _independent_ward_add(
+            bulk_form4_type,
+            (
+                _independent_ward_scale(_coefficient(-1, 1, Z=1), phi_term),
+                _independent_ward_scale(
+                    _coefficient(-3, 2, Z=1, Omega=-1), omega_term
+                ),
+            ),
+        )
+    if family == "BF":
+        raw = _independent_ward_operator(
+            "B_wedge_delta_A",
+            (
+                fields["B"],
+                _independent_expected_ward_variation(side, "A"),
+            ),
+            (adjoint3_type, connection1_type),
+            bulk_form4_type,
+        )
+        return _independent_ward_scale(_coefficient(-1), raw)
+    if family in {"Omega_potential", "full_V4"}:
+        return _independent_ward_zero(bulk_form4_type)
+    raise NaturalityCertificateError(f"unknown expected Ward theta family: {family}")
+
+
+def _independent_expected_derived_P(
+    fields: Mapping[str, TypedWardExpression],
+) -> TypedWardExpression:
+    connection1_type = _independent_expected_ward_type("CONNECTION1_5")
+    associated0_type = _independent_expected_ward_type("ASSOCIATED0_5")
+    associated1_type = _independent_expected_ward_type("ASSOCIATED1_5")
+    scalar_type = _independent_expected_ward_type("SCALAR5")
+    covector_type = _independent_expected_ward_type("COVECTOR5")
+    d_phi = _independent_ward_operator(
+        "covariant_derivative_phi",
+        (fields["A"], fields["phi"]),
+        (connection1_type, associated0_type),
+        associated1_type,
+    )
+    d_log = _independent_ward_operator(
+        "d_log_Omega",
+        (fields["Omega"],),
+        (scalar_type,),
+        covector_type,
+    )
+    return _independent_ward_operator(
+        "conformal_P",
+        (d_phi, fields["phi"], d_log),
+        (associated1_type, associated0_type, covector_type),
+        associated1_type,
+    )
+
+
+def _actual_ward_derivation_kind(family: str) -> str:
+    if family == "EH":
+        return "explicit_local_EH_first_variation_inverse_metric_axiom"
+    if family == "Omega_kinetic":
+        return "exact_local_scalar_product_rule_and_IBP"
+    if family in {"Omega_potential", "full_V4"}:
+        return "exact_algebraic_variation_zero_theta"
+    if family == "P_kinetic":
+        return "exact_local_Delta_P_product_rule_and_covariant_IBP"
+    if family == "BF":
+        return "exact_local_BF_covariant_IBP"
+    raise NaturalityCertificateError(f"unknown Ward derivation family: {family}")
+
+
+def _independent_expected_euler_terms(
+    component: str,
+) -> tuple[TypedWardExpression, ...]:
+    family = _component_family(component)
+    side = _ward_component_side(component)
+    weight = _expected_green_component_weight(component)
+    return tuple(
+        _independent_expected_euler_pair(
+            component,
+            role,
+            _independent_expected_ward_variation(side, role),
+            weight,
+        )
+        for role in WARD_COMPONENT_FIELDS[family]
+    )
+
+
+def _independent_expected_ward_variation(
+    side: str,
+    role: str,
+) -> TypedWardExpression:
+    """Independent ordinary-Lie target for one literal field leaf."""
+
+    vector_type = _independent_expected_ward_type("VECTOR5")
+    zeta = _independent_ward_atom(f"zeta_{side}", vector_type)
+    field = _independent_expected_ward_field(side, role)
+    if role == "g":
+        return _independent_ward_operator(
+            "inverse_metric_Lie_variation",
+            (zeta, field),
+            (vector_type, _independent_expected_ward_type("METRIC5")),
+            _independent_expected_ward_type("INVERSE_METRIC5"),
+        )
+    return _independent_ward_operator(
+        "Lie_derivative",
+        (zeta, field),
+        (vector_type, _independent_expected_ward_field_type(role)),
+        _independent_expected_ward_field_type(role),
+    )
+
+
+def _ward_direct_sum_terms(
+    value: TypedWardExpression,
+) -> tuple[TypedWardExpression, ...]:
+    if value.operator == "zero":
+        return ()
+    if value.operator == "add":
+        return value.arguments
+    return (value,)
+
+
+def _ward_scaled_payload(
+    value: TypedWardExpression,
+) -> tuple[ExactCoefficient, TypedWardExpression]:
+    if value.operator == "scale" and value.coefficient is not None:
+        return value.coefficient, value.arguments[0]
+    return _coefficient(1), value
+
+
+def _ward_dimensionless_integer(value: ExactCoefficient) -> int | None:
+    if value.denominator != 1 or value.powers:
+        return None
+    return value.numerator
+
+
+def _ward_euler_binding_atoms(
+    values: Sequence[TypedWardExpression],
+) -> tuple[str, ...]:
+    return tuple(
+        atom
+        for value in values
+        for atom in _ward_expression_atoms(value)
+        if atom.startswith("Euler:component=")
+    )
+
+
+def _parse_ward_euler_literal_atom(value: str) -> dict[str, str]:
+    try:
+        prefix, literal = value.split(":literal=", 1)
+        head, component_part, side_part, role_part = prefix.split(":")
+        if head != "Euler":
+            raise ValueError
+        component_key, component = component_part.split("=", 1)
+        side_key, side = side_part.split("=", 1)
+        role_key, role = role_part.split("=", 1)
+        if (component_key, side_key, role_key) != (
+            "component",
+            "side",
+            "role",
+        ):
+            raise ValueError
+    except ValueError as exc:
+        raise NaturalityCertificateError(
+            f"malformed Euler literal binding atom: {value}"
+        ) from exc
+    return {
+        "component": component,
+        "side": side,
+        "role": role,
+        "literal_fingerprint": literal,
+    }
+
+
+def _ward_euler_variation_binding_ledger(
+    actual_terms: Sequence[TypedWardExpression],
+    expected_terms: Sequence[TypedWardExpression],
+) -> dict[str, Any]:
+    """Inspect the variation inside every real Euler pairing."""
+
+    actual_tuple = tuple(actual_terms)
+    expected_tuple = tuple(expected_terms)
+    count_exact = len(actual_tuple) == len(expected_tuple)
+    rows: list[dict[str, Any]] = []
+    for index, expected_term in enumerate(expected_tuple):
+        expected_weight, expected_pair = _ward_scaled_payload(expected_term)
+        expected_euler = expected_pair.arguments[0]
+        expected_variation = expected_pair.arguments[1]
+        if expected_euler.operator != "atom" or expected_euler.atom is None:
+            raise NaturalityCertificateError(
+                "independent expected Euler leaf is not an atom"
+            )
+        binding = _parse_ward_euler_literal_atom(expected_euler.atom)
+        role = binding["role"]
+        side = binding["side"]
+        expected_pair_operator = {
+            "g": "pair_metric_Euler_with_inverse_metric_variation",
+            "Omega": "pair_scalar_Euler_with_variation",
+            "phi": "pair_associated_Euler_with_variation",
+            "A": "pair_adjoint_four_form_Euler_with_connection_variation",
+            "B": "pair_adjoint_three_form_variation_with_two_form_Euler",
+        }[role]
+        expected_variation_operator = (
+            "inverse_metric_Lie_variation" if role == "g" else "Lie_derivative"
+        )
+        expected_variation_type = (
+            _independent_expected_ward_type("INVERSE_METRIC5")
+            if role == "g"
+            else _independent_expected_ward_field_type(role)
+        )
+        expected_euler_type = _independent_expected_ward_euler_type(role)
+        expected_euler_spec = dict(EXPECTED_WARD_EULER_TYPES_LITERAL)[role]
+        expected_zeta = _independent_ward_atom(
+            f"zeta_{side}", _independent_expected_ward_type("VECTOR5")
+        )
+        expected_field = _independent_expected_ward_field(side, role)
+
+        actual_term = actual_tuple[index] if index < len(actual_tuple) else None
+        actual_weight: ExactCoefficient | None = None
+        actual_pair: TypedWardExpression | None = None
+        actual_euler: TypedWardExpression | None = None
+        actual_variation: TypedWardExpression | None = None
+        if actual_term is not None:
+            actual_weight, actual_pair = _ward_scaled_payload(actual_term)
+            if len(actual_pair.arguments) == 2:
+                actual_euler, actual_variation = actual_pair.arguments
+        pair_operator_exact = bool(
+            actual_pair is not None
+            and actual_pair.operator == expected_pair_operator
+            and _ward_type_matches_literal_symbol(
+                actual_pair.type_tag, "FORM5"
+            )
+        )
+        Euler_literal_leaf_exact = actual_euler == expected_euler
+        Euler_input_type_exact = bool(
+            actual_euler is not None
+            and (
+                actual_euler.type_tag.name,
+                actual_euler.type_tag.dimension,
+                actual_euler.type_tag.form_degree,
+            )
+            == expected_euler_spec
+            and asdict(actual_euler.type_tag)
+            == {
+                "name": expected_euler_spec[0],
+                "dimension": expected_euler_spec[1],
+                "form_degree": expected_euler_spec[2],
+            }
+        )
+        real_pairing_input_types_exact = bool(
+            actual_pair is not None
+            and len(actual_pair.arguments) == 2
+            and tuple(
+                argument.type_tag for argument in actual_pair.arguments
+            )
+            == (expected_euler_type, expected_variation_type)
+        )
+        variation_operator_exact = bool(
+            actual_variation is not None
+            and actual_variation.operator == expected_variation_operator
+        )
+        variation_type_exact = bool(
+            actual_variation is not None
+            and actual_variation.type_tag == expected_variation_type
+            and asdict(actual_variation.type_tag)
+            == asdict(expected_variation_type)
+        )
+        variation_arity_exact = bool(
+            actual_variation is not None
+            and len(actual_variation.arguments) == 2
+        )
+        zeta_leaf_exact = bool(
+            variation_arity_exact
+            and actual_variation is not None
+            and actual_variation.arguments[0] == expected_zeta
+        )
+        field_leaf_exact = bool(
+            variation_arity_exact
+            and actual_variation is not None
+            and actual_variation.arguments[1] == expected_field
+        )
+        ordinary_not_compensated = bool(
+            actual_variation is not None
+            and actual_variation.operator != "compensated_Lie_derivative"
+            and variation_operator_exact
+        )
+        variation_AST_exact = actual_variation == expected_variation
+        row_pass = bool(
+            actual_weight == expected_weight
+            and pair_operator_exact
+            and Euler_literal_leaf_exact
+            and Euler_input_type_exact
+            and real_pairing_input_types_exact
+            and variation_operator_exact
+            and variation_type_exact
+            and variation_arity_exact
+            and zeta_leaf_exact
+            and field_leaf_exact
+            and ordinary_not_compensated
+            and variation_AST_exact
+        )
+        rows.append(
+            {
+                "index": index,
+                "component": binding["component"],
+                "side": side,
+                "role": role,
+                "literal_fingerprint": binding["literal_fingerprint"],
+                "expected_variation_operator": expected_variation_operator,
+                "expected_zeta_atom": f"zeta_{side}",
+                "expected_field_atom": str(expected_field.atom),
+                "outer_action_weight_exact": actual_weight == expected_weight,
+                "pair_operator_and_output_type_exact": pair_operator_exact,
+                "Euler_literal_leaf_exact": Euler_literal_leaf_exact,
+                "expected_Euler_input_type": asdict(expected_euler_type),
+                "Euler_input_type_exact": Euler_input_type_exact,
+                "real_pairing_input_types_exact": (
+                    real_pairing_input_types_exact
+                ),
+                "variation_operator_exact": variation_operator_exact,
+                "variation_output_type_exact": variation_type_exact,
+                "variation_arity_exact": variation_arity_exact,
+                "zeta_leaf_exact": zeta_leaf_exact,
+                "field_leaf_exact": field_leaf_exact,
+                "ordinary_Lie_not_compensated": ordinary_not_compensated,
+                "variation_AST_exact": variation_AST_exact,
+                "pass": row_pass,
+            }
+        )
+    return {
+        "actual_pairing_count": len(actual_tuple),
+        "expected_pairing_count": len(expected_tuple),
+        "pairing_count_exact": count_exact,
+        "rows": rows,
+        "pass": bool(count_exact and rows and all(row["pass"] for row in rows)),
+    }
+
+
+def _normalize_real_ward_ast(
+    label: str,
+    ward_lhs: TypedWardExpression,
+    *,
+    expected_euler_terms: Sequence[TypedWardExpression],
+    expected_theta: TypedWardExpression,
+    expected_theta_sha256_literal: str,
+    expected_lagrangian: TypedWardExpression,
+    expected_zeta: TypedWardExpression,
+    pointwise_naturality: bool,
+    top_form_Cartan: bool,
+) -> dict[str, Any]:
+    """Normalize the actual Ward AST, not a parallel symbolic surrogate."""
+
+    ward_root_is_typed_five_form = _ward_type_matches_literal_symbol(
+        ward_lhs.type_tag, "FORM5"
+    )
+    ward_terms = _ward_direct_sum_terms(ward_lhs)
+    d5_indices = tuple(
+        index
+        for index, term in enumerate(ward_terms)
+        if term.operator == "d_5"
+    )
+    d5_node = ward_terms[d5_indices[0]] if len(d5_indices) == 1 else None
+    d5_is_applied_to_typed_current = bool(
+        d5_node is not None
+        and len(d5_node.arguments) == 1
+        and _ward_type_matches_literal_symbol(
+            d5_node.arguments[0].type_tag, "BULK_FORM4"
+        )
+        and _ward_type_matches_literal_symbol(d5_node.type_tag, "FORM5")
+    )
+    actual_euler_terms = tuple(
+        term for index, term in enumerate(ward_terms) if index not in d5_indices
+    )
+    expected_euler_tuple = tuple(expected_euler_terms)
+    euler_terms_exact = actual_euler_terms == expected_euler_tuple
+    actual_euler_atoms = _ward_euler_binding_atoms(actual_euler_terms)
+    expected_euler_atoms = _ward_euler_binding_atoms(expected_euler_tuple)
+    euler_literal_fingerprints_exact = (
+        actual_euler_atoms == expected_euler_atoms
+        and len(actual_euler_atoms) == len(expected_euler_tuple)
+    )
+    euler_variation_bindings = _ward_euler_variation_binding_ledger(
+        actual_euler_terms, expected_euler_tuple
+    )
+
+    expected_interior = _independent_ward_interior_product(
+        expected_zeta, expected_lagrangian
+    )
+    current_terms: tuple[TypedWardExpression, ...] = ()
+    iota_candidates: list[
+        tuple[int, ExactCoefficient, TypedWardExpression]
+    ] = []
+    if d5_is_applied_to_typed_current and d5_node is not None:
+        current_terms = _ward_direct_sum_terms(d5_node.arguments[0])
+        for index, term in enumerate(current_terms):
+            coefficient, payload = _ward_scaled_payload(term)
+            if payload.operator == "interior_product":
+                iota_candidates.append((index, coefficient, payload))
+
+    actual_iota_coefficient = 0
+    interior_product_exact = False
+    iota_shape_recognized = False
+    iota_indices: set[int] = set()
+    if not iota_candidates:
+        iota_shape_recognized = d5_is_applied_to_typed_current
+    elif len(iota_candidates) == 1:
+        index, coefficient, payload = iota_candidates[0]
+        coefficient_integer = _ward_dimensionless_integer(coefficient)
+        if coefficient_integer is not None:
+            actual_iota_coefficient = coefficient_integer
+            interior_product_exact = payload == expected_interior
+            iota_shape_recognized = interior_product_exact
+            iota_indices.add(index)
+    actual_theta = _ward_add(
+        BULK_FORM4,
+        tuple(
+            term
+            for index, term in enumerate(current_terms)
+            if index not in iota_indices
+        ),
+    )
+    theta_recovered_from_real_current_exact = actual_theta == expected_theta
+    actual_theta_sha256 = _ward_ast_sha256(actual_theta)
+    independent_expected_theta_sha256 = _ward_ast_sha256(expected_theta)
+    theta_deep_literal_fingerprint_exact = bool(
+        actual_theta_sha256 == expected_theta_sha256_literal
+        and independent_expected_theta_sha256 == expected_theta_sha256_literal
+    )
+
+    structural_rules_applicable = bool(
+        ward_root_is_typed_five_form
+        and len(d5_indices) == 1
+        and d5_is_applied_to_typed_current
+        and euler_terms_exact
+        and euler_literal_fingerprints_exact
+        and euler_variation_bindings["pass"]
+        and iota_shape_recognized
+        and theta_recovered_from_real_current_exact
+        and theta_deep_literal_fingerprint_exact
+    )
+    euler_atom = f"Euler_sum[{label}]"
+    theta_atom = f"d_theta[{label}]"
+    delta_atom = f"delta_zeta_L[{label}]"
+    lie_atom = f"Lie_zeta_L[{label}]"
+    iota_atom = f"d_i_zeta_L[{label}]"
+    if structural_rules_applicable:
+        raw_values = {
+            euler_atom: 1,
+            iota_atom: actual_iota_coefficient,
+        }
+        if expected_theta.operator != "zero":
+            raw_values[theta_atom] = 1
+        raw = LinearCombination.from_mapping(raw_values)
+        first_variation_replacement = {delta_atom: 1}
+        if expected_theta.operator != "zero":
+            first_variation_replacement[theta_atom] = -1
+        after_first_variation = raw.substitute(
+            {
+                euler_atom: LinearCombination.from_mapping(
+                    first_variation_replacement
+                )
+            }
+        )
+        after_pointwise_naturality = (
+            after_first_variation.substitute(
+                {delta_atom: LinearCombination.from_mapping({lie_atom: 1})}
+            )
+            if pointwise_naturality
+            else after_first_variation
+        )
+        after_top_form_Cartan = (
+            after_pointwise_naturality.substitute(
+                {lie_atom: LinearCombination.from_mapping({iota_atom: 1})}
+            )
+            if top_form_Cartan
+            else after_pointwise_naturality
+        )
+    else:
+        raw = LinearCombination.from_mapping(
+            {f"UNREDUCED_REAL_WARD_AST[{label}]": 1}
+        )
+        after_first_variation = raw
+        after_pointwise_naturality = raw
+        after_top_form_Cartan = raw
+    residual_zero = after_top_form_Cartan.is_zero
+    return {
+        "normalizer": "typed_real_Ward_AST_normalizer_v1",
+        "real_Ward_AST_consumed": True,
+        "ward_root_is_typed_five_form": ward_root_is_typed_five_form,
+        "top_level_term_count": len(ward_terms),
+        "d5_node_count": len(d5_indices),
+        "d5_is_applied_to_typed_current_AST": (
+            d5_is_applied_to_typed_current
+        ),
+        "actual_Euler_literal_binding_atoms": list(actual_euler_atoms),
+        "independent_expected_Euler_literal_binding_atoms": list(
+            expected_euler_atoms
+        ),
+        "Euler_terms_exact": euler_terms_exact,
+        "Euler_literal_fingerprints_exact": (
+            euler_literal_fingerprints_exact
+        ),
+        "Euler_variation_bindings": euler_variation_bindings,
+        "Euler_variations_are_exact_ordinary_Lie_on_same_side_fields": (
+            euler_variation_bindings["pass"]
+        ),
+        "direct_current_i_zeta_L_node_count": len(iota_candidates),
+        "i_zeta_L_coefficient_from_real_current_AST": (
+            actual_iota_coefficient
+        ),
+        "interior_product_zeta_and_literal_L_exact": interior_product_exact,
+        "theta_recovered_from_real_current_AST_exact": (
+            theta_recovered_from_real_current_exact
+        ),
+        "actual_theta_AST_sha256": actual_theta_sha256,
+        "independent_expected_theta_AST_sha256": (
+            independent_expected_theta_sha256
+        ),
+        "literal_expected_theta_AST_sha256": expected_theta_sha256_literal,
+        "theta_deep_literal_fingerprint_exact": (
+            theta_deep_literal_fingerprint_exact
+        ),
+        "Euler_theta_current_same_independent_binding": bool(
+            euler_variation_bindings["pass"]
+            and theta_recovered_from_real_current_exact
+            and theta_deep_literal_fingerprint_exact
+            and interior_product_exact
+        ),
+        "structural_rules_applicable": structural_rules_applicable,
+        "raw_Ward_terms": list(raw.terms),
+        "after_local_first_variation": list(after_first_variation.terms),
+        "after_pointwise_differentiated_naturality": list(
+            after_pointwise_naturality.terms
+        ),
+        "after_top_form_Cartan_and_dL5_zero": list(
+            after_top_form_Cartan.terms
+        ),
+        "residual_zero": residual_zero,
+        "pass": bool(structural_rules_applicable and residual_zero),
+    }
+
+
+def _ward_support_contract(mutation: str | None) -> dict[str, Any]:
+    contract = dict(EXPECTED_INTERIOR_SUPPORT_CONTRACT)
+    if mutation == "support_trace_zero_only":
+        contract["support_separated_from_a_full_collar_of_Sigma"] = False
+        contract["zeta_and_all_jets_zero_on_that_collar"] = False
+        contract["trace_zero_only_is_accepted_as_sufficient"] = True
+    elif mutation == "support_allows_normal_component":
+        contract["support_compactly_contained_in_bulk_interior"] = False
+        contract["support_separated_from_a_full_collar_of_Sigma"] = False
+        contract["zeta_and_all_jets_zero_on_that_collar"] = False
+        contract["normal_component_at_Sigma_is_allowed"] = True
+    elif mutation == "omit_support_at_infinity":
+        contract["compact_support_at_bulk_infinity"] = False
+    return contract
+
+
+def _ward_i_zeta_L_coefficient(mutation: str | None) -> int:
+    if mutation == "omit_i_zeta_L":
+        return 0
+    if mutation == "flip_i_zeta_L":
+        return 1
+    if mutation == "duplicate_i_zeta_L":
+        return -2
+    return -1
+
+
+def _differentiated_bulk_ward_ledger(
+    prerequisites: Mapping[str, bool],
+    *,
+    components: Mapping[str, Expression] | None = None,
+    available_axioms: Sequence[str] = tuple(sorted(WARD_REQUIRED_AXIOMS)),
+    mutation: str | None = None,
+) -> dict[str, Any]:
+    if mutation is not None and mutation not in WARD_MUTATIONS:
+        raise NaturalityCertificateError(f"unknown bulk-Ward mutation: {mutation}")
+    prerequisite_names_exact = (
+        frozenset(prerequisites) == WARD_REQUIRED_PREREQUISITES
+    )
+    runtime_type_literal_ledger = _ward_runtime_type_literal_ledger()
+    actual_components = dict(
+        build_component_expressions("baseline")
+        if components is None
+        else components
+    )
+    expected_components = build_component_expressions("baseline")
+    layout = list(BULK_WARD_COMPONENT_NAMES)
+    if mutation == "component_omitted":
+        layout.pop()
+    elif mutation == "component_duplicated":
+        layout.append("EH_bulk_plus")
+    if mutation == "component_swapped":
+        left = "Omega_kinetic_bulk_plus"
+        right = "Omega_potential_bulk_plus"
+        actual_components[left], actual_components[right] = (
+            actual_components[right],
+            actual_components[left],
+        )
+    elif mutation == "component_detached":
+        component = "P_kinetic_bulk_plus"
+        actual_components[component] = _replace_semantic_leaf_role(
+            actual_components[component], "phi", "detached_phi"
+        )
+
+    i_zeta_L_coefficient = _ward_i_zeta_L_coefficient(mutation)
+    pointwise_naturality = mutation != "infer_pointwise_from_integrated_only"
+    top_form_Cartan = mutation != "omit_top_form_Cartan"
+    ordinary_Lie_primary = (
+        mutation != "compensated_substitution_without_gauge_bridge"
+    )
+    typed_local_divergence = mutation != "string_only_local_divergence"
+    euler_equations_imposed = mutation == "Euler_equations_imposed"
+
+    available_axiom_set = frozenset(available_axioms)
+    if mutation == "missing_required_axiom":
+        available_axiom_set = frozenset(
+            axiom
+            for axiom in available_axiom_set
+            if axiom != "local_EH_first_variation_in_inverse_metric_convention"
+        )
+    elif mutation == "unexpected_magic_axiom":
+        available_axiom_set = available_axiom_set | {"magic_Ward_axiom"}
+    consumed_axioms = set(WARD_REQUIRED_AXIOMS)
+    if not top_form_Cartan:
+        consumed_axioms.discard("Cartan_magic_formula_for_spacetime_forms")
+    exact_axiom_set = available_axiom_set == WARD_REQUIRED_AXIOMS
+    axioms_consumed_exactly = frozenset(consumed_axioms) == WARD_REQUIRED_AXIOMS
+
+    bindings_by_component = {
+        binding.name: binding for binding in literal_component_bindings()
+    }
+    component_counts: dict[str, int] = {}
+    row_reports: list[dict[str, Any]] = []
+    side_actual_lagrangians: dict[str, list[TypedWardExpression]] = {
+        side: [] for side in SIDES
+    }
+    side_expected_lagrangians: dict[str, list[TypedWardExpression]] = {
+        side: [] for side in SIDES
+    }
+    side_actual_thetas: dict[str, list[TypedWardExpression]] = {
+        side: [] for side in SIDES
+    }
+    side_expected_thetas: dict[str, list[TypedWardExpression]] = {
+        side: [] for side in SIDES
+    }
+    side_actual_euler: dict[str, list[TypedWardExpression]] = {
+        side: [] for side in SIDES
+    }
+    side_expected_euler: dict[str, list[TypedWardExpression]] = {
+        side: [] for side in SIDES
+    }
+    observed_field_atoms: dict[str, dict[str, set[str]]] = {
+        side: {role: set() for role in WARD_FIELD_ORDER} for side in SIDES
+    }
+    observed_zeta_atoms: dict[str, set[str]] = {side: set() for side in SIDES}
+
+    for row_index, component in enumerate(layout):
+        component_counts[component] = component_counts.get(component, 0) + 1
+        family = _component_family(component)
+        side = _ward_component_side(component)
+        expression = actual_components[component]
+        expected_expression = expected_components[component]
+        fields, field_consistency = _ward_component_field_nodes(expression)
+        actual_roles = tuple(
+            role for role in WARD_FIELD_ORDER if role in fields
+        )
+        expected_roles = WARD_COMPONENT_FIELDS[family]
+        field_dependencies_exact = actual_roles == expected_roles and all(
+            field_consistency[role]["all_occurrences_same_leaf"]
+            for role in actual_roles
+        )
+        local_fields = dict(fields)
+        for role in WARD_FIELD_ORDER:
+            local_fields.setdefault(
+                role,
+                _ward_atom(
+                    f"missing_field:{component}:{role}", WARD_FIELD_TYPES[role]
+                ),
+            )
+        if mutation == "field_leaf_detached" and component == "BF_bulk_plus":
+            local_fields["A"] = _ward_atom(
+                "detached_field:A_plus", CONNECTION1_5
+            )
+        zeta = _ward_atom(
+            (
+                "detached_zeta_plus"
+                if mutation == "zeta_detached" and side == "plus"
+                else f"zeta_{side}"
+            ),
+            VECTOR5,
+        )
+        observed_zeta_atoms[side].add(str(zeta.atom))
+        for role in actual_roles:
+            observed_field_atoms[side][role].add(
+                str(local_fields[role].atom)
+            )
+
+        action_weight = _green_component_weight(component)
+        if mutation == "wrong_action_weight" and component == "P_kinetic_bulk_plus":
+            action_weight = action_weight.negate()
+        expected_weight = _expected_green_component_weight(component)
+        actual_lagrangian = _ward_component_lagrangian(
+            component, expression, action_weight
+        )
+        expected_lagrangian = _independent_expected_component_lagrangian(
+            component
+        )
+        compensated = not ordinary_Lie_primary
+        actual_euler_terms = tuple(
+            _ward_euler_pair(
+                component,
+                role,
+                _ward_variation_for_role(
+                    role,
+                    local_fields[role],
+                    zeta,
+                    compensated=compensated,
+                ),
+                action_weight,
+            )
+            for role in actual_roles
+        )
+        expected_euler_terms = _independent_expected_euler_terms(component)
+        theta = _ward_theta_ast(
+            family,
+            local_fields,
+            zeta,
+            action_weight,
+            mutation=mutation,
+            compensated=compensated,
+        )
+        expected_theta = _independent_expected_theta_ast(family, side)
+        interior = _ward_interior_product(zeta, actual_lagrangian)
+        current = _ward_add(
+            BULK_FORM4,
+            (
+                theta,
+                _ward_scale(_coefficient(i_zeta_L_coefficient), interior),
+            ),
+        )
+        expected_zeta = _independent_ward_atom(
+            f"zeta_{side}", _independent_expected_ward_type("VECTOR5")
+        )
+        expected_interior = _independent_ward_interior_product(
+            expected_zeta, expected_lagrangian
+        )
+        expected_current = _independent_ward_add(
+            _independent_expected_ward_type("BULK_FORM4"),
+            (
+                expected_theta,
+                _independent_ward_scale(
+                    _coefficient(-1), expected_interior
+                ),
+            ),
+        )
+        ward_lhs = _ward_add(
+            FORM5, actual_euler_terms + (_ward_d5(current),)
+        )
+        reduction = _normalize_real_ward_ast(
+            f"{row_index}:{component}",
+            ward_lhs,
+            expected_euler_terms=expected_euler_terms,
+            expected_theta=expected_theta,
+            expected_theta_sha256_literal=(
+                EXPECTED_WARD_THETA_SHA256_LITERAL[component]
+            ),
+            expected_lagrangian=expected_lagrangian,
+            expected_zeta=expected_zeta,
+            pointwise_naturality=pointwise_naturality,
+            top_form_Cartan=top_form_Cartan,
+        )
+        binding = bindings_by_component[component]
+        source_keys_exact = (
+            binding.source_keys == WARD_COMPONENT_SOURCE_KEYS[family]
+        )
+        derivation_kind = (
+            "integrated_Green_only_mutant"
+            if mutation == "infer_pointwise_from_integrated_only"
+            else _actual_ward_derivation_kind(family)
+        )
+        derivation_exact = (
+            derivation_kind == WARD_COMPONENT_DERIVATIONS[family]
+        )
+        expression_structural = expression == expected_expression
+        expression_signature = _expression_signature(expression)
+        semantic_signature_exact = (
+            expression_signature == EXPECTED_SEMANTIC_SIGNATURES[family]
+        )
+        leaf_multiset = _green_leaf_multiset(expression)
+        leaf_multiset_exact = (
+            leaf_multiset == EXPECTED_GREEN_LEAF_MULTISETS[family]
+        )
+        row_pass = bool(
+            expression_structural
+            and semantic_signature_exact
+            and leaf_multiset_exact
+            and action_weight == expected_weight
+            and source_keys_exact
+            and field_dependencies_exact
+            and actual_lagrangian == expected_lagrangian
+            and actual_euler_terms == expected_euler_terms
+            and theta == expected_theta
+            and current == expected_current
+            and ward_lhs.type_tag == FORM5
+            and derivation_exact
+            and typed_local_divergence
+            and pointwise_naturality
+            and top_form_Cartan
+            and ordinary_Lie_primary
+            and reduction["pass"]
+        )
+        row_reports.append(
+            {
+                "component": component,
+                "side": side,
+                "family": family,
+                "source_literal_keys": list(binding.source_keys),
+                "independent_expected_source_literal_keys": list(
+                    WARD_COMPONENT_SOURCE_KEYS[family]
+                ),
+                "source_literal_keys_exact": source_keys_exact,
+                "typed_component_expression": _render_expression(expression),
+                "structurally_equal_to_real_component_expression": (
+                    expression_structural
+                ),
+                "semantic_signature": expression_signature,
+                "semantic_signature_exact": semantic_signature_exact,
+                "leaf_multiset": [list(item) for item in leaf_multiset],
+                "leaf_multiset_exact": leaf_multiset_exact,
+                "actual_field_roles": list(actual_roles),
+                "independent_expected_field_roles": list(expected_roles),
+                "field_occurrence_consistency": field_consistency,
+                "field_dependencies_exact": field_dependencies_exact,
+                "action_weight": _serialize_coefficient(action_weight),
+                "independent_expected_action_weight": _serialize_coefficient(
+                    expected_weight
+                ),
+                "action_weight_exact": action_weight == expected_weight,
+                "weighted_bulk_lagrangian_AST": _serialize_ward_expression(
+                    actual_lagrangian
+                ),
+                "Euler_Lie_pairing_ASTs": [
+                    _serialize_ward_expression(value)
+                    for value in actual_euler_terms
+                ],
+                "independent_expected_Euler_Lie_pairing_ASTs": [
+                    _serialize_ward_expression(value)
+                    for value in expected_euler_terms
+                ],
+                "Euler_pairings_exact": (
+                    actual_euler_terms == expected_euler_terms
+                ),
+                "Euler_variations_exact_ordinary_Lie_same_side_bindings": (
+                    reduction[
+                        "Euler_variations_are_exact_ordinary_Lie_on_same_side_fields"
+                    ]
+                ),
+                "theta_AST": _serialize_ward_expression(theta),
+                "independent_expected_theta_AST": _serialize_ward_expression(
+                    expected_theta
+                ),
+                "theta_exact": theta == expected_theta,
+                "theta_deep_literal_fingerprint_exact": reduction[
+                    "theta_deep_literal_fingerprint_exact"
+                ],
+                "theta_AST_sha256": reduction["actual_theta_AST_sha256"],
+                "theta_formula": {
+                    "EH": "(M5^3/2)*theta_EH[g,Delta g^(-1)]",
+                    "Omega_kinetic": "-G*DeltaOmega*star(dOmega)",
+                    "Omega_potential": "0",
+                    "P_kinetic": (
+                        "-Z*<Delta phi+3*phi*DeltaOmega/(2*Omega),star(P)>"
+                    ),
+                    "full_V4": "0",
+                    "BF": "-<B wedge Delta A>",
+                }[family],
+                "interior_product_i_zeta_L_AST": _serialize_ward_expression(
+                    interior
+                ),
+                "Noether_current_AST": _serialize_ward_expression(current),
+                "independent_expected_Noether_current_AST": (
+                    _serialize_ward_expression(expected_current)
+                ),
+                "Noether_current_exact": current == expected_current,
+                "Ward_five_form_lhs_AST": _serialize_ward_expression(ward_lhs),
+                "local_first_variation_derivation_kind": derivation_kind,
+                "independent_expected_derivation_kind": (
+                    WARD_COMPONENT_DERIVATIONS[family]
+                ),
+                "typed_local_divergence_not_string": typed_local_divergence,
+                "pointwise_differentiated_naturality_consumed": (
+                    pointwise_naturality
+                ),
+                "top_form_Cartan_and_dL5_zero_consumed": top_form_Cartan,
+                "ordinary_Lie_variation_is_primary": ordinary_Lie_primary,
+                "exact_reduction": reduction,
+                "pass": row_pass,
+            }
+        )
+        side_actual_lagrangians[side].append(actual_lagrangian)
+        side_expected_lagrangians[side].append(expected_lagrangian)
+        side_actual_thetas[side].append(theta)
+        side_expected_thetas[side].append(expected_theta)
+        side_actual_euler[side].extend(actual_euler_terms)
+        side_expected_euler[side].extend(expected_euler_terms)
+
+    exact_component_multiset = component_counts == {
+        component: 1 for component in BULK_WARD_COMPONENT_NAMES
+    }
+    side_reports: list[dict[str, Any]] = []
+    for side in SIDES:
+        actual_lagrangian = _ward_add(FORM5, side_actual_lagrangians[side])
+        expected_lagrangian = _independent_ward_add(
+            _independent_expected_ward_type("FORM5"),
+            side_expected_lagrangians[side],
+        )
+        actual_theta = _ward_add(BULK_FORM4, side_actual_thetas[side])
+        expected_theta = _independent_ward_add(
+            _independent_expected_ward_type("BULK_FORM4"),
+            side_expected_thetas[side],
+        )
+        actual_zeta = _ward_atom(
+            (
+                "detached_zeta_plus"
+                if mutation == "zeta_detached" and side == "plus"
+                else f"zeta_{side}"
+            ),
+            VECTOR5,
+        )
+        expected_zeta = _independent_ward_atom(
+            f"zeta_{side}", _independent_expected_ward_type("VECTOR5")
+        )
+        compact_current = _ward_add(
+            _independent_expected_ward_type("BULK_FORM4"),
+            (
+                actual_theta,
+                _ward_scale(
+                    _coefficient(i_zeta_L_coefficient),
+                    _ward_interior_product(actual_zeta, actual_lagrangian),
+                ),
+            ),
+        )
+        expected_current = _independent_ward_add(
+            BULK_FORM4,
+            (
+                expected_theta,
+                _independent_ward_scale(
+                    _coefficient(-1),
+                    _independent_ward_interior_product(
+                        expected_zeta, expected_lagrangian
+                    ),
+                ),
+            ),
+        )
+        ward_lhs = _ward_add(
+            FORM5,
+            tuple(side_actual_euler[side]) + (_ward_d5(compact_current),),
+        )
+        side_normalization = _normalize_real_ward_ast(
+            f"side:{side}",
+            ward_lhs,
+            expected_euler_terms=tuple(side_expected_euler[side]),
+            expected_theta=expected_theta,
+            expected_theta_sha256_literal=(
+                EXPECTED_WARD_THETA_SHA256_LITERAL[f"side:{side}"]
+            ),
+            expected_lagrangian=expected_lagrangian,
+            expected_zeta=expected_zeta,
+            pointwise_naturality=pointwise_naturality,
+            top_form_Cartan=top_form_Cartan,
+        )
+        side_reductions = [
+            row["exact_reduction"]
+            for row in row_reports
+            if row["side"] == side
+        ]
+        side_pass = bool(
+            len(side_actual_lagrangians[side]) == len(BULK_SECTORS)
+            and actual_lagrangian == expected_lagrangian
+            and actual_theta == expected_theta
+            and tuple(side_actual_euler[side])
+            == tuple(side_expected_euler[side])
+            and compact_current == expected_current
+            and ward_lhs.type_tag == FORM5
+            and all(row["pass"] for row in side_reductions)
+            and side_normalization["pass"]
+        )
+        side_reports.append(
+            {
+                "side": side,
+                "bulk_component_count": len(side_actual_lagrangians[side]),
+                "weighted_bulk_lagrangian_AST": _serialize_ward_expression(
+                    actual_lagrangian
+                ),
+                "summed_theta_AST": _serialize_ward_expression(actual_theta),
+                "Noether_current_definition": (
+                    f"J_{side}=theta_{side}(X_{side},L_zeta X_{side})-"
+                    f"i_zeta L_{side}"
+                ),
+                "Noether_current_AST": _serialize_ward_expression(
+                    compact_current
+                ),
+                "independent_expected_Noether_current_AST": (
+                    _serialize_ward_expression(expected_current)
+                ),
+                "Ward_five_form_identity": (
+                    f"E_{side}.L_zeta X_{side}+d_5 J_{side,zeta}=0"
+                ),
+                "Ward_five_form_lhs_AST": _serialize_ward_expression(ward_lhs),
+                "exact_real_AST_normalization": side_normalization,
+                "compact_support_integral_identity": (
+                    f"int_M_{side} E_{side}.L_zeta X_{side}=0"
+                ),
+                "component_reductions_zero": all(
+                    row["pass"] for row in side_reductions
+                ),
+                "pass": side_pass,
+            }
+        )
+
+    cartan_mutation = {
+        "Cartan_connection_sign": "connection_sign",
+        "Cartan_matter_sign": "matter_sign",
+        "Cartan_omit_D_iB": "omit_D_iB",
+    }.get(mutation)
+    cartan = _cartan_ledger(cartan_mutation)
+    cartan_binding_rows: list[dict[str, Any]] = []
+    for side in SIDES:
+        for role in ("A", "phi", "B"):
+            expected_atom = str(
+                _independent_expected_ward_field(side, role).atom
+            )
+            observed = sorted(observed_field_atoms[side][role])
+            cartan_binding_rows.append(
+                {
+                    "side": side,
+                    "field_role": role,
+                    "observed_Ward_AST_field_atoms": observed,
+                    "independent_expected_field_atom": expected_atom,
+                    "same_actual_field_leaf": observed == [expected_atom],
+                }
+            )
+    zeta_binding_rows = [
+        {
+            "side": side,
+            "observed_zeta_atoms": sorted(observed_zeta_atoms[side]),
+            "independent_expected_zeta_atom": f"zeta_{side}",
+            "same_generator_leaf": observed_zeta_atoms[side] == {f"zeta_{side}"},
+        }
+        for side in SIDES
+    ]
+    cartan_same_leaves = all(
+        row["same_actual_field_leaf"] for row in cartan_binding_rows
+    ) and all(row["same_generator_leaf"] for row in zeta_binding_rows)
+
+    support_contract = _ward_support_contract(mutation)
+    support_exact = support_contract == EXPECTED_INTERIOR_SUPPORT_CONTRACT
+    interface_remainders = set(EXPECTED_INTERFACE_REMAINDERS)
+    if mutation == "Green_interface_silently_dropped":
+        interface_remainders.discard(
+            "scoped_Green_metric_Omega_matter_and_oriented_BF_form"
+        )
+    elif mutation == "embedding_remainder_omitted":
+        interface_remainders.discard("normal_embedding_and_bending_Euler_term")
+    elif mutation == "intrinsic_d4_remainder_omitted":
+        interface_remainders.discard(
+            "intrinsic_four_dimensional_Noether_current"
+        )
+    interface_remainders_exact = (
+        frozenset(interface_remainders) == EXPECTED_INTERFACE_REMAINDERS
+    )
+    bf_offshell_cancelled = mutation == "BF_offshell_cancelled"
+    separate_reference_transgression = (
+        mutation == "duplicate_reference_domain_i_zeta_L"
+    )
+    frozen_background_promoted = mutation == "frozen_X_infinity_promoted"
+    wider_claims = {
+        "interface_reaching_bulk_Ward_identity_pass": False,
+        "full_bulk_diffeomorphism_Ward_pass": False,
+        "fixed_reference_S_rel_diffeomorphism_Ward_pass": False,
+        "complete_moving_embedding_Ward_pass": False,
+        "C1_ACTION_pass": False,
+        "N1_ACTION_pass": False,
+        "P4_full_same_action_pass": False,
+        "B4_pass": False,
+        "B5_pass": False,
+    }
+    if mutation == "interface_Ward_key_promoted":
+        wider_claims["interface_reaching_bulk_Ward_identity_pass"] = True
+    elif mutation == "wider_Ward_key_promoted":
+        wider_claims["full_bulk_diffeomorphism_Ward_pass"] = True
+    wider_claims_all_false = not any(wider_claims.values())
+    interface_or_moving_Ward_claimed = bool(
+        wider_claims["interface_reaching_bulk_Ward_identity_pass"]
+        or wider_claims["complete_moving_embedding_Ward_pass"]
+    )
+    interface_vanishes_by_support_only = bool(
+        support_contract["support_compactly_contained_in_bulk_interior"]
+        and support_contract[
+            "support_separated_from_a_full_collar_of_Sigma"
+        ]
+        and support_contract["zeta_and_all_jets_zero_on_that_collar"]
+        and support_contract["compact_support_at_bulk_infinity"]
+        and not support_contract["trace_zero_only_is_accepted_as_sufficient"]
+        and not support_contract["normal_component_at_Sigma_is_allowed"]
+    )
+    boundary_scope_pass = bool(
+        support_exact
+        and interface_vanishes_by_support_only
+        and interface_remainders_exact
+        and not bf_offshell_cancelled
+        and not separate_reference_transgression
+        and not frozen_background_promoted
+        and wider_claims_all_false
+        and not interface_or_moving_Ward_claimed
+    )
+    pass_exact = bool(
+        prerequisite_names_exact
+        and all(prerequisites.values())
+        and runtime_type_literal_ledger["pass"]
+        and exact_component_multiset
+        and len(row_reports) == len(BULK_WARD_COMPONENT_NAMES)
+        and all(row["pass"] for row in row_reports)
+        and all(row["pass"] for row in side_reports)
+        and exact_axiom_set
+        and axioms_consumed_exactly
+        and cartan["pass"]
+        and cartan_same_leaves
+        and ordinary_Lie_primary
+        and pointwise_naturality
+        and top_form_Cartan
+        and typed_local_divergence
+        and not euler_equations_imposed
+        and boundary_scope_pass
+    )
+    return {
+        "scope": (
+            "per-side off-shell local Ward identity for smooth generators with "
+            "support compactly contained in the bulk interior and separated from "
+            "a full collar of Sigma"
+        ),
+        "quantifiers": (
+            "for each epsilon in {plus,minus}, every smooth off-shell v5.2 bulk "
+            "configuration and every zeta_epsilon in C_c^infinity(int M_epsilon) "
+            "whose support is separated from a full interface collar"
+        ),
+        "prerequisites": dict(prerequisites),
+        "required_prerequisite_names": sorted(WARD_REQUIRED_PREREQUISITES),
+        "prerequisite_names_exact": prerequisite_names_exact,
+        "runtime_Ward_type_literal_ledger": runtime_type_literal_ledger,
+        "required_axioms": sorted(WARD_REQUIRED_AXIOMS),
+        "available_axioms": sorted(available_axiom_set),
+        "consumed_axioms": sorted(consumed_axioms),
+        "missing_required_axioms": sorted(
+            WARD_REQUIRED_AXIOMS - available_axiom_set
+        ),
+        "unexpected_axioms": sorted(
+            available_axiom_set - WARD_REQUIRED_AXIOMS
+        ),
+        "exact_allowed_axiom_set": exact_axiom_set,
+        "every_required_axiom_consumed_exactly": axioms_consumed_exactly,
+        "component_count": len(row_reports),
+        "expected_component_count": len(BULK_WARD_COMPONENT_NAMES),
+        "component_multiplicities": component_counts,
+        "exact_twelve_bulk_component_multiset": exact_component_multiset,
+        "rows": row_reports,
+        "sides": side_reports,
+        "primary_identity": (
+            "E_g.L_zeta g+E_Omega L_zeta Omega+<E_phi,L_zeta phi>+"
+            "<E_A wedge L_zeta A>+<L_zeta B wedge E_B>+d_5 J_zeta=0"
+        ),
+        "Noether_current": "J_zeta=theta(X,L_zeta X)-i_zeta L",
+        "pointwise_differentiated_naturality": (
+            "delta_zeta L=L_zeta L=d_5(i_zeta L), using Cartan and dL=0 for a 5-form"
+        ),
+        "ordinary_Lie_variation_is_primary": ordinary_Lie_primary,
+        "compensated_variation_requires_separate_exact_gauge_current_bridge": True,
+        "Cartan_same_leaf_binding": {
+            "exact_integer_sign_ledger": cartan,
+            "field_rows": cartan_binding_rows,
+            "zeta_rows": zeta_binding_rows,
+            "same_actual_A_phi_B_and_zeta_leaves": cartan_same_leaves,
+        },
+        "support_contract": support_contract,
+        "independent_expected_support_contract": dict(
+            EXPECTED_INTERIOR_SUPPORT_CONTRACT
+        ),
+        "interface_terms_vanish_by_support_only": (
+            interface_vanishes_by_support_only
+        ),
+        "natural_interface_equations_imposed": False,
+        "BF_off_shell_oriented_incidence_cancelled": bf_offshell_cancelled,
+        "interface_remainders_outside_this_theorem": sorted(
+            interface_remainders
+        ),
+        "independent_expected_interface_remainders": sorted(
+            EXPECTED_INTERFACE_REMAINDERS
+        ),
+        "interface_remainders_recorded_exactly": interface_remainders_exact,
+        "separate_reference_domain_i_zeta_L_added": (
+            separate_reference_transgression
+        ),
+        "frozen_external_X_infinity_Ward_promoted": frozen_background_promoted,
+        "Euler_equations_imposed": euler_equations_imposed,
+        "typed_local_divergence_not_string": typed_local_divergence,
+        "wider_claims": wider_claims,
+        "all_wider_claims_false": wider_claims_all_false,
+        "interface_or_moving_Ward_claimed": interface_or_moving_Ward_claimed,
+        "pass": pass_exact,
+    }
+
+
+def _differentiated_bulk_ward_mutant_campaign(
+    prerequisites: Mapping[str, bool],
+) -> dict[str, Any]:
+    rows: dict[str, Any] = {}
+    for mutation in sorted(WARD_MUTATIONS):
+        ledger = _differentiated_bulk_ward_ledger(
+            prerequisites,
+            mutation=mutation,
+        )
+        rows[mutation] = {
+            "killed": not ledger["pass"],
+            "component_multiset_exact": ledger[
+                "exact_twelve_bulk_component_multiset"
+            ],
+            "axiom_set_exact": ledger["exact_allowed_axiom_set"],
+            "support_exact": (
+                ledger["support_contract"]
+                == ledger["independent_expected_support_contract"]
+            ),
+            "interface_remainders_exact": ledger[
+                "interface_remainders_recorded_exactly"
+            ],
+            "all_wider_claims_false": ledger["all_wider_claims_false"],
+        }
+    return {
+        "rows": rows,
+        "mutant_count": len(rows),
+        "pass": bool(rows) and all(row["killed"] for row in rows.values()),
+    }
+
+
 def _expressions_match(
     candidate: Mapping[str, Expression],
     baseline: Mapping[str, Expression],
@@ -5466,6 +7708,26 @@ def build_report() -> dict[str, Any]:
         and green_ledger["pass"]
         and green_ledger_mutants["pass"]
     )
+    differentiated_bulk_ward_prerequisites = {
+        "byte_pins_and_canonical_v5_2_action": pin_pass,
+        "finite_typed_bulk_top_form_naturality": finite_geometric_covariance,
+        "formal_local_flow_chain_rule_and_Cartan_signs": bool(
+            formal_local["pass"]
+        ),
+        "scoped_literal_Green_ledger": finite_literal_green_ledger,
+    }
+    differentiated_bulk_ward = _differentiated_bulk_ward_ledger(
+        differentiated_bulk_ward_prerequisites
+    )
+    differentiated_bulk_ward_mutants = (
+        _differentiated_bulk_ward_mutant_campaign(
+            differentiated_bulk_ward_prerequisites
+        )
+    )
+    finite_differentiated_bulk_ward = bool(
+        differentiated_bulk_ward["pass"]
+        and differentiated_bulk_ward_mutants["pass"]
+    )
     core = {
         "v5_2_geometric_action_and_v5_6_1_obligation_byte_pinned_pass": pin_pass,
         "finite_complete_domain_pullback_identity_exact_pass": bool(
@@ -5492,11 +7754,13 @@ def build_report() -> dict[str, Any]:
         "formal_local_compact_support_chain_rule_corollary_DS_G_zero_exact_pass": bool(
             formal_local["pass"]
         ),
+        "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass": (
+            finite_differentiated_bulk_ward
+        ),
     }
     decision: dict[str, bool] = {
         **core,
         "oriented_BF_incidence_cancellation_exact_pass": False,
-        "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass": False,
         "full_bulk_diffeomorphism_Ward_pass": False,
         "fixed_reference_S_rel_diffeomorphism_Ward_pass": False,
         "complete_moving_embedding_Ward_pass": False,
@@ -5525,7 +7789,9 @@ def build_report() -> dict[str, Any]:
             "expression, exact finite affine connection-trace transport, exact "
             "off-shell oriented BF incidence aggregation, an exact symbolic "
             "fixed-reference integrated Green ledger in its stated axiom scope, "
-            "and the formal local compact-support chain-rule corollary only"
+            "the formal local compact-support chain-rule corollary, and the "
+            "per-side off-shell differentiated Ward identity only for generators "
+            "with support separated from a full interface collar"
         ),
         "source_pins": source_pins,
         "theorem_domain": {
@@ -5549,10 +7815,16 @@ def build_report() -> dict[str, Any]:
             "abstract_interface_and_T_fixed_in_this_bulk_gauge_bookkeeping": True,
             "interface_matching": list(EXPECTED_INTERFACE_CONFIGURATION),
             "full_affine_connection_trace_transport_in_this_certificate": True,
+            "differentiated_Ward_generator_space": (
+                "zeta_epsilon in C_c^infinity(int M_epsilon,TM_epsilon)"
+            ),
+            "differentiated_Ward_support_separated_from_full_Sigma_collar": True,
+            "interface_reaching_generators_excluded_from_differentiated_Ward": True,
             "functional_meaning": (
                 "finite covariance and its unexpanded local compact-support "
                 "chain-rule derivative, plus the scoped fixed-reference integrated "
-                "Green ledger; no differentiated Ward identity"
+                "Green ledger and a differentiated off-shell Ward identity only "
+                "for strictly interior collar-separated generators"
             ),
         },
         "proof_kernel": {
@@ -5594,20 +7866,26 @@ def build_report() -> dict[str, Any]:
         "literal_bulk_interface_Green_ledger": green_ledger,
         "literal_bulk_interface_Green_effective_mutants": green_ledger_mutants,
         "formal_local_compact_support_chain_rule_corollary": formal_local,
+        "differentiated_smooth_compact_support_bulk_Ward_identity": (
+            differentiated_bulk_ward
+        ),
+        "differentiated_bulk_Ward_effective_mutants": (
+            differentiated_bulk_ward_mutants
+        ),
         "effective_mutants": mutants,
         "excluded_fixed_background_relative_contract": fixed_background,
         "open_local_Ward_obligations": {
-            "differentiated_local_Ward_identity": (
-                "OPEN: differentiate the scoped Green ledger with the complete "
-                "geometric Lie variations and consume the resulting local bulk "
-                "and interface divergence identities"
-            ),
-            "Noether_current_definition": (
-                "OPEN for the local ledger: J_e=theta_e(X_e,L_zeta X_e)-i_zeta L_e"
+            "interface_reaching_bulk_Ward_identity": (
+                "OPEN: generators reaching Sigma require the bulk-current trace, "
+                "the intrinsic d4 current and the interface Green identity"
             ),
             "moving_embedding_and_intrinsic_d4_expansion": (
                 "OPEN: embedding Euler term, constrained iota/j variation, and "
                 "the expanded intrinsic d_4 current remain outside this ledger"
+            ),
+            "full_bulk_interface_combination": (
+                "OPEN: combine both bulk halves with the complete interface and "
+                "moving-domain identity; the interior Ward theorem does not do so"
             ),
         },
         "explicit_exclusions": {
@@ -5630,7 +7908,8 @@ def build_report() -> dict[str, Any]:
             "Green_scope": (
                 "EH+GHY is consumed only as the pinned geometric first-variation "
                 "axiom; the six intrinsic terms remain exact unexpanded deltas, "
-                "and no moving-embedding or differentiated Ward claim is made"
+                "and the differentiated Ward claim is restricted to generators "
+                "vanishing with all jets on a full interface collar"
             ),
             "promotion": (
                 "this does not close the v5.6.1 full-bulk Ward key; C1, N1, P4, B4 and B5 remain false"
@@ -5647,8 +7926,10 @@ def build_report() -> dict[str, Any]:
             "ledger for the action expression. The Green result is an integrated, "
             "fixed-reference symbolic ledger in the explicitly stated EH+GHY, "
             "BF-boundary and unexpanded-intrinsic axiom scope; it is not the "
-            "differentiated local Ward identity and does not promote the v5.6.1 "
-            "full-bulk key."
+            "interface or moving Ward identity. The additional typed local theorem "
+            "proves E.L_zeta X+dJ=0 off shell on each half only for smooth compact "
+            "generators separated from a full interface collar; it does not "
+            "promote the v5.6.1 full-bulk key."
         ),
     }
 

@@ -4,8 +4,11 @@
 from __future__ import annotations
 
 import ast
+import hashlib
 import json
 from pathlib import Path
+import sys
+import types
 
 import pytest
 
@@ -13,6 +16,124 @@ from first_principles_audit.prediction_factory import (
     derive_one_omega_topological_so3_geometric_bulk_diffeomorphism_naturality_v5_6_7_2_gate
     as gate,
 )
+
+
+# Test-local literals: these deliberately do not import the Ward producer's
+# component, weight, leaf, or source-key oracle tables.  A coordinated drift of
+# the producer and its report must still fail this file.
+_WARD_COMPONENTS_LITERAL = (
+    "EH_bulk_plus",
+    "Omega_kinetic_bulk_plus",
+    "Omega_potential_bulk_plus",
+    "P_kinetic_bulk_plus",
+    "full_V4_bulk_plus",
+    "BF_bulk_plus",
+    "EH_bulk_minus",
+    "Omega_kinetic_bulk_minus",
+    "Omega_potential_bulk_minus",
+    "P_kinetic_bulk_minus",
+    "full_V4_bulk_minus",
+    "BF_bulk_minus",
+)
+_WARD_FIELDS_LITERAL = {
+    "EH": ("g",),
+    "Omega_kinetic": ("g", "Omega"),
+    "Omega_potential": ("g", "Omega"),
+    "P_kinetic": ("g", "Omega", "phi", "A"),
+    "full_V4": ("g", "Omega", "phi"),
+    "BF": ("A", "B"),
+}
+_WARD_LEAVES_LITERAL = {
+    "EH": (("g", 2),),
+    "Omega_kinetic": (("Omega", 2), ("g", 2)),
+    "Omega_potential": (("Omega", 2), ("g", 1)),
+    "P_kinetic": (("A", 2), ("Omega", 2), ("g", 2), ("phi", 4)),
+    "full_V4": (("Omega", 1), ("g", 1), ("phi", 1)),
+    "BF": (("A", 1), ("B", 1)),
+}
+_WARD_SOURCE_KEYS_LITERAL = {
+    "EH": ("bulk_gauged",),
+    "Omega_kinetic": ("bulk_gauged",),
+    "Omega_potential": ("bulk_gauged", "bulk_potential", "superpotential"),
+    "P_kinetic": ("bulk_gauged", "gauged_conformal_derivative"),
+    "full_V4": ("bulk_gauged", "full_V4"),
+    "BF": ("BF",),
+}
+_WARD_WEIGHT_LITERAL = {
+    "EH": (1, 2, (("M5", 3),)),
+    "Omega_kinetic": (-1, 2, (("G", 1),)),
+    "Omega_potential": (-1, 1, ()),
+    "P_kinetic": (-1, 2, (("Z", 1),)),
+    "full_V4": (-1, 1, (("M", 2), ("Z", 1))),
+    "BF": (1, 1, ()),
+}
+_WARD_SEMANTIC_SHA256_LITERAL = {
+    "EH": "8ee21ec1085663a1a253fb6fbcd2baa14092a7fa4cfb112d65259952a5e1d2e6",
+    "Omega_kinetic": (
+        "5932d94018df67028a710328c2e44cc6cdd85cd0b5b245acbff4f516288f45bd"
+    ),
+    "Omega_potential": (
+        "e1207d277279d5178f56741fcb0703c5ab62d502417012368a0793dda854d236"
+    ),
+    "P_kinetic": (
+        "6785fac5c991c674bd77bf77d87d360b1741f41872ec9ad8cc07a3d5bcbbdefc"
+    ),
+    "full_V4": (
+        "185db1b4ff1875b5d459b4bf093496c325f8f8b028179759a2dba9aa41ce8680"
+    ),
+    "BF": "376a4e2365d16b2cb0937de21d48b141cf4d0e49e85d0ef0cc101e830b2161d5",
+}
+_WARD_TYPE_SPECS_LITERAL = {
+    "METRIC5": ("Lorentzian_metric", 5, None),
+    "INVERSE_METRIC5": ("inverse_metric", 5, None),
+    "VECTOR5": ("vector", 5, None),
+    "SCALAR5": ("scalar", 5, 0),
+    "COVECTOR5": ("covector", 5, 1),
+    "FORM5": ("top_form", 5, 5),
+    "BULK_FORM4": ("bulk_four_form", 5, 4),
+    "ASSOCIATED0_5": ("SO3_associated_form", 5, 0),
+    "ASSOCIATED1_5": ("SO3_associated_form", 5, 1),
+    "ASSOCIATED4_5": ("SO3_associated_form", 5, 4),
+    "CONNECTION1_5": ("SO3_connection", 5, 1),
+    "ADJOINT2_5": ("SO3_adjoint_form", 5, 2),
+    "ADJOINT3_5": ("SO3_adjoint_form", 5, 3),
+    "ADJOINT4_5": ("SO3_adjoint_form", 5, 4),
+    "METRIC_EULER5": ("inverse_metric_Euler_top_form", 5, 5),
+    "SCALAR_EULER5": ("scalar_Euler_top_form", 5, 5),
+    "ASSOCIATED_EULER5": ("SO3_associated_Euler_top_form", 5, 5),
+}
+_WARD_FIELD_TYPE_SPECS_LITERAL = {
+    "g": ("Lorentzian_metric", 5, None),
+    "Omega": ("scalar", 5, 0),
+    "phi": ("SO3_associated_form", 5, 0),
+    "A": ("SO3_connection", 5, 1),
+    "B": ("SO3_adjoint_form", 5, 3),
+}
+_WARD_EULER_TYPE_SPECS_LITERAL = {
+    "g": ("inverse_metric_Euler_top_form", 5, 5),
+    "Omega": ("scalar_Euler_top_form", 5, 5),
+    "phi": ("SO3_associated_Euler_top_form", 5, 5),
+    "A": ("SO3_adjoint_form", 5, 4),
+    "B": ("SO3_adjoint_form", 5, 2),
+}
+
+
+def _ward_ast_nodes(node: dict) -> list[dict]:
+    return [node] + [
+        descendant
+        for argument in node["arguments"]
+        for descendant in _ward_ast_nodes(argument)
+    ]
+
+
+def _coefficient_signature(node: dict) -> tuple[int, int, tuple[tuple[str, int], ...]]:
+    coefficient = node["coefficient"]
+    assert coefficient is not None
+    return (
+        coefficient["numerator"],
+        coefficient["denominator"],
+        tuple(tuple(item) for item in coefficient["powers"]),
+    )
 
 
 @pytest.fixture(scope="session")
@@ -1076,6 +1197,1196 @@ def test_local_DS_is_only_the_formal_compact_support_chain_rule_corollary(
     )["pass"] is False
 
 
+def test_differentiated_bulk_Ward_consumes_exactly_twelve_real_components(
+    report: dict,
+) -> None:
+    ward = report["differentiated_smooth_compact_support_bulk_Ward_identity"]
+    assert ward["pass"] is True
+    type_ledger = ward["runtime_Ward_type_literal_ledger"]
+    assert type_ledger["pass"] is True
+    assert type_ledger["literal_spec_count"] == len(_WARD_TYPE_SPECS_LITERAL) == 17
+    assert tuple(row["symbol"] for row in type_ledger["rows"]) == tuple(
+        _WARD_TYPE_SPECS_LITERAL
+    )
+    assert all(
+        row["attributes_match_literal"]
+        and row["asdict_matches_literal"]
+        and row["pass"]
+        for row in type_ledger["rows"]
+    )
+    assert {
+        row["symbol"]: (
+            row["literal_expected"]["name"],
+            row["literal_expected"]["dimension"],
+            row["literal_expected"]["form_degree"],
+        )
+        for row in type_ledger["rows"]
+    } == _WARD_TYPE_SPECS_LITERAL
+    assert dict(gate.EXPECTED_WARD_TYPE_SPECS_LITERAL) == (
+        _WARD_TYPE_SPECS_LITERAL
+    )
+    assert dict(gate.EXPECTED_WARD_FIELD_TYPES_LITERAL) == (
+        _WARD_FIELD_TYPE_SPECS_LITERAL
+    )
+    assert dict(gate.EXPECTED_WARD_EULER_TYPES_LITERAL) == (
+        _WARD_EULER_TYPE_SPECS_LITERAL
+    )
+    assert ward["component_count"] == ward["expected_component_count"] == 12
+    assert ward["exact_twelve_bulk_component_multiset"] is True
+    assert set(ward["component_multiplicities"]) == set(
+        gate.BULK_WARD_COMPONENT_NAMES
+    )
+    assert all(value == 1 for value in ward["component_multiplicities"].values())
+    assert len(ward["rows"]) == 12
+    for row in ward["rows"]:
+        assert row["pass"] is True
+        assert row["structurally_equal_to_real_component_expression"] is True
+        assert row["semantic_signature_exact"] is True
+        assert row["leaf_multiset_exact"] is True
+        assert row["field_dependencies_exact"] is True
+        assert row["source_literal_keys_exact"] is True
+        assert row["action_weight_exact"] is True
+        assert row["Euler_pairings_exact"] is True
+        assert row[
+            "Euler_variations_exact_ordinary_Lie_same_side_bindings"
+        ] is True
+        assert row["theta_exact"] is True
+        assert row["theta_deep_literal_fingerprint_exact"] is True
+        assert row["theta_AST_sha256"] == (
+            gate.EXPECTED_WARD_THETA_SHA256_LITERAL[row["component"]]
+        )
+        assert row["Noether_current_exact"] is True
+        assert row["typed_local_divergence_not_string"] is True
+        assert row["pointwise_differentiated_naturality_consumed"] is True
+        assert row["top_form_Cartan_and_dL5_zero_consumed"] is True
+        assert row["ordinary_Lie_variation_is_primary"] is True
+        assert row["exact_reduction"]["residual_zero"] is True
+        assert row["exact_reduction"]["pass"] is True
+        assert row["exact_reduction"]["real_Ward_AST_consumed"] is True
+        assert row["exact_reduction"]["d5_node_count"] == 1
+        assert row["exact_reduction"][
+            "d5_is_applied_to_typed_current_AST"
+        ] is True
+        assert row["exact_reduction"]["Euler_terms_exact"] is True
+        assert row["exact_reduction"][
+            "Euler_literal_fingerprints_exact"
+        ] is True
+        assert row["exact_reduction"][
+            "Euler_variations_are_exact_ordinary_Lie_on_same_side_fields"
+        ] is True
+        assert row["exact_reduction"][
+            "Euler_theta_current_same_independent_binding"
+        ] is True
+        assert all(
+            binding["Euler_input_type_exact"]
+            and binding["real_pairing_input_types_exact"]
+            for binding in row["exact_reduction"][
+                "Euler_variation_bindings"
+            ]["rows"]
+        )
+
+
+def test_Ward_rows_match_test_local_component_weight_leaf_and_fingerprint_oracle(
+    report: dict,
+) -> None:
+    ward = report["differentiated_smooth_compact_support_bulk_Ward_identity"]
+    assert tuple(row["component"] for row in ward["rows"]) == (
+        _WARD_COMPONENTS_LITERAL
+    )
+    for row in ward["rows"]:
+        component = row["component"]
+        side = "plus" if component.endswith("_bulk_plus") else "minus"
+        family = component.removesuffix(f"_bulk_{side}")
+        assert row["side"] == side
+        assert row["family"] == family
+        assert tuple(row["actual_field_roles"]) == _WARD_FIELDS_LITERAL[family]
+        assert tuple(tuple(item) for item in row["leaf_multiset"]) == (
+            _WARD_LEAVES_LITERAL[family]
+        )
+        assert tuple(row["source_literal_keys"]) == (
+            _WARD_SOURCE_KEYS_LITERAL[family]
+        )
+        weight = row["action_weight"]
+        assert (
+            weight["numerator"],
+            weight["denominator"],
+            tuple(tuple(item) for item in weight["powers"]),
+        ) == _WARD_WEIGHT_LITERAL[family]
+        semantic_bytes = json.dumps(
+            row["semantic_signature"], sort_keys=True, separators=(",", ":")
+        ).encode("utf-8")
+        assert hashlib.sha256(semantic_bytes).hexdigest() == (
+            _WARD_SEMANTIC_SHA256_LITERAL[family]
+        )
+        weighted_lagrangian = row["weighted_bulk_lagrangian_AST"]
+        assert weighted_lagrangian["operator"] == "scale"
+        assert _coefficient_signature(weighted_lagrangian) == (
+            _WARD_WEIGHT_LITERAL[family]
+        )
+        assert weighted_lagrangian["arguments"][0]["operator"] == "atom"
+        assert weighted_lagrangian["arguments"][0]["atom"].startswith(
+            f"L:{component}:"
+        )
+
+
+def test_Ward_theta_and_Noether_current_ASTs_are_typed_and_exact(
+    report: dict,
+) -> None:
+    ward = report["differentiated_smooth_compact_support_bulk_Ward_identity"]
+    expected_formulas = {
+        "EH": "(M5^3/2)*theta_EH[g,Delta g^(-1)]",
+        "Omega_kinetic": "-G*DeltaOmega*star(dOmega)",
+        "Omega_potential": "0",
+        "P_kinetic": "-Z*<Delta phi+3*phi*DeltaOmega/(2*Omega),star(P)>",
+        "full_V4": "0",
+        "BF": "-<B wedge Delta A>",
+    }
+    for row in ward["rows"]:
+        assert row["theta_formula"] == expected_formulas[row["family"]]
+        assert row["theta_AST"] == row["independent_expected_theta_AST"]
+        assert row["Noether_current_AST"] == (
+            row["independent_expected_Noether_current_AST"]
+        )
+        assert row["Ward_five_form_lhs_AST"]["type"] == gate.asdict(
+            gate.FORM5
+        )
+        assert row["interior_product_i_zeta_L_AST"]["type"] == gate.asdict(
+            gate.BULK_FORM4
+        )
+    assert len(ward["sides"]) == 2
+    for side in ward["sides"]:
+        assert side["pass"] is True
+        assert side["bulk_component_count"] == 6
+        assert "theta" in side["Noether_current_definition"]
+        assert "-i_zeta" in side["Noether_current_definition"]
+        assert side["component_reductions_zero"] is True
+        assert side["exact_real_AST_normalization"]["pass"] is True
+        assert side["exact_real_AST_normalization"][
+            "real_Ward_AST_consumed"
+        ] is True
+        assert side["Ward_five_form_lhs_AST"]["type"] == gate.asdict(
+            gate.FORM5
+        )
+
+
+def test_Ward_AST_has_literal_theta_signs_one_negative_iota_and_no_compensation(
+    report: dict,
+) -> None:
+    ward = report["differentiated_smooth_compact_support_bulk_Ward_identity"]
+    for row in ward["rows"]:
+        theta = row["theta_AST"]
+        theta_nodes = _ward_ast_nodes(theta)
+        current_nodes = _ward_ast_nodes(row["Noether_current_AST"])
+        euler_nodes = [
+            node
+            for expression in row["Euler_Lie_pairing_ASTs"]
+            for node in _ward_ast_nodes(expression)
+        ]
+        assert not any(
+            node["operator"] == "compensated_Lie_derivative"
+            for node in theta_nodes + current_nodes + euler_nodes
+        )
+        negative_iota_scales = [
+            node
+            for node in current_nodes
+            if node["operator"] == "scale"
+            and _coefficient_signature(node) == (-1, 1, ())
+            and node["arguments"][0]["operator"] == "interior_product"
+        ]
+        assert len(negative_iota_scales) == 1
+        iota = negative_iota_scales[0]["arguments"][0]
+        assert iota["type"] == {
+            "name": "bulk_four_form",
+            "dimension": 5,
+            "form_degree": 4,
+        }
+        assert iota["arguments"][0]["atom"] == f"zeta_{row['side']}"
+        assert iota["arguments"][1] == row["weighted_bulk_lagrangian_AST"]
+
+        if row["family"] == "EH":
+            assert theta["operator"] == "scale"
+            assert _coefficient_signature(theta) == (1, 2, (("M5", 3),))
+            assert theta["arguments"][0]["operator"] == (
+                "theta_EH_local_inverse_metric_axiom"
+            )
+            assert theta["arguments"][0]["arguments"][1]["operator"] == (
+                "inverse_metric_Lie_variation"
+            )
+        elif row["family"] == "Omega_kinetic":
+            assert theta["operator"] == "scale"
+            assert _coefficient_signature(theta) == (-1, 1, (("G", 1),))
+            assert theta["arguments"][0]["operator"] == (
+                "scalar_times_four_form"
+            )
+        elif row["family"] == "P_kinetic":
+            assert theta["operator"] == "add"
+            assert {
+                _coefficient_signature(node)
+                for node in theta["arguments"]
+            } == {
+                (-1, 1, (("Z", 1),)),
+                (-3, 2, (("Omega", -1), ("Z", 1))),
+            }
+            assert {
+                node["arguments"][0]["operator"]
+                for node in theta["arguments"]
+            } == {
+                "pair_associated_scalar_with_four_form",
+                "conformal_phi_deltaOmega_over_Omega_pair_starP",
+            }
+            star_p_nodes = [
+                node
+                for node in theta_nodes
+                if node["operator"] == "hodge_star_associated_one_form"
+            ]
+            assert len(star_p_nodes) == 2
+            for star_p in star_p_nodes:
+                assert star_p["arguments"][0]["atom"] == (
+                    f"field:g_{row['side']}:PB[F_{row['side']}]"
+                )
+                conformal_p = star_p["arguments"][1]
+                assert conformal_p["operator"] == "conformal_P"
+                d_phi, phi, d_log_omega = conformal_p["arguments"]
+                assert d_phi["operator"] == "covariant_derivative_phi"
+                assert d_phi["arguments"][0]["atom"] == (
+                    f"field:A_{row['side']}:PB[F_{row['side']}]"
+                )
+                assert d_phi["arguments"][1]["atom"] == (
+                    f"field:phi_{row['side']}:PB[F_{row['side']}]"
+                )
+                assert phi["atom"] == (
+                    f"field:phi_{row['side']}:PB[F_{row['side']}]"
+                )
+                assert d_log_omega["operator"] == "d_log_Omega"
+                assert d_log_omega["arguments"][0]["atom"] == (
+                    f"field:Omega_{row['side']}:PB[F_{row['side']}]"
+                )
+        elif row["family"] == "BF":
+            assert theta["operator"] == "scale"
+            assert _coefficient_signature(theta) == (-1, 1, ())
+            bf_theta = theta["arguments"][0]
+            assert bf_theta["operator"] == "B_wedge_delta_A"
+            assert bf_theta["arguments"][0]["atom"] == (
+                f"field:B_{row['side']}:PB[F_{row['side']}]"
+            )
+            assert bf_theta["arguments"][1]["operator"] == "Lie_derivative"
+            assert bf_theta["arguments"][1]["arguments"][1]["atom"] == (
+                f"field:A_{row['side']}:PB[F_{row['side']}]"
+            )
+        else:
+            assert row["family"] in {"Omega_potential", "full_V4"}
+            assert theta["operator"] == "zero"
+
+    for side in ward["sides"]:
+        current_nodes = _ward_ast_nodes(side["Noether_current_AST"])
+        assert len(
+            [node for node in current_nodes if node["operator"] == "interior_product"]
+        ) == 1
+        assert len(
+            [
+                node
+                for node in current_nodes
+                if node["operator"] == "scale"
+                and _coefficient_signature(node) == (-1, 1, ())
+                and node["arguments"][0]["operator"] == "interior_product"
+            ]
+        ) == 1
+
+
+def test_Ward_pointwise_naturality_Cartan_and_axioms_are_consumed_exactly(
+    report: dict,
+) -> None:
+    ward = report["differentiated_smooth_compact_support_bulk_Ward_identity"]
+    assert ward["pointwise_differentiated_naturality"] == (
+        "delta_zeta L=L_zeta L=d_5(i_zeta L), using Cartan and dL=0 for a 5-form"
+    )
+    assert set(ward["required_axioms"]) == gate.WARD_REQUIRED_AXIOMS
+    assert set(ward["available_axioms"]) == gate.WARD_REQUIRED_AXIOMS
+    assert set(ward["consumed_axioms"]) == gate.WARD_REQUIRED_AXIOMS
+    assert ward["missing_required_axioms"] == []
+    assert ward["unexpected_axioms"] == []
+    assert ward["exact_allowed_axiom_set"] is True
+    assert ward["every_required_axiom_consumed_exactly"] is True
+    cartan = ward["Cartan_same_leaf_binding"]
+    assert cartan["exact_integer_sign_ledger"]["pass"] is True
+    assert cartan["same_actual_A_phi_B_and_zeta_leaves"] is True
+    assert len(cartan["field_rows"]) == 6
+    assert len(cartan["zeta_rows"]) == 2
+    assert all(row["same_actual_field_leaf"] for row in cartan["field_rows"])
+    assert all(row["same_generator_leaf"] for row in cartan["zeta_rows"])
+    assert ward[
+        "compensated_variation_requires_separate_exact_gauge_current_bridge"
+    ] is True
+
+
+def test_Ward_support_is_strictly_interior_and_interface_is_not_cancelled(
+    report: dict,
+) -> None:
+    ward = report["differentiated_smooth_compact_support_bulk_Ward_identity"]
+    assert ward["support_contract"] == dict(
+        gate.EXPECTED_INTERIOR_SUPPORT_CONTRACT
+    )
+    assert ward["interface_terms_vanish_by_support_only"] is True
+    assert ward["natural_interface_equations_imposed"] is False
+    assert ward["BF_off_shell_oriented_incidence_cancelled"] is False
+    assert set(ward["interface_remainders_outside_this_theorem"]) == (
+        gate.EXPECTED_INTERFACE_REMAINDERS
+    )
+    assert ward["interface_remainders_recorded_exactly"] is True
+    assert ward["separate_reference_domain_i_zeta_L_added"] is False
+    assert ward["frozen_external_X_infinity_Ward_promoted"] is False
+    assert ward["Euler_equations_imposed"] is False
+    assert ward["interface_or_moving_Ward_claimed"] is False
+    assert ward["all_wider_claims_false"] is True
+    assert not any(ward["wider_claims"].values())
+
+
+def test_Ward_mutants_cover_current_theta_scope_bindings_and_promotions(
+    report: dict,
+) -> None:
+    mutants = report["differentiated_bulk_Ward_effective_mutants"]
+    assert mutants["pass"] is True
+    assert mutants["mutant_count"] == len(gate.WARD_MUTATIONS) == 42
+    assert set(mutants["rows"]) == gate.WARD_MUTATIONS
+    assert all(row["killed"] for row in mutants["rows"].values())
+    for required in (
+        "omit_i_zeta_L",
+        "flip_i_zeta_L",
+        "duplicate_i_zeta_L",
+        "omit_top_form_Cartan",
+        "infer_pointwise_from_integrated_only",
+        "omit_theta_EH",
+        "detach_theta_Omega_kinetic",
+        "spurious_theta_full_V4",
+        "EH_wrong_metric_variation_convention",
+        "component_omitted",
+        "wrong_action_weight",
+        "field_leaf_detached",
+        "zeta_detached",
+        "Cartan_connection_sign",
+        "Cartan_matter_sign",
+        "Cartan_omit_D_iB",
+        "compensated_substitution_without_gauge_bridge",
+        "support_trace_zero_only",
+        "support_allows_normal_component",
+        "omit_support_at_infinity",
+        "BF_offshell_cancelled",
+        "Green_interface_silently_dropped",
+        "embedding_remainder_omitted",
+        "intrinsic_d4_remainder_omitted",
+        "duplicate_reference_domain_i_zeta_L",
+        "frozen_X_infinity_promoted",
+        "Euler_equations_imposed",
+        "string_only_local_divergence",
+        "missing_required_axiom",
+        "unexpected_magic_axiom",
+        "interface_Ward_key_promoted",
+        "wider_Ward_key_promoted",
+    ):
+        assert mutants["rows"][required]["killed"] is True
+
+
+def test_Ward_mutations_change_the_claimed_objects_and_fail_independently() -> None:
+    prerequisites = {
+        "byte_pins_and_canonical_v5_2_action": True,
+        "finite_typed_bulk_top_form_naturality": True,
+        "formal_local_flow_chain_rule_and_Cartan_signs": True,
+        "scoped_literal_Green_ledger": True,
+    }
+    nominal = gate._differentiated_bulk_ward_ledger(prerequisites)
+    assert nominal["pass"] is True
+
+    for mutation, coefficient in (
+        ("omit_i_zeta_L", None),
+        ("flip_i_zeta_L", (1, 1, ())),
+        ("duplicate_i_zeta_L", (-2, 1, ())),
+    ):
+        ward = gate._differentiated_bulk_ward_ledger(
+            prerequisites, mutation=mutation
+        )
+        assert ward["pass"] is False
+        nodes = _ward_ast_nodes(ward["rows"][0]["Noether_current_AST"])
+        iota_scales = [
+            node
+            for node in nodes
+            if node["operator"] == "scale"
+            and node["arguments"][0]["operator"] == "interior_product"
+        ]
+        if coefficient is None:
+            assert iota_scales == []
+        else:
+            assert len(iota_scales) == 1
+            assert _coefficient_signature(iota_scales[0]) == coefficient
+        assert ward["rows"][0]["exact_reduction"]["residual_zero"] is False
+
+    trace_only = gate._differentiated_bulk_ward_ledger(
+        prerequisites, mutation="support_trace_zero_only"
+    )
+    assert trace_only["pass"] is False
+    assert trace_only["support_contract"][
+        "trace_zero_only_is_accepted_as_sufficient"
+    ] is True
+    assert trace_only["support_contract"][
+        "support_separated_from_a_full_collar_of_Sigma"
+    ] is False
+    assert trace_only["support_contract"][
+        "zeta_and_all_jets_zero_on_that_collar"
+    ] is False
+    assert trace_only["interface_terms_vanish_by_support_only"] is False
+
+    normal_allowed = gate._differentiated_bulk_ward_ledger(
+        prerequisites, mutation="support_allows_normal_component"
+    )
+    assert normal_allowed["pass"] is False
+    assert normal_allowed["support_contract"][
+        "normal_component_at_Sigma_is_allowed"
+    ] is True
+    assert normal_allowed["interface_terms_vanish_by_support_only"] is False
+
+    infinity_omitted = gate._differentiated_bulk_ward_ledger(
+        prerequisites, mutation="omit_support_at_infinity"
+    )
+    assert infinity_omitted["pass"] is False
+    assert infinity_omitted["support_contract"][
+        "compact_support_at_bulk_infinity"
+    ] is False
+
+    eh_omitted = gate._differentiated_bulk_ward_ledger(
+        prerequisites, mutation="omit_theta_EH"
+    )
+    assert eh_omitted["pass"] is False
+    assert eh_omitted["rows"][0]["family"] == "EH"
+    assert eh_omitted["rows"][0]["theta_AST"]["operator"] == "zero"
+
+    compensated = gate._differentiated_bulk_ward_ledger(
+        prerequisites,
+        mutation="compensated_substitution_without_gauge_bridge",
+    )
+    assert compensated["pass"] is False
+    assert compensated["ordinary_Lie_variation_is_primary"] is False
+    compensated_operators = {
+        node["operator"]
+        for row in compensated["rows"]
+        for expression in (
+            [row["theta_AST"]]
+            + row["Euler_Lie_pairing_ASTs"]
+        )
+        for node in _ward_ast_nodes(expression)
+    }
+    assert "compensated_Lie_derivative" in compensated_operators
+
+    bf_cancelled = gate._differentiated_bulk_ward_ledger(
+        prerequisites, mutation="BF_offshell_cancelled"
+    )
+    assert bf_cancelled["pass"] is False
+    assert bf_cancelled["BF_off_shell_oriented_incidence_cancelled"] is True
+
+    promoted = gate._differentiated_bulk_ward_ledger(
+        prerequisites, mutation="wider_Ward_key_promoted"
+    )
+    assert promoted["pass"] is False
+    assert promoted["wider_claims"]["full_bulk_diffeomorphism_Ward_pass"] is True
+    assert promoted["all_wider_claims_false"] is False
+
+    interface_promoted = gate._differentiated_bulk_ward_ledger(
+        prerequisites, mutation="interface_Ward_key_promoted"
+    )
+    assert interface_promoted["pass"] is False
+    assert interface_promoted["wider_claims"][
+        "interface_reaching_bulk_Ward_identity_pass"
+    ] is True
+    assert interface_promoted["interface_or_moving_Ward_claimed"] is True
+    assert interface_promoted["all_wider_claims_false"] is False
+
+    detached = gate.build_component_expressions("baseline")
+    detached["BF_bulk_plus"] = gate._replace_semantic_leaf_role(
+        detached["BF_bulk_plus"], "A", "detached_A"
+    )
+    detached_ledger = gate._differentiated_bulk_ward_ledger(
+        prerequisites, components=detached
+    )
+    assert detached_ledger["pass"] is False
+    detached_bf = next(
+        row
+        for row in detached_ledger["rows"]
+        if row["component"] == "BF_bulk_plus"
+    )
+    assert detached_bf["pass"] is False
+    assert detached_bf["leaf_multiset_exact"] is False
+
+    swapped = gate.build_component_expressions("baseline")
+    swapped["EH_bulk_plus"], swapped["Omega_kinetic_bulk_plus"] = (
+        swapped["Omega_kinetic_bulk_plus"],
+        swapped["EH_bulk_plus"],
+    )
+    assert gate._differentiated_bulk_ward_ledger(
+        prerequisites, components=swapped
+    )["pass"] is False
+
+
+def test_real_Ward_AST_normalizer_rejects_detached_d5_and_Euler_producers(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    prerequisites = {
+        "byte_pins_and_canonical_v5_2_action": True,
+        "finite_typed_bulk_top_form_naturality": True,
+        "formal_local_flow_chain_rule_and_Cartan_signs": True,
+        "scoped_literal_Green_ledger": True,
+    }
+    original_d5 = gate._ward_d5
+    monkeypatch.setattr(
+        gate,
+        "_ward_d5",
+        lambda _value: gate._ward_atom(
+            "DETACHED_FIVE_FORM_NOT_D_OF_CURRENT", gate.FORM5
+        ),
+    )
+    detached_d5 = gate._differentiated_bulk_ward_ledger(prerequisites)
+    assert detached_d5["pass"] is False
+    assert all(row["pass"] is False for row in detached_d5["rows"])
+    assert all(
+        row["exact_reduction"]["d5_node_count"] == 0
+        and row["exact_reduction"]["d5_is_applied_to_typed_current_AST"]
+        is False
+        and row["exact_reduction"]["pass"] is False
+        for row in detached_d5["rows"]
+    )
+    assert all(
+        side["exact_real_AST_normalization"]["pass"] is False
+        for side in detached_d5["sides"]
+    )
+
+    monkeypatch.setattr(gate, "_ward_d5", original_d5)
+    original_euler_pair = gate._ward_euler_pair
+
+    def detached_euler_pair(
+        component: str,
+        role: str,
+        variation: gate.TypedWardExpression,
+        weight: gate.ExactCoefficient,
+    ) -> gate.TypedWardExpression:
+        return original_euler_pair(
+            f"DETACHED__{component}", role, variation, weight
+        )
+
+    monkeypatch.setattr(gate, "_ward_euler_pair", detached_euler_pair)
+    detached_euler = gate._differentiated_bulk_ward_ledger(prerequisites)
+    assert detached_euler["pass"] is False
+    assert all(row["Euler_pairings_exact"] is False for row in detached_euler["rows"])
+    assert all(
+        row["exact_reduction"]["Euler_literal_fingerprints_exact"] is False
+        and row["exact_reduction"]["pass"] is False
+        for row in detached_euler["rows"]
+    )
+    assert all(
+        side["exact_real_AST_normalization"]["pass"] is False
+        for side in detached_euler["sides"]
+    )
+
+
+def test_real_Ward_AST_rejects_detached_variation_operator_zeta_and_field(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    prerequisites = {
+        "byte_pins_and_canonical_v5_2_action": True,
+        "finite_typed_bulk_top_form_naturality": True,
+        "formal_local_flow_chain_rule_and_Cartan_signs": True,
+        "scoped_literal_Green_ledger": True,
+    }
+    original = gate._ward_variation_for_role
+
+    def detached_atom(
+        role: str,
+        _field: gate.TypedWardExpression,
+        _zeta: gate.TypedWardExpression,
+        *,
+        compensated: bool = False,
+    ) -> gate.TypedWardExpression:
+        del compensated
+        output = gate.INVERSE_METRIC5 if role == "g" else gate.WARD_FIELD_TYPES[role]
+        return gate._ward_atom(f"DETACHED_LIE_VARIATION:{role}", output)
+
+    def detached_zeta(
+        role: str,
+        field: gate.TypedWardExpression,
+        _zeta: gate.TypedWardExpression,
+        *,
+        compensated: bool = False,
+    ) -> gate.TypedWardExpression:
+        return original(
+            role,
+            field,
+            gate._ward_atom(f"DETACHED_ZETA:{role}", gate.VECTOR5),
+            compensated=compensated,
+        )
+
+    def detached_field(
+        role: str,
+        field: gate.TypedWardExpression,
+        zeta: gate.TypedWardExpression,
+        *,
+        compensated: bool = False,
+    ) -> gate.TypedWardExpression:
+        return original(
+            role,
+            gate._ward_atom(f"DETACHED_FIELD:{role}", field.type_tag),
+            zeta,
+            compensated=compensated,
+        )
+
+    def detached_operator(
+        role: str,
+        field: gate.TypedWardExpression,
+        zeta: gate.TypedWardExpression,
+        *,
+        compensated: bool = False,
+    ) -> gate.TypedWardExpression:
+        del compensated
+        output = gate.INVERSE_METRIC5 if role == "g" else field.type_tag
+        return gate._ward_typed_operator(
+            f"DETACHED_LIE_OPERATOR:{role}",
+            (zeta, field),
+            (gate.VECTOR5, field.type_tag),
+            output,
+        )
+
+    variants = (
+        ("atom", detached_atom, "variation_arity_exact"),
+        ("zeta", detached_zeta, "zeta_leaf_exact"),
+        ("field", detached_field, "field_leaf_exact"),
+        ("operator", detached_operator, "variation_operator_exact"),
+    )
+    for _name, producer, failed_binding in variants:
+        monkeypatch.setattr(gate, "_ward_variation_for_role", producer)
+        ward = gate._differentiated_bulk_ward_ledger(prerequisites)
+        assert ward["pass"] is False
+        assert all(row["pass"] is False for row in ward["rows"])
+        assert all(
+            row["Euler_pairings_exact"] is False
+            and row[
+                "Euler_variations_exact_ordinary_Lie_same_side_bindings"
+            ]
+            is False
+            and row["exact_reduction"]["pass"] is False
+            for row in ward["rows"]
+        )
+        assert all(
+            any(
+                binding[failed_binding] is False
+                for binding in row["exact_reduction"][
+                    "Euler_variation_bindings"
+                ]["rows"]
+            )
+            for row in ward["rows"]
+        )
+        assert all(
+            side["pass"] is False
+            and side["exact_real_AST_normalization"]["pass"] is False
+            for side in ward["sides"]
+        )
+
+    monkeypatch.setattr(gate, "_ward_variation_for_role", original)
+    monkeypatch.setattr(
+        gate,
+        "_ward_derived_P",
+        lambda _fields: gate._ward_atom(
+            "DETACHED_CONFORMAL_P", gate.ASSOCIATED1_5
+        ),
+    )
+    detached_p = gate._differentiated_bulk_ward_ledger(prerequisites)
+    assert detached_p["pass"] is False
+    p_rows = [row for row in detached_p["rows"] if row["family"] == "P_kinetic"]
+    assert len(p_rows) == 2
+    assert all(row["theta_exact"] is False for row in p_rows)
+    assert all(row["exact_reduction"]["pass"] is False for row in p_rows)
+
+
+def test_independent_theta_oracle_rejects_shared_detached_star_P(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    prerequisites = {
+        "byte_pins_and_canonical_v5_2_action": True,
+        "finite_typed_bulk_top_form_naturality": True,
+        "formal_local_flow_chain_rule_and_Cartan_signs": True,
+        "scoped_literal_Green_ledger": True,
+    }
+    original = gate._ward_typed_operator
+
+    def detached_shared_star_p(
+        operator: str,
+        arguments: tuple[gate.TypedWardExpression, ...],
+        expected_inputs: tuple[gate.GeometricType, ...],
+        output: gate.GeometricType,
+    ) -> gate.TypedWardExpression:
+        actual_arguments = tuple(arguments)
+        if (
+            operator == "hodge_star_associated_one_form"
+            and len(actual_arguments) == 2
+            and actual_arguments[1].operator == "conformal_P"
+        ):
+            return gate._ward_atom(
+                "DETACHED_SHARED_P_NOT_CONFORMAL_P", output
+            )
+        return original(
+            operator, actual_arguments, expected_inputs, output
+        )
+
+    monkeypatch.setattr(gate, "_ward_typed_operator", detached_shared_star_p)
+    ward = gate._differentiated_bulk_ward_ledger(prerequisites)
+    assert ward["pass"] is False
+    assert sum(row["pass"] for row in ward["rows"]) == 10
+    p_rows = [row for row in ward["rows"] if row["family"] == "P_kinetic"]
+    assert len(p_rows) == 2
+    assert all(row["pass"] is False for row in p_rows)
+    assert all(row["theta_exact"] is False for row in p_rows)
+    assert all(
+        row["theta_deep_literal_fingerprint_exact"] is False
+        and row["exact_reduction"]["theta_deep_literal_fingerprint_exact"]
+        is False
+        and row["exact_reduction"]["pass"] is False
+        for row in p_rows
+    )
+    assert all(
+        "DETACHED_SHARED_P_NOT_CONFORMAL_P" in json.dumps(row["theta_AST"])
+        and "DETACHED_SHARED_P_NOT_CONFORMAL_P"
+        not in json.dumps(row["independent_expected_theta_AST"])
+        for row in p_rows
+    )
+    assert all(
+        side["pass"] is False
+        and side["exact_real_AST_normalization"][
+            "theta_deep_literal_fingerprint_exact"
+        ]
+        is False
+        and side["exact_real_AST_normalization"]["pass"] is False
+        for side in ward["sides"]
+    )
+
+
+def test_independent_Euler_type_oracle_rejects_every_shared_role_type_mutation(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    assert dict(gate.EXPECTED_WARD_EULER_TYPES_LITERAL) == (
+        _WARD_EULER_TYPE_SPECS_LITERAL
+    )
+    prerequisites = {
+        "byte_pins_and_canonical_v5_2_action": True,
+        "finite_typed_bulk_top_form_naturality": True,
+        "formal_local_flow_chain_rule_and_Cartan_signs": True,
+        "scoped_literal_Green_ledger": True,
+    }
+    original_types = dict(gate.WARD_EULER_TYPES)
+    wrong_types = {
+        "g": gate.SCALAR_EULER5,
+        "Omega": gate.METRIC_EULER5,
+        "phi": gate.SCALAR_EULER5,
+        "A": gate.SCALAR_EULER5,
+        "B": gate.SCALAR_EULER5,
+    }
+    for role, wrong_type in wrong_types.items():
+        monkeypatch.setitem(gate.WARD_EULER_TYPES, role, wrong_type)
+        ward = gate._differentiated_bulk_ward_ledger(prerequisites)
+        assert ward["pass"] is False
+        affected_rows = [
+            row for row in ward["rows"] if role in row["actual_field_roles"]
+        ]
+        assert affected_rows
+        assert all(row["pass"] is False for row in affected_rows)
+        assert all(
+            row["Euler_pairings_exact"] is False
+            and row["exact_reduction"]["pass"] is False
+            for row in affected_rows
+        )
+        assert all(
+            binding["Euler_input_type_exact"] is False
+            and binding["real_pairing_input_types_exact"] is False
+            for row in affected_rows
+            for binding in row["exact_reduction"][
+                "Euler_variation_bindings"
+            ]["rows"]
+            if binding["role"] == role
+        )
+        assert all(
+            side["pass"] is False
+            and side["exact_real_AST_normalization"]["pass"] is False
+            for side in ward["sides"]
+        )
+        monkeypatch.setitem(
+            gate.WARD_EULER_TYPES, role, original_types[role]
+        )
+
+
+def test_exec_source_mutations_of_all_Ward_base_type_symbols_fail_closed() -> None:
+    source_path = Path(gate.__file__)
+    source = source_path.read_text(encoding="utf-8")
+    definitions = {
+        "METRIC5": 'METRIC5 = GeometricType("Lorentzian_metric", 5)',
+        "INVERSE_METRIC5": 'INVERSE_METRIC5 = GeometricType("inverse_metric", 5)',
+        "VECTOR5": 'VECTOR5 = GeometricType("vector", 5)',
+        "SCALAR5": 'SCALAR5 = GeometricType("scalar", 5, 0)',
+        "COVECTOR5": 'COVECTOR5 = GeometricType("covector", 5, 1)',
+        "FORM5": 'FORM5 = GeometricType("top_form", 5, 5)',
+        "BULK_FORM4": 'BULK_FORM4 = GeometricType("bulk_four_form", 5, 4)',
+        "ASSOCIATED0_5": (
+            'ASSOCIATED0_5 = GeometricType("SO3_associated_form", 5, 0)'
+        ),
+        "ASSOCIATED1_5": (
+            'ASSOCIATED1_5 = GeometricType("SO3_associated_form", 5, 1)'
+        ),
+        "ASSOCIATED4_5": (
+            'ASSOCIATED4_5 = GeometricType("SO3_associated_form", 5, 4)'
+        ),
+        "CONNECTION1_5": (
+            'CONNECTION1_5 = GeometricType("SO3_connection", 5, 1)'
+        ),
+        "ADJOINT2_5": (
+            'ADJOINT2_5 = GeometricType("SO3_adjoint_form", 5, 2)'
+        ),
+        "ADJOINT3_5": (
+            'ADJOINT3_5 = GeometricType("SO3_adjoint_form", 5, 3)'
+        ),
+        "ADJOINT4_5": (
+            'ADJOINT4_5 = GeometricType("SO3_adjoint_form", 5, 4)'
+        ),
+        "METRIC_EULER5": (
+            'METRIC_EULER5 = GeometricType("inverse_metric_Euler_top_form", 5, 5)'
+        ),
+        "SCALAR_EULER5": (
+            'SCALAR_EULER5 = GeometricType("scalar_Euler_top_form", 5, 5)'
+        ),
+        "ASSOCIATED_EULER5": (
+            'ASSOCIATED_EULER5 = GeometricType('
+            '"SO3_associated_Euler_top_form", 5, 5)'
+        ),
+    }
+    for index, (symbol, original_line) in enumerate(definitions.items()):
+        assert source.count(original_line) == 1
+        name, dimension, degree = _WARD_TYPE_SPECS_LITERAL[symbol]
+        if symbol == "ADJOINT4_5":
+            mutated_spec = ("WRONG_A_EULER_CARRIER", 5, 5)
+        elif index % 3 == 0:
+            mutated_spec = (f"WRONG_{symbol}", dimension, degree)
+        elif index % 3 == 1:
+            mutated_spec = (name, dimension + 1, degree)
+        else:
+            mutated_spec = (name, dimension, 0 if degree is None else (degree + 1) % 6)
+        mutated_line = (
+            f'{symbol} = GeometricType("{mutated_spec[0]}", '
+            f"{mutated_spec[1]}, {mutated_spec[2]!r})"
+        )
+        mutated_source = source.replace(original_line, mutated_line, 1)
+        module_name = f"_ward_type_exec_mutant_{index}_{symbol}"
+        mutant = types.ModuleType(module_name)
+        mutant.__file__ = str(source_path)
+        sys.modules[module_name] = mutant
+        try:
+            exec(
+                compile(mutated_source, str(source_path), "exec"),
+                mutant.__dict__,
+            )
+            type_ledger = mutant._ward_runtime_type_literal_ledger()
+            assert type_ledger["pass"] is False
+            mutated_row = next(
+                row for row in type_ledger["rows"] if row["symbol"] == symbol
+            )
+            assert mutated_row["attributes_match_literal"] is False
+            assert mutated_row["asdict_matches_literal"] is False
+            prerequisites = {
+                "byte_pins_and_canonical_v5_2_action": True,
+                "finite_typed_bulk_top_form_naturality": True,
+                "formal_local_flow_chain_rule_and_Cartan_signs": True,
+                "scoped_literal_Green_ledger": True,
+            }
+            try:
+                ward = mutant._differentiated_bulk_ward_ledger(prerequisites)
+            except mutant.NaturalityCertificateError:
+                pass
+            else:
+                assert ward["pass"] is False
+        finally:
+            sys.modules.pop(module_name, None)
+
+
+def test_Ward_API_and_typed_form_operators_fail_closed() -> None:
+    prerequisites = {name: True for name in gate.WARD_REQUIRED_PREREQUISITES}
+    assert gate._differentiated_bulk_ward_ledger(prerequisites)["pass"] is True
+    assert gate._differentiated_bulk_ward_ledger({})["pass"] is False
+    one_false = dict(prerequisites)
+    one_false["scoped_literal_Green_ledger"] = False
+    assert gate._differentiated_bulk_ward_ledger(one_false)["pass"] is False
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._differentiated_bulk_ward_ledger(
+            prerequisites, mutation="unknown"
+        )
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._ward_interior_product(
+            gate._ward_atom("not_zeta", gate.SCALAR5),
+            gate._ward_atom("L", gate.FORM5),
+        )
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._ward_d5(gate._ward_atom("wrong_degree", gate.FORM5))
+
+
+def test_source_AST_binds_Ward_pass_to_both_ledgers_and_quarantines_wider_keys() -> None:
+    source = Path(gate.__file__).read_text(encoding="utf-8")
+    tree = ast.parse(source)
+    build_report_node = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef) and node.name == "build_report"
+    )
+    decision_assignment = next(
+        node
+        for node in build_report_node.body
+        if isinstance(node, ast.AnnAssign)
+        and isinstance(node.target, ast.Name)
+        and node.target.id == "decision"
+    )
+    assert isinstance(decision_assignment.value, ast.Dict)
+    decision_nodes = {
+        key.value: value
+        for key, value in zip(
+            decision_assignment.value.keys,
+            decision_assignment.value.values,
+            strict=True,
+        )
+        if isinstance(key, ast.Constant) and isinstance(key.value, str)
+    }
+    core_assignment = next(
+        node
+        for node in build_report_node.body
+        if isinstance(node, ast.Assign)
+        and len(node.targets) == 1
+        and isinstance(node.targets[0], ast.Name)
+        and node.targets[0].id == "core"
+    )
+    assert isinstance(core_assignment.value, ast.Dict)
+    core_nodes = {
+        key.value: value
+        for key, value in zip(
+            core_assignment.value.keys, core_assignment.value.values, strict=True
+        )
+        if isinstance(key, ast.Constant) and isinstance(key.value, str)
+    }
+    ward_key = (
+        "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass"
+    )
+    assert isinstance(core_nodes[ward_key], ast.Name)
+    assert core_nodes[ward_key].id == "finite_differentiated_bulk_ward"
+    for key in (
+        "full_bulk_diffeomorphism_Ward_pass",
+        "fixed_reference_S_rel_diffeomorphism_Ward_pass",
+        "complete_moving_embedding_Ward_pass",
+        "C1_ACTION_pass",
+        "N1_ACTION_pass",
+        "P4_full_same_action_pass",
+        "B4_pass",
+        "B5_pass",
+    ):
+        value = decision_nodes[key]
+        assert isinstance(value, ast.Constant) and value.value is False
+
+    ward_assignment = next(
+        node
+        for node in build_report_node.body
+        if isinstance(node, ast.Assign)
+        and len(node.targets) == 1
+        and isinstance(node.targets[0], ast.Name)
+        and node.targets[0].id == "finite_differentiated_bulk_ward"
+    )
+    assert isinstance(ward_assignment.value, ast.Call)
+    assert isinstance(ward_assignment.value.func, ast.Name)
+    assert ward_assignment.value.func.id == "bool"
+    assert len(ward_assignment.value.args) == 1
+    conjunction = ward_assignment.value.args[0]
+    assert isinstance(conjunction, ast.BoolOp)
+    assert isinstance(conjunction.op, ast.And)
+    pass_inputs = {
+        node.value.id
+        for node in conjunction.values
+        if isinstance(node, ast.Subscript)
+        and isinstance(node.value, ast.Name)
+        and isinstance(node.slice, ast.Constant)
+        and node.slice.value == "pass"
+    }
+    assert pass_inputs == {
+        "differentiated_bulk_ward",
+        "differentiated_bulk_ward_mutants",
+    }
+
+    ledger_node = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_differentiated_bulk_ward_ledger"
+    )
+    called_names = {
+        node.func.id
+        for node in ast.walk(ledger_node)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+    }
+    assert {
+        "_ward_euler_pair",
+        "_ward_theta_ast",
+        "_ward_interior_product",
+        "_independent_ward_interior_product",
+        "_ward_d5",
+        "_normalize_real_ward_ast",
+        "_ward_runtime_type_literal_ledger",
+    } <= called_names
+    assert "_ward_reduction_trace" not in called_names
+    normalization_calls = [
+        node
+        for node in ast.walk(ledger_node)
+        if isinstance(node, ast.Call)
+        and isinstance(node.func, ast.Name)
+        and node.func.id == "_normalize_real_ward_ast"
+    ]
+    assert len(normalization_calls) == 2
+    pass_dependencies = {
+        (node.value.id, node.slice.value)
+        for node in ast.walk(ledger_node)
+        if isinstance(node, ast.Subscript)
+        and isinstance(node.value, ast.Name)
+        and isinstance(node.slice, ast.Constant)
+        and isinstance(node.slice.value, str)
+        and node.value.id in {"reduction", "side_normalization"}
+    }
+    assert ("reduction", "pass") in pass_dependencies
+    assert ("side_normalization", "pass") in pass_dependencies
+    runtime_type_pass_dependencies = [
+        node
+        for node in ast.walk(ledger_node)
+        if isinstance(node, ast.Subscript)
+        and isinstance(node.value, ast.Name)
+        and node.value.id == "runtime_type_literal_ledger"
+        and isinstance(node.slice, ast.Constant)
+        and node.slice.value == "pass"
+    ]
+    assert len(runtime_type_pass_dependencies) == 1
+
+    expected_euler_node = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_independent_expected_euler_terms"
+    )
+    expected_euler_calls = {
+        node.func.id
+        for node in ast.walk(expected_euler_node)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+    }
+    assert "_independent_expected_euler_pair" in expected_euler_calls
+    assert "_independent_expected_ward_variation" in expected_euler_calls
+    assert "_ward_euler_pair" not in expected_euler_calls
+    assert "_ward_variation_for_role" not in expected_euler_calls
+    expected_euler_pair_node = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_independent_expected_euler_pair"
+    )
+    expected_euler_pair_names = {
+        node.id for node in ast.walk(expected_euler_pair_node) if isinstance(node, ast.Name)
+    }
+    assert "WARD_EULER_TYPES" not in expected_euler_pair_names
+    assert "WARD_FIELD_TYPES" not in expected_euler_pair_names
+    assert "_independent_expected_ward_euler_type" in expected_euler_pair_names
+    assert "_independent_expected_ward_field_type" in expected_euler_pair_names
+    expected_variation_node = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_independent_expected_ward_variation"
+    )
+    expected_variation_calls = {
+        node.func.id
+        for node in ast.walk(expected_variation_node)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+    }
+    assert "_ward_variation_for_role" not in expected_variation_calls
+    assert "_ward_lie" not in expected_variation_calls
+    assert "_ward_inverse_metric_lie" not in expected_variation_calls
+    assert "_ward_typed_operator" not in expected_variation_calls
+    assert "_independent_ward_operator" in expected_variation_calls
+    expected_theta_node = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_independent_expected_theta_ast"
+    )
+    expected_theta_calls = {
+        node.func.id
+        for node in ast.walk(expected_theta_node)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+    }
+    assert "_ward_variation_for_role" not in expected_theta_calls
+    assert "_ward_lie" not in expected_theta_calls
+    assert "_ward_derived_P" not in expected_theta_calls
+    assert "_ward_typed_operator" not in expected_theta_calls
+    assert "_independent_expected_ward_variation" in expected_theta_calls
+    assert "_independent_expected_derived_P" in expected_theta_calls
+    assert "_independent_ward_operator" in expected_theta_calls
+    expected_p_node = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_independent_expected_derived_P"
+    )
+    expected_p_calls = {
+        node.func.id
+        for node in ast.walk(expected_p_node)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+    }
+    assert "_ward_typed_operator" not in expected_p_calls
+    assert expected_p_calls == {
+        "_independent_expected_ward_type",
+        "_independent_ward_operator",
+    }
+    normalizer_node = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_normalize_real_ward_ast"
+    )
+    normalizer_calls = {
+        node.func.id
+        for node in ast.walk(normalizer_node)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+    }
+    assert {
+        "_ward_direct_sum_terms",
+        "_ward_scaled_payload",
+        "_ward_euler_binding_atoms",
+        "_ward_euler_variation_binding_ledger",
+        "_independent_ward_interior_product",
+        "_ward_ast_sha256",
+    } <= normalizer_calls
+    variation_ledger_node = next(
+        node
+        for node in tree.body
+        if isinstance(node, ast.FunctionDef)
+        and node.name == "_ward_euler_variation_binding_ledger"
+    )
+    variation_ledger_names = {
+        node.id for node in ast.walk(variation_ledger_node) if isinstance(node, ast.Name)
+    }
+    assert "WARD_EULER_TYPES" not in variation_ledger_names
+    assert "WARD_FIELD_TYPES" not in variation_ledger_names
+    assert "_independent_expected_ward_euler_type" in variation_ledger_names
+    assert "_independent_expected_ward_field_type" in variation_ledger_names
+    assert "_ward_reduction_trace" not in source
+    source_strings = {
+        node.value
+        for node in ast.walk(tree)
+        if isinstance(node, ast.Constant) and isinstance(node.value, str)
+    }
+    assert "local_EH_first_variation_in_inverse_metric_convention" in source_strings
+    assert "support_separated_from_a_full_collar_of_Sigma" in source_strings
+    assert "J_zeta=theta(X,L_zeta X)-i_zeta L" in source_strings
+    assert source.count("def _differentiated_bulk_ward_ledger(") == 1
+
+
 def test_transformed_pair_does_not_promote_frozen_background_gauge(report: dict) -> None:
     exclusion = report["excluded_fixed_background_relative_contract"]
     assert exclusion["transformed_pair"]["pair_covariance_exact"] is True
@@ -1093,7 +2404,7 @@ def test_transformed_pair_does_not_promote_frozen_background_gauge(report: dict)
     )
 
 
-def test_scoped_Green_ledger_is_promoted_but_every_wider_Ward_key_stays_false(
+def test_scoped_Green_and_interior_Ward_are_promoted_but_wider_keys_stay_false(
     report: dict,
 ) -> None:
     decision = report["decision"]
@@ -1111,13 +2422,15 @@ def test_scoped_Green_ledger_is_promoted_but_every_wider_Ward_key_stays_false(
     ] is True
     assert decision["oriented_BF_incidence_aggregation_exact_pass"] is True
     assert decision["literal_bulk_interface_Green_ledger_pass"] is True
+    assert decision[
+        "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass"
+    ] is True
     assert report["theorem_domain"][
         "full_affine_connection_trace_transport_in_this_certificate"
     ] is True
     for key in (
         "fixed_reference_S_rel_diffeomorphism_Ward_pass",
         "oriented_BF_incidence_cancellation_exact_pass",
-        "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass",
         "full_bulk_diffeomorphism_Ward_pass",
         "complete_moving_embedding_Ward_pass",
         "complete_v5_2_all_field_normal_embedding_pass",
@@ -1136,8 +2449,8 @@ def test_scoped_Green_ledger_is_promoted_but_every_wider_Ward_key_stays_false(
         assert decision[key] is False
     opens = report["open_local_Ward_obligations"]
     assert set(opens) == {
-        "differentiated_local_Ward_identity",
-        "Noether_current_definition",
+        "interface_reaching_bulk_Ward_identity",
+        "full_bulk_interface_combination",
         "moving_embedding_and_intrinsic_d4_expansion",
     }
     assert "does not close" in report["explicit_exclusions"]["promotion"]
