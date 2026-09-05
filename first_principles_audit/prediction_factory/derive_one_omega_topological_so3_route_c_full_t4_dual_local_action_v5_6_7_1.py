@@ -3,12 +3,13 @@
 
 This is the incremental M3 delivery after the full-T^4 M1+M2 primitives in
 v5.6.7.  It implements a scalar truncated Taylor algebra, an SO(3) exponential
-over that algebra, and the common-first C2 decoder at one full-T4 collar point.
-The decoder returns ambient X64, pulled X64, pulled reference metric 15 and
-their ordered X79 concatenation, each with primal and eta value/5D two-jet.
-Despite ``dual_local_action`` in the reserved filename, this delivery does NOT
-implement a local density, a local density JVP, an integrated action, or
-quadrature.
+over that algebra, the common-first C2 decoder at one full-T4 collar point, and
+twenty separate local density values with exact eta-direction JVPs.  The
+decoder returns ambient X64, pulled X64, pulled reference metric 15 and their
+ordered X79 concatenation, each with primal and eta value/5D two-jet.  The
+density API keeps its twelve bulk, two GHY and six shared-interface outputs on
+their distinct domains; it deliberately does not form a pointwise S_total and
+does not implement integration or quadrature.
 
 The algebra is
 
@@ -33,9 +34,11 @@ wider-domain implementation must use audited scaling/squaring plus interval or
 multiprecision error control before relaxing either guard.
 
 TRUE decision keys cover only the mixed algebra, sampled analytic identities,
-sampled SO(3) regularity/orthogonality/JVP consistency, and the decoder sampled
-against byte-pinned finite-N oracles.  Density, action, quadrature, margins,
-bridge, C1/N1, and B4/B5 keys remain FALSE.
+sampled SO(3) regularity/orthogonality/JVP consistency, the decoder sampled
+against byte-pinned finite-N oracles, and the three local-density domains
+sampled at N=1,2,3 against byte-pinned Torch Route A+C2 values and
+``torch.func.jvp``.  Integrated action, quadrature, margins, bridge, C1/N1,
+and B4/B5 keys remain FALSE.
 """
 
 from __future__ import annotations
@@ -44,7 +47,7 @@ import base64
 import hashlib
 import importlib.util
 from functools import lru_cache
-from itertools import product
+from itertools import permutations, product
 import json
 import math
 from numbers import Real
@@ -70,6 +73,19 @@ POINTWISE_ORACLE_SCHEMA = (
     "holo.one-omega-topological-so3-restricted-spectral-family-"
     "v5-6-4-2-pointwise-primitive-bundle.v1"
 )
+TORCH_C2_ORACLE_PATH = HERE / "derive_one_omega_topological_so3_torch_c2_multin_v5_6_5_6.py"
+TORCH_C2_ORACLE_SHA256 = "2c3fb9adbaad90a77fd5cf1fd7df9bd61c2e4d1e92dbffeff4f3ffaa31ab7f6b"
+TORCH_ROUTE_A_WRAPPER_SHA256 = "5c24361ba431888ccaf473ba2ab17aa00354258ba70c31bb81bfb77ebf6d56b6"
+TORCH_ROUTE_A_CORE_SHA256 = "dfb1692b3af96c1827ad7fd435b0de7a2af89dd7535a328bc49ba5431d492a7c"
+C2_BUNDLE_SHA256 = "1f6a0234a536c05119ad6a0dbdbf2ccd8cb555e8eec43e4c1dfefd4626227bdf"
+LITERAL_ACTION_SHA256 = "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a"
+ROUTE_C_ORACLE_PATH = HERE / (
+    "derive_one_omega_topological_so3_multin_independent_euler_green_route_c_v5_6_6_3.py"
+)
+ROUTE_C_ORACLE_SHA256 = "87cd1e05184a9fb2703faa08eecf5aa8544f4cf24ba8c12dd830828888821d0b"
+ROUTE_C_ORACLE_SCHEMA = (
+    "holo.one-omega-topological-so3-multin-independent-euler-green-route-c-v5-6-6-3.v1"
+)
 C2_BUNDLE_SCHEMA = (
     "holo.one-omega-topological-so3-restricted-spectral-family-"
     "v5-6-4-4-c2-radial-primitive-bundle.v1"
@@ -94,6 +110,29 @@ B_TRIPLES = tuple(
     for k in range(j + 1, 5)
 )
 REFERENCE_METRIC_DIAGONAL = (-1.64, 1.17, 1.31, 1.46, 1.17)
+BULK_SECTORS = ("EH", "Omega_kinetic", "Omega_potential", "P_kinetic", "full_V4", "BF")
+INTERFACE_SECTORS = ("wall", "K_foliation", "R", "R_squared", "a_squared", "Robin")
+LOCAL_DENSITY_COMPONENTS = tuple(
+    name
+    for side in SIDES
+    for name in tuple(f"{sector}_bulk_{side}" for sector in BULK_SECTORS)
+    + (f"GHY_{side}",)
+) + INTERFACE_SECTORS
+ACTION_COEFFICIENTS = {
+    "B4_bar": 0.8,
+    "M5_cubed": 1.0,
+    "Robin_kappa_hat": 1.0,
+    "Robin_y": math.sqrt(3.0),
+    "brane_Mb_squared": 2.0,
+    "brane_beta": 2.0,
+    "compensator_metric_G": 1.2,
+    "eta": 3.107013790800849,
+    "k_infinity": 1.0,
+    "lambda_K": -0.5535068954004245,
+    "material_Z5_per_side": 1.0,
+    "material_mass_M": 1.0,
+    "xi": 1.0,
+}
 
 Alpha = tuple[int, int, int, int]
 Key = tuple[int, Alpha]
@@ -148,8 +187,64 @@ def _load_pinned_pointwise_oracle() -> Any:
 
 
 @lru_cache(maxsize=1)
+def _load_pinned_torch_c2_oracle() -> tuple[Any, Any, Mapping[str, Any]]:
+    """Load the C2 profile wrapper and its pinned literal Torch Route A."""
+
+    observed = _sha256(TORCH_C2_ORACLE_PATH)
+    if observed != TORCH_C2_ORACLE_SHA256:
+        raise DualLocalActionError(f"Torch C2 oracle pin drift: {observed}")
+    spec = importlib.util.spec_from_file_location(
+        "pinned_torch_c2_multin_v5_6_5_6", TORCH_C2_ORACLE_PATH
+    )
+    if spec is None or spec.loader is None:
+        raise DualLocalActionError("cannot load pinned Torch C2 oracle")
+    c2 = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(c2)
+    if getattr(c2, "SCHEMA", None) != "holo.one-omega-topological-so3-torch-c2-multin-v5-6-5-6.v1":
+        raise DualLocalActionError("Torch C2 oracle schema drift")
+    if c2.BASE_ROUTE_WRAPPER_SHA256 != TORCH_ROUTE_A_WRAPPER_SHA256:
+        raise DualLocalActionError("Torch Route A wrapper pin drift inside C2 oracle")
+    if c2.BUNDLE_SHA256 != C2_BUNDLE_SHA256:
+        raise DualLocalActionError("C2 primitive bundle pin drift inside Torch oracle")
+    base = c2.load_base_wrapper()
+    if base.ROUTE_A_SOURCE_SHA256 != TORCH_ROUTE_A_CORE_SHA256:
+        raise DualLocalActionError("Torch Route A core pin drift inside wrapper")
+    route_a = base.load_route_a()
+    if route_a.V5_2_EXACT_ACTION_SHA256 != LITERAL_ACTION_SHA256:
+        raise DualLocalActionError("literal action contract pin drift inside Torch oracle")
+    bundle = c2.load_bundle(route_a)
+    if tuple(route_a.BULK_ATOMS) != BULK_SECTORS or tuple(route_a.BRANE_ATOMS) != INTERFACE_SECTORS:
+        raise DualLocalActionError("literal Torch local-density names drift")
+    if tuple(route_a.COMPONENT_NAMES) != LOCAL_DENSITY_COMPONENTS:
+        raise DualLocalActionError("literal Torch twenty-component order drift")
+    for name, expected in ACTION_COEFFICIENTS.items():
+        if float(route_a.COEFFICIENTS[name]) != expected:
+            raise DualLocalActionError(f"literal action coefficient drift: {name}")
+    return c2, route_a, bundle
+
+
+@lru_cache(maxsize=1)
+def _load_pinned_route_c_oracle() -> Any:
+    observed = _sha256(ROUTE_C_ORACLE_PATH)
+    if observed != ROUTE_C_ORACLE_SHA256:
+        raise DualLocalActionError(f"Route C local-value oracle pin drift: {observed}")
+    spec = importlib.util.spec_from_file_location(
+        "pinned_route_c_local_values_v5_6_6_3", ROUTE_C_ORACLE_PATH
+    )
+    if spec is None or spec.loader is None:
+        raise DualLocalActionError("cannot load pinned Route C local-value oracle")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    if getattr(module, "SCHEMA", None) != ROUTE_C_ORACLE_SCHEMA:
+        raise DualLocalActionError("Route C local-value oracle schema drift")
+    return module
+
+
+@lru_cache(maxsize=1)
 def _load_c2_bundle() -> Mapping[str, Any]:
     upstream = _load_pinned_upstream()
+    if upstream.BUNDLE_SHA256 != C2_BUNDLE_SHA256:
+        raise DualLocalActionError("v5.6.7 embedded C2 bundle pin drift")
     observed = _sha256(upstream.BUNDLE_PATH)
     if observed != upstream.BUNDLE_SHA256:
         raise DualLocalActionError(f"C2 v5.6.4.4 bundle pin drift: {observed}")
@@ -1009,6 +1104,277 @@ def _det3(matrix: Sequence[Sequence[Any]]) -> Any:
     )
 
 
+def _permutation_sign(indices: Sequence[int]) -> int:
+    if sorted(indices) != list(range(len(indices))):
+        raise TaylorDual3InputError("permutation must contain each index exactly once")
+    inversions = sum(
+        int(indices[left] > indices[right])
+        for left in range(len(indices))
+        for right in range(left + 1, len(indices))
+    )
+    return -1 if inversions % 2 else 1
+
+
+def td3_determinant(matrix: Sequence[Sequence[TaylorDual3 | Real]]) -> TaylorDual3:
+    """Exact Leibniz determinant over the TaylorDual3 coefficient algebra."""
+
+    dimension = len(matrix)
+    if dimension == 0 or dimension > 5 or any(len(row) != dimension for row in matrix):
+        raise TaylorDual3InputError("TD3 determinant expects a square matrix of dimension one through five")
+    typed = tuple(tuple(TaylorDual3._require(entry) for entry in row) for row in matrix)
+    zero = TaylorDual3.constant(0.0)
+    return sum(
+        (
+            _permutation_sign(permutation)
+            * math.prod((typed[row][permutation[row]] for row in range(dimension)), start=TaylorDual3.constant(1.0))
+            for permutation in permutations(range(dimension))
+        ),
+        zero,
+    )
+
+
+def td3_cross(
+    left: Sequence[TaylorDual3 | Real],
+    right: Sequence[TaylorDual3 | Real],
+) -> tuple[TaylorDual3, TaylorDual3, TaylorDual3]:
+    """Three-dimensional cross product over TaylorDual3."""
+
+    if len(left) != 3 or len(right) != 3:
+        raise TaylorDual3InputError("TD3 cross product expects two three-vectors")
+    a = tuple(TaylorDual3._require(entry) for entry in left)
+    b = tuple(TaylorDual3._require(entry) for entry in right)
+    return (
+        a[1] * b[2] - a[2] * b[1],
+        a[2] * b[0] - a[0] * b[2],
+        a[0] * b[1] - a[1] * b[0],
+    )
+
+
+def td3_metric_geometry(
+    metric: Sequence[Sequence[TaylorDual3 | Real]],
+    first: Sequence[Sequence[Sequence[TaylorDual3 | Real]]],
+    second: Sequence[Sequence[Sequence[Sequence[TaylorDual3 | Real]]]] | None = None,
+    *,
+    include_riemann: bool = False,
+    context: str = "metric",
+) -> dict[str, Any]:
+    """Levi-Civita geometry over TD3 with strict Lorentzian body guards.
+
+    Index order matches the pinned literal Torch route: ``first[p][m][n]``
+    and ``second[p][q][m][n]``.  This helper is used only after projecting a
+    decoded jet to its value/eta layer, so it claims a pointwise JVP rather
+    than a uniform interval enclosure.
+    """
+
+    dimension = len(metric)
+    if dimension not in (4, 5) or any(len(row) != dimension for row in metric):
+        raise TaylorDual3InputError(f"{context} must be a 4x4 or 5x5 matrix")
+    if len(first) != dimension or any(
+        len(layer) != dimension or any(len(row) != dimension for row in layer)
+        for layer in first
+    ):
+        raise TaylorDual3InputError(f"{context} first derivative shape drift")
+    if include_riemann and second is None:
+        raise TaylorDual3InputError("Riemann curvature requires metric second derivatives")
+    if second is not None and (
+        len(second) != dimension
+        or any(
+            len(layer) != dimension
+            or any(
+                len(matrix_layer) != dimension
+                or any(len(row) != dimension for row in matrix_layer)
+                for matrix_layer in layer
+            )
+            for layer in second
+        )
+    ):
+        raise TaylorDual3InputError(f"{context} second derivative shape drift")
+
+    g = tuple(tuple(TaylorDual3._require(entry) for entry in row) for row in metric)
+    dg = tuple(
+        tuple(tuple(TaylorDual3._require(entry) for entry in row) for row in layer)
+        for layer in first
+    )
+    ddg = None
+    if second is not None:
+        ddg = tuple(
+            tuple(
+                tuple(tuple(TaylorDual3._require(entry) for entry in row) for row in matrix_layer)
+                for matrix_layer in layer
+            )
+            for layer in second
+        )
+
+    body = np.asarray([[entry.body for entry in row] for row in g], dtype=float)
+    if not np.allclose(body, body.T, atol=2.0e-12, rtol=0.0):
+        raise TaylorDual3InputError(f"{context} body must be symmetric")
+    eigenvalues = np.linalg.eigvalsh(body)
+    scale = max(1.0, float(np.max(np.abs(eigenvalues))))
+    if int(np.count_nonzero(eigenvalues < 0.0)) != 1 or float(np.min(np.abs(eigenvalues))) <= 1.0e-10 * scale:
+        raise TaylorDual3InputError(f"{context} body must be nondegenerate Lorentzian")
+    if float(np.linalg.cond(body)) > 1.0e10:
+        raise TaylorDual3InputError(f"{context} body condition number exceeds guarded domain")
+
+    zero = TaylorDual3.constant(0.0)
+    inverse = _inverse_td3(g)
+    determinant = td3_determinant(g)
+    if determinant.body >= 0.0:
+        raise TaylorDual3InputError(f"{context} Lorentzian determinant must be negative")
+    measure = (-determinant).sqrt()
+    derivative_inverse = tuple(
+        tuple(
+            tuple(
+                -sum(
+                    (
+                        inverse[k][a] * dg[p][a][b] * inverse[b][l]
+                        for a in range(dimension)
+                        for b in range(dimension)
+                    ),
+                    zero,
+                )
+                for l in range(dimension)
+            )
+            for k in range(dimension)
+        )
+        for p in range(dimension)
+    )
+    christoffel = tuple(
+        tuple(
+            tuple(
+                0.5
+                * sum(
+                    (
+                        inverse[k][l]
+                        * (dg[m][l][n] + dg[n][l][m] - dg[l][m][n])
+                        for l in range(dimension)
+                    ),
+                    zero,
+                )
+                for n in range(dimension)
+            )
+            for m in range(dimension)
+        )
+        for k in range(dimension)
+    )
+    result: dict[str, Any] = {
+        "inverse": inverse,
+        "determinant": determinant,
+        "sqrt_abs_determinant": measure,
+        "derivative_inverse": derivative_inverse,
+        "christoffel": christoffel,
+        "body_eigenvalues": tuple(float(value) for value in eigenvalues),
+        "body_condition_number": float(np.linalg.cond(body)),
+    }
+    if ddg is None:
+        return result
+
+    derivative_christoffel = tuple(
+        tuple(
+            tuple(
+                tuple(
+                    0.5
+                    * (
+                        sum(
+                            (
+                                derivative_inverse[p][k][l]
+                                * (dg[m][l][n] + dg[n][l][m] - dg[l][m][n])
+                                for l in range(dimension)
+                            ),
+                            zero,
+                        )
+                        + sum(
+                            (
+                                inverse[k][l]
+                                * (ddg[p][m][l][n] + ddg[p][n][l][m] - ddg[p][l][m][n])
+                                for l in range(dimension)
+                            ),
+                            zero,
+                        )
+                    )
+                    for n in range(dimension)
+                )
+                for m in range(dimension)
+            )
+            for k in range(dimension)
+        )
+        for p in range(dimension)
+    )
+    ricci = tuple(
+        tuple(
+            sum((derivative_christoffel[k][k][m][n] for k in range(dimension)), zero)
+            - sum((derivative_christoffel[n][k][m][k] for k in range(dimension)), zero)
+            + sum(
+                (
+                    christoffel[k][k][l] * christoffel[l][m][n]
+                    for k in range(dimension)
+                    for l in range(dimension)
+                ),
+                zero,
+            )
+            - sum(
+                (
+                    christoffel[k][n][l] * christoffel[l][m][k]
+                    for k in range(dimension)
+                    for l in range(dimension)
+                ),
+                zero,
+            )
+            for n in range(dimension)
+        )
+        for m in range(dimension)
+    )
+    scalar_curvature = sum(
+        (inverse[m][n] * ricci[m][n] for m in range(dimension) for n in range(dimension)),
+        zero,
+    )
+    result.update(
+        {
+            "derivative_christoffel": derivative_christoffel,
+            "ricci": ricci,
+            "scalar_curvature": scalar_curvature,
+        }
+    )
+    if include_riemann:
+        riemann_upper = tuple(
+            tuple(
+                tuple(
+                    tuple(
+                        derivative_christoffel[m][r][n][s]
+                        - derivative_christoffel[n][r][m][s]
+                        + sum(
+                            (
+                                christoffel[r][m][l] * christoffel[l][n][s]
+                                - christoffel[r][n][l] * christoffel[l][m][s]
+                                for l in range(dimension)
+                            ),
+                            zero,
+                        )
+                        for n in range(dimension)
+                    )
+                    for m in range(dimension)
+                )
+                for s in range(dimension)
+            )
+            for r in range(dimension)
+        )
+        riemann_lower = tuple(
+            tuple(
+                tuple(
+                    tuple(
+                        sum((g[a][r] * riemann_upper[r][s][m][n] for r in range(dimension)), zero)
+                        for n in range(dimension)
+                    )
+                    for m in range(dimension)
+                )
+                for s in range(dimension)
+            )
+            for a in range(dimension)
+        )
+        result["riemann_upper"] = riemann_upper
+        result["riemann_lower"] = riemann_lower
+    return result
+
+
 def _matrix_add(
     left: Sequence[Sequence[Any]], right: Sequence[Sequence[Any]]
 ) -> tuple[tuple[Any, ...], ...]:
@@ -1358,6 +1724,666 @@ def _pullback_x64_and_reference15(
     if len(actual) != 64 or len(reference15) != 15:
         raise DualLocalActionError("pulled channel count drift")
     return actual, reference15
+
+
+def _dual_value(value: TaylorDual3 | Real) -> TaylorDual3:
+    """Project one TD3 value to its body plus independent eta coefficient."""
+
+    typed = TaylorDual3._require(value)
+    return TaylorDual3.constant(typed.body) + TaylorDual3.eta(
+        typed.derivative(ZERO_ALPHA, 1)
+    )
+
+
+def rhojet2_local_two_jet(channels: Sequence[RhoJet2]) -> dict[str, Any]:
+    """Extract a pointwise five-dimensional two-jet retaining value and eta.
+
+    Spatial differentiation is taken in TD3 before projecting to the
+    ``1+eta`` layer.  Radial derivatives come from RhoJet2.  Thus every entry
+    remains a TaylorDual3, but carries only the primal value and its exact
+    directional eta coefficient needed by the local-density API.
+    """
+
+    if not channels or any(not isinstance(channel, RhoJet2) for channel in channels):
+        raise TaylorDual3InputError("RhoJet2 extraction requires a non-empty channel sequence")
+    value = tuple(_dual_value(channel.value) for channel in channels)
+    first = tuple(
+        tuple(
+            _dual_value(channel.value.partial(axis))
+            if axis < N_SPATIAL
+            else _dual_value(channel.rho_first)
+            for channel in channels
+        )
+        for axis in range(5)
+    )
+    second = tuple(
+        tuple(
+            tuple(
+                _dual_value(channel.value.partial(left).partial(right))
+                if left < N_SPATIAL and right < N_SPATIAL
+                else _dual_value(
+                    channel.rho_first.partial(left if left < N_SPATIAL else right)
+                )
+                if (left < N_SPATIAL) != (right < N_SPATIAL)
+                else _dual_value(channel.rho_second)
+                for channel in channels
+            )
+            for right in range(5)
+        )
+        for left in range(5)
+    )
+    return {"channel_count": len(channels), "value": value, "first": first, "second": second}
+
+
+def _x64_local_primitives(jet: Mapping[str, Any]) -> dict[str, Any]:
+    if int(jet.get("channel_count", -1)) != 64:
+        raise TaylorDual3InputError("local bulk primitives require exactly 64 pulled channels")
+    value = jet["value"]
+    first = jet["first"]
+    second = jet["second"]
+    if (
+        len(value) != 64
+        or len(first) != 5
+        or any(len(layer) != 64 for layer in first)
+        or len(second) != 5
+        or any(len(layer) != 5 or any(len(row) != 64 for row in layer) for layer in second)
+    ):
+        raise TaylorDual3InputError("local X64 two-jet shape drift")
+    zero = TaylorDual3.constant(0.0)
+    metric = _sym_matrix(value[:15], 5, zero)
+    metric_first = tuple(_sym_matrix(first[axis][:15], 5, zero) for axis in range(5))
+    metric_second = tuple(
+        tuple(_sym_matrix(second[left][right][:15], 5, zero) for right in range(5))
+        for left in range(5)
+    )
+    return {
+        "g": metric,
+        "d_g": metric_first,
+        "dd_g": metric_second,
+        "log_Omega": value[15],
+        "d_log_Omega": tuple(first[axis][15] for axis in range(5)),
+        "phi": tuple(value[16 + a] for a in range(3)),
+        "d_phi": tuple(tuple(first[axis][16 + a] for a in range(3)) for axis in range(5)),
+        "A": tuple(tuple(value[19 + 3 * axis + a] for a in range(3)) for axis in range(5)),
+        "d_A": tuple(
+            tuple(
+                tuple(first[derivative][19 + 3 * axis + a] for a in range(3))
+                for axis in range(5)
+            )
+            for derivative in range(5)
+        ),
+        "B": tuple(
+            tuple(value[34 + 3 * triple + a] for a in range(3))
+            for triple in range(10)
+        ),
+    }
+
+
+def _regular_v4_td3(Omega: TaylorDual3, phi: Sequence[TaylorDual3]) -> TaylorDual3:
+    """Analytic V4 form regular at phi=0; no vector norm or division by |phi|."""
+
+    zero = TaylorDual3.constant(0.0)
+    phi_squared = sum((component * component for component in phi), zero)
+    radial_fourth = Omega**6 * phi_squared**2
+    return radial_fourth / (2.0 * (1.0 + radial_fourth).sqrt())
+
+
+def _bulk_component_densities_td3(
+    primitives: Mapping[str, Any],
+    *,
+    context: str,
+    phi_cross_sign: float = 1.0,
+    curvature_cross_sign: float = 1.0,
+    bf_pullback_multiplier: float = 1.0,
+) -> dict[str, TaylorDual3]:
+    """Six literal Route-A bulk atoms in the pulled positive collar chart."""
+
+    for name, sign in (
+        ("phi_cross_sign", phi_cross_sign),
+        ("curvature_cross_sign", curvature_cross_sign),
+        ("bf_pullback_multiplier", bf_pullback_multiplier),
+    ):
+        numeric = _finite_real(name, sign)
+        if numeric not in (-1.0, 1.0):
+            raise TaylorDual3InputError(f"{name} must be +/-1")
+    geometry = td3_metric_geometry(
+        primitives["g"],
+        primitives["d_g"],
+        primitives["dd_g"],
+        context=context,
+    )
+    inverse = geometry["inverse"]
+    volume = geometry["sqrt_abs_determinant"]
+    scalar_curvature = geometry["scalar_curvature"]
+    zero = TaylorDual3.constant(0.0)
+    log_omega = primitives["log_Omega"]
+    Omega = log_omega.exp()
+    dlog = primitives["d_log_Omega"]
+    dOmega = tuple(Omega * entry for entry in dlog)
+    phi = primitives["phi"]
+    dphi = primitives["d_phi"]
+    connection = primitives["A"]
+    dconnection = primitives["d_A"]
+
+    Omega_squared_gradient = sum(
+        (
+            inverse[m][n] * dOmega[m] * dOmega[n]
+            for m in range(5)
+            for n in range(5)
+        ),
+        zero,
+    )
+    covariant_phi = tuple(
+        tuple(
+            dphi[m][a]
+            + phi_cross_sign * td3_cross(connection[m], phi)[a]
+            + 1.5 * phi[a] * dlog[m]
+            for a in range(3)
+        )
+        for m in range(5)
+    )
+    P_squared = sum(
+        (
+            inverse[m][n] * covariant_phi[m][a] * covariant_phi[n][a]
+            for m in range(5)
+            for n in range(5)
+            for a in range(3)
+        ),
+        zero,
+    )
+
+    M5_cubed = ACTION_COEFFICIENTS["M5_cubed"]
+    G = ACTION_COEFFICIENTS["compensator_metric_G"]
+    k_infinity = ACTION_COEFFICIENTS["k_infinity"]
+    Z5 = ACTION_COEFFICIENTS["material_Z5_per_side"]
+    material_mass = ACTION_COEFFICIENTS["material_mass_M"]
+    W = 3.0 * M5_cubed * k_infinity * (-G * Omega * Omega / (6.0 * M5_cubed)).exp()
+    W_Omega = -G * Omega * W / (3.0 * M5_cubed)
+    U = W_Omega * W_Omega / (2.0 * G) - 2.0 * W * W / (3.0 * M5_cubed)
+    V4 = _regular_v4_td3(Omega, phi)
+
+    curvature = tuple(
+        tuple(
+            tuple(
+                dconnection[m][n][a]
+                - dconnection[n][m][a]
+                + curvature_cross_sign * td3_cross(connection[m], connection[n])[a]
+                for a in range(3)
+            )
+            for n in range(5)
+        )
+        for m in range(5)
+    )
+    all_indices = set(range(5))
+    BF_density = zero
+    for triple_index, triple in enumerate(B_TRIPLES):
+        complement = tuple(sorted(all_indices - set(triple)))
+        orientation = _permutation_sign(triple + complement)
+        BF_density = BF_density + orientation * sum(
+            (
+                primitives["B"][triple_index][a]
+                * curvature[complement[0]][complement[1]][a]
+                for a in range(3)
+            ),
+            zero,
+        )
+
+    return {
+        "EH": volume * M5_cubed * scalar_curvature / 2.0,
+        "Omega_kinetic": -volume * G * Omega_squared_gradient / 2.0,
+        "Omega_potential": -volume * U,
+        "P_kinetic": -volume * Z5 * P_squared / 2.0,
+        "full_V4": -volume * Z5 * material_mass**2 * Omega**-5 * V4,
+        # B already carries the lateral det(J) sign through the X64 pullback.
+        "BF": bf_pullback_multiplier * BF_density,
+    }
+
+
+def _relative_bulk_densities_td3(
+    pulled: Sequence[RhoJet2],
+    pulled_reference15: Sequence[RhoJet2],
+    *,
+    side: str,
+    phi_cross_sign: float = 1.0,
+    curvature_cross_sign: float = 1.0,
+    bf_pullback_multiplier: float = 1.0,
+) -> dict[str, TaylorDual3]:
+    if side not in SIDES:
+        raise TaylorDual3InputError(f"side must be one of {SIDES}")
+    if len(pulled) != 64 or len(pulled_reference15) != 15:
+        raise TaylorDual3InputError("relative bulk density requires pulled X64 plus reference metric 15")
+    actual = _bulk_component_densities_td3(
+        _x64_local_primitives(rhojet2_local_two_jet(pulled)),
+        context=f"{side} pulled bulk metric",
+        phi_cross_sign=phi_cross_sign,
+        curvature_cross_sign=curvature_cross_sign,
+        bf_pullback_multiplier=bf_pullback_multiplier,
+    )
+    reference_channels = tuple(pulled_reference15) + tuple(RhoJet2(0.0) for _ in range(49))
+    reference = _bulk_component_densities_td3(
+        _x64_local_primitives(rhojet2_local_two_jet(reference_channels)),
+        context=f"{side} pulled reference metric",
+    )
+    return {sector: actual[sector] - reference[sector] for sector in BULK_SECTORS}
+
+
+def _ghy_density_td3(
+    pulled_boundary: Sequence[RhoJet2],
+    *,
+    side: str,
+    normal_sign: float = -1.0,
+) -> TaylorDual3:
+    """GHY density on rho=0 in the pulled positive collar chart.
+
+    Both side collars use the same outward covector ``-d rho/sqrt(g^rho rho)``.
+    The side-dependent ambient orientation has already been absorbed by the
+    pullback, exactly as for the bulk top form.
+    """
+
+    if side not in SIDES:
+        raise TaylorDual3InputError(f"side must be one of {SIDES}")
+    normal_sign = _finite_real("normal_sign", normal_sign)
+    if normal_sign not in (-1.0, 1.0):
+        raise TaylorDual3InputError("normal_sign must be +/-1")
+    primitives = _x64_local_primitives(rhojet2_local_two_jet(pulled_boundary))
+    geometry = td3_metric_geometry(
+        primitives["g"],
+        primitives["d_g"],
+        context=f"{side} pulled GHY metric",
+    )
+    inverse = geometry["inverse"]
+    if inverse[4][4].body <= 1.0e-10:
+        raise TaylorDual3InputError("GHY rho-normal must be spacelike and nondegenerate")
+    normal_covector_rho = normal_sign / inverse[4][4].sqrt()
+    induced = tuple(tuple(primitives["g"][mu][nu] for nu in range(4)) for mu in range(4))
+    induced_first = tuple(
+        tuple(
+            tuple(primitives["d_g"][axis][mu][nu] for nu in range(4))
+            for mu in range(4)
+        )
+        for axis in range(4)
+    )
+    induced_geometry = td3_metric_geometry(
+        induced,
+        induced_first,
+        context=f"{side} induced GHY metric",
+    )
+    induced_inverse = induced_geometry["inverse"]
+    extrinsic = tuple(
+        tuple(-normal_covector_rho * geometry["christoffel"][4][mu][nu] for nu in range(4))
+        for mu in range(4)
+    )
+    zero = TaylorDual3.constant(0.0)
+    theta = sum(
+        (induced_inverse[mu][nu] * extrinsic[mu][nu] for mu in range(4) for nu in range(4)),
+        zero,
+    )
+    return (
+        ACTION_COEFFICIENTS["M5_cubed"]
+        * induced_geometry["sqrt_abs_determinant"]
+        * theta
+    )
+
+
+def _foliation_geometry_td3(
+    gamma: Sequence[Sequence[TaylorDual3]],
+    gamma_first: Sequence[Sequence[Sequence[TaylorDual3]]],
+    gamma_second: Sequence[Sequence[Sequence[Sequence[TaylorDual3]]]],
+    tau_gradient: Sequence[TaylorDual3],
+    tau_hessian: Sequence[Sequence[TaylorDual3]],
+    *,
+    gauss_extrinsic_sign: float = 1.0,
+) -> dict[str, Any]:
+    """Literal contracted-Gauss foliation geometry in four dimensions."""
+
+    gauss_extrinsic_sign = _finite_real("gauss_extrinsic_sign", gauss_extrinsic_sign)
+    if gauss_extrinsic_sign not in (-1.0, 1.0):
+        raise TaylorDual3InputError("gauss_extrinsic_sign must be +/-1")
+    if len(tau_gradient) != 4 or len(tau_hessian) != 4 or any(len(row) != 4 for row in tau_hessian):
+        raise TaylorDual3InputError("tau gradient/Hessian shape drift")
+    geometry = td3_metric_geometry(
+        gamma,
+        gamma_first,
+        gamma_second,
+        include_riemann=True,
+        context="interface gamma",
+    )
+    inverse = geometry["inverse"]
+    zero = TaylorDual3.constant(0.0)
+    one = TaylorDual3.constant(1.0)
+    tau_norm_squared = sum(
+        (inverse[i][j] * tau_gradient[i] * tau_gradient[j] for i in range(4) for j in range(4)),
+        zero,
+    )
+    if tau_norm_squared.body >= -1.0e-10:
+        raise TaylorDual3InputError(
+            "interface tau gradient must be timelike and nondegenerate at this sampled body"
+        )
+    normalization = (-tau_norm_squared).sqrt()
+    u_covector = tuple(-tau_gradient[i] / normalization for i in range(4))
+    u_vector = _matvec(inverse, u_covector, zero)
+    derivative_tau_norm_squared = tuple(
+        sum(
+            (
+                geometry["derivative_inverse"][p][i][j]
+                * tau_gradient[i]
+                * tau_gradient[j]
+                for i in range(4)
+                for j in range(4)
+            ),
+            zero,
+        )
+        + 2.0
+        * sum(
+            (
+                inverse[i][j] * tau_hessian[p][i] * tau_gradient[j]
+                for i in range(4)
+                for j in range(4)
+            ),
+            zero,
+        )
+        for p in range(4)
+    )
+    derivative_normalization = tuple(
+        -entry / (2.0 * normalization) for entry in derivative_tau_norm_squared
+    )
+    derivative_u_covector = tuple(
+        tuple(
+            -tau_hessian[p][n] / normalization
+            + tau_gradient[n] * derivative_normalization[p] / normalization**2
+            for n in range(4)
+        )
+        for p in range(4)
+    )
+    covariant_u = tuple(
+        tuple(
+            derivative_u_covector[i][j]
+            - sum(
+                (geometry["christoffel"][k][i][j] * u_covector[k] for k in range(4)),
+                zero,
+            )
+            for j in range(4)
+        )
+        for i in range(4)
+    )
+    projector_covariant = tuple(
+        tuple(gamma[i][j] + u_covector[i] * u_covector[j] for j in range(4))
+        for i in range(4)
+    )
+    projector_contravariant = tuple(
+        tuple(inverse[i][j] + u_vector[i] * u_vector[j] for j in range(4))
+        for i in range(4)
+    )
+    projector_mixed = tuple(
+        tuple((one if i == j else zero) + u_covector[i] * u_vector[j] for j in range(4))
+        for i in range(4)
+    )
+    Kcal = tuple(
+        tuple(
+            sum(
+                (
+                    projector_mixed[m][a]
+                    * projector_mixed[n][b]
+                    * covariant_u[a][b]
+                    for a in range(4)
+                    for b in range(4)
+                ),
+                zero,
+            )
+            for n in range(4)
+        )
+        for m in range(4)
+    )
+    Ktrace = sum(
+        (projector_contravariant[m][n] * Kcal[m][n] for m in range(4) for n in range(4)),
+        zero,
+    )
+    K_squared = sum(
+        (
+            projector_contravariant[m][r]
+            * projector_contravariant[n][s]
+            * Kcal[m][n]
+            * Kcal[r][s]
+            for m in range(4)
+            for r in range(4)
+            for n in range(4)
+            for s in range(4)
+        ),
+        zero,
+    )
+    acceleration_covector = tuple(
+        sum((u_vector[a] * covariant_u[a][n] for a in range(4)), zero)
+        for n in range(4)
+    )
+    acceleration_squared = sum(
+        (
+            inverse[m][n] * acceleration_covector[m] * acceleration_covector[n]
+            for m in range(4)
+            for n in range(4)
+        ),
+        zero,
+    )
+    projected_riemann = sum(
+        (
+            projector_contravariant[a][m]
+            * projector_contravariant[s][n]
+            * geometry["riemann_lower"][a][s][m][n]
+            for a in range(4)
+            for s in range(4)
+            for m in range(4)
+            for n in range(4)
+        ),
+        zero,
+    )
+    Rcal = projected_riemann + gauss_extrinsic_sign * (K_squared - Ktrace * Ktrace)
+    return {
+        **geometry,
+        "tau_norm_squared": tau_norm_squared,
+        "u_covector": u_covector,
+        "u_vector": u_vector,
+        "projector_covariant": projector_covariant,
+        "projector_contravariant": projector_contravariant,
+        "Kcal": Kcal,
+        "Ktrace": Ktrace,
+        "K_squared": K_squared,
+        "acceleration_covector": acceleration_covector,
+        "acceleration_squared": acceleration_squared,
+        "projected_riemann": projected_riemann,
+        "Rcal": Rcal,
+    }
+
+
+def _interface_component_densities_td3(
+    boundary: Mapping[str, Any],
+    *,
+    robin_acceleration_sign: float = -1.0,
+    gauss_extrinsic_sign: float = 1.0,
+) -> dict[str, TaylorDual3]:
+    """Six literal shared-interface atoms from common-first fields."""
+
+    robin_acceleration_sign = _finite_real("robin_acceleration_sign", robin_acceleration_sign)
+    if robin_acceleration_sign not in (-1.0, 1.0):
+        raise TaylorDual3InputError("robin_acceleration_sign must be +/-1")
+    common = boundary["common"]
+    gamma_full = common["gamma"]
+    gamma = tuple(tuple(_dual_value(gamma_full[i][j]) for j in range(4)) for i in range(4))
+    gamma_first = tuple(
+        tuple(tuple(_dual_value(gamma_full[i][j].partial(p)) for j in range(4)) for i in range(4))
+        for p in range(4)
+    )
+    gamma_second = tuple(
+        tuple(
+            tuple(
+                tuple(_dual_value(gamma_full[i][j].partial(p).partial(q)) for j in range(4))
+                for i in range(4)
+            )
+            for q in range(4)
+        )
+        for p in range(4)
+    )
+    T = common["T"]
+    tau_gradient = tuple(
+        _dual_value(T.partial(axis) + (1.0 if axis == 0 else 0.0))
+        for axis in range(4)
+    )
+    tau_hessian = tuple(
+        tuple(_dual_value(T.partial(left).partial(right)) for right in range(4))
+        for left in range(4)
+    )
+    foliation = _foliation_geometry_td3(
+        gamma,
+        gamma_first,
+        gamma_second,
+        tau_gradient,
+        tau_hessian,
+        gauss_extrinsic_sign=gauss_extrinsic_sign,
+    )
+    inverse = foliation["inverse"]
+    measure = foliation["sqrt_abs_determinant"]
+    zero = TaylorDual3.constant(0.0)
+    E_Q = common["E_Q"]
+    varphi_Q = common["varphi"]
+    phi_H = tuple(
+        _dual_value(sum((E_Q[mu][a] * varphi_Q[a] for a in range(3)), zero))
+        for mu in range(4)
+    )
+    acceleration_vector = tuple(
+        sum((inverse[m][n] * foliation["acceleration_covector"][n] for n in range(4)), zero)
+        for m in range(4)
+    )
+    robin_vector = tuple(
+        phi_H[m]
+        + robin_acceleration_sign * ACTION_COEFFICIENTS["Robin_y"] * acceleration_vector[m]
+        for m in range(4)
+    )
+    robin_norm = sum(
+        (
+            foliation["projector_covariant"][m][n]
+            * robin_vector[m]
+            * robin_vector[n]
+            for m in range(4)
+            for n in range(4)
+        ),
+        zero,
+    )
+    Omega = _dual_value(common["log_Omega"]).exp()
+    M5_cubed = ACTION_COEFFICIENTS["M5_cubed"]
+    G = ACTION_COEFFICIENTS["compensator_metric_G"]
+    k_infinity = ACTION_COEFFICIENTS["k_infinity"]
+    W = 3.0 * M5_cubed * k_infinity * (-G * Omega * Omega / (6.0 * M5_cubed)).exp()
+    Mb_squared = ACTION_COEFFICIENTS["brane_Mb_squared"]
+    Rcal = foliation["Rcal"]
+    Ktrace = foliation["Ktrace"]
+    K_squared = foliation["K_squared"]
+    return {
+        "wall": measure
+        * (-2.0 * W - ACTION_COEFFICIENTS["brane_beta"] * (Omega - 1.0) ** 2 / 2.0),
+        "K_foliation": measure
+        * Mb_squared
+        * (K_squared - ACTION_COEFFICIENTS["lambda_K"] * Ktrace * Ktrace)
+        / 2.0,
+        "R": measure * Mb_squared * ACTION_COEFFICIENTS["xi"] * Rcal / 2.0,
+        "R_squared": -measure
+        * Mb_squared
+        * ACTION_COEFFICIENTS["B4_bar"]
+        * Rcal
+        * Rcal
+        / (32.0 * k_infinity**2),
+        "a_squared": measure
+        * Mb_squared
+        * ACTION_COEFFICIENTS["eta"]
+        * foliation["acceleration_squared"]
+        / 2.0,
+        "Robin": -measure * ACTION_COEFFICIENTS["Robin_kappa_hat"] * robin_norm / 2.0,
+    }
+
+
+def _local_density_td3(
+    free: Sequence[Real],
+    tangent: Sequence[Real],
+    N: int,
+    K: int,
+    x: Sequence[Real],
+    rho: Real,
+) -> tuple[dict[str, TaylorDual3], dict[str, Any]]:
+    rho_value = _finite_real("rho", rho)
+    if not 0.0 <= rho_value <= 1.0:
+        raise TaylorDual3InputError("rho must lie in [0, 1] for local density decoding")
+    boundary = decode_common_first_boundary_td3(free, tangent, N, K, x)
+    K_value = int(boundary["contract"]["K"])
+    components: dict[str, TaylorDual3] = {}
+    for side in SIDES:
+        side_boundary = boundary["sides"][side]
+        ambient = _collar_ambient_x64(side_boundary, rho_value, K_value)
+        pulled, reference15 = _pullback_x64_and_reference15(
+            ambient,
+            side_boundary["Y_first"],
+            side,
+        )
+        bulk = _relative_bulk_densities_td3(pulled, reference15, side=side)
+        for sector in BULK_SECTORS:
+            components[f"{sector}_bulk_{side}"] = bulk[sector]
+
+        # GHY is a boundary density: it is always decoded at rho=0, never at
+        # the supplied interior bulk node.
+        boundary_ambient = _collar_ambient_x64(side_boundary, 0.0, K_value)
+        boundary_pulled, _boundary_reference = _pullback_x64_and_reference15(
+            boundary_ambient,
+            side_boundary["Y_first"],
+            side,
+        )
+        components[f"GHY_{side}"] = _ghy_density_td3(
+            boundary_pulled,
+            side=side,
+        )
+    components.update(_interface_component_densities_td3(boundary))
+    if tuple(components) != LOCAL_DENSITY_COMPONENTS:
+        raise DualLocalActionError("twenty local-density component order drift")
+    return components, boundary
+
+
+def local_density_values_and_eta_jvps(
+    free: Sequence[Real],
+    tangent: Sequence[Real],
+    N: int,
+    K: int,
+    x: Sequence[Real],
+    rho: Real,
+) -> dict[str, Any]:
+    """Return 20 separate local density values and exact eta-direction JVPs.
+
+    ``rho`` selects the bulk point only.  GHY and shared-interface components
+    are boundary densities on their own domains.  The result deliberately has
+    no pointwise ``S_total`` because those densities cannot be added before
+    applying their distinct bulk/boundary integration measures.
+    """
+
+    components_td3, boundary = _local_density_td3(free, tangent, N, K, x, rho)
+    records = {
+        name: {
+            "value": component.body,
+            "eta_jvp": component.derivative(ZERO_ALPHA, 1),
+        }
+        for name, component in components_td3.items()
+    }
+    flattened = tuple(records[name][field] for name in LOCAL_DENSITY_COMPONENTS for field in ("value", "eta_jvp"))
+    if not all(math.isfinite(value) for value in flattened):
+        raise TaylorDual3NumericalError("local density value/JVP left the finite float64 domain")
+    return {
+        "N": int(boundary["contract"]["N"]),
+        "K": int(boundary["contract"]["K"]),
+        "x": boundary["x"],
+        "rho_bulk": _finite_real("rho", rho),
+        "component_names": LOCAL_DENSITY_COMPONENTS,
+        "components": records,
+        "values": tuple(records[name]["value"] for name in LOCAL_DENSITY_COMPONENTS),
+        "eta_jvps": tuple(records[name]["eta_jvp"] for name in LOCAL_DENSITY_COMPONENTS),
+        "domain_separation": {
+            "bulk": "supplied rho_bulk in [0,1]",
+            "GHY": "rho=0 boundary on each pulled collar",
+            "interface": "shared T4 boundary from common fields",
+        },
+    }
 
 
 def _rho_channels_payload(channels: Sequence[RhoJet2]) -> dict[str, Any]:
@@ -2201,6 +3227,427 @@ def _check_decoder() -> dict[str, Any]:
     }
 
 
+def _pinned_member_vectors(N: int) -> tuple[np.ndarray, np.ndarray]:
+    bundle = _load_c2_bundle()
+    try:
+        member = next(item for item in bundle["primary_members"] if int(item["N"]) == N)
+        curve = next(
+            item
+            for item in member["curves"]
+            if item["name"] == "joint_all_primitive_classes_control_candidate"
+        )
+    except (KeyError, StopIteration) as exc:
+        raise DualLocalActionError(f"missing pinned primary member/tangent at N={N}") from exc
+    free = _decode_pinned_f64(member["authoritative_free_central_f64le"])
+    tangent = _decode_pinned_f64(curve["authoritative_free_tangent_f64le"])
+    expected = int(full_t4_decoder_contract(N, N)["free_coordinate_dimension"])
+    if free.shape != (expected,) or tangent.shape != free.shape:
+        raise DualLocalActionError(f"pinned local-density vector shape drift at N={N}")
+    return free, tangent
+
+
+def _torch_local_density_value_jvp(
+    free: np.ndarray,
+    tangent: np.ndarray,
+    N: int,
+    K: int,
+    x: Sequence[Real],
+    rho: Real,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Independent literal Torch+C2 oracle, sampled only inside self-checks."""
+
+    c2, route_a, _bundle = _load_pinned_torch_c2_oracle()
+    torch = route_a.torch
+    free_tensor = torch.tensor(free, dtype=route_a.DTYPE)
+    tangent_tensor = torch.tensor(tangent, dtype=route_a.DTYPE)
+    point_tensor = torch.tensor([_finite_point(x)], dtype=route_a.DTYPE)
+    rho_value = _finite_real("rho", rho)
+    if not 0.0 < rho_value < 1.0:
+        raise TaylorDual3InputError("Torch C2 bulk oracle requires interior rho in (0,1)")
+    rho_tensor = torch.tensor([rho_value], dtype=route_a.DTYPE)
+    one = torch.ones(1, dtype=route_a.DTYPE)
+
+    def evaluate(trial: Any) -> Any:
+        with c2._profile_patch(route_a):
+            components = route_a.relative_action_components_on_nodes(
+                trial,
+                N,
+                K,
+                point_tensor,
+                one,
+                rho_tensor,
+                one,
+            )
+        # Only the twenty named local atoms are selected.  S_total is
+        # deliberately excluded because bulk and boundary domains differ.
+        return torch.stack(tuple(components[name] for name in route_a.COMPONENT_NAMES))
+
+    value, jvp = torch.func.jvp(evaluate, (free_tensor,), (tangent_tensor,))
+    value_array = value.detach().cpu().numpy()
+    jvp_array = jvp.detach().cpu().numpy()
+    if value_array.shape != (20,) or jvp_array.shape != (20,):
+        raise DualLocalActionError("Torch local-density oracle shape drift")
+    if not np.all(np.isfinite(value_array)) or not np.all(np.isfinite(jvp_array)):
+        raise DualLocalActionError("Torch local-density oracle produced non-finite output")
+    return value_array, jvp_array
+
+
+def _route_c_secondary_local_values(
+    free: np.ndarray,
+    N: int,
+    x: Sequence[Real],
+    rho: Real,
+) -> np.ndarray:
+    """Reduced-theta Route C secondary value/sign oracle; never a JVP oracle."""
+
+    route_c = _load_pinned_route_c_oracle()
+    bundle = route_c.load_bundle()
+    contract = bundle["pointwise_decoder_contract_by_N"][str(N)]
+    parameters = bundle["action_contract"]["coefficient_parameters"]
+    point = _finite_point(x)
+    theta = point[0] + point[1]
+    rho_value = _finite_real("rho", rho)
+    records: dict[str, float] = {}
+    for side in SIDES:
+        bulk = route_c._bulk_density(
+            route_c._bulk_jet(free, contract, side, theta, rho_value),
+            parameters,
+        )
+        for sector in BULK_SECTORS:
+            records[f"{sector}_bulk_{side}"] = float(bulk[sector])
+        boundary_jet = route_c._bulk_jet(free, contract, side, theta, 0.0)
+        records[f"GHY_{side}"] = float(route_c._ghy_density(boundary_jet, parameters))
+    records.update(
+        {
+            name: float(value)
+            for name, value in route_c._brane_density(
+                route_c._common_brane_jet(free, contract, theta),
+                parameters,
+            ).items()
+        }
+    )
+    if tuple(records) != LOCAL_DENSITY_COMPONENTS:
+        raise DualLocalActionError("Route C secondary local-density order drift")
+    values = np.asarray([records[name] for name in LOCAL_DENSITY_COMPONENTS], dtype=float)
+    if not np.all(np.isfinite(values)):
+        raise DualLocalActionError("Route C secondary oracle produced non-finite values")
+    return values
+
+
+def _flrw_gauss_witness() -> dict[str, float | bool]:
+    """Flat-spatial FLRW witness for the contracted-Gauss sign."""
+
+    scale_factor = 1.7
+    scale_first = 0.23
+    scale_second = -0.11
+    zero = TaylorDual3.constant(0.0)
+    gamma = tuple(
+        tuple(
+            TaylorDual3.constant(
+                -1.0
+                if i == j == 0
+                else scale_factor**2
+                if i == j
+                else 0.0
+            )
+            for j in range(4)
+        )
+        for i in range(4)
+    )
+    first = [[ [zero for _ in range(4)] for _ in range(4)] for _ in range(4)]
+    second = [
+        [[[zero for _ in range(4)] for _ in range(4)] for _ in range(4)]
+        for _ in range(4)
+    ]
+    for spatial in range(1, 4):
+        first[0][spatial][spatial] = TaylorDual3.constant(
+            2.0 * scale_factor * scale_first
+        )
+        second[0][0][spatial][spatial] = TaylorDual3.constant(
+            2.0 * (scale_first**2 + scale_factor * scale_second)
+        )
+    tau_gradient = tuple(TaylorDual3.constant(1.0 if axis == 0 else 0.0) for axis in range(4))
+    tau_hessian = tuple(tuple(zero for _ in range(4)) for _ in range(4))
+    nominal = _foliation_geometry_td3(
+        gamma,
+        tuple(tuple(tuple(row) for row in layer) for layer in first),
+        tuple(
+            tuple(tuple(tuple(row) for row in matrix_layer) for matrix_layer in layer)
+            for layer in second
+        ),
+        tau_gradient,
+        tau_hessian,
+    )["Rcal"].body
+    opposite = _foliation_geometry_td3(
+        gamma,
+        tuple(tuple(tuple(row) for row in layer) for layer in first),
+        tuple(
+            tuple(tuple(tuple(row) for row in matrix_layer) for matrix_layer in layer)
+            for layer in second
+        ),
+        tau_gradient,
+        tau_hessian,
+        gauss_extrinsic_sign=-1.0,
+    )["Rcal"].body
+    return {
+        "scale_factor": scale_factor,
+        "scale_first": scale_first,
+        "scale_second": scale_second,
+        "nominal_Rcal": nominal,
+        "opposite_gauss_sign_Rcal": opposite,
+        "pass": bool(abs(nominal) <= 2.0e-13 and abs(opposite) >= 0.2),
+    }
+
+
+@lru_cache(maxsize=1)
+def _check_local_densities() -> dict[str, Any]:
+    """Sample all 20 local value/JVP atoms and effective sign mutants."""
+
+    points = (
+        (0.13, -0.27, 0.21, -0.08),
+        (0.41, 0.19, -0.31, 0.07),
+    )
+    rhos = (0.23, 0.71)
+    categories = {
+        "bulk": tuple(index for index, name in enumerate(LOCAL_DENSITY_COMPONENTS) if "_bulk_" in name),
+        "GHY": tuple(index for index, name in enumerate(LOCAL_DENSITY_COMPONENTS) if name.startswith("GHY_")),
+        "interface": tuple(index for index, name in enumerate(LOCAL_DENSITY_COMPONENTS) if name in INTERFACE_SECTORS),
+    }
+    worst_value = {name: 0.0 for name in categories}
+    worst_jvp = {name: 0.0 for name in categories}
+    rows: dict[str, Any] = {}
+    all_finite = True
+    for N in (1, 2, 3):
+        free, tangent = _pinned_member_vectors(N)
+        row_value = {name: 0.0 for name in categories}
+        row_jvp = {name: 0.0 for name in categories}
+        for point, rho_value in zip(points, rhos):
+            actual = local_density_values_and_eta_jvps(
+                free,
+                tangent,
+                N,
+                N,
+                point,
+                rho_value,
+            )
+            expected_value, expected_jvp = _torch_local_density_value_jvp(
+                free,
+                tangent,
+                N,
+                N,
+                point,
+                rho_value,
+            )
+            actual_value = np.asarray(actual["values"], dtype=float)
+            actual_jvp = np.asarray(actual["eta_jvps"], dtype=float)
+            all_finite = bool(
+                all_finite
+                and np.all(np.isfinite(actual_value))
+                and np.all(np.isfinite(actual_jvp))
+            )
+            for category, indices in categories.items():
+                value_residual = float(np.max(np.abs(actual_value[list(indices)] - expected_value[list(indices)])))
+                jvp_residual = float(np.max(np.abs(actual_jvp[list(indices)] - expected_jvp[list(indices)])))
+                row_value[category] = max(row_value[category], value_residual)
+                row_jvp[category] = max(row_jvp[category], jvp_residual)
+                worst_value[category] = max(worst_value[category], value_residual)
+                worst_jvp[category] = max(worst_jvp[category], jvp_residual)
+        rows[str(N)] = {
+            "sample_count": len(points),
+            "max_abs_value_residual_by_domain_at_N": row_value,
+            "max_abs_eta_jvp_residual_by_domain_at_N": row_jvp,
+        }
+
+    free3, tangent3 = _pinned_member_vectors(3)
+    mutant_point = points[0]
+    mutant_rho = rhos[0]
+    boundary = decode_common_first_boundary_td3(free3, tangent3, 3, 3, mutant_point)
+    mutant_failures = {
+        "reference_bulk_omitted": 0.0,
+        "BF_duplicate_side_sign": 0.0,
+        "GHY_normal_reversed": 0.0,
+        "A_cross_phi_sign": 0.0,
+        "A_cross_A_sign": 0.0,
+        "Robin_plus_y_a": 0.0,
+    }
+    for side in SIDES:
+        side_boundary = boundary["sides"][side]
+        ambient = _collar_ambient_x64(side_boundary, mutant_rho, 3)
+        pulled, reference15 = _pullback_x64_and_reference15(
+            ambient,
+            side_boundary["Y_first"],
+            side,
+        )
+        nominal = _relative_bulk_densities_td3(pulled, reference15, side=side)
+        actual_without_reference = _bulk_component_densities_td3(
+            _x64_local_primitives(rhojet2_local_two_jet(pulled)),
+            context=f"{side} reference-omission mutant",
+        )
+        phi_mutant = _relative_bulk_densities_td3(
+            pulled,
+            reference15,
+            side=side,
+            phi_cross_sign=-1.0,
+        )
+        curvature_mutant = _relative_bulk_densities_td3(
+            pulled,
+            reference15,
+            side=side,
+            curvature_cross_sign=-1.0,
+        )
+        bf_sign_mutant = _relative_bulk_densities_td3(
+            pulled,
+            reference15,
+            side=side,
+            bf_pullback_multiplier=SIDE_RADIAL_SIGN[side],
+        )
+        mutant_failures["reference_bulk_omitted"] = max(
+            mutant_failures["reference_bulk_omitted"],
+            max(abs(actual_without_reference[name].body - nominal[name].body) for name in BULK_SECTORS),
+        )
+        mutant_failures["A_cross_phi_sign"] = max(
+            mutant_failures["A_cross_phi_sign"],
+            abs(phi_mutant["P_kinetic"].body - nominal["P_kinetic"].body),
+        )
+        mutant_failures["A_cross_A_sign"] = max(
+            mutant_failures["A_cross_A_sign"],
+            abs(curvature_mutant["BF"].body - nominal["BF"].body),
+        )
+        mutant_failures["BF_duplicate_side_sign"] = max(
+            mutant_failures["BF_duplicate_side_sign"],
+            abs(bf_sign_mutant["BF"].body - nominal["BF"].body),
+        )
+        boundary_ambient = _collar_ambient_x64(side_boundary, 0.0, 3)
+        boundary_pulled, _reference = _pullback_x64_and_reference15(
+            boundary_ambient,
+            side_boundary["Y_first"],
+            side,
+        )
+        nominal_ghy = _ghy_density_td3(boundary_pulled, side=side)
+        reversed_ghy = _ghy_density_td3(boundary_pulled, side=side, normal_sign=1.0)
+        mutant_failures["GHY_normal_reversed"] = max(
+            mutant_failures["GHY_normal_reversed"],
+            abs(reversed_ghy.body - nominal_ghy.body),
+        )
+    nominal_interface = _interface_component_densities_td3(boundary)
+    robin_mutant = _interface_component_densities_td3(
+        boundary,
+        robin_acceleration_sign=1.0,
+    )
+    mutant_failures["Robin_plus_y_a"] = abs(
+        robin_mutant["Robin"].body - nominal_interface["Robin"].body
+    )
+
+    flrw = _flrw_gauss_witness()
+    V4_zero = _regular_v4_td3(
+        TaylorDual3.constant(1.2) + TaylorDual3.eta(0.3),
+        (TaylorDual3.eta(0.2), TaylorDual3.eta(-0.1), TaylorDual3.eta(0.4)),
+    )
+    V4_zero_regular = bool(not V4_zero.coefficients)
+    naive_phi_norm_rejected = False
+    try:
+        sum(
+            (component * component for component in (
+                TaylorDual3.eta(0.2),
+                TaylorDual3.eta(-0.1),
+                TaylorDual3.eta(0.4),
+            )),
+            TaylorDual3.constant(0.0),
+        ).sqrt()
+    except TaylorDual3InputError:
+        naive_phi_norm_rejected = True
+
+    free2, tangent2 = _pinned_member_vectors(2)
+    secondary_actual = local_density_values_and_eta_jvps(
+        free2,
+        tangent2,
+        2,
+        2,
+        points[0],
+        rhos[0],
+    )
+    secondary_expected = _route_c_secondary_local_values(
+        free2,
+        2,
+        points[0],
+        rhos[0],
+    )
+    secondary_values = np.asarray(secondary_actual["values"], dtype=float)
+    secondary_residual = float(np.max(np.abs(secondary_values - secondary_expected)))
+    secondary_sign_mismatches = sum(
+        int(math.copysign(1.0, actual) != math.copysign(1.0, expected))
+        for actual, expected in zip(secondary_values, secondary_expected)
+        if abs(actual) > 1.0e-12 and abs(expected) > 1.0e-12
+    )
+
+    free1, tangent1 = _pinned_member_vectors(1)
+    rejection_cases = (
+        lambda: local_density_values_and_eta_jvps(free1[:-1], tangent1, 1, 1, points[0], 0.5),
+        lambda: local_density_values_and_eta_jvps(free1, tangent1[:-1], 1, 1, points[0], 0.5),
+        lambda: local_density_values_and_eta_jvps(free1, tangent1, 1, 1, points[0][:-1], 0.5),
+        lambda: local_density_values_and_eta_jvps(free1, tangent1, 1, 1, points[0], -1.0e-9),
+        lambda: local_density_values_and_eta_jvps(free1, tangent1, 1, 1, points[0], 1.0 + 1.0e-9),
+        lambda: local_density_values_and_eta_jvps(free1, tangent1, 1, 1, points[0], True),
+    )
+    rejections = []
+    for case in rejection_cases:
+        try:
+            case()
+        except TaylorDual3InputError:
+            rejections.append(True)
+        else:
+            rejections.append(False)
+
+    value_tolerance = 1.0e-11
+    jvp_tolerance = 2.0e-11
+    mutant_threshold = 1.0e-7
+    domain_pass = {
+        category: bool(
+            all_finite
+            and worst_value[category] <= value_tolerance
+            and worst_jvp[category] <= jvp_tolerance
+        )
+        for category in categories
+    }
+    mutants_pass = bool(
+        all(value > mutant_threshold for value in mutant_failures.values())
+        and flrw["pass"]
+        and V4_zero_regular
+        and naive_phi_norm_rejected
+    )
+    passed = bool(
+        all(domain_pass.values())
+        and mutants_pass
+        and secondary_residual <= 2.0e-10
+        and secondary_sign_mismatches == 0
+        and all(rejections)
+    )
+    return {
+        "component_names": LOCAL_DENSITY_COMPONENTS,
+        "component_count": len(LOCAL_DENSITY_COMPONENTS),
+        "sampled_N": (1, 2, 3),
+        "sampled_T4_points": points,
+        "sampled_bulk_rho": rhos,
+        "torch_route_a_c2_rows": rows,
+        "max_abs_value_residual_by_domain": worst_value,
+        "max_abs_eta_jvp_residual_by_domain": worst_jvp,
+        "value_tolerance": value_tolerance,
+        "eta_jvp_tolerance": jvp_tolerance,
+        "domain_pass": domain_pass,
+        "effective_mutant_max_abs_failures": mutant_failures,
+        "effective_mutant_threshold": mutant_threshold,
+        "flat_spatial_FLRW_gauss_witness": flrw,
+        "V4_phi_zero_regular_and_exact_zero": V4_zero_regular,
+        "naive_phi_norm_at_zero_rejected_control": naive_phi_norm_rejected,
+        "route_c_secondary_value_max_abs_residual": secondary_residual,
+        "route_c_secondary_nonzero_sign_mismatches": secondary_sign_mismatches,
+        "route_c_secondary_never_used_for_jvp": True,
+        "fail_closed_rejection_results": rejections,
+        "all_outputs_finite": all_finite,
+        "pass": passed,
+    }
+
+
 def build_report() -> dict[str, Any]:
     upstream = _load_pinned_upstream()
     algebra = _check_mixed_algebra()
@@ -2208,6 +3655,7 @@ def build_report() -> dict[str, Any]:
     analytic = _check_analytic_identities()
     rotation = _check_so3()
     decoder = _check_decoder()
+    local_densities = _check_local_densities()
     decision = {
         "taylor_dual3_independent_eta_spatial_degree_three_algebra_pass": bool(
             algebra["pass"] and validation["pass"]
@@ -2217,10 +3665,21 @@ def build_report() -> dict[str, Any]:
         "full_t4_decoder_implemented_and_sampled_against_pinned_oracles_pass": bool(
             decoder["pass"]
         ),
-        "local_bulk_density_implemented_pass": False,
-        "local_ghy_density_implemented_pass": False,
-        "local_interface_density_implemented_pass": False,
-        "local_density_values_and_jvps_pass": False,
+        "local_bulk_density_values_and_eta_jvps_sampled_N1_N3_against_pinned_torch_pass": bool(
+            local_densities["domain_pass"]["bulk"]
+            and local_densities["pass"]
+        ),
+        "local_ghy_density_values_and_eta_jvps_sampled_N1_N3_against_pinned_torch_pass": bool(
+            local_densities["domain_pass"]["GHY"]
+            and local_densities["pass"]
+        ),
+        "local_interface_density_values_and_eta_jvps_sampled_N1_N3_against_pinned_torch_pass": bool(
+            local_densities["domain_pass"]["interface"]
+            and local_densities["pass"]
+        ),
+        "twenty_separate_local_density_values_and_eta_jvps_sampled_pass": bool(
+            local_densities["pass"]
+        ),
         "integrated_action_pass": False,
         "quadrature_pass": False,
         "margins_certified_pass": False,
@@ -2239,15 +3698,23 @@ def build_report() -> dict[str, Any]:
             "full_t4_exact_primitives_v5_6_7_schema": upstream.SCHEMA,
             "pointwise_decoder_v5_6_4_2_sha256": POINTWISE_ORACLE_SHA256,
             "pointwise_decoder_v5_6_4_2_schema": POINTWISE_ORACLE_SCHEMA,
+            "torch_c2_multin_v5_6_5_6_sha256": TORCH_C2_ORACLE_SHA256,
+            "torch_route_a_multin_v5_6_5_5_sha256": TORCH_ROUTE_A_WRAPPER_SHA256,
+            "literal_torch_route_a_v5_6_5_sha256": TORCH_ROUTE_A_CORE_SHA256,
+            "C2_multi_N_primitive_bundle_sha256": C2_BUNDLE_SHA256,
+            "literal_action_contract_sha256": LITERAL_ACTION_SHA256,
+            "route_c_v5_6_6_3_secondary_values_sha256": ROUTE_C_ORACLE_SHA256,
+            "route_c_v5_6_6_3_secondary_values_schema": ROUTE_C_ORACLE_SCHEMA,
         },
         "algebra": algebra,
         "fail_closed_inputs": validation,
         "analytic_identities": analytic,
         "so3": rotation,
         "decoder": decoder,
+        "local_densities": local_densities,
         "decision": decision,
         "scope": (
-            "M3 decoder milestone: sparse float64 Taylor algebra in four spatial variables through degree three "
+            "M3 local-density milestone: sparse float64 Taylor algebra in four spatial variables through degree three "
             "with an independent nilpotent eta axis, plus SO(3) Rodrigues entire-z series on guarded inputs: "
             "|body(q)| <= pi-1 and non-body coefficient l1 <= 8. Analytic identities, orthogonality and eta-JVP "
             "consistency are sampled float64 "
@@ -2255,8 +3722,13 @@ def build_report() -> dict[str, Any]:
             "eta-JVP and complete 5D two-jets for C2 ambient X64, pulled X64, reference 15 and X79; its generic "
             "N,K implementation is sampled against byte-pinned decoder oracles only at N=1,2,3 and by x2/x3 "
             "probes at N=9,11. The eta oracle uses finite differences only inside the sampled self-check, never "
-            "inside the decoder pipeline. No local density, local density JVP, "
-            "integrated action, quadrature, margin certificate, uniform bridge, C1/N1 or B4/B5 claim. No receipt "
+            "inside the decoder pipeline. The API returns twelve relative bulk, two GHY and six shared-interface "
+            "densities separately, with values and exact eta-direction JVPs sampled at N=1,2,3, two T4 coordinate "
+            "points of the pinned N=1,2,3 members "
+            "and bulk rho=0.23,0.71 against byte-pinned Torch Route A+C2 and torch.func.jvp. Route C v5.6.6.3 "
+            "is a secondary value/sign check only and never certifies JVPs. Bulk rho and boundary GHY/interface "
+            "domains remain separate; no pointwise S_total is formed. The regular V4 formula is finite at phi=0. "
+            "No integrated action, quadrature, density margin certificate, uniform bridge, C1/N1 or B4/B5 claim. No receipt "
             "or artifact is written by design."
         ),
     }

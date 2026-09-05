@@ -1,4 +1,4 @@
-"""Tests for the fail-closed v5.6.7.1 TaylorDual3/SO(3) minimum."""
+"""Tests for the fail-closed v5.6.7.1 TaylorDual3 local-density unit."""
 
 from __future__ import annotations
 
@@ -24,14 +24,14 @@ TRUE_KEYS = frozenset(
         "taylor_dual3_analytic_identities_sampled_within_tolerance_pass",
         "so3_entire_z_origin_regular_orthogonality_and_eta_jvp_sampled_pass",
         "full_t4_decoder_implemented_and_sampled_against_pinned_oracles_pass",
+        "local_bulk_density_values_and_eta_jvps_sampled_N1_N3_against_pinned_torch_pass",
+        "local_ghy_density_values_and_eta_jvps_sampled_N1_N3_against_pinned_torch_pass",
+        "local_interface_density_values_and_eta_jvps_sampled_N1_N3_against_pinned_torch_pass",
+        "twenty_separate_local_density_values_and_eta_jvps_sampled_pass",
     }
 )
 FALSE_KEYS = frozenset(
     {
-        "local_bulk_density_implemented_pass",
-        "local_ghy_density_implemented_pass",
-        "local_interface_density_implemented_pass",
-        "local_density_values_and_jvps_pass",
         "integrated_action_pass",
         "quadrature_pass",
         "margins_certified_pass",
@@ -124,14 +124,16 @@ def test_upstream_source_is_byte_pinned_and_loaded_without_running_report() -> N
     assert upstream.N_MAX_CHECK == 11
 
 
-def test_report_has_only_four_true_scoped_decisions(report: dict) -> None:
+def test_report_has_only_eight_true_scoped_decisions(report: dict) -> None:
     assert report["schema"] == unit.SCHEMA
     assert set(report["decision"]) == TRUE_KEYS | FALSE_KEYS
     assert {key for key, value in report["decision"].items() if value} == TRUE_KEYS
     assert {key for key, value in report["decision"].items() if not value} == FALSE_KEYS
     assert "sampled float64" in report["scope"]
     assert "sampled against byte-pinned decoder oracles only at N=1,2,3" in report["scope"]
-    assert "No local density" in report["scope"]
+    assert "twelve relative bulk, two GHY and six shared-interface" in report["scope"]
+    assert "no pointwise S_total is formed" in report["scope"]
+    assert "No integrated action" in report["scope"]
     assert "No receipt" in report["scope"]
 
 
@@ -401,6 +403,63 @@ def test_partial_and_rhojet2_product_rule_preserve_eta_spatial_layers() -> None:
     )
 
 
+def test_rhojet2_local_extraction_retains_eta_spatial_and_radial_two_jet() -> None:
+    x0, x1 = unit.TaylorDual3.variable(0), unit.TaylorDual3.variable(1)
+    eta = unit.TaylorDual3.eta()
+    channel = unit.RhoJet2(
+        1.0 + 2.0 * x0 + 3.0 * x0 * x1 + eta * (4.0 + 5.0 * x1),
+        6.0 + 7.0 * x0 + eta * (8.0 + 9.0 * x0),
+        10.0 + eta * 11.0,
+    )
+    jet = unit.rhojet2_local_two_jet((channel,))
+    assert jet["channel_count"] == 1
+    assert jet["value"][0].body == 1.0
+    assert jet["value"][0].derivative(unit.ZERO_ALPHA, 1) == 4.0
+    assert jet["first"][0][0].body == 2.0
+    assert jet["first"][1][0].derivative(unit.ZERO_ALPHA, 1) == 5.0
+    assert jet["first"][4][0].body == 6.0
+    assert jet["first"][4][0].derivative(unit.ZERO_ALPHA, 1) == 8.0
+    assert jet["second"][0][1][0].body == 3.0
+    assert jet["second"][0][4][0].body == 7.0
+    assert jet["second"][4][0][0].derivative(unit.ZERO_ALPHA, 1) == 9.0
+    assert jet["second"][4][4][0].body == 10.0
+    assert jet["second"][4][4][0].derivative(unit.ZERO_ALPHA, 1) == 11.0
+
+
+def test_td3_determinant_cross_and_lorentzian_geometry_helpers() -> None:
+    eta = unit.TaylorDual3.eta()
+    matrix = (
+        (1.0 + 0.2 * eta, 0.1, 0.0),
+        (0.2, 1.3 - 0.1 * eta, 0.4),
+        (0.0, -0.2, 0.9 + 0.3 * eta),
+    )
+    determinant = unit.td3_determinant(matrix)
+    body = np.asarray([[unit.TaylorDual3._require(entry).body for entry in row] for row in matrix])
+    tangent = np.asarray(
+        [[unit.TaylorDual3._require(entry).derivative(unit.ZERO_ALPHA, 1) for entry in row] for row in matrix]
+    )
+    step = 1.0e-6
+    numeric_jvp = (np.linalg.det(body + step * tangent) - np.linalg.det(body - step * tangent)) / (
+        2.0 * step
+    )
+    assert math.isclose(determinant.body, float(np.linalg.det(body)), abs_tol=2.0e-15)
+    assert math.isclose(determinant.derivative(unit.ZERO_ALPHA, 1), numeric_jvp, abs_tol=2.0e-10)
+    cross = unit.td3_cross((1.0 + eta, 2.0, 3.0), (-1.0, 4.0, 0.5))
+    np.testing.assert_allclose([entry.body for entry in cross], np.cross((1.0, 2.0, 3.0), (-1.0, 4.0, 0.5)))
+
+    zero = unit.TaylorDual3.constant(0.0)
+    euclidean = tuple(
+        tuple(unit.TaylorDual3.constant(float(i == j)) for j in range(4))
+        for i in range(4)
+    )
+    zero_first = tuple(
+        tuple(tuple(zero for _ in range(4)) for _ in range(4))
+        for _ in range(4)
+    )
+    with pytest.raises(unit.TaylorDual3InputError, match="Lorentzian"):
+        unit.td3_metric_geometry(euclidean, zero_first)
+
+
 def test_decoder_oracles_and_c2_bundle_are_byte_pinned(c2_bundle: dict, report: dict) -> None:
     assert unit._sha256(unit.POINTWISE_ORACLE_PATH) == unit.POINTWISE_ORACLE_SHA256
     assert pointwise.SCHEMA == unit.POINTWISE_ORACLE_SCHEMA
@@ -412,6 +471,14 @@ def test_decoder_oracles_and_c2_bundle_are_byte_pinned(c2_bundle: dict, report: 
     assert report["source_pins"]["pointwise_decoder_v5_6_4_2_sha256"] == (
         unit.POINTWISE_ORACLE_SHA256
     )
+    assert unit._sha256(unit.TORCH_C2_ORACLE_PATH) == unit.TORCH_C2_ORACLE_SHA256
+    assert unit._sha256(unit.ROUTE_C_ORACLE_PATH) == unit.ROUTE_C_ORACLE_SHA256
+    c2, literal_route_a, _bundle = unit._load_pinned_torch_c2_oracle()
+    assert c2.BASE_ROUTE_WRAPPER_SHA256 == unit.TORCH_ROUTE_A_WRAPPER_SHA256
+    assert c2.BUNDLE_SHA256 == unit.C2_BUNDLE_SHA256
+    assert literal_route_a.V5_2_EXACT_ACTION_SHA256 == unit.LITERAL_ACTION_SHA256
+    assert literal_route_a.SCHEMA.endswith("route-a-v5-6-5-certificate.v1")
+    assert tuple(literal_route_a.COMPONENT_NAMES) == unit.LOCAL_DENSITY_COMPONENTS
 
 
 def test_generated_layout_exactly_partitions_every_named_block(c2_bundle: dict) -> None:
@@ -709,6 +776,90 @@ def test_full_t4_axes_N9_N11_and_decoder_inputs_fail_closed(report: dict, c2_bun
             call()
 
 
+def test_twenty_local_density_values_and_exact_eta_jvps_match_pinned_torch(report: dict) -> None:
+    local = report["local_densities"]
+    assert local["component_count"] == 20
+    assert tuple(local["component_names"]) == unit.LOCAL_DENSITY_COMPONENTS
+    assert tuple(local["sampled_N"]) == (1, 2, 3)
+    assert tuple(local["sampled_bulk_rho"]) == (0.23, 0.71)
+    assert len(local["sampled_T4_points"]) == 2
+    assert local["domain_pass"] == {"bulk": True, "GHY": True, "interface": True}
+    assert local["all_outputs_finite"] is True
+    assert max(local["max_abs_value_residual_by_domain"].values()) <= 1.0e-11
+    assert max(local["max_abs_eta_jvp_residual_by_domain"].values()) <= 2.0e-11
+    assert local["route_c_secondary_value_max_abs_residual"] <= 2.0e-10
+    assert local["route_c_secondary_nonzero_sign_mismatches"] == 0
+    assert local["route_c_secondary_never_used_for_jvp"] is True
+    assert local["pass"] is True
+
+
+def test_local_density_api_keeps_domains_separate_accepts_endpoints_and_has_no_total(c2_bundle: dict) -> None:
+    _member, _contract, free, tangent = _member_vectors(c2_bundle, 1)
+    point = (0.13, -0.27, 0.21, -0.08)
+    for rho in (0.0, 1.0):
+        result = unit.local_density_values_and_eta_jvps(free, tangent, 1, 1, point, rho)
+        assert tuple(result["component_names"]) == unit.LOCAL_DENSITY_COMPONENTS
+        assert len(result["values"]) == len(result["eta_jvps"]) == 20
+        assert all(math.isfinite(value) for value in result["values"] + result["eta_jvps"])
+        assert result["rho_bulk"] == rho
+        assert result["domain_separation"]["GHY"].startswith("rho=0 boundary")
+        assert "S_total" not in result
+        assert "S_total" not in result["components"]
+    for bad_rho in (-1.0e-12, 1.0 + 1.0e-12, True, float("nan")):
+        with pytest.raises(unit.TaylorDual3InputError):
+            unit.local_density_values_and_eta_jvps(free, tangent, 1, 1, point, bad_rho)
+
+
+def test_effective_local_density_mutants_and_regular_phi_zero_control(report: dict) -> None:
+    local = report["local_densities"]
+    failures = local["effective_mutant_max_abs_failures"]
+    assert set(failures) == {
+        "reference_bulk_omitted",
+        "BF_duplicate_side_sign",
+        "GHY_normal_reversed",
+        "A_cross_phi_sign",
+        "A_cross_A_sign",
+        "Robin_plus_y_a",
+    }
+    assert min(failures.values()) > local["effective_mutant_threshold"]
+    flrw = local["flat_spatial_FLRW_gauss_witness"]
+    assert math.isclose(flrw["scale_factor"], 1.7)
+    assert math.isclose(flrw["scale_first"], 0.23)
+    assert math.isclose(flrw["scale_second"], -0.11)
+    assert abs(flrw["nominal_Rcal"]) <= 2.0e-13
+    assert math.isclose(flrw["opposite_gauss_sign_Rcal"], 0.21965397923875438, abs_tol=2.0e-15)
+    assert flrw["pass"] is True
+    assert local["V4_phi_zero_regular_and_exact_zero"] is True
+    assert local["naive_phi_norm_at_zero_rejected_control"] is True
+
+    eta = unit.TaylorDual3.eta()
+    regular = unit._regular_v4_td3(
+        1.2 + 0.3 * eta,
+        (0.4 * eta, -0.2 * eta, 0.1 * eta),
+    )
+    assert regular.coefficients == {}
+    with pytest.raises(unit.TaylorDual3InputError, match="strictly positive"):
+        sum(
+            (component * component for component in (0.4 * eta, -0.2 * eta, 0.1 * eta)),
+            unit.TaylorDual3.constant(0.0),
+        ).sqrt()
+
+
+def test_bulk_formula_does_not_duplicate_side_sign_and_local_inputs_fail_closed(report: dict, c2_bundle: dict) -> None:
+    assert report["local_densities"]["effective_mutant_max_abs_failures"]["BF_duplicate_side_sign"] > 1.0e-3
+    assert report["local_densities"]["domain_pass"]["bulk"] is True
+    assert all(report["local_densities"]["fail_closed_rejection_results"])
+    _member, _contract, free, tangent = _member_vectors(c2_bundle, 1)
+    point = (0.13, -0.27, 0.21, -0.08)
+    for call in (
+        lambda: unit.local_density_values_and_eta_jvps(free[:-1], tangent, 1, 1, point, 0.23),
+        lambda: unit.local_density_values_and_eta_jvps(free, tangent[:-1], 1, 1, point, 0.23),
+        lambda: unit.local_density_values_and_eta_jvps(free, tangent, 1, 1, point[:-1], 0.23),
+    ):
+        with pytest.raises(unit.TaylorDual3InputError):
+            call()
+
+
 def test_reserved_pair_writes_no_receipt_and_main_prints_current_report(report: dict, capsys) -> None:
     source = Path(unit.__file__).read_text(encoding="utf-8")
     assert "write_text(" not in source
@@ -716,5 +867,7 @@ def test_reserved_pair_writes_no_receipt_and_main_prints_current_report(report: 
     unit.main()
     output = capsys.readouterr().out
     assert unit.SCHEMA in output
-    assert '"local_density_values_and_jvps_pass": false' in output
+    assert '"twenty_separate_local_density_values_and_eta_jvps_sampled_pass": true' in output
+    assert '"S_total"' not in output
+    assert '"integrated_action_pass": false' in output
     assert '"C1_N1_promotion_authorized": false' in output
