@@ -9,9 +9,14 @@ separate integer noncommutative word kernel proves the finite affine connection
 trace transport on both sides.  A separate exact sign ledger binds the two real
 BF routes to the oriented off-shell incidence ``b_plus-b_minus`` and factors the
 common ``Delta A_Sigma`` without claiming cancellation before the natural
-interface equation is imposed.  The unexpanded local/compact-support chain-rule
-corollary is then recorded as the formal derivative of the finite action
-identity on smooth selected-sector fields and compactly supported generators.
+interface equation is imposed.  An exact symbolic Green ledger then consumes
+the twenty literal action components in eighteen variation rows.  It derives
+the scalar and material normal currents with a product-rule/integration-by-parts
+normalizer, while recording EH+GHY and the six intrinsic interface variations
+only as the explicitly named geometric axioms.  The unexpanded
+local/compact-support chain-rule corollary is also recorded as the formal
+derivative of the finite action identity on smooth selected-sector fields and
+compactly supported generators.
 
 The certificate is exact relative to the finite list of standard
 differential-geometric axioms reported by :func:`build_report`.  It is not a
@@ -94,6 +99,7 @@ TRUE_DECISION_KEYS = frozenset(
         "finite_associated_matter_solder_groupoid_word_covariance_exact_pass",
         "finite_full_affine_connection_trace_transport_exact_pass",
         "oriented_BF_incidence_aggregation_exact_pass",
+        "literal_bulk_interface_Green_ledger_pass",
         "finite_typed_geometric_S_v5_2_action_expression_covariance_exact_pass",
         "formal_local_compact_support_chain_rule_corollary_DS_G_zero_exact_pass",
     }
@@ -101,7 +107,6 @@ TRUE_DECISION_KEYS = frozenset(
 FALSE_DECISION_KEYS = frozenset(
     {
         "oriented_BF_incidence_cancellation_exact_pass",
-        "literal_bulk_interface_Green_ledger_pass",
         "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass",
         "full_bulk_diffeomorphism_Ward_pass",
         "fixed_reference_S_rel_diffeomorphism_Ward_pass",
@@ -1026,6 +1031,157 @@ EXPECTED_BF_NATURAL_INTERFACE_EQUATION = "sum_eps s_eps*b_eps=0"
 EXPECTED_COMMON_INTERFACE_VARIATIONS = (
     "Delta gamma, Delta Omega_Sigma, Delta varphi_H and Delta A_Sigma are common"
 )
+EXPECTED_EH_GHY_FIRST_VARIATION = (
+    "delta(S_EH+S_GHY)=M5^3/2*int_M sqrt(-g)*G_MN*Delta g^(MN)-"
+    "M5^3/2*int_Sigma sqrt(-gamma)*(Theta^(mu nu)-Theta*gamma^(mu nu))*"
+    "Delta gamma_mu_nu; no normal derivative of Delta gamma remains"
+)
+EXPECTED_GREEN_MOMENTA = {
+    "pi_eps": "Theta_eps^(mu nu)-Theta_eps*gamma^(mu nu)",
+    "Pi_Omega_eps": "G*n_eps.nabla Omega+3*Z*<phi,n_eps.P>/(2*Omega)",
+    "Pi_phi_eps": "Z*j_eps(n_eps.P_eps)",
+}
+EXPECTED_BF_BULK_EQUATION_A = (
+    "D_A B+J_4=0 with J_4 proportional to Z*star(phi^[a P^(b])"
+)
+# This is an immutable, independently authored target.  Candidate rows are
+# derived below from the real AST classifications; this table never builds them.
+EXPECTED_GREEN_ROW_LAYOUT = (
+    ("EH_GHY_plus", ("EH_bulk_plus", "GHY_plus")),
+    ("Omega_kinetic_plus", ("Omega_kinetic_bulk_plus",)),
+    ("Omega_potential_plus", ("Omega_potential_bulk_plus",)),
+    ("P_kinetic_plus", ("P_kinetic_bulk_plus",)),
+    ("full_V4_plus", ("full_V4_bulk_plus",)),
+    ("BF_plus", ("BF_bulk_plus",)),
+    ("EH_GHY_minus", ("EH_bulk_minus", "GHY_minus")),
+    ("Omega_kinetic_minus", ("Omega_kinetic_bulk_minus",)),
+    ("Omega_potential_minus", ("Omega_potential_bulk_minus",)),
+    ("P_kinetic_minus", ("P_kinetic_bulk_minus",)),
+    ("full_V4_minus", ("full_V4_bulk_minus",)),
+    ("BF_minus", ("BF_bulk_minus",)),
+    ("wall", ("wall",)),
+    ("K_foliation", ("K_foliation",)),
+    ("R", ("R",)),
+    ("R_squared", ("R_squared",)),
+    ("a_squared", ("a_squared",)),
+    ("Robin", ("Robin",)),
+)
+EXPECTED_GREEN_ROW_FAMILY_SIDE = {
+    "EH_GHY_plus": ("EH_GHY", "plus"),
+    "Omega_kinetic_plus": ("Omega_kinetic", "plus"),
+    "Omega_potential_plus": ("Omega_potential", "plus"),
+    "P_kinetic_plus": ("P_kinetic", "plus"),
+    "full_V4_plus": ("full_V4", "plus"),
+    "BF_plus": ("BF", "plus"),
+    "EH_GHY_minus": ("EH_GHY", "minus"),
+    "Omega_kinetic_minus": ("Omega_kinetic", "minus"),
+    "Omega_potential_minus": ("Omega_potential", "minus"),
+    "P_kinetic_minus": ("P_kinetic", "minus"),
+    "full_V4_minus": ("full_V4", "minus"),
+    "BF_minus": ("BF", "minus"),
+    "wall": ("wall", "interface"),
+    "K_foliation": ("K_foliation", "interface"),
+    "R": ("R", "interface"),
+    "R_squared": ("R_squared", "interface"),
+    "a_squared": ("a_squared", "interface"),
+    "Robin": ("Robin", "interface"),
+}
+EXPECTED_INTRINSIC_DELTAS = {
+    "wall": "delta(S_wall0)",
+    "K_foliation": "delta(S_K_foliation)",
+    "R": "delta(S_R)",
+    "R_squared": "delta(S_R_squared)",
+    "a_squared": "delta(S_a_squared)",
+    "Robin": "delta(S_R_intrinsic)",
+}
+# SHA256 of a canonical full AST fingerprint containing every operator, type,
+# field name, pullback word and groupoid word.  These values were authored from
+# the reviewed v5.2 expression contract and are not rebuilt by the candidate
+# expression constructor.
+EXPECTED_GREEN_EXPRESSION_FINGERPRINTS = {
+    "EH_bulk_plus": "499c20e77a409a611aa9f34b7f0c9729f1def776e20026f7d4c26098c53e9cd4",
+    "Omega_kinetic_bulk_plus": "540fa08579cada74abf15f9a0685227150da8872c961d3c2b2f5bafc2cfcd73b",
+    "Omega_potential_bulk_plus": "9860dcbc4d5a57c19f8be7dcb2bb7ece66fea537f2d4a8112b8c808ccd3a01f4",
+    "P_kinetic_bulk_plus": "36b910115334ca8335d23c571bb6db69b5e3b3d4893af7f60c01e8f3ab903b97",
+    "full_V4_bulk_plus": "50b9f0630d81fa1eb0ab3955ba4342b8075624868220cee67b8ad57a605dce5c",
+    "BF_bulk_plus": "5bdb2538a34efa1db97891b4ad9fea1317108a3c823b32f0dc4aff8b5f057a36",
+    "GHY_plus": "eee3371dda469c6e0db1d67f63634c1ec39ac96d70ae365a4bcffa38be30fb98",
+    "EH_bulk_minus": "ba9ab52c25ae3e1c100a8ace1c6d1a9c71b91a53a5f1b7bb53a27be9d710a729",
+    "Omega_kinetic_bulk_minus": "719617262cc2c0ef81bf9882846cd73c4fde469ec6c19f1960ab99db155a2b8c",
+    "Omega_potential_bulk_minus": "0c3ccce1b073f2b56de33873fb9ce2f42e4c60927bd3e73ff5e304cf7f96fdd7",
+    "P_kinetic_bulk_minus": "21743642fc533d7f7e08ed90c470cb561f4ff7a729525cd2e7ac385c7058d9b0",
+    "full_V4_bulk_minus": "88feb4ee3abd3109fcb5edb3de7cc549e98725496f8458c38645690502b55d60",
+    "BF_bulk_minus": "7333a1254eadb5f55974b39fe0beb02e178e25655cc216c61daa8acbd168d95e",
+    "GHY_minus": "fb52af4895795e5c6309b816375409a4e99828162201cb9e7a53506a177fcaa7",
+    "wall": "e6fcdace94e5e6326431f287f4ffaa19a193dac897a7c4d386cad63f4e78563a",
+    "K_foliation": "db8708d0e128e7fc2726e294a0e0c83118f2b0a7eb4f3f6619a5003c6065c873",
+    "R": "6d857f4ac286fb537b4b9d96e4cea434bcf7388bae8affc4d9542c3040ee9dcb",
+    "R_squared": "2a3cad8a39bb2ab85daba4aac10dd50c9ae34c109f4bdc80db31f6e1dbe53369",
+    "a_squared": "6fe51cc6a5c2841f34d49a1f0e92343525c93b73fee90d70025f2871408751a1",
+    "Robin": "1bbb2c77425994083097a705c563c48227a98ed6a849ade16c37bd9f4f561b29",
+}
+EXPECTED_DELTA_P_TERM_SIGNATURES = (
+    (
+        "covariant_Delta_phi",
+        "covariant_derivative",
+        ("Delta_phi",),
+        "Delta_phi",
+        True,
+        (1, 1, ()),
+        "phi_normal_current",
+    ),
+    (
+        "conformal_Delta_phi_dOmega",
+        "product",
+        ("Delta_phi", "dOmega"),
+        "Delta_phi",
+        False,
+        (3, 2, (("Omega", -1),)),
+        None,
+    ),
+    (
+        "conformal_phi_dDeltaOmega",
+        "product",
+        ("phi", "d_Delta_Omega"),
+        "Delta_Omega",
+        True,
+        (3, 2, (("Omega", -1),)),
+        "Omega_normal_current",
+    ),
+    (
+        "conformal_log_variation",
+        "product",
+        ("phi", "dOmega", "Delta_Omega"),
+        "Delta_Omega",
+        False,
+        (-3, 2, (("Omega", -2),)),
+        None,
+    ),
+    (
+        "connection_representation",
+        "representation",
+        ("Delta_A", "phi"),
+        "Delta_A",
+        False,
+        (1, 1, ()),
+        None,
+    ),
+)
+EXPECTED_GREEN_LEAF_MULTISETS: Mapping[str, tuple[tuple[str, int], ...]] = {
+    "EH": (("g", 2),),
+    "GHY": (("g", 2),),
+    "Omega_kinetic": (("Omega", 2), ("g", 2)),
+    "Omega_potential": (("Omega", 2), ("g", 1)),
+    "P_kinetic": (("A", 2), ("Omega", 2), ("g", 2), ("phi", 4)),
+    "full_V4": (("Omega", 1), ("g", 1), ("phi", 1)),
+    "BF": (("A", 1), ("B", 1)),
+    "wall": (("Omega", 1), ("g", 1)),
+    "K_foliation": (("T", 1), ("g", 2)),
+    "R": (("T", 1), ("g", 2)),
+    "R_squared": (("T", 1), ("g", 2)),
+    "a_squared": (("T", 2), ("g", 4)),
+    "Robin": (("T", 1), ("g", 3), ("varphi_H", 1)),
+}
 BF_ORIENTATION_SIGNS = {"plus": 1, "minus": -1}
 BF_TRACE_BINDING_MUTATIONS = frozenset(
     {"exact", "detached_b_trace", "detached_affine_target"}
@@ -1186,6 +1342,11 @@ def _load_pinned_contracts() -> tuple[dict[str, Any], Mapping[str, Any], Mapping
     )
     if bf_natural_equation != EXPECTED_BF_NATURAL_INTERFACE_EQUATION:
         raise NaturalityCertificateError("v5.2 BF natural interface equation drift")
+    bf_bulk_equation_a = green_certificate.get("bulk_equations_new_sector", {}).get(
+        "A"
+    )
+    if bf_bulk_equation_a != EXPECTED_BF_BULK_EQUATION_A:
+        raise NaturalityCertificateError("v5.2 BF bulk A equation drift")
 
     v561_decision = v561.get("decision", {})
     if v561_decision.get("full_bulk_diffeomorphism_Ward_pass") is not False:
@@ -1218,6 +1379,7 @@ def _load_pinned_contracts() -> tuple[dict[str, Any], Mapping[str, Any], Mapping
     observed["v5_2_artifact"]["BF_natural_interface_equation"] = (
         bf_natural_equation
     )
+    observed["v5_2_artifact"]["BF_bulk_equation_A"] = bf_bulk_equation_a
     observed["v5_6_1_artifact"]["schema"] = V561_SCHEMA
     observed["v5_6_1_historical_target_false"] = True
     observed["v5_6_1_literal_open_obligation"] = obligation
@@ -2846,6 +3008,1779 @@ def _bf_incidence_mutant_campaign(
     }
 
 
+def _integer_gcd(left: int, right: int) -> int:
+    left = abs(left)
+    right = abs(right)
+    while right:
+        left, right = right, left % right
+    return left or 1
+
+
+@dataclass(frozen=True, order=True)
+class ExactCoefficient:
+    """A reduced rational monomial over named, commuting parameters."""
+
+    numerator: int
+    denominator: int
+    powers: tuple[tuple[str, int], ...]
+
+    def __post_init__(self) -> None:
+        if (
+            isinstance(self.numerator, bool)
+            or not isinstance(self.numerator, int)
+            or isinstance(self.denominator, bool)
+            or not isinstance(self.denominator, int)
+            or self.denominator <= 0
+            or _integer_gcd(self.numerator, self.denominator) != 1
+            or tuple(sorted(self.powers)) != self.powers
+            or len({name for name, _power in self.powers}) != len(self.powers)
+            or any(
+                not isinstance(name, str)
+                or not name
+                or isinstance(power, bool)
+                or not isinstance(power, int)
+                or power == 0
+                for name, power in self.powers
+            )
+            or (self.numerator == 0 and (self.denominator != 1 or self.powers))
+        ):
+            raise NaturalityCertificateError(
+                "Green coefficient is not a canonical exact rational monomial"
+            )
+
+    @classmethod
+    def from_parts(
+        cls,
+        numerator: int,
+        denominator: int = 1,
+        powers: Sequence[tuple[str, int]] = (),
+    ) -> ExactCoefficient:
+        if (
+            isinstance(numerator, bool)
+            or not isinstance(numerator, int)
+            or isinstance(denominator, bool)
+            or not isinstance(denominator, int)
+            or denominator == 0
+        ):
+            raise NaturalityCertificateError(
+                "exact Green coefficients require integer numerator and nonzero denominator"
+            )
+        collected: dict[str, int] = {}
+        for name, power in powers:
+            if (
+                not isinstance(name, str)
+                or not name
+                or isinstance(power, bool)
+                or not isinstance(power, int)
+            ):
+                raise NaturalityCertificateError(
+                    "exact Green monomial powers require named integer exponents"
+                )
+            collected[name] = collected.get(name, 0) + power
+        if denominator < 0:
+            numerator = -numerator
+            denominator = -denominator
+        divisor = _integer_gcd(numerator, denominator)
+        numerator //= divisor
+        denominator //= divisor
+        canonical_powers = tuple(
+            sorted((name, power) for name, power in collected.items() if power)
+        )
+        if numerator == 0:
+            canonical_powers = ()
+            denominator = 1
+        return cls(numerator, denominator, canonical_powers)
+
+    def multiply(self, other: ExactCoefficient) -> ExactCoefficient:
+        return ExactCoefficient.from_parts(
+            self.numerator * other.numerator,
+            self.denominator * other.denominator,
+            self.powers + other.powers,
+        )
+
+    def add(self, other: ExactCoefficient) -> ExactCoefficient:
+        if self.powers != other.powers:
+            raise NaturalityCertificateError(
+                "cannot add exact Green coefficients with different monomials"
+            )
+        return ExactCoefficient.from_parts(
+            self.numerator * other.denominator
+            + other.numerator * self.denominator,
+            self.denominator * other.denominator,
+            self.powers,
+        )
+
+    def negate(self) -> ExactCoefficient:
+        return ExactCoefficient.from_parts(
+            -self.numerator, self.denominator, self.powers
+        )
+
+    @property
+    def is_zero(self) -> bool:
+        return self.numerator == 0
+
+
+def _coefficient(
+    numerator: int,
+    denominator: int = 1,
+    **powers: int,
+) -> ExactCoefficient:
+    return ExactCoefficient.from_parts(
+        numerator, denominator, tuple(powers.items())
+    )
+
+
+@dataclass(frozen=True, order=True)
+class ExactGreenTerm:
+    """One exact integrated boundary term, with its common variation atom."""
+
+    factor: str
+    variation: str
+    coefficient: ExactCoefficient
+
+
+@dataclass(frozen=True, order=True)
+class DeltaPVariationTerm:
+    """One typed summand in the exact product-rule expansion of Delta P."""
+
+    term_id: str
+    operator: str
+    factors: tuple[str, ...]
+    variation: str
+    differentiated_variation: bool
+    coefficient: ExactCoefficient
+    boundary_channel: str | None
+
+
+def _delta_p_term_signature(term: DeltaPVariationTerm) -> tuple[Any, ...]:
+    return (
+        term.term_id,
+        term.operator,
+        term.factors,
+        term.variation,
+        term.differentiated_variation,
+        (
+            term.coefficient.numerator,
+            term.coefficient.denominator,
+            term.coefficient.powers,
+        ),
+        term.boundary_channel,
+    )
+
+
+def _serialize_delta_p_terms(
+    terms: Sequence[DeltaPVariationTerm],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "term_id": term.term_id,
+            "operator": term.operator,
+            "factors": list(term.factors),
+            "variation": term.variation,
+            "differentiated_variation": term.differentiated_variation,
+            "coefficient": _serialize_coefficient(term.coefficient),
+            "boundary_channel": term.boundary_channel,
+        }
+        for term in terms
+    ]
+
+
+def _collect_green_terms(
+    terms: Sequence[ExactGreenTerm],
+) -> tuple[ExactGreenTerm, ...]:
+    collected: dict[
+        tuple[str, str, tuple[tuple[str, int], ...]], ExactCoefficient
+    ] = {}
+    for term in terms:
+        key = (term.factor, term.variation, term.coefficient.powers)
+        previous = collected.get(key)
+        collected[key] = (
+            term.coefficient if previous is None else previous.add(term.coefficient)
+        )
+    return tuple(
+        sorted(
+            (
+                ExactGreenTerm(factor, variation, coefficient)
+                for (factor, variation, _powers), coefficient in collected.items()
+                if not coefficient.is_zero
+            ),
+            key=lambda item: (
+                item.factor,
+                item.variation,
+                item.coefficient.powers,
+                item.coefficient.numerator,
+                item.coefficient.denominator,
+            ),
+        )
+    )
+
+
+def _serialize_coefficient(value: ExactCoefficient) -> dict[str, Any]:
+    numerator_parameters = [
+        name if power == 1 else f"{name}^{power}"
+        for name, power in value.powers
+        if power > 0
+    ]
+    denominator_parameters = [
+        name if power == -1 else f"{name}^{-power}"
+        for name, power in value.powers
+        if power < 0
+    ]
+    return {
+        "numerator": value.numerator,
+        "denominator": value.denominator,
+        "powers": [list(item) for item in value.powers],
+        "numerator_parameters": numerator_parameters,
+        "denominator_parameters": denominator_parameters,
+        "uses_floating_point": False,
+    }
+
+
+def _serialize_green_terms(
+    terms: Sequence[ExactGreenTerm],
+) -> list[dict[str, Any]]:
+    return [
+        {
+            "factor": term.factor,
+            "variation": term.variation,
+            "coefficient": _serialize_coefficient(term.coefficient),
+        }
+        for term in terms
+    ]
+
+
+@dataclass(frozen=True)
+class VariationRow:
+    """One source-bound row of the integrated, reference-fixed Green ledger."""
+
+    name: str
+    components: tuple[str, ...]
+    component_expressions: tuple[tuple[str, Expression], ...]
+    component_weights: tuple[tuple[str, ExactCoefficient], ...]
+    source_literal_keys: tuple[str, ...]
+    derivation_kind: str
+    bulk_euler_pairing: str
+    bulk_euler_terms: tuple[ExactGreenTerm, ...]
+    local_divergence: str | None
+    integrated_boundary_terms: tuple[ExactGreenTerm, ...]
+    intrinsic_delta: str | None
+
+
+GREEN_LEDGER_MUTATIONS = frozenset(
+    {
+        "component_omitted",
+        "component_duplicated",
+        "component_swapped",
+        "component_detached",
+        "shared_layout_swap",
+        "extra_component",
+        "AST_GHOST_pullback",
+        "GHY_omitted",
+        "GHY_wrong_sign",
+        "GHY_inward_normal",
+        "Pi_Omega_kinetic_wrong_sign",
+        "Pi_Omega_P_wrong_sign",
+        "Pi_phi_wrong_sign",
+        "P_three_halves_omitted",
+        "P_three_halves_wrong",
+        "DeltaP_omit_Delta_phi_dOmega",
+        "DeltaP_corrupt_Delta_phi_dOmega",
+        "DeltaP_omit_Omega_minus2",
+        "DeltaP_corrupt_Omega_minus2",
+        "DeltaP_omit_representation_DeltaA_phi",
+        "DeltaP_corrupt_representation_DeltaA_phi",
+        "split_common_variations",
+        "Pi_phi_detached",
+        "Pi_phi_unsoldered",
+        "spurious_Omega_potential_current",
+        "spurious_V4_current",
+        "R_squared_denominator_16",
+        "local_divergence_omitted",
+        "BF_offshell_cancelled",
+        "BF_wrong_bulk_DAB_sign",
+        "BF_omit_DAB",
+        "BF_internal_boundary_minus_to_plus",
+        "intrinsic_producer_corruption",
+    }
+    | {f"intrinsic_wrong_sign_{name}" for name in INTERFACE_SECTORS}
+    | {f"intrinsic_omitted_{name}" for name in INTERFACE_SECTORS}
+)
+
+
+def _green_component_weight(
+    component: str,
+    mutation: str | None = None,
+) -> ExactCoefficient:
+    family = _component_family(component)
+    if family == "EH":
+        value = _coefficient(1, 2, M5=3)
+    elif family == "GHY":
+        value = _coefficient(1, 1, M5=3)
+    elif family == "Omega_kinetic":
+        value = _coefficient(-1, 2, G=1)
+    elif family == "Omega_potential":
+        value = _coefficient(-1)
+    elif family == "P_kinetic":
+        value = _coefficient(-1, 2, Z=1)
+    elif family == "full_V4":
+        value = _coefficient(-1, 1, Z=1, M=2)
+    elif family == "BF":
+        value = _coefficient(1)
+    elif family == "wall":
+        value = _coefficient(-1)
+    elif family == "K_foliation":
+        value = _coefficient(1, 2, Mb=2)
+    elif family == "R":
+        value = _coefficient(1, 2, Mb=2, xi=1)
+    elif family == "R_squared":
+        denominator = 16 if mutation == "R_squared_denominator_16" else 32
+        value = _coefficient(-1, denominator, Mb=2, B4_bar=1, k_infinity=-2)
+    elif family == "a_squared":
+        value = _coefficient(1, 2, Mb=2, eta=1)
+    elif family == "Robin":
+        value = _coefficient(-1, 2, kappa_hat=1)
+    else:  # pragma: no cover - _component_family is exhaustive
+        raise NaturalityCertificateError(f"unknown Green component: {component}")
+    if mutation == "GHY_wrong_sign" and family == "GHY":
+        value = value.negate()
+    if mutation == f"intrinsic_wrong_sign_{family}" and family in INTERFACE_SECTORS:
+        value = value.negate()
+    return value
+
+
+def _expected_green_component_weight(component: str) -> ExactCoefficient:
+    """Independent target table for the exact v5.2 action coefficients."""
+
+    family = _component_family(component)
+    target = {
+        "EH": (1, 2, (("M5", 3),)),
+        "GHY": (1, 1, (("M5", 3),)),
+        "Omega_kinetic": (-1, 2, (("G", 1),)),
+        "Omega_potential": (-1, 1, ()),
+        "P_kinetic": (-1, 2, (("Z", 1),)),
+        "full_V4": (-1, 1, (("M", 2), ("Z", 1))),
+        "BF": (1, 1, ()),
+        "wall": (-1, 1, ()),
+        "K_foliation": (1, 2, (("Mb", 2),)),
+        "R": (1, 2, (("Mb", 2), ("xi", 1))),
+        "R_squared": (
+            -1,
+            32,
+            (("B4_bar", 1), ("Mb", 2), ("k_infinity", -2)),
+        ),
+        "a_squared": (1, 2, (("Mb", 2), ("eta", 1))),
+        "Robin": (-1, 2, (("kappa_hat", 1),)),
+    }[family]
+    return ExactCoefficient.from_parts(*target)
+
+
+def _green_leaf_multiset(value: Expression) -> tuple[tuple[str, int], ...]:
+    counts: dict[str, int] = {}
+
+    def visit(node: Expression) -> None:
+        if isinstance(node, PulledField):
+            role = _field_role(node.name)
+            counts[role] = counts.get(role, 0) + 1
+            return
+        if isinstance(node, SolderedMatter):
+            counts[node.name] = counts.get(node.name, 0) + 1
+            return
+        for argument in node.arguments:
+            visit(argument)
+
+    visit(value)
+    return tuple(sorted(counts.items()))
+
+
+def _full_expression_fingerprint_payload(value: Expression) -> tuple[Any, ...]:
+    type_payload = _type_signature(value.type_tag)
+    if isinstance(value, PulledField):
+        return (
+            "PulledField",
+            value.name,
+            type_payload,
+            value.pullback_factors,
+        )
+    if isinstance(value, SolderedMatter):
+        return (
+            "SolderedMatter",
+            value.name,
+            type_payload,
+            value.pullback_factors,
+            value.groupoid_factors,
+        )
+    return (
+        "Construction",
+        value.operator,
+        type_payload,
+        tuple(
+            _full_expression_fingerprint_payload(argument)
+            for argument in value.arguments
+        ),
+    )
+
+
+def _full_expression_fingerprint(value: Expression) -> str:
+    return _canonical_sha256(_full_expression_fingerprint_payload(value))
+
+
+def _infer_green_component_family(value: Expression) -> str | None:
+    signature = _expression_signature(value)
+    matches = tuple(
+        family
+        for family, expected in EXPECTED_SEMANTIC_SIGNATURES.items()
+        if signature == expected
+    )
+    return matches[0] if len(matches) == 1 else None
+
+
+def _infer_green_component_side(
+    value: Expression,
+    family: str,
+) -> str | None:
+    if family in INTERFACE_SECTORS:
+        return "interface"
+    sides: set[str] = set()
+
+    def visit(node: Expression) -> None:
+        if isinstance(node, PulledField):
+            for side in SIDES:
+                if node.name.endswith(f"_{side}"):
+                    sides.add(side)
+            return
+        if isinstance(node, SolderedMatter):
+            return
+        for argument in node.arguments:
+            visit(argument)
+
+    visit(value)
+    return next(iter(sides)) if len(sides) == 1 else None
+
+
+def _green_row_name_from_AST_classification(family: str, side: str) -> str | None:
+    if family in {"EH", "GHY"} and side in SIDES:
+        return f"EH_GHY_{side}"
+    if family in BULK_SECTORS and side in SIDES:
+        return f"{family}_{side}"
+    if family in INTERFACE_SECTORS and side == "interface":
+        return family
+    return None
+
+
+def _derive_green_candidate_layout_from_AST(
+    components: Mapping[str, Expression],
+    *,
+    mutation: str | None = None,
+) -> tuple[
+    tuple[tuple[str, tuple[str, ...]], ...],
+    tuple[dict[str, Any], ...],
+    tuple[str, ...],
+]:
+    grouped: dict[str, list[str]] = {}
+    classifications: list[dict[str, Any]] = []
+    issues: list[str] = []
+    for component, expression in components.items():
+        family = _infer_green_component_family(expression)
+        side = (
+            _infer_green_component_side(expression, family)
+            if family is not None
+            else None
+        )
+        row_name = (
+            _green_row_name_from_AST_classification(family, side)
+            if family is not None and side is not None
+            else None
+        )
+        classifications.append(
+            {
+                "component": component,
+                "inferred_family": family,
+                "inferred_side": side,
+                "inferred_row": row_name,
+            }
+        )
+        if row_name is None:
+            issues.append(f"unclassified:{component}")
+            continue
+        grouped.setdefault(row_name, []).append(component)
+    if mutation == "component_duplicated" and "Robin" in grouped:
+        grouped["Robin"].append("Robin")
+    if mutation == "shared_layout_swap":
+        left = "Omega_kinetic_plus"
+        right = "Omega_potential_plus"
+        grouped[left], grouped[right] = grouped.get(right, []), grouped.get(left, [])
+    return (
+        tuple((name, tuple(component_names)) for name, component_names in grouped.items()),
+        tuple(classifications),
+        tuple(issues),
+    )
+
+
+def _append_AST_ghost_to_first_pullback(value: Expression) -> Expression:
+    changed = False
+
+    def mutate(node: Expression) -> Expression:
+        nonlocal changed
+        if isinstance(node, PulledField):
+            if changed:
+                return node
+            changed = True
+            return PulledField(
+                node.name,
+                node.type_tag,
+                node.pullback_factors + ("AST_GHOST",),
+            )
+        if isinstance(node, SolderedMatter):
+            if changed:
+                return node
+            changed = True
+            return SolderedMatter(
+                node.name,
+                node.type_tag,
+                node.pullback_factors + ("AST_GHOST",),
+                node.groupoid_factors,
+            )
+        return Construction(
+            node.operator,
+            tuple(mutate(argument) for argument in node.arguments),
+            node.type_tag,
+        )
+
+    return mutate(value)
+
+
+def _bulk_euler_pairing(row_name: str) -> str:
+    family = row_name.rsplit("_", 1)[0]
+    if family == "EH_GHY":
+        return "M5^3/2*sqrt(-g)*G_MN*Delta_g^(MN) [geometric axiom]"
+    if family == "Omega_kinetic":
+        return "sqrt(-g)*G*box(Omega)*Delta_Omega + algebraic metric Euler pairing"
+    if family == "Omega_potential":
+        return "-sqrt(-g)*U'(Omega)*Delta_Omega + algebraic metric Euler pairing"
+    if family == "P_kinetic":
+        return "formal Euler pairings E_g,E_A,E_phi,E_Omega after exact product rule and IBP"
+    if family == "full_V4":
+        return "formal algebraic Euler pairings E_g,E_phi,E_Omega; no derivative variation"
+    if family == "BF":
+        return "<Delta_B wedge F[A]>+<D_A B wedge Delta_A>"
+    return "intrinsic four-dimensional variation retained as exact unexpanded delta"
+
+
+def _independent_green_row_metadata_target(
+    row_name: str,
+) -> tuple[str, str, str | None, str | None]:
+    side = row_name.rsplit("_", 1)[-1]
+    family = row_name.rsplit("_", 1)[0]
+    if row_name.startswith("EH_GHY_"):
+        return (
+            "explicit_geometric_EH_plus_GHY_axiom",
+            "M5^3/2*sqrt(-g)*G_MN*Delta_g^(MN) [geometric axiom]",
+            f"d_5(theta_EH_GHY_{side})",
+            None,
+        )
+    if family == "Omega_kinetic":
+        return (
+            "exact_symbolic_product_rule_and_IBP",
+            "sqrt(-g)*G*box(Omega)*Delta_Omega + algebraic metric Euler pairing",
+            f"d_5(theta_Omega_kinetic_{side})",
+            None,
+        )
+    if family == "Omega_potential":
+        return (
+            "algebraic_density_no_boundary_current",
+            "-sqrt(-g)*U'(Omega)*Delta_Omega + algebraic metric Euler pairing",
+            f"d_5(theta_Omega_potential_{side}=0)",
+            None,
+        )
+    if family == "P_kinetic":
+        return (
+            "exact_symbolic_product_rule_and_IBP",
+            "formal Euler pairings E_g,E_A,E_phi,E_Omega after exact product rule and IBP",
+            f"d_5(theta_P_kinetic_{side})",
+            None,
+        )
+    if family == "full_V4":
+        return (
+            "algebraic_density_no_boundary_current",
+            "formal algebraic Euler pairings E_g,E_phi,E_Omega; no derivative variation",
+            f"d_5(theta_full_V4_{side}=0)",
+            None,
+        )
+    if family == "BF":
+        return (
+            "reused_oriented_BF_incidence_prerequisite",
+            "<Delta_B wedge F[A]>+<D_A B wedge Delta_A>",
+            f"-d_5(<B_{side} wedge Delta_A_{side}>)",
+            None,
+        )
+    if row_name in INTERFACE_SECTORS:
+        return (
+            "exact_unexpanded_intrinsic_delta_axiom",
+            "intrinsic four-dimensional variation retained as exact unexpanded delta",
+            None,
+            EXPECTED_INTRINSIC_DELTAS[row_name],
+        )
+    return ("invalid_row", "invalid_row", "invalid_row", "invalid_row")
+
+
+def _delta_p_product_rule_program(
+    mutation: str | None = None,
+) -> tuple[DeltaPVariationTerm, ...]:
+    terms = [
+        DeltaPVariationTerm(
+            "covariant_Delta_phi",
+            "covariant_derivative",
+            ("Delta_phi",),
+            "Delta_phi",
+            True,
+            _coefficient(1),
+            "phi_normal_current",
+        ),
+        DeltaPVariationTerm(
+            "conformal_Delta_phi_dOmega",
+            "product",
+            ("Delta_phi", "dOmega"),
+            "Delta_phi",
+            False,
+            _coefficient(3, 2, Omega=-1),
+            None,
+        ),
+        DeltaPVariationTerm(
+            "conformal_phi_dDeltaOmega",
+            "product",
+            ("phi", "d_Delta_Omega"),
+            "Delta_Omega",
+            True,
+            _coefficient(3, 2, Omega=-1),
+            "Omega_normal_current",
+        ),
+        DeltaPVariationTerm(
+            "conformal_log_variation",
+            "product",
+            ("phi", "dOmega", "Delta_Omega"),
+            "Delta_Omega",
+            False,
+            _coefficient(-3, 2, Omega=-2),
+            None,
+        ),
+        DeltaPVariationTerm(
+            "connection_representation",
+            "representation",
+            ("Delta_A", "phi"),
+            "Delta_A",
+            False,
+            _coefficient(1),
+            None,
+        ),
+    ]
+    by_id = {term.term_id: index for index, term in enumerate(terms)}
+
+    def replace_term(term_id: str, **changes: Any) -> None:
+        index = by_id[term_id]
+        old = terms[index]
+        values = {
+            "term_id": old.term_id,
+            "operator": old.operator,
+            "factors": old.factors,
+            "variation": old.variation,
+            "differentiated_variation": old.differentiated_variation,
+            "coefficient": old.coefficient,
+            "boundary_channel": old.boundary_channel,
+        }
+        values.update(changes)
+        terms[index] = DeltaPVariationTerm(**values)
+
+    if mutation == "P_three_halves_omitted":
+        replace_term("conformal_phi_dDeltaOmega", coefficient=_coefficient(0))
+    elif mutation == "P_three_halves_wrong":
+        replace_term(
+            "conformal_phi_dDeltaOmega",
+            coefficient=_coefficient(1, 1, Omega=-1),
+        )
+    elif mutation == "DeltaP_omit_Delta_phi_dOmega":
+        terms.pop(by_id["conformal_Delta_phi_dOmega"])
+    elif mutation == "DeltaP_corrupt_Delta_phi_dOmega":
+        replace_term(
+            "conformal_Delta_phi_dOmega",
+            coefficient=_coefficient(1, 2, Omega=-1),
+        )
+    elif mutation == "DeltaP_omit_Omega_minus2":
+        terms.pop(by_id["conformal_log_variation"])
+    elif mutation == "DeltaP_corrupt_Omega_minus2":
+        replace_term(
+            "conformal_log_variation",
+            coefficient=_coefficient(-3, 2, Omega=-1),
+        )
+    elif mutation == "DeltaP_omit_representation_DeltaA_phi":
+        terms.pop(by_id["connection_representation"])
+    elif mutation == "DeltaP_corrupt_representation_DeltaA_phi":
+        replace_term(
+            "connection_representation",
+            operator="detached_representation",
+        )
+    return tuple(terms)
+
+
+def _rename_coefficient_power(
+    value: ExactCoefficient,
+    source: str,
+    target: str,
+) -> ExactCoefficient:
+    return ExactCoefficient.from_parts(
+        value.numerator,
+        value.denominator,
+        tuple((target if name == source else name, power) for name, power in value.powers),
+    )
+
+
+def _bf_bulk_variation_normalizer(
+    side: str,
+    mutation: str | None = None,
+) -> dict[str, Any]:
+    if side not in SIDES:
+        raise NaturalityCertificateError(f"unknown BF Green side: {side}")
+    d_ab_coefficient = _coefficient(1)
+    if mutation == "BF_wrong_bulk_DAB_sign":
+        d_ab_coefficient = _coefficient(-1)
+    elif mutation == "BF_omit_DAB":
+        d_ab_coefficient = _coefficient(0)
+    local_boundary_coefficient = _coefficient(-1)
+    if mutation == "BF_internal_boundary_minus_to_plus":
+        local_boundary_coefficient = _coefficient(1)
+    bulk_terms = _collect_green_terms(
+        (
+            ExactGreenTerm(
+                f"F[A_{side}]", f"Delta_B_{side}", _coefficient(1)
+            ),
+            ExactGreenTerm(
+                f"D_A_{side} B_{side}",
+                f"Delta_A_{side}",
+                d_ab_coefficient,
+            ),
+        )
+    )
+    expected_bulk_terms = _independent_expected_BF_bulk_terms(side)
+    expected_local_boundary = ExactGreenTerm(
+        f"<B_{side} wedge Delta_A_{side}>",
+        "d_5",
+        _coefficient(-1),
+    )
+    local_boundary = ExactGreenTerm(
+        expected_local_boundary.factor,
+        expected_local_boundary.variation,
+        local_boundary_coefficient,
+    )
+    return {
+        "side": side,
+        "graded_product_rule": (
+            "delta<B wedge F[A]>=<Delta_B wedge F[A]>+"
+            "<D_A B wedge Delta_A>-d<B wedge Delta_A> for deg(B)=3"
+        ),
+        "B_form_degree": 3,
+        "derived_bulk_euler_terms": _serialize_green_terms(bulk_terms),
+        "independent_expected_bulk_euler_terms": _serialize_green_terms(
+            expected_bulk_terms
+        ),
+        "derived_local_boundary_divergence_term": _serialize_green_terms(
+            (local_boundary,)
+        ),
+        "independent_expected_local_boundary_divergence_term": (
+            _serialize_green_terms((expected_local_boundary,))
+        ),
+        "pass": bool(
+            bulk_terms == expected_bulk_terms
+            and local_boundary == expected_local_boundary
+        ),
+        "_bulk_terms": bulk_terms,
+        "_local_boundary_coefficient": local_boundary_coefficient,
+    }
+
+
+def _kinetic_boundary_current_normalizer(
+    side: str,
+    mutation: str | None = None,
+) -> dict[str, Any]:
+    if side not in SIDES:
+        raise NaturalityCertificateError(f"unknown Green normalizer side: {side}")
+    omega_action_weight = _green_component_weight(
+        f"Omega_kinetic_bulk_{side}"
+    )
+    p_action_weight = _green_component_weight(f"P_kinetic_bulk_{side}")
+    quadratic_first_variation = _coefficient(2)
+    omega_gradient_coefficient = omega_action_weight.multiply(
+        quadratic_first_variation
+    )
+    p_pairing_coefficient = p_action_weight.multiply(quadratic_first_variation)
+    delta_p_program = _delta_p_product_rule_program(mutation)
+    observed_program_signatures = tuple(
+        _delta_p_term_signature(term) for term in delta_p_program
+    )
+    program_exact = observed_program_signatures == EXPECTED_DELTA_P_TERM_SIGNATURES
+
+    omega_variation = "Delta_Omega_Sigma"
+    phi_variation = "Delta_varphi_H"
+    if mutation == "split_common_variations":
+        omega_variation = f"Delta_Omega_{side}"
+        phi_variation = f"Delta_varphi_{side}"
+
+    omega_from_kinetic = ExactGreenTerm(
+        f"sqrt(-gamma)*n_{side}.nabla_Omega_{side}",
+        omega_variation,
+        omega_gradient_coefficient,
+    )
+    phi_factor = f"sqrt(-gamma)*j_{side}(n_{side}.P_{side})"
+    if mutation == "Pi_phi_detached":
+        phi_factor = f"sqrt(-gamma)*j_detached(n_{side}.P_{side})"
+    elif mutation == "Pi_phi_unsoldered":
+        phi_factor = f"sqrt(-gamma)*n_{side}.P_{side}"
+        phi_variation = f"Delta_phi_trace_{side}"
+    p_boundary_terms: list[ExactGreenTerm] = []
+    p_bulk_remainder_terms: list[ExactGreenTerm] = []
+    consumed_term_ids: list[str] = []
+    for term in delta_p_program:
+        consumed_term_ids.append(term.term_id)
+        if term.boundary_channel == "phi_normal_current":
+            p_boundary_terms.append(
+                ExactGreenTerm(
+                    phi_factor,
+                    phi_variation,
+                    p_pairing_coefficient.multiply(term.coefficient),
+                )
+            )
+        elif term.boundary_channel == "Omega_normal_current":
+            boundary_coefficient = _rename_coefficient_power(
+                term.coefficient, "Omega", "Omega_Sigma"
+            )
+            p_boundary_terms.append(
+                ExactGreenTerm(
+                    f"sqrt(-gamma)*<phi_{side},n_{side}.P_{side}>",
+                    omega_variation,
+                    p_pairing_coefficient.multiply(boundary_coefficient),
+                )
+            )
+        else:
+            p_bulk_remainder_terms.append(
+                ExactGreenTerm(
+                    f"{term.operator}({','.join(term.factors)})",
+                    term.variation,
+                    p_pairing_coefficient.multiply(term.coefficient),
+                )
+            )
+    p_boundary_terms = list(_collect_green_terms(p_boundary_terms))
+    omega_from_p = next(
+        (
+            term
+            for term in p_boundary_terms
+            if "<phi_" in term.factor
+        ),
+        ExactGreenTerm(
+            f"sqrt(-gamma)*<phi_{side},n_{side}.P_{side}>",
+            omega_variation,
+            _coefficient(0),
+        ),
+    )
+    phi_from_p = next(
+        (
+            term
+            for term in p_boundary_terms
+            if term is not omega_from_p
+        ),
+        ExactGreenTerm(phi_factor, phi_variation, _coefficient(0)),
+    )
+    if mutation == "Pi_Omega_kinetic_wrong_sign":
+        omega_from_kinetic = ExactGreenTerm(
+            omega_from_kinetic.factor,
+            omega_from_kinetic.variation,
+            omega_from_kinetic.coefficient.negate(),
+        )
+    elif mutation == "Pi_Omega_P_wrong_sign":
+        omega_from_p = ExactGreenTerm(
+            omega_from_p.factor,
+            omega_from_p.variation,
+            omega_from_p.coefficient.negate(),
+        )
+    elif mutation == "Pi_phi_wrong_sign":
+        phi_from_p = ExactGreenTerm(
+            phi_from_p.factor,
+            phi_from_p.variation,
+            phi_from_p.coefficient.negate(),
+        )
+
+    boundary_terms = _collect_green_terms(
+        (omega_from_kinetic, omega_from_p, phi_from_p)
+    )
+    expected_side_terms = _collect_green_terms(
+        (
+            ExactGreenTerm(
+                f"sqrt(-gamma)*n_{side}.nabla_Omega_{side}",
+                "Delta_Omega_Sigma",
+                _coefficient(-1, 1, G=1),
+            ),
+            ExactGreenTerm(
+                f"sqrt(-gamma)*<phi_{side},n_{side}.P_{side}>",
+                "Delta_Omega_Sigma",
+                _coefficient(-3, 2, Z=1, Omega_Sigma=-1),
+            ),
+            ExactGreenTerm(
+                f"sqrt(-gamma)*j_{side}(n_{side}.P_{side})",
+                "Delta_varphi_H",
+                _coefficient(-1, 1, Z=1),
+            ),
+        )
+    )
+    positive_momenta = _collect_green_terms(
+        tuple(
+            ExactGreenTerm(term.factor, term.variation, term.coefficient.negate())
+            for term in boundary_terms
+        )
+    )
+    expected_program_ids = tuple(row[0] for row in EXPECTED_DELTA_P_TERM_SIGNATURES)
+    all_program_terms_consumed_once = bool(
+        tuple(consumed_term_ids) == tuple(term.term_id for term in delta_p_program)
+        and len(consumed_term_ids) == len(set(consumed_term_ids))
+        and tuple(consumed_term_ids) == expected_program_ids
+    )
+    conformal_current_term = next(
+        (
+            term
+            for term in delta_p_program
+            if term.term_id == "conformal_phi_dDeltaOmega"
+        ),
+        None,
+    )
+    conformal_product_coefficient = (
+        _rename_coefficient_power(
+            conformal_current_term.coefficient, "Omega", "Omega_Sigma"
+        )
+        if conformal_current_term is not None
+        else _coefficient(0)
+    )
+    exact = bool(
+        boundary_terms == expected_side_terms
+        and program_exact
+        and all_program_terms_consumed_once
+    )
+    return {
+        "side": side,
+        "source_action_weights": {
+            "Omega_kinetic": _serialize_coefficient(omega_action_weight),
+            "P_kinetic": _serialize_coefficient(p_action_weight),
+        },
+        "quadratic_first_variation_multiplicity": 2,
+        "Delta_P_product_rule": _serialize_delta_p_terms(delta_p_program),
+        "observed_Delta_P_term_signatures": observed_program_signatures,
+        "independent_expected_Delta_P_term_signatures": (
+            EXPECTED_DELTA_P_TERM_SIGNATURES
+        ),
+        "Delta_P_program_matches_independent_target": program_exact,
+        "Delta_P_consumed_term_ids": consumed_term_ids,
+        "Delta_P_all_five_terms_consumed_once": all_program_terms_consumed_once,
+        "Delta_P_bulk_remainder_terms_after_current_extraction": (
+            _serialize_green_terms(_collect_green_terms(p_bulk_remainder_terms))
+        ),
+        "independent_normalization_steps": [
+            "differentiate the two quadratic kinetic densities",
+            "expand Delta_P by the displayed product rule",
+            "integrate only d(Delta_Omega) and D_A(Delta_phi) by parts",
+            "restrict normal currents to the fixed reference interface",
+            "apply the common scalar trace and j_epsilon matter trace",
+        ],
+        "raw_Omega_gradient_coefficient": _serialize_coefficient(
+            omega_gradient_coefficient
+        ),
+        "raw_P_pairing_coefficient": _serialize_coefficient(
+            p_pairing_coefficient
+        ),
+        "conformal_product_coefficient": _serialize_coefficient(
+            conformal_product_coefficient
+        ),
+        "derived_integrated_boundary_terms": _serialize_green_terms(boundary_terms),
+        "independent_expected_boundary_terms": _serialize_green_terms(
+            expected_side_terms
+        ),
+        "derived_positive_momenta": _serialize_green_terms(positive_momenta),
+        "Pi_Omega_formula": (
+            f"G*n_{side}.nabla_Omega_{side}+3*Z*<phi_{side},n_{side}.P_{side}>/"
+            "(2*Omega_Sigma)"
+        ),
+        "Pi_phi_formula": f"Z*j_{side}(n_{side}.P_{side})",
+        "pass": exact,
+        "_terms": boundary_terms,
+    }
+
+
+def _expected_green_boundary_terms() -> tuple[ExactGreenTerm, ...]:
+    terms: list[ExactGreenTerm] = []
+    for side in SIDES:
+        terms.extend(
+            (
+                ExactGreenTerm(
+                    f"sqrt(-gamma)*pi_{side}^(mu nu)",
+                    "Delta_gamma_mu_nu",
+                    _coefficient(-1, 2, M5=3),
+                ),
+                ExactGreenTerm(
+                    f"sqrt(-gamma)*n_{side}.nabla_Omega_{side}",
+                    "Delta_Omega_Sigma",
+                    _coefficient(-1, 1, G=1),
+                ),
+                ExactGreenTerm(
+                    f"sqrt(-gamma)*<phi_{side},n_{side}.P_{side}>",
+                    "Delta_Omega_Sigma",
+                    _coefficient(-3, 2, Z=1, Omega_Sigma=-1),
+                ),
+                ExactGreenTerm(
+                    f"sqrt(-gamma)*j_{side}(n_{side}.P_{side})",
+                    "Delta_varphi_H",
+                    _coefficient(-1, 1, Z=1),
+                ),
+            )
+        )
+    terms.extend(
+        (
+            ExactGreenTerm(
+                "b_plus_wedge", "Delta_A_Sigma", _coefficient(-1)
+            ),
+            ExactGreenTerm(
+                "b_minus_wedge", "Delta_A_Sigma", _coefficient(1)
+            ),
+        )
+    )
+    return _collect_green_terms(terms)
+
+
+def _green_literal_contract(v52: Mapping[str, Any]) -> dict[str, Any]:
+    charter = v52.get("exact_classical_charter", {})
+    action = charter.get("exact_action", {})
+    interface = charter.get("interface_domain", {})
+    green = v52.get("Green_form_certificate", {})
+    observed = {
+        "total": action.get("total"),
+        "superpotential": action.get("superpotential"),
+        "bulk_potential": action.get("bulk_potential"),
+        "full_V4": action.get("full_V4"),
+        "bulk_gauged": action.get("bulk_gauged"),
+        "gauged_conformal_derivative": action.get("gauged_conformal_derivative"),
+        "GHY": action.get("GHY"),
+        "wall_background": action.get("wall_background"),
+        "foliation_lower": action.get("foliation_lower"),
+        "Robin_intrinsic": action.get("Robin_intrinsic"),
+        "BF": action.get("BF"),
+        "removed_terms": action.get("removed_terms"),
+        "common_interface_variations": (
+            tuple(interface.get("variations", ()))[0]
+            if interface.get("variations")
+            else None
+        ),
+        "Green_form": green.get("Green_form"),
+        "EH_plus_GHY_first_variation": green.get(
+            "EH_plus_GHY_first_variation"
+        ),
+        "momenta": green.get("momenta"),
+        "BF_bulk_equation_A": green.get("bulk_equations_new_sector", {}).get(
+            "A"
+        ),
+        "compact_support_at_bulk_infinity": green.get(
+            "compact_support_at_bulk_infinity"
+        ),
+        "Sigma_has_no_boundary": green.get("Sigma_has_no_boundary"),
+        "GHY_removes_normal_metric_variation": green.get(
+            "GHY_removes_normal_metric_variation"
+        ),
+        "intrinsic_Sigma_integrations_have_no_corner_terms": green.get(
+            "intrinsic_Sigma_integrations_have_no_corner_terms"
+        ),
+    }
+    expected = {
+        "total": EXPECTED_TOTAL_ACTION,
+        "superpotential": (
+            "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]"
+        ),
+        "bulk_potential": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+        "full_V4": "V4(r)=r^4/(2*sqrt(1+r^4))",
+        "bulk_gauged": (
+            "S_bulk_gauged=sum_eps int_Meps sqrt(-g_eps)*[M5^3*R_eps/2-"
+            "G*(nabla Omega_eps)^2/2-U(Omega_eps)-"
+            "Z5*delta_ab*P_eps_M^a*P_eps^(b M)/2-"
+            "Z5*M^2*Omega_eps^(-5)*V4(Omega_eps^(3/2)*|phi_eps|)]"
+        ),
+        "gauged_conformal_derivative": (
+            "P_eps_M=D_(A_eps,M)phi_eps+3*phi_eps*partial_M log(Omega_eps)/2"
+        ),
+        "GHY": (
+            "S_GHY=M5^3*sum_eps int_Sigma sqrt(-gamma)*Theta_eps for outward normals"
+        ),
+        "wall_background": (
+            "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+"
+            "beta*(Omega_Sigma-1)^2/2]"
+        ),
+        "foliation_lower": (
+            "S_fol_lower=Mb^2/2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-"
+            "lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-"
+            "B4_bar*Rcal^2/(16*k_infinity^2)]"
+        ),
+        "Robin_intrinsic": (
+            "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*"
+            "h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)"
+        ),
+        "BF": EXPECTED_BF_ACTION_LITERAL,
+        "removed_terms": EXPECTED_REMOVED_TERMS,
+        "common_interface_variations": EXPECTED_COMMON_INTERFACE_VARIATIONS,
+        "Green_form": EXPECTED_BF_GREEN_FORM,
+        "EH_plus_GHY_first_variation": EXPECTED_EH_GHY_FIRST_VARIATION,
+        "momenta": EXPECTED_GREEN_MOMENTA,
+        "BF_bulk_equation_A": EXPECTED_BF_BULK_EQUATION_A,
+        "compact_support_at_bulk_infinity": True,
+        "Sigma_has_no_boundary": True,
+        "GHY_removes_normal_metric_variation": True,
+        "intrinsic_Sigma_integrations_have_no_corner_terms": True,
+    }
+    return {
+        "observed": observed,
+        "expected": expected,
+        "all_literal_and_geometric_axiom_pins_exact": observed == expected,
+        "Green_form_text_used_as_proof_target": False,
+    }
+
+
+def _intrinsic_delta_name(component: str) -> str:
+    return {
+        "wall": "delta(S_wall0)",
+        "K_foliation": "delta(S_K_foliation)",
+        "R": "delta(S_R)",
+        "R_squared": "delta(S_R_squared)",
+        "a_squared": "delta(S_a_squared)",
+        "Robin": "delta(S_R_intrinsic)",
+    }[component]
+
+
+def _independent_expected_component_classification(
+    component: str,
+) -> tuple[str, str] | None:
+    containing_rows = tuple(
+        row_name
+        for row_name, components in EXPECTED_GREEN_ROW_LAYOUT
+        if component in components
+    )
+    if len(containing_rows) != 1 or component not in COMPONENT_NAMES:
+        return None
+    row_name = containing_rows[0]
+    _row_family, row_side = EXPECTED_GREEN_ROW_FAMILY_SIDE[row_name]
+    return _component_family(component), row_side
+
+
+def _independent_expected_BF_bulk_terms(
+    side: str,
+) -> tuple[ExactGreenTerm, ...]:
+    if side not in SIDES:
+        raise NaturalityCertificateError(f"unknown expected BF side: {side}")
+    return _collect_green_terms(
+        (
+            ExactGreenTerm(
+                f"F[A_{side}]", f"Delta_B_{side}", _coefficient(1)
+            ),
+            ExactGreenTerm(
+                f"D_A_{side} B_{side}",
+                f"Delta_A_{side}",
+                _coefficient(1),
+            ),
+        )
+    )
+
+
+def _literal_green_ledger(
+    v52: Mapping[str, Any],
+    *,
+    components: Mapping[str, Expression] | None = None,
+    bf_incidence_aggregation: Mapping[str, Any] | None = None,
+    mutation: str | None = None,
+) -> dict[str, Any]:
+    if mutation is not None and mutation not in GREEN_LEDGER_MUTATIONS:
+        raise NaturalityCertificateError(f"unknown Green-ledger mutation: {mutation}")
+    actual_components = dict(
+        build_component_expressions("baseline")
+        if components is None
+        else components
+    )
+    if mutation == "component_swapped":
+        left = "Omega_kinetic_bulk_plus"
+        right = "Omega_potential_bulk_plus"
+        actual_components[left], actual_components[right] = (
+            actual_components[right],
+            actual_components[left],
+        )
+    elif mutation == "component_detached":
+        name = "P_kinetic_bulk_plus"
+        actual_components[name] = _replace_semantic_leaf_role(
+            actual_components[name], "phi", "detached_phi"
+        )
+    elif mutation == "component_omitted":
+        actual_components.pop("Robin", None)
+    elif mutation == "GHY_omitted":
+        actual_components.pop("GHY_plus", None)
+    elif mutation == "extra_component":
+        actual_components["EXTRA_COMPONENT"] = actual_components["wall"]
+    elif mutation == "AST_GHOST_pullback":
+        name = "EH_bulk_plus"
+        actual_components[name] = _append_AST_ghost_to_first_pullback(
+            actual_components[name]
+        )
+    for intrinsic in INTERFACE_SECTORS:
+        if mutation == f"intrinsic_omitted_{intrinsic}":
+            actual_components.pop(intrinsic, None)
+
+    actual_bf = (
+        _bf_incidence_aggregation_ledger(v52, components=actual_components)
+        if bf_incidence_aggregation is None
+        else bf_incidence_aggregation
+    )
+    normalizers = {
+        side: _kinetic_boundary_current_normalizer(side, mutation) for side in SIDES
+    }
+    bf_normalizers = {
+        side: _bf_bulk_variation_normalizer(side, mutation) for side in SIDES
+    }
+    layout, AST_classifications, AST_classification_issues = (
+        _derive_green_candidate_layout_from_AST(
+            actual_components,
+            mutation=mutation,
+        )
+    )
+
+    bindings_by_component = {
+        binding.name: binding for binding in literal_component_bindings()
+    }
+    rows: list[VariationRow] = []
+    for row_name, component_names in layout:
+        expressions = tuple(
+            (name, actual_components[name])
+            for name in component_names
+            if name in actual_components
+        )
+        weights = tuple(
+            (
+                name,
+                _green_component_weight(name, mutation)
+                if name in COMPONENT_NAMES
+                else _coefficient(0),
+            )
+            for name in component_names
+        )
+        source_keys = tuple(
+            sorted(
+                {
+                    key
+                    for name in component_names
+                    for key in (
+                        bindings_by_component[name].source_keys
+                        if name in bindings_by_component
+                        else ()
+                    )
+                }
+            )
+        )
+        family, side = EXPECTED_GREEN_ROW_FAMILY_SIDE.get(
+            row_name, ("invalid", "invalid")
+        )
+        boundary_terms: tuple[ExactGreenTerm, ...] = ()
+        bulk_euler_terms: tuple[ExactGreenTerm, ...] = ()
+        intrinsic_delta: str | None = None
+        local_divergence: str | None = None
+        if row_name.startswith("EH_GHY_"):
+            derivation_kind = "explicit_geometric_EH_plus_GHY_axiom"
+            factor = f"sqrt(-gamma)*pi_{side}^(mu nu)"
+            if mutation == "GHY_inward_normal" and side == "plus":
+                factor = f"sqrt(-gamma)*pi_inward_{side}^(mu nu)"
+            boundary_terms = (
+                ExactGreenTerm(
+                    factor,
+                    "Delta_gamma_mu_nu",
+                    _coefficient(-1, 2, M5=3),
+                ),
+            )
+            local_divergence = f"d_5(theta_EH_GHY_{side})"
+        elif family in {"Omega_kinetic", "P_kinetic"}:
+            derivation_kind = "exact_symbolic_product_rule_and_IBP"
+            normalized_terms = normalizers[side]["_terms"]
+            if family == "Omega_kinetic":
+                boundary_terms = tuple(
+                    term
+                    for term in normalized_terms
+                    if "nabla_Omega" in term.factor
+                )
+            else:
+                boundary_terms = tuple(
+                    term
+                    for term in normalized_terms
+                    if "nabla_Omega" not in term.factor
+                )
+            local_divergence = f"d_5(theta_{family}_{side})"
+        elif family in {"Omega_potential", "full_V4"}:
+            derivation_kind = "algebraic_density_no_boundary_current"
+            if (
+                mutation == "spurious_Omega_potential_current"
+                and family == "Omega_potential"
+                and side == "plus"
+            ) or (
+                mutation == "spurious_V4_current"
+                and family == "full_V4"
+                and side == "plus"
+            ):
+                boundary_terms = (
+                    ExactGreenTerm(
+                        f"spurious_{family}_normal_current",
+                        "Delta_Omega_Sigma",
+                        _coefficient(1),
+                    ),
+                )
+            local_divergence = f"d_5(theta_{family}_{side}=0)"
+        elif family == "BF":
+            derivation_kind = "reused_oriented_BF_incidence_prerequisite"
+            bf_normalizer = bf_normalizers[side]
+            bulk_euler_terms = bf_normalizer["_bulk_terms"]
+            orientation = _coefficient(BF_ORIENTATION_SIGNS[side])
+            coefficient = bf_normalizer["_local_boundary_coefficient"].multiply(
+                orientation
+            )
+            if mutation == "BF_offshell_cancelled":
+                coefficient = _coefficient(0)
+            boundary_terms = _collect_green_terms(
+                (
+                    ExactGreenTerm(
+                        f"b_{side}_wedge", "Delta_A_Sigma", coefficient
+                    ),
+                )
+            )
+            local_sign = bf_normalizer["_local_boundary_coefficient"].numerator
+            local_divergence = (
+                f"-d_5(<B_{side} wedge Delta_A_{side}>)"
+                if local_sign == -1
+                else f"+d_5(<B_{side} wedge Delta_A_{side}>)"
+            )
+        else:
+            derivation_kind = "exact_unexpanded_intrinsic_delta_axiom"
+            intrinsic_delta = _intrinsic_delta_name(row_name)
+            if mutation == "intrinsic_producer_corruption" and row_name == "R":
+                intrinsic_delta = "delta(S_WRONG_R)"
+
+        if mutation == "local_divergence_omitted" and row_name == "P_kinetic_plus":
+            local_divergence = None
+        rows.append(
+            VariationRow(
+                name=row_name,
+                components=tuple(component_names),
+                component_expressions=expressions,
+                component_weights=weights,
+                source_literal_keys=source_keys,
+                derivation_kind=derivation_kind,
+                bulk_euler_pairing=_bulk_euler_pairing(row_name),
+                bulk_euler_terms=bulk_euler_terms,
+                local_divergence=local_divergence,
+                integrated_boundary_terms=_collect_green_terms(boundary_terms),
+                intrinsic_delta=intrinsic_delta,
+            )
+        )
+    expected_layout = EXPECTED_GREEN_ROW_LAYOUT
+    observed_layout = tuple((row.name, row.components) for row in rows)
+    actual_component_keys = tuple(actual_components)
+    exact_component_key_set = bool(
+        len(actual_component_keys) == len(COMPONENT_NAMES)
+        and set(actual_component_keys) == set(COMPONENT_NAMES)
+    )
+    classification_by_component = {
+        row["component"]: row for row in AST_classifications
+    }
+    component_counts: dict[str, int] = {}
+    for row in rows:
+        for component in row.components:
+            component_counts[component] = component_counts.get(component, 0) + 1
+    exact_component_multiset = component_counts == {
+        component: 1 for component in COMPONENT_NAMES
+    }
+    literal_contract = _green_literal_contract(v52)
+    row_reports: list[dict[str, Any]] = []
+    for row in rows:
+        component_reports: list[dict[str, Any]] = []
+        for component, expression in row.component_expressions:
+            expected_classification = _independent_expected_component_classification(
+                component
+            )
+            expected_family = (
+                expected_classification[0]
+                if expected_classification is not None
+                else None
+            )
+            expected_side = (
+                expected_classification[1]
+                if expected_classification is not None
+                else None
+            )
+            observed_classification = classification_by_component.get(component, {})
+            inferred_family = observed_classification.get("inferred_family")
+            inferred_side = observed_classification.get("inferred_side")
+            observed_fingerprint = _full_expression_fingerprint(expression)
+            expected_fingerprint = EXPECTED_GREEN_EXPRESSION_FINGERPRINTS.get(
+                component
+            )
+            full_fingerprint_match = observed_fingerprint == expected_fingerprint
+            semantic_match = (
+                expected_family is not None
+                and _expression_signature(expression)
+                == EXPECTED_SEMANTIC_SIGNATURES[expected_family]
+            )
+            leaf_multiset = _green_leaf_multiset(expression)
+            expected_leaf_multiset = (
+                EXPECTED_GREEN_LEAF_MULTISETS[expected_family]
+                if expected_family is not None
+                else ()
+            )
+            weight = dict(row.component_weights).get(component)
+            expected_weight = (
+                _expected_green_component_weight(component)
+                if expected_classification is not None
+                else None
+            )
+            family_and_side_match = bool(
+                expected_classification is not None
+                and inferred_family == expected_family
+                and inferred_side == expected_side
+            )
+            component_reports.append(
+                {
+                    "component": component,
+                    "typed_expression": _render_expression(expression),
+                    "full_AST_fingerprint_payload": (
+                        _full_expression_fingerprint_payload(expression)
+                    ),
+                    "observed_full_AST_fingerprint_sha256": observed_fingerprint,
+                    "independent_expected_full_AST_fingerprint_sha256": (
+                        expected_fingerprint
+                    ),
+                    "full_AST_fingerprint_exact": full_fingerprint_match,
+                    "structurally_equal_to_real_component_expression": (
+                        full_fingerprint_match
+                    ),
+                    "inferred_family_from_AST": inferred_family,
+                    "independent_expected_family": expected_family,
+                    "inferred_side_from_AST": inferred_side,
+                    "independent_expected_side": expected_side,
+                    "AST_family_and_side_match_independent_component_target": (
+                        family_and_side_match
+                    ),
+                    "semantic_signature_exact": semantic_match,
+                    "observed_leaf_multiset": [list(item) for item in leaf_multiset],
+                    "expected_leaf_multiset": [
+                        list(item) for item in expected_leaf_multiset
+                    ],
+                    "leaf_multiset_exact": leaf_multiset == expected_leaf_multiset,
+                    "observed_weight": (
+                        _serialize_coefficient(weight) if weight is not None else None
+                    ),
+                    "expected_weight": (
+                        _serialize_coefficient(expected_weight)
+                        if expected_weight is not None
+                        else None
+                    ),
+                    "exact_symbolic_weight": weight == expected_weight,
+                }
+            )
+        expected_row = dict(expected_layout).get(row.name)
+        row_layout_exact = expected_row == row.components
+        component_names_match_expressions = row.components == tuple(
+            component for component, _expression in row.component_expressions
+        )
+        (
+            expected_derivation_kind,
+            expected_bulk_euler_pairing,
+            expected_local_divergence,
+            expected_intrinsic_delta,
+        ) = _independent_green_row_metadata_target(row.name)
+        local_divergence_exact = row.local_divergence == expected_local_divergence
+        intrinsic_exact = row.intrinsic_delta == expected_intrinsic_delta
+        derivation_kind_exact = row.derivation_kind == expected_derivation_kind
+        bulk_euler_pairing_exact = (
+            row.bulk_euler_pairing == expected_bulk_euler_pairing
+        )
+        expected_row_family, expected_row_side = EXPECTED_GREEN_ROW_FAMILY_SIDE.get(
+            row.name, (None, None)
+        )
+        row_family_side_exact = bool(
+            expected_row is not None
+            and all(
+                (
+                    component["inferred_side_from_AST"] == expected_row_side
+                    and (
+                        component["inferred_family_from_AST"]
+                        in ({"EH", "GHY"} if expected_row_family == "EH_GHY" else {expected_row_family})
+                    )
+                )
+                for component in component_reports
+            )
+        )
+        expected_bulk_euler_terms = (
+            _independent_expected_BF_bulk_terms(expected_row_side)
+            if expected_row_family == "BF" and expected_row_side in SIDES
+            else ()
+        )
+        bulk_euler_terms_exact = row.bulk_euler_terms == expected_bulk_euler_terms
+        row_pass = bool(
+            row_layout_exact
+            and component_names_match_expressions
+            and row_family_side_exact
+            and component_reports
+            and all(
+                component["structurally_equal_to_real_component_expression"]
+                and component[
+                    "AST_family_and_side_match_independent_component_target"
+                ]
+                and component["semantic_signature_exact"]
+                and component["leaf_multiset_exact"]
+                and component["exact_symbolic_weight"]
+                for component in component_reports
+            )
+            and row.source_literal_keys
+            and bulk_euler_pairing_exact
+            and bulk_euler_terms_exact
+            and local_divergence_exact
+            and intrinsic_exact
+            and derivation_kind_exact
+        )
+        row_reports.append(
+            {
+                "name": row.name,
+                "components": list(row.components),
+                "source_literal_keys": list(row.source_literal_keys),
+                "derivation_kind": row.derivation_kind,
+                "bulk_euler_pairing": row.bulk_euler_pairing,
+                "independent_expected_bulk_euler_pairing": (
+                    expected_bulk_euler_pairing
+                ),
+                "bulk_euler_pairing_exact": bulk_euler_pairing_exact,
+                "bulk_euler_terms": _serialize_green_terms(row.bulk_euler_terms),
+                "independent_expected_bulk_euler_terms": _serialize_green_terms(
+                    expected_bulk_euler_terms
+                ),
+                "bulk_euler_terms_exact": bulk_euler_terms_exact,
+                "local_divergence": row.local_divergence,
+                "integrated_boundary_terms": _serialize_green_terms(
+                    row.integrated_boundary_terms
+                ),
+                "intrinsic_delta": row.intrinsic_delta,
+                "component_bindings": component_reports,
+                "row_layout_exact": row_layout_exact,
+                "component_names_match_expression_bindings": (
+                    component_names_match_expressions
+                ),
+                "row_family_and_side_match_AST_classifications": (
+                    row_family_side_exact
+                ),
+                "local_d5_divergence_recorded_exactly_for_bulk_row": (
+                    local_divergence_exact
+                ),
+                "intrinsic_delta_exact_and_unexpanded": intrinsic_exact,
+                "derivation_kind_matches_independent_target": derivation_kind_exact,
+                "pass": row_pass,
+            }
+        )
+
+    derived_boundary = _collect_green_terms(
+        tuple(term for row in rows for term in row.integrated_boundary_terms)
+    )
+    expected_boundary = _expected_green_boundary_terms()
+    intrinsic_rows = [row for row in rows if row.name in INTERFACE_SECTORS]
+    intrinsic_exact = bool(
+        len(intrinsic_rows) == len(INTERFACE_SECTORS)
+        and tuple(row.name for row in intrinsic_rows) == INTERFACE_SECTORS
+        and all(
+            row.intrinsic_delta == EXPECTED_INTRINSIC_DELTAS[row.name]
+            and dict(row.component_weights).get(row.name)
+            == _expected_green_component_weight(row.name)
+            for row in intrinsic_rows
+        )
+    )
+    normalizer_pass = all(normalizers[side]["pass"] for side in SIDES)
+    bf_bulk_normalizer_pass = all(
+        bf_normalizers[side]["pass"] for side in SIDES
+    )
+    bf_reused_exactly = bool(
+        actual_bf.get("pass") is True
+        and actual_bf.get("off_shell_oriented_flux_is_nonzero") is True
+        and actual_bf.get("off_shell_cancellation_claimed") is False
+        and actual_bf.get("oriented_boundary_integrand_terms")
+        == [
+            ("b_minus_wedge_Delta_A_Sigma", 1),
+            ("b_plus_wedge_Delta_A_Sigma", -1),
+        ]
+        and mutation != "BF_offshell_cancelled"
+    )
+    pass_exact = bool(
+        literal_contract["all_literal_and_geometric_axiom_pins_exact"]
+        and exact_component_key_set
+        and not AST_classification_issues
+        and observed_layout == expected_layout
+        and len(rows) == 18
+        and exact_component_multiset
+        and all(row["pass"] for row in row_reports)
+        and normalizer_pass
+        and bf_bulk_normalizer_pass
+        and derived_boundary == expected_boundary
+        and intrinsic_exact
+        and bf_reused_exactly
+    )
+    serialized_normalizers = {
+        side: {key: value for key, value in normalizers[side].items() if key != "_terms"}
+        for side in SIDES
+    }
+    return {
+        "scope": (
+            "literal integrated Green ledger on fixed reference bulk halves and "
+            "fixed interface embedding; exact relative to the pinned EH+GHY first-"
+            "variation axiom, exact product-rule/IBP normalization, the already "
+            "proved oriented BF incidence ledger, and six unexpanded intrinsic deltas"
+        ),
+        "row_count": len(rows),
+        "expected_row_count": 18,
+        "component_count_with_multiplicity": sum(component_counts.values()),
+        "expected_component_count": len(COMPONENT_NAMES),
+        "actual_component_keys": list(actual_component_keys),
+        "expected_component_keys": list(COMPONENT_NAMES),
+        "actual_component_keys_are_exactly_COMPONENT_NAMES": (
+            exact_component_key_set
+        ),
+        "component_multiplicities": component_counts,
+        "exact_twenty_component_multiset": exact_component_multiset,
+        "observed_row_layout": [
+            [name, list(components)] for name, components in observed_layout
+        ],
+        "expected_row_layout": [
+            [name, list(components)] for name, components in expected_layout
+        ],
+        "literal_and_geometric_axiom_contract": literal_contract,
+        "AST_derived_component_classifications": list(AST_classifications),
+        "AST_classification_issues": list(AST_classification_issues),
+        "candidate_rows_derived_from_AST_not_expected_layout": True,
+        "rows": row_reports,
+        "kinetic_product_rule_IBP_normalizer": serialized_normalizers,
+        "BF_graded_bulk_variation_normalizer": {
+            side: {
+                key: value
+                for key, value in bf_normalizers[side].items()
+                if not key.startswith("_")
+            }
+            for side in SIDES
+        },
+        "derived_integrated_boundary_terms": _serialize_green_terms(
+            derived_boundary
+        ),
+        "independent_expected_integrated_boundary_terms": _serialize_green_terms(
+            expected_boundary
+        ),
+        "derived_boundary_equals_independent_target": (
+            derived_boundary == expected_boundary
+        ),
+        "Omega_and_matter_momenta_derived_not_copied_from_Green_string": (
+            normalizer_pass
+            and literal_contract["Green_form_text_used_as_proof_target"] is False
+        ),
+        "potential_and_full_V4_have_no_boundary_current": all(
+            not row.integrated_boundary_terms
+            for row in rows
+            if row.name.startswith("Omega_potential_")
+            or row.name.startswith("full_V4_")
+        ),
+        "BF_prerequisite_reused_exactly": bf_reused_exactly,
+        "BF_off_shell_oriented_flux_nonzero": actual_bf.get(
+            "off_shell_oriented_flux_is_nonzero"
+        ),
+        "BF_off_shell_cancellation_claimed": False,
+        "six_intrinsic_variations_exact_and_unexpanded": intrinsic_exact,
+        "intrinsic_trace_leaf_map": {
+            "g_plus": "gamma",
+            "Omega_plus": "Omega_Sigma",
+            "varphi_H_soldered_leaf": "varphi_H",
+            "T_on_abstract_Sigma": "T_Sigma",
+        },
+        "EH_plus_GHY_status": "explicit geometric first-variation axiom only",
+        "fixed_reference_interface_embedding": True,
+        "moving_embedding_terms_included": False,
+        "local_d4_intrinsic_expansion_performed": False,
+        "differentiated_Ward_identity_claimed": False,
+        "full_off_shell_Green_theorem_accepted": False,
+        "pass": pass_exact,
+    }
+
+
+def _green_ledger_mutant_campaign(
+    v52: Mapping[str, Any],
+    *,
+    bf_incidence_aggregation: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    rows: dict[str, Any] = {}
+    for mutation in sorted(GREEN_LEDGER_MUTATIONS):
+        mutated = _literal_green_ledger(
+            v52,
+            bf_incidence_aggregation=bf_incidence_aggregation,
+            mutation=mutation,
+        )
+        rows[mutation] = {
+            "killed": not mutated["pass"],
+            "row_count": mutated["row_count"],
+            "component_multiplicities": mutated["component_multiplicities"],
+            "boundary_target_match": mutated[
+                "derived_boundary_equals_independent_target"
+            ],
+        }
+
+    literal_mutations = {
+        "drift_bulk_action_literal": (
+            "exact_classical_charter",
+            "exact_action",
+            "bulk_gauged",
+        ),
+        "drift_EH_GHY_axiom_literal": (
+            "Green_form_certificate",
+            "EH_plus_GHY_first_variation",
+        ),
+        "drift_momentum_literal": (
+            "Green_form_certificate",
+            "momenta",
+            "Pi_Omega_eps",
+        ),
+        "drift_common_variation_literal": (
+            "exact_classical_charter",
+            "interface_domain",
+            "variations",
+            0,
+        ),
+        "drift_BF_bulk_equation_A_literal": (
+            "Green_form_certificate",
+            "bulk_equations_new_sector",
+            "A",
+        ),
+    }
+    for name, path in literal_mutations.items():
+        mutated_v52 = json.loads(json.dumps(v52))
+        target: Any = mutated_v52
+        for key in path[:-1]:
+            target = target[key]
+        target[path[-1]] = "mutated"
+        mutated = _literal_green_ledger(
+            mutated_v52,
+            bf_incidence_aggregation=bf_incidence_aggregation,
+        )
+        rows[name] = {
+            "killed": not mutated["pass"],
+            "literal_contract_exact": mutated[
+                "literal_and_geometric_axiom_contract"
+            ]["all_literal_and_geometric_axiom_pins_exact"],
+        }
+    return {
+        "rows": rows,
+        "mutant_count": len(rows),
+        "pass": bool(rows) and all(row["killed"] for row in rows.values()),
+    }
+
+
 def _cartan_ledger(mutant: str | None = None) -> dict[str, Any]:
     replacements = {
         "Lie_A": _linear(i_F=1, D_iA=1),
@@ -3471,6 +5406,14 @@ def build_report() -> dict[str, Any]:
         v52,
         affine_connection_trace=affine_connection_trace,
     )
+    green_ledger = _literal_green_ledger(
+        v52,
+        bf_incidence_aggregation=bf_incidence_aggregation,
+    )
+    green_ledger_mutants = _green_ledger_mutant_campaign(
+        v52,
+        bf_incidence_aggregation=bf_incidence_aggregation,
+    )
     pin_pass = (
         source_pins["v5_2_artifact"]["canonical_exact_action_sha256"]
         == V52_EXACT_ACTION_SHA256
@@ -3517,6 +5460,12 @@ def build_report() -> dict[str, Any]:
         and bf_incidence_aggregation["pass"]
         and bf_incidence_mutants["pass"]
     )
+    finite_literal_green_ledger = bool(
+        pin_pass
+        and finite_bf_incidence_aggregation
+        and green_ledger["pass"]
+        and green_ledger_mutants["pass"]
+    )
     core = {
         "v5_2_geometric_action_and_v5_6_1_obligation_byte_pinned_pass": pin_pass,
         "finite_complete_domain_pullback_identity_exact_pass": bool(
@@ -3536,6 +5485,7 @@ def build_report() -> dict[str, Any]:
         "oriented_BF_incidence_aggregation_exact_pass": (
             finite_bf_incidence_aggregation
         ),
+        "literal_bulk_interface_Green_ledger_pass": finite_literal_green_ledger,
         "finite_typed_geometric_S_v5_2_action_expression_covariance_exact_pass": (
             finite_geometric_covariance
         ),
@@ -3546,7 +5496,6 @@ def build_report() -> dict[str, Any]:
     decision: dict[str, bool] = {
         **core,
         "oriented_BF_incidence_cancellation_exact_pass": False,
-        "literal_bulk_interface_Green_ledger_pass": False,
         "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass": False,
         "full_bulk_diffeomorphism_Ward_pass": False,
         "fixed_reference_S_rel_diffeomorphism_Ward_pass": False,
@@ -3574,8 +5523,9 @@ def build_report() -> dict[str, Any]:
         "claim": (
             "Exact finite covariance of the typed geometric S_v5.2 action "
             "expression, exact finite affine connection-trace transport, exact "
-            "off-shell oriented BF incidence aggregation, and the formal local "
-            "compact-support chain-rule corollary only"
+            "off-shell oriented BF incidence aggregation, an exact symbolic "
+            "fixed-reference integrated Green ledger in its stated axiom scope, "
+            "and the formal local compact-support chain-rule corollary only"
         ),
         "source_pins": source_pins,
         "theorem_domain": {
@@ -3601,7 +5551,8 @@ def build_report() -> dict[str, Any]:
             "full_affine_connection_trace_transport_in_this_certificate": True,
             "functional_meaning": (
                 "finite covariance and its unexpanded local compact-support "
-                "chain-rule derivative; no local Green decomposition"
+                "chain-rule derivative, plus the scoped fixed-reference integrated "
+                "Green ledger; no differentiated Ward identity"
             ),
         },
         "proof_kernel": {
@@ -3640,18 +5591,23 @@ def build_report() -> dict[str, Any]:
         ),
         "oriented_BF_incidence_aggregation": bf_incidence_aggregation,
         "oriented_BF_incidence_effective_mutants": bf_incidence_mutants,
+        "literal_bulk_interface_Green_ledger": green_ledger,
+        "literal_bulk_interface_Green_effective_mutants": green_ledger_mutants,
         "formal_local_compact_support_chain_rule_corollary": formal_local,
         "effective_mutants": mutants,
         "excluded_fixed_background_relative_contract": fixed_background,
         "open_local_Ward_obligations": {
-            "literal_bulk_interface_Green_ledger": (
-                "OPEN beyond the now-consumed BF row: type and normalize the "
-                "metric, Omega, matter and intrinsic-interface pairings, bulk "
-                "Euler pairings, d_5 current, embedding Euler term, constrained "
-                "iota term and d_4 interface current"
+            "differentiated_local_Ward_identity": (
+                "OPEN: differentiate the scoped Green ledger with the complete "
+                "geometric Lie variations and consume the resulting local bulk "
+                "and interface divergence identities"
             ),
             "Noether_current_definition": (
                 "OPEN for the local ledger: J_e=theta_e(X_e,L_zeta X_e)-i_zeta L_e"
+            ),
+            "moving_embedding_and_intrinsic_d4_expansion": (
+                "OPEN: embedding Euler term, constrained iota/j variation, and "
+                "the expanded intrinsic d_4 current remain outside this ledger"
             ),
         },
         "explicit_exclusions": {
@@ -3671,6 +5627,11 @@ def build_report() -> dict[str, Any]:
                 "its cancellation uses the separately displayed natural "
                 "interface equation"
             ),
+            "Green_scope": (
+                "EH+GHY is consumed only as the pinned geometric first-variation "
+                "axiom; the six intrinsic terms remain exact unexpanded deltas, "
+                "and no moving-embedding or differentiated Ward claim is made"
+            ),
             "promotion": (
                 "this does not close the v5.6.1 full-bulk Ward key; C1, N1, P4, B4 and B5 remain false"
             ),
@@ -3683,8 +5644,10 @@ def build_report() -> dict[str, Any]:
             "connection trace. It is neither a numerical check nor a "
             "proof-assistant derivation. The local compact-support DS statement "
             "is only the formal chain-rule derivative of the finite covariance "
-            "ledger for the action expression; it is not a consumed local "
-            "Green/interface Ward identity and does not promote the v5.6.1 "
+            "ledger for the action expression. The Green result is an integrated, "
+            "fixed-reference symbolic ledger in the explicitly stated EH+GHY, "
+            "BF-boundary and unexpanded-intrinsic axiom scope; it is not the "
+            "differentiated local Ward identity and does not promote the v5.6.1 "
             "full-bulk key."
         ),
     }

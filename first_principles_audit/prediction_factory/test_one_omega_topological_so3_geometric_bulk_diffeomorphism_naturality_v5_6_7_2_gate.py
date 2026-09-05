@@ -49,6 +49,9 @@ def test_exact_upstream_byte_pins_and_literal_action_hash(report: dict) -> None:
     assert pins["v5_2_artifact"]["BF_natural_interface_equation"] == (
         gate.EXPECTED_BF_NATURAL_INTERFACE_EQUATION
     )
+    assert pins["v5_2_artifact"]["BF_bulk_equation_A"] == (
+        gate.EXPECTED_BF_BULK_EQUATION_A
+    )
     assert pins["v5_6_1_historical_target_false"] is True
     assert "complete 5D metric, scalar, BF and matter" in pins[
         "v5_6_1_literal_open_obligation"
@@ -601,6 +604,394 @@ def test_BF_incidence_mutants_and_literal_drift_are_fail_closed(
         gate._bf_incidence_aggregation_ledger(v52, boundary_prefactor=True)
 
 
+def test_literal_Green_ledger_consumes_20_components_in_18_real_AST_rows(
+    report: dict,
+) -> None:
+    ledger = report["literal_bulk_interface_Green_ledger"]
+    assert ledger["pass"] is True
+    assert ledger["row_count"] == ledger["expected_row_count"] == 18
+    assert ledger["component_count_with_multiplicity"] == 20
+    assert ledger["expected_component_count"] == len(gate.COMPONENT_NAMES) == 20
+    assert ledger["actual_component_keys_are_exactly_COMPONENT_NAMES"] is True
+    assert set(ledger["actual_component_keys"]) == set(gate.COMPONENT_NAMES)
+    assert ledger["exact_twenty_component_multiset"] is True
+    assert ledger["component_multiplicities"] == {
+        component: 1 for component in gate.COMPONENT_NAMES
+    }
+    assert ledger["observed_row_layout"] == ledger["expected_row_layout"]
+    assert ledger["candidate_rows_derived_from_AST_not_expected_layout"] is True
+    assert ledger["AST_classification_issues"] == []
+    assert len(ledger["AST_derived_component_classifications"]) == 20
+    assert tuple(
+        (row["name"], tuple(row["components"])) for row in ledger["rows"]
+    ) == gate.EXPECTED_GREEN_ROW_LAYOUT
+    assert ledger["literal_and_geometric_axiom_contract"][
+        "all_literal_and_geometric_axiom_pins_exact"
+    ] is True
+    assert ledger["literal_and_geometric_axiom_contract"][
+        "Green_form_text_used_as_proof_target"
+    ] is False
+    for row in ledger["rows"]:
+        assert row["pass"] is True
+        assert row["row_layout_exact"] is True
+        assert row["component_names_match_expression_bindings"] is True
+        assert row["bulk_euler_pairing_exact"] is True
+        assert row["bulk_euler_terms_exact"] is True
+        assert row["row_family_and_side_match_AST_classifications"] is True
+        assert row["derivation_kind_matches_independent_target"] is True
+        assert row["local_d5_divergence_recorded_exactly_for_bulk_row"] is True
+        assert row["intrinsic_delta_exact_and_unexpanded"] is True
+        assert row["source_literal_keys"]
+        assert row["component_bindings"]
+        for binding in row["component_bindings"]:
+            assert binding[
+                "structurally_equal_to_real_component_expression"
+            ] is True
+            assert binding["full_AST_fingerprint_exact"] is True
+            assert binding[
+                "AST_family_and_side_match_independent_component_target"
+            ] is True
+            assert binding["observed_full_AST_fingerprint_sha256"] == binding[
+                "independent_expected_full_AST_fingerprint_sha256"
+            ]
+            assert binding["semantic_signature_exact"] is True
+            assert binding["leaf_multiset_exact"] is True
+            assert binding["observed_leaf_multiset"] == binding[
+                "expected_leaf_multiset"
+            ]
+            assert binding["exact_symbolic_weight"] is True
+            assert binding["observed_weight"] == binding["expected_weight"]
+            assert binding["observed_weight"]["uses_floating_point"] is False
+
+    for side in gate.SIDES:
+        eh = next(row for row in ledger["rows"] if row["name"] == f"EH_GHY_{side}")
+        assert eh["components"] == [f"EH_bulk_{side}", f"GHY_{side}"]
+        assert eh["derivation_kind"] == "explicit_geometric_EH_plus_GHY_axiom"
+        assert eh["local_divergence"] == f"d_5(theta_EH_GHY_{side})"
+    p_plus = next(row for row in ledger["rows"] if row["name"] == "P_kinetic_plus")
+    leafs = p_plus["component_bindings"][0]["observed_leaf_multiset"]
+    assert leafs == [["A", 2], ["Omega", 2], ["g", 2], ["phi", 4]]
+
+
+def test_Green_candidate_layout_and_fingerprints_are_independent_of_the_oracle() -> None:
+    baseline = gate.build_component_expressions("baseline")
+    layout, classifications, issues = gate._derive_green_candidate_layout_from_AST(
+        baseline
+    )
+    assert layout == gate.EXPECTED_GREEN_ROW_LAYOUT
+    assert len(classifications) == len(gate.COMPONENT_NAMES)
+    assert issues == ()
+    assert set(gate.EXPECTED_GREEN_EXPRESSION_FINGERPRINTS) == set(
+        gate.COMPONENT_NAMES
+    )
+
+    _pins, v52, _v561 = gate._load_pinned_contracts()
+    extra = dict(baseline)
+    extra["EXTRA_COMPONENT"] = baseline["wall"]
+    extra_result = gate._literal_green_ledger(v52, components=extra)
+    assert extra_result["pass"] is False
+    assert extra_result[
+        "actual_component_keys_are_exactly_COMPONENT_NAMES"
+    ] is False
+    assert len(extra_result["actual_component_keys"]) == 21
+
+    ghost = dict(baseline)
+    ghost["EH_bulk_plus"] = gate._append_AST_ghost_to_first_pullback(
+        ghost["EH_bulk_plus"]
+    )
+    ghost_result = gate._literal_green_ledger(v52, components=ghost)
+    assert ghost_result["pass"] is False
+    ghost_binding = next(
+        binding
+        for row in ghost_result["rows"]
+        for binding in row["component_bindings"]
+        if binding["component"] == "EH_bulk_plus"
+    )
+    assert ghost_binding["semantic_signature_exact"] is True
+    assert ghost_binding["leaf_multiset_exact"] is True
+    assert ghost_binding["full_AST_fingerprint_exact"] is False
+    assert "AST_GHOST" in str(ghost_binding["full_AST_fingerprint_payload"])
+
+    swapped = gate._literal_green_ledger(v52, mutation="shared_layout_swap")
+    assert swapped["pass"] is False
+    assert swapped["actual_component_keys_are_exactly_COMPONENT_NAMES"] is True
+    assert swapped["observed_row_layout"] != swapped["expected_row_layout"]
+
+
+def test_Green_kinetic_currents_are_derived_by_exact_product_rule_and_IBP(
+    report: dict,
+) -> None:
+    ledger = report["literal_bulk_interface_Green_ledger"]
+    assert ledger[
+        "Omega_and_matter_momenta_derived_not_copied_from_Green_string"
+    ] is True
+    assert ledger["derived_boundary_equals_independent_target"] is True
+    assert ledger["derived_integrated_boundary_terms"] == ledger[
+        "independent_expected_integrated_boundary_terms"
+    ]
+    for side in gate.SIDES:
+        normalized = ledger["kinetic_product_rule_IBP_normalizer"][side]
+        assert normalized["pass"] is True
+        assert normalized["quadratic_first_variation_multiplicity"] == 2
+        assert normalized["source_action_weights"]["Omega_kinetic"] == {
+            "numerator": -1,
+            "denominator": 2,
+            "powers": [["G", 1]],
+            "numerator_parameters": ["G"],
+            "denominator_parameters": [],
+            "uses_floating_point": False,
+        }
+        assert normalized["source_action_weights"]["P_kinetic"] == {
+            "numerator": -1,
+            "denominator": 2,
+            "powers": [["Z", 1]],
+            "numerator_parameters": ["Z"],
+            "denominator_parameters": [],
+            "uses_floating_point": False,
+        }
+        assert normalized["raw_Omega_gradient_coefficient"]["numerator"] == -1
+        assert normalized["raw_Omega_gradient_coefficient"]["powers"] == [["G", 1]]
+        assert normalized["raw_P_pairing_coefficient"]["numerator"] == -1
+        assert normalized["raw_P_pairing_coefficient"]["powers"] == [["Z", 1]]
+        assert normalized["conformal_product_coefficient"] == {
+            "numerator": 3,
+            "denominator": 2,
+            "powers": [["Omega_Sigma", -1]],
+            "numerator_parameters": [],
+            "denominator_parameters": ["Omega_Sigma"],
+            "uses_floating_point": False,
+        }
+        assert normalized["derived_integrated_boundary_terms"] == normalized[
+            "independent_expected_boundary_terms"
+        ]
+        assert normalized["Pi_Omega_formula"] == (
+            f"G*n_{side}.nabla_Omega_{side}+3*Z*<phi_{side},n_{side}.P_{side}>/"
+            "(2*Omega_Sigma)"
+        )
+        assert normalized["Pi_phi_formula"] == f"Z*j_{side}(n_{side}.P_{side})"
+        assert normalized["Delta_P_program_matches_independent_target"] is True
+        assert normalized["Delta_P_all_five_terms_consumed_once"] is True
+        assert len(normalized["Delta_P_product_rule"]) == 5
+        assert normalized["Delta_P_consumed_term_ids"] == [
+            "covariant_Delta_phi",
+            "conformal_Delta_phi_dOmega",
+            "conformal_phi_dDeltaOmega",
+            "conformal_log_variation",
+            "connection_representation",
+        ]
+        assert {
+            term["term_id"] for term in normalized["Delta_P_product_rule"]
+        } == set(normalized["Delta_P_consumed_term_ids"])
+        assert normalized["observed_Delta_P_term_signatures"] == normalized[
+            "independent_expected_Delta_P_term_signatures"
+        ]
+
+
+def test_Delta_P_algebraic_terms_are_consumed_even_when_the_current_is_unchanged() -> None:
+    for mutation in (
+        "DeltaP_omit_Delta_phi_dOmega",
+        "DeltaP_corrupt_Delta_phi_dOmega",
+        "DeltaP_omit_Omega_minus2",
+        "DeltaP_corrupt_Omega_minus2",
+        "DeltaP_omit_representation_DeltaA_phi",
+        "DeltaP_corrupt_representation_DeltaA_phi",
+    ):
+        normalized = gate._kinetic_boundary_current_normalizer("plus", mutation)
+        assert normalized["pass"] is False
+        assert normalized["Delta_P_program_matches_independent_target"] is False
+        assert (
+            normalized["Delta_P_all_five_terms_consumed_once"] is False
+            or normalized["observed_Delta_P_term_signatures"]
+            != normalized["independent_expected_Delta_P_term_signatures"]
+        )
+    for mutation in (
+        "DeltaP_corrupt_Delta_phi_dOmega",
+        "DeltaP_corrupt_Omega_minus2",
+        "DeltaP_corrupt_representation_DeltaA_phi",
+    ):
+        normalized = gate._kinetic_boundary_current_normalizer("plus", mutation)
+        assert normalized["derived_integrated_boundary_terms"] == normalized[
+            "independent_expected_boundary_terms"
+        ]
+
+
+def test_Green_potentials_have_no_current_and_intrinsic_deltas_stay_unexpanded(
+    report: dict,
+) -> None:
+    ledger = report["literal_bulk_interface_Green_ledger"]
+    assert ledger["potential_and_full_V4_have_no_boundary_current"] is True
+    assert ledger["six_intrinsic_variations_exact_and_unexpanded"] is True
+    assert ledger["local_d4_intrinsic_expansion_performed"] is False
+    assert ledger["intrinsic_trace_leaf_map"] == {
+        "g_plus": "gamma",
+        "Omega_plus": "Omega_Sigma",
+        "varphi_H_soldered_leaf": "varphi_H",
+        "T_on_abstract_Sigma": "T_Sigma",
+    }
+    intrinsic = {
+        row["name"]: row for row in ledger["rows"] if row["name"] in gate.INTERFACE_SECTORS
+    }
+    assert tuple(intrinsic) == gate.INTERFACE_SECTORS
+    assert all(
+        row["derivation_kind"] == "exact_unexpanded_intrinsic_delta_axiom"
+        and row["integrated_boundary_terms"] == []
+        and row["intrinsic_delta"].startswith("delta(S_")
+        for row in intrinsic.values()
+    )
+    r_squared = intrinsic["R_squared"]["component_bindings"][0]["observed_weight"]
+    assert r_squared["numerator"] == -1
+    assert r_squared["denominator"] == 32
+    assert r_squared["powers"] == [
+        ["B4_bar", 1],
+        ["Mb", 2],
+        ["k_infinity", -2],
+    ]
+
+    _pins, v52, _v561 = gate._load_pinned_contracts()
+    corrupted = gate._literal_green_ledger(
+        v52, mutation="intrinsic_producer_corruption"
+    )
+    assert corrupted["pass"] is False
+    corrupted_r = next(row for row in corrupted["rows"] if row["name"] == "R")
+    assert corrupted_r["intrinsic_delta"] == "delta(S_WRONG_R)"
+    assert corrupted_r["intrinsic_delta_exact_and_unexpanded"] is False
+    assert gate.EXPECTED_INTRINSIC_DELTAS["R"] == "delta(S_R)"
+
+
+def test_Green_BF_row_reuses_offshell_incidence_without_cancelling_it(
+    report: dict,
+) -> None:
+    ledger = report["literal_bulk_interface_Green_ledger"]
+    assert ledger["BF_prerequisite_reused_exactly"] is True
+    assert ledger["BF_off_shell_oriented_flux_nonzero"] is True
+    assert ledger["BF_off_shell_cancellation_claimed"] is False
+    assert report["oriented_BF_incidence_aggregation"]["pass"] is True
+    assert report["oriented_BF_incidence_aggregation"][
+        "off_shell_cancellation_claimed"
+    ] is False
+    bf_rows = [row for row in ledger["rows"] if row["name"].startswith("BF_")]
+    assert len(bf_rows) == 2
+    assert {row["derivation_kind"] for row in bf_rows} == {
+        "reused_oriented_BF_incidence_prerequisite"
+    }
+    contract = ledger["literal_and_geometric_axiom_contract"]
+    assert contract["observed"]["BF_bulk_equation_A"] == (
+        gate.EXPECTED_BF_BULK_EQUATION_A
+    )
+    for side in gate.SIDES:
+        normalized = ledger["BF_graded_bulk_variation_normalizer"][side]
+        assert normalized["pass"] is True
+        assert normalized["B_form_degree"] == 3
+        assert "+<D_A B wedge Delta_A>-d<B wedge Delta_A>" in normalized[
+            "graded_product_rule"
+        ]
+        assert normalized["derived_bulk_euler_terms"] == normalized[
+            "independent_expected_bulk_euler_terms"
+        ]
+        d_ab = next(
+            term
+            for term in normalized["derived_bulk_euler_terms"]
+            if term["factor"] == f"D_A_{side} B_{side}"
+        )
+        assert d_ab["coefficient"]["numerator"] == 1
+        assert normalized["derived_local_boundary_divergence_term"] == normalized[
+            "independent_expected_local_boundary_divergence_term"
+        ]
+        assert normalized["derived_local_boundary_divergence_term"][0][
+            "coefficient"
+        ]["numerator"] == -1
+    _pins, v52, _v561 = gate._load_pinned_contracts()
+    for mutation in (
+        "BF_wrong_bulk_DAB_sign",
+        "BF_omit_DAB",
+        "BF_internal_boundary_minus_to_plus",
+    ):
+        mutated = gate._literal_green_ledger(v52, mutation=mutation)
+        assert mutated["pass"] is False
+        assert any(
+            not row["bulk_euler_terms_exact"]
+            or not row["local_d5_divergence_recorded_exactly_for_bulk_row"]
+            for row in mutated["rows"]
+            if row["name"].startswith("BF_")
+        )
+
+
+def test_Green_mutants_cover_structure_signs_currents_intrinsics_and_drift(
+    report: dict,
+) -> None:
+    mutants = report["literal_bulk_interface_Green_effective_mutants"]
+    expected = set(gate.GREEN_LEDGER_MUTATIONS) | {
+        "drift_bulk_action_literal",
+        "drift_EH_GHY_axiom_literal",
+        "drift_momentum_literal",
+        "drift_common_variation_literal",
+        "drift_BF_bulk_equation_A_literal",
+    }
+    assert mutants["pass"] is True
+    assert mutants["mutant_count"] == len(expected) == 50
+    assert set(mutants["rows"]) == expected
+    assert all(row["killed"] for row in mutants["rows"].values())
+    for required in (
+        "component_omitted",
+        "component_duplicated",
+        "component_swapped",
+        "component_detached",
+        "shared_layout_swap",
+        "extra_component",
+        "AST_GHOST_pullback",
+        "GHY_omitted",
+        "GHY_wrong_sign",
+        "GHY_inward_normal",
+        "Pi_Omega_kinetic_wrong_sign",
+        "Pi_Omega_P_wrong_sign",
+        "Pi_phi_wrong_sign",
+        "P_three_halves_omitted",
+        "P_three_halves_wrong",
+        "DeltaP_omit_Delta_phi_dOmega",
+        "DeltaP_corrupt_Delta_phi_dOmega",
+        "DeltaP_omit_Omega_minus2",
+        "DeltaP_corrupt_Omega_minus2",
+        "DeltaP_omit_representation_DeltaA_phi",
+        "DeltaP_corrupt_representation_DeltaA_phi",
+        "split_common_variations",
+        "Pi_phi_detached",
+        "Pi_phi_unsoldered",
+        "spurious_Omega_potential_current",
+        "spurious_V4_current",
+        "R_squared_denominator_16",
+        "local_divergence_omitted",
+        "BF_offshell_cancelled",
+        "BF_wrong_bulk_DAB_sign",
+        "BF_omit_DAB",
+        "BF_internal_boundary_minus_to_plus",
+        "intrinsic_producer_corruption",
+    ):
+        assert mutants["rows"][required]["killed"] is True
+    for intrinsic in gate.INTERFACE_SECTORS:
+        assert mutants["rows"][f"intrinsic_wrong_sign_{intrinsic}"]["killed"] is True
+        assert mutants["rows"][f"intrinsic_omitted_{intrinsic}"]["killed"] is True
+
+
+def test_Green_normalizer_and_mutation_API_are_fail_closed() -> None:
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate.ExactCoefficient(1.0, 1, ())
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate.ExactCoefficient(2, 4, ())
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate.ExactCoefficient.from_parts(True)
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate.ExactCoefficient.from_parts(1, 0)
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate.ExactCoefficient.from_parts(1, 1, (("G", False),))
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._kinetic_boundary_current_normalizer("detached")
+    _pins, v52, _v561 = gate._load_pinned_contracts()
+    with pytest.raises(gate.NaturalityCertificateError):
+        gate._literal_green_ledger(v52, mutation="unknown")
+    for mutation in gate.GREEN_LEDGER_MUTATIONS:
+        assert gate._literal_green_ledger(v52, mutation=mutation)["pass"] is False
+
+
 def test_Cartan_signs_reduce_as_exact_integer_combinations(report: dict) -> None:
     cartan = report["formal_local_compact_support_chain_rule_corollary"][
         "Cartan_bulk_sign_ledger"
@@ -702,7 +1093,7 @@ def test_transformed_pair_does_not_promote_frozen_background_gauge(report: dict)
     )
 
 
-def test_only_finite_covariance_and_formal_local_corollary_are_promoted(
+def test_scoped_Green_ledger_is_promoted_but_every_wider_Ward_key_stays_false(
     report: dict,
 ) -> None:
     decision = report["decision"]
@@ -719,13 +1110,13 @@ def test_only_finite_covariance_and_formal_local_corollary_are_promoted(
         "finite_full_affine_connection_trace_transport_exact_pass"
     ] is True
     assert decision["oriented_BF_incidence_aggregation_exact_pass"] is True
+    assert decision["literal_bulk_interface_Green_ledger_pass"] is True
     assert report["theorem_domain"][
         "full_affine_connection_trace_transport_in_this_certificate"
     ] is True
     for key in (
         "fixed_reference_S_rel_diffeomorphism_Ward_pass",
         "oriented_BF_incidence_cancellation_exact_pass",
-        "literal_bulk_interface_Green_ledger_pass",
         "differentiated_smooth_compact_support_bulk_Ward_identity_exact_pass",
         "full_bulk_diffeomorphism_Ward_pass",
         "complete_moving_embedding_Ward_pass",
@@ -745,8 +1136,9 @@ def test_only_finite_covariance_and_formal_local_corollary_are_promoted(
         assert decision[key] is False
     opens = report["open_local_Ward_obligations"]
     assert set(opens) == {
-        "literal_bulk_interface_Green_ledger",
+        "differentiated_local_Ward_identity",
         "Noether_current_definition",
+        "moving_embedding_and_intrinsic_d4_expansion",
     }
     assert "does not close" in report["explicit_exclusions"]["promotion"]
 
