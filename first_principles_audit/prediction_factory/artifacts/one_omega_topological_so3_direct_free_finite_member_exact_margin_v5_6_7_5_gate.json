@@ -1,0 +1,1162 @@
+{
+  "claim": "One named N=81,K=1 complete-shell direct-free member has exact rational whole-domain analytic margins on T4 x [0,1]",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C1_ACTION_pass": false,
+    "C1_N1_promotion_authorized": false,
+    "N1_ACTION_pass": false,
+    "P4_full_same_action_pass": false,
+    "adversarial_mutants_all_detected_pass": true,
+    "bd61d22_conditional_ledger_byte_pinned_without_oracle_pass": true,
+    "constructive_quadrature_remainder_certificate_pass": false,
+    "continuum_decoder_C1_pass": false,
+    "continuum_decoder_DGamma_continuity_pass": false,
+    "finite_member_whole_domain_outward_rounded_margin_certificate_pass": true,
+    "generic_whole_domain_interval_margin_engine_pass": false,
+    "infinite_target_member_margin_certificate_pass": false,
+    "integrated_action_pass": false,
+    "margins_certified_pass": false,
+    "named_full_t4_finite_member_contract_exact_pass": true,
+    "named_full_t4_finite_member_whole_domain_analytic_margins_exact_pass": true,
+    "quadrature_pass": false,
+    "uniform_N_to_infinity_bridge_pass": false,
+    "uniform_N_to_infinity_numerical_certificate_pass": false,
+    "v5_6_7_1_direct_free_decoder_byte_pinned_pass": true,
+    "v5_6_7_1_runtime_eventual_acceptance_pass": false,
+    "v5_6_7_exact_primitives_byte_pinned_pass": true
+  },
+  "effective_mutants": {
+    "all_mutants_effective": true,
+    "margin_mutants": {
+      "drop_one_analytic_margin_obligation": true,
+      "omit_dx0_from_d_tau": true,
+      "omit_frame_Gram_leading_minor_2": true,
+      "omit_minus_GHY_normal": true,
+      "omit_pulled_reference_minus": true,
+      "replace_actual_pulled_metric_by_ambient_metric": true,
+      "replace_exact_outward_enclosure_by_inward_rounding": true,
+      "replace_pulled_reference_by_ambient_reference": true,
+      "replace_three_separate_charts_by_product_chart": true,
+      "swap_Weyl_radial_upper_and_base_positive_lower": true,
+      "treat_log_Omega_as_Omega": true
+    },
+    "member_mutants": {
+      "N_81_to_80_not_a_complete_shell": true,
+      "erase_nontrivial_pullback_by_zeroing_Y": true,
+      "flip_plus_pullback_radial_sign": true,
+      "move_C_from_log_Omega_channel_15_to_metric_channel_14": true,
+      "omit_minus_side_member_data": true,
+      "replace_new_x2_direction_by_legacy_theta": true
+    },
+    "metamorphic_oracles": {
+      "checks": {
+        "GHY_inverse_recomputes": true,
+        "Omega_lower_and_slack_recompute": true,
+        "khronon_inverse_and_slack_recompute": true,
+        "noncanonical_Y_and_Weyl_radial_base_recompute": true,
+        "three_Gram_minors_recompute": true,
+        "three_chart_leaves_recompute_separately": true
+      },
+      "pass": true
+    },
+    "mutant_detected": {
+      "GHY_inverse_recomputes": true,
+      "N_81_to_80_not_a_complete_shell": true,
+      "Omega_lower_and_slack_recompute": true,
+      "drop_one_analytic_margin_obligation": true,
+      "erase_nontrivial_pullback_by_zeroing_Y": true,
+      "flip_plus_pullback_radial_sign": true,
+      "forbid_promotion__B4_pass": true,
+      "forbid_promotion__B5_pass": true,
+      "forbid_promotion__C1_ACTION_pass": true,
+      "forbid_promotion__C1_N1_promotion_authorized": true,
+      "forbid_promotion__N1_ACTION_pass": true,
+      "forbid_promotion__P4_full_same_action_pass": true,
+      "forbid_promotion__constructive_quadrature_remainder_certificate_pass": true,
+      "forbid_promotion__continuum_decoder_C1_pass": true,
+      "forbid_promotion__continuum_decoder_DGamma_continuity_pass": true,
+      "forbid_promotion__generic_whole_domain_interval_margin_engine_pass": true,
+      "forbid_promotion__infinite_target_member_margin_certificate_pass": true,
+      "forbid_promotion__integrated_action_pass": true,
+      "forbid_promotion__margins_certified_pass": true,
+      "forbid_promotion__quadrature_pass": true,
+      "forbid_promotion__uniform_N_to_infinity_bridge_pass": true,
+      "forbid_promotion__uniform_N_to_infinity_numerical_certificate_pass": true,
+      "forbid_promotion__v5_6_7_1_runtime_eventual_acceptance_pass": true,
+      "khronon_inverse_and_slack_recompute": true,
+      "move_C_from_log_Omega_channel_15_to_metric_channel_14": true,
+      "noncanonical_Y_and_Weyl_radial_base_recompute": true,
+      "omit_dx0_from_d_tau": true,
+      "omit_frame_Gram_leading_minor_2": true,
+      "omit_minus_GHY_normal": true,
+      "omit_minus_side_member_data": true,
+      "omit_pulled_reference_minus": true,
+      "replace_actual_pulled_metric_by_ambient_metric": true,
+      "replace_exact_outward_enclosure_by_inward_rounding": true,
+      "replace_new_x2_direction_by_legacy_theta": true,
+      "replace_pulled_reference_by_ambient_reference": true,
+      "replace_three_separate_charts_by_product_chart": true,
+      "swap_Weyl_radial_upper_and_base_positive_lower": true,
+      "three_Gram_minors_recompute": true,
+      "three_chart_leaves_recompute_separately": true,
+      "treat_log_Omega_as_Omega": true
+    },
+    "pass": true,
+    "promotion_mutants": {
+      "forbid_promotion__B4_pass": true,
+      "forbid_promotion__B5_pass": true,
+      "forbid_promotion__C1_ACTION_pass": true,
+      "forbid_promotion__C1_N1_promotion_authorized": true,
+      "forbid_promotion__N1_ACTION_pass": true,
+      "forbid_promotion__P4_full_same_action_pass": true,
+      "forbid_promotion__constructive_quadrature_remainder_certificate_pass": true,
+      "forbid_promotion__continuum_decoder_C1_pass": true,
+      "forbid_promotion__continuum_decoder_DGamma_continuity_pass": true,
+      "forbid_promotion__generic_whole_domain_interval_margin_engine_pass": true,
+      "forbid_promotion__infinite_target_member_margin_certificate_pass": true,
+      "forbid_promotion__integrated_action_pass": true,
+      "forbid_promotion__margins_certified_pass": true,
+      "forbid_promotion__quadrature_pass": true,
+      "forbid_promotion__uniform_N_to_infinity_bridge_pass": true,
+      "forbid_promotion__uniform_N_to_infinity_numerical_certificate_pass": true,
+      "forbid_promotion__v5_6_7_1_runtime_eventual_acceptance_pass": true
+    }
+  },
+  "member": {
+    "complete_shell_L1": true,
+    "contract": {
+      "K": 1,
+      "N": 81,
+      "Y_amplitude": {
+        "denominator": 256,
+        "exact": "1/256",
+        "numerator": 1
+      },
+      "Y_mode": {
+        "index": 8,
+        "kind": "sin",
+        "wavevector": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "expected_dimension": 29970,
+      "expected_f64le_sha256": "d9867b9651b9ca6dec961fe2356f2d2ef5d0b184ad947ef28601a3e988dc246a",
+      "expected_nonzero_coordinates": 13,
+      "gamma_diagonal": [
+        {
+          "denominator": 4,
+          "exact": "-5/4",
+          "numerator": -5
+        },
+        {
+          "denominator": 8,
+          "exact": "9/8",
+          "numerator": 9
+        },
+        {
+          "denominator": 4,
+          "exact": "5/4",
+          "numerator": 5
+        },
+        {
+          "denominator": 8,
+          "exact": "11/8",
+          "numerator": 11
+        }
+      ],
+      "log_Omega_C_amplitude": {
+        "denominator": 64,
+        "exact": "1/64",
+        "numerator": 1
+      },
+      "log_Omega_C_channel": 15,
+      "log_Omega_C_mode": {
+        "index": 7,
+        "kind": "cos",
+        "wavevector": [
+          0,
+          0,
+          1,
+          0
+        ]
+      },
+      "log_Omega_C_radial_index": 0,
+      "member_id": "fullT4.L1.K1.sparse-x2-direct-free.dyadic.v1",
+      "normal_metric": {
+        "denominator": 8,
+        "exact": "9/8",
+        "numerator": 9
+      },
+      "schema": "full-T4-L1-K1-sparse-direct-free-member.v1",
+      "shell_radius": 1,
+      "side_radial_signs": {
+        "minus": 1,
+        "plus": -1
+      },
+      "sides": [
+        "plus",
+        "minus"
+      ],
+      "varphi_E0": [
+        {
+          "denominator": 8,
+          "exact": "3/8",
+          "numerator": 3
+        },
+        {
+          "denominator": 4,
+          "exact": "-1/4",
+          "numerator": -1
+        },
+        {
+          "denominator": 4,
+          "exact": "1/4",
+          "numerator": 1
+        }
+      ]
+    },
+    "contract_exact_match": true,
+    "f64le_sha256": "d9867b9651b9ca6dec961fe2356f2d2ef5d0b184ad947ef28601a3e988dc246a",
+    "free_coordinate_dimension": 29970,
+    "independent_layout_matches_pinned_v5_6_7": true,
+    "nonzero_coordinate_count": 13,
+    "nonzero_coordinates": [
+      {
+        "flat_index": 0,
+        "value": {
+          "denominator": 4,
+          "exact": "-5/4",
+          "numerator": -5
+        }
+      },
+      {
+        "flat_index": 4,
+        "value": {
+          "denominator": 8,
+          "exact": "9/8",
+          "numerator": 9
+        }
+      },
+      {
+        "flat_index": 7,
+        "value": {
+          "denominator": 4,
+          "exact": "5/4",
+          "numerator": 5
+        }
+      },
+      {
+        "flat_index": 9,
+        "value": {
+          "denominator": 8,
+          "exact": "11/8",
+          "numerator": 11
+        }
+      },
+      {
+        "flat_index": 972,
+        "value": {
+          "denominator": 8,
+          "exact": "3/8",
+          "numerator": 3
+        }
+      },
+      {
+        "flat_index": 973,
+        "value": {
+          "denominator": 4,
+          "exact": "-1/4",
+          "numerator": -1
+        }
+      },
+      {
+        "flat_index": 974,
+        "value": {
+          "denominator": 4,
+          "exact": "1/4",
+          "numerator": 1
+        }
+      },
+      {
+        "flat_index": 2438,
+        "value": {
+          "denominator": 256,
+          "exact": "1/256",
+          "numerator": 1
+        }
+      },
+      {
+        "flat_index": 2515,
+        "value": {
+          "denominator": 8,
+          "exact": "9/8",
+          "numerator": 9
+        }
+      },
+      {
+        "flat_index": 11479,
+        "value": {
+          "denominator": 64,
+          "exact": "1/64",
+          "numerator": 1
+        }
+      },
+      {
+        "flat_index": 16208,
+        "value": {
+          "denominator": 256,
+          "exact": "1/256",
+          "numerator": 1
+        }
+      },
+      {
+        "flat_index": 16285,
+        "value": {
+          "denominator": 8,
+          "exact": "9/8",
+          "numerator": 9
+        }
+      },
+      {
+        "flat_index": 25249,
+        "value": {
+          "denominator": 64,
+          "exact": "1/64",
+          "numerator": 1
+        }
+      }
+    ],
+    "pass": true,
+    "x2_modes_match_pinned_enumeration": true
+  },
+  "provenance": {
+    "generator": {
+      "path": "first_principles_audit/prediction_factory/derive_one_omega_topological_so3_direct_free_finite_member_exact_margin_v5_6_7_5_gate.py",
+      "sha256": "400374da81e6c6fddc639e1c67a92f67a382b398c94fbf46d5b80697140e0021"
+    },
+    "python": "3.13.5",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_so3_direct_free_finite_member_exact_margin_v5_6_7_5_gate.py",
+      "sha256": "cae1bada7681583312bdcda691921122def5920fafb3812262dc1cd974f0caae"
+    }
+  },
+  "schema": "holo.one-omega-topological-so3-direct-free-finite-member-exact-margin-v5-6-7-5.v1",
+  "scope": {
+    "bd61d22_conclusion_used_as_oracle": false,
+    "float64_runtime_acceptance_claimed": false,
+    "generic_interval_engine_claimed": false,
+    "infinite_target_or_eventual_index_claimed": false,
+    "meaning": "Unlike bd61d22, this receipt supplies one explicit member and proves its margins. Because the member is finite, its later complete-shell/radial projections stabilize; this does not discharge decoder C1/DGamma continuity or any infinite-target bridge.",
+    "named_finite_member_only": true,
+    "quadrature_or_action_integration_claimed": false,
+    "tangent_or_JVP_runtime_claimed": false,
+    "uniform_bridge_or_C1_N1_promotion_claimed": false
+  },
+  "source_pins": {
+    "bd61d22_commit_binding": {
+      "commit": "bd61d22cbb989035a4f4b51ea706b54bd154a5ae",
+      "conclusion_imported_or_consumed": false,
+      "matches_pinned_worktree_bytes": true,
+      "source_blob_sha256": "e85d247bfbc766ff59105469626b0191adb6aaeda9799c84dca3fdeca4e3271a",
+      "test_blob_sha256": "1d7687ed37c9a10454d221440184080412ede621f8301aa940b1ed76d3c05fdd"
+    },
+    "bd61d22_pass": true,
+    "records": {
+      "bd61d22_source": {
+        "expected_sha256": "e85d247bfbc766ff59105469626b0191adb6aaeda9799c84dca3fdeca4e3271a",
+        "observed_sha256": "e85d247bfbc766ff59105469626b0191adb6aaeda9799c84dca3fdeca4e3271a",
+        "pass": true,
+        "path": "derive_one_omega_topological_so3_direct_free_pointwise_margin_diagonal_v5_6_7_3_gate.py",
+        "required_fragment_matches": {
+          "conditional_scope": true,
+          "finite_margin_false": true,
+          "margin_inventory": true,
+          "runtime_false": true,
+          "unclosed_gamma": true
+        }
+      },
+      "bd61d22_test": {
+        "expected_sha256": "1d7687ed37c9a10454d221440184080412ede621f8301aa940b1ed76d3c05fdd",
+        "observed_sha256": "1d7687ed37c9a10454d221440184080412ede621f8301aa940b1ed76d3c05fdd",
+        "pass": true,
+        "path": "test_one_omega_topological_so3_direct_free_pointwise_margin_diagonal_v5_6_7_3_gate.py",
+        "required_fragment_matches": {}
+      },
+      "v5_6_7_1_source": {
+        "expected_sha256": "afe410507da533dfff9037b5bd730d90d5931f82aaeb8d4839a48f9a4d18e0c9",
+        "observed_sha256": "afe410507da533dfff9037b5bd730d90d5931f82aaeb8d4839a48f9a4d18e0c9",
+        "pass": true,
+        "path": "derive_one_omega_topological_so3_route_c_full_t4_dual_local_action_v5_6_7_1.py",
+        "required_fragment_matches": {
+          "boundary_metric_cross": true,
+          "boundary_metric_quadratic": true,
+          "collar_bumps": true,
+          "collar_h0": true,
+          "collar_h1": true,
+          "generated_contract": true,
+          "pullback_embedding_gradient": true,
+          "pullback_side_sign": true,
+          "pulled_metric": true,
+          "pulled_reference": true,
+          "side_radial_signs": true
+        }
+      },
+      "v5_6_7_1_test": {
+        "expected_sha256": "d7988e078fb81f9fa3001eaff2414962d45bfb240b024fbaacf8a9ab126b9694",
+        "observed_sha256": "d7988e078fb81f9fa3001eaff2414962d45bfb240b024fbaacf8a9ab126b9694",
+        "pass": true,
+        "path": "test_one_omega_topological_so3_route_c_full_t4_dual_local_action_v5_6_7_1.py",
+        "required_fragment_matches": {}
+      },
+      "v5_6_7_source": {
+        "expected_sha256": "df805ab77721446dded427c16c247b9685019dd0ed54e13bac4dad867d8f5d25",
+        "observed_sha256": "df805ab77721446dded427c16c247b9685019dd0ed54e13bac4dad867d8f5d25",
+        "pass": true,
+        "path": "derive_one_omega_topological_so3_route_c_full_t4_exact_primitives_v5_6_7.py",
+        "required_fragment_matches": {
+          "free_layout": true,
+          "priority_x2_wavevector": true,
+          "radial_envelope": true,
+          "radial_profiles": true,
+          "real_fourier_modes": true
+        }
+      },
+      "v5_6_7_test": {
+        "expected_sha256": "3fdcd09c3e575893dade6a396865a593349ebc62d28c07706d3f2b58a0caacd4",
+        "observed_sha256": "3fdcd09c3e575893dade6a396865a593349ebc62d28c07706d3f2b58a0caacd4",
+        "pass": true,
+        "path": "test_one_omega_topological_so3_route_c_full_t4_exact_primitives_v5_6_7.py",
+        "required_fragment_matches": {}
+      }
+    },
+    "v5_6_7_1_pass": true,
+    "v5_6_7_pass": true
+  },
+  "whole_domain_exact_margin_certificate": {
+    "Omega": {
+      "inequality": "exp(-x)>=1-x for x>=0",
+      "lower": {
+        "denominator": 64,
+        "exact": "63/64",
+        "numerator": 63
+      },
+      "required_minimum": {
+        "denominator": 2,
+        "exact": "1/2",
+        "numerator": 1
+      },
+      "sides": [
+        "plus",
+        "minus"
+      ],
+      "strict_slack": {
+        "denominator": 64,
+        "exact": "31/64",
+        "numerator": 31
+      }
+    },
+    "SO3_charts": {
+      "each_pi_minus_norm_minus_one_strictly_greater_than": {
+        "denominator": 1,
+        "exact": "2/1",
+        "numerator": 2
+      },
+      "exact_fraction_norm_upper_bounds": true,
+      "q_norm": {
+        "denominator": 1,
+        "exact": "0/1",
+        "numerator": 0
+      },
+      "q_pi_minus_norm_minus_one_strictly_greater_than": {
+        "denominator": 1,
+        "exact": "2/1",
+        "numerator": 2
+      },
+      "r_minus_norm": {
+        "denominator": 1,
+        "exact": "0/1",
+        "numerator": 0
+      },
+      "r_minus_pi_minus_norm_minus_one_strictly_greater_than": {
+        "denominator": 1,
+        "exact": "2/1",
+        "numerator": 2
+      },
+      "r_plus_norm": {
+        "denominator": 1,
+        "exact": "0/1",
+        "numerator": 0
+      },
+      "r_plus_pi_minus_norm_minus_one_strictly_greater_than": {
+        "denominator": 1,
+        "exact": "2/1",
+        "numerator": 2
+      },
+      "strict_rational_fact": "pi>3"
+    },
+    "arithmetic": {
+      "backend": "fractions.Fraction and closed RationalInterval",
+      "float_or_decimal_consumed_by_decisions": false,
+      "outward_property": "all endpoints are exact rationals; no rounding occurs in a scientific comparison"
+    },
+    "contract": {
+      "actual_metric_sides": [
+        "plus",
+        "minus"
+      ],
+      "actual_metric_source": "pulled_X64",
+      "analytic_obligation_ids": [
+        "common_gamma_lorentzian_eigen_gap",
+        "frame_gram_leading_minor_1",
+        "frame_gram_leading_minor_2",
+        "frame_gram_leading_minor_3",
+        "ghy_spacelike_normal_minus",
+        "ghy_spacelike_normal_plus",
+        "khronon_timelike",
+        "omega_minus",
+        "omega_plus",
+        "pulled_bulk_actual_minus_lorentzian_eigen_gap",
+        "pulled_bulk_actual_plus_lorentzian_eigen_gap",
+        "pulled_bulk_reference_minus_lorentzian_eigen_gap",
+        "pulled_bulk_reference_plus_lorentzian_eigen_gap",
+        "so3_chart_q",
+        "so3_chart_r_minus",
+        "so3_chart_r_plus"
+      ],
+      "chart_fields": [
+        "q",
+        "r_plus",
+        "r_minus"
+      ],
+      "ghy_normal_sides": [
+        "plus",
+        "minus"
+      ],
+      "gram_leading_minor_orders": [
+        1,
+        2,
+        3
+      ],
+      "omega_representation": "Omega=exp(log_Omega)",
+      "reference_metric_sides": [
+        "plus",
+        "minus"
+      ],
+      "reference_metric_source": "pulled_reference_metric15",
+      "rounding_direction": "exact-rational-outward",
+      "schema": "named-member-exact-analytic-margin-contract.v1",
+      "time_gradient_includes_dx0": true
+    },
+    "contract_exact_match": true,
+    "domain": {
+      "b0": {
+        "closed": true,
+        "lower": {
+          "denominator": 1,
+          "exact": "0/1",
+          "numerator": 0
+        },
+        "upper": {
+          "denominator": 1,
+          "exact": "1/1",
+          "numerator": 1
+        }
+      },
+      "d2Y": {
+        "closed": true,
+        "lower": {
+          "denominator": 256,
+          "exact": "-1/256",
+          "numerator": -1
+        },
+        "upper": {
+          "denominator": 256,
+          "exact": "1/256",
+          "numerator": 1
+        }
+      },
+      "h0": {
+        "closed": true,
+        "lower": {
+          "denominator": 1,
+          "exact": "0/1",
+          "numerator": 0
+        },
+        "upper": {
+          "denominator": 1,
+          "exact": "1/1",
+          "numerator": 1
+        }
+      },
+      "log_Omega": {
+        "closed": true,
+        "lower": {
+          "denominator": 64,
+          "exact": "-1/64",
+          "numerator": -1
+        },
+        "upper": {
+          "denominator": 64,
+          "exact": "1/64",
+          "numerator": 1
+        }
+      },
+      "radial": "all rho in [0,1]",
+      "tangential": "all T4; only sin(x2), cos(x2) are active and each lies in [-1,1]"
+    },
+    "frame_gram": {
+      "all_strictly_positive": true,
+      "pre_normalization_leading_minors": [
+        {
+          "denominator": 8,
+          "exact": "9/8",
+          "numerator": 9
+        },
+        {
+          "denominator": 32,
+          "exact": "45/32",
+          "numerator": 45
+        },
+        {
+          "denominator": 256,
+          "exact": "495/256",
+          "numerator": 495
+        }
+      ]
+    },
+    "ghy_normal": {
+      "boundary_metric_is_diag_gamma_9_over_8_after_exact_pullback": true,
+      "inverse_rho_rho": {
+        "denominator": 9,
+        "exact": "8/9",
+        "numerator": 8
+      },
+      "sides": [
+        "plus",
+        "minus"
+      ]
+    },
+    "khronon": {
+      "d_tau": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "gamma_inverse_contraction": {
+        "denominator": 5,
+        "exact": "-4/5",
+        "numerator": -4
+      },
+      "required_negative_clearance": {
+        "denominator": 5,
+        "exact": "1/5",
+        "numerator": 1
+      },
+      "strict_slack": {
+        "denominator": 5,
+        "exact": "3/5",
+        "numerator": 3
+      }
+    },
+    "member_contract_exact_match": true,
+    "metric_certificate": {
+      "actual_and_reference_min_abs_eigenvalue_lower": {
+        "denominator": 163840,
+        "exact": "182781/163840",
+        "numerator": 182781
+      },
+      "argument": "time is uncoupled and negative; the four-dimensional positive block is a diagonal convex base plus E, with ||E||2<=||E||entrywise<=r(2|d2Y|+|d2Y|^2); Weyl applies",
+      "base_positive_eigenvalue_lower": {
+        "denominator": 8,
+        "exact": "9/8",
+        "numerator": 9
+      },
+      "both_actual_sides": [
+        "plus",
+        "minus"
+      ],
+      "both_pulled_reference_sides": [
+        "plus",
+        "minus"
+      ],
+      "common_min_abs_eigenvalue_lower": {
+        "denominator": 8,
+        "exact": "9/8",
+        "numerator": 9
+      },
+      "exactly_one_negative_eigenvalue": true,
+      "member_base_bounds_valid": true,
+      "perturbation_upper": {
+        "denominator": 163840,
+        "exact": "1539/163840",
+        "numerator": 1539
+      },
+      "pulled_time_abs_eigenvalue_lower": {
+        "denominator": 4,
+        "exact": "5/4",
+        "numerator": 5
+      },
+      "radial_upper_to_base_lower_ratio": {
+        "denominator": 15,
+        "exact": "16/15",
+        "numerator": 16
+      },
+      "reference_bounds_valid": true,
+      "signature_threshold": {
+        "denominator": 50,
+        "exact": "1/50",
+        "numerator": 1
+      },
+      "strict_slack_lower": {
+        "denominator": 819200,
+        "exact": "897521/819200",
+        "numerator": 897521
+      }
+    },
+    "obligation_results": {
+      "common_gamma_lorentzian_eigen_gap": true,
+      "frame_gram_leading_minor_1": true,
+      "frame_gram_leading_minor_2": true,
+      "frame_gram_leading_minor_3": true,
+      "ghy_spacelike_normal_minus": true,
+      "ghy_spacelike_normal_plus": true,
+      "khronon_timelike": true,
+      "omega_minus": true,
+      "omega_plus": true,
+      "pulled_bulk_actual_minus_lorentzian_eigen_gap": true,
+      "pulled_bulk_actual_plus_lorentzian_eigen_gap": true,
+      "pulled_bulk_reference_minus_lorentzian_eigen_gap": true,
+      "pulled_bulk_reference_plus_lorentzian_eigen_gap": true,
+      "so3_chart_q": true,
+      "so3_chart_r_minus": true,
+      "so3_chart_r_plus": true
+    },
+    "pass": true,
+    "pullback_identity": {
+      "full_matrix_shape": [
+        5,
+        5
+      ],
+      "independent_full_matrix_oracle": "all 25 entries of each 5x5 actual/reference pulled metric; expected expansions do not reuse base_x2 or ambient entries",
+      "opposite_side_cross_signs": true,
+      "pass": true,
+      "plus_pullback_nontrivial": true,
+      "polynomial_ring_primitives": {
+        "checks": {
+          "add_literal_anchor": true,
+          "const_literal_anchor": true,
+          "mul_literal_anchor": true,
+          "neg_literal_anchor": true,
+          "scale_literal_anchor": true,
+          "sub_literal_anchor": true,
+          "t_variable_literal_anchor": true,
+          "y_variable_literal_anchor": true
+        },
+        "pass": true
+      },
+      "sides": {
+        "minus": {
+          "actual_cross_at_rho_one_x2_zero": {
+            "denominator": 144115188075855872,
+            "exact": "658651445502935/144115188075855872",
+            "numerator": 658651445502935
+          },
+          "actual_full_matrix_entry_matches": {
+            "0,0": true,
+            "0,1": true,
+            "0,2": true,
+            "0,3": true,
+            "0,4": true,
+            "1,0": true,
+            "1,1": true,
+            "1,2": true,
+            "1,3": true,
+            "1,4": true,
+            "2,0": true,
+            "2,1": true,
+            "2,2": true,
+            "2,3": true,
+            "2,4": true,
+            "3,0": true,
+            "3,1": true,
+            "3,2": true,
+            "3,3": true,
+            "3,4": true,
+            "4,0": true,
+            "4,1": true,
+            "4,2": true,
+            "4,3": true,
+            "4,4": true
+          },
+          "actual_matrix_polynomial_payload_sha256": "6abba017c6173fe4deafeb9a14fbf57c2bf916082163b418268c29fa05cfed44",
+          "actual_matrix_polynomial_stats": {
+            "maximum_total_degree": 3,
+            "monomial_support_t_y": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "nonzero_polynomial_entries": 7
+          },
+          "actual_symbolic_identity_match": true,
+          "radial_sign": 1,
+          "reference_cross_at_x2_zero": {
+            "denominator": 144115188075855872,
+            "exact": "658651445502935/144115188075855872",
+            "numerator": 658651445502935
+          },
+          "reference_full_matrix_entry_matches": {
+            "0,0": true,
+            "0,1": true,
+            "0,2": true,
+            "0,3": true,
+            "0,4": true,
+            "1,0": true,
+            "1,1": true,
+            "1,2": true,
+            "1,3": true,
+            "1,4": true,
+            "2,0": true,
+            "2,1": true,
+            "2,2": true,
+            "2,3": true,
+            "2,4": true,
+            "3,0": true,
+            "3,1": true,
+            "3,2": true,
+            "3,3": true,
+            "3,4": true,
+            "4,0": true,
+            "4,1": true,
+            "4,2": true,
+            "4,3": true,
+            "4,4": true
+          },
+          "reference_matrix_polynomial_payload_sha256": "5e0b087ae66a9c34b8b84327475b9464cd4ba93bde8d006aa42d8045b0265e35",
+          "reference_matrix_polynomial_stats": {
+            "maximum_total_degree": 2,
+            "monomial_support_t_y": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "nonzero_polynomial_entries": 7
+          },
+          "reference_symbolic_identity_match": true
+        },
+        "plus": {
+          "actual_cross_at_rho_one_x2_zero": {
+            "denominator": 144115188075855872,
+            "exact": "-658651445502935/144115188075855872",
+            "numerator": -658651445502935
+          },
+          "actual_full_matrix_entry_matches": {
+            "0,0": true,
+            "0,1": true,
+            "0,2": true,
+            "0,3": true,
+            "0,4": true,
+            "1,0": true,
+            "1,1": true,
+            "1,2": true,
+            "1,3": true,
+            "1,4": true,
+            "2,0": true,
+            "2,1": true,
+            "2,2": true,
+            "2,3": true,
+            "2,4": true,
+            "3,0": true,
+            "3,1": true,
+            "3,2": true,
+            "3,3": true,
+            "3,4": true,
+            "4,0": true,
+            "4,1": true,
+            "4,2": true,
+            "4,3": true,
+            "4,4": true
+          },
+          "actual_matrix_polynomial_payload_sha256": "8a58ae33e37af5220158c5b702ac8470adef1a336b7e7996e149b3807d4a3e4e",
+          "actual_matrix_polynomial_stats": {
+            "maximum_total_degree": 3,
+            "monomial_support_t_y": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "nonzero_polynomial_entries": 7
+          },
+          "actual_symbolic_identity_match": true,
+          "radial_sign": -1,
+          "reference_cross_at_x2_zero": {
+            "denominator": 144115188075855872,
+            "exact": "-658651445502935/144115188075855872",
+            "numerator": -658651445502935
+          },
+          "reference_full_matrix_entry_matches": {
+            "0,0": true,
+            "0,1": true,
+            "0,2": true,
+            "0,3": true,
+            "0,4": true,
+            "1,0": true,
+            "1,1": true,
+            "1,2": true,
+            "1,3": true,
+            "1,4": true,
+            "2,0": true,
+            "2,1": true,
+            "2,2": true,
+            "2,3": true,
+            "2,4": true,
+            "3,0": true,
+            "3,1": true,
+            "3,2": true,
+            "3,3": true,
+            "3,4": true,
+            "4,0": true,
+            "4,1": true,
+            "4,2": true,
+            "4,3": true,
+            "4,4": true
+          },
+          "reference_matrix_polynomial_payload_sha256": "fdac30048582863ee11013b5aea57bccb0a3f613ae8c1a8be0ce73db9999db7b",
+          "reference_matrix_polynomial_stats": {
+            "maximum_total_degree": 2,
+            "monomial_support_t_y": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ]
+            ],
+            "nonzero_polynomial_entries": 7
+          },
+          "reference_symbolic_identity_match": true
+        }
+      },
+      "variables": [
+        "h0",
+        "d2Y"
+      ]
+    },
+    "radial_envelopes": {
+      "b0_coefficients_ascending": [
+        {
+          "denominator": 1,
+          "exact": "0/1",
+          "numerator": 0
+        },
+        {
+          "denominator": 1,
+          "exact": "0/1",
+          "numerator": 0
+        },
+        {
+          "denominator": 1,
+          "exact": "0/1",
+          "numerator": 0
+        },
+        {
+          "denominator": 1,
+          "exact": "64/1",
+          "numerator": 64
+        },
+        {
+          "denominator": 1,
+          "exact": "-192/1",
+          "numerator": -192
+        },
+        {
+          "denominator": 1,
+          "exact": "192/1",
+          "numerator": 192
+        },
+        {
+          "denominator": 1,
+          "exact": "-64/1",
+          "numerator": -64
+        }
+      ],
+      "b0_identity": "b0=64*[rho*(1-rho)]^3",
+      "b0_range": {
+        "closed": true,
+        "lower": {
+          "denominator": 1,
+          "exact": "0/1",
+          "numerator": 0
+        },
+        "upper": {
+          "denominator": 1,
+          "exact": "1/1",
+          "numerator": 1
+        }
+      },
+      "h0_coefficients_ascending": [
+        {
+          "denominator": 1,
+          "exact": "1/1",
+          "numerator": 1
+        },
+        {
+          "denominator": 1,
+          "exact": "0/1",
+          "numerator": 0
+        },
+        {
+          "denominator": 1,
+          "exact": "0/1",
+          "numerator": 0
+        },
+        {
+          "denominator": 1,
+          "exact": "-10/1",
+          "numerator": -10
+        },
+        {
+          "denominator": 1,
+          "exact": "15/1",
+          "numerator": 15
+        },
+        {
+          "denominator": 1,
+          "exact": "-6/1",
+          "numerator": -6
+        }
+      ],
+      "h0_derivative_identity": "h0'=-30*rho^2*(1-rho)^2",
+      "h0_range": {
+        "closed": true,
+        "lower": {
+          "denominator": 1,
+          "exact": "0/1",
+          "numerator": 0
+        },
+        "upper": {
+          "denominator": 1,
+          "exact": "1/1",
+          "numerator": 1
+        }
+      },
+      "pass": true,
+      "rho_one_minus_rho_identity": "1/4-rho*(1-rho)=(rho-1/2)^2"
+    },
+    "reference_metric": {
+      "binary64_literal_exact_ratios": [
+        {
+          "denominator": 4503599627370496,
+          "exact": "-7385903388887613/4503599627370496",
+          "numerator": -7385903388887613
+        },
+        {
+          "denominator": 562949953421312,
+          "exact": "658651445502935/562949953421312",
+          "numerator": 658651445502935
+        },
+        {
+          "denominator": 2251799813685248,
+          "exact": "2949857755927675/2251799813685248",
+          "numerator": 2949857755927675
+        },
+        {
+          "denominator": 1125899906842624,
+          "exact": "1643813863990231/1125899906842624",
+          "numerator": 1643813863990231
+        },
+        {
+          "denominator": 562949953421312,
+          "exact": "658651445502935/562949953421312",
+          "numerator": 658651445502935
+        }
+      ],
+      "checks": {
+        "all_spatial_above_base_lower": true,
+        "all_spatial_positive": true,
+        "exact_fraction_inputs": true,
+        "radial_below_rational_upper": true,
+        "time_absolute_lower": true,
+        "time_is_negative": true
+      },
+      "pass": true,
+      "positive_lower": {
+        "denominator": 8,
+        "exact": "9/8",
+        "numerator": 9
+      },
+      "radial_upper": {
+        "denominator": 5,
+        "exact": "6/5",
+        "numerator": 6
+      },
+      "time_absolute_lower": {
+        "denominator": 4,
+        "exact": "5/4",
+        "numerator": 5
+      }
+    }
+  }
+}
