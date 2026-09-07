@@ -7,7 +7,7 @@
       "E_munu": "0",
       "E_ww": "0"
     },
-    "sign_note": "same-sign choice fails the mu-nu Einstein and Omega equations by 8 W W_Omega/(3 M5^3); the ww constraint alone is sign-blind"
+    "sign_note": "same-sign choice fails the Omega equation by 8 W W_Omega/(3 M5^3) and the mu-nu Einstein equation by 2 W_Omega^2/G (per gamma_mu_nu); the ww constraint alone is sign-blind"
   },
   "bulk_equations": {
     "E_Omega": "G*(G*k_inf**2*Omega(w)**3 - 15*M5c*k_inf**2*Omega(w) + 3*M5c*(4*Derivative(A(w), w)*Derivative(Omega(w), w) + Derivative(Omega(w), (w, 2)))*exp(G*Omega(w)**2/(3*M5c)))*exp(-G*Omega(w)**2/(3*M5c))/(3*M5c)",
@@ -17,7 +17,7 @@
     "phi_equation_at_phi0": "0",
     "phi_sector_contribution_to_Omega_equation_at_phi0": "0"
   },
-  "calculation_digest": "bd068e215f2f63baf26d70eb9a966e49f2e0d041778e49c4fdeb9976d5218973",
+  "calculation_digest": "fedc1d7cf31d6ea9dc55ef3a571fdfd874640f85561893b11d243c9b316486a9",
   "checks": {
     "bps_flux_balances_v1_omega_tadpole_pass": true,
     "bps_flux_balances_v1_tension_tadpole_pass": true,
@@ -85,7 +85,8 @@
     "The junctions are derived on the Z2-symmetric homogeneous ansatz (minisuperspace): exact for the background, not the general x-dependent junction operator.",
     "Brane displacement (Y_plus, Y_minus) is not varied; bending enters only at the next stage.",
     "The oracle contrast is proportionality of the phi=0 Omega junction, recorded after the derivation; it is not an input.",
-    "The BPS system is verified to solve the bulk equations; uniqueness of the background is not claimed."
+    "The BPS system is verified to solve the bulk equations; uniqueness of the background is not claimed.",
+    "Scope of the spring statement: the metric junction residual off Omega_Sigma=1 is the compensator spring only for S_bulk+S_GHY+S_wall0 with the solid relaxed. With the solid held at X^a = v x^a while gamma = e^{2A0} eta, dL_X/dA0 = -(3/2) v^4 (2 mu_X + 3 lambda_X) e^{2A0} (e^{2A0} - 1) is an additional residual for A0 != 0 (Codex witness mu=lambda=v=1, A0=log(2)/2 gives -15). The tadpole closure at A0 = 0 is unaffected."
   ],
   "junctions": {
     "metric_Z2": "-24*Aprime_plus*M5c*exp(4*A0) - 24*M5c*k_inf*exp((24*A0*M5c - G*Omega0**2)/(6*M5c)) - 2*beta_b*(Omega0 - 1)**2*exp(4*A0)",
@@ -99,10 +100,10 @@
     "reading": "sum over sides of (-s) x boundary canonical momentum + d(wall)/d(field) = 0 at w=0"
   },
   "provenance": {
-    "elapsed_s": 2.9,
-    "generated_utc": "2026-09-07T22:18:58Z",
+    "elapsed_s": 2.0,
+    "generated_utc": "2026-09-07T22:34:26Z",
     "generator": "derive_one_omega_charter_bulk_junction_v2_gate.py",
-    "generator_sha256": "1bffdb180f0ed9f368c4fa2a2e0630285aa6a994ed2963103465ff79be72da37",
+    "generator_sha256": "fe988ced79b907e4b87563feb622cd28c21572c7af30dbb7147df0a4f0ad70e1",
     "python": "3.13.5",
     "sympy": "1.13.3"
   },

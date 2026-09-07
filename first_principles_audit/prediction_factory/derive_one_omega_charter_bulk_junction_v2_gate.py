@@ -224,9 +224,8 @@ def derive() -> dict[str, Any]:
     # --- 3. reduced 1D action with GHY -----------------------------------------------------------------------
     # On the ansatz, sqrt(-g) [M5^3 R/2 - G Omega'^2/2 - U] per unit 4-volume.
     L_bulk_1d = sp.simplify(sqrt_g * (M5c * R / 2 - G * sp.diff(Om, w)**2 / 2 - U_of(Om)))
-    # GHY on each side: outward normal n = s * d_w (points away from the bulk side, i.e. toward the brane at w=0
-    # from inside M_s is -s d_w; "outward" from the region M_s at its boundary w=0 is the direction leaving M_s,
-    # which is -s d_w).  Theta_mu_nu = e e nabla n ; for n = eps d_w on the warped metric, Theta_mu_nu = eps A' g_mu_nu.
+    # GHY on each side: the outward normal of the region M_s = {s w > 0} at its boundary w = 0 is the direction
+    # leaving M_s, i.e. n = -s d_w (Codex refutation 223133Z: the earlier comment said s d_w; the code always used -s).  Theta_mu_nu = e e nabla n ; for n = eps d_w on the warped metric, Theta_mu_nu = eps A' g_mu_nu.
     eps = sp.Symbol("eps_n")
     n_vec = [0, 0, 0, 0, eps]
     n_lo = [sum(g[m, k] * n_vec[k] for k in range(5)) for m in range(5)]
@@ -363,7 +362,7 @@ def derive() -> dict[str, Any]:
         "bulk_equations": {"R_warped": str(R), "E_ww": str(E_ww), "E_munu": str(E_xx), "E_Omega": str(E_Om),
                            "phi_equation_at_phi0": str(el0_at_zero), "phi_sector_contribution_to_Omega_equation_at_phi0": str(dLphi_dOm_at_zero)},
         "bps": {"Omega_prime": str(bps[sp.Derivative(Om, w)]), "A_prime": str(bps[sp.Derivative(A, w)]),
-                "sign_note": "same-sign choice fails the mu-nu Einstein and Omega equations by 8 W W_Omega/(3 M5^3); the ww constraint alone is sign-blind",
+                "sign_note": "same-sign choice fails the Omega equation by 8 W W_Omega/(3 M5^3) and the mu-nu Einstein equation by 2 W_Omega^2/G (per gamma_mu_nu); the ww constraint alone is sign-blind",
                 "residuals_on_bps": {k: str(on_bps(vv)) for k, vv in (("E_ww", E_ww), ("E_munu", E_xx), ("E_Omega", E_Om))}},
         "reduced_action": {"L_bulk_1d": str(L_bulk_1d), "total_derivative_B": str(Bw), "L_first_order": str(L_first_order),
                            "Theta_trace_outward": str(sp.simplify(Theta_trace.subs(eps, -s))), "GHY_density": str(GHY_density),
@@ -384,6 +383,7 @@ def derive() -> dict[str, Any]:
             "Brane displacement (Y_plus, Y_minus) is not varied; bending enters only at the next stage.",
             "The oracle contrast is proportionality of the phi=0 Omega junction, recorded after the derivation; it is not an input.",
             "The BPS system is verified to solve the bulk equations; uniqueness of the background is not claimed.",
+            "Scope of the spring statement: the metric junction residual off Omega_Sigma=1 is the compensator spring only for S_bulk+S_GHY+S_wall0 with the solid relaxed. With the solid held at X^a = v x^a while gamma = e^{2A0} eta, dL_X/dA0 = -(3/2) v^4 (2 mu_X + 3 lambda_X) e^{2A0} (e^{2A0} - 1) is an additional residual for A0 != 0 (Codex witness mu=lambda=v=1, A0=log(2)/2 gives -15). The tadpole closure at A0 = 0 is unaffected.",
         ],
         "provenance": {"generator": Path(__file__).name, "generator_sha256": _sha256(Path(__file__)), "sympy": sp.__version__,
                        "python": platform.python_version(), "elapsed_s": round(time.time() - t0, 1),
