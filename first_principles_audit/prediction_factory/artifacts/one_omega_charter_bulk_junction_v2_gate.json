@@ -1,0 +1,162 @@
+{
+  "bps": {
+    "A_prime": "-k_inf*s*exp(-G*Omega(w)**2/(6*M5c))",
+    "Omega_prime": "-k_inf*s*Omega(w)*exp(-G*Omega(w)**2/(6*M5c))",
+    "residuals_on_bps": {
+      "E_Omega": "0",
+      "E_munu": "0",
+      "E_ww": "0"
+    },
+    "sign_note": "same-sign choice fails the mu-nu Einstein and Omega equations by 8 W W_Omega/(3 M5^3); the ww constraint alone is sign-blind"
+  },
+  "bulk_equations": {
+    "E_Omega": "G*(G*k_inf**2*Omega(w)**3 - 15*M5c*k_inf**2*Omega(w) + 3*M5c*(4*Derivative(A(w), w)*Derivative(Omega(w), w) + Derivative(Omega(w), (w, 2)))*exp(G*Omega(w)**2/(3*M5c)))*exp(-G*Omega(w)**2/(3*M5c))/(3*M5c)",
+    "E_munu": "3*M5c*(2*Derivative(A(w), w)**2 + Derivative(A(w), (w, 2)))*exp(2*A(w)) + (G*k_inf**2*Omega(w)**2 + G*exp(G*Omega(w)**2/(3*M5c))*Derivative(Omega(w), w)**2 - 12*M5c*k_inf**2)*exp((-G*Omega(w)**2 + 6*M5c*A(w))/(3*M5c))/2",
+    "E_ww": "G*k_inf**2*Omega(w)**2*exp(-G*Omega(w)**2/(3*M5c))/2 - G*Derivative(Omega(w), w)**2/2 - 6*M5c*k_inf**2*exp(-G*Omega(w)**2/(3*M5c)) + 6*M5c*Derivative(A(w), w)**2",
+    "R_warped": "-20*Derivative(A(w), w)**2 - 8*Derivative(A(w), (w, 2))",
+    "phi_equation_at_phi0": "0",
+    "phi_sector_contribution_to_Omega_equation_at_phi0": "0"
+  },
+  "calculation_digest": "bd068e215f2f63baf26d70eb9a966e49f2e0d041778e49c4fdeb9976d5218973",
+  "checks": {
+    "bps_flux_balances_v1_omega_tadpole_pass": true,
+    "bps_flux_balances_v1_tension_tadpole_pass": true,
+    "bps_profile_satisfies_metric_junction_at_Omega_Sigma_1_pass": true,
+    "bps_profile_satisfies_omega_junction_at_Omega_Sigma_1_pass": true,
+    "bps_system_solves_munu_einstein_pass": true,
+    "bps_system_solves_omega_equation_pass": true,
+    "bps_system_solves_ww_einstein_pass": true,
+    "charter_digests_bound_pass": true,
+    "extrinsic_curvature_is_A_prime_times_gamma_pass": true,
+    "ghy_cancels_bulk_boundary_term_pass": true,
+    "metric_junction_derived_from_action_pass": true,
+    "metric_junction_residual_off_Omega_Sigma_1_is_compensator_spring_pass": true,
+    "omega_junction_derived_from_action_pass": true,
+    "omega_junction_proportional_to_oracle_phi0_pass": true,
+    "phi_zero_is_consistent_truncation_pass": true,
+    "pinned_formula_strings_match_charter_pass": true,
+    "reduced_action_second_derivatives_are_total_derivative_pass": true,
+    "v1_omega_tadpole_equals_wall_piece_of_omega_junction_pass": true,
+    "v1_tension_tadpole_equals_wall_piece_of_metric_junction_pass": true,
+    "warped_ansatz_einstein_tensor_computed_pass": true
+  },
+  "classification": "theory_only;bulk_background_bps_and_metric_omega_junctions_derived_from_literal_charter_action;v1_tadpoles_closed;linear_junction_operators_DtN_constraints_characteristics_full_Hessian_not_derived;N2_N7_C2_C10_P2_P3_P4_B4_B5_fail_closed",
+  "contrasts": {
+    "charter_canonical_junction_convention": "not present as a field in the artifact; see generator constant CANONICAL_JUNCTION_CONVENTION",
+    "oracle_scalar_junction_phi0": {
+      "mine_in_oracle_variables": "2*G*Omega0*k_inf*exp(-G*Omega0**2/(6*M5c)) - G*nOm - G*nOp - Omega0*beta_b + beta_b",
+      "oracle_expression": "-2*G*Omega0*k_inf*exp(-G*Omega0**2/(6*M5c)) + G*nOm + G*nOp + Omega0*beta_b - beta_b",
+      "oracle_sha256": "629a1bd9ae93302287afbdd3cb17050b8d4b542b6939805c61c1082adc113cf9",
+      "proportional_with_constant_ratio": true,
+      "ratio_mine_over_oracle": "-1"
+    }
+  },
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C10_pass": false,
+    "C2_pass": false,
+    "C4_pass": false,
+    "N2_pass": false,
+    "N3_pass": false,
+    "N4_pass": false,
+    "N5_pass": false,
+    "N6_pass": false,
+    "N7_pass": false,
+    "P2_pass": false,
+    "P3_complete_pass": false,
+    "P4_full_same_action_pass": false,
+    "bulk_background_and_junction_derived_from_literal_action_pass": true,
+    "bulk_fields_varied_pass": true,
+    "characteristics_derived_pass": false,
+    "complete_extended_hessian_derived_pass": false,
+    "dirichlet_to_neumann_map_derived_pass": false,
+    "displaced_brane_junction_derived_pass": false,
+    "embeddings_varied_pass": false,
+    "linear_junction_operators_derived_pass": false,
+    "nonlinear_constraints_derived_pass": false,
+    "nonlinear_gravitational_P4_pass": false,
+    "old_wall_ADM_Hessian_consumed": false,
+    "phenomenology_claimed": false,
+    "stability_claimed": false,
+    "v1_tadpoles_closed_by_bulk_junction_pass": true
+  },
+  "evidence_boundary": [
+    "The junctions are derived on the Z2-symmetric homogeneous ansatz (minisuperspace): exact for the background, not the general x-dependent junction operator.",
+    "Brane displacement (Y_plus, Y_minus) is not varied; bending enters only at the next stage.",
+    "The oracle contrast is proportionality of the phi=0 Omega junction, recorded after the derivation; it is not an input.",
+    "The BPS system is verified to solve the bulk equations; uniqueness of the background is not claimed."
+  ],
+  "junctions": {
+    "metric_Z2": "-24*Aprime_plus*M5c*exp(4*A0) - 24*M5c*k_inf*exp((24*A0*M5c - G*Omega0**2)/(6*M5c)) - 2*beta_b*(Omega0 - 1)**2*exp(4*A0)",
+    "metric_general": "12*Aprime_minus*M5c*exp(4*A0) - 12*Aprime_plus*M5c*exp(4*A0) - 24*M5c*k_inf*exp((24*A0*M5c - G*Omega0**2)/(6*M5c)) - 2*beta_b*(Omega0 - 1)**2*exp(4*A0)",
+    "metric_on_bps": "2*beta_b*(-Omega0**2 + 2*Omega0 - 1)*exp(4*A0)",
+    "metric_on_bps_at_Omega_Sigma_1": "0",
+    "omega_Z2": "2*G*Omegaprime_plus*exp(4*A0) + (2*G*Omega0*k_inf - beta_b*(Omega0 - 1)*exp(G*Omega0**2/(6*M5c)))*exp((24*A0*M5c - G*Omega0**2)/(6*M5c))",
+    "omega_general": "-G*Omegaprime_minus*exp(4*A0) + G*Omegaprime_plus*exp(4*A0) + (2*G*Omega0*k_inf - beta_b*(Omega0 - 1)*exp(G*Omega0**2/(6*M5c)))*exp((24*A0*M5c - G*Omega0**2)/(6*M5c))",
+    "omega_on_bps": "beta_b*(1 - Omega0)*exp(4*A0)",
+    "omega_on_bps_at_Omega_Sigma_1": "0",
+    "reading": "sum over sides of (-s) x boundary canonical momentum + d(wall)/d(field) = 0 at w=0"
+  },
+  "provenance": {
+    "elapsed_s": 2.9,
+    "generated_utc": "2026-09-07T22:18:58Z",
+    "generator": "derive_one_omega_charter_bulk_junction_v2_gate.py",
+    "generator_sha256": "1bffdb180f0ed9f368c4fa2a2e0630285aa6a994ed2963103465ff79be72da37",
+    "python": "3.13.5",
+    "sympy": "1.13.3"
+  },
+  "reduced_action": {
+    "GHY_density": "-4*M5c*s*exp(4*A(w))*Derivative(A(w), w)",
+    "L_bulk_1d": "(-G*k_inf**2*Omega(w)**2 + 12*M5c*k_inf**2 - (G*Derivative(Omega(w), w)**2 + 4*M5c*(5*Derivative(A(w), w)**2 + 2*Derivative(A(w), (w, 2))))*exp(G*Omega(w)**2/(3*M5c)))*exp(-G*Omega(w)**2/(3*M5c) + 4*A(w))/2",
+    "L_first_order": "(-G*k_inf**2*Omega(w)**2 + 12*M5c*k_inf**2 + (-G*Derivative(Omega(w), w)**2 + 12*M5c*Derivative(A(w), w)**2)*exp(G*Omega(w)**2/(3*M5c)))*exp(-G*Omega(w)**2/(3*M5c) + 4*A(w))/2",
+    "Theta_trace_outward": "-4*s*Derivative(A(w), w)",
+    "boundary_from_bulk": "4*M5c*s*exp(4*A(w))*Derivative(A(w), w)",
+    "p_A": "12*M5c*exp(4*A(w))*Derivative(A(w), w)",
+    "p_Omega": "-G*exp(4*A(w))*Derivative(Omega(w), w)",
+    "total_derivative_B": "-4*M5c*exp(4*A(w))*Derivative(A(w), w)"
+  },
+  "route_id": "canonical_one_Omega_backreacted_wall_with_rank_full_solid_v1",
+  "schema": "holo.one-omega-charter-bulk-junction.v2",
+  "stage": {
+    "ansatz": "ds^2 = e^{2A(w)} eta dx dx + dw^2, Omega(w), phi^a = 0, Z2 about w=0, brane at w=0",
+    "not_varied": [
+      "Y_plus, Y_minus (displacement)",
+      "brane fields T, X^a, varphi^a beyond the tension",
+      "generic (x-dependent) bulk perturbations"
+    ],
+    "side_sign_convention": "s = +1 on M_plus (w>0), -1 on M_minus (w<0); outward normal leaving M_s at w=0 is -s d_w; Z2: A'(0-) = -A'(0+), Omega'(0-) = -Omega'(0+)",
+    "varied": [
+      "g_MN (warped ansatz: A)",
+      "Omega (bulk profile)",
+      "phi^a (consistency of the zero truncation)",
+      "A(0), Omega(0) at the brane (junctions)"
+    ]
+  },
+  "tadpole_closure": {
+    "bps_flux_A": "24*M5c*k_inf*exp(-G/(6*M5c))",
+    "bps_flux_Omega": "-2*G*k_inf*exp(-G/(6*M5c))",
+    "note": "sqrt(-gamma) = e^{4A}: the v1 lapse/trace tadpole -2W(1) per unit sqrt(-gamma)_1 appears here as d(wall)/dA = -4 x 2W(1)",
+    "v1_omega_tadpole_minus_2Wprime1": "2*G*k_inf*exp(-G/(6*M5c))",
+    "v1_tension_2W1": "6*M5c*k_inf*exp(-G/(6*M5c))",
+    "wall_piece_A": "-24*M5c*k_inf*exp(-G/(6*M5c))",
+    "wall_piece_Omega": "2*G*k_inf*exp(-G/(6*M5c))"
+  },
+  "title": "Full variation of the one-Omega action charter, stage v2.1: bulk background and junction from the literal action",
+  "upstream_bindings": {
+    "one_omega_action_charter_gate.json": {
+      "action_charter_digest": "93105331d9da311afa7845f9939dbd60617b929ae9ede23286fa26bedaa815c1",
+      "calculation_digest": "12b753fc2646aebfbb117db95031c2765cdd2cc040025481de08613d183ad8db",
+      "sha256": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef"
+    },
+    "one_omega_charter_full_variation_interface_v1_gate.json": {
+      "sha256": "d15ce008e600047bfab450f7583164b7c4a4e782e3d4c34e4f42a858636c217b",
+      "used_for": "tension 2W(1) and omega tadpole -2W'(1) closure (values recomputed here from the same W)"
+    },
+    "one_omega_scalar_interface_reparam_v1.json": {
+      "sha256": "629a1bd9ae93302287afbdd3cb17050b8d4b542b6939805c61c1082adc113cf9",
+      "used_for": "contrast only"
+    },
+    "pinned_strings_sha256": "58bf981171cda19feae9ec42baaa92e50f9d9e69f0f336c854965da9ae0319f2"
+  }
+}
