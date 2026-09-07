@@ -100,8 +100,8 @@ def test_tadpoles_match_expectations(stored: dict) -> None:
 def test_hessian_helicity_sets_partition_fields(stored: dict) -> None:
     sets = stored["extended_hessian"]["helicity_sets"]
     names = sorted(sum(sets.values(), []))
-    assert names == sorted(gate.FIELD_NAMES)
-    assert len(sets["scalar"]) == 9 and len(sets["vector"]) == 8 and len(sets["tensor"]) == 1
+    assert names == sorted(gate.HEL_NAMES)
+    assert len(sets["scalar"]) == 8 and len(sets["vector"]) == 8 and len(sets["tensor"]) == 2
 
 
 def test_gauge_null_checks_recorded_and_true(stored: dict) -> None:
@@ -124,8 +124,46 @@ def test_numerical_blocks_are_square_and_finite(stored: dict) -> None:
 def test_provenance_and_digest(stored: dict) -> None:
     assert stored["schema"] == gate.SCHEMA
     assert stored["upstream_bindings"]["one_omega_action_charter_gate.json"]["sha256"] == gate._sha256(gate.CHARTER)
-    recomputed = gate._canonical_digest({k: stored[k] for k in ("background", "tadpoles", "quadratic_lagrangian", "checks", "decision")})
+    recomputed = gate._canonical_digest({k: stored[k] for k in gate.DIGEST_KEYS})
     assert recomputed == stored["calculation_digest"]
+    assert "extended_hessian" in gate.DIGEST_KEYS and "checks" in gate.DIGEST_KEYS
+
+
+def _digest_of(payload: dict) -> str:
+    return gate._canonical_digest({k: payload[k] for k in gate.DIGEST_KEYS})
+
+
+def test_mutating_a_hessian_entry_breaks_the_digest(stored: dict) -> None:
+    import copy
+    mutant = copy.deepcopy(stored)
+    blocks = mutant["extended_hessian"]["numerical_blocks_at_frozen_point"]
+    blocks["scalar"][0][0] = str(sp.sympify(blocks["scalar"][0][0]) + 1)
+    assert _digest_of(mutant) != stored["calculation_digest"]
+    mutant = copy.deepcopy(stored)
+    mutant["extended_hessian"]["symbolic_matrix_helicity_basis"][0][0] = "0"
+    assert _digest_of(mutant) != stored["calculation_digest"]
+
+
+def test_mutating_gauge_or_source_record_breaks_the_digest(stored: dict) -> None:
+    import copy
+    mutant = copy.deepcopy(stored)
+    mutant["extended_hessian"]["gauge_null_checks"]["time_reparametrization"]["null"] = False
+    assert _digest_of(mutant) != stored["calculation_digest"]
+    mutant = copy.deepcopy(stored)
+    mutant["upstream_bindings"]["one_omega_action_charter_gate.json"]["sha256"] = "0" * 64
+    assert _digest_of(mutant) != stored["calculation_digest"]
+
+
+def test_helicity_basis_is_irreducible_8_8_2(stored: dict) -> None:
+    sets = stored["extended_hessian"]["helicity_sets"]
+    assert len(sets["scalar"]) == 8 and len(sets["vector"]) == 8 and len(sets["tensor"]) == 2
+    assert sorted(sets["tensor"]) == ["H12", "Hd"]
+    order = stored["extended_hessian"]["helicity_field_order"]
+    M = stored["extended_hessian"]["symbolic_matrix_helicity_basis"]
+    assert len(M) == 18 and all(len(r) == 18 for r in M)
+    i, j = order.index("Hd"), order.index("H12")
+    assert sp.simplify(sp.sympify(M[i][i]) - sp.sympify(M[j][j])) == 0
+    assert sp.sympify(M[i][j]) == 0
 
 
 @pytest.mark.skipif(not FRESH, reason="set HOLO_FULL_VARIATION_FRESH=1 to re-run the symbolic derivation")

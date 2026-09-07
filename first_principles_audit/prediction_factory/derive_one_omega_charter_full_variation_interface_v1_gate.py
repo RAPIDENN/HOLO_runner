@@ -102,6 +102,10 @@ PHYSICAL_FALSE_KEYS = (
 )
 
 
+DIGEST_KEYS = ("schema", "route_id", "stage", "upstream_bindings", "background", "tadpoles", "expected_tadpoles",
+               "quadratic_lagrangian", "extended_hessian", "checks", "decision", "classification", "evidence_boundary")
+
+
 class FullVariationError(ValueError):
     pass
 
@@ -355,10 +359,27 @@ def hessian_momentum_space(L2: sp.Expr) -> tuple[sp.Matrix, dict[str, sp.Symbol]
 
 
 HELICITY = {
-    "scalar": ["n", "N3", "H11", "H22", "H33", "tau", "pi3", "omega", "vphi3"],
+    "scalar": ["n", "N3", "Hs", "H33", "tau", "pi3", "omega", "vphi3"],
     "vector": ["N1", "N2", "H13", "H23", "pi1", "pi2", "vphi1", "vphi2"],
-    "tensor": ["H12"],
+    "tensor": ["Hd", "H12"],
 }
+HELICITY_BASIS = "Hs = H11 + H22 (trace, helicity 0); Hd = (H11 - H22)/2 (helicity 2, same norm as H12); H11 = Hs/2 + Hd, H22 = Hs/2 - Hd"
+HEL_NAMES = ["n", "N1", "N2", "N3", "Hs", "H12", "H13", "Hd", "H23", "H33", "tau", "pi1", "pi2", "pi3", "omega", "vphi1", "vphi2", "vphi3"]
+
+
+def to_helicity_basis(Hm: sp.Matrix) -> sp.Matrix:
+    """Congruence H' = J^T H J with J = d(old fields)/d(new fields); old order FIELD_NAMES, new order HEL_NAMES."""
+    old = {nme: i for i, nme in enumerate(FIELD_NAMES)}
+    new = {nme: i for i, nme in enumerate(HEL_NAMES)}
+    J = sp.zeros(len(FIELD_NAMES), len(HEL_NAMES))
+    for nme in FIELD_NAMES:
+        if nme == "H11":
+            J[old[nme], new["Hs"]] = sp.Rational(1, 2); J[old[nme], new["Hd"]] = 1
+        elif nme == "H22":
+            J[old[nme], new["Hs"]] = sp.Rational(1, 2); J[old[nme], new["Hd"]] = -1
+        else:
+            J[old[nme], new[nme]] = 1
+    return (J.T * Hm * J).applyfunc(sp.simplify)
 
 
 def gauge_null_checks(Hm: sp.Matrix, qw: dict[str, sp.Symbol]) -> dict[str, Any]:
@@ -480,16 +501,28 @@ def derive() -> dict[str, Any]:
     gauge_ok = all(r["null"] for r in gauge.values())
     hermitian_ok = all(sp.simplify(Hm[i, j] - sp.conjugate(Hm[j, i])) == 0
                        for i in range(len(FIELD_NAMES)) for j in range(i, len(FIELD_NAMES)))
-    # helicity block structure: no cross terms between scalar/vector/tensor sets
+    # helicity block structure in the irreducible basis (8 scalar / 8 vector / 2 tensor)
+    Hh = to_helicity_basis(Hm)
+    hidx = {nme: i for i, nme in enumerate(HEL_NAMES)}
     def cross(a: list[str], b: list[str]) -> bool:
-        return all(sp.simplify(Hm[idx[p], idx[r]]) == 0 for p in a for r in b)
+        return all(sp.simplify(Hh[hidx[p], hidx[r]]) == 0 for p in a for r in b)
     helicity_ok = (cross(HELICITY["scalar"], HELICITY["vector"]) and cross(HELICITY["scalar"], HELICITY["tensor"])
                    and cross(HELICITY["vector"], HELICITY["tensor"]))
+    tensor_degenerate = (sp.simplify(Hh[hidx["Hd"], hidx["Hd"]] - Hh[hidx["H12"], hidx["H12"]]) == 0
+                         and sp.simplify(Hh[hidx["Hd"], hidx["H12"]]) == 0)
+    # first-order pieces of the invariant functionals must vanish for their quadratic forms to be gauge invariant
+    # The first-order pieces of S_fol, S_X, S_R need not vanish pointwise (xi*Rcal_1 is a total derivative: the
+    # linearized Ricci scalar); what gauge invariance of their quadratic forms needs is a vanishing first
+    # variation, i.e. zero Euler-Lagrange tadpoles of each first-order piece.
+    first_order_pieces = {k: sp.expand(L[k].coeff(EPS, 1)) for k in ("sqrt_g_L_fol", "sqrt_g_L_X", "sqrt_g_L_R")}
+    first_order_vanish = {k: all(sp.simplify(vv) == 0 for vv in tadpoles(piece).values())
+                          for k, piece in first_order_pieces.items()}
+    fol_first_order_is_total_derivative = (first_order_pieces["sqrt_g_L_fol"] != 0 and first_order_vanish["sqrt_g_L_fol"])
     # numerical matrix at the frozen point for the record
     num_sub = {s: FROZEN_PARAMETERS[k] for s, k in PARAM_MAP.items()}
-    Hnum = Hm.subs(num_sub)
+    Hnum = Hh.subs(num_sub)
     def block(names: list[str]) -> list[list[str]]:
-        return [[str(sp.nsimplify(sp.simplify(Hnum[idx[a], idx[b]]), rational=False)) for b in names] for a in names]
+        return [[str(sp.nsimplify(sp.simplify(Hnum[hidx[a], hidx[b]]), rational=False)) for b in names] for a in names]
 
     checks = {
         "charter_digests_bound_pass": True,
@@ -505,9 +538,12 @@ def derive() -> dict[str, Any]:
         "solid_khronon_mixing_present_pass": bool(solid_khronon_mixing),
         "robin_quadratic_couples_varphi_lapse_khronon_pass": bool(robin_quadratic),
         "robin_solid_and_spatial_metric_decouple_at_quadratic_order_pass": bool(robin_solid_decouples),
-        "gauge_residual_of_full_hessian_is_pure_tadpole_pass": bool(residual_is_pure_tadpole),
+        "gauge_residual_attribution_consistency_pass": bool(residual_is_pure_tadpole),
         "extended_hessian_hermitian_pass": bool(hermitian_ok),
-        "helicity_blocks_decouple_pass": bool(helicity_ok),
+        "helicity_blocks_decouple_8_8_2_pass": bool(helicity_ok),
+        "tensor_polarizations_degenerate_pass": bool(tensor_degenerate),
+        "fol_solid_robin_first_order_stationary_pass": bool(all(first_order_vanish.values())),
+        "fol_first_order_is_pure_total_derivative_pass": bool(fol_first_order_is_total_derivative),
         "time_reparametrization_null_direction_tadpole_free_pass": bool(gauge["time_reparametrization"]["null"]),
         "spatial_diffeomorphism_null_directions_tadpole_free_pass": bool(all(gauge[k]["null"] for k in gauge if k.startswith("spatial"))),
         "gauge_null_directions_pass": bool(gauge_ok),
@@ -536,10 +572,13 @@ def derive() -> dict[str, Any]:
         "expected_tadpoles": {"n": str(-tension), "H_ii": str(-tension / 2), "omega": str(expected_omega_tadpole),
                               "interpretation": "the gamma and Omega_Sigma tadpoles are the sources the bulk junction (GHY plus bulk Omega flux) must balance; not derived here"},
         "quadratic_lagrangian": {"n_terms_total": len(L2.as_ordered_terms()), "n_terms_solid": len(L2_solid.as_ordered_terms()),
+                                 "first_order_pieces": {k: str(vv) for k, vv in first_order_pieces.items()},
+                                 "first_order_note": "sqrt(-gamma)*L_fol at O(eps) is Mb2*xi*Rcal_1/2, the linearized Ricci scalar, a total derivative with zero Euler-Lagrange variation",
                                  "solid_block": str(L2_solid), "solid_block_tau0": str(L2_solid_tau0),
                                  "solid_khronon_mixing_terms": str(solid_tau_terms), "n7_v3_invariant_rebuilt": str(n7)},
         "extended_hessian": {"fields": FIELD_NAMES, "momentum": "q along z, frequency w; plane wave A e^{i(qz-wt)} + c.c.",
-                             "helicity_sets": HELICITY,
+                             "helicity_sets": HELICITY, "helicity_basis": HELICITY_BASIS, "helicity_field_order": HEL_NAMES,
+                             "symbolic_matrix_helicity_basis": [[str(Hh[i, j]) for j in range(len(HEL_NAMES))] for i in range(len(HEL_NAMES))],
                              "symbolic_diagonal": {nme: str(sp.simplify(Hm[idx[nme], idx[nme]])) for nme in FIELD_NAMES},
                              "mixed_solid_metric_entries": {k: str(vv) for k, vv in mixed.items()},
                              "robin_row_vphi3": {k: str(vv) for k, vv in robin_rows.items()},
@@ -556,6 +595,7 @@ def derive() -> dict[str, Any]:
             "Only the displayed brane action is varied; the bulk, the two embeddings and GHY are not, so no junction condition, constraint or characteristic is derived.",
             "The Hessian is the brane-localized quadratic form; the complete extended Hessian needs the bulk quadratic form and the junction.",
             "Reproducing the N7 v3 solid invariant is a consistency check on the transcription, not an inheritance of any N7 conclusion.",
+            "The residual-attribution check is a consistency identity (H_tadpole = H - H_tadpole_free and H_tadpole_free R = 0 imply it), not an independent Ward identity; the independent statement delta0(S2) + delta1(S1) = 0 from the nonlinear transformation is left to the next stage.",
             "Gauge null directions are checked at the linear level only, and on the tadpole-free quadratic form: around a background that is not a solution of the brane sector alone (tension and Omega-flux tadpoles), the quadratic action is not invariant under the linear gauge transformation; the residual is recorded and shown to come only from the tadpole pieces, which the bulk junction must cancel.",
             "The charter's statement that the Robin term couples gamma, T, X^a and varphi^a is nonlinear; at quadratic order around X^a=v x^a the solid and the spatial metric drop out of the Robin block, which couples varphi, the lapse and the khronon.",
             "Not fixing the khronon gauge exposes a khronon-solid mixing (V1 acquires -v*grad(tau)) absent from the N7 v3 khronon-gauge invariant; the two agree at tau=0.",
@@ -564,7 +604,7 @@ def derive() -> dict[str, Any]:
                        "python": platform.python_version(), "timings_s": {k: round(vv, 1) for k, vv in log.items()},
                        "generated_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())},
     }
-    payload["calculation_digest"] = _canonical_digest({k: payload[k] for k in ("background", "tadpoles", "quadratic_lagrangian", "checks", "decision")})
+    payload["calculation_digest"] = _canonical_digest({k: payload[k] for k in DIGEST_KEYS})
     return payload
 
 
