@@ -1,0 +1,1131 @@
+{
+  "basis_old_from_normalized": {
+    "nonzero_entries": [
+      [
+        0,
+        0,
+        "1"
+      ],
+      [
+        1,
+        8,
+        "1"
+      ],
+      [
+        2,
+        9,
+        "1"
+      ],
+      [
+        3,
+        1,
+        "1"
+      ],
+      [
+        4,
+        2,
+        "sqrt(2)/2"
+      ],
+      [
+        4,
+        16,
+        "sqrt(2)/2"
+      ],
+      [
+        5,
+        17,
+        "sqrt(2)/2"
+      ],
+      [
+        6,
+        10,
+        "sqrt(2)/2"
+      ],
+      [
+        7,
+        2,
+        "sqrt(2)/2"
+      ],
+      [
+        7,
+        16,
+        "-sqrt(2)/2"
+      ],
+      [
+        8,
+        11,
+        "sqrt(2)/2"
+      ],
+      [
+        9,
+        3,
+        "1"
+      ],
+      [
+        10,
+        4,
+        "1"
+      ],
+      [
+        11,
+        12,
+        "1"
+      ],
+      [
+        12,
+        13,
+        "1"
+      ],
+      [
+        13,
+        5,
+        "1"
+      ],
+      [
+        14,
+        6,
+        "1"
+      ],
+      [
+        15,
+        14,
+        "1"
+      ],
+      [
+        16,
+        15,
+        "1"
+      ],
+      [
+        17,
+        7,
+        "1"
+      ]
+    ],
+    "shape": [
+      18,
+      18
+    ]
+  },
+  "calculation_digest": "e787363ce279dfeea5015ea4048a05bdab03ccc9ead0b952402a54a24bada771",
+  "checks": {
+    "hessian_hermitian": true,
+    "linear_foliation_Euler_derivatives_vanish": true,
+    "linear_foliation_density_is_nonzero_divergence": true,
+    "linear_gauge_free_null_spatial_1": true,
+    "linear_gauge_free_null_spatial_2": true,
+    "linear_gauge_free_null_spatial_3": true,
+    "linear_gauge_free_null_time_reparametrization": true,
+    "mode_basis_invertible": true,
+    "scalar_tensor_blocks_decouple": true,
+    "scalar_vector_blocks_decouple": true,
+    "source_symbolic_matrix_matches_compact_action": true,
+    "tensor_cross_entry_zero": true,
+    "two_tensor_polarizations_degenerate": true,
+    "vector_tensor_blocks_decouple": true
+  },
+  "comparison": {
+    "symbolic_entries_compared": 324,
+    "symbolic_mismatches": 0
+  },
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C4_HESSIAN_pass": false,
+    "GHY_variation_pass": false,
+    "N2_CONSTRAINTS_pass": false,
+    "N3_CHARACTERISTICS_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "P4_full_same_action_pass": false,
+    "bulk_variation_pass": false,
+    "moving_embedding_variation_pass": false,
+    "nonlinear_Ward_identity_pass": false,
+    "quadratic_brane_hessian_independently_reproduced_pass": true
+  },
+  "first_order_foliation": {
+    "Euler_derivatives": {
+      "H11": "0",
+      "H12": "0",
+      "H13": "0",
+      "H22": "0",
+      "H23": "0",
+      "H33": "0",
+      "N1": "0",
+      "N2": "0",
+      "N3": "0",
+      "n": "0",
+      "omega": "0",
+      "pi1": "0",
+      "pi2": "0",
+      "pi3": "0",
+      "tau": "0",
+      "vphi1": "0",
+      "vphi2": "0",
+      "vphi3": "0"
+    },
+    "density": "-Mb2*xi*Derivative(H11(t, x, y, z), (y, 2))/2 - Mb2*xi*Derivative(H11(t, x, y, z), (z, 2))/2 - Mb2*xi*Derivative(H22(t, x, y, z), (x, 2))/2 - Mb2*xi*Derivative(H22(t, x, y, z), (z, 2))/2 - Mb2*xi*Derivative(H33(t, x, y, z), (x, 2))/2 - Mb2*xi*Derivative(H33(t, x, y, z), (y, 2))/2 + Mb2*xi*Derivative(H12(t, x, y, z), x, y) + Mb2*xi*Derivative(H13(t, x, y, z), x, z) + Mb2*xi*Derivative(H23(t, x, y, z), y, z)",
+    "density_is_identically_zero": false,
+    "density_minus_divergence": "0",
+    "integrated_first_variation_zero_for_compact_support": true,
+    "spatial_current": [
+      "Mb2*xi*Derivative(H12(t, x, y, z), y)/2 + Mb2*xi*Derivative(H13(t, x, y, z), z)/2 - Mb2*xi*Derivative(H22(t, x, y, z), x)/2 - Mb2*xi*Derivative(H33(t, x, y, z), x)/2",
+      "-Mb2*xi*Derivative(H11(t, x, y, z), y)/2 + Mb2*xi*Derivative(H12(t, x, y, z), x)/2 + Mb2*xi*Derivative(H23(t, x, y, z), z)/2 - Mb2*xi*Derivative(H33(t, x, y, z), y)/2",
+      "-Mb2*xi*Derivative(H11(t, x, y, z), z)/2 + Mb2*xi*Derivative(H13(t, x, y, z), x)/2 - Mb2*xi*Derivative(H22(t, x, y, z), z)/2 + Mb2*xi*Derivative(H23(t, x, y, z), y)/2"
+    ]
+  },
+  "full_hessian_linear_gauge_residuals": {
+    "spatial_1": {
+      "nonzero_entries": [
+        [
+          6,
+          0,
+          "6*I*M5c*k_inf*q*exp(-G/(6*M5c))"
+        ]
+      ],
+      "shape": [
+        18,
+        1
+      ]
+    },
+    "spatial_2": {
+      "nonzero_entries": [
+        [
+          8,
+          0,
+          "6*I*M5c*k_inf*q*exp(-G/(6*M5c))"
+        ]
+      ],
+      "shape": [
+        18,
+        1
+      ]
+    },
+    "spatial_3": {
+      "nonzero_entries": [
+        [
+          0,
+          0,
+          "-6*I*M5c*k_inf*q*exp(-G/(6*M5c))"
+        ],
+        [
+          4,
+          0,
+          "-3*I*M5c*k_inf*q*exp(-G/(6*M5c))"
+        ],
+        [
+          7,
+          0,
+          "-3*I*M5c*k_inf*q*exp(-G/(6*M5c))"
+        ],
+        [
+          9,
+          0,
+          "3*I*M5c*k_inf*q*exp(-G/(6*M5c))"
+        ],
+        [
+          14,
+          0,
+          "2*I*G*k_inf*q*exp(-G/(6*M5c))"
+        ]
+      ],
+      "shape": [
+        18,
+        1
+      ]
+    },
+    "time_reparametrization": {
+      "nonzero_entries": [
+        [
+          4,
+          0,
+          "3*I*M5c*k_inf*w*exp(-G/(6*M5c))"
+        ],
+        [
+          7,
+          0,
+          "3*I*M5c*k_inf*w*exp(-G/(6*M5c))"
+        ],
+        [
+          9,
+          0,
+          "3*I*M5c*k_inf*w*exp(-G/(6*M5c))"
+        ],
+        [
+          14,
+          0,
+          "-2*I*G*k_inf*w*exp(-G/(6*M5c))"
+        ]
+      ],
+      "shape": [
+        18,
+        1
+      ]
+    }
+  },
+  "hessian_normalized": {
+    "nonzero_entries": [
+      [
+        0,
+        0,
+        "q**2*(Mb2*eta - kappa_hat*y**2)"
+      ],
+      [
+        0,
+        2,
+        "-3*sqrt(2)*M5c*k_inf*exp(-G/(6*M5c)) + sqrt(2)*Mb2*q**2*xi/2"
+      ],
+      [
+        0,
+        3,
+        "-3*M5c*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        0,
+        4,
+        "I*q**2*w*(Mb2*eta - kappa_hat*y**2)"
+      ],
+      [
+        0,
+        6,
+        "2*G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        0,
+        7,
+        "-I*kappa_hat*q*y"
+      ],
+      [
+        1,
+        1,
+        "-Mb2*lambda_K*q**2 + Mb2*q**2 + rho_X*v**2"
+      ],
+      [
+        1,
+        2,
+        "-sqrt(2)*Mb2*lambda_K*q*w/2"
+      ],
+      [
+        1,
+        3,
+        "Mb2*q*w*(1 - lambda_K)/2"
+      ],
+      [
+        1,
+        4,
+        "I*q*(-Mb2*lambda_K*q**2 + Mb2*q**2 + rho_X*v**2)"
+      ],
+      [
+        1,
+        5,
+        "I*rho_X*v*w"
+      ],
+      [
+        2,
+        0,
+        "-3*sqrt(2)*M5c*k_inf*exp(-G/(6*M5c)) + sqrt(2)*Mb2*q**2*xi/2"
+      ],
+      [
+        2,
+        1,
+        "-sqrt(2)*Mb2*lambda_K*q*w/2"
+      ],
+      [
+        2,
+        2,
+        "-B4bar*Mb2*q**4/(8*k_inf**2) - Mb2*lambda_K*w**2/2 + Mb2*q**2*xi/4 + Mb2*w**2/4 - lambda_X*v**4/2 - mu_X*v**4/2"
+      ],
+      [
+        2,
+        3,
+        "sqrt(2)*(-6*M5c*k_inf - (Mb2*lambda_K*w**2 + lambda_X*v**4)*exp(G/(6*M5c)))*exp(-G/(6*M5c))/4"
+      ],
+      [
+        2,
+        4,
+        "sqrt(2)*I*Mb2*q**2*w*(-lambda_K + xi)/2"
+      ],
+      [
+        2,
+        5,
+        "sqrt(2)*I*lambda_X*q*v**3/2"
+      ],
+      [
+        2,
+        6,
+        "sqrt(2)*G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        3,
+        0,
+        "-3*M5c*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        3,
+        1,
+        "Mb2*q*w*(1 - lambda_K)/2"
+      ],
+      [
+        3,
+        2,
+        "sqrt(2)*(-6*M5c*k_inf - (Mb2*lambda_K*w**2 + lambda_X*v**4)*exp(G/(6*M5c)))*exp(-G/(6*M5c))/4"
+      ],
+      [
+        3,
+        3,
+        "3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*w**2/4 - lambda_X*v**4/4 - mu_X*v**4/2"
+      ],
+      [
+        3,
+        4,
+        "I*Mb2*q**2*w*(1 - lambda_K)/2"
+      ],
+      [
+        3,
+        5,
+        "I*q*v**3*(lambda_X + 2*mu_X)/2"
+      ],
+      [
+        3,
+        6,
+        "G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        4,
+        0,
+        "I*q**2*w*(-Mb2*eta + kappa_hat*y**2)"
+      ],
+      [
+        4,
+        1,
+        "I*q*(Mb2*lambda_K*q**2 - Mb2*q**2 - rho_X*v**2)"
+      ],
+      [
+        4,
+        2,
+        "sqrt(2)*I*Mb2*q**2*w*(lambda_K - xi)/2"
+      ],
+      [
+        4,
+        3,
+        "I*Mb2*q**2*w*(lambda_K - 1)/2"
+      ],
+      [
+        4,
+        4,
+        "q**2*(Mb2*eta*w**2 - Mb2*lambda_K*q**2 + Mb2*q**2 - kappa_hat*w**2*y**2 + rho_X*v**2)"
+      ],
+      [
+        4,
+        5,
+        "q*rho_X*v*w"
+      ],
+      [
+        4,
+        7,
+        "-kappa_hat*q*w*y"
+      ],
+      [
+        5,
+        1,
+        "-I*rho_X*v*w"
+      ],
+      [
+        5,
+        2,
+        "-sqrt(2)*I*lambda_X*q*v**3/2"
+      ],
+      [
+        5,
+        3,
+        "-I*q*v**3*(lambda_X + 2*mu_X)/2"
+      ],
+      [
+        5,
+        4,
+        "q*rho_X*v*w"
+      ],
+      [
+        5,
+        5,
+        "-lambda_X*q**2*v**2 - 2*mu_X*q**2*v**2 + rho_X*w**2"
+      ],
+      [
+        6,
+        0,
+        "2*G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        6,
+        2,
+        "sqrt(2)*G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        6,
+        3,
+        "G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        6,
+        6,
+        "-2*G**2*k_inf*exp(-G/(6*M5c))/(3*M5c) + 2*G*k_inf*exp(-G/(6*M5c)) - beta"
+      ],
+      [
+        7,
+        0,
+        "I*kappa_hat*q*y"
+      ],
+      [
+        7,
+        4,
+        "-kappa_hat*q*w*y"
+      ],
+      [
+        7,
+        7,
+        "-kappa_hat"
+      ],
+      [
+        8,
+        8,
+        "Mb2*q**2/2 + rho_X*v**2"
+      ],
+      [
+        8,
+        10,
+        "sqrt(2)*Mb2*q*w/4"
+      ],
+      [
+        8,
+        12,
+        "I*rho_X*v*w"
+      ],
+      [
+        9,
+        9,
+        "Mb2*q**2/2 + rho_X*v**2"
+      ],
+      [
+        9,
+        11,
+        "sqrt(2)*Mb2*q*w/4"
+      ],
+      [
+        9,
+        13,
+        "I*rho_X*v*w"
+      ],
+      [
+        10,
+        8,
+        "sqrt(2)*Mb2*q*w/4"
+      ],
+      [
+        10,
+        10,
+        "3*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*w**2/4 - mu_X*v**4/2"
+      ],
+      [
+        10,
+        12,
+        "sqrt(2)*I*mu_X*q*v**3/2"
+      ],
+      [
+        11,
+        9,
+        "sqrt(2)*Mb2*q*w/4"
+      ],
+      [
+        11,
+        11,
+        "3*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*w**2/4 - mu_X*v**4/2"
+      ],
+      [
+        11,
+        13,
+        "sqrt(2)*I*mu_X*q*v**3/2"
+      ],
+      [
+        12,
+        8,
+        "-I*rho_X*v*w"
+      ],
+      [
+        12,
+        10,
+        "-sqrt(2)*I*mu_X*q*v**3/2"
+      ],
+      [
+        12,
+        12,
+        "-mu_X*q**2*v**2 + rho_X*w**2"
+      ],
+      [
+        13,
+        9,
+        "-I*rho_X*v*w"
+      ],
+      [
+        13,
+        11,
+        "-sqrt(2)*I*mu_X*q*v**3/2"
+      ],
+      [
+        13,
+        13,
+        "-mu_X*q**2*v**2 + rho_X*w**2"
+      ],
+      [
+        14,
+        14,
+        "-kappa_hat"
+      ],
+      [
+        15,
+        15,
+        "-kappa_hat"
+      ],
+      [
+        16,
+        16,
+        "3*M5c*k_inf*exp(-G/(6*M5c)) - Mb2*q**2*xi/4 + Mb2*w**2/4 - mu_X*v**4/2"
+      ],
+      [
+        17,
+        17,
+        "3*M5c*k_inf*exp(-G/(6*M5c)) - Mb2*q**2*xi/4 + Mb2*w**2/4 - mu_X*v**4/2"
+      ]
+    ],
+    "shape": [
+      18,
+      18
+    ]
+  },
+  "hessian_original": {
+    "nonzero_entries": [
+      [
+        0,
+        0,
+        "q**2*(Mb2*eta - kappa_hat*y**2)"
+      ],
+      [
+        0,
+        4,
+        "-3*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*q**2*xi/2"
+      ],
+      [
+        0,
+        7,
+        "-3*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*q**2*xi/2"
+      ],
+      [
+        0,
+        9,
+        "-3*M5c*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        0,
+        10,
+        "I*q**2*w*(Mb2*eta - kappa_hat*y**2)"
+      ],
+      [
+        0,
+        14,
+        "2*G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        0,
+        17,
+        "-I*kappa_hat*q*y"
+      ],
+      [
+        1,
+        1,
+        "Mb2*q**2/2 + rho_X*v**2"
+      ],
+      [
+        1,
+        6,
+        "Mb2*q*w/2"
+      ],
+      [
+        1,
+        11,
+        "I*rho_X*v*w"
+      ],
+      [
+        2,
+        2,
+        "Mb2*q**2/2 + rho_X*v**2"
+      ],
+      [
+        2,
+        8,
+        "Mb2*q*w/2"
+      ],
+      [
+        2,
+        12,
+        "I*rho_X*v*w"
+      ],
+      [
+        3,
+        3,
+        "-Mb2*lambda_K*q**2 + Mb2*q**2 + rho_X*v**2"
+      ],
+      [
+        3,
+        4,
+        "-Mb2*lambda_K*q*w/2"
+      ],
+      [
+        3,
+        7,
+        "-Mb2*lambda_K*q*w/2"
+      ],
+      [
+        3,
+        9,
+        "Mb2*q*w*(1 - lambda_K)/2"
+      ],
+      [
+        3,
+        10,
+        "I*q*(-Mb2*lambda_K*q**2 + Mb2*q**2 + rho_X*v**2)"
+      ],
+      [
+        3,
+        13,
+        "I*rho_X*v*w"
+      ],
+      [
+        4,
+        0,
+        "-3*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*q**2*xi/2"
+      ],
+      [
+        4,
+        3,
+        "-Mb2*lambda_K*q*w/2"
+      ],
+      [
+        4,
+        4,
+        "-B4bar*Mb2*q**4/(16*k_inf**2) + 3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*w**2/4 - lambda_X*v**4/4 - mu_X*v**4/2"
+      ],
+      [
+        4,
+        7,
+        "-B4bar*Mb2*q**4/(16*k_inf**2) - 3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*q**2*xi/4 - lambda_X*v**4/4"
+      ],
+      [
+        4,
+        9,
+        "-3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 - lambda_X*v**4/4"
+      ],
+      [
+        4,
+        10,
+        "I*Mb2*q**2*w*(-lambda_K + xi)/2"
+      ],
+      [
+        4,
+        13,
+        "I*lambda_X*q*v**3/2"
+      ],
+      [
+        4,
+        14,
+        "G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        5,
+        5,
+        "6*M5c*k_inf*exp(-G/(6*M5c)) - Mb2*q**2*xi/2 + Mb2*w**2/2 - mu_X*v**4"
+      ],
+      [
+        6,
+        1,
+        "Mb2*q*w/2"
+      ],
+      [
+        6,
+        6,
+        "6*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*w**2/2 - mu_X*v**4"
+      ],
+      [
+        6,
+        11,
+        "I*mu_X*q*v**3"
+      ],
+      [
+        7,
+        0,
+        "-3*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*q**2*xi/2"
+      ],
+      [
+        7,
+        3,
+        "-Mb2*lambda_K*q*w/2"
+      ],
+      [
+        7,
+        4,
+        "-B4bar*Mb2*q**4/(16*k_inf**2) - 3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*q**2*xi/4 - lambda_X*v**4/4"
+      ],
+      [
+        7,
+        7,
+        "-B4bar*Mb2*q**4/(16*k_inf**2) + 3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*w**2/4 - lambda_X*v**4/4 - mu_X*v**4/2"
+      ],
+      [
+        7,
+        9,
+        "-3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 - lambda_X*v**4/4"
+      ],
+      [
+        7,
+        10,
+        "I*Mb2*q**2*w*(-lambda_K + xi)/2"
+      ],
+      [
+        7,
+        13,
+        "I*lambda_X*q*v**3/2"
+      ],
+      [
+        7,
+        14,
+        "G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        8,
+        2,
+        "Mb2*q*w/2"
+      ],
+      [
+        8,
+        8,
+        "6*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*w**2/2 - mu_X*v**4"
+      ],
+      [
+        8,
+        12,
+        "I*mu_X*q*v**3"
+      ],
+      [
+        9,
+        0,
+        "-3*M5c*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        9,
+        3,
+        "Mb2*q*w*(1 - lambda_K)/2"
+      ],
+      [
+        9,
+        4,
+        "-3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 - lambda_X*v**4/4"
+      ],
+      [
+        9,
+        7,
+        "-3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 - lambda_X*v**4/4"
+      ],
+      [
+        9,
+        9,
+        "3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*w**2/4 - lambda_X*v**4/4 - mu_X*v**4/2"
+      ],
+      [
+        9,
+        10,
+        "I*Mb2*q**2*w*(1 - lambda_K)/2"
+      ],
+      [
+        9,
+        13,
+        "I*q*v**3*(lambda_X + 2*mu_X)/2"
+      ],
+      [
+        9,
+        14,
+        "G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        10,
+        0,
+        "I*q**2*w*(-Mb2*eta + kappa_hat*y**2)"
+      ],
+      [
+        10,
+        3,
+        "I*q*(Mb2*lambda_K*q**2 - Mb2*q**2 - rho_X*v**2)"
+      ],
+      [
+        10,
+        4,
+        "I*Mb2*q**2*w*(lambda_K - xi)/2"
+      ],
+      [
+        10,
+        7,
+        "I*Mb2*q**2*w*(lambda_K - xi)/2"
+      ],
+      [
+        10,
+        9,
+        "I*Mb2*q**2*w*(lambda_K - 1)/2"
+      ],
+      [
+        10,
+        10,
+        "q**2*(Mb2*eta*w**2 - Mb2*lambda_K*q**2 + Mb2*q**2 - kappa_hat*w**2*y**2 + rho_X*v**2)"
+      ],
+      [
+        10,
+        13,
+        "q*rho_X*v*w"
+      ],
+      [
+        10,
+        17,
+        "-kappa_hat*q*w*y"
+      ],
+      [
+        11,
+        1,
+        "-I*rho_X*v*w"
+      ],
+      [
+        11,
+        6,
+        "-I*mu_X*q*v**3"
+      ],
+      [
+        11,
+        11,
+        "-mu_X*q**2*v**2 + rho_X*w**2"
+      ],
+      [
+        12,
+        2,
+        "-I*rho_X*v*w"
+      ],
+      [
+        12,
+        8,
+        "-I*mu_X*q*v**3"
+      ],
+      [
+        12,
+        12,
+        "-mu_X*q**2*v**2 + rho_X*w**2"
+      ],
+      [
+        13,
+        3,
+        "-I*rho_X*v*w"
+      ],
+      [
+        13,
+        4,
+        "-I*lambda_X*q*v**3/2"
+      ],
+      [
+        13,
+        7,
+        "-I*lambda_X*q*v**3/2"
+      ],
+      [
+        13,
+        9,
+        "I*q*v**3*(-lambda_X - 2*mu_X)/2"
+      ],
+      [
+        13,
+        10,
+        "q*rho_X*v*w"
+      ],
+      [
+        13,
+        13,
+        "-lambda_X*q**2*v**2 - 2*mu_X*q**2*v**2 + rho_X*w**2"
+      ],
+      [
+        14,
+        0,
+        "2*G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        14,
+        4,
+        "G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        14,
+        7,
+        "G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        14,
+        9,
+        "G*k_inf*exp(-G/(6*M5c))"
+      ],
+      [
+        14,
+        14,
+        "-2*G**2*k_inf*exp(-G/(6*M5c))/(3*M5c) + 2*G*k_inf*exp(-G/(6*M5c)) - beta"
+      ],
+      [
+        15,
+        15,
+        "-kappa_hat"
+      ],
+      [
+        16,
+        16,
+        "-kappa_hat"
+      ],
+      [
+        17,
+        0,
+        "I*kappa_hat*q*y"
+      ],
+      [
+        17,
+        10,
+        "-kappa_hat*q*w*y"
+      ],
+      [
+        17,
+        17,
+        "-kappa_hat"
+      ]
+    ],
+    "shape": [
+      18,
+      18
+    ]
+  },
+  "normalization": "Frobenius metric norm: H11=(Htrace+Hplus)/sqrt2, H22=(Htrace-Hplus)/sqrt2, H12=Hcross/sqrt2, H13=Hxz/sqrt2, H23=Hyz/sqrt2",
+  "normalized_mode_groups": {
+    "scalar": [
+      "n",
+      "N3",
+      "Htrace",
+      "H33",
+      "tau",
+      "pi3",
+      "omega",
+      "vphi3"
+    ],
+    "tensor": [
+      "Hplus",
+      "Hcross"
+    ],
+    "vector": [
+      "N1",
+      "N2",
+      "Hxz",
+      "Hyz",
+      "pi1",
+      "pi2",
+      "vphi1",
+      "vphi2"
+    ]
+  },
+  "normalized_mode_order": [
+    "n",
+    "N3",
+    "Htrace",
+    "H33",
+    "tau",
+    "pi3",
+    "omega",
+    "vphi3",
+    "N1",
+    "N2",
+    "Hxz",
+    "Hyz",
+    "pi1",
+    "pi2",
+    "vphi1",
+    "vphi2",
+    "Hplus",
+    "Hcross"
+  ],
+  "old_field_order": [
+    "n",
+    "N1",
+    "N2",
+    "N3",
+    "H11",
+    "H12",
+    "H13",
+    "H22",
+    "H23",
+    "H33",
+    "tau",
+    "pi1",
+    "pi2",
+    "pi3",
+    "omega",
+    "vphi1",
+    "vphi2",
+    "vphi3"
+  ],
+  "provenance": {
+    "files": [
+      {
+        "path": "first_principles_audit/prediction_factory/verify_one_omega_brane_hessian_v1.py",
+        "sha256": "420cc447655a5fb5152bbdfc6603a14e01d150d020c293ef86a4611b9b936e09"
+      },
+      {
+        "path": "first_principles_audit/prediction_factory/one_omega_brane_hessian_algebra_v1.py",
+        "sha256": "d977dbc694790ac147c5ef5ee36b3d2f93466e100cbf2d20a861a5d4258b48ae"
+      },
+      {
+        "path": "first_principles_audit/prediction_factory/test_one_omega_brane_hessian_v1.py",
+        "sha256": "338e95aba57254d2bcf17a1427f928e6978e29eef12be6109323195a5951aea7"
+      },
+      {
+        "path": "first_principles_audit/prediction_factory/verify_one_omega_scalar_interface_reparam_v1.py",
+        "sha256": "25c80c452d5f42d40a5f82b27ed5f9c87d85e2a395adcbfcd193e1ac25402d65"
+      }
+    ],
+    "sympy": "1.13.3"
+  },
+  "quadratic_action": {
+    "foliation": "-B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H11(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H22(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H22(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H22(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H22(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H22(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))**2/(32*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H12(t, x, y, z), x, y)**2/(8*k_inf**2) - B4bar*Mb2*Derivative(H12(t, x, y, z), x, y)*Derivative(H13(t, x, y, z), x, z)/(4*k_inf**2) - B4bar*Mb2*Derivative(H12(t, x, y, z), x, y)*Derivative(H23(t, x, y, z), y, z)/(4*k_inf**2) - B4bar*Mb2*Derivative(H13(t, x, y, z), x, z)**2/(8*k_inf**2) - B4bar*Mb2*Derivative(H13(t, x, y, z), x, z)*Derivative(H23(t, x, y, z), y, z)/(4*k_inf**2) - B4bar*Mb2*Derivative(H23(t, x, y, z), y, z)**2/(8*k_inf**2) + Mb2*eta*Derivative(n(t, x, y, z), x)**2/2 - Mb2*eta*Derivative(n(t, x, y, z), x)*Derivative(tau(t, x, y, z), t, x) + Mb2*eta*Derivative(n(t, x, y, z), y)**2/2 - Mb2*eta*Derivative(n(t, x, y, z), y)*Derivative(tau(t, x, y, z), t, y) + Mb2*eta*Derivative(n(t, x, y, z), z)**2/2 - Mb2*eta*Derivative(n(t, x, y, z), z)*Derivative(tau(t, x, y, z), t, z) + Mb2*eta*Derivative(tau(t, x, y, z), t, x)**2/2 + Mb2*eta*Derivative(tau(t, x, y, z), t, y)**2/2 + Mb2*eta*Derivative(tau(t, x, y, z), t, z)**2/2 - Mb2*lambda_K*Derivative(H11(t, x, y, z), t)**2/8 - Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(H22(t, x, y, z), t)/4 - Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(H33(t, x, y, z), t)/4 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 - Mb2*lambda_K*Derivative(H22(t, x, y, z), t)**2/8 - Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(H33(t, x, y, z), t)/4 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 - Mb2*lambda_K*Derivative(H33(t, x, y, z), t)**2/8 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)**2/2 - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(N2(t, x, y, z), y) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(N3(t, x, y, z), z) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (x, 2)) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)**2/2 - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(N3(t, x, y, z), z) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (x, 2)) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)**2/2 - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (x, 2)) - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (x, 2))**2/2 - Mb2*lambda_K*Derivative(tau(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (y, 2))**2/2 - Mb2*lambda_K*Derivative(tau(t, x, y, z), (y, 2))*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (z, 2))**2/2 - Mb2*xi*n(t, x, y, z)*Derivative(H11(t, x, y, z), (y, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H11(t, x, y, z), (z, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H22(t, x, y, z), (x, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H22(t, x, y, z), (z, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H33(t, x, y, z), (x, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H33(t, x, y, z), (y, 2))/2 + Mb2*xi*n(t, x, y, z)*Derivative(H12(t, x, y, z), x, y) + Mb2*xi*n(t, x, y, z)*Derivative(H13(t, x, y, z), x, z) + Mb2*xi*n(t, x, y, z)*Derivative(H23(t, x, y, z), y, z) + Mb2*xi*Derivative(H11(t, x, y, z), x)*Derivative(H12(t, x, y, z), y)/4 + Mb2*xi*Derivative(H11(t, x, y, z), x)*Derivative(H13(t, x, y, z), z)/4 - Mb2*xi*Derivative(H11(t, x, y, z), y)*Derivative(H12(t, x, y, z), x)/4 - Mb2*xi*Derivative(H11(t, x, y, z), y)*Derivative(H23(t, x, y, z), z)/4 + Mb2*xi*Derivative(H11(t, x, y, z), y)*Derivative(H33(t, x, y, z), y)/4 + Mb2*xi*Derivative(H11(t, x, y, z), (y, 2))*Derivative(tau(t, x, y, z), t)/2 - Mb2*xi*Derivative(H11(t, x, y, z), z)*Derivative(H13(t, x, y, z), x)/4 + Mb2*xi*Derivative(H11(t, x, y, z), z)*Derivative(H22(t, x, y, z), z)/4 - Mb2*xi*Derivative(H11(t, x, y, z), z)*Derivative(H23(t, x, y, z), y)/4 + Mb2*xi*Derivative(H11(t, x, y, z), (z, 2))*Derivative(tau(t, x, y, z), t)/2 + Mb2*xi*Derivative(H12(t, x, y, z), x)*Derivative(H22(t, x, y, z), y)/4 + Mb2*xi*Derivative(H12(t, x, y, z), x)*Derivative(H23(t, x, y, z), z)/2 - Mb2*xi*Derivative(H12(t, x, y, z), x)*Derivative(H33(t, x, y, z), y)/4 + Mb2*xi*Derivative(H12(t, x, y, z), y)*Derivative(H13(t, x, y, z), z)/2 - Mb2*xi*Derivative(H12(t, x, y, z), y)*Derivative(H22(t, x, y, z), x)/4 - Mb2*xi*Derivative(H12(t, x, y, z), y)*Derivative(H33(t, x, y, z), x)/4 - Mb2*xi*Derivative(H12(t, x, y, z), z)**2/4 - Mb2*xi*Derivative(H13(t, x, y, z), x)*Derivative(H22(t, x, y, z), z)/4 + Mb2*xi*Derivative(H13(t, x, y, z), x)*Derivative(H23(t, x, y, z), y)/2 + Mb2*xi*Derivative(H13(t, x, y, z), x)*Derivative(H33(t, x, y, z), z)/4 - Mb2*xi*Derivative(H13(t, x, y, z), y)**2/4 - Mb2*xi*Derivative(H13(t, x, y, z), z)*Derivative(H22(t, x, y, z), x)/4 - Mb2*xi*Derivative(H13(t, x, y, z), z)*Derivative(H33(t, x, y, z), x)/4 + Mb2*xi*Derivative(H22(t, x, y, z), x)*Derivative(H33(t, x, y, z), x)/4 + Mb2*xi*Derivative(H22(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), t)/2 + Mb2*xi*Derivative(H22(t, x, y, z), y)*Derivative(H23(t, x, y, z), z)/4 - Mb2*xi*Derivative(H22(t, x, y, z), z)*Derivative(H23(t, x, y, z), y)/4 + Mb2*xi*Derivative(H22(t, x, y, z), (z, 2))*Derivative(tau(t, x, y, z), t)/2 - Mb2*xi*Derivative(H23(t, x, y, z), x)**2/4 + Mb2*xi*Derivative(H23(t, x, y, z), y)*Derivative(H33(t, x, y, z), z)/4 - Mb2*xi*Derivative(H23(t, x, y, z), z)*Derivative(H33(t, x, y, z), y)/4 + Mb2*xi*Derivative(H33(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), t)/2 + Mb2*xi*Derivative(H33(t, x, y, z), (y, 2))*Derivative(tau(t, x, y, z), t)/2 - Mb2*xi*Derivative(tau(t, x, y, z), t)*Derivative(H12(t, x, y, z), x, y) - Mb2*xi*Derivative(tau(t, x, y, z), t)*Derivative(H13(t, x, y, z), x, z) - Mb2*xi*Derivative(tau(t, x, y, z), t)*Derivative(H23(t, x, y, z), y, z) + Mb2*Derivative(H11(t, x, y, z), t)**2/8 - Mb2*Derivative(H11(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 - Mb2*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*Derivative(H12(t, x, y, z), t)**2/4 - Mb2*Derivative(H12(t, x, y, z), t)*Derivative(N1(t, x, y, z), y)/2 - Mb2*Derivative(H12(t, x, y, z), t)*Derivative(N2(t, x, y, z), x)/2 - Mb2*Derivative(H12(t, x, y, z), t)*Derivative(tau(t, x, y, z), x, y) + Mb2*Derivative(H13(t, x, y, z), t)**2/4 - Mb2*Derivative(H13(t, x, y, z), t)*Derivative(N1(t, x, y, z), z)/2 - Mb2*Derivative(H13(t, x, y, z), t)*Derivative(N3(t, x, y, z), x)/2 - Mb2*Derivative(H13(t, x, y, z), t)*Derivative(tau(t, x, y, z), x, z) + Mb2*Derivative(H22(t, x, y, z), t)**2/8 - Mb2*Derivative(H22(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 - Mb2*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*Derivative(H23(t, x, y, z), t)**2/4 - Mb2*Derivative(H23(t, x, y, z), t)*Derivative(N2(t, x, y, z), z)/2 - Mb2*Derivative(H23(t, x, y, z), t)*Derivative(N3(t, x, y, z), y)/2 - Mb2*Derivative(H23(t, x, y, z), t)*Derivative(tau(t, x, y, z), y, z) + Mb2*Derivative(H33(t, x, y, z), t)**2/8 - Mb2*Derivative(H33(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 - Mb2*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 + Mb2*Derivative(N1(t, x, y, z), x)**2/2 + Mb2*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (x, 2)) + Mb2*Derivative(N1(t, x, y, z), y)**2/4 + Mb2*Derivative(N1(t, x, y, z), y)*Derivative(N2(t, x, y, z), x)/2 + Mb2*Derivative(N1(t, x, y, z), y)*Derivative(tau(t, x, y, z), x, y) + Mb2*Derivative(N1(t, x, y, z), z)**2/4 + Mb2*Derivative(N1(t, x, y, z), z)*Derivative(N3(t, x, y, z), x)/2 + Mb2*Derivative(N1(t, x, y, z), z)*Derivative(tau(t, x, y, z), x, z) + Mb2*Derivative(N2(t, x, y, z), x)**2/4 + Mb2*Derivative(N2(t, x, y, z), x)*Derivative(tau(t, x, y, z), x, y) + Mb2*Derivative(N2(t, x, y, z), y)**2/2 + Mb2*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (y, 2)) + Mb2*Derivative(N2(t, x, y, z), z)**2/4 + Mb2*Derivative(N2(t, x, y, z), z)*Derivative(N3(t, x, y, z), y)/2 + Mb2*Derivative(N2(t, x, y, z), z)*Derivative(tau(t, x, y, z), y, z) + Mb2*Derivative(N3(t, x, y, z), x)**2/4 + Mb2*Derivative(N3(t, x, y, z), x)*Derivative(tau(t, x, y, z), x, z) + Mb2*Derivative(N3(t, x, y, z), y)**2/4 + Mb2*Derivative(N3(t, x, y, z), y)*Derivative(tau(t, x, y, z), y, z) + Mb2*Derivative(N3(t, x, y, z), z)**2/2 + Mb2*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (z, 2)) + Mb2*Derivative(tau(t, x, y, z), (x, 2))**2/2 + Mb2*Derivative(tau(t, x, y, z), (y, 2))**2/2 + Mb2*Derivative(tau(t, x, y, z), (z, 2))**2/2 + Mb2*Derivative(tau(t, x, y, z), x, y)**2 + Mb2*Derivative(tau(t, x, y, z), x, z)**2 + Mb2*Derivative(tau(t, x, y, z), y, z)**2",
+    "gauge_free": "-B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H11(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H22(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H22(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H22(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H22(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H22(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))**2/(32*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H12(t, x, y, z), x, y)**2/(8*k_inf**2) - B4bar*Mb2*Derivative(H12(t, x, y, z), x, y)*Derivative(H13(t, x, y, z), x, z)/(4*k_inf**2) - B4bar*Mb2*Derivative(H12(t, x, y, z), x, y)*Derivative(H23(t, x, y, z), y, z)/(4*k_inf**2) - B4bar*Mb2*Derivative(H13(t, x, y, z), x, z)**2/(8*k_inf**2) - B4bar*Mb2*Derivative(H13(t, x, y, z), x, z)*Derivative(H23(t, x, y, z), y, z)/(4*k_inf**2) - B4bar*Mb2*Derivative(H23(t, x, y, z), y, z)**2/(8*k_inf**2) - G**2*k_inf*omega(t, x, y, z)**2*exp(-G/(6*M5c))/(3*M5c) + G*k_inf*omega(t, x, y, z)**2*exp(-G/(6*M5c)) + Mb2*eta*Derivative(n(t, x, y, z), x)**2/2 - Mb2*eta*Derivative(n(t, x, y, z), x)*Derivative(tau(t, x, y, z), t, x) + Mb2*eta*Derivative(n(t, x, y, z), y)**2/2 - Mb2*eta*Derivative(n(t, x, y, z), y)*Derivative(tau(t, x, y, z), t, y) + Mb2*eta*Derivative(n(t, x, y, z), z)**2/2 - Mb2*eta*Derivative(n(t, x, y, z), z)*Derivative(tau(t, x, y, z), t, z) + Mb2*eta*Derivative(tau(t, x, y, z), t, x)**2/2 + Mb2*eta*Derivative(tau(t, x, y, z), t, y)**2/2 + Mb2*eta*Derivative(tau(t, x, y, z), t, z)**2/2 - Mb2*lambda_K*Derivative(H11(t, x, y, z), t)**2/8 - Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(H22(t, x, y, z), t)/4 - Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(H33(t, x, y, z), t)/4 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 - Mb2*lambda_K*Derivative(H22(t, x, y, z), t)**2/8 - Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(H33(t, x, y, z), t)/4 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 - Mb2*lambda_K*Derivative(H33(t, x, y, z), t)**2/8 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)**2/2 - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(N2(t, x, y, z), y) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(N3(t, x, y, z), z) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (x, 2)) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)**2/2 - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(N3(t, x, y, z), z) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (x, 2)) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)**2/2 - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (x, 2)) - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (x, 2))**2/2 - Mb2*lambda_K*Derivative(tau(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (y, 2))**2/2 - Mb2*lambda_K*Derivative(tau(t, x, y, z), (y, 2))*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (z, 2))**2/2 - Mb2*xi*n(t, x, y, z)*Derivative(H11(t, x, y, z), (y, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H11(t, x, y, z), (z, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H22(t, x, y, z), (x, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H22(t, x, y, z), (z, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H33(t, x, y, z), (x, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H33(t, x, y, z), (y, 2))/2 + Mb2*xi*n(t, x, y, z)*Derivative(H12(t, x, y, z), x, y) + Mb2*xi*n(t, x, y, z)*Derivative(H13(t, x, y, z), x, z) + Mb2*xi*n(t, x, y, z)*Derivative(H23(t, x, y, z), y, z) + Mb2*xi*Derivative(H11(t, x, y, z), x)*Derivative(H12(t, x, y, z), y)/4 + Mb2*xi*Derivative(H11(t, x, y, z), x)*Derivative(H13(t, x, y, z), z)/4 - Mb2*xi*Derivative(H11(t, x, y, z), y)*Derivative(H12(t, x, y, z), x)/4 - Mb2*xi*Derivative(H11(t, x, y, z), y)*Derivative(H23(t, x, y, z), z)/4 + Mb2*xi*Derivative(H11(t, x, y, z), y)*Derivative(H33(t, x, y, z), y)/4 + Mb2*xi*Derivative(H11(t, x, y, z), (y, 2))*Derivative(tau(t, x, y, z), t)/2 - Mb2*xi*Derivative(H11(t, x, y, z), z)*Derivative(H13(t, x, y, z), x)/4 + Mb2*xi*Derivative(H11(t, x, y, z), z)*Derivative(H22(t, x, y, z), z)/4 - Mb2*xi*Derivative(H11(t, x, y, z), z)*Derivative(H23(t, x, y, z), y)/4 + Mb2*xi*Derivative(H11(t, x, y, z), (z, 2))*Derivative(tau(t, x, y, z), t)/2 + Mb2*xi*Derivative(H12(t, x, y, z), x)*Derivative(H22(t, x, y, z), y)/4 + Mb2*xi*Derivative(H12(t, x, y, z), x)*Derivative(H23(t, x, y, z), z)/2 - Mb2*xi*Derivative(H12(t, x, y, z), x)*Derivative(H33(t, x, y, z), y)/4 + Mb2*xi*Derivative(H12(t, x, y, z), y)*Derivative(H13(t, x, y, z), z)/2 - Mb2*xi*Derivative(H12(t, x, y, z), y)*Derivative(H22(t, x, y, z), x)/4 - Mb2*xi*Derivative(H12(t, x, y, z), y)*Derivative(H33(t, x, y, z), x)/4 - Mb2*xi*Derivative(H12(t, x, y, z), z)**2/4 - Mb2*xi*Derivative(H13(t, x, y, z), x)*Derivative(H22(t, x, y, z), z)/4 + Mb2*xi*Derivative(H13(t, x, y, z), x)*Derivative(H23(t, x, y, z), y)/2 + Mb2*xi*Derivative(H13(t, x, y, z), x)*Derivative(H33(t, x, y, z), z)/4 - Mb2*xi*Derivative(H13(t, x, y, z), y)**2/4 - Mb2*xi*Derivative(H13(t, x, y, z), z)*Derivative(H22(t, x, y, z), x)/4 - Mb2*xi*Derivative(H13(t, x, y, z), z)*Derivative(H33(t, x, y, z), x)/4 + Mb2*xi*Derivative(H22(t, x, y, z), x)*Derivative(H33(t, x, y, z), x)/4 + Mb2*xi*Derivative(H22(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), t)/2 + Mb2*xi*Derivative(H22(t, x, y, z), y)*Derivative(H23(t, x, y, z), z)/4 - Mb2*xi*Derivative(H22(t, x, y, z), z)*Derivative(H23(t, x, y, z), y)/4 + Mb2*xi*Derivative(H22(t, x, y, z), (z, 2))*Derivative(tau(t, x, y, z), t)/2 - Mb2*xi*Derivative(H23(t, x, y, z), x)**2/4 + Mb2*xi*Derivative(H23(t, x, y, z), y)*Derivative(H33(t, x, y, z), z)/4 - Mb2*xi*Derivative(H23(t, x, y, z), z)*Derivative(H33(t, x, y, z), y)/4 + Mb2*xi*Derivative(H33(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), t)/2 + Mb2*xi*Derivative(H33(t, x, y, z), (y, 2))*Derivative(tau(t, x, y, z), t)/2 - Mb2*xi*Derivative(tau(t, x, y, z), t)*Derivative(H12(t, x, y, z), x, y) - Mb2*xi*Derivative(tau(t, x, y, z), t)*Derivative(H13(t, x, y, z), x, z) - Mb2*xi*Derivative(tau(t, x, y, z), t)*Derivative(H23(t, x, y, z), y, z) + Mb2*Derivative(H11(t, x, y, z), t)**2/8 - Mb2*Derivative(H11(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 - Mb2*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*Derivative(H12(t, x, y, z), t)**2/4 - Mb2*Derivative(H12(t, x, y, z), t)*Derivative(N1(t, x, y, z), y)/2 - Mb2*Derivative(H12(t, x, y, z), t)*Derivative(N2(t, x, y, z), x)/2 - Mb2*Derivative(H12(t, x, y, z), t)*Derivative(tau(t, x, y, z), x, y) + Mb2*Derivative(H13(t, x, y, z), t)**2/4 - Mb2*Derivative(H13(t, x, y, z), t)*Derivative(N1(t, x, y, z), z)/2 - Mb2*Derivative(H13(t, x, y, z), t)*Derivative(N3(t, x, y, z), x)/2 - Mb2*Derivative(H13(t, x, y, z), t)*Derivative(tau(t, x, y, z), x, z) + Mb2*Derivative(H22(t, x, y, z), t)**2/8 - Mb2*Derivative(H22(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 - Mb2*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*Derivative(H23(t, x, y, z), t)**2/4 - Mb2*Derivative(H23(t, x, y, z), t)*Derivative(N2(t, x, y, z), z)/2 - Mb2*Derivative(H23(t, x, y, z), t)*Derivative(N3(t, x, y, z), y)/2 - Mb2*Derivative(H23(t, x, y, z), t)*Derivative(tau(t, x, y, z), y, z) + Mb2*Derivative(H33(t, x, y, z), t)**2/8 - Mb2*Derivative(H33(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 - Mb2*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 + Mb2*Derivative(N1(t, x, y, z), x)**2/2 + Mb2*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (x, 2)) + Mb2*Derivative(N1(t, x, y, z), y)**2/4 + Mb2*Derivative(N1(t, x, y, z), y)*Derivative(N2(t, x, y, z), x)/2 + Mb2*Derivative(N1(t, x, y, z), y)*Derivative(tau(t, x, y, z), x, y) + Mb2*Derivative(N1(t, x, y, z), z)**2/4 + Mb2*Derivative(N1(t, x, y, z), z)*Derivative(N3(t, x, y, z), x)/2 + Mb2*Derivative(N1(t, x, y, z), z)*Derivative(tau(t, x, y, z), x, z) + Mb2*Derivative(N2(t, x, y, z), x)**2/4 + Mb2*Derivative(N2(t, x, y, z), x)*Derivative(tau(t, x, y, z), x, y) + Mb2*Derivative(N2(t, x, y, z), y)**2/2 + Mb2*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (y, 2)) + Mb2*Derivative(N2(t, x, y, z), z)**2/4 + Mb2*Derivative(N2(t, x, y, z), z)*Derivative(N3(t, x, y, z), y)/2 + Mb2*Derivative(N2(t, x, y, z), z)*Derivative(tau(t, x, y, z), y, z) + Mb2*Derivative(N3(t, x, y, z), x)**2/4 + Mb2*Derivative(N3(t, x, y, z), x)*Derivative(tau(t, x, y, z), x, z) + Mb2*Derivative(N3(t, x, y, z), y)**2/4 + Mb2*Derivative(N3(t, x, y, z), y)*Derivative(tau(t, x, y, z), y, z) + Mb2*Derivative(N3(t, x, y, z), z)**2/2 + Mb2*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (z, 2)) + Mb2*Derivative(tau(t, x, y, z), (x, 2))**2/2 + Mb2*Derivative(tau(t, x, y, z), (y, 2))**2/2 + Mb2*Derivative(tau(t, x, y, z), (z, 2))**2/2 + Mb2*Derivative(tau(t, x, y, z), x, y)**2 + Mb2*Derivative(tau(t, x, y, z), x, z)**2 + Mb2*Derivative(tau(t, x, y, z), y, z)**2 - beta*omega(t, x, y, z)**2/2 - kappa_hat*y**2*Derivative(n(t, x, y, z), x)**2/2 + kappa_hat*y**2*Derivative(n(t, x, y, z), x)*Derivative(tau(t, x, y, z), t, x) - kappa_hat*y**2*Derivative(n(t, x, y, z), y)**2/2 + kappa_hat*y**2*Derivative(n(t, x, y, z), y)*Derivative(tau(t, x, y, z), t, y) - kappa_hat*y**2*Derivative(n(t, x, y, z), z)**2/2 + kappa_hat*y**2*Derivative(n(t, x, y, z), z)*Derivative(tau(t, x, y, z), t, z) - kappa_hat*y**2*Derivative(tau(t, x, y, z), t, x)**2/2 - kappa_hat*y**2*Derivative(tau(t, x, y, z), t, y)**2/2 - kappa_hat*y**2*Derivative(tau(t, x, y, z), t, z)**2/2 + kappa_hat*y*vphi1(t, x, y, z)*Derivative(n(t, x, y, z), x) - kappa_hat*y*vphi1(t, x, y, z)*Derivative(tau(t, x, y, z), t, x) + kappa_hat*y*vphi2(t, x, y, z)*Derivative(n(t, x, y, z), y) - kappa_hat*y*vphi2(t, x, y, z)*Derivative(tau(t, x, y, z), t, y) + kappa_hat*y*vphi3(t, x, y, z)*Derivative(n(t, x, y, z), z) - kappa_hat*y*vphi3(t, x, y, z)*Derivative(tau(t, x, y, z), t, z) - kappa_hat*vphi1(t, x, y, z)**2/2 - kappa_hat*vphi2(t, x, y, z)**2/2 - kappa_hat*vphi3(t, x, y, z)**2/2 - lambda_X*v**4*H11(t, x, y, z)**2/8 - lambda_X*v**4*H11(t, x, y, z)*H22(t, x, y, z)/4 - lambda_X*v**4*H11(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H22(t, x, y, z)**2/8 - lambda_X*v**4*H22(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H33(t, x, y, z)**2/8 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)**2/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi2(t, x, y, z), y) - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)**2/2 - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi3(t, x, y, z), z)**2/2 - mu_X*v**4*H11(t, x, y, z)**2/4 - mu_X*v**4*H12(t, x, y, z)**2/2 - mu_X*v**4*H13(t, x, y, z)**2/2 - mu_X*v**4*H22(t, x, y, z)**2/4 - mu_X*v**4*H23(t, x, y, z)**2/2 - mu_X*v**4*H33(t, x, y, z)**2/4 + mu_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi1(t, x, y, z), y) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi2(t, x, y, z), x) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi1(t, x, y, z), z) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi3(t, x, y, z), x) + mu_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi2(t, x, y, z), z) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi3(t, x, y, z), y) + mu_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z) - mu_X*v**2*Derivative(pi1(t, x, y, z), x)**2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)*Derivative(pi2(t, x, y, z), x) - mu_X*v**2*Derivative(pi1(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), z)*Derivative(pi3(t, x, y, z), x) - mu_X*v**2*Derivative(pi2(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), y)**2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)*Derivative(pi3(t, x, y, z), y) - mu_X*v**2*Derivative(pi3(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), z)**2 + rho_X*v**2*N1(t, x, y, z)**2/2 + rho_X*v**2*N1(t, x, y, z)*Derivative(tau(t, x, y, z), x) + rho_X*v**2*N2(t, x, y, z)**2/2 + rho_X*v**2*N2(t, x, y, z)*Derivative(tau(t, x, y, z), y) + rho_X*v**2*N3(t, x, y, z)**2/2 + rho_X*v**2*N3(t, x, y, z)*Derivative(tau(t, x, y, z), z) + rho_X*v**2*Derivative(tau(t, x, y, z), x)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), y)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), z)**2/2 - rho_X*v*N1(t, x, y, z)*Derivative(pi1(t, x, y, z), t) - rho_X*v*N2(t, x, y, z)*Derivative(pi2(t, x, y, z), t) - rho_X*v*N3(t, x, y, z)*Derivative(pi3(t, x, y, z), t) - rho_X*v*Derivative(pi1(t, x, y, z), t)*Derivative(tau(t, x, y, z), x) - rho_X*v*Derivative(pi2(t, x, y, z), t)*Derivative(tau(t, x, y, z), y) - rho_X*v*Derivative(pi3(t, x, y, z), t)*Derivative(tau(t, x, y, z), z) + rho_X*Derivative(pi1(t, x, y, z), t)**2/2 + rho_X*Derivative(pi2(t, x, y, z), t)**2/2 + rho_X*Derivative(pi3(t, x, y, z), t)**2/2",
+    "robin": "-kappa_hat*y**2*Derivative(n(t, x, y, z), x)**2/2 + kappa_hat*y**2*Derivative(n(t, x, y, z), x)*Derivative(tau(t, x, y, z), t, x) - kappa_hat*y**2*Derivative(n(t, x, y, z), y)**2/2 + kappa_hat*y**2*Derivative(n(t, x, y, z), y)*Derivative(tau(t, x, y, z), t, y) - kappa_hat*y**2*Derivative(n(t, x, y, z), z)**2/2 + kappa_hat*y**2*Derivative(n(t, x, y, z), z)*Derivative(tau(t, x, y, z), t, z) - kappa_hat*y**2*Derivative(tau(t, x, y, z), t, x)**2/2 - kappa_hat*y**2*Derivative(tau(t, x, y, z), t, y)**2/2 - kappa_hat*y**2*Derivative(tau(t, x, y, z), t, z)**2/2 + kappa_hat*y*vphi1(t, x, y, z)*Derivative(n(t, x, y, z), x) - kappa_hat*y*vphi1(t, x, y, z)*Derivative(tau(t, x, y, z), t, x) + kappa_hat*y*vphi2(t, x, y, z)*Derivative(n(t, x, y, z), y) - kappa_hat*y*vphi2(t, x, y, z)*Derivative(tau(t, x, y, z), t, y) + kappa_hat*y*vphi3(t, x, y, z)*Derivative(n(t, x, y, z), z) - kappa_hat*y*vphi3(t, x, y, z)*Derivative(tau(t, x, y, z), t, z) - kappa_hat*vphi1(t, x, y, z)**2/2 - kappa_hat*vphi2(t, x, y, z)**2/2 - kappa_hat*vphi3(t, x, y, z)**2/2",
+    "solid": "-lambda_X*v**4*H11(t, x, y, z)**2/8 - lambda_X*v**4*H11(t, x, y, z)*H22(t, x, y, z)/4 - lambda_X*v**4*H11(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H22(t, x, y, z)**2/8 - lambda_X*v**4*H22(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H33(t, x, y, z)**2/8 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)**2/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi2(t, x, y, z), y) - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)**2/2 - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi3(t, x, y, z), z)**2/2 - mu_X*v**4*H11(t, x, y, z)**2/4 - mu_X*v**4*H12(t, x, y, z)**2/2 - mu_X*v**4*H13(t, x, y, z)**2/2 - mu_X*v**4*H22(t, x, y, z)**2/4 - mu_X*v**4*H23(t, x, y, z)**2/2 - mu_X*v**4*H33(t, x, y, z)**2/4 + mu_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi1(t, x, y, z), y) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi2(t, x, y, z), x) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi1(t, x, y, z), z) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi3(t, x, y, z), x) + mu_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi2(t, x, y, z), z) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi3(t, x, y, z), y) + mu_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z) - mu_X*v**2*Derivative(pi1(t, x, y, z), x)**2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)*Derivative(pi2(t, x, y, z), x) - mu_X*v**2*Derivative(pi1(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), z)*Derivative(pi3(t, x, y, z), x) - mu_X*v**2*Derivative(pi2(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), y)**2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)*Derivative(pi3(t, x, y, z), y) - mu_X*v**2*Derivative(pi3(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), z)**2 + rho_X*v**2*N1(t, x, y, z)**2/2 + rho_X*v**2*N1(t, x, y, z)*Derivative(tau(t, x, y, z), x) + rho_X*v**2*N2(t, x, y, z)**2/2 + rho_X*v**2*N2(t, x, y, z)*Derivative(tau(t, x, y, z), y) + rho_X*v**2*N3(t, x, y, z)**2/2 + rho_X*v**2*N3(t, x, y, z)*Derivative(tau(t, x, y, z), z) + rho_X*v**2*Derivative(tau(t, x, y, z), x)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), y)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), z)**2/2 - rho_X*v*N1(t, x, y, z)*Derivative(pi1(t, x, y, z), t) - rho_X*v*N2(t, x, y, z)*Derivative(pi2(t, x, y, z), t) - rho_X*v*N3(t, x, y, z)*Derivative(pi3(t, x, y, z), t) - rho_X*v*Derivative(pi1(t, x, y, z), t)*Derivative(tau(t, x, y, z), x) - rho_X*v*Derivative(pi2(t, x, y, z), t)*Derivative(tau(t, x, y, z), y) - rho_X*v*Derivative(pi3(t, x, y, z), t)*Derivative(tau(t, x, y, z), z) + rho_X*Derivative(pi1(t, x, y, z), t)**2/2 + rho_X*Derivative(pi2(t, x, y, z), t)**2/2 + rho_X*Derivative(pi3(t, x, y, z), t)**2/2",
+    "tadpole": "G*k_inf*H11(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + G*k_inf*H22(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + G*k_inf*H33(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + 2*G*k_inf*n(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + 3*M5c*k_inf*H11(t, x, y, z)**2*exp(-G/(6*M5c))/4 - 3*M5c*k_inf*H11(t, x, y, z)*H22(t, x, y, z)*exp(-G/(6*M5c))/2 - 3*M5c*k_inf*H11(t, x, y, z)*H33(t, x, y, z)*exp(-G/(6*M5c))/2 - 3*M5c*k_inf*H11(t, x, y, z)*n(t, x, y, z)*exp(-G/(6*M5c)) + 3*M5c*k_inf*H12(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H13(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H22(t, x, y, z)**2*exp(-G/(6*M5c))/4 - 3*M5c*k_inf*H22(t, x, y, z)*H33(t, x, y, z)*exp(-G/(6*M5c))/2 - 3*M5c*k_inf*H22(t, x, y, z)*n(t, x, y, z)*exp(-G/(6*M5c)) + 3*M5c*k_inf*H23(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H33(t, x, y, z)**2*exp(-G/(6*M5c))/4 - 3*M5c*k_inf*H33(t, x, y, z)*n(t, x, y, z)*exp(-G/(6*M5c))",
+    "total": "-B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H11(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H22(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H22(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (y, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H22(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H22(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H11(t, x, y, z), (z, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H22(t, x, y, z), (z, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (x, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (x, 2))/(16*k_inf**2) - B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H22(t, x, y, z), (z, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))**2/(32*k_inf**2) - B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H33(t, x, y, z), (y, 2))/(16*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (x, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))**2/(32*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))*Derivative(H12(t, x, y, z), x, y)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))*Derivative(H13(t, x, y, z), x, z)/(8*k_inf**2) + B4bar*Mb2*Derivative(H33(t, x, y, z), (y, 2))*Derivative(H23(t, x, y, z), y, z)/(8*k_inf**2) - B4bar*Mb2*Derivative(H12(t, x, y, z), x, y)**2/(8*k_inf**2) - B4bar*Mb2*Derivative(H12(t, x, y, z), x, y)*Derivative(H13(t, x, y, z), x, z)/(4*k_inf**2) - B4bar*Mb2*Derivative(H12(t, x, y, z), x, y)*Derivative(H23(t, x, y, z), y, z)/(4*k_inf**2) - B4bar*Mb2*Derivative(H13(t, x, y, z), x, z)**2/(8*k_inf**2) - B4bar*Mb2*Derivative(H13(t, x, y, z), x, z)*Derivative(H23(t, x, y, z), y, z)/(4*k_inf**2) - B4bar*Mb2*Derivative(H23(t, x, y, z), y, z)**2/(8*k_inf**2) - G**2*k_inf*omega(t, x, y, z)**2*exp(-G/(6*M5c))/(3*M5c) + G*k_inf*H11(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + G*k_inf*H22(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + G*k_inf*H33(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + 2*G*k_inf*n(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + G*k_inf*omega(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H11(t, x, y, z)**2*exp(-G/(6*M5c))/4 - 3*M5c*k_inf*H11(t, x, y, z)*H22(t, x, y, z)*exp(-G/(6*M5c))/2 - 3*M5c*k_inf*H11(t, x, y, z)*H33(t, x, y, z)*exp(-G/(6*M5c))/2 - 3*M5c*k_inf*H11(t, x, y, z)*n(t, x, y, z)*exp(-G/(6*M5c)) + 3*M5c*k_inf*H12(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H13(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H22(t, x, y, z)**2*exp(-G/(6*M5c))/4 - 3*M5c*k_inf*H22(t, x, y, z)*H33(t, x, y, z)*exp(-G/(6*M5c))/2 - 3*M5c*k_inf*H22(t, x, y, z)*n(t, x, y, z)*exp(-G/(6*M5c)) + 3*M5c*k_inf*H23(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H33(t, x, y, z)**2*exp(-G/(6*M5c))/4 - 3*M5c*k_inf*H33(t, x, y, z)*n(t, x, y, z)*exp(-G/(6*M5c)) + Mb2*eta*Derivative(n(t, x, y, z), x)**2/2 - Mb2*eta*Derivative(n(t, x, y, z), x)*Derivative(tau(t, x, y, z), t, x) + Mb2*eta*Derivative(n(t, x, y, z), y)**2/2 - Mb2*eta*Derivative(n(t, x, y, z), y)*Derivative(tau(t, x, y, z), t, y) + Mb2*eta*Derivative(n(t, x, y, z), z)**2/2 - Mb2*eta*Derivative(n(t, x, y, z), z)*Derivative(tau(t, x, y, z), t, z) + Mb2*eta*Derivative(tau(t, x, y, z), t, x)**2/2 + Mb2*eta*Derivative(tau(t, x, y, z), t, y)**2/2 + Mb2*eta*Derivative(tau(t, x, y, z), t, z)**2/2 - Mb2*lambda_K*Derivative(H11(t, x, y, z), t)**2/8 - Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(H22(t, x, y, z), t)/4 - Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(H33(t, x, y, z), t)/4 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*lambda_K*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 - Mb2*lambda_K*Derivative(H22(t, x, y, z), t)**2/8 - Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(H33(t, x, y, z), t)/4 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*lambda_K*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 - Mb2*lambda_K*Derivative(H33(t, x, y, z), t)**2/8 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*lambda_K*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)**2/2 - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(N2(t, x, y, z), y) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(N3(t, x, y, z), z) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (x, 2)) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)**2/2 - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(N3(t, x, y, z), z) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (x, 2)) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)**2/2 - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (x, 2)) - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (x, 2))**2/2 - Mb2*lambda_K*Derivative(tau(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), (y, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (y, 2))**2/2 - Mb2*lambda_K*Derivative(tau(t, x, y, z), (y, 2))*Derivative(tau(t, x, y, z), (z, 2)) - Mb2*lambda_K*Derivative(tau(t, x, y, z), (z, 2))**2/2 - Mb2*xi*n(t, x, y, z)*Derivative(H11(t, x, y, z), (y, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H11(t, x, y, z), (z, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H22(t, x, y, z), (x, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H22(t, x, y, z), (z, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H33(t, x, y, z), (x, 2))/2 - Mb2*xi*n(t, x, y, z)*Derivative(H33(t, x, y, z), (y, 2))/2 + Mb2*xi*n(t, x, y, z)*Derivative(H12(t, x, y, z), x, y) + Mb2*xi*n(t, x, y, z)*Derivative(H13(t, x, y, z), x, z) + Mb2*xi*n(t, x, y, z)*Derivative(H23(t, x, y, z), y, z) + Mb2*xi*Derivative(H11(t, x, y, z), x)*Derivative(H12(t, x, y, z), y)/4 + Mb2*xi*Derivative(H11(t, x, y, z), x)*Derivative(H13(t, x, y, z), z)/4 - Mb2*xi*Derivative(H11(t, x, y, z), y)*Derivative(H12(t, x, y, z), x)/4 - Mb2*xi*Derivative(H11(t, x, y, z), y)*Derivative(H23(t, x, y, z), z)/4 + Mb2*xi*Derivative(H11(t, x, y, z), y)*Derivative(H33(t, x, y, z), y)/4 + Mb2*xi*Derivative(H11(t, x, y, z), (y, 2))*Derivative(tau(t, x, y, z), t)/2 - Mb2*xi*Derivative(H11(t, x, y, z), z)*Derivative(H13(t, x, y, z), x)/4 + Mb2*xi*Derivative(H11(t, x, y, z), z)*Derivative(H22(t, x, y, z), z)/4 - Mb2*xi*Derivative(H11(t, x, y, z), z)*Derivative(H23(t, x, y, z), y)/4 + Mb2*xi*Derivative(H11(t, x, y, z), (z, 2))*Derivative(tau(t, x, y, z), t)/2 + Mb2*xi*Derivative(H12(t, x, y, z), x)*Derivative(H22(t, x, y, z), y)/4 + Mb2*xi*Derivative(H12(t, x, y, z), x)*Derivative(H23(t, x, y, z), z)/2 - Mb2*xi*Derivative(H12(t, x, y, z), x)*Derivative(H33(t, x, y, z), y)/4 + Mb2*xi*Derivative(H12(t, x, y, z), y)*Derivative(H13(t, x, y, z), z)/2 - Mb2*xi*Derivative(H12(t, x, y, z), y)*Derivative(H22(t, x, y, z), x)/4 - Mb2*xi*Derivative(H12(t, x, y, z), y)*Derivative(H33(t, x, y, z), x)/4 - Mb2*xi*Derivative(H12(t, x, y, z), z)**2/4 - Mb2*xi*Derivative(H13(t, x, y, z), x)*Derivative(H22(t, x, y, z), z)/4 + Mb2*xi*Derivative(H13(t, x, y, z), x)*Derivative(H23(t, x, y, z), y)/2 + Mb2*xi*Derivative(H13(t, x, y, z), x)*Derivative(H33(t, x, y, z), z)/4 - Mb2*xi*Derivative(H13(t, x, y, z), y)**2/4 - Mb2*xi*Derivative(H13(t, x, y, z), z)*Derivative(H22(t, x, y, z), x)/4 - Mb2*xi*Derivative(H13(t, x, y, z), z)*Derivative(H33(t, x, y, z), x)/4 + Mb2*xi*Derivative(H22(t, x, y, z), x)*Derivative(H33(t, x, y, z), x)/4 + Mb2*xi*Derivative(H22(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), t)/2 + Mb2*xi*Derivative(H22(t, x, y, z), y)*Derivative(H23(t, x, y, z), z)/4 - Mb2*xi*Derivative(H22(t, x, y, z), z)*Derivative(H23(t, x, y, z), y)/4 + Mb2*xi*Derivative(H22(t, x, y, z), (z, 2))*Derivative(tau(t, x, y, z), t)/2 - Mb2*xi*Derivative(H23(t, x, y, z), x)**2/4 + Mb2*xi*Derivative(H23(t, x, y, z), y)*Derivative(H33(t, x, y, z), z)/4 - Mb2*xi*Derivative(H23(t, x, y, z), z)*Derivative(H33(t, x, y, z), y)/4 + Mb2*xi*Derivative(H33(t, x, y, z), (x, 2))*Derivative(tau(t, x, y, z), t)/2 + Mb2*xi*Derivative(H33(t, x, y, z), (y, 2))*Derivative(tau(t, x, y, z), t)/2 - Mb2*xi*Derivative(tau(t, x, y, z), t)*Derivative(H12(t, x, y, z), x, y) - Mb2*xi*Derivative(tau(t, x, y, z), t)*Derivative(H13(t, x, y, z), x, z) - Mb2*xi*Derivative(tau(t, x, y, z), t)*Derivative(H23(t, x, y, z), y, z) + Mb2*Derivative(H11(t, x, y, z), t)**2/8 - Mb2*Derivative(H11(t, x, y, z), t)*Derivative(N1(t, x, y, z), x)/2 - Mb2*Derivative(H11(t, x, y, z), t)*Derivative(tau(t, x, y, z), (x, 2))/2 + Mb2*Derivative(H12(t, x, y, z), t)**2/4 - Mb2*Derivative(H12(t, x, y, z), t)*Derivative(N1(t, x, y, z), y)/2 - Mb2*Derivative(H12(t, x, y, z), t)*Derivative(N2(t, x, y, z), x)/2 - Mb2*Derivative(H12(t, x, y, z), t)*Derivative(tau(t, x, y, z), x, y) + Mb2*Derivative(H13(t, x, y, z), t)**2/4 - Mb2*Derivative(H13(t, x, y, z), t)*Derivative(N1(t, x, y, z), z)/2 - Mb2*Derivative(H13(t, x, y, z), t)*Derivative(N3(t, x, y, z), x)/2 - Mb2*Derivative(H13(t, x, y, z), t)*Derivative(tau(t, x, y, z), x, z) + Mb2*Derivative(H22(t, x, y, z), t)**2/8 - Mb2*Derivative(H22(t, x, y, z), t)*Derivative(N2(t, x, y, z), y)/2 - Mb2*Derivative(H22(t, x, y, z), t)*Derivative(tau(t, x, y, z), (y, 2))/2 + Mb2*Derivative(H23(t, x, y, z), t)**2/4 - Mb2*Derivative(H23(t, x, y, z), t)*Derivative(N2(t, x, y, z), z)/2 - Mb2*Derivative(H23(t, x, y, z), t)*Derivative(N3(t, x, y, z), y)/2 - Mb2*Derivative(H23(t, x, y, z), t)*Derivative(tau(t, x, y, z), y, z) + Mb2*Derivative(H33(t, x, y, z), t)**2/8 - Mb2*Derivative(H33(t, x, y, z), t)*Derivative(N3(t, x, y, z), z)/2 - Mb2*Derivative(H33(t, x, y, z), t)*Derivative(tau(t, x, y, z), (z, 2))/2 + Mb2*Derivative(N1(t, x, y, z), x)**2/2 + Mb2*Derivative(N1(t, x, y, z), x)*Derivative(tau(t, x, y, z), (x, 2)) + Mb2*Derivative(N1(t, x, y, z), y)**2/4 + Mb2*Derivative(N1(t, x, y, z), y)*Derivative(N2(t, x, y, z), x)/2 + Mb2*Derivative(N1(t, x, y, z), y)*Derivative(tau(t, x, y, z), x, y) + Mb2*Derivative(N1(t, x, y, z), z)**2/4 + Mb2*Derivative(N1(t, x, y, z), z)*Derivative(N3(t, x, y, z), x)/2 + Mb2*Derivative(N1(t, x, y, z), z)*Derivative(tau(t, x, y, z), x, z) + Mb2*Derivative(N2(t, x, y, z), x)**2/4 + Mb2*Derivative(N2(t, x, y, z), x)*Derivative(tau(t, x, y, z), x, y) + Mb2*Derivative(N2(t, x, y, z), y)**2/2 + Mb2*Derivative(N2(t, x, y, z), y)*Derivative(tau(t, x, y, z), (y, 2)) + Mb2*Derivative(N2(t, x, y, z), z)**2/4 + Mb2*Derivative(N2(t, x, y, z), z)*Derivative(N3(t, x, y, z), y)/2 + Mb2*Derivative(N2(t, x, y, z), z)*Derivative(tau(t, x, y, z), y, z) + Mb2*Derivative(N3(t, x, y, z), x)**2/4 + Mb2*Derivative(N3(t, x, y, z), x)*Derivative(tau(t, x, y, z), x, z) + Mb2*Derivative(N3(t, x, y, z), y)**2/4 + Mb2*Derivative(N3(t, x, y, z), y)*Derivative(tau(t, x, y, z), y, z) + Mb2*Derivative(N3(t, x, y, z), z)**2/2 + Mb2*Derivative(N3(t, x, y, z), z)*Derivative(tau(t, x, y, z), (z, 2)) + Mb2*Derivative(tau(t, x, y, z), (x, 2))**2/2 + Mb2*Derivative(tau(t, x, y, z), (y, 2))**2/2 + Mb2*Derivative(tau(t, x, y, z), (z, 2))**2/2 + Mb2*Derivative(tau(t, x, y, z), x, y)**2 + Mb2*Derivative(tau(t, x, y, z), x, z)**2 + Mb2*Derivative(tau(t, x, y, z), y, z)**2 - beta*omega(t, x, y, z)**2/2 - kappa_hat*y**2*Derivative(n(t, x, y, z), x)**2/2 + kappa_hat*y**2*Derivative(n(t, x, y, z), x)*Derivative(tau(t, x, y, z), t, x) - kappa_hat*y**2*Derivative(n(t, x, y, z), y)**2/2 + kappa_hat*y**2*Derivative(n(t, x, y, z), y)*Derivative(tau(t, x, y, z), t, y) - kappa_hat*y**2*Derivative(n(t, x, y, z), z)**2/2 + kappa_hat*y**2*Derivative(n(t, x, y, z), z)*Derivative(tau(t, x, y, z), t, z) - kappa_hat*y**2*Derivative(tau(t, x, y, z), t, x)**2/2 - kappa_hat*y**2*Derivative(tau(t, x, y, z), t, y)**2/2 - kappa_hat*y**2*Derivative(tau(t, x, y, z), t, z)**2/2 + kappa_hat*y*vphi1(t, x, y, z)*Derivative(n(t, x, y, z), x) - kappa_hat*y*vphi1(t, x, y, z)*Derivative(tau(t, x, y, z), t, x) + kappa_hat*y*vphi2(t, x, y, z)*Derivative(n(t, x, y, z), y) - kappa_hat*y*vphi2(t, x, y, z)*Derivative(tau(t, x, y, z), t, y) + kappa_hat*y*vphi3(t, x, y, z)*Derivative(n(t, x, y, z), z) - kappa_hat*y*vphi3(t, x, y, z)*Derivative(tau(t, x, y, z), t, z) - kappa_hat*vphi1(t, x, y, z)**2/2 - kappa_hat*vphi2(t, x, y, z)**2/2 - kappa_hat*vphi3(t, x, y, z)**2/2 - lambda_X*v**4*H11(t, x, y, z)**2/8 - lambda_X*v**4*H11(t, x, y, z)*H22(t, x, y, z)/4 - lambda_X*v**4*H11(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H22(t, x, y, z)**2/8 - lambda_X*v**4*H22(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H33(t, x, y, z)**2/8 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)**2/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi2(t, x, y, z), y) - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)**2/2 - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi3(t, x, y, z), z)**2/2 - mu_X*v**4*H11(t, x, y, z)**2/4 - mu_X*v**4*H12(t, x, y, z)**2/2 - mu_X*v**4*H13(t, x, y, z)**2/2 - mu_X*v**4*H22(t, x, y, z)**2/4 - mu_X*v**4*H23(t, x, y, z)**2/2 - mu_X*v**4*H33(t, x, y, z)**2/4 + mu_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi1(t, x, y, z), y) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi2(t, x, y, z), x) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi1(t, x, y, z), z) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi3(t, x, y, z), x) + mu_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi2(t, x, y, z), z) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi3(t, x, y, z), y) + mu_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z) - mu_X*v**2*Derivative(pi1(t, x, y, z), x)**2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)*Derivative(pi2(t, x, y, z), x) - mu_X*v**2*Derivative(pi1(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), z)*Derivative(pi3(t, x, y, z), x) - mu_X*v**2*Derivative(pi2(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), y)**2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)*Derivative(pi3(t, x, y, z), y) - mu_X*v**2*Derivative(pi3(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), z)**2 + rho_X*v**2*N1(t, x, y, z)**2/2 + rho_X*v**2*N1(t, x, y, z)*Derivative(tau(t, x, y, z), x) + rho_X*v**2*N2(t, x, y, z)**2/2 + rho_X*v**2*N2(t, x, y, z)*Derivative(tau(t, x, y, z), y) + rho_X*v**2*N3(t, x, y, z)**2/2 + rho_X*v**2*N3(t, x, y, z)*Derivative(tau(t, x, y, z), z) + rho_X*v**2*Derivative(tau(t, x, y, z), x)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), y)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), z)**2/2 - rho_X*v*N1(t, x, y, z)*Derivative(pi1(t, x, y, z), t) - rho_X*v*N2(t, x, y, z)*Derivative(pi2(t, x, y, z), t) - rho_X*v*N3(t, x, y, z)*Derivative(pi3(t, x, y, z), t) - rho_X*v*Derivative(pi1(t, x, y, z), t)*Derivative(tau(t, x, y, z), x) - rho_X*v*Derivative(pi2(t, x, y, z), t)*Derivative(tau(t, x, y, z), y) - rho_X*v*Derivative(pi3(t, x, y, z), t)*Derivative(tau(t, x, y, z), z) + rho_X*Derivative(pi1(t, x, y, z), t)**2/2 + rho_X*Derivative(pi2(t, x, y, z), t)**2/2 + rho_X*Derivative(pi3(t, x, y, z), t)**2/2",
+    "wall": "-G**2*k_inf*omega(t, x, y, z)**2*exp(-G/(6*M5c))/(3*M5c) + G*k_inf*H11(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + G*k_inf*H22(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + G*k_inf*H33(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + 2*G*k_inf*n(t, x, y, z)*omega(t, x, y, z)*exp(-G/(6*M5c)) + G*k_inf*omega(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H11(t, x, y, z)**2*exp(-G/(6*M5c))/4 - 3*M5c*k_inf*H11(t, x, y, z)*H22(t, x, y, z)*exp(-G/(6*M5c))/2 - 3*M5c*k_inf*H11(t, x, y, z)*H33(t, x, y, z)*exp(-G/(6*M5c))/2 - 3*M5c*k_inf*H11(t, x, y, z)*n(t, x, y, z)*exp(-G/(6*M5c)) + 3*M5c*k_inf*H12(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H13(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H22(t, x, y, z)**2*exp(-G/(6*M5c))/4 - 3*M5c*k_inf*H22(t, x, y, z)*H33(t, x, y, z)*exp(-G/(6*M5c))/2 - 3*M5c*k_inf*H22(t, x, y, z)*n(t, x, y, z)*exp(-G/(6*M5c)) + 3*M5c*k_inf*H23(t, x, y, z)**2*exp(-G/(6*M5c)) + 3*M5c*k_inf*H33(t, x, y, z)**2*exp(-G/(6*M5c))/4 - 3*M5c*k_inf*H33(t, x, y, z)*n(t, x, y, z)*exp(-G/(6*M5c)) - beta*omega(t, x, y, z)**2/2"
+  },
+  "schema": "holo.one-omega-brane-hessian-audit.v1",
+  "scope": {
+    "background": "flat brane, T=t, X=v*x, Omega=1, triplet=0",
+    "boundary_of_brane": "compact-support variations; no boundary of the brane",
+    "bulk_GHY_and_moving_embeddings_included": false,
+    "derivation": "compact quadratic action modulo total derivatives plus formal-adjoint jet Hessian",
+    "full_nonlinear_action_variation_claimed": false,
+    "linear_gauge_null_scope": "tadpole-free brane form only; full form residuals retained",
+    "momentum": "q along z; w arbitrary, both symbolic",
+    "producer_plane_wave_function_imported": false,
+    "translation": "manual analytic quadratic expansion, cross-checked with independent covariant producer"
+  },
+  "source": {
+    "action_charter_sha256": "93105331d9da311afa7845f9939dbd60617b929ae9ede23286fa26bedaa815c1",
+    "calculation_digest": "df8cb573d5f30aceeb5f434dd9cd469aa69884f057302c808ccac1abda4cbecb",
+    "path": "first_principles_audit/prediction_factory/artifacts/one_omega_brane_hessian_v1_source_snapshot.json",
+    "producer_checks_not_inherited": [
+      "fol_solid_robin_first_order_vanish_pass"
+    ],
+    "producer_generator_sha256": "6b8d8a7789a7ee10b09f7a8c9bc0bf023363723c03389676834d414d247445a3",
+    "sha256": "5d1be4316075435832085b4af8b1fe3f35d839b6a319a98641a55193c3036b69",
+    "snapshot_reason": "immutable reviewed matrix while the producer corrects its linear-density versus integrated-variation check"
+  }
+}

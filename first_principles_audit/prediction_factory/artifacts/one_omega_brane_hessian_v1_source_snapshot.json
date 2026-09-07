@@ -1,0 +1,892 @@
+{
+  "background": {
+    "L0": "-6*M5c*k_inf*exp(-G/(6*M5c))",
+    "W_prime_at_1": "-G*k_inf*exp(-G/(6*M5c))",
+    "tension_2W_at_1": "6*M5c*k_inf*exp(-G/(6*M5c))"
+  },
+  "calculation_digest": "df8cb573d5f30aceeb5f434dd9cd469aa69884f057302c808ccac1abda4cbecb",
+  "checks": {
+    "background_lagrangian_equals_minus_tension_pass": true,
+    "charter_digests_bound_pass": true,
+    "extended_hessian_hermitian_pass": true,
+    "fol_solid_robin_first_order_vanish_pass": false,
+    "gauge_null_directions_pass": true,
+    "gauge_residual_attribution_consistency_pass": true,
+    "helicity_blocks_decouple_8_8_2_pass": true,
+    "khronon_solid_material_background_stationary_pass": true,
+    "leaf_curvature_gauss_equals_direct_3d_ricci_pass": true,
+    "metric_tadpole_is_pure_tension_pass": true,
+    "mixed_solid_shift_spatial_metric_second_derivatives_nonzero_pass": true,
+    "omega_tadpole_is_minus_two_W_prime_pass": true,
+    "pinned_formula_strings_match_charter_pass": true,
+    "robin_quadratic_couples_varphi_lapse_khronon_pass": true,
+    "robin_solid_and_spatial_metric_decouple_at_quadratic_order_pass": true,
+    "solid_background_and_first_order_vanish_pass": true,
+    "solid_khronon_mixing_present_pass": true,
+    "solid_quadratic_block_matches_n7_v3_invariant_pass": true,
+    "spatial_diffeomorphism_null_directions_tadpole_free_pass": true,
+    "tensor_polarizations_degenerate_pass": true,
+    "time_reparametrization_null_direction_tadpole_free_pass": true
+  },
+  "classification": "theory_only;brane_sector_full_variation_from_literal_charter_action;extended_brane_hessian_derived;bulk_embeddings_GHY_junction_constraints_characteristics_not_derived;N2_N7_C2_C10_P2_P3_P4_B4_B5_fail_closed",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C10_pass": false,
+    "C2_pass": false,
+    "C4_pass": false,
+    "N2_pass": false,
+    "N3_pass": false,
+    "N4_pass": false,
+    "N5_pass": false,
+    "N6_pass": false,
+    "N7_pass": false,
+    "P2_pass": false,
+    "P3_complete_pass": false,
+    "P4_full_same_action_pass": false,
+    "brane_sector_full_variation_from_literal_action_pass": false,
+    "bulk_fields_varied_pass": false,
+    "characteristics_derived_pass": false,
+    "embeddings_varied_pass": false,
+    "extended_brane_hessian_derived_not_inherited_pass": true,
+    "junction_conditions_derived_pass": false,
+    "n7_v3_artifact_consumed": false,
+    "nonlinear_constraints_derived_pass": false,
+    "nonlinear_gravitational_P4_pass": false,
+    "old_wall_ADM_Hessian_consumed": false,
+    "phenomenology_claimed": false,
+    "stability_claimed": false
+  },
+  "evidence_boundary": [
+    "Only the displayed brane action is varied; the bulk, the two embeddings and GHY are not, so no junction condition, constraint or characteristic is derived.",
+    "The Hessian is the brane-localized quadratic form; the complete extended Hessian needs the bulk quadratic form and the junction.",
+    "Reproducing the N7 v3 solid invariant is a consistency check on the transcription, not an inheritance of any N7 conclusion.",
+    "The residual-attribution check is a consistency identity (H_tadpole = H - H_tadpole_free and H_tadpole_free R = 0 imply it), not an independent Ward identity; the independent statement delta0(S2) + delta1(S1) = 0 from the nonlinear transformation is left to the next stage.",
+    "Gauge null directions are checked at the linear level only, and on the tadpole-free quadratic form: around a background that is not a solution of the brane sector alone (tension and Omega-flux tadpoles), the quadratic action is not invariant under the linear gauge transformation; the residual is recorded and shown to come only from the tadpole pieces, which the bulk junction must cancel.",
+    "The charter's statement that the Robin term couples gamma, T, X^a and varphi^a is nonlinear; at quadratic order around X^a=v x^a the solid and the spatial metric drop out of the Robin block, which couples varphi, the lapse and the khronon.",
+    "Not fixing the khronon gauge exposes a khronon-solid mixing (V1 acquires -v*grad(tau)) absent from the N7 v3 khronon-gauge invariant; the two agree at tau=0."
+  ],
+  "expected_tadpoles": {
+    "H_ii": "-3*M5c*k_inf*exp(-G/(6*M5c))",
+    "interpretation": "the gamma and Omega_Sigma tadpoles are the sources the bulk junction (GHY plus bulk Omega flux) must balance; not derived here",
+    "n": "-6*M5c*k_inf*exp(-G/(6*M5c))",
+    "omega": "2*G*k_inf*exp(-G/(6*M5c))"
+  },
+  "extended_hessian": {
+    "fields": [
+      "n",
+      "N1",
+      "N2",
+      "N3",
+      "H11",
+      "H12",
+      "H13",
+      "H22",
+      "H23",
+      "H33",
+      "tau",
+      "pi1",
+      "pi2",
+      "pi3",
+      "omega",
+      "vphi1",
+      "vphi2",
+      "vphi3"
+    ],
+    "frozen_parameters": {
+      "B4_bar": 0.8,
+      "M5_cubed": 1.0,
+      "Robin_kappa_hat": 1.0,
+      "Robin_y": 1.7320508075688772,
+      "brane_Mb_squared": 2.0,
+      "brane_beta": 2.0,
+      "compensator_metric_G": 1.2,
+      "eta": 3.107013790800849,
+      "k_infinity": 1.0,
+      "lambda_K": 1.3107013790800848,
+      "solid_lambda": 1.0,
+      "solid_mu": 1.0,
+      "solid_rho": 1.0,
+      "solid_v": 1.0,
+      "xi": 1.0
+    },
+    "gauge_null_checks": {
+      "spatial_diffeomorphism_x": {
+        "null": true,
+        "residual_nonzero_rows": []
+      },
+      "spatial_diffeomorphism_y": {
+        "null": true,
+        "residual_nonzero_rows": []
+      },
+      "spatial_diffeomorphism_z": {
+        "null": true,
+        "residual_nonzero_rows": []
+      },
+      "time_reparametrization": {
+        "null": true,
+        "residual_nonzero_rows": []
+      }
+    },
+    "gauge_null_checks_full_hessian": {
+      "spatial_diffeomorphism_x": {
+        "null": false,
+        "residual_nonzero_rows": [
+          "H13"
+        ]
+      },
+      "spatial_diffeomorphism_y": {
+        "null": false,
+        "residual_nonzero_rows": [
+          "H23"
+        ]
+      },
+      "spatial_diffeomorphism_z": {
+        "null": false,
+        "residual_nonzero_rows": [
+          "n",
+          "H11",
+          "H22",
+          "H33",
+          "omega"
+        ]
+      },
+      "time_reparametrization": {
+        "null": false,
+        "residual_nonzero_rows": [
+          "H11",
+          "H22",
+          "H33",
+          "omega"
+        ]
+      }
+    },
+    "gauge_null_checks_tadpole_part": {
+      "spatial_diffeomorphism_x": {
+        "null": false,
+        "residual_nonzero_rows": [
+          "H13"
+        ]
+      },
+      "spatial_diffeomorphism_y": {
+        "null": false,
+        "residual_nonzero_rows": [
+          "H23"
+        ]
+      },
+      "spatial_diffeomorphism_z": {
+        "null": false,
+        "residual_nonzero_rows": [
+          "n",
+          "H11",
+          "H22",
+          "H33",
+          "omega"
+        ]
+      },
+      "time_reparametrization": {
+        "null": false,
+        "residual_nonzero_rows": [
+          "H11",
+          "H22",
+          "H33",
+          "omega"
+        ]
+      }
+    },
+    "helicity_basis": "Hs = H11 + H22 (trace, helicity 0); Hd = (H11 - H22)/2 (helicity 2, same norm as H12); H11 = Hs/2 + Hd, H22 = Hs/2 - Hd",
+    "helicity_field_order": [
+      "n",
+      "N1",
+      "N2",
+      "N3",
+      "Hs",
+      "H12",
+      "H13",
+      "Hd",
+      "H23",
+      "H33",
+      "tau",
+      "pi1",
+      "pi2",
+      "pi3",
+      "omega",
+      "vphi1",
+      "vphi2",
+      "vphi3"
+    ],
+    "helicity_sets": {
+      "scalar": [
+        "n",
+        "N3",
+        "Hs",
+        "H33",
+        "tau",
+        "pi3",
+        "omega",
+        "vphi3"
+      ],
+      "tensor": [
+        "Hd",
+        "H12"
+      ],
+      "vector": [
+        "N1",
+        "N2",
+        "H13",
+        "H23",
+        "pi1",
+        "pi2",
+        "vphi1",
+        "vphi2"
+      ]
+    },
+    "mixed_solid_metric_entries": {
+      "pi1_H13": "-I*mu_X*q*v**3",
+      "pi1_N1": "-I*rho_X*v*w",
+      "pi3_H33": "-I*q*v**3*(lambda_X + 2*mu_X)/2",
+      "pi3_N3": "-I*rho_X*v*w"
+    },
+    "momentum": "q along z, frequency w; plane wave A e^{i(qz-wt)} + c.c.",
+    "numerical_blocks_at_frozen_point": {
+      "scalar": [
+        [
+          "32140275816017*q**2/10000000000000",
+          "0",
+          "q**2 - 49123845184679/20000000000000",
+          "-2.45619225923395",
+          "32140275816017*I*q**2*w/10000000000000",
+          "0",
+          "1.96495380738716",
+          "-21650635094611*I*q/12500000000000"
+        ],
+        [
+          "0",
+          "1 - 62140275816017*q**2/100000000000000",
+          "-16383767238501*q*w/12500000000000",
+          "-62140275816017*q*w/200000000000000",
+          "I*q*(1 - 62140275816017*q**2/100000000000000)",
+          "I*w",
+          "0",
+          "0"
+        ],
+        [
+          "q**2 - 49123845184679/20000000000000",
+          "-16383767238501*q*w/12500000000000",
+          "-q**4/10 + q**2/4 - 202675344770021*w**2/500000000000000 - 1/2",
+          "-327675344770021*w**2/500000000000000 - 147809612961697/100000000000000",
+          "-62140275816017*I*q**2*w/200000000000000",
+          "I*q/2",
+          "0.982476903693578",
+          "0"
+        ],
+        [
+          "-2.45619225923395",
+          "-62140275816017*q*w/200000000000000",
+          "-327675344770021*w**2/500000000000000 - 147809612961697/100000000000000",
+          "478096129616973/1000000000000000 - 77675344770021*w**2/500000000000000",
+          "-62140275816017*I*q**2*w/200000000000000",
+          "3*I*q/2",
+          "0.982476903693578",
+          "0"
+        ],
+        [
+          "-32140275816017*I*q**2*w/10000000000000",
+          "I*q*(62140275816017*q**2/100000000000000 - 1)",
+          "62140275816017*I*q**2*w/200000000000000",
+          "62140275816017*I*q**2*w/200000000000000",
+          "q**2*(-62140275816017*q**2/100000000000000 + 32140275816017*w**2/10000000000000 + 1)",
+          "q*w",
+          "0",
+          "-21650635094611*q*w/12500000000000"
+        ],
+        [
+          "0",
+          "-I*w",
+          "-I*q/2",
+          "-3*I*q/2",
+          "q*w",
+          "-3*q**2 + w**2",
+          "0",
+          "0"
+        ],
+        [
+          "1.96495380738716",
+          "0",
+          "0.982476903693578",
+          "0.982476903693578",
+          "0",
+          "0",
+          "-0.821027715567706",
+          "0"
+        ],
+        [
+          "21650635094611*I*q/12500000000000",
+          "0",
+          "0",
+          "0",
+          "-21650635094611*q*w/12500000000000",
+          "0",
+          "0",
+          "-1"
+        ]
+      ],
+      "tensor": [
+        [
+          "-q**2 + w**2 + 391238451846789/100000000000000",
+          "0"
+        ],
+        [
+          "0",
+          "-q**2 + w**2 + 391238451846789/100000000000000"
+        ]
+      ],
+      "vector": [
+        [
+          "q**2 + 1",
+          "0",
+          "q*w",
+          "0",
+          "I*w",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "q**2 + 1",
+          "0",
+          "q*w",
+          "0",
+          "I*w",
+          "0",
+          "0"
+        ],
+        [
+          "q*w",
+          "0",
+          "w**2 + 391238451846789/100000000000000",
+          "0",
+          "I*q",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "q*w",
+          "0",
+          "w**2 + 391238451846789/100000000000000",
+          "0",
+          "I*q",
+          "0",
+          "0"
+        ],
+        [
+          "-I*w",
+          "0",
+          "-I*q",
+          "0",
+          "-q**2 + w**2",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-I*w",
+          "0",
+          "-I*q",
+          "0",
+          "-q**2 + w**2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1"
+        ]
+      ]
+    },
+    "robin_row_vphi3": {
+      "vphi3_H33": "0",
+      "vphi3_n": "I*kappa_hat*q*y",
+      "vphi3_pi3": "0",
+      "vphi3_tau": "-kappa_hat*q*w*y",
+      "vphi3_vphi3": "-kappa_hat"
+    },
+    "symbolic_diagonal": {
+      "H11": "-B4bar*Mb2*q**4/(16*k_inf**2) + 3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*w**2/4 - lambda_X*v**4/4 - mu_X*v**4/2",
+      "H12": "6*M5c*k_inf*exp(-G/(6*M5c)) - Mb2*q**2*xi/2 + Mb2*w**2/2 - mu_X*v**4",
+      "H13": "6*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*w**2/2 - mu_X*v**4",
+      "H22": "-B4bar*Mb2*q**4/(16*k_inf**2) + 3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*w**2/4 - lambda_X*v**4/4 - mu_X*v**4/2",
+      "H23": "6*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*w**2/2 - mu_X*v**4",
+      "H33": "3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*w**2/4 - lambda_X*v**4/4 - mu_X*v**4/2",
+      "N1": "Mb2*q**2/2 + rho_X*v**2",
+      "N2": "Mb2*q**2/2 + rho_X*v**2",
+      "N3": "-Mb2*lambda_K*q**2 + Mb2*q**2 + rho_X*v**2",
+      "n": "q**2*(Mb2*eta - kappa_hat*y**2)",
+      "omega": "-2*G**2*k_inf*exp(-G/(6*M5c))/(3*M5c) + 2*G*k_inf*exp(-G/(6*M5c)) - beta",
+      "pi1": "-mu_X*q**2*v**2 + rho_X*w**2",
+      "pi2": "-mu_X*q**2*v**2 + rho_X*w**2",
+      "pi3": "-lambda_X*q**2*v**2 - 2*mu_X*q**2*v**2 + rho_X*w**2",
+      "tau": "q**2*(Mb2*eta*w**2 - Mb2*lambda_K*q**2 + Mb2*q**2 - kappa_hat*w**2*y**2 + rho_X*v**2)",
+      "vphi1": "-kappa_hat",
+      "vphi2": "-kappa_hat",
+      "vphi3": "-kappa_hat"
+    },
+    "symbolic_matrix_helicity_basis": [
+      [
+        "q**2*(Mb2*eta - kappa_hat*y**2)",
+        "0",
+        "0",
+        "0",
+        "-3*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*q**2*xi/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-3*M5c*k_inf*exp(-G/(6*M5c))",
+        "I*q**2*w*(Mb2*eta - kappa_hat*y**2)",
+        "0",
+        "0",
+        "0",
+        "2*G*k_inf*exp(-G/(6*M5c))",
+        "0",
+        "0",
+        "-I*kappa_hat*q*y"
+      ],
+      [
+        "0",
+        "Mb2*q**2/2 + rho_X*v**2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Mb2*q*w/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "I*rho_X*v*w",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "Mb2*q**2/2 + rho_X*v**2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Mb2*q*w/2",
+        "0",
+        "0",
+        "0",
+        "I*rho_X*v*w",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-Mb2*lambda_K*q**2 + Mb2*q**2 + rho_X*v**2",
+        "-Mb2*lambda_K*q*w/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "Mb2*q*w*(1 - lambda_K)/2",
+        "I*q*(-Mb2*lambda_K*q**2 + Mb2*q**2 + rho_X*v**2)",
+        "0",
+        "0",
+        "I*rho_X*v*w",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-3*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*q**2*xi/2",
+        "0",
+        "0",
+        "-Mb2*lambda_K*q*w/2",
+        "-B4bar*Mb2*q**4/(16*k_inf**2) - Mb2*lambda_K*w**2/4 + Mb2*q**2*xi/8 + Mb2*w**2/8 - lambda_X*v**4/4 - mu_X*v**4/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 - lambda_X*v**4/4",
+        "I*Mb2*q**2*w*(-lambda_K + xi)/2",
+        "0",
+        "0",
+        "I*lambda_X*q*v**3/2",
+        "G*k_inf*exp(-G/(6*M5c))",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "6*M5c*k_inf*exp(-G/(6*M5c)) - Mb2*q**2*xi/2 + Mb2*w**2/2 - mu_X*v**4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "Mb2*q*w/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "6*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*w**2/2 - mu_X*v**4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "I*mu_X*q*v**3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "6*M5c*k_inf*exp(-G/(6*M5c)) - Mb2*q**2*xi/2 + Mb2*w**2/2 - mu_X*v**4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "Mb2*q*w/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "6*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*w**2/2 - mu_X*v**4",
+        "0",
+        "0",
+        "0",
+        "I*mu_X*q*v**3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "-3*M5c*k_inf*exp(-G/(6*M5c))",
+        "0",
+        "0",
+        "Mb2*q*w*(1 - lambda_K)/2",
+        "-3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 - lambda_X*v**4/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "3*M5c*k_inf*exp(-G/(6*M5c))/2 - Mb2*lambda_K*w**2/4 + Mb2*w**2/4 - lambda_X*v**4/4 - mu_X*v**4/2",
+        "I*Mb2*q**2*w*(1 - lambda_K)/2",
+        "0",
+        "0",
+        "I*q*v**3*(lambda_X + 2*mu_X)/2",
+        "G*k_inf*exp(-G/(6*M5c))",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "I*q**2*w*(-Mb2*eta + kappa_hat*y**2)",
+        "0",
+        "0",
+        "I*q*(Mb2*lambda_K*q**2 - Mb2*q**2 - rho_X*v**2)",
+        "I*Mb2*q**2*w*(lambda_K - xi)/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "I*Mb2*q**2*w*(lambda_K - 1)/2",
+        "q**2*(Mb2*eta*w**2 - Mb2*lambda_K*q**2 + Mb2*q**2 - kappa_hat*w**2*y**2 + rho_X*v**2)",
+        "0",
+        "0",
+        "q*rho_X*v*w",
+        "0",
+        "0",
+        "0",
+        "-kappa_hat*q*w*y"
+      ],
+      [
+        "0",
+        "-I*rho_X*v*w",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-I*mu_X*q*v**3",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-mu_X*q**2*v**2 + rho_X*w**2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-I*rho_X*v*w",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-I*mu_X*q*v**3",
+        "0",
+        "0",
+        "0",
+        "-mu_X*q**2*v**2 + rho_X*w**2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-I*rho_X*v*w",
+        "-I*lambda_X*q*v**3/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-I*q*v**3*(lambda_X + 2*mu_X)/2",
+        "q*rho_X*v*w",
+        "0",
+        "0",
+        "-lambda_X*q**2*v**2 - 2*mu_X*q**2*v**2 + rho_X*w**2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "2*G*k_inf*exp(-G/(6*M5c))",
+        "0",
+        "0",
+        "0",
+        "G*k_inf*exp(-G/(6*M5c))",
+        "0",
+        "0",
+        "0",
+        "0",
+        "G*k_inf*exp(-G/(6*M5c))",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-2*G**2*k_inf*exp(-G/(6*M5c))/(3*M5c) + 2*G*k_inf*exp(-G/(6*M5c)) - beta",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-kappa_hat",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-kappa_hat",
+        "0"
+      ],
+      [
+        "I*kappa_hat*q*y",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-kappa_hat*q*w*y",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-kappa_hat"
+      ]
+    ],
+    "tadpole_free_definition": "L2 minus the W(1) and W'(1) pieces of sqrt(-gamma)*L_wall0, keeping (W''(1)+beta/2)*omega^2"
+  },
+  "provenance": {
+    "generated_utc": "2026-09-07T21:20:48Z",
+    "generator": "derive_one_omega_charter_full_variation_interface_v1_gate.py",
+    "generator_sha256": "6b8d8a7789a7ee10b09f7a8c9bc0bf023363723c03389676834d414d247445a3",
+    "python": "3.13.5",
+    "sympy": "1.13.3",
+    "timings_s": {
+      "gauge_s": 448.4,
+      "geometry_s": 326.0,
+      "hessian_s": 429.5,
+      "lagrangian_s": 405.3,
+      "leaf_check_s": 411.8,
+      "solid_s": 377.3,
+      "tadpoles_s": 407.9
+    }
+  },
+  "quadratic_lagrangian": {
+    "n7_v3_invariant_rebuilt": "-lambda_X*v**4*H11(t, x, y, z)**2/8 - lambda_X*v**4*H11(t, x, y, z)*H22(t, x, y, z)/4 - lambda_X*v**4*H11(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H22(t, x, y, z)**2/8 - lambda_X*v**4*H22(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H33(t, x, y, z)**2/8 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)**2/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi2(t, x, y, z), y) - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)**2/2 - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi3(t, x, y, z), z)**2/2 - mu_X*v**4*H11(t, x, y, z)**2/4 - mu_X*v**4*H12(t, x, y, z)**2/2 - mu_X*v**4*H13(t, x, y, z)**2/2 - mu_X*v**4*H22(t, x, y, z)**2/4 - mu_X*v**4*H23(t, x, y, z)**2/2 - mu_X*v**4*H33(t, x, y, z)**2/4 + mu_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi1(t, x, y, z), y) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi2(t, x, y, z), x) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi1(t, x, y, z), z) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi3(t, x, y, z), x) + mu_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi2(t, x, y, z), z) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi3(t, x, y, z), y) + mu_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z) - mu_X*v**2*Derivative(pi1(t, x, y, z), x)**2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)*Derivative(pi2(t, x, y, z), x) - mu_X*v**2*Derivative(pi1(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), z)*Derivative(pi3(t, x, y, z), x) - mu_X*v**2*Derivative(pi2(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), y)**2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)*Derivative(pi3(t, x, y, z), y) - mu_X*v**2*Derivative(pi3(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), z)**2 + rho_X*v**2*N1(t, x, y, z)**2/2 + rho_X*v**2*N2(t, x, y, z)**2/2 + rho_X*v**2*N3(t, x, y, z)**2/2 - rho_X*v*N1(t, x, y, z)*Derivative(pi1(t, x, y, z), t) - rho_X*v*N2(t, x, y, z)*Derivative(pi2(t, x, y, z), t) - rho_X*v*N3(t, x, y, z)*Derivative(pi3(t, x, y, z), t) + rho_X*Derivative(pi1(t, x, y, z), t)**2/2 + rho_X*Derivative(pi2(t, x, y, z), t)**2/2 + rho_X*Derivative(pi3(t, x, y, z), t)**2/2",
+    "n_terms_solid": 66,
+    "n_terms_total": 385,
+    "solid_block": "-lambda_X*v**4*H11(t, x, y, z)**2/8 - lambda_X*v**4*H11(t, x, y, z)*H22(t, x, y, z)/4 - lambda_X*v**4*H11(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H22(t, x, y, z)**2/8 - lambda_X*v**4*H22(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H33(t, x, y, z)**2/8 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)**2/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi2(t, x, y, z), y) - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)**2/2 - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi3(t, x, y, z), z)**2/2 - mu_X*v**4*H11(t, x, y, z)**2/4 - mu_X*v**4*H12(t, x, y, z)**2/2 - mu_X*v**4*H13(t, x, y, z)**2/2 - mu_X*v**4*H22(t, x, y, z)**2/4 - mu_X*v**4*H23(t, x, y, z)**2/2 - mu_X*v**4*H33(t, x, y, z)**2/4 + mu_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi1(t, x, y, z), y) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi2(t, x, y, z), x) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi1(t, x, y, z), z) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi3(t, x, y, z), x) + mu_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi2(t, x, y, z), z) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi3(t, x, y, z), y) + mu_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z) - mu_X*v**2*Derivative(pi1(t, x, y, z), x)**2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)*Derivative(pi2(t, x, y, z), x) - mu_X*v**2*Derivative(pi1(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), z)*Derivative(pi3(t, x, y, z), x) - mu_X*v**2*Derivative(pi2(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), y)**2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)*Derivative(pi3(t, x, y, z), y) - mu_X*v**2*Derivative(pi3(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), z)**2 + rho_X*v**2*N1(t, x, y, z)**2/2 + rho_X*v**2*N1(t, x, y, z)*Derivative(tau(t, x, y, z), x) + rho_X*v**2*N2(t, x, y, z)**2/2 + rho_X*v**2*N2(t, x, y, z)*Derivative(tau(t, x, y, z), y) + rho_X*v**2*N3(t, x, y, z)**2/2 + rho_X*v**2*N3(t, x, y, z)*Derivative(tau(t, x, y, z), z) + rho_X*v**2*Derivative(tau(t, x, y, z), x)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), y)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), z)**2/2 - rho_X*v*N1(t, x, y, z)*Derivative(pi1(t, x, y, z), t) - rho_X*v*N2(t, x, y, z)*Derivative(pi2(t, x, y, z), t) - rho_X*v*N3(t, x, y, z)*Derivative(pi3(t, x, y, z), t) - rho_X*v*Derivative(pi1(t, x, y, z), t)*Derivative(tau(t, x, y, z), x) - rho_X*v*Derivative(pi2(t, x, y, z), t)*Derivative(tau(t, x, y, z), y) - rho_X*v*Derivative(pi3(t, x, y, z), t)*Derivative(tau(t, x, y, z), z) + rho_X*Derivative(pi1(t, x, y, z), t)**2/2 + rho_X*Derivative(pi2(t, x, y, z), t)**2/2 + rho_X*Derivative(pi3(t, x, y, z), t)**2/2",
+    "solid_block_tau0": "-lambda_X*v**4*H11(t, x, y, z)**2/8 - lambda_X*v**4*H11(t, x, y, z)*H22(t, x, y, z)/4 - lambda_X*v**4*H11(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H22(t, x, y, z)**2/8 - lambda_X*v**4*H22(t, x, y, z)*H33(t, x, y, z)/4 - lambda_X*v**4*H33(t, x, y, z)**2/8 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H11(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H22(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi1(t, x, y, z), x)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi2(t, x, y, z), y)/2 + lambda_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z)/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)**2/2 - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi2(t, x, y, z), y) - lambda_X*v**2*Derivative(pi1(t, x, y, z), x)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)**2/2 - lambda_X*v**2*Derivative(pi2(t, x, y, z), y)*Derivative(pi3(t, x, y, z), z) - lambda_X*v**2*Derivative(pi3(t, x, y, z), z)**2/2 - mu_X*v**4*H11(t, x, y, z)**2/4 - mu_X*v**4*H12(t, x, y, z)**2/2 - mu_X*v**4*H13(t, x, y, z)**2/2 - mu_X*v**4*H22(t, x, y, z)**2/4 - mu_X*v**4*H23(t, x, y, z)**2/2 - mu_X*v**4*H33(t, x, y, z)**2/4 + mu_X*v**3*H11(t, x, y, z)*Derivative(pi1(t, x, y, z), x) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi1(t, x, y, z), y) + mu_X*v**3*H12(t, x, y, z)*Derivative(pi2(t, x, y, z), x) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi1(t, x, y, z), z) + mu_X*v**3*H13(t, x, y, z)*Derivative(pi3(t, x, y, z), x) + mu_X*v**3*H22(t, x, y, z)*Derivative(pi2(t, x, y, z), y) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi2(t, x, y, z), z) + mu_X*v**3*H23(t, x, y, z)*Derivative(pi3(t, x, y, z), y) + mu_X*v**3*H33(t, x, y, z)*Derivative(pi3(t, x, y, z), z) - mu_X*v**2*Derivative(pi1(t, x, y, z), x)**2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), y)*Derivative(pi2(t, x, y, z), x) - mu_X*v**2*Derivative(pi1(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi1(t, x, y, z), z)*Derivative(pi3(t, x, y, z), x) - mu_X*v**2*Derivative(pi2(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), y)**2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)**2/2 - mu_X*v**2*Derivative(pi2(t, x, y, z), z)*Derivative(pi3(t, x, y, z), y) - mu_X*v**2*Derivative(pi3(t, x, y, z), x)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), y)**2/2 - mu_X*v**2*Derivative(pi3(t, x, y, z), z)**2 + rho_X*v**2*N1(t, x, y, z)**2/2 + rho_X*v**2*N2(t, x, y, z)**2/2 + rho_X*v**2*N3(t, x, y, z)**2/2 - rho_X*v*N1(t, x, y, z)*Derivative(pi1(t, x, y, z), t) - rho_X*v*N2(t, x, y, z)*Derivative(pi2(t, x, y, z), t) - rho_X*v*N3(t, x, y, z)*Derivative(pi3(t, x, y, z), t) + rho_X*Derivative(pi1(t, x, y, z), t)**2/2 + rho_X*Derivative(pi2(t, x, y, z), t)**2/2 + rho_X*Derivative(pi3(t, x, y, z), t)**2/2",
+    "solid_khronon_mixing_terms": "rho_X*v**2*N1(t, x, y, z)*Derivative(tau(t, x, y, z), x) + rho_X*v**2*N2(t, x, y, z)*Derivative(tau(t, x, y, z), y) + rho_X*v**2*N3(t, x, y, z)*Derivative(tau(t, x, y, z), z) + rho_X*v**2*Derivative(tau(t, x, y, z), x)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), y)**2/2 + rho_X*v**2*Derivative(tau(t, x, y, z), z)**2/2 - rho_X*v*Derivative(pi1(t, x, y, z), t)*Derivative(tau(t, x, y, z), x) - rho_X*v*Derivative(pi2(t, x, y, z), t)*Derivative(tau(t, x, y, z), y) - rho_X*v*Derivative(pi3(t, x, y, z), t)*Derivative(tau(t, x, y, z), z)"
+  },
+  "route_id": "canonical_one_Omega_backreacted_wall_with_rank_full_solid_v1",
+  "schema": "holo.one-omega-charter-full-variation-interface.v1",
+  "stage": {
+    "background": "gamma=eta, T=t, X^a=v x^a, Omega_Sigma=1, varphi=0",
+    "leaf_curvature_definition": "Rcal = R[gamma] + 2*Ric[gamma]_mu_nu*u^mu*u^nu - Kcal^2 + Kcal_mu_nu*Kcal^mu_nu (Gauss equation, timelike unit normal u, u^mu*u_mu=-1)",
+    "not_varied": [
+      "g_MN bulk",
+      "Omega bulk",
+      "phi^a bulk",
+      "Y_plus, Y_minus",
+      "GHY"
+    ],
+    "order": "second order in every field simultaneously; khronon gauge NOT fixed",
+    "varied": [
+      "gamma_mu_nu (ADM: n, N_i, H_ij)",
+      "T (tau)",
+      "X^a (pi^a)",
+      "Omega_Sigma (omega)",
+      "varphi^a"
+    ]
+  },
+  "tadpoles": {
+    "H11": "-3*M5c*k_inf*exp(-G/(6*M5c))",
+    "H12": "0",
+    "H13": "0",
+    "H22": "-3*M5c*k_inf*exp(-G/(6*M5c))",
+    "H23": "0",
+    "H33": "-3*M5c*k_inf*exp(-G/(6*M5c))",
+    "N1": "0",
+    "N2": "0",
+    "N3": "0",
+    "n": "-6*M5c*k_inf*exp(-G/(6*M5c))",
+    "omega": "2*G*k_inf*exp(-G/(6*M5c))",
+    "pi1": "0",
+    "pi2": "0",
+    "pi3": "0",
+    "tau": "0",
+    "vphi1": "0",
+    "vphi2": "0",
+    "vphi3": "0"
+  },
+  "title": "Full variation of the one-Omega action charter, stage v1: brane sector from the literal action",
+  "upstream_bindings": {
+    "one_omega_action_charter_gate.json": {
+      "action_charter_digest": "93105331d9da311afa7845f9939dbd60617b929ae9ede23286fa26bedaa815c1",
+      "calculation_digest": "12b753fc2646aebfbb117db95031c2765cdd2cc040025481de08613d183ad8db",
+      "sha256": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef"
+    },
+    "pinned_strings_sha256": "9696f0c0ef6ebdd6070d5e5de8322344721536c3daab9113a04f060a724f222e"
+  }
+}
