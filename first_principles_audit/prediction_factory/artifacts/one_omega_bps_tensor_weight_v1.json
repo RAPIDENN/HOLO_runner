@@ -1,0 +1,158 @@
+{
+  "antecedents": [
+    {
+      "location": "algebraic_audits.background_and_junctions.background",
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_action_charter_gate.json",
+      "prior_result": "already states Omega=exp(A)"
+    },
+    {
+      "location": "tensor_one_side assignment (line 512 when reviewed)",
+      "path": "first_principles_audit/prediction_factory/derive_backreacted_compensator_wall_gate.py",
+      "prior_result": "already evaluates math.expm1(gamma)/(2.0*gamma*k); referenced only, never imported"
+    }
+  ],
+  "calculation_digest": {
+    "algorithm": "sha256(canonical-json(payload without calculation_digest))",
+    "sha256": "f56e0617d371547eb84332fd2c34951862cb6c27b7a9d00f77444663630b9387"
+  },
+  "checks": {
+    "A_flow_from_superpotential": true,
+    "A_minus_log_Omega_first_integral": true,
+    "Omega_flow_from_superpotential": true,
+    "TT_operator_coordinate_pullback": true,
+    "constant_zero_momentum_bulk_profile": true,
+    "decreasing_Omega_positive_distance_measure": true,
+    "distance_Jacobian_inverse_flow": true,
+    "distance_initial_value": true,
+    "distance_primitive_derivative": true,
+    "formal_G_to_zero_weight": true,
+    "logarithmic_distance_remainder_regular": true,
+    "oriented_tensor_measure": true,
+    "positive_TT_weights_on_declared_domain": true,
+    "positive_finite_bulk_constant_profile_norm": true,
+    "tensor_measure_primitive": true,
+    "tensor_norm_manifest_positive_identity": true,
+    "two_sided_weight_closed_form": true,
+    "warp_initial_value": true
+  },
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C4_HESSIAN_pass": false,
+    "N2_CONSTRAINTS_pass": false,
+    "N3_CHARACTERISTICS_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "N5_COUPLED_BVP_pass": false,
+    "N6_GLOBAL_STABILITY_pass": false,
+    "N7_LINEAR_REDUCTION_pass": false,
+    "P4_full_same_action_pass": false,
+    "TT_spectrum_stability_pass": false,
+    "UV_boundary_conditions_solved": false,
+    "bps_flow_tensor_measure_TT_transform_verified": true,
+    "constant_profile_normalizable_in_bulk": true,
+    "finite_momentum_DtN_solved": false,
+    "full_first_variation_pass": false,
+    "junction_conditions_reverified": false,
+    "physical_massless_graviton_established": false
+  },
+  "equations": {
+    "A": "log(Omega)",
+    "A_flow": "-k*exp(-Omega**2*a)",
+    "G_zero_limit": "M5c/k",
+    "M4_bulk_squared": "M5c*(exp(a) - 1)/(a*k)",
+    "P": "Omega**5*exp(-Omega**2*a)",
+    "R": "Omega*exp(Omega**2*a)",
+    "TT_Omega": "-H*Omega*p**2*exp(Omega**2*a)/k**2 + H_Omega*(-2*Omega**6*a*exp(-Omega**2*a) + 5*Omega**4*exp(-Omega**2*a)) + H_OmegaOmega*Omega**5*exp(-Omega**2*a)",
+    "TT_multiplier": "k**2*exp(-Omega**2*a)/Omega**3",
+    "TT_w": "-H*p**2/Omega**2 + 4*H_Omega*Omega*k**2*exp(-2*Omega**2*a) - H_Omega*Omega*k*(2*Omega**2*a*k*exp(-Omega**2*a) - k*exp(-Omega**2*a))*exp(-Omega**2*a) + H_OmegaOmega*Omega**2*k**2*exp(-2*Omega**2*a)",
+    "W": "3*M5c*k*exp(-Omega**2*a)",
+    "a_relation": "G/(6*M5c)",
+    "distance": "(Ei(a) - Ei(Omega**2*a))/(2*k)",
+    "dw_domega": "-exp(Omega**2*a)/(Omega*k)",
+    "log_remainder_derivative": "(1 - exp(Omega**2*a))/(Omega*k)",
+    "omega_flow": "-Omega*k*exp(-Omega**2*a)",
+    "one_side_density": "Omega*exp(Omega**2*a)/k",
+    "one_side_integral": "(exp(a) - 1)/(2*a*k)",
+    "positive_norm_form": "2*M5c*exp(a/2)*sinh(a/2)/(a*k)",
+    "primitive": "exp(Omega**2*a)/(2*a*k)"
+  },
+  "frozen_evaluation": {
+    "M4_bulk_squared_decimal_50_digits": "1.1070137908008491696053599731983708515379047076025",
+    "M4_bulk_squared_exact": "-5 + 5*exp(1/5)",
+    "parameters": {
+      "G": "6/5",
+      "M5c": "1",
+      "a": "1/5",
+      "k": "1"
+    }
+  },
+  "negative_control_residuals": {
+    "TT_Euclidean_momentum_sign_reversed": "-2*H*p**2/Omega**2",
+    "TT_friction_three_instead_of_four": "H_Omega*Omega*k**2*exp(-2*Omega**2*a)",
+    "TT_weight_exponential_sign_reversed": "-H*p**2/Omega**2 + H*p**2*exp(-2*Omega**2*a)/Omega**2",
+    "forgotten_orientation_reversal": "2*M5c*(1 - exp(a))/(a*k)",
+    "omitted_second_equal_bulk_side": "M5c*(1 - exp(a))/(2*a*k)"
+  },
+  "negative_controls": {
+    "TT_Euclidean_momentum_sign_reversed": true,
+    "TT_friction_three_instead_of_four": true,
+    "TT_weight_exponential_sign_reversed": true,
+    "forgotten_orientation_reversal": true,
+    "omitted_second_equal_bulk_side": true
+  },
+  "provenance": {
+    "canonical_source_reader": {
+      "path": "first_principles_audit/prediction_factory/verify_one_omega_scalar_interface_reparam_v1.py",
+      "sha256": "25c80c452d5f42d40a5f82b27ed5f9c87d85e2a395adcbfcd193e1ac25402d65"
+    },
+    "sympy_version": "1.13.3",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_bps_tensor_weight_v1.py",
+      "sha256": "86c82c659c3a8c79892c8f1520074b2db2f4e439c508d94e5405551bd3cc98e3"
+    },
+    "verifier": {
+      "path": "first_principles_audit/prediction_factory/verify_one_omega_bps_tensor_weight_v1.py",
+      "sha256": "5ac880db12e9d9046594508031a6e1a73ce375758837902cbd583d9d14e86789"
+    }
+  },
+  "residuals": {
+    "A_flow_from_superpotential": "0",
+    "A_minus_log_Omega_first_integral": "0",
+    "Omega_flow_from_superpotential": "0",
+    "TT_operator_coordinate_pullback": "0",
+    "constant_zero_momentum_bulk_profile": "0",
+    "distance_Jacobian_inverse_flow": "0",
+    "distance_initial_value": "0",
+    "distance_primitive_derivative": "0",
+    "formal_G_to_zero_weight": "0",
+    "logarithmic_distance_remainder_regular": "0",
+    "oriented_tensor_measure": "0",
+    "tensor_measure_primitive": "0",
+    "tensor_norm_manifest_positive_identity": "0",
+    "two_sided_weight_closed_form": "0",
+    "warp_initial_value": "0"
+  },
+  "schema": "holo.one-omega-bps-tensor-weight.v1",
+  "scope": {
+    "IR_distance_proof": "w_Omega=-exp(a*Omega^2)/(k*Omega); w(1)=0; for 0<Omega<=1, -log(Omega)/k <= w(Omega) <= -exp(a)*log(Omega)/k, so Omega->0 requires w->infinity",
+    "TT_starting_equation": "H_ww+4*A_w*H_w-p^2*exp(-2*A)*H=0; taken as the bulk TT equation for this background, not derived from all coupled fields here",
+    "background": "flat four-dimensional slices; phi^a=0; decreasing BPS branch; Omega(0)=1 and A(0)=0",
+    "brane_kinetic_weight_included": false,
+    "constant_profile_boundary_limit": "The p=0 constant solves the bulk equation and has finite bulk norm. A UV condition can exclude it (for example homogeneous Dirichlet); no physical zero-mode claim follows without that condition.",
+    "coupled_stability_inferred": false,
+    "domain": "G,M5c,k,a positive; a=G/(6*M5c); 0<Omega<=1; Euclidean p>=0",
+    "mass_scale_name": "M4_bulk_squared is the bilateral bulk tensor integral, excluding brane kinetic terms",
+    "numeric_frozen_value_is_proof": false,
+    "role": "independent symbolic verification of existing BPS background and tensor weight, plus exact TT measure/operator transformation",
+    "two_equal_bulk_sides_assumed": true
+  },
+  "source": {
+    "action_charter_sha256": "93105331d9da311afa7845f9939dbd60617b929ae9ede23286fa26bedaa815c1",
+    "calculation_sha256": "12b753fc2646aebfbb117db95031c2765cdd2cc040025481de08613d183ad8db",
+    "existing_background_statement": "ds^2=exp(2A(y))*eta_mu_nu*dx^mu*dx^nu+dy^2; Omega=exp(A); phi^a=0; A'=-k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+    "literal_W": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+    "path": "first_principles_audit/prediction_factory/artifacts/one_omega_action_charter_gate.json",
+    "sha256": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef",
+    "translation": "manual independent symbolic translation; source bytes and semantic digests pinned; no source expressions parsed"
+  }
+}
