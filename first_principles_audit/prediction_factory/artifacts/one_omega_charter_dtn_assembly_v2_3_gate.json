@@ -1,0 +1,164 @@
+{
+  "assembly": {
+    "assembled_on_grid_spacelike_p2": {
+      "0.001": -1.002105117735764,
+      "0.01": -1.0209380613425216,
+      "0.1": -1.203096880804531,
+      "1.0": -2.8089771202248492
+    },
+    "charter_eta": 3.107013790800849,
+    "eta_reading": "the charter's foliation coefficient eta equals Mb2 + M4^2 numerically; recorded as an identity of numbers, its physical role is not interpreted here",
+    "eta_relative_error": 4.919691907482401e-13,
+    "induced_planck_mass_squared_witness": 3.1070137908023776,
+    "small_p2_reading": "H'/H -> -p2 * I  with I = Int_0^inf e^{2A}: the bulk adds -2 C_N I p2 to the brane -(Mb2/2) p2, i.e. an induced Planck mass Mb2 + 4 C_N I in the same units; the solid contributes the p2-independent -mu v^4",
+    "solid_tensor_mass_term_witness": -1.0,
+    "tensor_operator_per_amplitude": "-(Mb2/2)(xi q^2 - W^2) - mu v^4 + 2 * C_N * H'(0+)/H(0)  with C_N = M5c"
+  },
+  "boundary_bookkeeping": {
+    "GHY_second_order_both_sides": "-4*M5c*h0**2*k_inf*exp(-G/(6*M5c)) + 2*M5c*h0*hprime_plus",
+    "boundary_action_h0_hprime_coefficient": "0",
+    "bulk_total_derivative_both_sides": "M5c*h0**2*k_inf*exp(-G/(6*M5c)) - 2*M5c*h0*hprime_plus",
+    "neumann_coupling_from_canonical_momentum_Z2": "M5c",
+    "reading": "on the BPS background the h^2 boundary pieces cancel between bulk, GHY and tension; the surviving h(0) h'(0+) coupling is the bulk boundary operator that acts through the DtN map",
+    "tension_second_order": "3*M5c*h0**2*k_inf*exp(-G/(6*M5c))",
+    "total": "0"
+  },
+  "calculation_digest": "f427d4d8b22b0794a039a697cbc25efb97f5c5c13b3041fbb572c79d4522eeee",
+  "checks": {
+    "boundary_action_has_no_h_hprime_term_after_ghy_pass": true,
+    "bps_warp_integral_reproduces_charter_M4_squared_pass": true,
+    "charter_digests_bound_pass": true,
+    "induced_tensor_planck_mass_equals_charter_eta_pass": true,
+    "pinned_formula_strings_match_charter_pass": true,
+    "tensor_dtn_small_momentum_slope_is_warp_integral_pass": true,
+    "tt_boundary_terms_cancel_on_bps_pass": true,
+    "tt_euler_lagrange_reproduces_v2_2_ode_pass": true,
+    "tt_mode_has_no_first_order_density_pass": true,
+    "tt_mode_massless_in_bulk_pass": true,
+    "tt_normalization_M5_over_4_pass": true,
+    "tt_quadratic_density_canonical_form_pass": true,
+    "tt_quadratic_density_reduced_to_first_order_pass": true
+  },
+  "classification": "theory_only;tensor_sector_quadratic_action_and_boundary_bookkeeping_exact;bps_warp_reproduces_charter_M4;tensor_DtN_numerical_witness;vector_scalar_sectors_spectrum_constraints_characteristics_not_done;N2_N7_C2_C10_P2_P3_P4_B4_B5_fail_closed",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C10_pass": false,
+    "C2_pass": false,
+    "C4_pass": false,
+    "N2_pass": false,
+    "N3_pass": false,
+    "N4_pass": false,
+    "N5_pass": false,
+    "N6_pass": false,
+    "N7_pass": false,
+    "P2_pass": false,
+    "P3_complete_pass": false,
+    "P4_full_same_action_pass": false,
+    "characteristics_derived_pass": false,
+    "nonlinear_constraints_derived_pass": false,
+    "nonlinear_gravitational_P4_pass": false,
+    "old_wall_ADM_Hessian_consumed": false,
+    "phenomenology_claimed": false,
+    "scalar_sector_assembled_pass": false,
+    "spectrum_or_stability_claimed": false,
+    "tensor_dtn_computed_numerically_witness": true,
+    "tensor_sector_quadratic_action_boundary_and_dtn_pass": true,
+    "timelike_dtn_pass": false,
+    "vector_sector_assembled_pass": false
+  },
+  "evidence_boundary": [
+    "Numerical parts are witnesses at the frozen point, not proofs; tolerances are recorded.",
+    "The DtN is computed for spacelike momenta with the decaying bulk solution; timelike momenta need outgoing conditions.",
+    "The assembled operator uses the v1 tensor block by its printed formula (xi=1 at the frozen point); vector and scalar sectors, where the khronon, solid and radion mix, are not assembled.",
+    "No spectrum, mass, or stability statement is made; the induced Planck mass and solid term are read-offs of the operator, not predictions."
+  ],
+  "numerics": {
+    "A_at_wmax": -39.89476917018484,
+    "A_prime_asymptotic": -1.0,
+    "M4_relative_error": 1.3809919240508057e-12,
+    "M4_squared_charter": 1.107013790800849,
+    "M4_squared_numeric": 1.1070137908023778,
+    "Omega_at_wmax": 4.719781503181686e-18,
+    "ads_tail": 1.1138168649403866e-35,
+    "half_warp_integral": 0.5535068954011889,
+    "slope_relative_error": 0.00022330041321237434,
+    "small_p2_slope": -0.5533832970827299,
+    "small_p2_slope_expected": -0.5535068954011889,
+    "tensor_dtn_Hprime_over_H_at_0plus": {
+      "0.0001": -5.5338329708273e-05,
+      "0.001": -0.0005525588678820635,
+      "0.01": -0.00546903067126083,
+      "0.05": -0.026519314001902473,
+      "0.1": -0.05154844040226548,
+      "0.5": -0.22456833295299955,
+      "1.0": -0.4044885601124245,
+      "2.0": -0.7038831477761847,
+      "5.0": -1.3849849519028785
+    },
+    "wmax": 40.0
+  },
+  "provenance": {
+    "generated_utc": "2026-09-07T22:35:57Z",
+    "generator": "derive_one_omega_charter_dtn_assembly_v2_3_gate.py",
+    "generator_sha256": "3a84d61491c5623ae295a75e1b24d0e205486a073b00826e2c40031ff4b12f12",
+    "numpy": "2.4.2",
+    "python": "3.13.5",
+    "sympy": "1.13.3",
+    "timings_s": {
+      "boundary_s": 0.7,
+      "numerics_s": 2.8,
+      "symbolic_action_s": 0.2,
+      "symbolic_reduction_s": 0.6
+    }
+  },
+  "route_id": "canonical_one_Omega_backreacted_wall_with_rank_full_solid_v1",
+  "schema": "holo.one-omega-charter-dtn-assembly.v2.3a",
+  "stage": {
+    "not_done": [
+      "vector sector",
+      "scalar sector (radion/khronon/solid mixing)",
+      "timelike momenta",
+      "spectrum"
+    ],
+    "numeric": "frozen charter point; witness only",
+    "symbolic": "TT mode h_12(x0,x3,w) on the v2.1 BPS wall, second order, exact"
+  },
+  "tensor_quadratic_action": {
+    "C_0": "0",
+    "C_t": "M5c*exp(2*A(w))/4",
+    "C_w": "-M5c*exp(4*A(w))/4",
+    "C_x": "-M5c*exp(2*A(w))/4",
+    "L0_on_bps": "G*k_inf**2*Omega(w)**2*exp(-G*Omega(w)**2/(3*M5c))*exp(4*A(w))/3 - 4*M5c*k_inf**2*exp(-G*Omega(w)**2/(3*M5c))*exp(4*A(w))",
+    "L1_on_bps": "0",
+    "euler_lagrange_over_v2_2_form": "M5c*exp(4*A(w))/2",
+    "total_derivative_B": "3*M5c*k_inf*s*h(x0, x3, w)**2*exp(-G*Omega(w)**2/(6*M5c))*exp(4*A(w))/2 + 2*M5c*h(x0, x3, w)**2*exp(4*A(w))*Derivative(A(w), w) + M5c*h(x0, x3, w)*exp(4*A(w))*Derivative(h(x0, x3, w), w)"
+  },
+  "title": "Full variation of the one-Omega action charter, stage v2.3a: tensor quadratic action, boundary bookkeeping, DtN witness and assembly",
+  "upstream_bindings": {
+    "frozen_parameters": {
+      "M4_bulk_squared_selected_one_Omega_wall_value": 1.107013790800849,
+      "M5_cubed": 1.0,
+      "brane_Mb_squared": 2.0,
+      "compensator_metric_G": 1.2,
+      "k_infinity": 1.0,
+      "solid_mu": 1.0,
+      "solid_v": 1.0,
+      "xi": 1.0
+    },
+    "one_omega_action_charter_gate.json": {
+      "action_charter_digest": "93105331d9da311afa7845f9939dbd60617b929ae9ede23286fa26bedaa815c1",
+      "calculation_digest": "12b753fc2646aebfbb117db95031c2765cdd2cc040025481de08613d183ad8db",
+      "sha256": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef"
+    },
+    "one_omega_charter_full_variation_interface_v1_gate.json": {
+      "sha256": "d15ce008e600047bfab450f7583164b7c4a4e782e3d4c34e4f42a858636c217b",
+      "used_for": "tensor block -(Mb2/2)(xi q^2 - W^2) - mu v^4 (tadpole-free)"
+    },
+    "one_omega_charter_linear_junction_v2_2_gate.json": {
+      "sha256": "ea8b45c968056dda63fb4394d4395669b69d913adf94625b60a1804dc649777a",
+      "used_for": "tensor ODE cross-check"
+    },
+    "pinned_strings_sha256": "41dac3e492addf7f44433396bc143ab3c8e66729e6a538ff5c9f3971127fdb5b"
+  }
+}
