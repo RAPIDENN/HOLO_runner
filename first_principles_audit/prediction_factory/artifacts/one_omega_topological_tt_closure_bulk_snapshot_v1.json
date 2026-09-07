@@ -1,0 +1,292 @@
+{
+  "assembly": {
+    "rule": "extended Hessian = H_brane(v1; h(0) mapped to ADM: h00=-2n, h0i=N_i, hij=H_ij) + sum over sides of the bulk boundary operator acting on Dirichlet data through the Dirichlet-to-Neumann map Pi(q,W) of the helicity ODEs with normalizable conditions at w -> +-infinity",
+    "status": "rule recorded; Pi(q,W) not computed here (no closed form with the Omega profile)"
+  },
+  "bending": {
+    "d_w_delta_h_at_brane": [
+      [
+        "2*G*k_inf**2*Omega(w)**2*zeta_b(x0, x1, x2, x3)*exp(-G*Omega(w)**2/(3*M5c))/(3*M5c) - 2*Derivative(zeta_b(x0, x1, x2, x3), (x0, 2))",
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x0, x1)",
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x0, x2)",
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x0, x3)"
+      ],
+      [
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x0, x1)",
+        "-2*G*k_inf**2*Omega(w)**2*zeta_b(x0, x1, x2, x3)*exp(-G*Omega(w)**2/(3*M5c))/(3*M5c) - 2*Derivative(zeta_b(x0, x1, x2, x3), (x1, 2))",
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x1, x2)",
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x1, x3)"
+      ],
+      [
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x0, x2)",
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x1, x2)",
+        "-2*G*k_inf**2*Omega(w)**2*zeta_b(x0, x1, x2, x3)*exp(-G*Omega(w)**2/(3*M5c))/(3*M5c) - 2*Derivative(zeta_b(x0, x1, x2, x3), (x2, 2))",
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x2, x3)"
+      ],
+      [
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x0, x3)",
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x1, x3)",
+        "-2*Derivative(zeta_b(x0, x1, x2, x3), x2, x3)",
+        "-2*G*k_inf**2*Omega(w)**2*zeta_b(x0, x1, x2, x3)*exp(-G*Omega(w)**2/(3*M5c))/(3*M5c) - 2*Derivative(zeta_b(x0, x1, x2, x3), (x3, 2))"
+      ]
+    ],
+    "delta_h_mu_nu": [
+      [
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), (x0, 2)) - 2*zeta_b(x0, x1, x2, x3)*Derivative(A(w), w)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x0, x1)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x0, x2)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x0, x3)"
+      ],
+      [
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x0, x1)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), (x1, 2)) + 2*zeta_b(x0, x1, x2, x3)*Derivative(A(w), w)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x1, x2)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x1, x3)"
+      ],
+      [
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x0, x2)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x1, x2)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), (x2, 2)) + 2*zeta_b(x0, x1, x2, x3)*Derivative(A(w), w)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x2, x3)"
+      ],
+      [
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x0, x3)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x1, x3)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x2, x3)",
+        "-2*Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), (x3, 2)) + 2*zeta_b(x0, x1, x2, x3)*Derivative(A(w), w)"
+      ]
+    ],
+    "expected": "-2 d_mu d_nu zeta + eta_mu_nu x (trace term)",
+    "xi_up": [
+      "Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x0)",
+      "-Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x1)",
+      "-Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x2)",
+      "-Iw(w)*Derivative(zeta_b(x0, x1, x2, x3), x3)",
+      "zeta_b(x0, x1, x2, x3)"
+    ]
+  },
+  "calculation_digest": "803c9aa2c44f422ca0466de966ac54b877ebb0563548ec8d19ba23e5832a360f",
+  "checks": {
+    "background_equations_vanish_on_bps_pass": true,
+    "bending_diffeomorphism_preserves_gaussian_normal_gauge_pass": true,
+    "bending_normal_derivative_is_minus_2_dd_zeta_plus_trace_pass": true,
+    "charter_digests_bound_pass": true,
+    "linear_equations_derived_all_components_pass": true,
+    "mu_nu_second_derivative_content_has_israel_trace_pattern_pass": true,
+    "omega_jump_operator_only_omega_pass": true,
+    "phi_sector_absent_from_linear_einstein_pass": true,
+    "pinned_formula_strings_match_charter_pass": true,
+    "tensor_equation_has_standard_warped_form_pass": true,
+    "tensor_equation_involves_only_H12_pass": true,
+    "tensor_jump_operator_isolated_pass": true,
+    "ww_and_mu_w_equations_are_first_order_constraints_pass": true
+  },
+  "classification": "theory_only;linear_bulk_equations_helicity_odes_bending_and_jump_operators_from_literal_charter_action;DtN_map_and_assembled_extended_Hessian_not_computed;N2_N7_C2_C10_P2_P3_P4_B4_B5_fail_closed",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C10_pass": false,
+    "C2_pass": false,
+    "C4_pass": false,
+    "N2_pass": false,
+    "N3_pass": false,
+    "N4_pass": false,
+    "N5_pass": false,
+    "N6_pass": false,
+    "N7_pass": false,
+    "P2_pass": false,
+    "P3_complete_pass": false,
+    "P4_full_same_action_pass": false,
+    "bulk_fields_varied_pass": true,
+    "characteristics_derived_pass": false,
+    "dirichlet_to_neumann_map_computed_pass": false,
+    "embeddings_varied_pass": true,
+    "extended_hessian_assembled_pass": false,
+    "linear_bulk_equations_and_jump_operators_derived_from_literal_action_pass": true,
+    "linear_junction_operators_derived_pass": true,
+    "nonlinear_constraints_derived_pass": false,
+    "nonlinear_gravitational_P4_pass": false,
+    "old_wall_ADM_Hessian_consumed": false,
+    "phenomenology_claimed": false,
+    "stability_claimed": false
+  },
+  "evidence_boundary": [
+    "Linear order only; the delta-source reading of the jump uses the charter's covariant delta-wall equivalence.",
+    "The chi sector is written for one component; SO(3) symmetry makes the other two identical.",
+    "The tensor standard-form check is up to an overall w-independent factor.",
+    "Bending trace term is recorded, not simplified against the background junction.",
+    "No Dirichlet-to-Neumann map, no assembled Hessian, no spectrum, no stability statement."
+  ],
+  "helicity_odes": {
+    "00": "(2*G**2*k_inf**2*Omega(w)**3*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) - 30*G*M5c*k_inf**2*Omega(w)*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) + 3*M5c**2*(q_mom**2*H11(w) + q_mom**2*H22(w) - exp(2*A(w))*Derivative(H11(w), (w, 2)) - exp(2*A(w))*Derivative(H22(w), (w, 2)) - exp(2*A(w))*Derivative(H33(w), (w, 2)))*exp(G*Omega(w)**2/(6*M5c))*exp(G*Omega(w)**2/M5c)**(1/3) + 6*M5c*k_inf*s*(G*Omega(w)*Derivative(Wm(w), w) + 2*M5c*Derivative(H11(w), w) + 2*M5c*Derivative(H22(w), w) + 2*M5c*Derivative(H33(w), w))*exp(G*Omega(w)**2/M5c)**(1/3)*exp(2*A(w)))*exp(-G*Omega(w)**2/(6*M5c))/(6*M5c*exp(G*Omega(w)**2/M5c)**(1/3))",
+    "01": "M5c*W_freq*q_mom*H13(w)/2 + 2*M5c*k_inf*s*exp(-G*Omega(w)**2/(6*M5c) + 2*A(w))*Derivative(H01(w), w) + M5c*q_mom**2*H01(w)/2 - M5c*exp(2*A(w))*Derivative(H01(w), (w, 2))/2",
+    "02": "M5c*W_freq*q_mom*H23(w)/2 + 2*M5c*k_inf*s*exp(-G*Omega(w)**2/(6*M5c) + 2*A(w))*Derivative(H02(w), w) + M5c*q_mom**2*H02(w)/2 - M5c*exp(2*A(w))*Derivative(H02(w), (w, 2))/2",
+    "03": "-M5c*W_freq*q_mom*H11(w)/2 - M5c*W_freq*q_mom*H22(w)/2 + 2*M5c*k_inf*s*exp(-G*Omega(w)**2/(6*M5c) + 2*A(w))*Derivative(H03(w), w) - M5c*exp(2*A(w))*Derivative(H03(w), (w, 2))/2",
+    "04": "I*(-G*W_freq*k_inf*s*Omega(w)*Wm(w) + M5c*(W_freq*Derivative(H11(w), w) + W_freq*Derivative(H22(w), w) + W_freq*Derivative(H33(w), w) + q_mom*Derivative(H03(w), w))*exp(G*Omega(w)**2/(6*M5c))/2)*exp(-G*Omega(w)**2/(6*M5c))",
+    "11": "(-2*G**2*k_inf**2*Omega(w)**3*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) + 30*G*M5c*k_inf**2*Omega(w)*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) + 3*M5c**2*(W_freq**2*H22(w) + W_freq**2*H33(w) + 2*W_freq*q_mom*H03(w) + q_mom**2*H00(w) - q_mom**2*H22(w) - exp(2*A(w))*Derivative(H00(w), (w, 2)) + exp(2*A(w))*Derivative(H22(w), (w, 2)) + exp(2*A(w))*Derivative(H33(w), (w, 2)))*exp(G*Omega(w)**2/(6*M5c))*exp(G*Omega(w)**2/M5c)**(1/3) + 6*M5c*k_inf*s*(-G*Omega(w)*Derivative(Wm(w), w) + 2*M5c*Derivative(H00(w), w) - 2*M5c*Derivative(H22(w), w) - 2*M5c*Derivative(H33(w), w))*exp(G*Omega(w)**2/M5c)**(1/3)*exp(2*A(w)))*exp(-G*Omega(w)**2/(6*M5c))/(6*M5c*exp(G*Omega(w)**2/M5c)**(1/3))",
+    "12": "-M5c*W_freq**2*H12(w)/2 + 2*M5c*k_inf*s*exp(-G*Omega(w)**2/(6*M5c) + 2*A(w))*Derivative(H12(w), w) + M5c*q_mom**2*H12(w)/2 - M5c*exp(2*A(w))*Derivative(H12(w), (w, 2))/2",
+    "13": "-M5c*W_freq**2*H13(w)/2 - M5c*W_freq*q_mom*H01(w)/2 + 2*M5c*k_inf*s*exp(-G*Omega(w)**2/(6*M5c) + 2*A(w))*Derivative(H13(w), w) - M5c*exp(2*A(w))*Derivative(H13(w), (w, 2))/2",
+    "14": "I*M5c*(W_freq*Derivative(H01(w), w) + q_mom*Derivative(H13(w), w))/2",
+    "22": "(-2*G**2*k_inf**2*Omega(w)**3*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) + 30*G*M5c*k_inf**2*Omega(w)*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) + 3*M5c**2*(W_freq**2*H11(w) + W_freq**2*H33(w) + 2*W_freq*q_mom*H03(w) + q_mom**2*H00(w) - q_mom**2*H11(w) - exp(2*A(w))*Derivative(H00(w), (w, 2)) + exp(2*A(w))*Derivative(H11(w), (w, 2)) + exp(2*A(w))*Derivative(H33(w), (w, 2)))*exp(G*Omega(w)**2/(6*M5c))*exp(G*Omega(w)**2/M5c)**(1/3) + 6*M5c*k_inf*s*(-G*Omega(w)*Derivative(Wm(w), w) + 2*M5c*Derivative(H00(w), w) - 2*M5c*Derivative(H11(w), w) - 2*M5c*Derivative(H33(w), w))*exp(G*Omega(w)**2/M5c)**(1/3)*exp(2*A(w)))*exp(-G*Omega(w)**2/(6*M5c))/(6*M5c*exp(G*Omega(w)**2/M5c)**(1/3))",
+    "23": "-M5c*W_freq**2*H23(w)/2 - M5c*W_freq*q_mom*H02(w)/2 + 2*M5c*k_inf*s*exp(-G*Omega(w)**2/(6*M5c) + 2*A(w))*Derivative(H23(w), w) - M5c*exp(2*A(w))*Derivative(H23(w), (w, 2))/2",
+    "24": "I*M5c*(W_freq*Derivative(H02(w), w) + q_mom*Derivative(H23(w), w))/2",
+    "33": "(-2*G**2*k_inf**2*Omega(w)**3*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) + 30*G*M5c*k_inf**2*Omega(w)*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) + 3*M5c**2*(W_freq**2*H11(w) + W_freq**2*H22(w) - exp(2*A(w))*Derivative(H00(w), (w, 2)) + exp(2*A(w))*Derivative(H11(w), (w, 2)) + exp(2*A(w))*Derivative(H22(w), (w, 2)))*exp(G*Omega(w)**2/(6*M5c))*exp(G*Omega(w)**2/M5c)**(1/3) + 6*M5c*k_inf*s*(-G*Omega(w)*Derivative(Wm(w), w) + 2*M5c*Derivative(H00(w), w) - 2*M5c*Derivative(H11(w), w) - 2*M5c*Derivative(H22(w), w))*exp(G*Omega(w)**2/M5c)**(1/3)*exp(2*A(w)))*exp(-G*Omega(w)**2/(6*M5c))/(6*M5c*exp(G*Omega(w)**2/M5c)**(1/3))",
+    "34": "I*(G*k_inf*q_mom*s*Omega(w)*Wm(w) + M5c*(W_freq*Derivative(H03(w), w) + q_mom*Derivative(H00(w), w) - q_mom*Derivative(H11(w), w) - q_mom*Derivative(H22(w), w))*exp(G*Omega(w)**2/(6*M5c))/2)*exp(-G*Omega(w)**2/(6*M5c))",
+    "44": "(-2*G**2*k_inf**2*Omega(w)**3*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) + 30*G*M5c*k_inf**2*Omega(w)*Wm(w)*exp((G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c)) + 3*M5c**2*(W_freq**2*H11(w) + W_freq**2*H22(w) + W_freq**2*H33(w) + 2*W_freq*q_mom*H03(w) + q_mom**2*H00(w) - q_mom**2*H11(w) - q_mom**2*H22(w))*exp(G*Omega(w)**2/(6*M5c))*exp(G*Omega(w)**2/M5c)**(1/3) + 3*M5c*k_inf*s*(2*G*Omega(w)*Derivative(Wm(w), w) + 3*M5c*Derivative(H00(w), w) - 3*M5c*Derivative(H11(w), w) - 3*M5c*Derivative(H22(w), w) - 3*M5c*Derivative(H33(w), w))*exp(G*Omega(w)**2/M5c)**(1/3)*exp(2*A(w)))*exp(-(G*Omega(w)**2 + 12*M5c*A(w))/(6*M5c))/(6*M5c*exp(G*Omega(w)**2/M5c)**(1/3))",
+    "Omega": "-2*G**3*k_inf**2*Omega(w)**4*Wm(w)*exp(-G*Omega(w)**2/M5c)*exp(G*Omega(w)**2/M5c)**(2/3)/(9*M5c**2) + 13*G**2*k_inf**2*Omega(w)**2*Wm(w)*exp(-G*Omega(w)**2/M5c)*exp(G*Omega(w)**2/M5c)**(2/3)/(3*M5c) + G*W_freq**2*Wm(w)*exp(-2*A(w)) - 5*G*k_inf**2*Wm(w)*exp(-G*Omega(w)**2/M5c)*exp(G*Omega(w)**2/M5c)**(2/3) + G*k_inf*s*Omega(w)*exp(-G*Omega(w)**2/(6*M5c))*Derivative(H00(w), w)/2 - G*k_inf*s*Omega(w)*exp(-G*Omega(w)**2/(6*M5c))*Derivative(H11(w), w)/2 - G*k_inf*s*Omega(w)*exp(-G*Omega(w)**2/(6*M5c))*Derivative(H22(w), w)/2 - G*k_inf*s*Omega(w)*exp(-G*Omega(w)**2/(6*M5c))*Derivative(H33(w), w)/2 - 4*G*k_inf*s*exp(-G*Omega(w)**2/(6*M5c))*Derivative(Wm(w), w) - G*q_mom**2*Wm(w)*exp(-2*A(w)) + G*Derivative(Wm(w), (w, 2))",
+    "chi0": "-G*Z5*k_inf**2*Omega(w)**2*X0(w)*exp(-G*Omega(w)**2/(3*M5c))/(2*M5c) + W_freq**2*Z5*X0(w)*exp(-2*A(w)) + 15*Z5*k_inf**2*X0(w)*exp(-G*Omega(w)**2/(3*M5c))/4 - 4*Z5*k_inf*s*exp(-G*Omega(w)**2/(6*M5c))*Derivative(X0(w), w) - Z5*q_mom**2*X0(w)*exp(-2*A(w)) + Z5*Derivative(X0(w), (w, 2))",
+    "constraint_w_orders": {
+      "04": 1,
+      "14": 1,
+      "24": 1,
+      "34": 1,
+      "44": 1
+    },
+    "dynamical_w_orders": {
+      "00": 2,
+      "01": 2,
+      "02": 2,
+      "03": 2,
+      "11": 2,
+      "12": 2,
+      "13": 2,
+      "22": 2,
+      "23": 2,
+      "33": 2,
+      "Omega": 2,
+      "chi0": 2
+    },
+    "tensor_ratio_to_standard_form": "-M5c*exp(2*A(w))/2"
+  },
+  "jump_conditions": {
+    "bending_enters_as": "[H'_mu_nu] -> [H'_mu_nu] - 2 d_mu d_nu zeta x (sum over sides) + trace term",
+    "reading": "integrating each equation across w=0 with a delta source turns the H'' coefficient into the coefficient of the jump [H'] = sum of outward normal derivatives; the brane source is delta(w) x (tension variation + v1 brane Hessian)",
+    "second_derivative_coefficients_Omega": {
+      "Wm": "G"
+    },
+    "second_derivative_coefficients_mu_nu": {
+      "00": {
+        "11": "-M5c*exp(2*A(w))/2",
+        "22": "-M5c*exp(2*A(w))/2",
+        "33": "-M5c*exp(2*A(w))/2"
+      },
+      "01": {
+        "01": "-M5c*exp(2*A(w))/2"
+      },
+      "02": {
+        "02": "-M5c*exp(2*A(w))/2"
+      },
+      "03": {
+        "03": "-M5c*exp(2*A(w))/2"
+      },
+      "11": {
+        "00": "-M5c*exp(2*A(w))/2",
+        "22": "M5c*exp(2*A(w))/2",
+        "33": "M5c*exp(2*A(w))/2"
+      },
+      "12": {
+        "12": "-M5c*exp(2*A(w))/2"
+      },
+      "13": {
+        "13": "-M5c*exp(2*A(w))/2"
+      },
+      "22": {
+        "00": "-M5c*exp(2*A(w))/2",
+        "11": "M5c*exp(2*A(w))/2",
+        "33": "M5c*exp(2*A(w))/2"
+      },
+      "23": {
+        "23": "-M5c*exp(2*A(w))/2"
+      },
+      "33": {
+        "00": "-M5c*exp(2*A(w))/2",
+        "11": "M5c*exp(2*A(w))/2",
+        "22": "M5c*exp(2*A(w))/2"
+      }
+    }
+  },
+  "linear_equations": {
+    "E1_components_n_terms": {
+      "00": 18,
+      "01": 10,
+      "02": 10,
+      "03": 10,
+      "04": 7,
+      "11": 18,
+      "12": 10,
+      "13": 10,
+      "14": 7,
+      "22": 18,
+      "23": 10,
+      "24": 7,
+      "33": 18,
+      "34": 7,
+      "44": 25
+    },
+    "background_residuals": {
+      "00": "0",
+      "01": "0",
+      "02": "0",
+      "03": "0",
+      "04": "0",
+      "11": "0",
+      "12": "0",
+      "13": "0",
+      "14": "0",
+      "22": "0",
+      "23": "0",
+      "24": "0",
+      "33": "0",
+      "34": "0",
+      "44": "0",
+      "Omega": "0"
+    },
+    "chi0_linear_equation": "-G*Z5*k_inf**2*Omega(w)**2*chi0(x0, x1, x2, x3, w)*exp(-G*Omega(w)**2/(3*M5c))/(2*M5c) + 15*Z5*k_inf**2*chi0(x0, x1, x2, x3, w)*exp(-G*Omega(w)**2/(3*M5c))/4 - 4*Z5*k_inf*s*exp(-G*Omega(w)**2/(6*M5c))*Derivative(chi0(x0, x1, x2, x3, w), w) + Z5*Derivative(chi0(x0, x1, x2, x3, w), (w, 2)) - Z5*exp(-2*A(w))*Derivative(chi0(x0, x1, x2, x3, w), (x0, 2)) + Z5*exp(-2*A(w))*Derivative(chi0(x0, x1, x2, x3, w), (x1, 2)) + Z5*exp(-2*A(w))*Derivative(chi0(x0, x1, x2, x3, w), (x2, 2)) + Z5*exp(-2*A(w))*Derivative(chi0(x0, x1, x2, x3, w), (x3, 2))",
+    "note_phi_mixing": "outside phi=0 the Omega flux carries (3Z/(2Omega)) phi.n.P (oracle 5bfee83); it is quadratic in chi and absent at linear order"
+  },
+  "provenance": {
+    "generated_utc": "2026-09-07T22:26:07Z",
+    "generator": "derive_one_omega_charter_linear_junction_v2_2_gate.py",
+    "generator_sha256": "fcff6a36efe3d8ba5b585ddf74a3dfea076b1ea56ee396fe006a75dd1cc05594",
+    "python": "3.13.5",
+    "sympy": "1.13.3",
+    "timings_s": {
+      "bending_s": 10.4,
+      "equations_s": 4.7,
+      "geometry_s": 2.5,
+      "jump_s": 10.6,
+      "reduction_s": 9.0
+    }
+  },
+  "route_id": "canonical_one_Omega_backreacted_wall_with_rank_full_solid_v1",
+  "schema": "holo.one-omega-charter-linear-junction.v2.2",
+  "stage": {
+    "background": "v2.1 BPS Z2 wall, A(0)=0",
+    "bps_used": "A', A'', Omega', Omega'' eliminated by the v2.1 opposite-sign BPS system",
+    "gauge": "Gaussian normal attached to the brane: g_ww=1, g_mu w=0",
+    "perturbations": [
+      "h_mu_nu(x,w) (10)",
+      "omega(x,w)",
+      "chi^a(x,w) (3; only chi0 written, SO(3) symmetric)",
+      "zeta(x) (bending)"
+    ],
+    "plane_wave": "e^{i(q x3 - W t)}; momentum along x3"
+  },
+  "title": "Full variation of the one-Omega action charter, stage v2.2: linear bulk perturbations, bending and jump operators",
+  "upstream_bindings": {
+    "one_omega_action_charter_gate.json": {
+      "action_charter_digest": "93105331d9da311afa7845f9939dbd60617b929ae9ede23286fa26bedaa815c1",
+      "calculation_digest": "12b753fc2646aebfbb117db95031c2765cdd2cc040025481de08613d183ad8db",
+      "sha256": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef"
+    },
+    "one_omega_charter_bulk_junction_v2_gate.json": {
+      "sha256": "3767ed3a00eed65bb02e0e781758923472fbce676cb12b64f8bb7fbbb7bb45e4",
+      "used_for": "BPS system and background junctions"
+    },
+    "one_omega_charter_full_variation_interface_v1_gate.json": {
+      "sha256": "d15ce008e600047bfab450f7583164b7c4a4e782e3d4c34e4f42a858636c217b",
+      "used_for": "brane Hessian in the assembly rule (not consumed numerically here)"
+    },
+    "pinned_strings_sha256": "82974215315f4729d3fd21875626384823ae7c1ed4d4a086a605dff83675f7f5"
+  }
+}

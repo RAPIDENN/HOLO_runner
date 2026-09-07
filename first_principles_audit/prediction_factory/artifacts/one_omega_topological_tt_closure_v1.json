@@ -1,0 +1,258 @@
+{
+  "brane": {
+    "checks": {
+      "both_complete_brane_columns_match_TT_reference": true
+    },
+    "column_results": {
+      "H12": {
+        "candidate_after_removing_solid_and_balancing_bulk_tension": "Mb2*(W_freq**2 - q_mom**2*xi)/2",
+        "diagonal": "6*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*W_freq**2/2 - Mb2*q_mom**2*xi/2 - mu_X*v**4",
+        "residuals": {
+          "H12": "0",
+          "H13": "0",
+          "H23": "0",
+          "H33": "0",
+          "Hd": "0",
+          "Hs": "0",
+          "N1": "0",
+          "N2": "0",
+          "N3": "0",
+          "n": "0",
+          "omega": "0",
+          "pi1": "0",
+          "pi2": "0",
+          "pi3": "0",
+          "tau": "0",
+          "vphi1": "0",
+          "vphi2": "0",
+          "vphi3": "0"
+        }
+      },
+      "Hd": {
+        "candidate_after_removing_solid_and_balancing_bulk_tension": "Mb2*(W_freq**2 - q_mom**2*xi)/2",
+        "diagonal": "6*M5c*k_inf*exp(-G/(6*M5c)) + Mb2*W_freq**2/2 - Mb2*q_mom**2*xi/2 - mu_X*v**4",
+        "residuals": {
+          "H12": "0",
+          "H13": "0",
+          "H23": "0",
+          "H33": "0",
+          "Hd": "0",
+          "Hs": "0",
+          "N1": "0",
+          "N2": "0",
+          "N3": "0",
+          "n": "0",
+          "omega": "0",
+          "pi1": "0",
+          "pi2": "0",
+          "pi3": "0",
+          "tau": "0",
+          "vphi1": "0",
+          "vphi2": "0",
+          "vphi3": "0"
+        }
+      }
+    }
+  },
+  "bulk": {
+    "checks": {
+      "all_projected_bulk_rows_match_independent_TT_operator": true,
+      "both_null_modes_satisfy_all_seventeen_bulk_rows": true
+    },
+    "polarization_results": {
+      "cross": {
+        "expected_rows": {
+          "00": "0",
+          "01": "0",
+          "02": "0",
+          "03": "0",
+          "04": "0",
+          "11": "0",
+          "12": "-M5c*(h*(W_freq**2 - q_mom**2)*exp(-2*A_value) - 4*hr*k_inf*s*exp(-G*Omega_value**2/(6*M5c)) + hrr)*exp(2*A_value)/2",
+          "13": "0",
+          "14": "0",
+          "22": "0",
+          "23": "0",
+          "24": "0",
+          "33": "0",
+          "34": "0",
+          "44": "0",
+          "Omega": "0",
+          "chi0": "0"
+        },
+        "null_residuals": {
+          "00": "0",
+          "01": "0",
+          "02": "0",
+          "03": "0",
+          "04": "0",
+          "11": "0",
+          "12": "0",
+          "13": "0",
+          "14": "0",
+          "22": "0",
+          "23": "0",
+          "24": "0",
+          "33": "0",
+          "34": "0",
+          "44": "0",
+          "Omega": "0",
+          "chi0": "0"
+        },
+        "residuals": {
+          "00": "0",
+          "01": "0",
+          "02": "0",
+          "03": "0",
+          "04": "0",
+          "11": "0",
+          "12": "0",
+          "13": "0",
+          "14": "0",
+          "22": "0",
+          "23": "0",
+          "24": "0",
+          "33": "0",
+          "34": "0",
+          "44": "0",
+          "Omega": "0",
+          "chi0": "0"
+        },
+        "restricted_rows": {
+          "00": "0",
+          "01": "0",
+          "02": "0",
+          "03": "0",
+          "04": "0",
+          "11": "0",
+          "12": "M5c*(-W_freq**2*h + h*q_mom**2 + 4*hr*k_inf*s*exp((12*A_value*M5c - G*Omega_value**2)/(6*M5c)) - hrr*exp(2*A_value))/2",
+          "13": "0",
+          "14": "0",
+          "22": "0",
+          "23": "0",
+          "24": "0",
+          "33": "0",
+          "34": "0",
+          "44": "0",
+          "Omega": "0",
+          "chi0": "0"
+        }
+      },
+      "plus": {
+        "expected_rows": {
+          "00": "0",
+          "01": "0",
+          "02": "0",
+          "03": "0",
+          "04": "0",
+          "11": "-M5c*(h*(W_freq**2 - q_mom**2)*exp(-2*A_value) - 4*hr*k_inf*s*exp(-G*Omega_value**2/(6*M5c)) + hrr)*exp(2*A_value)/2",
+          "12": "0",
+          "13": "0",
+          "14": "0",
+          "22": "M5c*(h*(W_freq**2 - q_mom**2)*exp(-2*A_value) - 4*hr*k_inf*s*exp(-G*Omega_value**2/(6*M5c)) + hrr)*exp(2*A_value)/2",
+          "23": "0",
+          "24": "0",
+          "33": "0",
+          "34": "0",
+          "44": "0",
+          "Omega": "0",
+          "chi0": "0"
+        },
+        "null_residuals": {
+          "00": "0",
+          "01": "0",
+          "02": "0",
+          "03": "0",
+          "04": "0",
+          "11": "0",
+          "12": "0",
+          "13": "0",
+          "14": "0",
+          "22": "0",
+          "23": "0",
+          "24": "0",
+          "33": "0",
+          "34": "0",
+          "44": "0",
+          "Omega": "0",
+          "chi0": "0"
+        },
+        "residuals": {
+          "00": "0",
+          "01": "0",
+          "02": "0",
+          "03": "0",
+          "04": "0",
+          "11": "0",
+          "12": "0",
+          "13": "0",
+          "14": "0",
+          "22": "0",
+          "23": "0",
+          "24": "0",
+          "33": "0",
+          "34": "0",
+          "44": "0",
+          "Omega": "0",
+          "chi0": "0"
+        },
+        "restricted_rows": {
+          "00": "0",
+          "01": "0",
+          "02": "0",
+          "03": "0",
+          "04": "0",
+          "11": "-M5c*W_freq**2*h/2 + M5c*h*q_mom**2/2 + 2*M5c*hr*k_inf*s*exp(2*A_value - G*Omega_value**2/(6*M5c)) - M5c*hrr*exp(2*A_value)/2",
+          "12": "0",
+          "13": "0",
+          "14": "0",
+          "22": "M5c*W_freq**2*h/2 - M5c*h*q_mom**2/2 - 2*M5c*hr*k_inf*s*exp(2*A_value - G*Omega_value**2/(6*M5c)) + M5c*hrr*exp(2*A_value)/2",
+          "23": "0",
+          "24": "0",
+          "33": "0",
+          "34": "0",
+          "44": "0",
+          "Omega": "0",
+          "chi0": "0"
+        }
+      }
+    },
+    "reference": "-M5c*(h*(W_freq**2 - q_mom**2)*exp(-2*A_value) - 4*hr*k_inf*s*exp(-G*Omega_value**2/(6*M5c)) + hrr)*exp(2*A_value)/2"
+  },
+  "calculation_digest": "2322642226c2ff7cb9e3dcb01a30f23147efa954642080d6dfc7975d39596c9d",
+  "checks": {
+    "all_projected_bulk_rows_match_independent_TT_operator": true,
+    "both_complete_brane_columns_match_TT_reference": true,
+    "both_null_modes_satisfy_all_seventeen_bulk_rows": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BF_edge_modes_eliminated": false,
+    "both_polarizations_checked_in_displayed_bulk_and_brane_rows": true,
+    "complete_candidate_linearization_certified": false,
+    "full_N7": false,
+    "full_P4": false,
+    "independent_derivation_of_every_bulk_row": false,
+    "moving_embedding_equations_rederived": false,
+    "physical_mode_admissibility": false
+  },
+  "provenance": {
+    "test_one_omega_topological_tt_closure_v1.py": "bdb25f0933b48784da1f03ca5f8646e4f261355958319085fc77211bbfcb8d1d",
+    "verify_one_omega_topological_tt_closure_v1.py": "42cbc1ed21544bbdb0c7fd46074e389cf2d96c8d330d22c2fe89eaa28d8c1d77",
+    "verify_one_omega_topological_tt_compatibility_v1.py": "e0fb4175f2be8b18e636932362d8dcc91a1e934c522fa68c227e42ba9fa2a352"
+  },
+  "schema": "holo.one-omega-topological-tt-closure.v1",
+  "sources": {
+    "brane_snapshot": "5d1be4316075435832085b4af8b1fe3f35d839b6a319a98641a55193c3036b69",
+    "bulk_snapshot": "ea8b45c968056dda63fb4394d4395669b69d913adf94625b60a1804dc649777a",
+    "restricted_TT_receipt": "e579cc886c355ba78d54d7c88550ac350c935a062733f14f60a1e588190f9208"
+  },
+  "transport": {
+    "candidate_changes": "remove S_X and its pi_X variables; lambda_K changes; D_A replaces d; iota replaces the X-derived frame; BF added",
+    "frame_and_connection": "same varying orthonormal frame on both sides; connection trace independent of Levi-Civita; A=B=phi=0 is admitted in this trivialization",
+    "historical_source_flags_inherited": false,
+    "quadratic_mixed_TT_rows": "TT first variations of P, phi, acceleration, K trace and Rcal vanish. Their vacuum material/Robin/BF and lambda-change terms cannot add a mixed TT row. The removed solid changes the TT diagonal and has no other TT column entry in the displayed matrix.",
+    "shared_background": "W,U,GHY,wall0 unchanged; candidate source and differences verified by base receipt"
+  }
+}
