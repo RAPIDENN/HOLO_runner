@@ -1,0 +1,629 @@
+{
+  "calculation_digest": {
+    "algorithm": "sha256(canonical-json(payload without calculation_digest))",
+    "sha256": "a061d49458baa748b95d87640f5e8043c0fe3eae56038ed3bbb290d0d8bd319f"
+  },
+  "checks": {
+    "B4_no_quadratic_TT_term": true,
+    "BF_vacuum_density": true,
+    "BPS_weight_oracle_checks": true,
+    "EH_GHY_outward_UV_cancellation": true,
+    "Robin_vacuum_density": true,
+    "boundary_null_wave_at_xi_one": true,
+    "brane_TT_kinetic": true,
+    "bulk_null_wave_in_restricted_equation": true,
+    "bulk_tangential_kinetic": true,
+    "bulk_weight_positive_rewrite": true,
+    "constant_profile_IR_primitive_vanishes": true,
+    "determinant_series": true,
+    "eta_no_quadratic_TT_term": true,
+    "frame_orthonormal_through_second_order": true,
+    "inverse_series": true,
+    "junction_from_original_and_integrated_actions": true,
+    "lambda_no_quadratic_TT_term": true,
+    "material_vacuum_density": true,
+    "old_solid_contact_normalization": true,
+    "outward_momentum_orientation": true,
+    "positive_zero_mode_kinetic_weight": true,
+    "radial_integrated_BPS_mass": true,
+    "radial_trace": true,
+    "radial_trace_of_square": true,
+    "spatial_curvature_density": true,
+    "spatial_curvature_integration_by_parts": true,
+    "sqrt_determinant_series": true,
+    "two_sides_wall_cancellation": true
+  },
+  "compatibility": {
+    "candidate_connection_trace": "Trans_iota(A)=r*(Y^*A)*r^(-1)-(d r)*r^(-1)=A_Sigma",
+    "candidate_gauged_conformal_derivative": "P_eps_M=D_(A_eps,M)phi_eps+3*phi_eps*partial_M log(Omega_eps)/2",
+    "candidate_lambda_K": -0.5535068954004245,
+    "full_action_identity": false,
+    "identical_background_literals": {
+      "bulk_potential": true,
+      "full_V4": true,
+      "superpotential": true,
+      "wall_background": true
+    },
+    "legacy_scalar_sector_inherited": false,
+    "literal_comparisons": {
+      "BF": {
+        "candidate": "S_BF=sum_eps int_Meps <B_eps wedge F[A_eps]>, <X,Y>=-tr_3(XY)/2",
+        "old": null,
+        "relation": "new BF sector; no claim of edge-mode elimination"
+      },
+      "GHY": {
+        "candidate": "S_GHY=M5^3*sum_eps int_Sigma sqrt(-gamma)*Theta_eps for outward normals",
+        "old": "S_GHY=+M5^3*sum_(eps in {plus,minus}) int_Sigma sqrt(-gamma)*Theta_eps for outward spacelike normals",
+        "relation": "manual translation: same +M5^3 normalization and outward spacelike-normal convention"
+      },
+      "Robin": {
+        "candidate": "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+        "old": "S_R=-kappa_hat*int_Sigma sqrt(-gamma)*delta_ab*(varphi^a-y*Acal^a)*(varphi^b-y*Acal^b)/2",
+        "relation": "intrinsic associated-vector trace glued by iota; its metric-dependent frame varies"
+      },
+      "bulk_derivative": {
+        "candidate": "S_bulk_gauged=sum_eps int_Meps sqrt(-g_eps)*[M5^3*R_eps/2-G*(nabla Omega_eps)^2/2-U(Omega_eps)-Z5*delta_ab*P_eps_M^a*P_eps^(b M)/2-Z5*M^2*Omega_eps^(-5)*V4(Omega_eps^(3/2)*|phi_eps|)]",
+        "old": "S_bulk=sum_(eps in {plus,minus}) int_Meps sqrt(-g)*[M5^3*R/2-G*(nabla Omega)^2/2-U(Omega)-Z5_per_side*P_M^a*P_a^M/2-Z5_per_side*M^2*Omega^(-5)*V4(Omega^(3/2)*r_phi)]",
+        "relation": "ordinary internal derivative replaced by the SO3 covariant derivative D_A"
+      },
+      "bulk_potential": {
+        "candidate": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+        "old": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+        "relation": "exact string identity"
+      },
+      "foliation": {
+        "candidate": "S_fol_lower=Mb^2/2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]",
+        "old": "S_fol=Mb^2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]/2",
+        "relation": "manual translation: same displayed lower-order operators; lambda_K is changed"
+      },
+      "full_V4": {
+        "candidate": "V4(r)=r^4/(2*sqrt(1+r^4))",
+        "old": "V4(r)=r^4/(2*sqrt(1+r^4))",
+        "relation": "exact string identity"
+      },
+      "solid": {
+        "candidate": "S_X=0 and every bulk screen-clock term=0",
+        "old": "S_X=int_Sigma sqrt(-gamma)*[rho_X*(u^mu*partial_mu X^a)^2/2-mu_X*tr[(B-v^2*I)^2]/4-lambda_X*(tr(B-v^2*I))^2/8]",
+        "relation": "S_X removed; no elastic TT contact may be inherited"
+      },
+      "superpotential": {
+        "candidate": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+        "old": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+        "relation": "exact string identity"
+      },
+      "wall_background": {
+        "candidate": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]",
+        "old": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]",
+        "relation": "exact string identity"
+      }
+    },
+    "old_lambda_K": 1.3107013790800848,
+    "only_shared_numeric_parameter_change_is_lambda_K": true,
+    "parameter_comparisons": {
+      "B4_bar": {
+        "candidate": 0.8,
+        "old": 0.8,
+        "status": "identical"
+      },
+      "M4_bulk_squared_selected_one_Omega_wall_value": {
+        "candidate": 1.107013790800849,
+        "old": 1.107013790800849,
+        "status": "identical"
+      },
+      "M5_cubed": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "Robin_kappa_hat": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "Robin_kappa_in_Mb_units": {
+        "candidate": 0.5,
+        "old": 0.5,
+        "status": "identical"
+      },
+      "Robin_y": {
+        "candidate": 1.7320508075688772,
+        "old": 1.7320508075688772,
+        "status": "identical"
+      },
+      "Robin_y_squared": {
+        "candidate": 3.0,
+        "old": 3.0,
+        "status": "identical"
+      },
+      "brane_Mb_squared": {
+        "candidate": 2.0,
+        "old": 2.0,
+        "status": "identical"
+      },
+      "brane_beta": {
+        "candidate": 2.0,
+        "old": 2.0,
+        "status": "identical"
+      },
+      "compensator_metric_G": {
+        "candidate": 1.2,
+        "old": 1.2,
+        "status": "identical"
+      },
+      "eta": {
+        "candidate": 3.107013790800849,
+        "old": 3.107013790800849,
+        "status": "identical"
+      },
+      "k_BF_trace_equivalent": {
+        "candidate": -0.5,
+        "old": null,
+        "status": "added"
+      },
+      "k_infinity": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "kappa_BF_inner_product": {
+        "candidate": 1.0,
+        "old": null,
+        "status": "added"
+      },
+      "lambda_K": {
+        "candidate": -0.5535068954004245,
+        "old": 1.3107013790800848,
+        "status": "changed"
+      },
+      "material_Z5_per_side": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "material_mass_M": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "solid_lambda": {
+        "candidate": null,
+        "old": 1.0,
+        "status": "removed"
+      },
+      "solid_mu": {
+        "candidate": null,
+        "old": 1.0,
+        "status": "removed"
+      },
+      "solid_rho": {
+        "candidate": null,
+        "old": 1.0,
+        "status": "removed"
+      },
+      "solid_v": {
+        "candidate": null,
+        "old": 1.0,
+        "status": "removed"
+      },
+      "xi": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      }
+    },
+    "shared_parameter_changes": [
+      "lambda_K"
+    ]
+  },
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "BF_edge_modes_eliminated": false,
+    "C1_ACTION_pass": false,
+    "C2_BRST_pass": false,
+    "C4_HESSIAN_pass": false,
+    "N1_ACTION_pass": false,
+    "N2_CONSTRAINTS_pass": false,
+    "N3_CHARACTERISTICS_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "N5_COUPLED_BVP_pass": false,
+    "N6_GLOBAL_STABILITY_pass": false,
+    "N7_LINEAR_REDUCTION_pass": false,
+    "P4_full_same_action_pass": false,
+    "absence_of_elastic_contact_in_restricted_topological_TT": true,
+    "complete_TT_spectrum_pass": false,
+    "finite_momentum_DtN_solved": false,
+    "full_first_variation_pass": false,
+    "full_linear_TT_subspace_closure": false,
+    "physical_mode_admissibility": false,
+    "pinned_actions_restricted_TT_compatibility_verified": true,
+    "restricted_TT_bulk_and_boundary_solution_with_positive_norm": true
+  },
+  "equations": {
+    "BF_TT_density": "0",
+    "EH_UV_boundary": "M5c*(4*Ap - epsilon**2*h*hr)*(-epsilon**2*h**2/2 + 1)*exp(4*A)",
+    "EH_total_derivative": "-M5c*(4*Ap*(4*Ap - epsilon**2*h*hr)*(-epsilon**2*h**2/2 + 1)*exp(4*A) + 4*App*(-epsilon**2*h**2/2 + 1)*exp(4*A) - epsilon**2*h*hrr*(-epsilon**2*h**2/2 + 1)*exp(4*A) + hr*(-epsilon**2*h*(4*Ap - epsilon**2*h*hr)*exp(4*A) - epsilon**2*hr*(-epsilon**2*h**2/2 + 1)*exp(4*A)))",
+    "F_UV": "3*M5c*h0**2*k*exp(-G/(6*M5c))/2",
+    "F_constant_IR_limit": "0",
+    "GHY_UV": "-M5c*(4*Ap - epsilon**2*h*hr)*(-epsilon**2*h**2/2 + 1)*exp(4*A)",
+    "J_TT": "M5c*hr_minus/2 + M5c*hr_plus/2 + Mb2*freq**2*h0/2 - Mb2*h0*q**2*xi/2",
+    "J_brane": "Mb2*freq**2*h0/2 - Mb2*h0*q**2*xi/2",
+    "J_bulk": "M5c*hr_minus/2 + M5c*hr_plus/2",
+    "J_bulk_outward": "-M5c*outward_minus/2 - M5c*outward_plus/2",
+    "K_rad": [
+      [
+        "Ap",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "Ap - epsilon**2*h*hr/2",
+        "epsilon*hr/2",
+        "0"
+      ],
+      [
+        "0",
+        "epsilon*hr/2",
+        "Ap - epsilon**2*h*hr/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "Ap"
+      ]
+    ],
+    "K_time": [
+      [
+        "-epsilon**2*h*ht/2",
+        "epsilon*ht/2",
+        "0"
+      ],
+      [
+        "epsilon*ht/2",
+        "-epsilon**2*h*ht/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "M4_bulk_squared": "12*M5c**2*exp(G/(12*M5c))*sinh(G/(12*M5c))/(G*k)",
+    "M4_bulk_squared_closed_form": "6*M5c**2*(exp(G/(6*M5c)) - 1)/(G*k)",
+    "R3": "epsilon**2*(2*h*hzz + 3*hz**2/2)",
+    "R3_divergence": "2*h*hzz + 2*hz**2",
+    "R3_raw_L2": "2*h*hzz + 3*hz**2/2",
+    "Robin_TT_density": "0",
+    "S3": [
+      [
+        "0",
+        "h",
+        "0"
+      ],
+      [
+        "h",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "S4": [
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "h",
+        "0"
+      ],
+      [
+        "0",
+        "h",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "U": "G*Omega**2*k**2*exp(-G*Omega**2/(3*M5c))/2 - 6*M5c*k**2*exp(-G*Omega**2/(3*M5c))",
+    "W": "3*M5c*k*exp(-G*Omega**2/(6*M5c))",
+    "acceleration": [
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "bilateral_boundary_residual": "0",
+    "brane_L2": "Mb2*ht**2/4 - Mb2*hz**2*xi/4",
+    "bulk_Euler": "2*Ap*M5c*hr*exp(4*A) + M5c*hrr*exp(4*A)/2 - M5c*htt*exp(2*A)/2 + M5c*hzz*exp(2*A)/2",
+    "bulk_L2": "-M5c*hr**2*exp(4*A)/4 + M5c*ht**2*exp(2*A)/4 - M5c*hz**2*exp(2*A)/4",
+    "cross_primitive": "-3*Ap*M5c*h**2*exp(4*A)/2",
+    "determinant": "(epsilon*h - 1)*(epsilon*h + 1)*exp(8*A)",
+    "frame": [
+      [
+        "3*epsilon**2*h**2/8 + 1",
+        "-epsilon*h/2",
+        "0"
+      ],
+      [
+        "-epsilon*h/2",
+        "3*epsilon**2*h**2/8 + 1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "frame_residual": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "gamma": [
+      [
+        "-exp(2*A)",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "exp(2*A)",
+        "epsilon*h*exp(2*A)",
+        "0"
+      ],
+      [
+        "0",
+        "epsilon*h*exp(2*A)",
+        "exp(2*A)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(2*A)"
+      ]
+    ],
+    "gamma_inverse": [
+      [
+        "-exp(-2*A)",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(epsilon**2*h**2 + 1)*exp(-2*A)",
+        "-epsilon*h*exp(-2*A)",
+        "0"
+      ],
+      [
+        "0",
+        "-epsilon*h*exp(-2*A)",
+        "(epsilon**2*h**2 + 1)*exp(-2*A)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "exp(-2*A)"
+      ]
+    ],
+    "material_TT_density": "0",
+    "old_J_TT": "M5c*hr_minus/2 + M5c*hr_plus/2 + Mb2*freq**2*h0/2 - Mb2*h0*q**2*xi/2 - h0*mu_X*v**4",
+    "old_solid_J": "-h0*mu_X*v**4",
+    "old_solid_L2": "-h**2*mu_X*v**4/2",
+    "old_solid_contact_H": "-mu_X*v**4",
+    "original_J_TT": "M5c*hr_minus/2 + M5c*hr_plus/2 + Mb2*freq**2*h0/2 - Mb2*h0*q**2*xi/2",
+    "original_radial_momentum": "-3*Ap*M5c*h*exp(4*A) - M5c*hr*exp(4*A)/2",
+    "radial_L2_reduced": "-M5c*hr**2*exp(4*A)/4",
+    "radial_mass_BPS": "0",
+    "radial_mass_after_parts": "3*Ap**2*M5c*h**2*exp(4*A) + 3*App*M5c*h**2*exp(4*A)/2 + G*Omega**2*h**2*k**2*exp(4*A)*exp(-G*Omega**2/(3*M5c))/4 + G*Op**2*h**2*exp(4*A)/4 - 3*M5c*h**2*k**2*exp(4*A)*exp(-G*Omega**2/(3*M5c))",
+    "radial_momentum": "-M5c*hr*exp(4*A)/2",
+    "raw_brane_L2": "Mb2*h*hzz*xi + Mb2*ht**2/4 + 3*Mb2*hz**2*xi/4",
+    "raw_radial_L2": "-3*Ap**2*M5c*h**2*exp(4*A) - 3*Ap*M5c*h*hr*exp(4*A) + G*Omega**2*h**2*k**2*exp(4*A)*exp(-G*Omega**2/(3*M5c))/4 + G*Op**2*h**2*exp(4*A)/4 - 3*M5c*h**2*k**2*exp(4*A)*exp(-G*Omega**2/(3*M5c)) - M5c*hr**2*exp(4*A)/4",
+    "raw_tangential_L2": "M5c*h*hzz*exp(2*A) + M5c*ht**2*exp(2*A)/4 + 3*M5c*hz**2*exp(2*A)/4",
+    "spatial_inverse": [
+      [
+        "epsilon**2*h**2 + 1",
+        "-epsilon*h",
+        "0"
+      ],
+      [
+        "-epsilon*h",
+        "epsilon**2*h**2 + 1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "spatial_metric": [
+      [
+        "1",
+        "epsilon*h",
+        "0"
+      ],
+      [
+        "epsilon*h",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "sqrt_gamma": "(-epsilon**2*h**2/2 + 1)*exp(4*A)",
+    "tangential_L2": "M5c*ht**2*exp(2*A)/4 - M5c*hz**2*exp(2*A)/4",
+    "trace_K": "4*Ap - epsilon**2*h*hr",
+    "trace_K_squared": "4*Ap**2 + epsilon**2*(-2*Ap*h*hr + hr**2/2)",
+    "wall_L2": "3*M5c*h0**2*k*exp(-G/(6*M5c))",
+    "zero_mode_kinetic_coefficient": "Mb2/4 + 3*M5c**2*exp(G/(12*M5c))*sinh(G/(12*M5c))/(G*k)"
+  },
+  "negative_controls": {
+    "frozen_frame_breaks_orthonormality": true,
+    "omitted_second_bulk_UV_term": true,
+    "restored_solid_excludes_this_gapless_profile": true,
+    "reversed_radial_kinetic_sign": true,
+    "wrong_outward_momentum_sign": true
+  },
+  "provenance": {
+    "BPS_weight_verifier": {
+      "path": "first_principles_audit/prediction_factory/verify_one_omega_bps_tensor_weight_v1.py",
+      "sha256": "5ac880db12e9d9046594508031a6e1a73ce375758837902cbd583d9d14e86789"
+    },
+    "canonical_source_reader": {
+      "path": "first_principles_audit/prediction_factory/verify_one_omega_scalar_interface_reparam_v1.py",
+      "sha256": "25c80c452d5f42d40a5f82b27ed5f9c87d85e2a395adcbfcd193e1ac25402d65"
+    },
+    "sympy_version": "1.13.3",
+    "test": {
+      "path": "first_principles_audit/prediction_factory/test_one_omega_topological_tt_compatibility_v1.py",
+      "sha256": "02b17d7c57d9646deb8c15713e54599f6b82a54d8e50f62315bf0c8979806d22"
+    },
+    "verifier": {
+      "path": "first_principles_audit/prediction_factory/verify_one_omega_topological_tt_compatibility_v1.py",
+      "sha256": "e0fb4175f2be8b18e636932362d8dcc91a1e934c522fa68c227e42ba9fa2a352"
+    }
+  },
+  "residuals": {
+    "B4_no_quadratic_TT_term": "0",
+    "BF_vacuum_density": "0",
+    "EH_GHY_outward_UV_cancellation": "0",
+    "Robin_vacuum_density": "0",
+    "boundary_null_wave_at_xi_one": "0",
+    "brane_TT_kinetic": "0",
+    "bulk_null_wave_in_restricted_equation": "0",
+    "bulk_tangential_kinetic": "0",
+    "bulk_weight_positive_rewrite": "0",
+    "constant_profile_IR_primitive_vanishes": "0",
+    "determinant_series": "0",
+    "eta_no_quadratic_TT_term": "0",
+    "frame_orthonormal_through_second_order": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "inverse_series": [
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0"
+      ]
+    ],
+    "junction_from_original_and_integrated_actions": "0",
+    "lambda_no_quadratic_TT_term": "0",
+    "material_vacuum_density": "0",
+    "old_solid_contact_normalization": "0",
+    "outward_momentum_orientation": "0",
+    "radial_integrated_BPS_mass": "0",
+    "radial_trace": "0",
+    "radial_trace_of_square": "0",
+    "spatial_curvature_density": "0",
+    "spatial_curvature_integration_by_parts": "0",
+    "sqrt_determinant_series": "0",
+    "two_sides_wall_cancellation": "0"
+  },
+  "schema": "holo.one-omega-topological-tt-compatibility.v1",
+  "scope": {
+    "background": "decreasing one-Omega scalar BPS branch; A(0)=0,Omega(0)=1; phi=A_connection=B=a_mu=0; T=t; common fixed wall",
+    "connection_gluing": "A_Sigma is not identified with the Levi-Civita connection; A_Sigma=0 is allowed in the common moving-frame trivialization with r_plus=r_minus=I",
+    "domain": "G,M5c,k,Mb2>0; positive Omega; h12=h21=epsilon*h(t,z,r); each bulk r>=0 with UV outward normal -partial_r",
+    "expansion": "epsilon through order two; one off-diagonal TT polarization; compactly supported variations, with IR primitive vanishing for the bounded constant radial profile",
+    "frame": "inverse normalized spatial frame varies as I-epsilon*S/2+3*epsilon^2*S^2/8; bulk full inverse frame includes exp(-A)",
+    "geometry_translation": "radial and temporal ADM identities plus spatial Gaussian-foliation Ricci identity, manually translated and checked by independent Christoffel/shear tests",
+    "legacy_lambda_K_reused": false,
+    "legacy_scalar_sector_inherited": false,
+    "material_BF_reason": "With phi=0,D_A phi=0,F=0,B=0 and acceleration=0, the displayed material/Robin/BF densities vanish identically on this TT family; no representation-spin argument or BF edge elimination is used",
+    "norm": "positive coefficient (Mb2+M4_bulk_squared)/4 for this restricted mode; not a coupled stability or quantum-graviton theorem",
+    "null_profile": "radially constant generalized plane wave exp(-i*freq*t+i*q*z), q>0, freq^2=q^2, xi=1 solves the restricted bulk equation and natural TT junction; finite tangential energy requires wave packets",
+    "numerical_sampling_used_as_proof": false,
+    "restricted_variation_limit": "Varying S[h] does not establish the omitted Omega,T,lapse,shift,bending or gauge equations, their constraints or the full linear TT subspace closure"
+  },
+  "sources": {
+    "candidate": {
+      "exact_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_topological_so3_classical_v5_2_gate.json",
+      "sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b"
+    },
+    "old_charter": {
+      "action_sha256": "93105331d9da311afa7845f9939dbd60617b929ae9ede23286fa26bedaa815c1",
+      "calculation_sha256": "12b753fc2646aebfbb117db95031c2765cdd2cc040025481de08613d183ad8db",
+      "path": "first_principles_audit/prediction_factory/artifacts/one_omega_action_charter_gate.json",
+      "sha256": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef"
+    }
+  }
+}
