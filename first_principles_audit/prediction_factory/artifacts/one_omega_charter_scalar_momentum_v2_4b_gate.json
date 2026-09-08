@@ -1,0 +1,152 @@
+{
+  "boundary_action_terms": {
+    "B_plus_GHY_at_brane": "0",
+    "B_tot_at_brane": "-32*M5c*k_inf*P0(x0, x3)**2*exp(-G/(6*M5c)) + 16*M5c*k_inf*P0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2)) - 16*M5c*k_inf*P0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2)) + 4*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2))**2 + 8*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2))*Derivative(E0(x0, x3), (x3, 2)) + 4*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2))**2 - 16*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), x0, x3)**2 + 16*M5c*P0(x0, x3)*P_w(x0, x3) - 4*M5c*P0(x0, x3)*Derivative(E_w(x0, x3), (x0, 2)) + 4*M5c*P0(x0, x3)*Derivative(E_w(x0, x3), (x3, 2)) - 4*M5c*P_w(x0, x3)*Derivative(E0(x0, x3), (x0, 2)) + 4*M5c*P_w(x0, x3)*Derivative(E0(x0, x3), (x3, 2)) - 2*M5c*Derivative(E0(x0, x3), (x0, 2))*Derivative(E_w(x0, x3), (x0, 2)) - 2*M5c*Derivative(E0(x0, x3), (x0, 2))*Derivative(E_w(x0, x3), (x3, 2)) - 2*M5c*Derivative(E0(x0, x3), (x3, 2))*Derivative(E_w(x0, x3), (x0, 2)) - 2*M5c*Derivative(E0(x0, x3), (x3, 2))*Derivative(E_w(x0, x3), (x3, 2)) + 8*M5c*Derivative(E0(x0, x3), x0, x3)*Derivative(E_w(x0, x3), x0, x3)",
+    "GHY2_at_brane": "32*M5c*k_inf*P0(x0, x3)**2*exp(-G/(6*M5c)) - 16*M5c*k_inf*P0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2)) + 16*M5c*k_inf*P0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2)) - 4*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2))**2 - 8*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2))*Derivative(E0(x0, x3), (x3, 2)) - 4*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2))**2 + 16*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), x0, x3)**2 - 16*M5c*P0(x0, x3)*P_w(x0, x3) + 4*M5c*P0(x0, x3)*Derivative(E_w(x0, x3), (x0, 2)) - 4*M5c*P0(x0, x3)*Derivative(E_w(x0, x3), (x3, 2)) + 4*M5c*P_w(x0, x3)*Derivative(E0(x0, x3), (x0, 2)) - 4*M5c*P_w(x0, x3)*Derivative(E0(x0, x3), (x3, 2)) + 2*M5c*Derivative(E0(x0, x3), (x0, 2))*Derivative(E_w(x0, x3), (x0, 2)) + 2*M5c*Derivative(E0(x0, x3), (x0, 2))*Derivative(E_w(x0, x3), (x3, 2)) + 2*M5c*Derivative(E0(x0, x3), (x3, 2))*Derivative(E_w(x0, x3), (x0, 2)) + 2*M5c*Derivative(E0(x0, x3), (x3, 2))*Derivative(E_w(x0, x3), (x3, 2)) - 8*M5c*Derivative(E0(x0, x3), x0, x3)*Derivative(E_w(x0, x3), x0, x3)",
+    "adm_identity": {
+      "form": "sqrt(-g) R = sqrt(-g)[R4 + sigma (K^2 - K.K)] + tau d_w(sqrt(-g) K), K = d_w gamma/2",
+      "sigma": 1,
+      "tau": -2
+    },
+    "delta_Xw_coefficients": {
+      "C": "0",
+      "E": "0",
+      "P": "0"
+    },
+    "wall2": "-G**2*k_inf*C0(x0, x3)**2*exp(-G/(6*M5c))/(3*M5c) + G*k_inf*C0(x0, x3)**2*exp(-G/(6*M5c)) + 8*G*k_inf*C0(x0, x3)*P0(x0, x3)*exp(-G/(6*M5c)) - 2*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2)) + 2*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2)) - 24*M5c*k_inf*P0(x0, x3)**2*exp(-G/(6*M5c)) + 12*M5c*k_inf*P0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2)) - 12*M5c*k_inf*P0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2)) + 3*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2))**2 + 6*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2))*Derivative(E0(x0, x3), (x3, 2)) + 3*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2))**2 - 12*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), x0, x3)**2 - beta_b*C0(x0, x3)**2/2"
+  },
+  "boundary_bookkeeping": {
+    "note": "GHY and tension second-order pieces are not assembled here; see v2.3a for the tensor case"
+  },
+  "calculation_digest": "81f4a1dc940831432dc730117739c89c442dbe276649124d0b9c30de63174f05",
+  "checks": {
+    "E_row_current_evaluated_with_jets_pass": true,
+    "G_Omega_prime_equals_W_prime_at_brane_pass": true,
+    "adm_identity_machine_checked_pass": true,
+    "boundary_action_has_no_delta_Xw_term_pass": true,
+    "bulk_wall_W_prime_cross_terms_cancel_8P0_pass": true,
+    "charter_digests_bound_pass": true,
+    "codex_closure_J_C_after_momentum_constraint_pass": true,
+    "currents_match_codex_oracle_C_pass": true,
+    "currents_match_codex_oracle_E_pass": true,
+    "currents_match_codex_oracle_P_pass": true,
+    "delta_sqrt_gamma_first_order_is_4P_plus_boxE_pass": true,
+    "ghy_cancels_bulk_total_derivative_at_brane_pass": true,
+    "momenta_match_codex_adm_oracle_C_pass": true,
+    "momenta_match_codex_adm_oracle_E_pass": true,
+    "momenta_match_codex_adm_oracle_P_pass": true,
+    "pinned_formula_strings_match_charter_pass": true,
+    "quadratic_density_has_no_double_w_derivative_pass": true,
+    "raw_J_C_differs_from_closure_only_by_2G_times_momentum_constraint_pass": true,
+    "wall_C_coefficient_is_minus_2Wpp1_minus_beta_pass": true
+  },
+  "classification": "theory_only;scalar_sector_quadratic_density_and_canonical_momenta_from_literal_charter_action;codex_boundary_closure_tested;brane_fields_bending_GHY_not_included;N2_N7_C2_C10_P2_P3_P4_B4_B5_fail_closed",
+  "codex_adm_oracle": {
+    "J_C": "-2*G**2*k_inf*C0(x0, x3)*exp(-G/(6*M5c))/(3*M5c) + 2*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c)) + 2*G*C_w(x0, x3) - beta_b*C0(x0, x3)",
+    "J_E": "-2*G*k_inf*exp(-G/(6*M5c))*Derivative(C0(x0, x3), (x0, 2)) + 2*G*k_inf*exp(-G/(6*M5c))*Derivative(C0(x0, x3), (x3, 2)) + 6*M5c*Derivative(P_w(x0, x3), (x0, 2)) - 6*M5c*Derivative(P_w(x0, x3), (x3, 2))",
+    "J_P": "8*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c)) - 24*M5c*P_w(x0, x3) + 6*M5c*Derivative(E_w(x0, x3), (x0, 2)) - 6*M5c*Derivative(E_w(x0, x3), (x3, 2))",
+    "Pi_C": "4*G*k_inf*s*Omega(w)**5*P(x0, x3, w)*exp(-G*Omega(w)**2/(6*M5c)) - G*k_inf*s*Omega(w)**5*exp(-G*Omega(w)**2/(6*M5c))*Derivative(E(x0, x3, w), (x0, 2)) + G*k_inf*s*Omega(w)**5*exp(-G*Omega(w)**2/(6*M5c))*Derivative(E(x0, x3, w), (x3, 2)) - G*Omega(w)**4*Derivative(C(x0, x3, w), w)",
+    "Pi_E": "3*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(E(x0, x3, w), (x0, 4)) + 3*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(E(x0, x3, w), (x3, 4)) + 6*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(P(x0, x3, w), (x0, 2)) - 6*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(P(x0, x3, w), (x3, 2)) - 6*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(E(x0, x3, w), (x0, 2), (x3, 2)) - 3*M5c*Omega(w)**4*Derivative(P(x0, x3, w), w, (x0, 2)) + 3*M5c*Omega(w)**4*Derivative(P(x0, x3, w), w, (x3, 2))",
+    "Pi_P": "-24*M5c*k_inf*s*Omega(w)**4*P(x0, x3, w)*exp(-G*Omega(w)**2/(6*M5c)) + 6*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(E(x0, x3, w), (x0, 2)) - 6*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(E(x0, x3, w), (x3, 2)) + 12*M5c*Omega(w)**4*Derivative(P(x0, x3, w), w) - 3*M5c*Omega(w)**4*Derivative(E(x0, x3, w), w, (x0, 2)) + 3*M5c*Omega(w)**4*Derivative(E(x0, x3, w), w, (x3, 2))",
+    "mine_minus_oracle": {
+      "J_E": "0",
+      "J_P": "0",
+      "Pi_E": "0",
+      "Pi_P": "0"
+    }
+  },
+  "codex_closure": {
+    "C1_codex": "-G*k_inf*C0(x0, x3)*exp(-G/(6*M5c))/(3*M5c) - k_inf*(-G/(3*M5c) + 1)*C0(x0, x3)*exp(-G/(6*M5c)) + k_inf*C0(x0, x3)*exp(-G/(6*M5c)) + C_w(x0, x3)",
+    "J_C_codex": "2*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c)) + 2*G*C_w(x0, x3) - 2*G*P_w(x0, x3) - beta_b*C0(x0, x3)",
+    "a0": "-k_inf*exp(-G/(6*M5c))",
+    "bulk_part_of_J_C": "-8*G*k_inf*P0(x0, x3)*exp(-G/(6*M5c)) + 2*G*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2)) - 2*G*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2)) + 2*G*C_w(x0, x3)",
+    "momentum_constraint_P_prime": "G*k_inf*C0(x0, x3)*exp(-G/(6*M5c))/(3*M5c)",
+    "note": "Codex 053938Z: C1 comes from R = P - C/Omega and the Einstein momentum constraint P' = -G a0 C/(3M), not from the kinetic cross term alone; the bilateral cross term 2G Omega' delta sqrt(gamma) cancels -2W' delta sqrt(gamma) because G Omega' = W'",
+    "residual_after_constraint": "0",
+    "residual_raw": "-2*G**2*k_inf*C0(x0, x3)*exp(-G/(6*M5c))/(3*M5c) + 2*G*P_w(x0, x3)",
+    "wall_part_of_J_C": "-2*G**2*k_inf*C0(x0, x3)*exp(-G/(6*M5c))/(3*M5c) + 2*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c)) + 8*G*k_inf*P0(x0, x3)*exp(-G/(6*M5c)) - 2*G*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2)) + 2*G*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2)) - beta_b*C0(x0, x3)"
+  },
+  "currents": {
+    "C": "-2*G**2*k_inf*C0(x0, x3)*exp(-G/(6*M5c))/(3*M5c) + 2*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c)) + 2*G*C_w(x0, x3) - beta_b*C0(x0, x3)",
+    "E": "-2*G*k_inf*exp(-G/(6*M5c))*Derivative(C0(x0, x3), (x0, 2)) + 2*G*k_inf*exp(-G/(6*M5c))*Derivative(C0(x0, x3), (x3, 2)) + 6*M5c*Derivative(P_w(x0, x3), (x0, 2)) - 6*M5c*Derivative(P_w(x0, x3), (x3, 2))",
+    "P": "8*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c)) - 24*M5c*P_w(x0, x3) + 6*M5c*Derivative(E_w(x0, x3), (x0, 2)) - 6*M5c*Derivative(E_w(x0, x3), (x3, 2))"
+  },
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "C10_pass": false,
+    "C2_pass": false,
+    "C4_pass": false,
+    "E_current_vanishes_at_this_order": false,
+    "N2_pass": false,
+    "N3_pass": false,
+    "N4_pass": false,
+    "N5_pass": false,
+    "N6_pass": false,
+    "N7_pass": false,
+    "P2_pass": false,
+    "P3_complete_pass": false,
+    "P4_full_same_action_pass": false,
+    "bending_included_pass": false,
+    "brane_fields_included_pass": false,
+    "codex_scalar_boundary_closure_reproduced_pass": true,
+    "nonlinear_gravitational_P4_pass": false,
+    "phenomenology_claimed": false,
+    "scalar_canonical_momenta_derived_from_literal_action_pass": true,
+    "spectrum_or_stability_claimed": false
+  },
+  "evidence_boundary": [
+    "Bulk scalar sector only; brane fields and bending are not varied here.",
+    "The currents are the bulk canonical momenta plus the wall variation; GHY second-order pieces are recorded in v2.3a's tensor bookkeeping and not repeated.",
+    "No physical statement."
+  ],
+  "momenta": {
+    "C": "G*(4*k_inf*s*Omega(w)*P(x0, x3, w) - k_inf*s*Omega(w)*Derivative(E(x0, x3, w), (x0, 2)) + k_inf*s*Omega(w)*Derivative(E(x0, x3, w), (x3, 2)) - exp(G*Omega(w)**2/(6*M5c))*Derivative(C(x0, x3, w), w))*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))",
+    "E": "3*M5c*(k_inf*s*Derivative(E(x0, x3, w), (x0, 4)) + k_inf*s*Derivative(E(x0, x3, w), (x3, 4)) + 2*k_inf*s*Derivative(P(x0, x3, w), (x0, 2)) - 2*k_inf*s*Derivative(P(x0, x3, w), (x3, 2)) - 2*k_inf*s*Derivative(E(x0, x3, w), (x0, 2), (x3, 2)) + (-Derivative(P(x0, x3, w), w, (x0, 2)) + Derivative(P(x0, x3, w), w, (x3, 2)))*exp(G*Omega(w)**2/(6*M5c)))*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))",
+    "P": "3*M5c*(-8*k_inf*s*P(x0, x3, w) + 2*k_inf*s*Derivative(E(x0, x3, w), (x0, 2)) - 2*k_inf*s*Derivative(E(x0, x3, w), (x3, 2)) + (4*Derivative(P(x0, x3, w), w) - Derivative(E(x0, x3, w), w, (x0, 2)) + Derivative(E(x0, x3, w), w, (x3, 2)))*exp(G*Omega(w)**2/(6*M5c)))*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))"
+  },
+  "provenance": {
+    "generated_utc": "2026-09-08T05:56:15Z",
+    "generator": "derive_one_omega_charter_scalar_momentum_v2_4b_gate.py",
+    "generator_sha256": "76b500e3edc50ad0312d174864ef4efecfb5160441c139131224f7050a33baf6",
+    "python": "3.13.5",
+    "sympy": "1.13.3",
+    "timings_s": {
+      "density_s": 4.3,
+      "first_order_s": 11.4
+    }
+  },
+  "quadratic_density": {
+    "L1": "G**2*k_inf**2*C(x0, x3, w)*Omega(w)**7*exp(-G*Omega(w)**2/(3*M5c))/(3*M5c) - 5*G*k_inf**2*C(x0, x3, w)*Omega(w)**5*exp(-G*Omega(w)**2/(3*M5c)) - 4*G*k_inf**2*Omega(w)**6*P(x0, x3, w)*exp(-G*Omega(w)**2/(3*M5c)) + G*k_inf**2*Omega(w)**6*exp(-G*Omega(w)**2/(3*M5c))*Derivative(E(x0, x3, w), (x0, 2)) - G*k_inf**2*Omega(w)**6*exp(-G*Omega(w)**2/(3*M5c))*Derivative(E(x0, x3, w), (x3, 2)) + G*k_inf*s*Omega(w)**5*exp(-G*Omega(w)**2/(6*M5c))*Derivative(C(x0, x3, w), w) + 48*M5c*k_inf**2*Omega(w)**4*P(x0, x3, w)*exp(-G*Omega(w)**2/(3*M5c)) - 12*M5c*k_inf**2*Omega(w)**4*exp(-G*Omega(w)**2/(3*M5c))*Derivative(E(x0, x3, w), (x0, 2)) + 12*M5c*k_inf**2*Omega(w)**4*exp(-G*Omega(w)**2/(3*M5c))*Derivative(E(x0, x3, w), (x3, 2)) - 12*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(P(x0, x3, w), w) + 3*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(E(x0, x3, w), w, (x0, 2)) - 3*M5c*k_inf*s*Omega(w)**4*exp(-G*Omega(w)**2/(6*M5c))*Derivative(E(x0, x3, w), w, (x3, 2)) + 3*M5c*Omega(w)**2*Derivative(P(x0, x3, w), (x0, 2)) - 3*M5c*Omega(w)**2*Derivative(P(x0, x3, w), (x3, 2))",
+    "n_terms_first_order": 59,
+    "total_derivative_B": "-16*M5c*epsilon**2*Omega(w)**4*P(x0, x3, w)**2*Derivative(log(Omega(w)), w) + 8*M5c*epsilon**2*Omega(w)**4*P(x0, x3, w)*Derivative(E(x0, x3, w), (x0, 2))*Derivative(log(Omega(w)), w) - 8*M5c*epsilon**2*Omega(w)**4*P(x0, x3, w)*Derivative(E(x0, x3, w), (x3, 2))*Derivative(log(Omega(w)), w) - 8*M5c*epsilon**2*Omega(w)**4*P(x0, x3, w)*Derivative(P(x0, x3, w), w) + 2*M5c*epsilon**2*Omega(w)**4*P(x0, x3, w)*Derivative(E(x0, x3, w), w, (x0, 2)) - 2*M5c*epsilon**2*Omega(w)**4*P(x0, x3, w)*Derivative(E(x0, x3, w), w, (x3, 2)) + 2*M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), (x0, 2))**2*Derivative(log(Omega(w)), w) + 4*M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), (x0, 2))*Derivative(E(x0, x3, w), (x3, 2))*Derivative(log(Omega(w)), w) + 2*M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), (x0, 2))*Derivative(P(x0, x3, w), w) + M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), (x0, 2))*Derivative(E(x0, x3, w), w, (x0, 2)) + M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), (x0, 2))*Derivative(E(x0, x3, w), w, (x3, 2)) + 2*M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), (x3, 2))**2*Derivative(log(Omega(w)), w) - 2*M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), (x3, 2))*Derivative(P(x0, x3, w), w) + M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), (x3, 2))*Derivative(E(x0, x3, w), w, (x0, 2)) + M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), (x3, 2))*Derivative(E(x0, x3, w), w, (x3, 2)) - 8*M5c*epsilon**2*Omega(w)**4*Derivative(log(Omega(w)), w)*Derivative(E(x0, x3, w), x0, x3)**2 - 4*M5c*epsilon**2*Omega(w)**4*Derivative(E(x0, x3, w), x0, x3)*Derivative(E(x0, x3, w), w, x0, x3) - 16*M5c*epsilon*Omega(w)**4*P(x0, x3, w)*Derivative(log(Omega(w)), w) + 4*M5c*epsilon*Omega(w)**4*Derivative(E(x0, x3, w), (x0, 2))*Derivative(log(Omega(w)), w) - 4*M5c*epsilon*Omega(w)**4*Derivative(E(x0, x3, w), (x3, 2))*Derivative(log(Omega(w)), w) - 4*M5c*epsilon*Omega(w)**4*Derivative(P(x0, x3, w), w) + M5c*epsilon*Omega(w)**4*Derivative(E(x0, x3, w), w, (x0, 2)) - M5c*epsilon*Omega(w)**4*Derivative(E(x0, x3, w), w, (x3, 2)) - 4*M5c*Omega(w)**4*Derivative(log(Omega(w)), w)"
+  },
+  "route_id": "canonical_one_Omega_backreacted_wall_with_rank_full_solid_v1",
+  "schema": "holo.one-omega-charter-scalar-momentum.v2.4b",
+  "stage": {
+    "ansatz": "h = 2P eta + 2 dd E, Omega = Omega(w) + eps C, GN gauge, proper w, BPS A = log Omega; boundary data P0,E0,C0,P_w,E_w,C_w are functions of (x0,x3); radial momenta by the jet boundary operator",
+    "not_included": [
+      "brane fields (khronon, solid, varphi)",
+      "bending",
+      "GHY second order (recorded separately)",
+      "spectrum"
+    ]
+  },
+  "title": "Full variation of the one-Omega action charter, stage v2.4b: scalar-sector jet momenta, boundary action (B_tot + GHY + wall) and brane currents",
+  "upstream_bindings": {
+    "one_omega_action_charter_gate.json": {
+      "action_charter_digest": "93105331d9da311afa7845f9939dbd60617b929ae9ede23286fa26bedaa815c1",
+      "calculation_digest": "12b753fc2646aebfbb117db95031c2765cdd2cc040025481de08613d183ad8db",
+      "sha256": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef"
+    },
+    "one_omega_charter_linear_junction_v2_2_gate.json": {
+      "sha256": "cdd3fc0b11c7282404a4ae6a49393bc6bda1989f2b66b41cbff2ae4df9621ff3"
+    },
+    "pinned_strings_sha256": "41dac3e492addf7f44433396bc143ab3c8e66729e6a538ff5c9f3971127fdb5b"
+  },
+  "wall": {
+    "Wpp1": "G*k_inf*(G - 3*M5c)*exp(-G/(6*M5c))/(3*M5c)",
+    "wall1": "2*G*k_inf*C(x0, x3, w)*exp(-G/(6*M5c)) - 24*M5c*k_inf*P(x0, x3, w)*exp(-G/(6*M5c)) + 6*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E(x0, x3, w), (x0, 2)) - 6*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E(x0, x3, w), (x3, 2))",
+    "wall2": "-G**2*k_inf*C0(x0, x3)**2*exp(-G/(6*M5c))/(3*M5c) + G*k_inf*C0(x0, x3)**2*exp(-G/(6*M5c)) + 8*G*k_inf*C0(x0, x3)*P0(x0, x3)*exp(-G/(6*M5c)) - 2*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2)) + 2*G*k_inf*C0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2)) - 24*M5c*k_inf*P0(x0, x3)**2*exp(-G/(6*M5c)) + 12*M5c*k_inf*P0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2)) - 12*M5c*k_inf*P0(x0, x3)*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2)) + 3*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2))**2 + 6*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x0, 2))*Derivative(E0(x0, x3), (x3, 2)) + 3*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), (x3, 2))**2 - 12*M5c*k_inf*exp(-G/(6*M5c))*Derivative(E0(x0, x3), x0, x3)**2 - beta_b*C0(x0, x3)**2/2"
+  }
+}
