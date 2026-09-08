@@ -1,0 +1,117 @@
+{
+  "calculation_digest": "fac4887ffecd08eb2544c178dd5e2f09538e275675f453283e6f4405fe4d4436",
+  "checks": {
+    "both_weights_normalized_at_UV": true,
+    "finite_positive_weight_integral_bounds": true,
+    "high_mass_coercivity_branch": true,
+    "high_mass_coercivity_remainder_nonnegative": true,
+    "inverse_P_integrals_diverge": true,
+    "low_mass_coercivity_branch": true,
+    "low_mass_coercivity_remainder_nonnegative": true,
+    "mass_modulus_bound": true,
+    "rotated_form_real_part": true,
+    "strict_coercivity_coefficient": true,
+    "weight_ratio_scalar_R": true,
+    "weight_ratio_tensor": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BF_edge_and_independent_embedding_equations_certified": false,
+    "full_N7": false,
+    "full_P4": false,
+    "imaginary_axis_limits_certified": false,
+    "infinite_dimensional_proof_formally_machine_checked": false,
+    "material_and_Omega_pivots_have_no_RHP_zeros_on_selected_branch": true,
+    "other_IR_domains_certified": false,
+    "remaining_scalar_determinant_nonzero_in_RHP": false,
+    "selected_DtN_strictly_positive_real_after_division_by_s": true,
+    "selected_finite_energy_DtN_holomorphic_in_RHP": true,
+    "selected_finite_energy_TT_and_R_DtN_exist_uniquely_in_RHP": true,
+    "tensor_vector_denominators_have_no_RHP_zeros_on_selected_branch": true
+  },
+  "model": {
+    "checks": {
+      "both_weights_normalized_at_UV": true,
+      "finite_positive_weight_integral_bounds": true,
+      "high_mass_coercivity_branch": true,
+      "high_mass_coercivity_remainder_nonnegative": true,
+      "inverse_P_integrals_diverge": true,
+      "low_mass_coercivity_branch": true,
+      "low_mass_coercivity_remainder_nonnegative": true,
+      "mass_modulus_bound": true,
+      "rotated_form_real_part": true,
+      "strict_coercivity_coefficient": true,
+      "weight_ratio_scalar_R": true,
+      "weight_ratio_tensor": true
+    },
+    "coercivity_constant": "sigma*Min(1, q**2 + sigma**2 + tau**2)/(sigma**2 + tau**2)",
+    "coercivity_high_remainder": "E_weighted*coercive_prefactor*slack",
+    "coercivity_low_remainder": "E_radial*coercive_prefactor*slack/(slack + 1)",
+    "cutoff_tail_bound": "2*E_radial + E_weighted*(2*cutoff_derivative_bound**2 + 1)",
+    "mass_coefficient": "q**2 + sigma**2 + tau**2",
+    "mass_modulus_gap": "4*q**2*tau**2",
+    "operator_inverse_bound": "sqrt(sigma**2 + tau**2)/(sigma*Min(1, q**2 + sigma**2 + tau**2))",
+    "residuals": {
+      "high_mass_coercivity_branch": "0",
+      "low_mass_coercivity_branch": "0",
+      "mass_modulus_bound": "0",
+      "rotated_form_real_part": "0",
+      "weight_ratio_scalar_R": "0",
+      "weight_ratio_tensor": "0"
+    },
+    "rho": "sigma**2 + tau**2",
+    "rotated_form_real_part": "sigma*(E_radial + E_weighted*q**2 + E_weighted*sigma**2 + E_weighted*tau**2)/(sigma**2 + tau**2)",
+    "scope": {
+      "BF_edge_and_embedding_sectors_certified": false,
+      "Dirichlet_subspace": "kernel of the continuous UV trace",
+      "Omega_range": "0<Omega<=1; Omega(0)=1; BPS Omega_prime=-k*Omega*exp(-deformation*Omega^2)",
+      "core": "smooth compactly supported functions on the closed half-line, with trace free at zero",
+      "full_N7": false,
+      "full_P4": false,
+      "half_plane": "Re(s)>0 with q real fixed",
+      "imaginary_axis_limits_certified": false,
+      "infinite_dimensional_proof_formally_machine_checked": false,
+      "other_IR_domains_certified": false,
+      "remaining_scalar_determinant_stability": false,
+      "space": "completion in integral P|u_prime|^2+W|u|^2; equivalent to all finite-energy functions for these weights",
+      "variational_IR_domain_selected": true
+    },
+    "weights": {
+      "scalar_R": {
+        "P": "Omega**6",
+        "P_UV": "1",
+        "P_over_W": "Omega**2",
+        "W": "Omega**4",
+        "W_integral_upper_bound": "exp(deformation)/(4*k)",
+        "W_radial_integrand": "Omega**3*exp(Omega**2*deformation)/k",
+        "inverse_P_integral_diverges": true,
+        "inverse_P_integral_lower_bound": "(-1 + lower_cutoff**(-6))/(6*k)",
+        "inverse_P_radial_integrand": "exp(Omega**2*deformation)/(Omega**7*k)"
+      },
+      "tensor": {
+        "P": "Omega**4",
+        "P_UV": "1",
+        "P_over_W": "Omega**2",
+        "W": "Omega**2",
+        "W_integral_upper_bound": "exp(deformation)/(2*k)",
+        "W_radial_integrand": "Omega*exp(Omega**2*deformation)/k",
+        "inverse_P_integral_diverges": true,
+        "inverse_P_integral_lower_bound": "(-1 + lower_cutoff**(-4))/(4*k)",
+        "inverse_P_radial_integrand": "exp(Omega**2*deformation)/(Omega**5*k)"
+      }
+    }
+  },
+  "proof_type": "self-contained mathematical proof independently reviewed; companion verifies coefficient algebra, not Hilbert-space proof objects",
+  "provenance": {
+    "one_omega_variational_dtn_lemma_v1.md": "a31c714c3b3b75ac832dd929edf9bb2f79ebc7f81654bb86069d82fa26d72c54",
+    "test_one_omega_variational_dtn_v1.py": "495d7bec888433fec070ef95a6fb268ee3e58895d2353eb5d43441d0fb1f18f2",
+    "verify_one_omega_topological_sector_reduction_v1.py": "40230026f03a5945b7c230c0de9feec18646b95876c32cd2e6d08838687b1b7d",
+    "verify_one_omega_variational_dtn_v1.py": "e41affcda001cc656b50378fb8b9a6ef0c2de82596cf33753b342d22566d3288"
+  },
+  "schema": "holo.one-omega-variational-dtn.v1",
+  "sources": {
+    "reviewed_mathematical_proof": "a31c714c3b3b75ac832dd929edf9bb2f79ebc7f81654bb86069d82fa26d72c54",
+    "sector_reduction": "4fa7432924b429ce4d350d6b6f96ba92965ee57b2d979dbd0fa029c1d29874e3"
+  }
+}
