@@ -320,12 +320,24 @@ def derive() -> dict[str, Any]:
     neumann_num = float(neumann_coeff.subs({M5c: M5}))
     def assembled(p2):
         # brane (v1, tadpole-free, xi=1 -> Lorentz invariant): -(Mb2/2) p2 - mu v^4 ; bulk: neumann_coeff * H'(0+)/H(0) per side, two sides
-        return -(Mb2 / 2) * p2 - mu * v**4 + 2 * neumann_num * ratios_at(p2)
+        # neumann_coeff = M5^3 already carries the Z2 sum of both sides (Codex 005334Z caught a duplicated factor 2 here)
+        return -(Mb2 / 2) * p2 - mu * v**4 + neumann_num * ratios_at(p2)
     def ratios_at(p2):
         return dtn(p2)
     assembled_grid = {str(p2): assembled(p2) for p2 in (1e-3, 1e-2, 0.1, 1.0)}
     # brane operator -(Mb2/2) p2 plus bulk neumann_num * (-p2 * I) = -(Mb2 + 2 neumann_num I) p2 / 2 -> induced Planck mass^2
     induced_planck = Mb2 + 2 * neumann_num * (half_int + tail)
+    # grid-vs-Planck consistency: at small p2 the assembled operator must equal -(induced_planck/2) p2 - mu v^4
+    p2s = 1e-3
+    grid_small = -(Mb2 / 2) * p2s - mu * v**4 + neumann_num * dtn(p2s)
+    grid_pred = -(induced_planck / 2) * p2s - mu * v**4
+    grid_vs_planck_rel = abs(grid_small - grid_pred) / abs(grid_pred)
+    grid_vs_planck_ok = grid_vs_planck_rel < 1e-3
+    # exact closed form of the warp integral (Codex 223839Z / 2e5fbf3; antecedent compensator_wall:512): with A = log Omega
+    a_par = Gn / (6 * M5)
+    M4_closed = 6 * M5**2 * (math.exp(a_par) - 1) / (k * Gn)
+    m4_closed_rel = abs(M4_num - M4_closed) / M4_closed
+    m4_closed_ok = m4_closed_rel < 1e-9
     eta_charter = 3.107013790800849
     eta_rel = abs(induced_planck - eta_charter) / eta_charter
     eta_match = eta_rel < 1e-6
@@ -344,7 +356,9 @@ def derive() -> dict[str, Any]:
         "bps_warp_integral_reproduces_charter_M4_squared_pass": bool(m4_match),
         "tensor_dtn_small_momentum_slope_is_warp_integral_pass": bool(slope_ok),
         "boundary_action_has_no_h_hprime_term_after_ghy_pass": bool(boundary_hhprime == 0),
-        "induced_tensor_planck_mass_equals_charter_eta_pass": bool(eta_match),
+        "assembled_grid_consistent_with_induced_planck_pass": bool(grid_vs_planck_ok),
+        "bps_warp_integral_matches_closed_form_pass": bool(m4_closed_ok),
+        "induced_tensor_planck_mass_reproduces_charter_eta_pass": bool(eta_match),
     }
     decision = {k: False for k in PHYSICAL_FALSE_KEYS}
     decision.update({"tensor_sector_quadratic_action_boundary_and_dtn_pass": bool(all(checks.values())),
@@ -369,11 +383,15 @@ def derive() -> dict[str, Any]:
         "numerics": {"wmax": wmax, "A_at_wmax": A_of(wmax), "Omega_at_wmax": Om_of(wmax), "A_prime_asymptotic": -Wn(Om_of(wmax)) / (3 * M5),
                      "half_warp_integral": half_int, "ads_tail": tail, "M4_squared_numeric": M4_num, "M4_squared_charter": M4_charter, "M4_relative_error": m4_rel,
                      "tensor_dtn_Hprime_over_H_at_0plus": ratios, "small_p2_slope": slope, "small_p2_slope_expected": slope_expected, "slope_relative_error": slope_rel},
-        "assembly": {"tensor_operator_per_amplitude": "-(Mb2/2)(xi q^2 - W^2) - mu v^4 + 2 * C_N * H'(0+)/H(0)  with C_N = " + str(neumann_coeff),
+        "assembly": {"tensor_operator_per_amplitude": "-(Mb2/2)(xi q^2 - W^2) - mu v^4 + C_N * H'(0+)/H(0)  with C_N = " + str(neumann_coeff) + " (Z2 sum of both sides already included)",
                      "assembled_on_grid_spacelike_p2": assembled_grid,
-                     "small_p2_reading": "H'/H -> -p2 * I  with I = Int_0^inf e^{2A}: the bulk adds -2 C_N I p2 to the brane -(Mb2/2) p2, i.e. an induced Planck mass Mb2 + 4 C_N I in the same units; the solid contributes the p2-independent -mu v^4",
+                     "small_p2_reading": "H'/H -> -p2 * I with I = Int_0^inf e^{2A}; the bulk (both sides, via C_N = M5^3 = -p_+ + p_-) adds -M5^3 I p2 to the brane -(Mb2/2) p2, i.e. -(Mb2 + 2 M5^3 I) p2 / 2 = -(Mb2 + M4^2) p2 / 2; the solid contributes the p2-independent -mu v^4",
+                     "jump_vs_outward_sign": "[H'] = H'(0+) - H'(0-) = -(n_+.grad H + n_-.grad H) with n_+ = -d_w, n_- = +d_w; the brane-equation bulk term -p_+ + p_- = M5^3 h'(0+) = (M5^3/2)[h'] (Codex 223700Z)",
                      "induced_planck_mass_squared_witness": induced_planck, "charter_eta": eta_charter, "eta_relative_error": eta_rel,
-                     "eta_reading": "the charter's foliation coefficient eta equals Mb2 + M4^2 numerically; recorded as an identity of numbers, its physical role is not interpreted here",
+                     "eta_reading": "eta reproduces Mb2 + M4^2 because the charter selected eta_bare = 2(xi_bare + r0) with r0 = M4_bulk^2/Mb^2 (wall_adm gate lines 874-893, imported by the charter): a prior matching choice in Mb units, reproduced here from the literal action, not a new identity (Codex 224209Z)",
+                     "M4_closed_form": M4_closed, "M4_closed_form_relative_error": m4_closed_rel,
+                     "M4_reading": "M5^3 Int e^{2A} reproduces the charter's frozen M4^2; with A = log Omega (charter.background) the integral is 6 M5^6 [e^{G/(6M5^3)} - 1]/(k G), an antecedent of compensator_wall:512, verified exactly by Codex 2e5fbf3",
+                     "grid_vs_planck_relative_error": grid_vs_planck_rel,
                      "solid_tensor_mass_term_witness": -mu * v**4},
         "checks": checks, "decision": decision,
         "classification": "theory_only;tensor_sector_quadratic_action_and_boundary_bookkeeping_exact;bps_warp_reproduces_charter_M4;tensor_DtN_numerical_witness;vector_scalar_sectors_spectrum_constraints_characteristics_not_done;N2_N7_C2_C10_P2_P3_P4_B4_B5_fail_closed",

@@ -65,7 +65,7 @@
       "zeta_b(x0, x1, x2, x3)"
     ]
   },
-  "calculation_digest": "803c9aa2c44f422ca0466de966ac54b877ebb0563548ec8d19ba23e5832a360f",
+  "calculation_digest": "e34e2db0048f0ce40403749335bd0ba93cb1ddc50fa7d76724378f81b9f48a85",
   "checks": {
     "background_equations_vanish_on_bps_pass": true,
     "bending_diffeomorphism_preserves_gaussian_normal_gauge_pass": true,
@@ -160,7 +160,7 @@
   },
   "jump_conditions": {
     "bending_enters_as": "[H'_mu_nu] -> [H'_mu_nu] - 2 d_mu d_nu zeta x (sum over sides) + trace term",
-    "reading": "integrating each equation across w=0 with a delta source turns the H'' coefficient into the coefficient of the jump [H'] = sum of outward normal derivatives; the brane source is delta(w) x (tension variation + v1 brane Hessian)",
+    "reading": "integrating each equation across w=0 with a delta source turns the H'' coefficient into the coefficient of the jump [H'] = H'(0+) - H'(0-) = -(n_+.grad H + n_-.grad H) for outward normals n_+ = -d_w, n_- = +d_w (Codex 223700Z); the brane source is delta(w) x (tension variation + v1 brane Hessian)",
     "second_derivative_coefficients_Omega": {
       "Wm": "G"
     },
@@ -245,17 +245,17 @@
     "note_phi_mixing": "outside phi=0 the Omega flux carries (3Z/(2Omega)) phi.n.P (oracle 5bfee83); it is quadratic in chi and absent at linear order"
   },
   "provenance": {
-    "generated_utc": "2026-09-07T22:26:07Z",
+    "generated_utc": "2026-09-08T04:45:37Z",
     "generator": "derive_one_omega_charter_linear_junction_v2_2_gate.py",
-    "generator_sha256": "fcff6a36efe3d8ba5b585ddf74a3dfea076b1ea56ee396fe006a75dd1cc05594",
+    "generator_sha256": "2f15b449cf7c002267eee682425a164ad179dd4bb7233d59435316c42459346e",
     "python": "3.13.5",
     "sympy": "1.13.3",
     "timings_s": {
-      "bending_s": 10.4,
-      "equations_s": 4.7,
-      "geometry_s": 2.5,
-      "jump_s": 10.6,
-      "reduction_s": 9.0
+      "bending_s": 9.5,
+      "equations_s": 3.4,
+      "geometry_s": 1.8,
+      "jump_s": 9.6,
+      "reduction_s": 8.5
     }
   },
   "route_id": "canonical_one_Omega_backreacted_wall_with_rank_full_solid_v1",
@@ -280,7 +280,7 @@
       "sha256": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef"
     },
     "one_omega_charter_bulk_junction_v2_gate.json": {
-      "sha256": "3767ed3a00eed65bb02e0e781758923472fbce676cb12b64f8bb7fbbb7bb45e4",
+      "sha256": "3e774e52bf495cc98c562f757f5af3aa41935ae8bb0eb969ae4f5e7b85611db0",
       "used_for": "BPS system and background junctions"
     },
     "one_omega_charter_full_variation_interface_v1_gate.json": {

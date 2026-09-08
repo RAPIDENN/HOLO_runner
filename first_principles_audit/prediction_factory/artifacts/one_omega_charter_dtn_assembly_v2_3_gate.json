@@ -1,18 +1,23 @@
 {
   "assembly": {
+    "M4_closed_form": 1.1070137908008493,
+    "M4_closed_form_relative_error": 1.3807913442506527e-12,
+    "M4_reading": "M5^3 Int e^{2A} reproduces the charter's frozen M4^2; with A = log Omega (charter.background) the integral is 6 M5^6 [e^{G/(6M5^3)} - 1]/(k G), an antecedent of compensator_wall:512, verified exactly by Codex 2e5fbf3",
     "assembled_on_grid_spacelike_p2": {
-      "0.001": -1.002105117735764,
-      "0.01": -1.0209380613425216,
-      "0.1": -1.203096880804531,
-      "1.0": -2.8089771202248492
+      "0.001": -1.001552558867882,
+      "0.01": -1.0154690306712608,
+      "0.1": -1.1515484404022656,
+      "1.0": -2.4044885601124246
     },
     "charter_eta": 3.107013790800849,
-    "eta_reading": "the charter's foliation coefficient eta equals Mb2 + M4^2 numerically; recorded as an identity of numbers, its physical role is not interpreted here",
+    "eta_reading": "eta reproduces Mb2 + M4^2 because the charter selected eta_bare = 2(xi_bare + r0) with r0 = M4_bulk^2/Mb^2 (wall_adm gate lines 874-893, imported by the charter): a prior matching choice in Mb units, reproduced here from the literal action, not a new identity (Codex 224209Z)",
     "eta_relative_error": 4.919691907482401e-13,
+    "grid_vs_planck_relative_error": 9.465570362714993e-07,
     "induced_planck_mass_squared_witness": 3.1070137908023776,
-    "small_p2_reading": "H'/H -> -p2 * I  with I = Int_0^inf e^{2A}: the bulk adds -2 C_N I p2 to the brane -(Mb2/2) p2, i.e. an induced Planck mass Mb2 + 4 C_N I in the same units; the solid contributes the p2-independent -mu v^4",
+    "jump_vs_outward_sign": "[H'] = H'(0+) - H'(0-) = -(n_+.grad H + n_-.grad H) with n_+ = -d_w, n_- = +d_w; the brane-equation bulk term -p_+ + p_- = M5^3 h'(0+) = (M5^3/2)[h'] (Codex 223700Z)",
+    "small_p2_reading": "H'/H -> -p2 * I with I = Int_0^inf e^{2A}; the bulk (both sides, via C_N = M5^3 = -p_+ + p_-) adds -M5^3 I p2 to the brane -(Mb2/2) p2, i.e. -(Mb2 + 2 M5^3 I) p2 / 2 = -(Mb2 + M4^2) p2 / 2; the solid contributes the p2-independent -mu v^4",
     "solid_tensor_mass_term_witness": -1.0,
-    "tensor_operator_per_amplitude": "-(Mb2/2)(xi q^2 - W^2) - mu v^4 + 2 * C_N * H'(0+)/H(0)  with C_N = M5c"
+    "tensor_operator_per_amplitude": "-(Mb2/2)(xi q^2 - W^2) - mu v^4 + C_N * H'(0+)/H(0)  with C_N = M5c (Z2 sum of both sides already included)"
   },
   "boundary_bookkeeping": {
     "GHY_second_order_both_sides": "-4*M5c*h0**2*k_inf*exp(-G/(6*M5c)) + 2*M5c*h0*hprime_plus",
@@ -23,12 +28,14 @@
     "tension_second_order": "3*M5c*h0**2*k_inf*exp(-G/(6*M5c))",
     "total": "0"
   },
-  "calculation_digest": "f427d4d8b22b0794a039a697cbc25efb97f5c5c13b3041fbb572c79d4522eeee",
+  "calculation_digest": "165328e3cb60cbd988e68865653855b905d38522602d9c31b57401bb70e2d6e9",
   "checks": {
+    "assembled_grid_consistent_with_induced_planck_pass": true,
     "boundary_action_has_no_h_hprime_term_after_ghy_pass": true,
+    "bps_warp_integral_matches_closed_form_pass": true,
     "bps_warp_integral_reproduces_charter_M4_squared_pass": true,
     "charter_digests_bound_pass": true,
-    "induced_tensor_planck_mass_equals_charter_eta_pass": true,
+    "induced_tensor_planck_mass_reproduces_charter_eta_pass": true,
     "pinned_formula_strings_match_charter_pass": true,
     "tensor_dtn_small_momentum_slope_is_warp_integral_pass": true,
     "tt_boundary_terms_cancel_on_bps_pass": true,
@@ -99,15 +106,15 @@
     "wmax": 40.0
   },
   "provenance": {
-    "generated_utc": "2026-09-07T22:35:57Z",
+    "generated_utc": "2026-09-08T04:46:33Z",
     "generator": "derive_one_omega_charter_dtn_assembly_v2_3_gate.py",
-    "generator_sha256": "3a84d61491c5623ae295a75e1b24d0e205486a073b00826e2c40031ff4b12f12",
+    "generator_sha256": "00d71943820050b5ab17b412cb224f74ce755b16e06886a8449c8c27fa1b9b3d",
     "numpy": "2.4.2",
     "python": "3.13.5",
     "sympy": "1.13.3",
     "timings_s": {
       "boundary_s": 0.7,
-      "numerics_s": 2.8,
+      "numerics_s": 3.0,
       "symbolic_action_s": 0.2,
       "symbolic_reduction_s": 0.6
     }
@@ -156,7 +163,7 @@
       "used_for": "tensor block -(Mb2/2)(xi q^2 - W^2) - mu v^4 (tadpole-free)"
     },
     "one_omega_charter_linear_junction_v2_2_gate.json": {
-      "sha256": "ea8b45c968056dda63fb4394d4395669b69d913adf94625b60a1804dc649777a",
+      "sha256": "cdd3fc0b11c7282404a4ae6a49393bc6bda1989f2b66b41cbff2ae4df9621ff3",
       "used_for": "tensor ODE cross-check"
     },
     "pinned_strings_sha256": "41dac3e492addf7f44433396bc143ab3c8e66729e6a538ff5c9f3971127fdb5b"

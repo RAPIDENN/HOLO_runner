@@ -74,6 +74,25 @@ def test_dtn_slope_and_monotonicity(stored: dict) -> None:
     assert all(vals[i] > vals[i + 1] for i in range(len(vals) - 1))  # more negative with larger p^2
 
 
+def test_jump_vs_outward_sign_two_independent_derivatives() -> None:
+    """[H'] = H'(0+) - H'(0-) equals MINUS the sum of outward normal derivatives (n_+ = -d_w, n_- = +d_w)."""
+    hp, hm = sp.symbols("hprime_plus hprime_minus", real=True)
+    jump = hp - hm
+    outward_sum = (-1) * hp + (+1) * hm
+    assert sp.simplify(jump + outward_sum) == 0
+    # brane-equation bulk term from the canonical momentum with the (-s) boundary sign: -p_+ + p_-, p = 2 C_w h', C_w(0) = -M5^3/4
+    M5c = sp.Symbol("M5c", positive=True)
+    term = -(2 * (-M5c / 4) * hp) + (2 * (-M5c / 4) * hm)
+    assert sp.simplify(term - M5c * jump / 2) == 0
+
+
+def test_assembled_grid_uses_single_Z2_factor(stored: dict) -> None:
+    a = stored["assembly"]; n = stored["numerics"]
+    assert a["grid_vs_planck_relative_error"] < 1e-3
+    assert "2 * C_N" not in a["tensor_operator_per_amplitude"]
+    assert n["M4_relative_error"] < 1e-9 and a["M4_closed_form_relative_error"] < 1e-9
+
+
 def test_mutating_numerics_breaks_digest(stored: dict) -> None:
     mutant = copy.deepcopy(stored)
     mutant["numerics"]["M4_squared_numeric"] = 1.0

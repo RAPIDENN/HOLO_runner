@@ -355,7 +355,7 @@ def derive() -> dict[str, Any]:
                     "d_w_delta_h_at_brane": [[str(ddh0[m, k]) for k in range(4)] for m in range(4)],
                     "expected": "-2 d_mu d_nu zeta + eta_mu_nu x (trace term)"},
         "jump_conditions": {"second_derivative_coefficients_mu_nu": jump, "second_derivative_coefficients_Omega": jump_Om,
-                            "reading": "integrating each equation across w=0 with a delta source turns the H'' coefficient into the coefficient of the jump [H'] = sum of outward normal derivatives; the brane source is delta(w) x (tension variation + v1 brane Hessian)",
+                            "reading": "integrating each equation across w=0 with a delta source turns the H'' coefficient into the coefficient of the jump [H'] = H'(0+) - H'(0-) = -(n_+.grad H + n_-.grad H) for outward normals n_+ = -d_w, n_- = +d_w (Codex 223700Z); the brane source is delta(w) x (tension variation + v1 brane Hessian)",
                             "bending_enters_as": "[H'_mu_nu] -> [H'_mu_nu] - 2 d_mu d_nu zeta x (sum over sides) + trace term"},
         "assembly": {"rule": "extended Hessian = H_brane(v1; h(0) mapped to ADM: h00=-2n, h0i=N_i, hij=H_ij) + sum over sides of the bulk boundary operator acting on Dirichlet data through the Dirichlet-to-Neumann map Pi(q,W) of the helicity ODEs with normalizable conditions at w -> +-infinity",
                      "status": "rule recorded; Pi(q,W) not computed here (no closed form with the Omega profile)"},
