@@ -111,7 +111,7 @@ def derive() -> dict[str, Any]:
     t0 = time.time()
     cand, cand_sha = _load_candidate()
     kap, y, Z, m = sp.symbols("kappa_hat y Z5 M_mat", positive=True)
-    # generators (T_I)^J_K = eps_IJK acting on internal vectors: (T_I phi)^J = eps_IJK phi^K  ==  (e_I x phi)^J
+    # generators (T_I)^J_K = eps_IJK acting on internal vectors: (T_I phi)^J = eps_IJK phi^K  ==  -(e_I x phi)^J
     def T(I, vec):
         # (T_I vec)^J = eps_IJK vec^K, the lemma's convention, so that a.(T_I phi) = (a x phi)_I
         return sp.Matrix([sum(sp.LeviCivita(I, J, K) * vec[K] for K in range(3)) for J in range(3)])
@@ -192,7 +192,12 @@ def derive() -> dict[str, Any]:
     lhs = cross(grad(F1s) + grad(F2s), gAs * grad(F1s) + gBs * grad(F2s))
     rhs = (gBs - gAs) * cross(grad(F1s), grad(F2s))
     A7_general = sp.simplify(sp.expand(lhs - rhs)) == sp.zeros(3, 1)
-    A7_vanishes_iff_equal_gains = sp.simplify(rhs.subs(gBs, gAs)) == sp.zeros(3, 1)
+    A7_vanishes_if_equal_gains = sp.simplify(rhs.subs(gBs, gAs)) == sp.zeros(3, 1)
+    # Codex counterexample (045939Z): parallel gradients with different moduli also give zero torque
+    F1c, F2c = sp.cos(x), sp.cos(2 * x)
+    gC1, gC2 = gain.subs(num).subs(p, 1), gain.subs(num).subs(p, 2)
+    coll = cross(grad(F1c) + grad(F2c), gC1 * grad(F1c) + gC2 * grad(F2c)).applyfunc(sp.simplify)
+    A7_collinear_counterexample_zero = (coll == sp.zeros(3, 1)) and sp.simplify(gC1 - gC2) != 0
     # --- A8: absorber audit on the literal rows ----------------------------------------------------------------------
     rows = cand["exact_classical_charter"]["exact_action"]
     contains_A = {k: ("F[A" in v or "D_(A" in v or "A_Sigma" in v) for k, v in rows.items() if isinstance(v, str)}
@@ -226,7 +231,8 @@ def derive() -> dict[str, Any]:
         "A6_codex_residual_minus_four_fifths": bool(A6_residual),
         "A7_independent_two_direction_witness_nonzero": bool(A7_new_witness_nonzero),
         "A7_general_two_shell_identity": bool(A7_general),
-        "A7_cross_vanishes_iff_gains_equal": bool(A7_vanishes_iff_equal_gains),
+        "A7_cross_vanishes_if_gains_equal": bool(A7_vanishes_if_equal_gains),
+        "A7_collinear_gradients_give_zero_torque_despite_different_gains": bool(A7_collinear_counterexample_zero),
         "A8_only_BF_differentiates_A": bool(A8_only_BF_differentiates_A),
         "A8_robin_intrinsic_has_no_A_Sigma": bool(A8_robin_has_no_A),
         "A9_flat_first_order_connection_enters_P_only_at_second_order": bool(A9),
@@ -246,10 +252,10 @@ def derive() -> dict[str, Any]:
         "attacks": attacks,
         "independent_witness": {"lapse": "cos x + cos 3y (x and y tangential; cross component along z)",
                                 "gains": [str(gA), str(gB)], "cross_component_z": str(cv[2])},
-        "general_statement": "for a = grad(F1 + F2) with gains g_A, g_B on the two shells, a1 x phi1 = (g_B - g_A) grad F1 x grad F2; it vanishes identically iff g_A = g_B iff |k_1| = |k_2|",
+        "general_statement": "for a = grad(F1 + F2) with gains g_A, g_B on the two shells, a1 x phi1 = (g_B - g_A) grad F1 x grad F2; it vanishes identically iff g_A = g_B (i.e. |k_1| = |k_2|) OR grad F1 is parallel to grad F2 identically (Codex counterexample F1 = cos x, F2 = cos 2x: different moduli, zero torque). A nonvanishing torque needs both different moduli and non-collinear gradients, as in the x-z and x-y witnesses",
         "sharpening": {
             "noether_reading": "delta_lambda L_R = -kappa y lambda.(a x phi_H) for delta phi_H = lambda x phi_H: the intrinsic Robin term is a source of internal SO(3) torque localized on Sigma, while the BF flux gluing with a common flat A_Sigma demands a source-free normal current. A flat BF connection cannot be coupled to a current with a brane source; the alignment a x phi_H = 0 is the price of soldering an internal triplet to the geometric acceleration through a gauged SO(3).",
-            "consequence": "any completion that keeps (i) a flat BF connection glued with common A_Sigma and (ii) the explicit breaking (phi_H - y a) on Sigma inherits the condition. Repairs must either give the connection a source-carrying dynamics on Sigma (Codex's S_C proposal) or restrict the data class, and either changes the action or the admissible domain.",
+            "consequence": "any completion that keeps (i) a flat BF connection glued with common A_Sigma, (ii) the explicit breaking (phi_H - y a) on Sigma AND (iii) no intrinsic connection current on Sigma (b_+ - b_- = 0, J_Sigma = 0) inherits the condition (Codex 045740Z: the third ingredient is essential; S_C keeps (i)-(ii) and escapes through (iii)). The variation delta phi_H at fixed a is a relative variation, not a passive frame rotation, which would rotate a too. Repairs must either give the connection a source-carrying dynamics on Sigma (Codex's S_C proposal) or restrict the data class, and either changes the action or the admissible domain.",
             "not_claimed": ["inconsistency of every solution", "complete Dirac rank", "refutation of the fixed-direction N8 lift", "that the two-mode lapse solves the coupled Einstein problem"],
         },
         "verdict": verdict,
