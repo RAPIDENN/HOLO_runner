@@ -32,7 +32,7 @@ SOURCE_PINS={
  'one_omega_scalar_shift_static_v1':'8ca7d81f1dcb645147d694d68fc32c0cc50483d67f2b7353caaecf31a22f190e',
  'one_omega_zero_momentum_linear_v1':'f2c83fa82a87353b01d43790ddfe73bd8e42febaca2a5554ddb8a5f5c6d96539',
  'one_omega_projected_connection_linear_v1':'3e92a6ef617cd880bf0db936d9d2c260e2c0868c479aaddd3efbe7cace4f4a49',
- 'one_omega_interface_connection_current_candidate_v1':'e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e',
+ 'one_omega_interface_connection_current_candidate_v1':'e51d8d47ee97e20c6aea5aebb4680a65cba79254c2ea0a30fd6a88774b6535e8',
 }
 
 class CandidateResponseError(ValueError):pass

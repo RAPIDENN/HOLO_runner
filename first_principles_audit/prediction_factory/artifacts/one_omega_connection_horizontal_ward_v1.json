@@ -1,5 +1,5 @@
 {
-  "calculation_digest": "50a3e2c96147d492038ec33f25d2430efb90ea959167cdcfa24add95ce29d4e3",
+  "calculation_digest": "b9158f807505b069348993b24ce4a14cb19da8db401bfa30e9794236b9f3ed05",
   "checks": {
     "Cartan_connection_all_36_entries": true,
     "H18_x_diffeomorphism_color_sign": true,
@@ -4161,7 +4161,7 @@
   "provenance": {
     "one_omega_connection_horizontal_ward_lemma_v1.md": "6766dcacb59d9104aad83ce941ddef3d9c55c70d36339790440594487c31d14e",
     "test_one_omega_connection_horizontal_ward_v1.py": "04422d209a700cfb481717e4ee189d912670e62d61dfe8f5253c52060acb560c",
-    "verify_one_omega_connection_horizontal_ward_v1.py": "6e4a81d1ab9b0fc175a711bd4d84b9441f9233700d9479ffdb61e3cca6c0687e"
+    "verify_one_omega_connection_horizontal_ward_v1.py": "9ffb0b041711c46eb98323e5530b4cc856ac4447fbb29db37337f31383ef0155"
   },
   "schema": "holo.one-omega-connection-horizontal-ward.v1",
   "scope": {
@@ -4182,7 +4182,7 @@
     "nonlinear_stability_proved": false
   },
   "sources": {
-    "covariant_receipt_sha256": "664631af95ba89a0dadbf441d3ead9bd8c19f4ea8a9af53d377fc9b6f038348f",
+    "covariant_receipt_sha256": "d2a1b7af2e9b43eacafdece6d26d30433e6c4fbdb0d46922bf7eace34b30f6de",
     "lemma_sha256": "6766dcacb59d9104aad83ce941ddef3d9c55c70d36339790440594487c31d14e",
     "source_gates_inherited": false
   }

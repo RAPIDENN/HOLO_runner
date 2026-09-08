@@ -8,6 +8,11 @@ homotopy 1/s is not used at s=0. Instead a spatial homotopy is controlled in
 an integrated three-dimensional Fourier norm, with the infrared estimate
 proved explicitly below.
 
+This revision corrects the oriented Green erratum without changing the
+frozen v5.2 bytes or deleting the earlier Git history. The earlier receipt
+checked a postulated jump sign; the current chain derives the interface
+row from +integral B wedge F using the declared outward normals.
+
 ## 1. Sources, coordinates and orientation
 
 Use a conformal radial coordinate z>=0 on each BPS half:
@@ -62,13 +67,20 @@ is
 The second equality uses the actual Robin relation
 2Z|D|phi1=kappa*y grad F-kappa phi1, including both sides.
 The prior localized-torque lemma constructs the unique L2 Theta with
-chi Delta Theta=rho2. Its current J_Sigma=-chi *_Sigma dTheta therefore
-satisfies d_Sigma J_Sigma=-[j4]. This is a proved compatibility for the
+chi Delta Theta=-rho2, so Theta_hat=+rho2_hat/(chi p²). Its current
+J_Sigma=-chi *_Sigma dTheta therefore satisfies d_Sigma J_Sigma=+[j4]. This is a proved compatibility for the
 specified source, not an assumed arbitrary boundary condition.
 
 The second-order BF equations to solve are
 
-    d5 B2,eps + J4,eps=0, b2,plus-b2,minus=J_Sigma.          (6)
+    d5 B2,eps + J4,eps=0, b2,plus-b2,minus=-J_Sigma.         (6)
+
+With n_out,plus=-partial_n and n_out,minus=+partial_n, the identity
+B wedge D(delta A)=(D B) wedge delta A-d(B wedge delta A) gives the
+interface Green +[b] wedge delta A. Adding +J_Sigma wedge delta A gives
+[b]+J_Sigma=0; its exterior derivative and the bulk rows give dJ=[j4].
+The core verifier derives this incidence before checking (6). Keeping the
+old [b]=+J sign would instead leave twice the nonzero current.
 
 A0=B0=phi0=0 and A1=B1=0 for this prescribed lapse-only port. Thus no
 [A1,B1] term has been omitted in (6). An exactly flat A with leading
@@ -93,25 +105,26 @@ p approaches zero; section 3 handles the actual source by integration.
 Set
 
     B_part,eps=-h J4,eps,
-    L=J_Sigma+h[j4],
-    B2,eps=B_part,eps+eps/2 d5[f(z) hL], eps=+1,-1,        (8)
+    L=J_Sigma-h[j4],
+    B2,eps=B_part,eps-eps/2 d5[f(z) hL], eps=+1,-1,        (8)
 
 where f=1 near z=0 and is smooth and compactly supported radially.
 Closure of J4 gives dB_part=-J4. The compatibility (5) gives d_Sigma L=0.
 Hence
 
     d5[f hL]=f L+f' dz wedge hL,
-    tr(B2,plus-B2,minus)=-h[j4]+L=J_Sigma.                 (9)
+    tr(B2,plus-B2,minus)=-h[j4]-L=-J_Sigma.                (9)
 
 For the actual selected port there is a further exact simplification.
 With volSigma=dt wedge dx1 wedge dx2 wedge dx3 and the Lorentzian Hodge,
 star(dTheta_hat)=i*Theta_hat*i_xi(volSigma). Therefore
 
-    J_Sigma_hat=+i*rho2_hat*i_xi(volSigma)/p²=-h[j4]_hat,
+    J_Sigma_hat=-i*rho2_hat*i_xi(volSigma)/p²=+h[j4]_hat,
     L=0.                                                   (9a)
 
 Consequently B2,eps=B_part,eps already supplies the required jump for this
-port. The affine correction in (8) is retained as a general algebraic
+port, with jump -J_Sigma. B_part=-hJ4 is unchanged by the correction of
+the boundary sign; Theta and J_Sigma reverse sign. The affine correction in (8) is retained as a general algebraic
 control for compatible currents with a nonzero closed remainder, not as
 an extra field required by the selected Poisson solution.
 

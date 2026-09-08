@@ -1,5 +1,5 @@
 {
-  "calculation_digest": "56843633a7dbd07987e6bb37744cfe14b8e571a5727cc1ee5878057531eacfba",
+  "calculation_digest": "385d6bfa1426099e12baf8981b5b83fa938848eee827f88036ec548252be3bbb",
   "checks": {
     "affine_B_parameters_have_common_traces": true,
     "affine_epsilon_preserves_physical_theta": true,
@@ -19,17 +19,24 @@
     "lift_A_trace_preserved": true,
     "lift_B_explicit_normal_cutoff_term": true,
     "lift_B_minus_bulk_closed": true,
-    "lift_B_minus_trace_negative_half": true,
+    "lift_B_minus_trace_positive_half": true,
     "lift_B_plus_bulk_closed": true,
-    "lift_B_plus_trace_half": true,
+    "lift_B_plus_trace_negative_half": true,
     "lift_closed_current_parameterization_complete_for_nonzero_s": true,
     "lift_current_is_d_hJ": true,
-    "lift_oriented_jump_is_J": true,
+    "lift_oriented_Stokes_boundary_row": true,
     "lift_restriction_after_extension_identity": true,
     "norms_A_cutoff_bound_substitution": true,
     "norms_B_cutoff_and_h_bound_substitution": true,
     "norms_all_component_contraction_weight_ratios": true,
-    "norms_graph_triangle_gap_is_square": true
+    "norms_graph_triangle_gap_is_square": true,
+    "oriented_green_bulk_plus_boundary_requires_DJ_equals_current_jump": true,
+    "oriented_green_common_oriented_boundary_is_positive_jump_wedge_deltaA": true,
+    "oriented_green_generic_5D_graded_Leibniz_identity": true,
+    "oriented_green_literal_interface_row_is_jump_plus_current": true,
+    "oriented_green_one_dimensional_minus_boundary": true,
+    "oriented_green_one_dimensional_plus_boundary": true,
+    "oriented_green_solved_B_jump_is_minus_intrinsic_current": true
   },
   "decision": {
     "A_identified_with_omega": false,
@@ -99,9 +106,9 @@
         "0": "-theta"
       },
       "forbidden_B_erasing_parameter_jump": {
-        "10": "-J_11/s",
-        "12": "-J_13/s",
-        "6": "-J_7/s"
+        "10": "J_11/s",
+        "12": "J_13/s",
+        "6": "J_7/s"
       },
       "relative_A_differences": [
         {
@@ -202,6 +209,7 @@
     },
     "assumptions": {
       "boundary_current": "J=chi *_Sigma(A_Sigma-omega), chi>0; d_Sigma J=0",
+      "boundary_row": "[b]+J=0; dJ=[j4]",
       "cutoff": "smooth f=1 near UV, compact radial support",
       "gauge_signs": {
         "A": "-d epsilon",
@@ -212,6 +220,7 @@
         "plus": 1
       },
       "linear_bulk_material_current": "J4_bulk=0",
+      "oriented_Green_erratum": "v5.2 bytes unchanged; replace inherited minus jump by Stokes plus jump for vol5=dn wedge volSigma",
       "source_status": "connection-current extension remains a proposal; base v5.2 unchanged",
       "spectral_fibre": "Re(s)>0, real spatial k; no division by k or s^2+|k|^2"
     },
@@ -234,17 +243,24 @@
       "lift_A_trace_preserved": true,
       "lift_B_explicit_normal_cutoff_term": true,
       "lift_B_minus_bulk_closed": true,
-      "lift_B_minus_trace_negative_half": true,
+      "lift_B_minus_trace_positive_half": true,
       "lift_B_plus_bulk_closed": true,
-      "lift_B_plus_trace_half": true,
+      "lift_B_plus_trace_negative_half": true,
       "lift_closed_current_parameterization_complete_for_nonzero_s": true,
       "lift_current_is_d_hJ": true,
-      "lift_oriented_jump_is_J": true,
+      "lift_oriented_Stokes_boundary_row": true,
       "lift_restriction_after_extension_identity": true,
       "norms_A_cutoff_bound_substitution": true,
       "norms_B_cutoff_and_h_bound_substitution": true,
       "norms_all_component_contraction_weight_ratios": true,
-      "norms_graph_triangle_gap_is_square": true
+      "norms_graph_triangle_gap_is_square": true,
+      "oriented_green_bulk_plus_boundary_requires_DJ_equals_current_jump": true,
+      "oriented_green_common_oriented_boundary_is_positive_jump_wedge_deltaA": true,
+      "oriented_green_generic_5D_graded_Leibniz_identity": true,
+      "oriented_green_literal_interface_row_is_jump_plus_current": true,
+      "oriented_green_one_dimensional_minus_boundary": true,
+      "oriented_green_one_dimensional_plus_boundary": true,
+      "oriented_green_solved_B_jump_is_minus_intrinsic_current": true
     },
     "complex": {
       "SO3_independent_linear_copies": 3,
@@ -1278,21 +1294,6 @@
         "8": "-I*k3*theta*f(r)"
       },
       "B_minus": {
-        "11": "-J_11*f(r)/2",
-        "13": "-J_13*f(r)/2",
-        "14": "(I*J_11*k2*f(r) - I*J_13*k1*f(r) - I*J_7*k3*f(r))/(2*s)",
-        "22": "-J_7*Derivative(f(r), r)/(2*s)",
-        "26": "-J_11*Derivative(f(r), r)/(2*s)",
-        "28": "-J_13*Derivative(f(r), r)/(2*s)",
-        "7": "-J_7*f(r)/2"
-      },
-      "B_minus_trace": {
-        "11": "-J_11/2",
-        "13": "-J_13/2",
-        "14": "(I*J_11*k2 - I*J_13*k1 - I*J_7*k3)/(2*s)",
-        "7": "-J_7/2"
-      },
-      "B_plus": {
         "11": "J_11*f(r)/2",
         "13": "J_13*f(r)/2",
         "14": "(-I*J_11*k2*f(r) + I*J_13*k1*f(r) + I*J_7*k3*f(r))/(2*s)",
@@ -1301,11 +1302,26 @@
         "28": "J_13*Derivative(f(r), r)/(2*s)",
         "7": "J_7*f(r)/2"
       },
-      "B_plus_trace": {
+      "B_minus_trace": {
         "11": "J_11/2",
         "13": "J_13/2",
         "14": "(-I*J_11*k2 + I*J_13*k1 + I*J_7*k3)/(2*s)",
         "7": "J_7/2"
+      },
+      "B_plus": {
+        "11": "-J_11*f(r)/2",
+        "13": "-J_13*f(r)/2",
+        "14": "(I*J_11*k2*f(r) - I*J_13*k1*f(r) - I*J_7*k3*f(r))/(2*s)",
+        "22": "-J_7*Derivative(f(r), r)/(2*s)",
+        "26": "-J_11*Derivative(f(r), r)/(2*s)",
+        "28": "-J_13*Derivative(f(r), r)/(2*s)",
+        "7": "-J_7*f(r)/2"
+      },
+      "B_plus_trace": {
+        "11": "-J_11/2",
+        "13": "-J_13/2",
+        "14": "(I*J_11*k2 - I*J_13*k1 - I*J_7*k3)/(2*s)",
+        "7": "-J_7/2"
       },
       "J": {
         "11": "J_11",
@@ -1335,10 +1351,10 @@
         "6": "J_7/s"
       },
       "jump": {
-        "11": "J_11",
-        "13": "J_13",
-        "14": "(-I*J_11*k2 + I*J_13*k1 + I*J_7*k3)/s",
-        "7": "J_7"
+        "11": "-J_11",
+        "13": "-J_13",
+        "14": "(I*J_11*k2 - I*J_13*k1 - I*J_7*k3)/s",
+        "7": "-J_7"
       },
       "residuals": {
         "A_bulk_closed": {},
@@ -1346,12 +1362,12 @@
         "A_trace_preserved": {},
         "B_explicit_normal_cutoff_term": {},
         "B_minus_bulk_closed": {},
-        "B_minus_trace_negative_half": {},
+        "B_minus_trace_positive_half": {},
         "B_plus_bulk_closed": {},
-        "B_plus_trace_half": {},
+        "B_plus_trace_negative_half": {},
         "closed_current_parameterization_complete_for_nonzero_s": {},
         "current_is_d_hJ": {},
-        "oriented_jump_is_J": {},
+        "oriented_Stokes_boundary_row": {},
         "restriction_after_extension_identity": {}
       }
     },
@@ -1359,6 +1375,7 @@
       "erase_A_with_nonrelative_gauge": true,
       "erase_B_with_noncommon_shift": true,
       "nonclosed_current_cannot_be_recovered": true,
+      "old_positive_jump_rejected_by_derived_Stokes_row": true,
       "omit_A_normal_cutoff_term": true,
       "omit_B_normal_cutoff_term": true,
       "omit_half_in_B_lift": true,
@@ -1370,12 +1387,18 @@
         "0": "-theta"
       },
       "erase_B_with_noncommon_shift": {
-        "10": "-J_11/s",
-        "12": "-J_13/s",
-        "6": "-J_7/s"
+        "10": "J_11/s",
+        "12": "J_13/s",
+        "6": "J_7/s"
       },
       "nonclosed_current_cannot_be_recovered": {
         "14": "-1"
+      },
+      "old_positive_jump_rejected_by_derived_Stokes_row": {
+        "11": "2*J_11",
+        "13": "2*J_13",
+        "14": "(-2*I*J_11*k2 + 2*I*J_13*k1 + 2*I*J_7*k3)/s",
+        "7": "2*J_7"
       },
       "omit_A_normal_cutoff_term": {
         "17": "s*theta*Derivative(f(r), r)",
@@ -1384,16 +1407,16 @@
         "24": "I*k3*theta*Derivative(f(r), r)"
       },
       "omit_B_normal_cutoff_term": {
-        "23": "-J_7*Derivative(f(r), r)/2",
-        "27": "-J_11*Derivative(f(r), r)/2",
-        "29": "-J_13*Derivative(f(r), r)/2",
-        "30": "(I*J_11*k2*Derivative(f(r), r) - I*J_13*k1*Derivative(f(r), r) - I*J_7*k3*Derivative(f(r), r))/(2*s)"
+        "23": "J_7*Derivative(f(r), r)/2",
+        "27": "J_11*Derivative(f(r), r)/2",
+        "29": "J_13*Derivative(f(r), r)/2",
+        "30": "(-I*J_11*k2*Derivative(f(r), r) + I*J_13*k1*Derivative(f(r), r) + I*J_7*k3*Derivative(f(r), r))/(2*s)"
       },
       "omit_half_in_B_lift": {
-        "11": "J_11",
-        "13": "J_13",
-        "14": "(-I*J_11*k2 + I*J_13*k1 + I*J_7*k3)/s",
-        "7": "J_7"
+        "11": "-J_11",
+        "13": "-J_13",
+        "14": "(I*J_11*k2 - I*J_13*k1 - I*J_7*k3)/s",
+        "7": "-J_7"
       },
       "positive_h_for_B_removal": {
         "11": "2*common_Lambda_10*s*f(r) + 2*I*common_Lambda_3*k3*f(r) - 2*I*common_Lambda_9*k1*f(r) - 2*I*k1*plus_P_9*r*f(r) + 2*I*k3*plus_P_3*r*f(r) + 2*plus_P_10*r*s*f(r)",
@@ -1408,10 +1431,10 @@
         "7": "2*I*common_Lambda_3*k2*f(r) - 2*I*common_Lambda_5*k1*f(r) + 2*common_Lambda_6*s*f(r) - 2*I*k1*plus_P_5*r*f(r) + 2*I*k2*plus_P_3*r*f(r) + 2*plus_P_6*r*s*f(r)"
       },
       "same_sign_on_both_faces": {
-        "11": "-J_11",
-        "13": "-J_13",
-        "14": "(I*J_11*k2 - I*J_13*k1 - I*J_7*k3)/s",
-        "7": "-J_7"
+        "11": "J_11",
+        "13": "J_13",
+        "14": "(-I*J_11*k2 + I*J_13*k1 + I*J_7*k3)/s",
+        "7": "J_7"
       }
     },
     "norms": {
@@ -1682,6 +1705,70 @@
       "trace_statement": "fixed fibre: alpha_T prime=(d alpha)_radial+d_Sigma alpha_R in L2_loc, so alpha_T in H1_loc; general tangential trace may be weak",
       "warp_hypotheses": "0<Omega<=1; inf Omega on fixed compact cutoff collar is omega_lower>0"
     },
+    "oriented_green": {
+      "boundary_jump_coefficient": "1",
+      "checks": {
+        "bulk_plus_boundary_requires_DJ_equals_current_jump": true,
+        "common_oriented_boundary_is_positive_jump_wedge_deltaA": true,
+        "derived_boundary_jump_coefficient_is_plus_one": true,
+        "derived_required_B_jump_coefficient_is_minus_one": true,
+        "generic_5D_graded_Leibniz_identity": true,
+        "literal_interface_row_is_jump_plus_current": true,
+        "old_B_jump_residual_is_minus_twice_J": true,
+        "one_dimensional_minus_boundary": true,
+        "one_dimensional_plus_boundary": true,
+        "solved_B_jump_is_minus_intrinsic_current": true
+      },
+      "compatibility": "D_J_Sigma + j4_minus - j4_plus",
+      "compatibility_current_coefficient": "1",
+      "component_oracle": {
+        "B_minus": "b_minus + n**2*w_minus + n*v_minus",
+        "B_plus": "b_plus + n**2*w_plus + n*v_plus",
+        "a_minus": "delta_a_common*(n + 1)*(n*u_minus + 1)",
+        "a_plus": "delta_a_common*(1 - n)*(n*u_plus + 1)",
+        "bulk_minus_integral": "delta_a_common*u_minus*v_minus/6 - delta_a_common*u_minus*w_minus/6 - delta_a_common*v_minus/2 + delta_a_common*w_minus/3",
+        "bulk_plus_integral": "-delta_a_common*u_plus*v_plus/6 - delta_a_common*u_plus*w_plus/6 - delta_a_common*v_plus/2 - delta_a_common*w_plus/3",
+        "combined_interface_row": "-J_component + b_minus - b_plus",
+        "direct_common_boundary": "b_minus*delta_a_common - b_plus*delta_a_common",
+        "intrinsic_current_pairing": "-J_component*delta_a_common",
+        "jump_wedge_deltaA": "b_minus*delta_a_common - b_plus*delta_a_common",
+        "literal_minus_integral": "b_minus*delta_a_common + delta_a_common*u_minus*v_minus/6 - delta_a_common*u_minus*w_minus/6 - delta_a_common*v_minus/2 + delta_a_common*w_minus/3",
+        "literal_plus_integral": "-b_plus*delta_a_common - delta_a_common*u_plus*v_plus/6 - delta_a_common*u_plus*w_plus/6 - delta_a_common*v_plus/2 - delta_a_common*w_plus/3"
+      },
+      "frozen_textual_Green_is_not_the_input": true,
+      "generic_5D": {
+        "bulk_dB_wedge_deltaA": "-a0(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), z) + a0(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), y) - a0(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), x) + a0(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), t) + a1(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), z) - a1(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), y) + a1(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), x) - a1(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), n) - a2(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), z) + a2(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), y) - a2(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), t) + a2(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), n) + a3(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), z) - a3(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), x) + a3(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), t) - a3(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), n) - a4(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), y) + a4(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), x) - a4(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), t) + a4(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), n)",
+        "d_B_wedge_deltaA": "B_012(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), z) - B_012(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), y) - B_013(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), z) + B_013(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), x) + B_014(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), y) - B_014(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), x) + B_023(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), z) - B_023(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), t) - B_024(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), y) + B_024(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), t) + B_034(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), x) - B_034(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), t) - B_123(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), z) + B_123(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), n) + B_124(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), y) - B_124(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), n) - B_134(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), x) + B_134(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), n) + B_234(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), t) - B_234(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), n) - a0(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), z) + a0(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), y) - a0(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), x) + a0(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), t) + a1(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), z) - a1(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), y) + a1(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), x) - a1(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), n) - a2(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), z) + a2(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), y) - a2(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), t) + a2(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), n) + a3(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), z) - a3(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), x) + a3(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), t) - a3(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), n) - a4(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), y) + a4(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), x) - a4(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), t) + a4(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), n)",
+        "literal_B_wedge_d_deltaA": "-B_012(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), z) + B_012(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), y) + B_013(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), z) - B_013(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), x) - B_014(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), y) + B_014(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), x) - B_023(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), z) + B_023(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), t) + B_024(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), y) - B_024(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), t) - B_034(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), x) + B_034(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), t) + B_123(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), z) - B_123(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), n) - B_124(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), y) + B_124(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), n) + B_134(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), x) - B_134(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), n) - B_234(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), t) + B_234(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), n)"
+      },
+      "negative_controls": {
+        "imported_old_B_jump_plus_J": "-2*J_component",
+        "imported_old_DJ_minus_current_jump": "2*j4_minus - 2*j4_plus",
+        "imported_old_Green_minus_jump": "2*b_minus*delta_a_common - 2*b_plus*delta_a_common",
+        "imported_wrong_graded_boundary_sign": "-2*B_012(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), z) + 2*B_012(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), y) + 2*B_013(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), z) - 2*B_013(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), x) - 2*B_014(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), y) + 2*B_014(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), x) - 2*B_023(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), z) + 2*B_023(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), t) + 2*B_024(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), y) - 2*B_024(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), t) - 2*B_034(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), x) + 2*B_034(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), t) + 2*B_123(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), z) - 2*B_123(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), n) - 2*B_124(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), y) + 2*B_124(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), n) + 2*B_134(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), x) - 2*B_134(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), n) - 2*B_234(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), t) + 2*B_234(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), n) + 2*a0(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), z) - 2*a0(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), y) + 2*a0(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), x) - 2*a0(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), t) - 2*a1(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), z) + 2*a1(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), y) - 2*a1(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), x) + 2*a1(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), n) + 2*a2(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), z) - 2*a2(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), y) + 2*a2(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), t) - 2*a2(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), n) - 2*a3(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), z) + 2*a3(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), x) - 2*a3(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), t) + 2*a3(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), n) + 2*a4(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), y) - 2*a4(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), x) + 2*a4(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), t) - 2*a4(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), n)"
+      },
+      "orientation": "vol5=dn wedge dt wedge dx wedge dy wedge dz; Mplus n>=0, Mminus n<=0; unsigned transported pullbacks b",
+      "required_B_jump_coefficient": "-1",
+      "residuals": {
+        "bulk_plus_boundary_requires_DJ_equals_current_jump": "0",
+        "common_oriented_boundary_is_positive_jump_wedge_deltaA": "0",
+        "generic_5D_graded_Leibniz_identity": "0",
+        "literal_interface_row_is_jump_plus_current": "0",
+        "one_dimensional_minus_boundary": "0",
+        "one_dimensional_plus_boundary": "0",
+        "solved_B_jump_is_minus_intrinsic_current": "0"
+      },
+      "symbols": {
+        "J": "J_component",
+        "ap": "delta_a_common",
+        "bm": "b_minus",
+        "bp": "b_plus",
+        "dJ": "D_J_Sigma",
+        "jm": "j4_minus",
+        "jp": "j4_plus",
+        "n": "n"
+      }
+    },
     "symbols": {
       "F0": "F0",
       "F1": "F1",
@@ -1704,6 +1791,7 @@
     "erase_A_with_nonrelative_gauge": true,
     "erase_B_with_noncommon_shift": true,
     "nonclosed_current_cannot_be_recovered": true,
+    "old_positive_jump_rejected_by_derived_Stokes_row": true,
     "omit_A_normal_cutoff_term": true,
     "omit_B_normal_cutoff_term": true,
     "omit_half_in_B_lift": true,
@@ -1711,8 +1799,9 @@
     "same_sign_on_both_faces": true
   },
   "provenance": {
-    "test_one_omega_connection_affine_bf_reconstruction_v1.py": "06afc9894f65473ac852afd175eed936a3c49215cd4cc1094b547e2710a5f6e2",
-    "verify_one_omega_connection_affine_bf_reconstruction_v1.py": "08bac3c5737f4acd9d7d240930cb2f057f9045705cc57d72d0033140eed918ab"
+    "test_one_omega_connection_affine_bf_reconstruction_v1.py": "cbd0c864361eedb502b159359bf195dbc7b3ccdc040c972db5b317e8496d788f",
+    "verify_one_omega_connection_affine_bf_reconstruction_v1.py": "63bd12c8cbce0d759bd2766534c31b7ea55786a92161a7c8ec5982926ff0a93e",
+    "verify_one_omega_interface_connection_current_candidate_v1.py": "7b58450d546c4f0979d6303a6005ae7c3efde5d23f94353c00aec833f13d2d05"
   },
   "runtime": {
     "sympy": "1.13.3"
@@ -1729,11 +1818,15 @@
     },
     "current_proposal": {
       "name": "one_omega_interface_connection_current_candidate_v1.json",
-      "sha256": "e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e"
+      "sha256": "e51d8d47ee97e20c6aea5aebb4680a65cba79254c2ea0a30fd6a88774b6535e8"
     },
     "note": {
       "name": "one_omega_connection_affine_bf_reconstruction_lemma_v1.md",
-      "sha256": "359044f4bbbec42f7dc5eebf7f98f37d293378fa85394bba32beef95897827d6"
+      "sha256": "35f3f3b0d88f8b1cc004de48a3c9b25d6a42156c9fa7b467d79b24a662c76238"
+    },
+    "oriented_Stokes_core": {
+      "name": "verify_one_omega_interface_connection_current_candidate_v1.py",
+      "sha256": "7b58450d546c4f0979d6303a6005ae7c3efde5d23f94353c00aec833f13d2d05"
     },
     "upstream_gates_inherited": false
   }

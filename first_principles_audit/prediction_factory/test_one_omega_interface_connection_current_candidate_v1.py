@@ -43,9 +43,9 @@ def test_non_diagonal_metric_current_matches_exact_finite_variation():
 
 def test_covariant_compatibility_retains_all_three_equation_rows(model):
     row=model['compatibility']; symbols={str(s):s for s in row.free_symbols}
-    assert sp.expand(row)==symbols['D_J_Sigma']+symbols['j4_plus']-symbols['j4_minus']
-    assert row.subs({symbols['D_J_Sigma']:2,symbols['j4_plus']:3,symbols['j4_minus']:5})==0
-    assert row.subs({symbols['D_J_Sigma']:-2,symbols['j4_plus']:3,symbols['j4_minus']:5})==-4
+    assert sp.expand(row)==symbols['D_J_Sigma']-symbols['j4_plus']+symbols['j4_minus']
+    assert row.subs({symbols['D_J_Sigma']:-2,symbols['j4_plus']:3,symbols['j4_minus']:5})==0
+    assert row.subs({symbols['D_J_Sigma']:2,symbols['j4_plus']:3,symbols['j4_minus']:5})==4
     assert model['residuals']['current_sign_from_independent_density_variation']==0
     assert model['negative_controls']['wrong_current_sign']!=0
 
@@ -80,18 +80,18 @@ def test_geometric_connection_mixing_is_present_in_the_candidate_quadratic_actio
 def test_static_two_direction_source_has_the_required_response_sign(model):
     sy=model['symbols']; x,z,J0,chi=(sy[k] for k in ('x','z','J0','chi'))
     theta=model['static_theta_solution']
-    expected=-J0*sp.sin(x)*sp.sin(2*z)/(chi*(1**2+2**2))
+    expected=J0*sp.sin(x)*sp.sin(2*z)/(chi*(1**2+2**2))
     assert sp.expand(theta-expected)==0
-    assert sp.expand(chi*(sp.diff(theta,x,2)+sp.diff(theta,z,2))-model['static_source'])==0
-    assert model['static_current_divergence'].subs({x:sp.pi/2,z:sp.pi/4})==-J0
+    assert sp.expand(chi*(sp.diff(theta,x,2)+sp.diff(theta,z,2))+model['static_source'])==0
+    assert model['static_current_divergence'].subs({x:sp.pi/2,z:sp.pi/4})==J0
     bad=model['negative_controls']['wrong_static_response_sign']
-    assert bad.subs({x:sp.pi/2,z:sp.pi/4})==2*J0
+    assert bad.subs({x:sp.pi/2,z:sp.pi/4})==-2*J0
     # The illustrative positive orientation J0=4/5 is allowed, not selected globally.
-    assert theta.subs({x:sp.pi/2,z:sp.pi/4,J0:sp.Rational(4,5)})==-sp.Rational(4,25)/chi
+    assert theta.subs({x:sp.pi/2,z:sp.pi/4,J0:sp.Rational(4,5)})==sp.Rational(4,25)/chi
 
 
 def test_static_cell_energy_by_fourier_orthogonality(model):
-    sy=model['symbols']; J0,chi=sy['J0'],sy['chi']; amplitude=-J0/(5*chi)
+    sy=model['symbols']; J0,chi=sy['J0'],sy['chi']; amplitude=J0/(5*chi)
     # Each integral sin² or cos² over a 2pi cell equals pi.
     independent=chi*amplitude**2*(1**2+2**2)*sp.pi**2/2
     assert sp.simplify(model['static_cell_energy']-independent)==0
@@ -131,3 +131,50 @@ def test_malformed_or_unresigned_receipt_is_rejected(payload):
     changed=copy.deepcopy(payload); changed['proposal']['chi']='selected 1'
     with pytest.raises(oracle.ConnectionCandidateError,match='digest'):
         oracle.validate_payload(changed)
+
+
+def test_literal_BF_graded_Leibniz_uses_three_form_sign(model):
+    data=model['oriented_BF'];forms=data['generic_5D']
+    lhs=forms['literal_B_wedge_d_deltaA'];bulk=forms['bulk_dB_wedge_deltaA']
+    total=forms['d_B_wedge_deltaA']
+    assert sp.expand(lhs-bulk+total)==0
+    assert sp.expand(lhs-bulk-total)!=0
+    assert data['boundary_jump_coefficient']==1
+    assert data['required_B_jump_coefficient']==-1
+    assert data['compatibility_current_coefficient']==1
+
+
+def test_independent_1D_trigonometric_profile_fixes_common_boundary_sign():
+    """Integrate the scalar coefficient of B wedge d(delta A), not a Green row."""
+    n=sp.Symbol('n',real=True)
+    bp,bm,vp,vm,a0=sp.symbols('bp bm vp vm a0',real=True)
+    bplus=bp+vp*n;bminus=bm+vm*n
+    test=a0*sp.cos(sp.pi*n/2)
+    assert test.subs(n,1)==test.subs(n,-1)==0 and test.subs(n,0)==a0
+    literal=sp.integrate(bplus*sp.diff(test,n),(n,0,1))+sp.integrate(bminus*sp.diff(test,n),(n,-1,0))
+    bulk=-sp.integrate(sp.diff(bplus,n)*test,(n,0,1))-sp.integrate(sp.diff(bminus,n)*test,(n,-1,0))
+    boundary=sp.simplify(literal-bulk)
+    assert boundary==-(bp-bm)*a0
+    # dx dy dz dt = -dt dx dy dz. Thus +[b_form] wedge deltaA has this coefficient.
+    direct_form_pair=-(bp-bm)*a0
+    assert sp.expand(boundary-direct_form_pair)==0
+    assert sp.expand(boundary+direct_form_pair+2*(bp-bm)*a0)==0
+
+
+def test_nonzero_current_distinguishes_old_incidence_sign(model):
+    data=model['oriented_BF'];sy=data['symbols'];row=data['component_oracle']['combined_interface_row']
+    bp,bm,J=(sy[k] for k in ('bp','bm','J'))
+    assert sp.expand(row.subs(bp,bm-J))==0
+    assert sp.expand(row.subs(bp,bm+J))==-2*J
+    jp,jm,dJ=(sy[k] for k in ('jp','jm','dJ'))
+    assert sp.expand(data['compatibility'].subs(dJ,jp-jm))==0
+    assert sp.expand(data['compatibility'].subs(dJ,-jp+jm))==-2*(jp-jm)
+    # The zero-current old test cannot distinguish either global sign.
+    assert row.subs({bp:bm,J:0})==0
+
+
+def test_frozen_Green_erratum_is_reported_without_mutating_the_action(payload):
+    assert payload['baseline']['frozen_action_modified'] is False
+    assert payload['baseline']['frozen_textual_Green_sign_inherited'] is False
+    assert 'literal +B3 wedge F' in payload['baseline']['orientation_erratum']
+    assert payload['decision']['literal_oriented_BF_Stokes_and_both_half_integrals_checked'] is True

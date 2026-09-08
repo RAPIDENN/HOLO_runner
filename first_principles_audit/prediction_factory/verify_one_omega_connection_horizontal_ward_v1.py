@@ -15,7 +15,7 @@ TEST=HERE/'test_one_omega_connection_horizontal_ward_v1.py'
 SOURCE=HERE/'artifacts/one_omega_connection_current_covariant_variation_v1.json'
 OUTPUT=HERE/'artifacts/one_omega_connection_horizontal_ward_v1.json'
 PROOF_SHA='6766dcacb59d9104aad83ce941ddef3d9c55c70d36339790440594487c31d14e'
-SOURCE_SHA='664631af95ba89a0dadbf441d3ead9bd8c19f4ea8a9af53d377fc9b6f038348f'
+SOURCE_SHA='d2a1b7af2e9b43eacafdece6d26d30433e6c4fbdb0d46922bf7eace34b30f6de'
 SCHEMA='holo.one-omega-connection-horizontal-ward.v1'
 
 

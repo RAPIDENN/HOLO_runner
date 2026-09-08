@@ -13,6 +13,10 @@ import itertools
 import json
 from pathlib import Path
 import sympy as sp
+if __package__:
+    from . import verify_one_omega_interface_connection_current_candidate_v1 as current_core
+else:
+    import verify_one_omega_interface_connection_current_candidate_v1 as current_core
 
 HERE=Path(__file__).resolve().parent
 NOTE=HERE/'one_omega_connection_affine_bf_reconstruction_lemma_v1.md'
@@ -21,10 +25,13 @@ CANDIDATE=HERE/'artifacts/one_omega_topological_so3_classical_v5_2_gate.json'
 BF_RECEIPT=HERE/'artifacts/one_omega_bf_rhp_quotient_v1.json'
 CURRENT_RECEIPT=HERE/'artifacts/one_omega_interface_connection_current_candidate_v1.json'
 OUTPUT=HERE/'artifacts/one_omega_connection_affine_bf_reconstruction_v1.json'
-NOTE_SHA256='359044f4bbbec42f7dc5eebf7f98f37d293378fa85394bba32beef95897827d6'
+CORE=Path(current_core.__file__).resolve()
+# Refreshed with dependent receipts after the oriented core is finalized.
+CORE_SHA256='7b58450d546c4f0979d6303a6005ae7c3efde5d23f94353c00aec833f13d2d05'
+NOTE_SHA256='35f3f3b0d88f8b1cc004de48a3c9b25d6a42156c9fa7b467d79b24a662c76238'
 CANDIDATE_SHA256='d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b'
 BF_SHA256='c14cf8d7b5820114837a4fb7f432ef250001224b8946f386c55350d2a829871d'
-CURRENT_SHA256='e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e'
+CURRENT_SHA256='e51d8d47ee97e20c6aea5aebb4680a65cba79254c2ea0a30fd6a88774b6535e8'
 SCHEMA='holo.one-omega-connection-affine-bf-reconstruction.v1'
 
 class AffineBFError(ValueError):
@@ -110,7 +117,8 @@ def derive_complex(ctx):
                 'UV_pullback_commutes_with_d':trace_d,'UV_pullback_commutes_with_h':trace_h,
                 'wedge_contraction_anticommutators':anticommutators}}
 
-def derive_lift(ctx):
+def derive_lift(ctx,green=None):
+    if green is None:green=current_core.derive_oriented_bf_green()
     r,f,theta,s=(ctx[k] for k in ('r','f','theta','s'))
     J_general={mask:sp.Symbol(f'J_{mask}') for mask in masks(3,4)}
     closure=d(J_general,ctx,boundary=True).get(15,0)
@@ -118,7 +126,8 @@ def derive_lift(ctx):
     eliminated=sp.cancel(-closure.subs(spatial,0)/s)
     J=substitute(J_general,{spatial:eliminated});primitive=h(J,ctx)
     A=scale(-1,d({0:f*theta},ctx))
-    Bplus=scale(sp.Rational(1,2),d(scale(f,primitive),ctx));Bminus=scale(-1,Bplus)
+    jump_sign=green['required_B_jump_coefficient']
+    Bplus=scale(sp.Rational(1,2)*jump_sign,d(scale(f,primitive),ctx));Bminus=scale(-1,Bplus)
     boundary_values={f.subs(r,0):1}
     trA=substitute(trace(A,ctx),boundary_values)
     trBp=substitute(trace(Bplus,ctx),boundary_values);trBm=substitute(trace(Bminus,ctx),boundary_values)
@@ -126,7 +135,7 @@ def derive_lift(ctx):
     J_jump=plus(trBp,scale(-1,trBm))
     theta_restricted=scale(-1,h(trA,ctx))
     explicit_A=plus(scale(-f,d({0:theta},ctx,boundary=True)),{16:-sp.diff(f,r)*theta})
-    explicit_B=scale(sp.Rational(1,2),plus(scale(f,J),wedge({16:sp.diff(f,r)},primitive)))
+    explicit_B=scale(sp.Rational(1,2)*jump_sign,plus(scale(f,J),wedge({16:sp.diff(f,r)},primitive)))
     return {'current_general':J_general,'current_closure_coefficient':closure,
             'closed_current_eliminated_component':{spatial:eliminated},'J':J,'hJ':primitive,
             'A_plus':A,'A_minus':A,'B_plus':Bplus,'B_minus':Bminus,
@@ -138,9 +147,9 @@ def derive_lift(ctx):
                 'A_explicit_normal_cutoff_term':plus(A,scale(-1,explicit_A)),
                 'B_explicit_normal_cutoff_term':plus(Bplus,scale(-1,explicit_B)),
                 'A_trace_preserved':plus(trA,scale(-1,A_boundary)),
-                'B_plus_trace_half':plus(trBp,scale(-sp.Rational(1,2),J)),
-                'B_minus_trace_negative_half':plus(trBm,scale(sp.Rational(1,2),J)),
-                'oriented_jump_is_J':plus(J_jump,scale(-1,J)),
+                'B_plus_trace_negative_half':plus(trBp,scale(sp.Rational(1,2),J)),
+                'B_minus_trace_positive_half':plus(trBm,scale(-sp.Rational(1,2),J)),
+                'oriented_Stokes_boundary_row':plus(scale(green['boundary_jump_coefficient'],J_jump),J),
                 'restriction_after_extension_identity':plus(theta_restricted,{0:-theta})}}
 
 def derive_affine(ctx,lift):
@@ -211,17 +220,19 @@ def derive_norms(ctx):
                 'B_cutoff_and_h_bound_substitution':sp.cancel(exact_B.subs({IB:ctx['F0']/ctx['omega_lower']**2,IBr:ctx['F1'],hJ2:J2/s2})-bound_B)}}
 
 def derive_model():
-    ctx=symbols_context();complex_part=derive_complex(ctx);lift=derive_lift(ctx)
+    ctx=symbols_context();green=current_core.derive_oriented_bf_green()
+    complex_part=derive_complex(ctx);lift=derive_lift(ctx,green)
     affine=derive_affine(ctx,lift);norms=derive_norms(ctx)
-    parts={'complex':complex_part,'lift':lift,'affine':affine,'norms':norms}
+    parts={'oriented_green':green,'complex':complex_part,'lift':lift,'affine':affine,'norms':norms}
     checks={part+'_'+name:zero(value) for part,data in parts.items() for name,value in data['residuals'].items()}
     naive_A=scale(-ctx['f'],d({0:ctx['theta']},ctx,boundary=True))
-    naive_B=scale(ctx['f']/2,lift['J'])
+    naive_B=scale(-ctx['f']/2,lift['J'])
     not_closed_J={14:1}
     witnesses={'omit_A_normal_cutoff_term':d(naive_A,ctx),
         'omit_B_normal_cutoff_term':d(naive_B,ctx),
-        'same_sign_on_both_faces':scale(-1,lift['J']),
-        'omit_half_in_B_lift':lift['J'],
+        'same_sign_on_both_faces':plus(scale(green['boundary_jump_coefficient'],plus(lift['B_plus_trace'],scale(-1,lift['B_plus_trace']))),lift['J']),
+        'omit_half_in_B_lift':plus(scale(2*green['boundary_jump_coefficient'],lift['jump']),lift['J']),
+        'old_positive_jump_rejected_by_derived_Stokes_row':plus(scale(-green['boundary_jump_coefficient'],lift['jump']),lift['J']),
         'positive_h_for_B_removal':plus(affine['relative_B_differences'][0],d(h(affine['relative_B_differences'][0],ctx),ctx)),
         'nonclosed_current_cannot_be_recovered':plus(d(h(not_closed_J,ctx),ctx,boundary=True),scale(-1,not_closed_J)),
         'erase_A_with_nonrelative_gauge':affine['forbidden_A_erasing_trace'],
@@ -231,7 +242,9 @@ def derive_model():
             'assumptions':{'spectral_fibre':'Re(s)>0, real spatial k; no division by k or s^2+|k|^2',
                 'linear_bulk_material_current':'J4_bulk=0',
                 'boundary_current':'J=chi *_Sigma(A_Sigma-omega), chi>0; d_Sigma J=0',
-                'incidence':{'plus':1,'minus':-1},'gauge_signs':{'A':'-d epsilon','B':'+d Lambda'},
+                'incidence':{'plus':1,'minus':-1},'boundary_row':'[b]+J=0; dJ=[j4]',
+                'oriented_Green_erratum':'v5.2 bytes unchanged; replace inherited minus jump by Stokes plus jump for vol5=dn wedge volSigma',
+                'gauge_signs':{'A':'-d epsilon','B':'+d Lambda'},
                 'cutoff':'smooth f=1 near UV, compact radial support',
                 'source_status':'connection-current extension remains a proposal; base v5.2 unchanged'},
             'decision':{'selected_linear_affine_BF_quotient_bijection':True,
@@ -251,32 +264,33 @@ def _serialize(value):
     if isinstance(value,(list,tuple)):return [_serialize(v) for v in value]
     return value
 
-def load_sources(note_path=NOTE,candidate_path=CANDIDATE,bf_path=BF_RECEIPT,current_path=CURRENT_RECEIPT):
+def load_sources(note_path=NOTE,candidate_path=CANDIDATE,bf_path=BF_RECEIPT,current_path=CURRENT_RECEIPT,core_path=CORE):
     out={}
     for name,path,digest in [('note',Path(note_path),NOTE_SHA256),('candidate',Path(candidate_path),CANDIDATE_SHA256),
-                            ('BF_antecedent',Path(bf_path),BF_SHA256),('current_proposal',Path(current_path),CURRENT_SHA256)]:
+                            ('BF_antecedent',Path(bf_path),BF_SHA256),('current_proposal',Path(current_path),CURRENT_SHA256),
+                            ('oriented_Stokes_core',Path(core_path),CORE_SHA256)]:
         raw=path.read_bytes()
         if hashlib.sha256(raw).hexdigest()!=digest:raise AffineBFError(name+' byte hash mismatch')
         out[name]={'name':path.name,'sha256':digest}
     out['upstream_gates_inherited']=False
     return out
 
-def build_payload(note_path=NOTE,candidate_path=CANDIDATE,bf_path=BF_RECEIPT,current_path=CURRENT_RECEIPT):
-    sources=load_sources(note_path,candidate_path,bf_path,current_path);model=derive_model()
+def build_payload(note_path=NOTE,candidate_path=CANDIDATE,bf_path=BF_RECEIPT,current_path=CURRENT_RECEIPT,core_path=CORE):
+    sources=load_sources(note_path,candidate_path,bf_path,current_path,core_path);model=derive_model()
     if not all(model['checks'].values()) or not all(model['negative_controls'].values()):
         raise AffineBFError('affine BF identity or negative control failed')
     doc={'schema':SCHEMA,'sources':sources,'model':_serialize(model),'checks':model['checks'],
          'negative_controls':model['negative_controls'],'decision':model['decision'],
-         'provenance':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__),TEST)},
+         'provenance':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__),TEST,CORE)},
          'runtime':{'sympy':sp.__version__}}
     doc['calculation_digest']=canonical_digest(doc)
     return doc
 
-def validate_payload(doc,note_path=NOTE,candidate_path=CANDIDATE,bf_path=BF_RECEIPT,current_path=CURRENT_RECEIPT):
+def validate_payload(doc,note_path=NOTE,candidate_path=CANDIDATE,bf_path=BF_RECEIPT,current_path=CURRENT_RECEIPT,core_path=CORE):
     if not isinstance(doc,dict) or doc.get('schema')!=SCHEMA:raise AffineBFError('receipt schema mismatch')
     if doc.get('calculation_digest')!=canonical_digest({k:v for k,v in doc.items() if k!='calculation_digest'}):
         raise AffineBFError('receipt digest mismatch')
-    if doc!=build_payload(note_path,candidate_path,bf_path,current_path):raise AffineBFError('receipt differs from fresh derivation')
+    if doc!=build_payload(note_path,candidate_path,bf_path,current_path,core_path):raise AffineBFError('receipt differs from fresh derivation')
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__);modes=parser.add_mutually_exclusive_group(required=True)

@@ -13,6 +13,10 @@ import json
 from pathlib import Path
 import sympy as sp
 if __package__:
+    from . import verify_one_omega_interface_connection_current_candidate_v1 as current_core
+else:
+    import verify_one_omega_interface_connection_current_candidate_v1 as current_core
+if __package__:
     from . import verify_one_omega_connection_affine_bf_reconstruction_v1 as ext
 else:
     import verify_one_omega_connection_affine_bf_reconstruction_v1 as ext
@@ -21,12 +25,15 @@ HERE=Path(__file__).resolve().parent
 NOTE=HERE/'one_omega_connection_static_sourced_bf_lemma_v1.md'
 TEST=HERE/'test_one_omega_connection_static_sourced_bf_v1.py'
 BACKEND=Path(ext.__file__).resolve()
+CORE=Path(current_core.__file__).resolve()
+# Refreshed with dependent receipts after the oriented core is finalized.
+CORE_SHA256='7b58450d546c4f0979d6303a6005ae7c3efde5d23f94353c00aec833f13d2d05'
 TORQUE=HERE/'artifacts/one_omega_connection_localized_torque_lift_v1.json'
 CANDIDATE=HERE/'artifacts/one_omega_topological_so3_classical_v5_2_gate.json'
 OUTPUT=HERE/'artifacts/one_omega_connection_static_sourced_bf_v1.json'
-NOTE_SHA256='8f07d3ec6f64f471c15d3dac0d824200f9815f4710ad1f4ba32e0d782d6d9919'
-BACKEND_SHA256='08bac3c5737f4acd9d7d240930cb2f057f9045705cc57d72d0033140eed918ab'
-TORQUE_SHA256='b9d94ab321890be8733bf72dcb17221738d7375c1d8f47397dae23eab16378ee'
+NOTE_SHA256='cc2148af504d8172c98a60e548a42aec505334fb2c05c19aa935c56db8f476f7'
+BACKEND_SHA256='63bd12c8cbce0d759bd2766534c31b7ea55786a92161a7c8ec5982926ff0a93e'
+TORQUE_SHA256='b16337522d149b97952c347286ad85e7203bbe7c8a5598b15c359811a80b708b'
 CANDIDATE_SHA256='d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b'
 SCHEMA='holo.one-omega-connection-static-sourced-bf.v1'
 plus,scale,wedge,contract,trace,zero=ext.plus,ext.scale,ext.wedge,ext.contraction,ext.trace,ext.zero
@@ -102,7 +109,8 @@ def derive_exterior(ctx):
                 'trace_commutes_d':[plus(trace(static_d(a,ctx),ctx),scale(-1,static_d(trace(a,ctx),ctx,boundary=True))) for a in basis],
                 'trace_commutes_h':[plus(trace(spatial_h(a,ctx),ctx),scale(-1,spatial_h(trace(a,ctx),ctx))) for a in basis]}}
 
-def derive_reconstruction(ctx):
+def derive_reconstruction(ctx,green=None):
+    if green is None:green=current_core.derive_oriented_bf_green()
     z,f=ctx['z'],ctx['f']
     # Q^t=0: the four source basis forms all contain dt. A general closed
     # source is represented by d h J_general; Cartan proves this projection
@@ -113,17 +121,17 @@ def derive_reconstruction(ctx):
     jplus=trace(source,ctx);jump=scale(2,jplus)
     boundary_potential={m:sp.Symbol(f'boundary_K_{m}') for m in ext.masks(2,4)}
     L=static_d(boundary_potential,ctx,boundary=True)
-    Jboundary=plus(scale(-1,spatial_h(jump,ctx)),L)
-    correction=scale(sp.Rational(1,2),static_d(scale(f,spatial_h(L,ctx)),ctx))
+    Jboundary=plus(scale(green['compatibility_current_coefficient'],spatial_h(jump,ctx)),L)
+    correction=scale(sp.Rational(1,2)*green['required_B_jump_coefficient'],static_d(scale(f,spatial_h(L,ctx)),ctx))
     Bplus=plus(part_plus,correction);Bminus=plus(part_minus,scale(-1,correction))
     uv={f.subs(z,0):1}
     Bjump=ext.substitute(plus(trace(Bplus,ctx),scale(-1,trace(Bminus,ctx))),uv)
     # Actual Poisson port: rho, Theta and the Lorentzian star fix L exactly.
-    rho=ctx['rho'];Theta=-rho/(ctx['chi']*ctx['p2'])
+    rho=ctx['rho'];Theta=rho/(ctx['chi']*ctx['p2'])
     dTheta={1<<(i+1):sp.I*k*Theta for i,k in enumerate(ctx['xi'])}
     actual_current=scale(-ctx['chi'],star_one_Lorentz(dTheta))
     actual_jump={15:rho}
-    actual_L=plus(actual_current,spatial_h(actual_jump,ctx))
+    actual_L=plus(actual_current,scale(-green['compatibility_current_coefficient'],spatial_h(actual_jump,ctx)))
     actual_current_for_source=ext.substitute(actual_current,{rho:jump.get(15,0)})
     part_jump=plus(trace(part_plus,ctx),scale(-1,trace(part_minus,ctx)))
     return {'general_source_four_form':general,'closed_source_plus':source,'closed_source_minus':scale(-1,source),
@@ -136,14 +144,15 @@ def derive_reconstruction(ctx):
                 'source_closed':static_d(source,ctx),
                 'B_part_plus_sourced_equation':plus(static_d(part_plus,ctx),source),
                 'B_part_minus_sourced_equation':plus(static_d(part_minus,ctx),scale(-1,source)),
-                'general_boundary_compatibility':plus(static_d(Jboundary,ctx,boundary=True),jump),
+                'general_boundary_compatibility':plus(static_d(Jboundary,ctx,boundary=True),scale(-green['compatibility_current_coefficient'],jump)),
                 'general_L_closed':static_d(L,ctx,boundary=True),
                 'general_B_plus_sourced_equation':plus(static_d(Bplus,ctx),source),
                 'general_B_minus_sourced_equation':plus(static_d(Bminus,ctx),scale(-1,source)),
-                'general_oriented_jump':plus(Bjump,scale(-1,Jboundary)),
+                'general_oriented_Stokes_boundary_row':plus(scale(green['boundary_jump_coefficient'],Bjump),Jboundary),
                 'actual_Hodge_Poisson_remainder_zero':actual_L,
-                'actual_current_compatibility':plus(static_d(actual_current,ctx,boundary=True),actual_jump),
-                'actual_B_part_alone_has_required_jump':plus(part_jump,scale(-1,actual_current_for_source))}}
+                'actual_current_compatibility':plus(static_d(actual_current,ctx,boundary=True),scale(-green['compatibility_current_coefficient'],actual_jump)),
+                'actual_Poisson_equation':-ctx['chi']*ctx['p2']*Theta+rho,
+                'actual_B_part_alone_has_required_jump':plus(scale(green['boundary_jump_coefficient'],part_jump),actual_current_for_source)}}
 
 def derive_norms(ctx):
     z=sp.Symbol('positive_z',positive=True);rate=sp.Symbol('positive_rate',positive=True)
@@ -185,25 +194,29 @@ def derive_norms(ctx):
         'residuals':residuals}
 
 def derive_model():
-    ctx=symbols_context();parts={'material':derive_material(ctx),'exterior':derive_exterior(ctx),
-        'reconstruction':derive_reconstruction(ctx),'norms':derive_norms(ctx)}
+    ctx=symbols_context();green=current_core.derive_oriented_bf_green()
+    parts={'oriented_green':green,'material':derive_material(ctx),'exterior':derive_exterior(ctx),
+        'reconstruction':derive_reconstruction(ctx,green),'norms':derive_norms(ctx)}
     checks={part+'_'+name:zero(v) for part,data in parts.items() for name,v in data['residuals'].items()}
     rec=parts['reconstruction'];mat=parts['material']
     wrong_star_current=scale(-1,rec['J_Sigma_actual_port'])
-    wrong_radial=scale(ctx['f']/2,rec['general_closed_boundary_remainder'])
+    wrong_radial=scale(-ctx['f']/2,rec['general_closed_boundary_remainder'])
     small_momentum=dict(ctx);small_momentum['xi']=(sp.Rational(1,2),0,0);small_momentum['p2']=sp.Rational(1,4)
     unit_form_primitive=spatial_h({2:1},small_momentum)[0]
     unit_bound_gap=sp.expand(sp.conjugate(unit_form_primitive)*unit_form_primitive-1)
     witnesses={'omit_sourced_particular_solution':rec['closed_source_plus'],
         'positive_h_for_B_part':plus(static_d(scale(-1,rec['B_part_plus']),ctx),rec['closed_source_plus']),
         'same_sign_source_on_both_oriented_halves':scale(2,rec['closed_source_plus']),
-        'wrong_Lorentz_Hodge_sign':plus(wrong_star_current,spatial_h({15:ctx['rho']},ctx)),
+        'wrong_Lorentz_Hodge_sign':plus(wrong_star_current,scale(-green['compatibility_current_coefficient'],spatial_h({15:ctx['rho']},ctx))),
+        'old_positive_jump_rejected_by_derived_Stokes_row':plus(scale(green['boundary_jump_coefficient'],rec['actual_particular_jump']),scale(-1,rec['actual_current_for_general_closed_source'])),
         'omit_general_cutoff_normal_term':static_d(wrong_radial,ctx),
         'reverse_material_Robin_source_sign':scale(2,{0:mat['rho_from_oriented_trace'][0]}),
         'claim_unit_spatial_h_bound_at_zero':unit_bound_gap,
         'erase_dt_components_of_source':rec['closed_source_plus']}
     controls={name:not zero(v) for name,v in witnesses.items()}
     return {'symbols':ctx,**parts,'checks':checks,'negative_controls':controls,'negative_witnesses':witnesses,
+        'assumptions':{'boundary_row':'[b]+J=0; dJ=[j4]',
+            'oriented_Green_erratum':'v5.2 bytes unchanged; Stokes determines the jump sign with the declared normals'},
         'decision':{'prescribed_port_order_two_sourced_BF_constructed':True,
             'actual_port_requires_no_closed_cutoff_correction':True,
             'material_current_conservation_from_harmonic_EL':True,
@@ -214,31 +227,33 @@ def derive_model():
             'global_temporal_L2_or_physical_B_energy_proved':False,'BV_BFV_or_global_topology_closed':False,
             'N4_JUNCTION_BENDING_pass':False,'full_N7':False,'full_P4':False,'B4':False,'B5':False}}
 
-def load_sources(note_path=NOTE,backend_path=BACKEND,torque_path=TORQUE,candidate_path=CANDIDATE):
+def load_sources(note_path=NOTE,backend_path=BACKEND,torque_path=TORQUE,candidate_path=CANDIDATE,core_path=CORE):
     out={}
     for kind,path,digest in [('note',Path(note_path),NOTE_SHA256),('exterior_backend',Path(backend_path),BACKEND_SHA256),
-                            ('localized_torque',Path(torque_path),TORQUE_SHA256),('base_candidate',Path(candidate_path),CANDIDATE_SHA256)]:
+                            ('localized_torque',Path(torque_path),TORQUE_SHA256),('base_candidate',Path(candidate_path),CANDIDATE_SHA256),
+                            ('oriented_Stokes_core',Path(core_path),CORE_SHA256)]:
         if hashlib.sha256(path.read_bytes()).hexdigest()!=digest:raise StaticSourcedBFError(kind+' byte hash mismatch')
         out[kind]={'name':path.name,'sha256':digest}
     out['reused_backend_scope']='wedge, contraction, trace and serialization only; no RHP 1/s homotopy'
+    out['oriented_core_scope']='fresh Stokes derivation of boundary and compatibility coefficients'
     out['upstream_global_gates_inherited']=False
     return out
 
-def build_payload(note_path=NOTE,backend_path=BACKEND,torque_path=TORQUE,candidate_path=CANDIDATE):
-    sources=load_sources(note_path,backend_path,torque_path,candidate_path);model=derive_model()
+def build_payload(note_path=NOTE,backend_path=BACKEND,torque_path=TORQUE,candidate_path=CANDIDATE,core_path=CORE):
+    sources=load_sources(note_path,backend_path,torque_path,candidate_path,core_path);model=derive_model()
     if not all(model['checks'].values()) or not all(model['negative_controls'].values()):
         raise StaticSourcedBFError('static sourced BF identity or negative control failed')
     doc={'schema':SCHEMA,'sources':sources,'model':ext._serialize(model),'checks':model['checks'],
         'negative_controls':model['negative_controls'],'decision':model['decision'],
-        'provenance':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__),TEST)},
+        'provenance':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__),TEST,CORE)},
         'runtime':{'sympy':sp.__version__}}
     doc['calculation_digest']=canonical_digest(doc)
     return doc
 
-def validate_payload(doc,note_path=NOTE,backend_path=BACKEND,torque_path=TORQUE,candidate_path=CANDIDATE):
+def validate_payload(doc,note_path=NOTE,backend_path=BACKEND,torque_path=TORQUE,candidate_path=CANDIDATE,core_path=CORE):
     if not isinstance(doc,dict) or doc.get('schema')!=SCHEMA:raise StaticSourcedBFError('receipt schema mismatch')
     if doc.get('calculation_digest')!=canonical_digest({k:v for k,v in doc.items() if k!='calculation_digest'}):raise StaticSourcedBFError('receipt digest mismatch')
-    if doc!=build_payload(note_path,backend_path,torque_path,candidate_path):raise StaticSourcedBFError('receipt differs from fresh derivation')
+    if doc!=build_payload(note_path,backend_path,torque_path,candidate_path,core_path):raise StaticSourcedBFError('receipt differs from fresh derivation')
 
 def main(argv=None):
     parser=argparse.ArgumentParser(description=__doc__);modes=parser.add_mutually_exclusive_group(required=True)

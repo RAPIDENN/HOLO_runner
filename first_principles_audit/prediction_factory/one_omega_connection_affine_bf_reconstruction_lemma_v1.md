@@ -8,11 +8,14 @@ BF construida abajo no modifica esos datos.
 
 Fuentes fijadas por bytes: acción candidata v5.2
 (d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b),
-recibo de la homotopía BF lineal anterior
-(c14cf8d7b5820114837a4fb7f432ef250001224b8946f386c55350d2a829871d)
-y recibo de la corriente candidata
-(e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e).
-Se recomputa aquí el álgebra exterior; no se heredan sus gates.
+recibo de la homotopía BF lineal anterior y recibo corregido de la corriente
+candidata. Sus hashes y el del core que deriva Stokes constan en el manifiesto
+del verificador. Se recomputa aquí el álgebra exterior; no se heredan gates.
+
+Esta revisión corrige una errata de orientación del Green literal anterior.
+Los bytes de v5.2 y el historial Git se conservan: el resultado actual usa la
+fila derivada desde +int B wedge F con los normales declarados abajo, no el
+signo global heredado que el caso homogéneo b_plus-b_minus=0 no detectaba.
 
 ## Complejo lineal e incidencia
 
@@ -23,18 +26,25 @@ A=B=phi=0 abelianiza por separado los tres generadores de so(3):
     d_5 A_plus=d_5 A_minus=0,
     d_5 B_plus=d_5 B_minus=0,
     A_plus|Sigma=A_minus|Sigma=A_Sigma,
-    b_plus-b_minus=J_Sigma,       J_Sigma=chi *_Sigma C.
+    b_plus-b_minus=-J_Sigma,      J_Sigma=chi *_Sigma C.
 
 Aquí la corriente material bulk lineal J4_bulk es cero. La construcción
 no resuelve dB=-J4_bulk a orden epsilon^2; esa reconstrucción sourced es
 un problema distinto, aunque ya se haya cerrado una compatibilidad de salto.
 
 A es una 1-forma, B una 3-forma y J una 3-forma en Sigma4. Las incidencias
-son (+1,-1), las mismas de la forma de Green -<(b_plus-b_minus) wedge delta A>.
-No se añade otro signo por el normal exterior: las b son pullbacks a la
-misma Sigma orientada y la incidencia ya contiene esa información.
-La variación de S_C es +<chi *C wedge delta A>, por el intercambio de
-una 1-forma con una 3-forma; así el salto es +J, no -J.
+son (+1,-1). Para un normal común n de menos a más se fija
+vol5=dn wedge volSigma, con n_out,plus=-partial_n y n_out,minus=+partial_n.
+La identidad de grado tres
+
+    B wedge D(delta A)=(D B) wedge delta A-d(B wedge delta A)
+
+da el Green BF +<(b_plus-b_minus) wedge delta A>. Las b son pullbacks a
+la misma Sigma orientada; la incidencia ya contiene la orientación exterior.
+La variación de S_C es +<J wedge delta A>. La fila total es [b]+J=0,
+y al combinarla con dB+J4=0 resulta d_Sigma J=[j4]. Aquí [j4]=0.
+El core deriva este signo por Stokes antes de contrastar la reconstrucción;
+un mutante con el salto antiguo +J deja un residual 2J.
 
 La fibra es exp(s t+i k.x), Re(s)>0, k real. Escribimos
 
@@ -64,16 +74,16 @@ También es necesaria por los dos dB=0 y el salto.
 Sea f suave, f=1 cerca de r=0 y f=0 para r>=R, con R finito. Definimos
 
     E_f(A)_plus=E_f(A)_minus=-d_5[f theta],
-    E_f(B)_plus=+d_5[f hJ]/2,
-    E_f(B)_minus=-d_5[f hJ]/2.
+    E_f(B)_plus=-d_5[f hJ]/2,
+    E_f(B)_minus=+d_5[f hJ]/2.
 
 En componentes tangenciales y radiales,
 
     A_eps=-f d_Sigma theta-f' dr theta,
-    B_eps=eps/2 [f J+f' dr wedge hJ], eps=+1 o -1.
+    B_eps=-eps/2 [f J+f' dr wedge hJ], eps=+1 o -1.
 
 Se usó d_Sigma hJ=J, válida porque dJ=0. Las dos extensiones son cerradas
-por d^2=0. Sus trazas son A_Sigma y +/-J/2, y el salto es exactamente J.
+por d^2=0. Sus trazas son A_Sigma y -/+J/2, y el salto es exactamente -J.
 Los términos con f' son necesarios: eliminarlos hace fallar dA=0 o dB=0.
 El corte radial no exige modificar omega ni imponer A=omega.
 
@@ -93,7 +103,7 @@ Con las convenciones delta_g A=-d epsilon y delta_g B=d Lambda, se elige
 
 Las diferencias se anulan. Los epsilon tienen traza cero; las Lambda
 tienen trazas comunes. Así son gauges relativos permitidos y conservan
-A_Sigma y el salto J. El signo MENOS de Lambda es indispensable.
+A_Sigma y el salto -J. El signo MENOS de Lambda es indispensable.
 
 Por tanto, en el dominio seleccionado abajo, R y E_f inducen una biyección
 entre datos de interfaz que cumplen dJ=0 y clases bulk bajo esos gauges.
@@ -102,7 +112,7 @@ con una sola clase relativa. Cambiar f o repartir J de otra forma entre
 las dos caras cambia sólo el representante.
 
 No se afirma que B particular pueda anularse: para J distinto de cero,
-los parámetros -h B_eps tienen salto -hJ, no trazas comunes. Tampoco se
+los parámetros -h B_eps tienen salto +hJ, no trazas comunes. Tampoco se
 usa un epsilon de traza no nula para eliminar theta. La redundancia de
 Lambda por d(rho_1), y la de rho_1 por d(sigma_0), obedecen a la misma
 homotopía con trazas comunes; esto no construye BV/BFV.

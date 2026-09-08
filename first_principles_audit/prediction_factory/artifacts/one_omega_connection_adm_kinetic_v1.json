@@ -1,5 +1,5 @@
 {
-  "calculation_digest": "bec9d04afc286cf375efa0665d96ddd47a10101d70cb2d2b00378fd20588fe49",
+  "calculation_digest": "c630444f664cd3be4f11cfeb5e4375d02ff8a67ad5048588bd550585d5076137",
   "checks": {
     "ADM_inverse_all_16_entries": true,
     "ADM_metric_exact_shear_congruence": true,
@@ -3399,7 +3399,7 @@
   "provenance": {
     "one_omega_connection_adm_kinetic_lemma_v1.md": "5d57ffa5829861d812253731f3c165ede8eba90cfc9d022aba6f9976471274f7",
     "test_one_omega_connection_adm_kinetic_v1.py": "ea3c3a72507b8672253314454b0c4e603307643ddfebc1affe86c4f76ef374ce",
-    "verify_one_omega_connection_adm_kinetic_v1.py": "c792fbb0497a14d1d3e6f3f76d4d0ef57c90cc123c2d98e1ee290180ac32aa74"
+    "verify_one_omega_connection_adm_kinetic_v1.py": "e4c9a339e266cad1ed3b5ff2d9e9ac5331ac09580eb55447dc016365685f694f"
   },
   "schema": "holo.one-omega-connection-adm-kinetic.v1",
   "scope": {
@@ -3424,7 +3424,7 @@
     "smooth_metric_dependent_frame_section_required": true
   },
   "sources": {
-    "Ward_receipt_sha256": "7720dab2e0225bddb70a6b8095c0ad16cc7de456fe73663a1bfb41cf4ea547c2",
+    "Ward_receipt_sha256": "d26d2cf58092eecacebd1f8d7f34f8a35222cd1ef7ec7153f5f0675a7e7e1f89",
     "lemma_sha256": "5d57ffa5829861d812253731f3c165ede8eba90cfc9d022aba6f9976471274f7",
     "source_gates_inherited": false
   }

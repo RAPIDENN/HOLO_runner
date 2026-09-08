@@ -6,10 +6,10 @@
     "source_class": "rho2=curl(kappa*y\u00b2*F*grad(g(|D|)F)), F real C_c^infinity(R3)",
     "zero_mean": "integration by parts of compact vector potential"
   },
-  "calculation_digest": "28d7b17abddd3df396f09d7252a062e74cf0f0c5338116f73efb6eac1980b3b6",
+  "calculation_digest": "8c551ed6911cc29edcb16fe3e2df3eecf69e03e29ae790dd49e3c234c8aa5dc2",
   "checks": {
-    "Coulomb_fundamental_solution_flux_is_positive_one": true,
     "Coulomb_kernel_harmonic_away_from_source": true,
+    "Coulomb_source_kernel_flux_is_negative_one": true,
     "Fourier_Poisson_multiplier_has_required_sign": true,
     "actual_two_mode_compatibility_cancelled": true,
     "actual_two_mode_source_positive_jump_sign": true,
@@ -43,7 +43,7 @@
     "static_energy_is_global_time_action": false
   },
   "model": {
-    "Fourier_Theta": "-rho_hat/(chi*p**2)",
+    "Fourier_Theta": "rho_hat/(chi*p**2)",
     "low_L2": "4*pi*M1**2*R/chi**2",
     "low_energy": "2*pi*M1**2*R**3/(3*chi)",
     "periodic_Theta": [
@@ -51,7 +51,7 @@
         "0"
       ],
       [
-        "-4*sin(x)*sin(2*z)/(25*chi)"
+        "4*sin(x)*sin(2*z)/(25*chi)"
       ],
       [
         "0"
@@ -84,13 +84,13 @@
     "assume_mean_zero_without_source_structure": true,
     "drop_gradient_cross_source": true,
     "flip_jump_orientation_only": true,
+    "old_Poisson_sign_leaves_twice_the_material_source": true,
     "omit_Maurer_Cartan_quadratic_correction": true,
-    "omit_second_wavenumber_in_periodic_gain": true,
-    "opposite_Poisson_sign": true
+    "omit_second_wavenumber_in_periodic_gain": true
   },
   "provenance": {
-    "test_one_omega_connection_localized_torque_lift_v1.py": "b57ce5d8a1803b18b6ad81302dc64e5a2bd39ae33e3b3f1fe66c54df95b9ca52",
-    "verify_one_omega_connection_localized_torque_lift_v1.py": "0fc8cd6abced4cbfcaa52242a3e664fda9a45bcd8415f596c47ed0334af763a8"
+    "test_one_omega_connection_localized_torque_lift_v1.py": "a47375a71298a7e06d81f63768a6fee52bb0b5a20b7bcd8f22e90d31df53944f",
+    "verify_one_omega_connection_localized_torque_lift_v1.py": "2ce1897bc9de8eb8bade75e1a73def775520f1d19ec77d34a8e4689121d69130"
   },
   "schema": "holo.one-omega-connection-localized-torque-lift.v1",
   "sources": {
@@ -100,10 +100,10 @@
         "source_gates_inherited": false
       },
       "one_omega_interface_connection_current_candidate_v1": {
-        "sha256": "e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e",
+        "sha256": "e51d8d47ee97e20c6aea5aebb4680a65cba79254c2ea0a30fd6a88774b6535e8",
         "source_gates_inherited": false
       }
     },
-    "lemma_sha256": "05bf29a3d486aa99288259502fb752babd85d1438bccdcb64df7b6b659dfeb46"
+    "lemma_sha256": "8af2a8626df9fd665a721d203e30536396d85a83093a9352cfda4003f960561f"
   }
 }

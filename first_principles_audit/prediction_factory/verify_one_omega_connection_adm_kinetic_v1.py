@@ -14,7 +14,7 @@ TEST=HERE/'test_one_omega_connection_adm_kinetic_v1.py'
 SOURCE=HERE/'artifacts/one_omega_connection_horizontal_ward_v1.json'
 OUTPUT=HERE/'artifacts/one_omega_connection_adm_kinetic_v1.json'
 PROOF_SHA='5d57ffa5829861d812253731f3c165ede8eba90cfc9d022aba6f9976471274f7'
-SOURCE_SHA='7720dab2e0225bddb70a6b8095c0ad16cc7de456fe73663a1bfb41cf4ea547c2'
+SOURCE_SHA='d26d2cf58092eecacebd1f8d7f34f8a35222cd1ef7ec7153f5f0675a7e7e1f89'
 SCHEMA='holo.one-omega-connection-adm-kinetic.v1'
 
 

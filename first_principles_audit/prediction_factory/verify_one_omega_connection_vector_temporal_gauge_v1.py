@@ -25,8 +25,8 @@ OUTPUT=HERE/'artifacts/one_omega_connection_vector_temporal_gauge_v1.json'
 NOTE_SHA256='264f0e9b6035364553a43b133b81f18d600e92f2383613544d0bf428f654badd'
 SCHEMA='holo.one-omega-connection-vector-temporal-gauge.v1'
 SOURCE_PINS={
-    'one_omega_connection_candidate_response_v1':'273c4681f18c847d509f890621a263f6787bfac7e6b06614c864bf65f842bd36',
-    'one_omega_connection_horizontal_ward_v1':'7720dab2e0225bddb70a6b8095c0ad16cc7de456fe73663a1bfb41cf4ea547c2',
+    'one_omega_connection_candidate_response_v1':'724e8f84148047105b9a4d997c3cdd14c03eceaa665d98a8fb55cbe1852f9c74',
+    'one_omega_connection_horizontal_ward_v1':'d26d2cf58092eecacebd1f8d7f34f8a35222cd1ef7ec7153f5f0675a7e7e1f89',
     'one_omega_zero_momentum_linear_v1':'f2c83fa82a87353b01d43790ddfe73bd8e42febaca2a5554ddb8a5f5c6d96539',
 }
 SOURCE_NOTE_PINS={

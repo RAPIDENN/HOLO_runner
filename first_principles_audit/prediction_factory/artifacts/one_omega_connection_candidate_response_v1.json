@@ -1,5 +1,5 @@
 {
-  "calculation_digest": "0b23266375b1322035113ef2b44a0a74f790e27f00a49237f31d74c9ad652f49",
+  "calculation_digest": "577aa6ddcd28ec5898d689319021d09d41df1356c0d83d5b4e989a04c62be11d",
   "checks": {
     "H18_formal_opposite_Fourier_adjoint": true,
     "PR_K0_excess_identity": true,
@@ -71,7 +71,7 @@
   },
   "provenance": {
     "test_one_omega_connection_candidate_response_v1.py": "33ff5789c0b77da57fce1e8446659d14da86bef5a4452d0b9cb41c9a710e0daf",
-    "verify_one_omega_connection_candidate_response_v1.py": "59f42cfeec40ccff285e815fb023122587f4a614e7ca3e13d9e43e4d1315f17f"
+    "verify_one_omega_connection_candidate_response_v1.py": "86151e8f0c867ce9355bc4e43d638e8673039394bc70296d900407b53edba429"
   },
   "response": {
     "B": "K_T*M5c/(q**2 - w**2) + Mb2",
@@ -661,7 +661,7 @@
     "upstreams": {
       "one_omega_interface_connection_current_candidate_v1": {
         "schema": "holo.one-omega-interface-connection-current-candidate.v1",
-        "sha256": "e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e"
+        "sha256": "e51d8d47ee97e20c6aea5aebb4680a65cba79254c2ea0a30fd6a88774b6535e8"
       },
       "one_omega_projected_connection_linear_v1": {
         "schema": "holo.one-omega-projected-connection-linear.v1",

@@ -10,15 +10,19 @@ import hashlib
 import json
 from pathlib import Path
 import sympy as sp
+if __package__:
+ from . import verify_one_omega_interface_connection_current_candidate_v1 as current_candidate
+else:
+ import verify_one_omega_interface_connection_current_candidate_v1 as current_candidate
 
 HERE=Path(__file__).resolve().parent
 NOTE=HERE/'one_omega_connection_localized_torque_lift_lemma_v1.md'
 TEST=HERE/'test_one_omega_connection_localized_torque_lift_v1.py'
 OUTPUT=HERE/'artifacts/one_omega_connection_localized_torque_lift_v1.json'
-NOTE_SHA256='05bf29a3d486aa99288259502fb752babd85d1438bccdcb64df7b6b659dfeb46'
+NOTE_SHA256='8af2a8626df9fd665a721d203e30536396d85a83093a9352cfda4003f960561f'
 PINS={
  'one_omega_bf_robin_compatibility_v1':'61cb8ac8ac88bd9ff888118af0fedd6b95c4c694361958a436b6523ba78fe325',
- 'one_omega_interface_connection_current_candidate_v1':'e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e',
+ 'one_omega_interface_connection_current_candidate_v1':'e51d8d47ee97e20c6aea5aebb4680a65cba79254c2ea0a30fd6a88774b6535e8',
 }
 SCHEMA='holo.one-omega-connection-localized-torque-lift.v1'
 class TorqueLiftError(ValueError):pass
@@ -97,9 +101,11 @@ def derive_geometry():
 
 def derive_poisson():
  chi,p,R,M1=sp.symbols('chi p R M1',positive=True)
- rhohat=sp.Symbol('rho_hat');theta=-rhohat/(chi*p*p)
+ green=current_candidate.derive_oriented_bf_green()
+ source_sign=green['compatibility_current_coefficient']
+ rhohat=sp.Symbol('rho_hat');theta=source_sign*rhohat/(chi*p*p)
  radius=sp.Symbol('radius',positive=True)
- kernel=-1/(4*sp.pi*chi*radius)
+ kernel=source_sign/(4*sp.pi*chi*radius)
  lap=sp.diff(kernel,radius,2)+2*sp.diff(kernel,radius)/radius
  flux=chi*4*sp.pi*radius*radius*sp.diff(kernel,radius)
  low_l2=sp.integrate(4*sp.pi*M1*M1/(chi*chi),(p,0,R))
@@ -108,24 +114,24 @@ def derive_poisson():
  F=sp.cos(x)+sp.cos(2*z);U=sp.cos(x)/3+sp.cos(2*z)/5
  f=sp.Matrix([sp.diff(F,x),0,sp.diff(F,z)])
  u=sp.Matrix([sp.diff(U,x),0,sp.diff(U,z)])
- rho=3*f.cross(u);Theta=-rho/(5*chi)
+ rho=3*f.cross(u);Theta=source_sign*rho/(5*chi)
  lapTheta=Theta.applyfunc(lambda v:sp.diff(v,x,2)+sp.diff(v,z,2))
  periodic_energy_density=chi*sum(sp.diff(v,x)**2+sp.diff(v,z)**2 for v in Theta)/2
  periodic_energy=sp.integrate(periodic_energy_density,(x,0,2*sp.pi),(z,0,2*sp.pi))
  lower=sp.Rational(197,640)
- checks={'Fourier_Poisson_multiplier_has_required_sign':zero(-chi*p*p*theta-rhohat),
+ checks={'Fourier_Poisson_multiplier_has_required_sign':zero(-chi*p*p*theta+rhohat),
          'Coulomb_kernel_harmonic_away_from_source':zero(lap),
-         'Coulomb_fundamental_solution_flux_is_positive_one':flux==1,
+         'Coulomb_source_kernel_flux_is_negative_one':flux==-1,
          'zero_mean_infrared_L2_bound':low_l2==4*sp.pi*M1*M1*R/(chi*chi),
          'zero_mean_infrared_energy_bound':low_energy==2*sp.pi*M1*M1*R**3/(3*chi),
          'energy_Parseval_factor':zero(chi*p*p*theta**2/2-rhohat**2/(2*chi*p*p)),
          'actual_two_mode_source_positive_jump_sign':zero(rho-sp.Matrix([0,sp.Rational(4,5)*sp.sin(x)*sp.sin(2*z),0])),
-         'actual_two_mode_compatibility_cancelled':zero(chi*lapTheta-rho),
+         'actual_two_mode_compatibility_cancelled':zero(chi*lapTheta+rho),
          'periodic_energy_normalization':zero(periodic_energy-8*sp.pi**2/(125*chi)),
          'inherited_localized_source_bound_is_strictly_positive':lower.is_positive is True}
  return {'chi':chi,'p':p,'R':R,'M1':M1,'rhohat':rhohat,'theta_multiplier':theta,'kernel':kernel,
          'periodic_rho':rho,'periodic_Theta':Theta,'periodic_energy':periodic_energy,'low_L2':low_l2,'low_energy':low_energy,
-         'checks':checks,'negative':{'opposite_Poisson_sign':2*rhohat,
+         'checks':checks,'negative':{'old_Poisson_sign_leaves_twice_the_material_source':2*rhohat,
                                     'assume_mean_zero_without_source_structure':sp.Integral(1/p**2,(p,0,1)),
                                     'omit_second_wavenumber_in_periodic_gain':3*f.cross(f/3)-rho}}
 

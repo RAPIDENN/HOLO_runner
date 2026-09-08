@@ -32,7 +32,7 @@
       "sigma": "sigma"
     }
   },
-  "calculation_digest": "239525b874d065d21e2b1b0f9f5f62aa5a63b5fafd2210c6af468ee86cce79f7",
+  "calculation_digest": "233e0aaf6a11252e2bbc2dcc6ccf465ddb39e6c2f1d4b1a6be5d1d9dbd4029b2",
   "checks": {
     "all_324_direct_homogeneous_added_entries": true,
     "all_four_source_gauge_vectors_are_null": true,
@@ -104,7 +104,7 @@
   },
   "provenance": {
     "test_one_omega_connection_vector_temporal_gauge_v1.py": "2fea93f2300591567232fde0a591b24706380453bb5c23b789e8072e97f12d73",
-    "verify_one_omega_connection_vector_temporal_gauge_v1.py": "4716cf0cd4b89bb2113a896cf01f296dd2ab96a8e4909d186307ba5e62f7c3c4"
+    "verify_one_omega_connection_vector_temporal_gauge_v1.py": "224407784db4e988b3ee914427515a2c679bda51470e8bc7dc5ef18efff25f49"
   },
   "response": {
     "kernel_coordinate": {
@@ -778,7 +778,7 @@
       "upstreams": {
         "one_omega_interface_connection_current_candidate_v1": {
           "schema": "holo.one-omega-interface-connection-current-candidate.v1",
-          "sha256": "e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e"
+          "sha256": "e51d8d47ee97e20c6aea5aebb4680a65cba79254c2ea0a30fd6a88774b6535e8"
         },
         "one_omega_projected_connection_linear_v1": {
           "schema": "holo.one-omega-projected-connection-linear.v1",
@@ -821,11 +821,11 @@
     "upstreams": {
       "one_omega_connection_candidate_response_v1": {
         "schema": "holo.one-omega-connection-candidate-response.v1",
-        "sha256": "273c4681f18c847d509f890621a263f6787bfac7e6b06614c864bf65f842bd36"
+        "sha256": "724e8f84148047105b9a4d997c3cdd14c03eceaa665d98a8fb55cbe1852f9c74"
       },
       "one_omega_connection_horizontal_ward_v1": {
         "schema": "holo.one-omega-connection-horizontal-ward.v1",
-        "sha256": "7720dab2e0225bddb70a6b8095c0ad16cc7de456fe73663a1bfb41cf4ea547c2"
+        "sha256": "d26d2cf58092eecacebd1f8d7f34f8a35222cd1ef7ec7153f5f0675a7e7e1f89"
       },
       "one_omega_zero_momentum_linear_v1": {
         "schema": "holo.one-omega-zero-momentum-linear.v1",

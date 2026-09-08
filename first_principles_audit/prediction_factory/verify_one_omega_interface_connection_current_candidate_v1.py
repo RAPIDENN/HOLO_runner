@@ -14,7 +14,7 @@ TEST = HERE/'test_one_omega_interface_connection_current_candidate_v1.py'
 OUTPUT = HERE/'artifacts/one_omega_interface_connection_current_candidate_v1.json'
 SOURCE_SHA = 'd9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b'
 ACTION_SHA = '3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a'
-PROOF_SHA = 'ab9745c81faf58e83fef2937b97f7de7e2c6f9ae3bce8bd3cf4fa8aeeb87966b'
+PROOF_SHA = '62520b01ce3dc19b89eac01f10286193a3e071df803dcfd433573b87638042b7'
 SCHEMA = 'holo.one-omega-interface-connection-current-candidate.v1'
 
 
@@ -42,6 +42,90 @@ def star_one(components,inverse_metric,volume):
     return {tuple(a for a in range(4) if a!=mu):(-1)**mu*volume*raised[mu] for mu in range(4)}
 
 
+def exterior_derivative(form,coords):
+    result={}
+    for axis,x in enumerate(coords):
+        differentiated={key:sp.diff(value,x) for key,value in form.items()}
+        for key,value in wedge({(axis,):sp.Integer(1)},differentiated).items():
+            result[key]=result.get(key,0)+value
+    return {key:value for key,raw in result.items() if (value:=sp.expand(raw))!=0}
+
+
+def derive_oriented_bf_green():
+    """Literal +B3 wedge F with vol5=dn wedge volSigma and unsigned pullbacks.
+
+    No frozen Green coefficient is used as input. The normal coordinate is
+    directed from Mminus to Mplus. Both bulk integrations use the common
+    orientation; their induced interface orientations are -/+ volSigma.
+    """
+    coords=sp.symbols('n t x y z',real=True);n=coords[0]
+    B={key:sp.Function('B_'+''.join(map(str,key)))(*coords)
+       for key in itertools.combinations(range(5),3)}
+    deltaA={(i,):sp.Function(f'a{i}')(*coords) for i in range(5)}
+    dB=exterior_derivative(B,coords);dA=exterior_derivative(deltaA,coords)
+    pair=wedge(B,deltaA)
+    literal=wedge(B,dA).get((0,1,2,3,4),0)
+    bulk=wedge(dB,deltaA).get((0,1,2,3,4),0)
+    total_derivative=exterior_derivative(pair,coords).get((0,1,2,3,4),0)
+    bp,bm,ap,J=sp.symbols('b_plus b_minus delta_a_common J_component',real=True)
+    # A one-dimensional off-shell oracle with independent slopes and curvatures.
+    vp,wp,vm,wm,up,um=sp.symbols('v_plus w_plus v_minus w_minus u_plus u_minus',real=True)
+    bplus=bp+vp*n+wp*n*n;bminus=bm+vm*n+wm*n*n
+    aplus=ap*(1-n)*(1+up*n);aminus=ap*(1+n)*(1+um*n)
+    integral_plus=sp.integrate(bplus*sp.diff(aplus,n),(n,0,1))
+    integral_minus=sp.integrate(bminus*sp.diff(aminus,n),(n,-1,0))
+    bulk_plus=-sp.integrate(sp.diff(bplus,n)*aplus,(n,0,1))
+    bulk_minus=-sp.integrate(sp.diff(bminus,n)*aminus,(n,-1,0))
+    direct_boundary=sp.expand(integral_plus+integral_minus-bulk_plus-bulk_minus)
+    # In the common Sigma chart (t,x,y,z), spatial B3 wedge deltaA_t dt
+    # has a minus sign. This pairing is evaluated, not silently assigned.
+    boundary_pair=wedge({(1,2,3):bp-bm},{(0,):ap})[(0,1,2,3)]
+    intrinsic_pair=wedge({(1,2,3):J},{(0,):ap})[(0,1,2,3)]
+    interface_variation=sp.expand(direct_boundary+intrinsic_pair)
+    row=sp.expand(sp.diff(interface_variation,ap))
+    solved_jump=sp.solve(row,bp)[0]-bm
+    boundary_coefficient=sp.cancel(direct_boundary/boundary_pair)
+    required_coefficient=sp.cancel(solved_jump/J)
+    dBp,dBm,jp,jm,dJ=sp.symbols('D_b_plus D_b_minus j4_plus j4_minus D_J_Sigma',real=True)
+    Eplus=dBp+jp;Eminus=dBm+jm
+    differentiated_boundary=dBp-dBm-required_coefficient*dJ
+    compatibility=sp.expand(differentiated_boundary-Eplus+Eminus)
+    required_DJ=sp.solve(compatibility,dJ)[0]
+    residuals={
+        'generic_5D_graded_Leibniz_identity':sp.expand(literal-bulk+total_derivative),
+        'one_dimensional_plus_boundary':sp.expand(integral_plus-bulk_plus+bp*ap),
+        'one_dimensional_minus_boundary':sp.expand(integral_minus-bulk_minus-bm*ap),
+        'common_oriented_boundary_is_positive_jump_wedge_deltaA':sp.expand(direct_boundary-boundary_pair),
+        'literal_interface_row_is_jump_plus_current':sp.expand(row+bp-bm+J),
+        'solved_B_jump_is_minus_intrinsic_current':sp.expand(solved_jump+J),
+        'bulk_plus_boundary_requires_DJ_equals_current_jump':sp.expand(required_DJ-jp+jm),
+    }
+    negative={
+        'imported_wrong_graded_boundary_sign':sp.expand(literal-bulk-total_derivative),
+        'imported_old_Green_minus_jump':sp.expand(direct_boundary+boundary_pair),
+        'imported_old_B_jump_plus_J':sp.expand(row.subs(bp,bm+J)),
+        'imported_old_DJ_minus_current_jump':sp.expand(compatibility.subs(dJ,-(jp-jm))),
+    }
+    checks={name:value==0 for name,value in residuals.items()}
+    checks.update({'derived_boundary_jump_coefficient_is_plus_one':boundary_coefficient==1,
+                   'derived_required_B_jump_coefficient_is_minus_one':required_coefficient==-1,
+                   'old_B_jump_residual_is_minus_twice_J':negative['imported_old_B_jump_plus_J']==-2*J})
+    return {'boundary_jump_coefficient':boundary_coefficient,
+            'required_B_jump_coefficient':required_coefficient,
+            'compatibility_current_coefficient':sp.cancel(required_DJ/(jp-jm)),
+            'compatibility':compatibility,'symbols':dict(n=n,bp=bp,bm=bm,ap=ap,J=J,jp=jp,jm=jm,dJ=dJ),
+            'generic_5D':{'literal_B_wedge_d_deltaA':literal,'bulk_dB_wedge_deltaA':bulk,
+                          'd_B_wedge_deltaA':total_derivative},
+            'component_oracle':{'B_plus':bplus,'B_minus':bminus,'a_plus':aplus,'a_minus':aminus,
+                'literal_plus_integral':integral_plus,'literal_minus_integral':integral_minus,
+                'bulk_plus_integral':bulk_plus,'bulk_minus_integral':bulk_minus,
+                'direct_common_boundary':direct_boundary,'jump_wedge_deltaA':boundary_pair,
+                'intrinsic_current_pairing':intrinsic_pair,'combined_interface_row':row},
+            'residuals':residuals,'checks':checks,'negative_controls':negative,
+            'orientation':'vol5=dn wedge dt wedge dx wedge dy wedge dz; Mplus n>=0, Mminus n<=0; unsigned transported pullbacks b',
+            'frozen_textual_Green_is_not_the_input':True}
+
+
 def derive_model():
     chi=sp.Symbol('chi',positive=True); volume=sp.Symbol('sqrt_minus_gamma',positive=True)
     slots={(i,j):sp.Symbol(f'gamma_inv_{i}{j}',real=True) for i in range(4) for j in range(i,4)}
@@ -55,8 +139,10 @@ def derive_model():
     current=[{k:chi*v for k,v in star_one(c,inverse,volume).items()} for c in C]
     paired=sum(wedge(j,{(mu,):d[mu] for mu in range(4)}).get((0,1,2,3),0) for j,d in zip(current,delta))
     dBp,dBm,jp,jm,dJ=sp.symbols('D_b_plus D_b_minus j4_plus j4_minus D_J_Sigma',real=True)
-    Eplus=dBp+jp; Eminus=dBm+jm; D_boundary=dBp-dBm-dJ
-    compatibility=sp.expand(Eplus-Eminus-D_boundary)
+    oriented=derive_oriented_bf_green()
+    Eplus=dBp+jp; Eminus=dBm+jm
+    D_boundary=dBp-dBm-oriented['required_B_jump_coefficient']*dJ
+    compatibility=sp.expand(D_boundary-Eplus+Eminus)
     # Curvature-only first variation vanishes identically on the BF flat branch.
     alpha=sp.Symbol('alpha',positive=True); eta=sp.diag(-1,1,1,1)
     pairs=list(itertools.combinations(range(4),2))
@@ -83,33 +169,34 @@ def derive_model():
     # Explicit signed source. J0 is not fixed by an orientation guess.
     x,z=sp.symbols('x z',real=True); J0=sp.Symbol('J0',real=True)
     source=J0*sp.sin(x)*sp.sin(2*z)
-    theta=-source/(5*chi)
+    theta=source/(5*chi)
     lap=sp.diff(theta,x,2)+sp.diff(theta,z,2)
     current_div=-chi*lap
     energy_density=chi*(sp.diff(theta,x)**2+sp.diff(theta,z)**2)/2
     cell_energy=sp.integrate(energy_density,(x,0,2*sp.pi),(z,0,2*sp.pi))
     residuals={
         'current_sign_from_independent_density_variation':sp.expand(direct-paired),
-        'bulk_and_boundary_rows_give_DJ_plus_jumpj':sp.expand(compatibility-(dJ+jp-jm)),
+        'bulk_and_boundary_rows_give_DJ_minus_jumpj':sp.expand(compatibility-(dJ-jp+jm)),
         'curvature_squared_first_variation_zero_on_flat_field':sp.expand(dYM.subs({f:0 for f in F.values()})),
         'curvature_squared_current_zero_with_flat_jets':YM_EL.subs({j:0 for j in Fjets.values()}),
         'flat_theta_canonical_energy':sp.expand(Htheta-energy_reference),
         'flat_theta_kinetic_matrix':kinetic-chi*sp.eye(3),
         'flat_theta_full_energy_hessian':full_energy_hessian-chi*sp.eye(12),
         'moving_geometry_cross_coefficient':cross+chi*eta,
-        'static_signed_source_absorbed':sp.expand(current_div+source),
+        'static_signed_source_absorbed':sp.expand(current_div-source),
         'static_source_cell_energy':sp.simplify(cell_energy-J0**2*sp.pi**2/(10*chi)),
     }
     negative={
         'wrong_current_sign':sp.expand(direct+paired),
-        'omit_intrinsic_current_from_boundary_row':sp.expand(Eplus-Eminus-(dBp-dBm)-compatibility),
-        'wrong_static_response_sign':sp.expand(-current_div+source),
+        'omit_intrinsic_current_from_boundary_row':sp.expand((dBp-dBm)-Eplus+Eminus-compatibility),
+        'wrong_static_response_sign':sp.expand(-current_div-source),
         'freeze_geometry_connection_in_quadratic_action':cross,
         'negative_chi_gives_negative_kinetic':-kinetic,
     }
     def zero(value):
         return all(v==0 for v in value) if isinstance(value,sp.MatrixBase) else value==0
     checks={name:zero(value) for name,value in residuals.items()}
+    checks.update({'oriented_BF_'+key:value for key,value in oriented['checks'].items()})
     checks.update({'positive_symbolic_chi':chi.is_positive is True,
                    'wrong_current_sign_detected':negative['wrong_current_sign']!=0,
                    'missing_boundary_current_detected':negative['omit_intrinsic_current_from_boundary_row']!=0,
@@ -120,7 +207,7 @@ def derive_model():
                        'delta_A':delta,'F':F,'delta_F':deltaF,'F_jets':Fjets,
                        'theta_jets':theta_jets,'delta_omega':geom,'J0':J0,'x':x,'z':z},
             'candidate_action_density':density,'density_variation':direct,'current_three_forms':current,
-            'current_pairing':paired,'compatibility':compatibility,
+            'current_pairing':paired,'compatibility':compatibility,'oriented_BF':oriented,
             'curvature_squared_first_variation':dYM,'curvature_squared_principal_EL':YM_EL,
             'flat_theta_action':Ltheta,'flat_theta_momenta':momenta,'flat_theta_energy':Htheta,
             'flat_theta_kinetic':kinetic,'flat_theta_energy_hessian':full_energy_hessian,
@@ -149,13 +236,17 @@ def build_payload():
         raise ConnectionCandidateError('candidate proof pin mismatch')
     model=derive_model()
     if not all(model['checks'].values()): raise ConnectionCandidateError('candidate algebra check failed')
-    payload={'schema':SCHEMA,'baseline':{'source_sha256':SOURCE_SHA,'literal_action_sha256':ACTION_SHA},
+    payload={'schema':SCHEMA,'baseline':{'source_sha256':SOURCE_SHA,'literal_action_sha256':ACTION_SHA,
+                 'frozen_action_modified':False,'frozen_textual_Green_sign_inherited':False,
+                 'orientation_erratum':'The frozen minus-jump Green text is inconsistent with literal +B3 wedge F, unsigned b pullbacks and vol5=dn wedge volSigma; the corrected candidate uses +[b] wedge deltaA, [b]=-J, DJ=[j].'},
              'proposal':{'new_term':'S_C=-chi/2*integral_Sigma <(A_Sigma-omega) wedge star_gamma(A_Sigma-omega)>',
                          'chi':'strictly positive symbolic coefficient; no value selected',
                          'A_Sigma_remains_independent':True,'adopted_into_v5_2':False},
              'model':serialize(model),'checks':model['checks'],
              'decision':{'candidate_current_variation_checked':True,
                          'necessary_current_compatibility_checked':True,
+                         'literal_oriented_BF_Stokes_and_both_half_integrals_checked':True,
+                         'frozen_Green_erratum_recorded_without_modifying_v5_2':True,
                          'fixed_flat_geometry_channel_positive_principal_energy':True,
                          'static_periodic_cell_source_response_checked':True,
                          'complete_model_repair_proved':False,'old_linear_response_unchanged':False,

@@ -49,16 +49,16 @@ def test_nonzero_mean_is_not_L2_though_gradient_has_finite_far_energy():
 def test_coulomb_sign_against_sphere_flux():
  m=v.derive_poisson();r=next(iter(m['kernel'].free_symbols-{m['chi']}))
  flux=sp.simplify(4*sp.pi*r*r*sp.diff(m['kernel'],r)*m['chi'])
- assert flux==1
- assert -flux!=1
+ assert flux==-1
+ assert -flux!=-1
 
 def test_two_distinct_material_gains_give_exact_source_and_solution():
  m=v.derive_poisson();chi=m['chi']
  x,z=sp.symbols('x z',real=True)
  source=m['periodic_rho'][1];theta=m['periodic_Theta'][1]
  assert sp.simplify(source-sp.Rational(4,5)*sp.sin(x)*sp.sin(2*z))==0
- assert sp.simplify(chi*(sp.diff(theta,x,2)+sp.diff(theta,z,2))-source)==0
- assert sp.simplify(chi*(sp.diff(-theta,x,2)+sp.diff(-theta,z,2))-source)!=0
+ assert sp.simplify(chi*(sp.diff(theta,x,2)+sp.diff(theta,z,2))+source)==0
+ assert sp.simplify(chi*(sp.diff(-theta,x,2)+sp.diff(-theta,z,2))+source)!=0
  assert sp.simplify(m['periodic_energy']-8*sp.pi**2/(125*chi))==0
 
 def test_lapse_is_nonconstant_but_its_projected_connection_vanishes():
@@ -92,3 +92,28 @@ def test_local_note_tampering_is_rejected(tmp_path):
 @pytest.mark.parametrize('raw',[b'{"a":1,"a":2}',b'{"x":NaN}',b'[]'])
 def test_malformed_receipts_rejected(raw):
  with pytest.raises(v.TorqueLiftError):v.read_json(raw)
+
+
+def test_material_gauge_variation_and_reduced_action_fix_source_sign():
+ # Derive the material coefficient before integration by parts, without
+ # using the assumed interface current equation.
+ Z,chi=sp.symbols('Z chi',positive=True)
+ phi=sp.Matrix(sp.symbols('phi0:3',real=True))
+ derivative=sp.Matrix(sp.symbols('phi_n0:3',real=True))
+ eta_n=sp.Matrix(sp.symbols('eta_n0:3',real=True))
+ T=[sp.Matrix(3,3,lambda a,b:sp.LeviCivita(I,a,b)) for I in range(3)]
+ deltaA=-sum((eta_n[I]*T[I] for I in range(3)),sp.zeros(3))
+ literal_delta_L=-Z*derivative.dot(deltaA*phi)
+ Q=Z*phi.cross(derivative)
+ assert sp.expand(literal_delta_L+Q.dot(eta_n))==0
+ # Thus the on-shell radial integral is -sum Q_out eta = +rho eta.
+ x,z=sp.symbols('x z',real=True)
+ theta=sp.Function('theta')(x,z);rho=sp.Function('rho')(x,z)
+ L=-chi*(sp.diff(theta,x)**2+sp.diff(theta,z)**2)/2+rho*theta
+ EL=sp.diff(L,theta)-sp.diff(sp.diff(L,sp.diff(theta,x)),x)-sp.diff(sp.diff(L,sp.diff(theta,z)),z)
+ assert sp.expand(EL-rho-chi*(sp.diff(theta,x,2)+sp.diff(theta,z,2)))==0
+ m=v.derive_poisson();Theta=m['periodic_Theta'][1];source=m['periodic_rho'][1]
+ for sign,expected in ((1,0),(-1,2*source)):
+  residual=source+m['chi']*sign*(sp.diff(Theta,x,2)+sp.diff(Theta,z,2))
+  assert sp.simplify(residual-expected)==0
+ assert source!=0

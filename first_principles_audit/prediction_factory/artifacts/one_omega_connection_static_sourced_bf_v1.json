@@ -1,5 +1,5 @@
 {
-  "calculation_digest": "e700958a098fcfa23dc974a8fc9cc7916c4d45e9ff49eeceb5d6dfbe27cb93ff",
+  "calculation_digest": "45618345ff1ed68c583ed302c131c39f8a19bc22f8b47c7b23490f7e1e941e96",
   "checks": {
     "exterior_h_squared": true,
     "exterior_spatial_Cartan_all_degrees": true,
@@ -34,17 +34,25 @@
     "norms_unitary_Fourier_low_frequency_constant": true,
     "norms_weighted_B_exponent": true,
     "norms_weighted_source_exponent": true,
+    "oriented_green_bulk_plus_boundary_requires_DJ_equals_current_jump": true,
+    "oriented_green_common_oriented_boundary_is_positive_jump_wedge_deltaA": true,
+    "oriented_green_generic_5D_graded_Leibniz_identity": true,
+    "oriented_green_literal_interface_row_is_jump_plus_current": true,
+    "oriented_green_one_dimensional_minus_boundary": true,
+    "oriented_green_one_dimensional_plus_boundary": true,
+    "oriented_green_solved_B_jump_is_minus_intrinsic_current": true,
     "reconstruction_B_part_minus_sourced_equation": true,
     "reconstruction_B_part_plus_sourced_equation": true,
     "reconstruction_actual_B_part_alone_has_required_jump": true,
     "reconstruction_actual_Hodge_Poisson_remainder_zero": true,
+    "reconstruction_actual_Poisson_equation": true,
     "reconstruction_actual_current_compatibility": true,
     "reconstruction_closed_source_projection_identity": true,
     "reconstruction_general_B_minus_sourced_equation": true,
     "reconstruction_general_B_plus_sourced_equation": true,
     "reconstruction_general_L_closed": true,
     "reconstruction_general_boundary_compatibility": true,
-    "reconstruction_general_oriented_jump": true,
+    "reconstruction_general_oriented_Stokes_boundary_row": true,
     "reconstruction_source_closed": true
   },
   "decision": {
@@ -67,6 +75,10 @@
     "uniqueness_for_all_static_weighted_BF_fields": false
   },
   "model": {
+    "assumptions": {
+      "boundary_row": "[b]+J=0; dJ=[j4]",
+      "oriented_Green_erratum": "v5.2 bytes unchanged; Stokes determines the jump sign with the declared normals"
+    },
     "checks": {
       "exterior_h_squared": true,
       "exterior_spatial_Cartan_all_degrees": true,
@@ -101,17 +113,25 @@
       "norms_unitary_Fourier_low_frequency_constant": true,
       "norms_weighted_B_exponent": true,
       "norms_weighted_source_exponent": true,
+      "oriented_green_bulk_plus_boundary_requires_DJ_equals_current_jump": true,
+      "oriented_green_common_oriented_boundary_is_positive_jump_wedge_deltaA": true,
+      "oriented_green_generic_5D_graded_Leibniz_identity": true,
+      "oriented_green_literal_interface_row_is_jump_plus_current": true,
+      "oriented_green_one_dimensional_minus_boundary": true,
+      "oriented_green_one_dimensional_plus_boundary": true,
+      "oriented_green_solved_B_jump_is_minus_intrinsic_current": true,
       "reconstruction_B_part_minus_sourced_equation": true,
       "reconstruction_B_part_plus_sourced_equation": true,
       "reconstruction_actual_B_part_alone_has_required_jump": true,
       "reconstruction_actual_Hodge_Poisson_remainder_zero": true,
+      "reconstruction_actual_Poisson_equation": true,
       "reconstruction_actual_current_compatibility": true,
       "reconstruction_closed_source_projection_identity": true,
       "reconstruction_general_B_minus_sourced_equation": true,
       "reconstruction_general_B_plus_sourced_equation": true,
       "reconstruction_general_L_closed": true,
       "reconstruction_general_boundary_compatibility": true,
-      "reconstruction_general_oriented_jump": true,
+      "reconstruction_general_oriented_Stokes_boundary_row": true,
       "reconstruction_source_closed": true
     },
     "decision": {
@@ -687,6 +707,7 @@
     "negative_controls": {
       "claim_unit_spatial_h_bound_at_zero": true,
       "erase_dt_components_of_source": true,
+      "old_positive_jump_rejected_by_derived_Stokes_row": true,
       "omit_general_cutoff_normal_term": true,
       "omit_sourced_particular_solution": true,
       "positive_h_for_B_part": true,
@@ -702,11 +723,16 @@
         "27": "(xi1**2*J4_27(z) + xi1*xi2*J4_29(z) + xi2*xi3*J4_23(z) + I*xi2*Derivative(J4_15(z), z) + xi3**2*J4_27(z))/(xi1**2 + xi2**2 + xi3**2)",
         "29": "(xi1*xi2*J4_27(z) - xi1*xi3*J4_23(z) - I*xi1*Derivative(J4_15(z), z) + xi2**2*J4_29(z) + xi3**2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)"
       },
+      "old_positive_jump_rejected_by_derived_Stokes_row": {
+        "11": "4*I*xi2*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "-4*I*xi1*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "-4*I*xi3*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)"
+      },
       "omit_general_cutoff_normal_term": {
-        "23": "-I*boundary_K_3*xi2*Derivative(f(z), z)/2 + I*boundary_K_5*xi1*Derivative(f(z), z)/2",
-        "27": "-I*boundary_K_3*xi3*Derivative(f(z), z)/2 + I*boundary_K_9*xi1*Derivative(f(z), z)/2",
-        "29": "-I*boundary_K_5*xi3*Derivative(f(z), z)/2 + I*boundary_K_9*xi2*Derivative(f(z), z)/2",
-        "30": "I*boundary_K_10*xi2*Derivative(f(z), z)/2 - I*boundary_K_12*xi1*Derivative(f(z), z)/2 - I*boundary_K_6*xi3*Derivative(f(z), z)/2"
+        "23": "I*boundary_K_3*xi2*Derivative(f(z), z)/2 - I*boundary_K_5*xi1*Derivative(f(z), z)/2",
+        "27": "I*boundary_K_3*xi3*Derivative(f(z), z)/2 - I*boundary_K_9*xi1*Derivative(f(z), z)/2",
+        "29": "I*boundary_K_5*xi3*Derivative(f(z), z)/2 - I*boundary_K_9*xi2*Derivative(f(z), z)/2",
+        "30": "-I*boundary_K_10*xi2*Derivative(f(z), z)/2 + I*boundary_K_12*xi1*Derivative(f(z), z)/2 + I*boundary_K_6*xi3*Derivative(f(z), z)/2"
       },
       "omit_sourced_particular_solution": {
         "15": "J4_15(z)",
@@ -730,9 +756,9 @@
         "29": "(2*xi1*xi2*J4_27(z) - 2*xi1*xi3*J4_23(z) - 2*I*xi1*Derivative(J4_15(z), z) + 2*xi2**2*J4_29(z) + 2*xi3**2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)"
       },
       "wrong_Lorentz_Hodge_sign": {
-        "11": "-2*I*rho_hat*xi2/(xi1**2 + xi2**2 + xi3**2)",
-        "13": "2*I*rho_hat*xi1/(xi1**2 + xi2**2 + xi3**2)",
-        "7": "2*I*rho_hat*xi3/(xi1**2 + xi2**2 + xi3**2)"
+        "11": "2*I*rho_hat*xi2/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "-2*I*rho_hat*xi1/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "-2*I*rho_hat*xi3/(xi1**2 + xi2**2 + xi3**2)"
       }
     },
     "norms": {
@@ -869,6 +895,70 @@
         "dB": true
       }
     },
+    "oriented_green": {
+      "boundary_jump_coefficient": "1",
+      "checks": {
+        "bulk_plus_boundary_requires_DJ_equals_current_jump": true,
+        "common_oriented_boundary_is_positive_jump_wedge_deltaA": true,
+        "derived_boundary_jump_coefficient_is_plus_one": true,
+        "derived_required_B_jump_coefficient_is_minus_one": true,
+        "generic_5D_graded_Leibniz_identity": true,
+        "literal_interface_row_is_jump_plus_current": true,
+        "old_B_jump_residual_is_minus_twice_J": true,
+        "one_dimensional_minus_boundary": true,
+        "one_dimensional_plus_boundary": true,
+        "solved_B_jump_is_minus_intrinsic_current": true
+      },
+      "compatibility": "D_J_Sigma + j4_minus - j4_plus",
+      "compatibility_current_coefficient": "1",
+      "component_oracle": {
+        "B_minus": "b_minus + n**2*w_minus + n*v_minus",
+        "B_plus": "b_plus + n**2*w_plus + n*v_plus",
+        "a_minus": "delta_a_common*(n + 1)*(n*u_minus + 1)",
+        "a_plus": "delta_a_common*(1 - n)*(n*u_plus + 1)",
+        "bulk_minus_integral": "delta_a_common*u_minus*v_minus/6 - delta_a_common*u_minus*w_minus/6 - delta_a_common*v_minus/2 + delta_a_common*w_minus/3",
+        "bulk_plus_integral": "-delta_a_common*u_plus*v_plus/6 - delta_a_common*u_plus*w_plus/6 - delta_a_common*v_plus/2 - delta_a_common*w_plus/3",
+        "combined_interface_row": "-J_component + b_minus - b_plus",
+        "direct_common_boundary": "b_minus*delta_a_common - b_plus*delta_a_common",
+        "intrinsic_current_pairing": "-J_component*delta_a_common",
+        "jump_wedge_deltaA": "b_minus*delta_a_common - b_plus*delta_a_common",
+        "literal_minus_integral": "b_minus*delta_a_common + delta_a_common*u_minus*v_minus/6 - delta_a_common*u_minus*w_minus/6 - delta_a_common*v_minus/2 + delta_a_common*w_minus/3",
+        "literal_plus_integral": "-b_plus*delta_a_common - delta_a_common*u_plus*v_plus/6 - delta_a_common*u_plus*w_plus/6 - delta_a_common*v_plus/2 - delta_a_common*w_plus/3"
+      },
+      "frozen_textual_Green_is_not_the_input": true,
+      "generic_5D": {
+        "bulk_dB_wedge_deltaA": "-a0(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), z) + a0(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), y) - a0(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), x) + a0(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), t) + a1(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), z) - a1(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), y) + a1(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), x) - a1(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), n) - a2(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), z) + a2(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), y) - a2(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), t) + a2(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), n) + a3(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), z) - a3(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), x) + a3(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), t) - a3(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), n) - a4(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), y) + a4(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), x) - a4(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), t) + a4(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), n)",
+        "d_B_wedge_deltaA": "B_012(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), z) - B_012(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), y) - B_013(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), z) + B_013(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), x) + B_014(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), y) - B_014(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), x) + B_023(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), z) - B_023(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), t) - B_024(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), y) + B_024(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), t) + B_034(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), x) - B_034(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), t) - B_123(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), z) + B_123(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), n) + B_124(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), y) - B_124(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), n) - B_134(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), x) + B_134(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), n) + B_234(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), t) - B_234(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), n) - a0(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), z) + a0(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), y) - a0(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), x) + a0(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), t) + a1(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), z) - a1(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), y) + a1(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), x) - a1(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), n) - a2(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), z) + a2(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), y) - a2(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), t) + a2(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), n) + a3(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), z) - a3(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), x) + a3(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), t) - a3(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), n) - a4(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), y) + a4(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), x) - a4(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), t) + a4(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), n)",
+        "literal_B_wedge_d_deltaA": "-B_012(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), z) + B_012(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), y) + B_013(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), z) - B_013(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), x) - B_014(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), y) + B_014(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), x) - B_023(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), z) + B_023(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), t) + B_024(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), y) - B_024(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), t) - B_034(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), x) + B_034(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), t) + B_123(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), z) - B_123(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), n) - B_124(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), y) + B_124(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), n) + B_134(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), x) - B_134(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), n) - B_234(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), t) + B_234(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), n)"
+      },
+      "negative_controls": {
+        "imported_old_B_jump_plus_J": "-2*J_component",
+        "imported_old_DJ_minus_current_jump": "2*j4_minus - 2*j4_plus",
+        "imported_old_Green_minus_jump": "2*b_minus*delta_a_common - 2*b_plus*delta_a_common",
+        "imported_wrong_graded_boundary_sign": "-2*B_012(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), z) + 2*B_012(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), y) + 2*B_013(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), z) - 2*B_013(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), x) - 2*B_014(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), y) + 2*B_014(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), x) - 2*B_023(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), z) + 2*B_023(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), t) + 2*B_024(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), y) - 2*B_024(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), t) - 2*B_034(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), x) + 2*B_034(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), t) + 2*B_123(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), z) - 2*B_123(n, t, x, y, z)*Derivative(a4(n, t, x, y, z), n) - 2*B_124(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), y) + 2*B_124(n, t, x, y, z)*Derivative(a3(n, t, x, y, z), n) + 2*B_134(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), x) - 2*B_134(n, t, x, y, z)*Derivative(a2(n, t, x, y, z), n) - 2*B_234(n, t, x, y, z)*Derivative(a0(n, t, x, y, z), t) + 2*B_234(n, t, x, y, z)*Derivative(a1(n, t, x, y, z), n) + 2*a0(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), z) - 2*a0(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), y) + 2*a0(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), x) - 2*a0(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), t) - 2*a1(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), z) + 2*a1(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), y) - 2*a1(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), x) + 2*a1(n, t, x, y, z)*Derivative(B_234(n, t, x, y, z), n) + 2*a2(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), z) - 2*a2(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), y) + 2*a2(n, t, x, y, z)*Derivative(B_034(n, t, x, y, z), t) - 2*a2(n, t, x, y, z)*Derivative(B_134(n, t, x, y, z), n) - 2*a3(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), z) + 2*a3(n, t, x, y, z)*Derivative(B_014(n, t, x, y, z), x) - 2*a3(n, t, x, y, z)*Derivative(B_024(n, t, x, y, z), t) + 2*a3(n, t, x, y, z)*Derivative(B_124(n, t, x, y, z), n) + 2*a4(n, t, x, y, z)*Derivative(B_012(n, t, x, y, z), y) - 2*a4(n, t, x, y, z)*Derivative(B_013(n, t, x, y, z), x) + 2*a4(n, t, x, y, z)*Derivative(B_023(n, t, x, y, z), t) - 2*a4(n, t, x, y, z)*Derivative(B_123(n, t, x, y, z), n)"
+      },
+      "orientation": "vol5=dn wedge dt wedge dx wedge dy wedge dz; Mplus n>=0, Mminus n<=0; unsigned transported pullbacks b",
+      "required_B_jump_coefficient": "-1",
+      "residuals": {
+        "bulk_plus_boundary_requires_DJ_equals_current_jump": "0",
+        "common_oriented_boundary_is_positive_jump_wedge_deltaA": "0",
+        "generic_5D_graded_Leibniz_identity": "0",
+        "literal_interface_row_is_jump_plus_current": "0",
+        "one_dimensional_minus_boundary": "0",
+        "one_dimensional_plus_boundary": "0",
+        "solved_B_jump_is_minus_intrinsic_current": "0"
+      },
+      "symbols": {
+        "J": "J_component",
+        "ap": "delta_a_common",
+        "bm": "b_minus",
+        "bp": "b_plus",
+        "dJ": "D_J_Sigma",
+        "jm": "j4_minus",
+        "jp": "j4_plus",
+        "n": "n"
+      }
+    },
     "reconstruction": {
       "B_part_minus": {
         "11": "-I*xi2*J4_15(z)/(xi1**2 + xi2**2 + xi3**2)",
@@ -887,16 +977,16 @@
         "7": "-I*xi3*J4_15(z)/(xi1**2 + xi2**2 + xi3**2)"
       },
       "J_Sigma_actual_port": {
-        "11": "I*rho_hat*xi2/(xi1**2 + xi2**2 + xi3**2)",
-        "13": "-I*rho_hat*xi1/(xi1**2 + xi2**2 + xi3**2)",
-        "7": "-I*rho_hat*xi3/(xi1**2 + xi2**2 + xi3**2)"
+        "11": "-I*rho_hat*xi2/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "I*rho_hat*xi1/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "I*rho_hat*xi3/(xi1**2 + xi2**2 + xi3**2)"
       },
       "L_actual_port": {},
-      "Theta_hat_actual_port": "-rho_hat/(chi*(xi1**2 + xi2**2 + xi3**2))",
+      "Theta_hat_actual_port": "rho_hat/(chi*(xi1**2 + xi2**2 + xi3**2))",
       "actual_current_for_general_closed_source": {
-        "11": "2*I*xi2*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
-        "13": "-2*I*xi1*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
-        "7": "-2*I*xi3*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)"
+        "11": "-2*I*xi2*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "2*I*xi1*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "2*I*xi3*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)"
       },
       "actual_particular_jump": {
         "11": "2*I*xi2*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
@@ -916,28 +1006,28 @@
         "29": "(xi1*xi2*J4_27(z) - xi1*xi3*J4_23(z) - I*xi1*Derivative(J4_15(z), z) + xi2**2*J4_29(z) + xi3**2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)"
       },
       "general_B_minus": {
-        "11": "(-I*boundary_K_3*xi1**2*xi3*f(z) - I*boundary_K_3*xi2**2*xi3*f(z) - I*boundary_K_3*xi3**3*f(z) + I*boundary_K_9*xi1**3*f(z) + I*boundary_K_9*xi1*xi2**2*f(z) + I*boundary_K_9*xi1*xi3**2*f(z) - 2*I*xi2*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "13": "(-I*boundary_K_5*xi1**2*xi3*f(z) - I*boundary_K_5*xi2**2*xi3*f(z) - I*boundary_K_5*xi3**3*f(z) + I*boundary_K_9*xi1**2*xi2*f(z) + I*boundary_K_9*xi2**3*f(z) + I*boundary_K_9*xi2*xi3**2*f(z) + 2*I*xi1*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "14": "I*boundary_K_10*xi2*f(z)/2 - I*boundary_K_12*xi1*f(z)/2 - I*boundary_K_6*xi3*f(z)/2",
-        "19": "(-boundary_K_3*xi2**2*Derivative(f(z), z) - boundary_K_3*xi3**2*Derivative(f(z), z) + boundary_K_5*xi1*xi2*Derivative(f(z), z) + boundary_K_9*xi1*xi3*Derivative(f(z), z) - 2*I*xi2*J4_23(z) - 2*I*xi3*J4_27(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "21": "(boundary_K_3*xi1*xi2*Derivative(f(z), z) - boundary_K_5*xi1**2*Derivative(f(z), z) - boundary_K_5*xi3**2*Derivative(f(z), z) + boundary_K_9*xi2*xi3*Derivative(f(z), z) + 2*I*xi1*J4_23(z) - 2*I*xi3*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "22": "(boundary_K_10*xi2*xi3*Derivative(f(z), z) - boundary_K_12*xi1*xi3*Derivative(f(z), z) - boundary_K_6*xi3**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "25": "(boundary_K_3*xi1*xi3*Derivative(f(z), z) + boundary_K_5*xi2*xi3*Derivative(f(z), z) - boundary_K_9*xi1**2*Derivative(f(z), z) - boundary_K_9*xi2**2*Derivative(f(z), z) + 2*I*xi1*J4_27(z) + 2*I*xi2*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "26": "(-boundary_K_10*xi2**2*Derivative(f(z), z) + boundary_K_12*xi1*xi2*Derivative(f(z), z) + boundary_K_6*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "28": "(boundary_K_10*xi1*xi2*Derivative(f(z), z) - boundary_K_12*xi1**2*Derivative(f(z), z) - boundary_K_6*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "7": "(-I*boundary_K_3*xi1**2*xi2*f(z) - I*boundary_K_3*xi2**3*f(z) - I*boundary_K_3*xi2*xi3**2*f(z) + I*boundary_K_5*xi1**3*f(z) + I*boundary_K_5*xi1*xi2**2*f(z) + I*boundary_K_5*xi1*xi3**2*f(z) + 2*I*xi3*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)"
-      },
-      "general_B_plus": {
-        "11": "(I*boundary_K_3*xi1**2*xi3*f(z) + I*boundary_K_3*xi2**2*xi3*f(z) + I*boundary_K_3*xi3**3*f(z) - I*boundary_K_9*xi1**3*f(z) - I*boundary_K_9*xi1*xi2**2*f(z) - I*boundary_K_9*xi1*xi3**2*f(z) + 2*I*xi2*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "13": "(I*boundary_K_5*xi1**2*xi3*f(z) + I*boundary_K_5*xi2**2*xi3*f(z) + I*boundary_K_5*xi3**3*f(z) - I*boundary_K_9*xi1**2*xi2*f(z) - I*boundary_K_9*xi2**3*f(z) - I*boundary_K_9*xi2*xi3**2*f(z) - 2*I*xi1*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "11": "(I*boundary_K_3*xi1**2*xi3*f(z) + I*boundary_K_3*xi2**2*xi3*f(z) + I*boundary_K_3*xi3**3*f(z) - I*boundary_K_9*xi1**3*f(z) - I*boundary_K_9*xi1*xi2**2*f(z) - I*boundary_K_9*xi1*xi3**2*f(z) - 2*I*xi2*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "13": "(I*boundary_K_5*xi1**2*xi3*f(z) + I*boundary_K_5*xi2**2*xi3*f(z) + I*boundary_K_5*xi3**3*f(z) - I*boundary_K_9*xi1**2*xi2*f(z) - I*boundary_K_9*xi2**3*f(z) - I*boundary_K_9*xi2*xi3**2*f(z) + 2*I*xi1*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
         "14": "-I*boundary_K_10*xi2*f(z)/2 + I*boundary_K_12*xi1*f(z)/2 + I*boundary_K_6*xi3*f(z)/2",
-        "19": "(boundary_K_3*xi2**2*Derivative(f(z), z) + boundary_K_3*xi3**2*Derivative(f(z), z) - boundary_K_5*xi1*xi2*Derivative(f(z), z) - boundary_K_9*xi1*xi3*Derivative(f(z), z) + 2*I*xi2*J4_23(z) + 2*I*xi3*J4_27(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "21": "(-boundary_K_3*xi1*xi2*Derivative(f(z), z) + boundary_K_5*xi1**2*Derivative(f(z), z) + boundary_K_5*xi3**2*Derivative(f(z), z) - boundary_K_9*xi2*xi3*Derivative(f(z), z) - 2*I*xi1*J4_23(z) + 2*I*xi3*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "19": "(boundary_K_3*xi2**2*Derivative(f(z), z) + boundary_K_3*xi3**2*Derivative(f(z), z) - boundary_K_5*xi1*xi2*Derivative(f(z), z) - boundary_K_9*xi1*xi3*Derivative(f(z), z) - 2*I*xi2*J4_23(z) - 2*I*xi3*J4_27(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "21": "(-boundary_K_3*xi1*xi2*Derivative(f(z), z) + boundary_K_5*xi1**2*Derivative(f(z), z) + boundary_K_5*xi3**2*Derivative(f(z), z) - boundary_K_9*xi2*xi3*Derivative(f(z), z) + 2*I*xi1*J4_23(z) - 2*I*xi3*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
         "22": "(-boundary_K_10*xi2*xi3*Derivative(f(z), z) + boundary_K_12*xi1*xi3*Derivative(f(z), z) + boundary_K_6*xi3**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "25": "(-boundary_K_3*xi1*xi3*Derivative(f(z), z) - boundary_K_5*xi2*xi3*Derivative(f(z), z) + boundary_K_9*xi1**2*Derivative(f(z), z) + boundary_K_9*xi2**2*Derivative(f(z), z) - 2*I*xi1*J4_27(z) - 2*I*xi2*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "25": "(-boundary_K_3*xi1*xi3*Derivative(f(z), z) - boundary_K_5*xi2*xi3*Derivative(f(z), z) + boundary_K_9*xi1**2*Derivative(f(z), z) + boundary_K_9*xi2**2*Derivative(f(z), z) + 2*I*xi1*J4_27(z) + 2*I*xi2*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
         "26": "(boundary_K_10*xi2**2*Derivative(f(z), z) - boundary_K_12*xi1*xi2*Derivative(f(z), z) - boundary_K_6*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
         "28": "(-boundary_K_10*xi1*xi2*Derivative(f(z), z) + boundary_K_12*xi1**2*Derivative(f(z), z) + boundary_K_6*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "7": "(I*boundary_K_3*xi1**2*xi2*f(z) + I*boundary_K_3*xi2**3*f(z) + I*boundary_K_3*xi2*xi3**2*f(z) - I*boundary_K_5*xi1**3*f(z) - I*boundary_K_5*xi1*xi2**2*f(z) - I*boundary_K_5*xi1*xi3**2*f(z) - 2*I*xi3*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)"
+        "7": "(I*boundary_K_3*xi1**2*xi2*f(z) + I*boundary_K_3*xi2**3*f(z) + I*boundary_K_3*xi2*xi3**2*f(z) - I*boundary_K_5*xi1**3*f(z) - I*boundary_K_5*xi1*xi2**2*f(z) - I*boundary_K_5*xi1*xi3**2*f(z) + 2*I*xi3*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)"
+      },
+      "general_B_plus": {
+        "11": "(-I*boundary_K_3*xi1**2*xi3*f(z) - I*boundary_K_3*xi2**2*xi3*f(z) - I*boundary_K_3*xi3**3*f(z) + I*boundary_K_9*xi1**3*f(z) + I*boundary_K_9*xi1*xi2**2*f(z) + I*boundary_K_9*xi1*xi3**2*f(z) + 2*I*xi2*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "13": "(-I*boundary_K_5*xi1**2*xi3*f(z) - I*boundary_K_5*xi2**2*xi3*f(z) - I*boundary_K_5*xi3**3*f(z) + I*boundary_K_9*xi1**2*xi2*f(z) + I*boundary_K_9*xi2**3*f(z) + I*boundary_K_9*xi2*xi3**2*f(z) - 2*I*xi1*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "14": "I*boundary_K_10*xi2*f(z)/2 - I*boundary_K_12*xi1*f(z)/2 - I*boundary_K_6*xi3*f(z)/2",
+        "19": "(-boundary_K_3*xi2**2*Derivative(f(z), z) - boundary_K_3*xi3**2*Derivative(f(z), z) + boundary_K_5*xi1*xi2*Derivative(f(z), z) + boundary_K_9*xi1*xi3*Derivative(f(z), z) + 2*I*xi2*J4_23(z) + 2*I*xi3*J4_27(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "21": "(boundary_K_3*xi1*xi2*Derivative(f(z), z) - boundary_K_5*xi1**2*Derivative(f(z), z) - boundary_K_5*xi3**2*Derivative(f(z), z) + boundary_K_9*xi2*xi3*Derivative(f(z), z) - 2*I*xi1*J4_23(z) + 2*I*xi3*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "22": "(boundary_K_10*xi2*xi3*Derivative(f(z), z) - boundary_K_12*xi1*xi3*Derivative(f(z), z) - boundary_K_6*xi3**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "25": "(boundary_K_3*xi1*xi3*Derivative(f(z), z) + boundary_K_5*xi2*xi3*Derivative(f(z), z) - boundary_K_9*xi1**2*Derivative(f(z), z) - boundary_K_9*xi2**2*Derivative(f(z), z) - 2*I*xi1*J4_27(z) - 2*I*xi2*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "26": "(-boundary_K_10*xi2**2*Derivative(f(z), z) + boundary_K_12*xi1*xi2*Derivative(f(z), z) + boundary_K_6*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "28": "(boundary_K_10*xi1*xi2*Derivative(f(z), z) - boundary_K_12*xi1**2*Derivative(f(z), z) - boundary_K_6*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "7": "(-I*boundary_K_3*xi1**2*xi2*f(z) - I*boundary_K_3*xi2**3*f(z) - I*boundary_K_3*xi2*xi3**2*f(z) + I*boundary_K_5*xi1**3*f(z) + I*boundary_K_5*xi1*xi2**2*f(z) + I*boundary_K_5*xi1*xi3**2*f(z) - 2*I*xi3*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)"
       },
       "general_closed_boundary_remainder": {
         "11": "I*boundary_K_3*xi3 - I*boundary_K_9*xi1",
@@ -946,22 +1036,22 @@
         "7": "I*boundary_K_3*xi2 - I*boundary_K_5*xi1"
       },
       "general_compatible_boundary_current": {
-        "11": "(I*boundary_K_3*xi1**2*xi3 + I*boundary_K_3*xi2**2*xi3 + I*boundary_K_3*xi3**3 - I*boundary_K_9*xi1**3 - I*boundary_K_9*xi1*xi2**2 - I*boundary_K_9*xi1*xi3**2 + 2*I*xi2*J4_15(0))/(xi1**2 + xi2**2 + xi3**2)",
-        "13": "(I*boundary_K_5*xi1**2*xi3 + I*boundary_K_5*xi2**2*xi3 + I*boundary_K_5*xi3**3 - I*boundary_K_9*xi1**2*xi2 - I*boundary_K_9*xi2**3 - I*boundary_K_9*xi2*xi3**2 - 2*I*xi1*J4_15(0))/(xi1**2 + xi2**2 + xi3**2)",
+        "11": "(I*boundary_K_3*xi1**2*xi3 + I*boundary_K_3*xi2**2*xi3 + I*boundary_K_3*xi3**3 - I*boundary_K_9*xi1**3 - I*boundary_K_9*xi1*xi2**2 - I*boundary_K_9*xi1*xi3**2 - 2*I*xi2*J4_15(0))/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "(I*boundary_K_5*xi1**2*xi3 + I*boundary_K_5*xi2**2*xi3 + I*boundary_K_5*xi3**3 - I*boundary_K_9*xi1**2*xi2 - I*boundary_K_9*xi2**3 - I*boundary_K_9*xi2*xi3**2 + 2*I*xi1*J4_15(0))/(xi1**2 + xi2**2 + xi3**2)",
         "14": "-I*boundary_K_10*xi2 + I*boundary_K_12*xi1 + I*boundary_K_6*xi3",
-        "7": "(I*boundary_K_3*xi1**2*xi2 + I*boundary_K_3*xi2**3 + I*boundary_K_3*xi2*xi3**2 - I*boundary_K_5*xi1**3 - I*boundary_K_5*xi1*xi2**2 - I*boundary_K_5*xi1*xi3**2 - 2*I*xi3*J4_15(0))/(xi1**2 + xi2**2 + xi3**2)"
+        "7": "(I*boundary_K_3*xi1**2*xi2 + I*boundary_K_3*xi2**3 + I*boundary_K_3*xi2*xi3**2 - I*boundary_K_5*xi1**3 - I*boundary_K_5*xi1*xi2**2 - I*boundary_K_5*xi1*xi3**2 + 2*I*xi3*J4_15(0))/(xi1**2 + xi2**2 + xi3**2)"
       },
       "general_cutoff_correction_plus": {
-        "11": "I*boundary_K_3*xi3*f(z)/2 - I*boundary_K_9*xi1*f(z)/2",
-        "13": "I*boundary_K_5*xi3*f(z)/2 - I*boundary_K_9*xi2*f(z)/2",
-        "14": "-I*boundary_K_10*xi2*f(z)/2 + I*boundary_K_12*xi1*f(z)/2 + I*boundary_K_6*xi3*f(z)/2",
-        "19": "(boundary_K_3*xi2**2*Derivative(f(z), z) + boundary_K_3*xi3**2*Derivative(f(z), z) - boundary_K_5*xi1*xi2*Derivative(f(z), z) - boundary_K_9*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "21": "(-boundary_K_3*xi1*xi2*Derivative(f(z), z) + boundary_K_5*xi1**2*Derivative(f(z), z) + boundary_K_5*xi3**2*Derivative(f(z), z) - boundary_K_9*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "22": "(-boundary_K_10*xi2*xi3*Derivative(f(z), z) + boundary_K_12*xi1*xi3*Derivative(f(z), z) + boundary_K_6*xi3**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "25": "(-boundary_K_3*xi1*xi3*Derivative(f(z), z) - boundary_K_5*xi2*xi3*Derivative(f(z), z) + boundary_K_9*xi1**2*Derivative(f(z), z) + boundary_K_9*xi2**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "26": "(boundary_K_10*xi2**2*Derivative(f(z), z) - boundary_K_12*xi1*xi2*Derivative(f(z), z) - boundary_K_6*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "28": "(-boundary_K_10*xi1*xi2*Derivative(f(z), z) + boundary_K_12*xi1**2*Derivative(f(z), z) + boundary_K_6*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
-        "7": "I*boundary_K_3*xi2*f(z)/2 - I*boundary_K_5*xi1*f(z)/2"
+        "11": "-I*boundary_K_3*xi3*f(z)/2 + I*boundary_K_9*xi1*f(z)/2",
+        "13": "-I*boundary_K_5*xi3*f(z)/2 + I*boundary_K_9*xi2*f(z)/2",
+        "14": "I*boundary_K_10*xi2*f(z)/2 - I*boundary_K_12*xi1*f(z)/2 - I*boundary_K_6*xi3*f(z)/2",
+        "19": "(-boundary_K_3*xi2**2*Derivative(f(z), z) - boundary_K_3*xi3**2*Derivative(f(z), z) + boundary_K_5*xi1*xi2*Derivative(f(z), z) + boundary_K_9*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "21": "(boundary_K_3*xi1*xi2*Derivative(f(z), z) - boundary_K_5*xi1**2*Derivative(f(z), z) - boundary_K_5*xi3**2*Derivative(f(z), z) + boundary_K_9*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "22": "(boundary_K_10*xi2*xi3*Derivative(f(z), z) - boundary_K_12*xi1*xi3*Derivative(f(z), z) - boundary_K_6*xi3**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "25": "(boundary_K_3*xi1*xi3*Derivative(f(z), z) + boundary_K_5*xi2*xi3*Derivative(f(z), z) - boundary_K_9*xi1**2*Derivative(f(z), z) - boundary_K_9*xi2**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "26": "(-boundary_K_10*xi2**2*Derivative(f(z), z) + boundary_K_12*xi1*xi2*Derivative(f(z), z) + boundary_K_6*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "28": "(boundary_K_10*xi1*xi2*Derivative(f(z), z) - boundary_K_12*xi1**2*Derivative(f(z), z) - boundary_K_6*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "7": "-I*boundary_K_3*xi2*f(z)/2 + I*boundary_K_5*xi1*f(z)/2"
       },
       "general_source_four_form": {
         "15": "J4_15(z)",
@@ -974,13 +1064,14 @@
         "B_part_plus_sourced_equation": {},
         "actual_B_part_alone_has_required_jump": {},
         "actual_Hodge_Poisson_remainder_zero": {},
+        "actual_Poisson_equation": "0",
         "actual_current_compatibility": {},
         "closed_source_projection_identity": {},
         "general_B_minus_sourced_equation": {},
         "general_B_plus_sourced_equation": {},
         "general_L_closed": {},
         "general_boundary_compatibility": {},
-        "general_oriented_jump": {},
+        "general_oriented_Stokes_boundary_row": {},
         "source_closed": {}
       },
       "source_UV_jump": {
@@ -1010,6 +1101,7 @@
   "negative_controls": {
     "claim_unit_spatial_h_bound_at_zero": true,
     "erase_dt_components_of_source": true,
+    "old_positive_jump_rejected_by_derived_Stokes_row": true,
     "omit_general_cutoff_normal_term": true,
     "omit_sourced_particular_solution": true,
     "positive_h_for_B_part": true,
@@ -1018,8 +1110,9 @@
     "wrong_Lorentz_Hodge_sign": true
   },
   "provenance": {
-    "test_one_omega_connection_static_sourced_bf_v1.py": "ef618090215b91995eb258b51462e1239c58b6e333fd864384972a670a9051ee",
-    "verify_one_omega_connection_static_sourced_bf_v1.py": "9cdbcfbf1d961ede6d4f193fa8b3277f0f625447ed2bb0ca803926ac875d7d22"
+    "test_one_omega_connection_static_sourced_bf_v1.py": "d5342f2584abb146acf990546cbc7b9060affef2ab2ebe413072c68bc2a398e7",
+    "verify_one_omega_connection_static_sourced_bf_v1.py": "bb13755b4786b30bb90fea4f59123883582e67517a9c40dfaee5eeedfe8a5f17",
+    "verify_one_omega_interface_connection_current_candidate_v1.py": "7b58450d546c4f0979d6303a6005ae7c3efde5d23f94353c00aec833f13d2d05"
   },
   "runtime": {
     "sympy": "1.13.3"
@@ -1032,16 +1125,21 @@
     },
     "exterior_backend": {
       "name": "verify_one_omega_connection_affine_bf_reconstruction_v1.py",
-      "sha256": "08bac3c5737f4acd9d7d240930cb2f057f9045705cc57d72d0033140eed918ab"
+      "sha256": "63bd12c8cbce0d759bd2766534c31b7ea55786a92161a7c8ec5982926ff0a93e"
     },
     "localized_torque": {
       "name": "one_omega_connection_localized_torque_lift_v1.json",
-      "sha256": "b9d94ab321890be8733bf72dcb17221738d7375c1d8f47397dae23eab16378ee"
+      "sha256": "b16337522d149b97952c347286ad85e7203bbe7c8a5598b15c359811a80b708b"
     },
     "note": {
       "name": "one_omega_connection_static_sourced_bf_lemma_v1.md",
-      "sha256": "8f07d3ec6f64f471c15d3dac0d824200f9815f4710ad1f4ba32e0d782d6d9919"
+      "sha256": "cc2148af504d8172c98a60e548a42aec505334fb2c05c19aa935c56db8f476f7"
     },
+    "oriented_Stokes_core": {
+      "name": "verify_one_omega_interface_connection_current_candidate_v1.py",
+      "sha256": "7b58450d546c4f0979d6303a6005ae7c3efde5d23f94353c00aec833f13d2d05"
+    },
+    "oriented_core_scope": "fresh Stokes derivation of boundary and compatibility coefficients",
     "reused_backend_scope": "wedge, contraction, trace and serialization only; no RHP 1/s homotopy",
     "upstream_global_gates_inherited": false
   }

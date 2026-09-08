@@ -7,30 +7,75 @@ is selected, and no general physical or nonlinear gate is promoted.
 
 ## 1. The current that a repair would need
 
-Keep A_Sigma an independent SO3 connection on Q=Fr_SO^+(H_(gamma,T)). For
-each side let b_epsilon and j4_epsilon be the transported traces of B and
-the bulk connection Euler current. The bulk equations imply
+Keep A_Sigma an independent SO3 connection on Q=Fr_SO^+(H_(gamma,T)).
+Fix a common normal coordinate n from M_minus to M_plus and orientations
 
-    D_A b_plus + j4_plus = 0,
-    D_A b_minus + j4_minus = 0.
+    vol5=dn wedge vol_Sigma,
+    M_plus={n>=0}, M_minus={n<=0},
+    n_out,plus=-partial_n, n_out,minus=+partial_n.
 
-Use precisely the boundary Green convention of the frozen candidate,
--< (b_plus-b_minus) wedge Delta A_Sigma >. Define an intrinsic current by
-Delta S_new = integral < J_Sigma wedge Delta A_Sigma > + other variations.
-It changes the natural connection row to
+The transported traces are exactly b_eps=Ad_r(Y_eps^*B_eps) and the
+corresponding pullbacks j4_eps of the bulk current, with no incidence sign
+inside either definition. Both sides are compared in the same Sigma chart.
+The bulk equations from the literal positive BF term are
 
-    b_plus-b_minus = J_Sigma.
+    D_A b_plus+j4_plus=0, D_A b_minus+j4_minus=0.
 
-Taking its covariant exterior derivative and subtracting the two bulk rows
-gives the necessary compatibility
+The sign of the interface equation must also be derived from that term.
+For a three-form B and a one-form variation Delta A, invariance of the
+color pairing and the graded Leibniz rule give
 
-    D_A J_Sigma = -(j4_plus-j4_minus).                         (1)
+    Delta_A <B wedge F> = <B wedge D_A Delta A>
+      = <D_A B wedge Delta A> - d<B wedge Delta A>.
 
-This equation fixes the required sign in differential-form notation. A
-vector-density version additionally requires the orientation used to identify
-the pulled-back four-form with a normal current; no new orientation is chosen
-to erase the source. With the original zero intrinsic current, (1) gives the
-Robin torque compatibility. The proposal must supply (1), not discard it.
+Thus the bulk Green form is -<B wedge Delta A>. The induced boundary
+orientation is -vol_Sigma on M_plus and +vol_Sigma on M_minus. Summing the
+two actual oriented boundaries therefore gives
+
+    sum_eps integral_boundary_Meps -<B_eps wedge Delta A_eps>
+      = integral_Sigma <(b_plus-b_minus) wedge Delta A_Sigma>.
+
+This is **plus the jump** in the common chart. Define the intrinsic current
+by Delta S_new=integral <J_Sigma wedge Delta A_Sigma>+other variations.
+The full natural connection row and its consequence are
+
+    b_plus-b_minus=-J_Sigma,
+    D_A J_Sigma=j4_plus-j4_minus.                             (1)
+
+All three rows are retained: differentiate [b]+J=0 and subtract
+D_A[b]+[j4]=0 to obtain D_A J-[j4]=0.
+
+A separate elementary component check fixes the same sign without reading
+an interface equation. Use coordinates (n,t,x,y,z), B=b(n)dx wedge dy wedge
+dz and Delta A=a(n)dt. Then B wedge dDelta A=b a' vol5. Choose a_plus and
+a_minus with common value a0 at n=0 and zero values at the outer endpoints.
+Integration by parts gives the interface contribution
+
+    -b_plus(0)*a0+b_minus(0)*a0.
+
+But [b_form] wedge Delta A=-(b_plus-b_minus)*a0 vol_Sigma because dt must
+cross three spatial differentials. Hence this contribution is precisely
++[b_form] wedge Delta A. The companion evaluates both integrals with
+independent polynomial bulk slopes and curvatures and independent test
+profiles, rather than inserting endpoint signs as input data.
+
+**Orientation erratum, 2026-09-08.** The frozen v5.2 artifact declares the
+literal positive BF action and unsigned pullback b, but its separate Green
+string uses -[b] wedge Delta A. That string is incompatible with the common
+orientation stated above. The former candidate receipt inherited that
+string; this revision corrects its candidate chain using Stokes. The frozen
+v5.2 action, artifact and action hash remain unchanged, and the discrepancy
+is recorded rather than silently changing their conventions. The old test
+b_plus=b_minus cannot distinguish the two global signs. For a nonzero J,
+substituting the former [b]=J into the derived row gives 2J instead of zero.
+Similarly the former D_A J=-[j4] leaves a residual -2[j4].
+
+A consistent orientation reversal also changes the conversion of [j4]
+into a vector density. It cannot preserve the old response while keeping
+rho=[j4]/vol_Sigma fixed. With vol5=dn wedge vol_Sigma and J4=i_Q vol5,
+[j4]/vol_Sigma=-sum Q_out; the Robin row gives the physical torque
+rho=kappa_R*y*(a cross phi) in this convention. For zero intrinsic current,
+(1) still gives the original torque compatibility [j4]=0.
 
 ## 2. A local covariant candidate
 
@@ -53,7 +98,7 @@ A_Sigma=omega. At fixed gamma,T and frame, Delta C=Delta A, hence
 The last sign is (-1)^(1*3). In the Green convention of section 1,
 
     J_Sigma = chi star_gamma C,
-    chi D_A star_gamma C = -[j4].                             (3)
+    chi D_A star_gamma C = [j4].                             (3)
 
 The density check in the companion allows an arbitrary symmetric inverse
 metric and positive invariant-volume coefficient. It differentiates all
@@ -90,7 +135,7 @@ A=-d g g^-1 is exactly flat by the Maurer-Cartan identity. The principal
 field theta is therefore a relative-connection channel, not a violation of
 BF flatness. At this order J=-chi star d theta. Equation (1) becomes
 
-    -chi Box theta_I = -[j4]_I / vol_Sigma.                   (5)
+    -chi Box theta_I = [j4]_I / vol_Sigma.                   (5)
 
 This is a possible dynamical route for absorbing the torque. It does not
 construct the full B field, solve the matter equations or prove coupled
@@ -106,11 +151,11 @@ sin(x) sin(2z). Write its signed four-form jump as
 in one fixed Lie-algebra direction; J0 includes the Robin coefficients and
 the declared orientation. In the flat static channel, (5) is
 
-    chi Delta theta_I = J0 sin(x) sin(2z).
+    chi Delta theta_I = -J0 sin(x) sin(2z).
 
 Since Delta[sin(x) sin(2z)] = -5 sin(x) sin(2z), it is solved by
 
-    theta_I = -J0 sin(x) sin(2z)/(5 chi).                     (6)
+    theta_I = J0 sin(x) sin(2z)/(5 chi).                     (6)
 
 The opposite sign does not solve the compatibility equation. On one periodic
 2pi by 2pi cell, per unit length of the remaining spatial direction, the

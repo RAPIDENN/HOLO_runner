@@ -3,7 +3,7 @@
     "literal_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
     "source_sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b"
   },
-  "calculation_digest": "bec01c5249084ec3a5032da07ccb46d550fa6a772eb1b896a4030d3676881d70",
+  "calculation_digest": "9b70a5789ceaf2a6321c59367ae2b82f06bdd103bf6ebe7b8e0621086b745221",
   "checks": {
     "Hodge_volume_and_metric_stress": true,
     "T_variation_has_minus_NV_gradient": true,
@@ -2462,10 +2462,10 @@
   },
   "provenance": {
     "one_omega_connection_current_covariant_variation_lemma_v1.md": "07a995c4058712f8611c9c8938640b1b6927d7265167c33e6e5af7da0cee64cc",
-    "one_omega_interface_connection_current_candidate_lemma_v1.md": "ab9745c81faf58e83fef2937b97f7de7e2c6f9ae3bce8bd3cf4fa8aeeb87966b",
+    "one_omega_interface_connection_current_candidate_lemma_v1.md": "62520b01ce3dc19b89eac01f10286193a3e071df803dcfd433573b87638042b7",
     "one_omega_projected_connection_linear_lemma_v1.md": "5eb335367c04c17930c42f18310b1750774088baafdff5906565232a3d40856a",
     "test_one_omega_connection_current_covariant_variation_v1.py": "e121c638ad2ebabddbcfe183fb9d2495f9eace8a21671fbb15573ba98e425a95",
-    "verify_one_omega_connection_current_covariant_variation_v1.py": "74777e2ef61181d58da0c4cbe106b702b48c97db989f3f204796b9d91ebb3035"
+    "verify_one_omega_connection_current_covariant_variation_v1.py": "897847126eb9dd4c911ecbcdcdf54c1edf6e18119b476e1f5cb29211aa7b4ce2"
   },
   "schema": "holo.one-omega-connection-current-covariant-variation.v1",
   "scope": {

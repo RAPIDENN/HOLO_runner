@@ -25,6 +25,18 @@ these declared conventions is
 Changing the common orientation changes the form components consistently;
 one must not replace only the sign of rho in the equations below.
 
+Correction of the earlier receipt: for the literal action +integral B3
+wedge F, delta(B wedge F)=delta B wedge F+(D B) wedge delta A
+-d(B wedge delta A). The induced plus/minus boundary orientations are
+-volSigma and +volSigma. Their sum is therefore +[b] wedge delta A.
+Since the new action contributes +J_Sigma wedge delta A, its natural
+row is [b]=-J_Sigma. Combining it with D B+J4=0 gives
+D J_Sigma=[j4]. The earlier opposite row, inherited from a textual
+Green expression whose test only used [b]=0, was incorrect for these
+orientations. The corrected current companion now derives this incidence
+from Stokes and a direct component integration on both half spaces.
+The frozen action and the original nonzero-torque obstruction are unchanged.
+
 Let F be real and smooth with compact support on R3 and prescribe
 
     gamma_epsilon = -exp(2 epsilon F) dt^2 + dx^2,
@@ -82,20 +94,26 @@ also works because the total charge is zero.
 
 For the candidate, J_Sigma=chi * C. On (2), choose the leading orientation
 A_Sigma=-epsilon^2 dTheta+O(epsilon^4), so C=A_Sigma. The required BF
-compatibility is d J_Sigma=-[j4] at this order. With (1), it becomes
+compatibility is d J_Sigma=[j4] at this order. With (1), it becomes
 
-    chi Delta Theta = rho2.                                  (7)
+    chi Delta Theta = -rho2.                                  (7)
 
 Define a real Lie-algebra component vector, with the three components
 solved independently,
 
-    Theta_hat(k) = -rho2_hat(k)/(chi |k|^2), k!=0,
-    Theta(x) = -1/(4 pi chi) integral rho2(y)/|x-y| dy.        (8)
+    Theta_hat(k) = +rho2_hat(k)/(chi |k|^2), k!=0,
+    Theta(x) = +1/(4 pi chi) integral rho2(y)/|x-y| dy.        (8)
 
 The value assigned to the Fourier representative at k=0 has measure zero.
 It is not a physical zero-mode omission: (5)-(6) establish solvability and
 integrability there. Since Delta[-1/(4 pi |x|)]=delta_0, (8) has the sign
-required by (7). Using (6), for every R>0 the low-frequency estimates are
+required by (7): chi Delta of the kernel in (8) is -delta_0.
+There is a second independent sign check. Pulling the bulk material
+variation to delta A=-D(delta theta) and imposing its bulk equation
+gives -sum Q_out dot delta theta=+rho2 dot delta theta. The variation
+of -chi|grad Theta|^2/2 gives +chi Delta Theta dot delta theta.
+Their sum vanishes precisely in (7); the old sign would leave 2rho2.
+Using (6), for every R>0 the low-frequency estimates are
 
     integral_(|k|<R) |Theta_hat|^2 <= 4 pi M1^2 R/chi^2,
     E_(|k|<R) <= 2 pi M1^2 R^3/(3 chi),
@@ -132,7 +150,7 @@ is substituted for the cutoff argument. The periodic unlocalized reference
 is only a sign and normalization diagnostic:
 
     rho2 = (0, (4/5) sin x sin(2z), 0),
-    Theta = (0, -4/(25 chi) sin x sin(2z), 0).
+    Theta = (0, +4/(25 chi) sin x sin(2z), 0).
 
 It has finite cell energy, not the global finite energy proved for the
 compact source in section 3.
