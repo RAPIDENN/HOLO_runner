@@ -1,0 +1,31 @@
+{
+  "ansatz": "h = 2P eta + 2 dd E; delta Omega = C; plane wave e^{i(q x3 - W t)}; BPS A = log Omega, side +",
+  "calculation_digest": "350e96281932c2b8901560f7f2313ccf255bbb64d5f0d832c2d2116c625d06bf",
+  "checks": {
+    "Wpp1_equals_G_a0_1_minus_G_over_3M": true,
+    "beta_form_density_EL_equals_G_Omega6_L_R": true,
+    "master_identity_exact": true,
+    "space_momentum_constraint_34": true,
+    "time_momentum_constraint_04": true
+  },
+  "definitions": {
+    "C_m": "P' + G Omega' C/(3M)",
+    "L_R": "R'' + 6A'R' + e^{-2A}(W^2 - q^2) R",
+    "R": "P - C/Omega",
+    "beta_form_density_per_side": "-G[Omega^6 R'^2 + Omega^4 (dR)^2]/2"
+  },
+  "not_certified": [
+    "reduced density L_3 (03a6956)",
+    "static all-q bound (d7e7f31)",
+    "brane J_D = -2G R' - beta D with no W'' remainder (rows:derive_boundary; only W''(1) = G a0(1-G/3M) checked here)"
+  ],
+  "provenance": {
+    "generated_utc": "2026-09-08T05:08:22Z",
+    "generator": "refute_one_omega_scalar_energy_weights_v1.py",
+    "python": "3.13.5",
+    "sympy": "1.13.3"
+  },
+  "schema": "holo.refute-one-omega-scalar-energy-weights.v1",
+  "source_bulk_v2_2_sha256": "cdd3fc0b11c7282404a4ae6a49393bc6bda1989f2b66b41cbff2ae4df9621ff3",
+  "verdict": "PESAS CERTIFICADAS"
+}
