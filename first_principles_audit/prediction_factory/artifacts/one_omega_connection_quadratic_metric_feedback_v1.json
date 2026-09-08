@@ -1,0 +1,368 @@
+{
+  "Fourier": {
+    "domain": "real spatial k != 0; rho Fourier components arbitrary complex; norm equality uses k dot rho=0",
+    "general_norm_reference": "(-I*rho_imag1 + rho_real1)*(I*rho_imag1 + rho_real1)/2 + (-I*rho_imag2 + rho_real2)*(I*rho_imag2 + rho_real2)/2 + (-I*rho_imag3 + rho_real3)*(I*rho_imag3 + rho_real3)/2 - (k1*(-I*rho_imag1 + rho_real1) + k2*(-I*rho_imag2 + rho_real2) + k3*(-I*rho_imag3 + rho_real3))*(k1*(I*rho_imag1 + rho_real1) + k2*(I*rho_imag2 + rho_real2) + k3*(I*rho_imag3 + rho_real3))/(2*(k1**2 + k2**2 + k3**2))",
+    "k": [
+      [
+        "k1"
+      ],
+      [
+        "k2"
+      ],
+      [
+        "k3"
+      ]
+    ],
+    "p_squared": "k1**2 + k2**2 + k3**2",
+    "projector": [
+      [
+        "(k2**2 + k3**2)/(k1**2 + k2**2 + k3**2)",
+        "-k1*k2/(k1**2 + k2**2 + k3**2)",
+        "-k1*k3/(k1**2 + k2**2 + k3**2)"
+      ],
+      [
+        "-k1*k2/(k1**2 + k2**2 + k3**2)",
+        "(k1**2 + k3**2)/(k1**2 + k2**2 + k3**2)",
+        "-k2*k3/(k1**2 + k2**2 + k3**2)"
+      ],
+      [
+        "-k1*k3/(k1**2 + k2**2 + k3**2)",
+        "-k2*k3/(k1**2 + k2**2 + k3**2)",
+        "(k1**2 + k2**2)/(k1**2 + k2**2 + k3**2)"
+      ]
+    ],
+    "rho": [
+      [
+        "I*rho_imag1 + rho_real1"
+      ],
+      [
+        "I*rho_imag2 + rho_real2"
+      ],
+      [
+        "I*rho_imag3 + rho_real3"
+      ]
+    ],
+    "tau": [
+      [
+        "-2*k1*(k2*(I*rho_imag3 + rho_real3) - k3*(I*rho_imag2 + rho_real2))/(2*k1**2 + 2*k2**2 + 2*k3**2)",
+        "(-k1*(-k1*(I*rho_imag3 + rho_real3) + k3*(I*rho_imag1 + rho_real1)) - k2*(k2*(I*rho_imag3 + rho_real3) - k3*(I*rho_imag2 + rho_real2)))/(2*k1**2 + 2*k2**2 + 2*k3**2)",
+        "(-k1*(k1*(I*rho_imag2 + rho_real2) - k2*(I*rho_imag1 + rho_real1)) - k3*(k2*(I*rho_imag3 + rho_real3) - k3*(I*rho_imag2 + rho_real2)))/(2*k1**2 + 2*k2**2 + 2*k3**2)"
+      ],
+      [
+        "(-k1*(-k1*(I*rho_imag3 + rho_real3) + k3*(I*rho_imag1 + rho_real1)) - k2*(k2*(I*rho_imag3 + rho_real3) - k3*(I*rho_imag2 + rho_real2)))/(2*k1**2 + 2*k2**2 + 2*k3**2)",
+        "-2*k2*(-k1*(I*rho_imag3 + rho_real3) + k3*(I*rho_imag1 + rho_real1))/(2*k1**2 + 2*k2**2 + 2*k3**2)",
+        "(-k2*(k1*(I*rho_imag2 + rho_real2) - k2*(I*rho_imag1 + rho_real1)) - k3*(-k1*(I*rho_imag3 + rho_real3) + k3*(I*rho_imag1 + rho_real1)))/(2*k1**2 + 2*k2**2 + 2*k3**2)"
+      ],
+      [
+        "(-k1*(k1*(I*rho_imag2 + rho_real2) - k2*(I*rho_imag1 + rho_real1)) - k3*(k2*(I*rho_imag3 + rho_real3) - k3*(I*rho_imag2 + rho_real2)))/(2*k1**2 + 2*k2**2 + 2*k3**2)",
+        "(-k2*(k1*(I*rho_imag2 + rho_real2) - k2*(I*rho_imag1 + rho_real1)) - k3*(-k1*(I*rho_imag3 + rho_real3) + k3*(I*rho_imag1 + rho_real1)))/(2*k1**2 + 2*k2**2 + 2*k3**2)",
+        "-2*k3*(k1*(I*rho_imag2 + rho_real2) - k2*(I*rho_imag1 + rho_real1))/(2*k1**2 + 2*k2**2 + 2*k3**2)"
+      ]
+    ],
+    "theta": [
+      [
+        "(I*rho_imag1 + rho_real1)/(chi*(k1**2 + k2**2 + k3**2))"
+      ],
+      [
+        "(I*rho_imag2 + rho_real2)/(chi*(k1**2 + k2**2 + k3**2))"
+      ],
+      [
+        "(I*rho_imag3 + rho_real3)/(chi*(k1**2 + k2**2 + k3**2))"
+      ]
+    ]
+  },
+  "analytic_results": {
+    "IR": "tau is an order-zero bounded multiplier; the distinct L2 Poisson lift uses zero mean",
+    "Sobolev": "same equality for every common nonnegative scalar Fourier weight for which norms exist",
+    "actual_source": "compact smooth curl, transverse Fourier amplitude and zero mean",
+    "chi": "fixed F and Robin data imply rho and the leading metric coefficient are independent of chi",
+    "norm": "all nine spatial tensor entries, Hermitian Fourier norm; ||tau^(2)||\u00b2=||rho||\u00b2/2",
+    "orders": "coefficient of epsilon\u00b2 has no factorial; isolated channel action/energy starts at epsilon\u2074"
+  },
+  "calculation_digest": "bac4a7e74a720c92089cad9b0eb72f94d04b6ffcb1b0bbbc83666952c587fa2e",
+  "checks": {
+    "Fourier_Fourier_Ward_divergence": true,
+    "Fourier_Hermitian_general_complex_norm_numerator": true,
+    "Fourier_all_nine_Poisson_adjoint_entries": true,
+    "Fourier_chi_cancels_from_feedback": true,
+    "Fourier_double_transverse_projection_zero": true,
+    "Fourier_source_transversality": true,
+    "Fourier_spatial_trace_zero": true,
+    "Fourier_transverse_complex_source_exact_half_norm_numerator": true,
+    "local_all_nine_adjoint_entries": true,
+    "local_clock_V_zero_with_arbitrary_nonzero_kappa_t": true,
+    "local_connection_oracle_is_antisymmetric": true,
+    "local_divergence_equals_minus_half_curl_rho": true,
+    "local_horizontal_Ward_sign_and_half": true,
+    "local_literal_mixed_action_order_two": true,
+    "local_literal_mixed_metric_Euler_all_nine_entries": true,
+    "local_prescribed_action_value_has_only_order_four": true,
+    "local_spatial_trace_zero": true,
+    "projection_Hermitian_vector_complement_orthogonality": true,
+    "projection_Poisson_feedback_saturates_vector_projection": true,
+    "projection_Ward_fixes_vector_projection_to_Poisson_feedback": true,
+    "projection_complement_has_no_vector_component": true,
+    "projection_projector_idempotence_polynomial": true,
+    "source_actual_port_divergence_zero": true,
+    "source_actual_port_rho_is_curl_W": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "actual_port_source_has_exact_chi_independent_half_squared_norm": true,
+    "chi_value_selected": false,
+    "complete_second_order_Einstein_embedding_solution": false,
+    "conditional_static_connection_contribution_has_half_squared_norm_lower_bound": true,
+    "connection_term_alone_has_conserved_metric_source": false,
+    "full_N4": false,
+    "full_N7": false,
+    "full_P4": false,
+    "leading_metric_source_derived_from_both_variations": true,
+    "leading_source_is_spatial_vector_with_zero_TT_projection": true,
+    "lower_bound_proves_no_cancellation_with_other_sectors": false,
+    "new_action_adopted": false,
+    "prescribed_port_solves_full_linear_Einstein_equations": false,
+    "quartic_action_value_implies_no_quadratic_metric_feedback": false,
+    "spatial_tensor_norm_is_total_physical_energy": false,
+    "static_lift_uses_temporal_chart_at_s_zero": false,
+    "unknown_linear_H18_connection_operator_should_be_added_twice": false
+  },
+  "local_variation": {
+    "G_H": [
+      [
+        "0",
+        "-chi*(Derivative(Theta3(x, y, z), (x, 2)) + Derivative(Theta3(x, y, z), (y, 2)) + Derivative(Theta3(x, y, z), (z, 2)))",
+        "chi*(Derivative(Theta2(x, y, z), (x, 2)) + Derivative(Theta2(x, y, z), (y, 2)) + Derivative(Theta2(x, y, z), (z, 2)))"
+      ],
+      [
+        "chi*(Derivative(Theta3(x, y, z), (x, 2)) + Derivative(Theta3(x, y, z), (y, 2)) + Derivative(Theta3(x, y, z), (z, 2)))",
+        "0",
+        "-chi*(Derivative(Theta1(x, y, z), (x, 2)) + Derivative(Theta1(x, y, z), (y, 2)) + Derivative(Theta1(x, y, z), (z, 2)))"
+      ],
+      [
+        "-chi*(Derivative(Theta2(x, y, z), (x, 2)) + Derivative(Theta2(x, y, z), (y, 2)) + Derivative(Theta2(x, y, z), (z, 2)))",
+        "chi*(Derivative(Theta1(x, y, z), (x, 2)) + Derivative(Theta1(x, y, z), (y, 2)) + Derivative(Theta1(x, y, z), (z, 2)))",
+        "0"
+      ]
+    ],
+    "J": [
+      [
+        [
+          "0",
+          "-chi*Derivative(Theta3(x, y, z), x)",
+          "chi*Derivative(Theta2(x, y, z), x)"
+        ],
+        [
+          "chi*Derivative(Theta3(x, y, z), x)",
+          "0",
+          "-chi*Derivative(Theta1(x, y, z), x)"
+        ],
+        [
+          "-chi*Derivative(Theta2(x, y, z), x)",
+          "chi*Derivative(Theta1(x, y, z), x)",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "-chi*Derivative(Theta3(x, y, z), y)",
+          "chi*Derivative(Theta2(x, y, z), y)"
+        ],
+        [
+          "chi*Derivative(Theta3(x, y, z), y)",
+          "0",
+          "-chi*Derivative(Theta1(x, y, z), y)"
+        ],
+        [
+          "-chi*Derivative(Theta2(x, y, z), y)",
+          "chi*Derivative(Theta1(x, y, z), y)",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "-chi*Derivative(Theta3(x, y, z), z)",
+          "chi*Derivative(Theta2(x, y, z), z)"
+        ],
+        [
+          "chi*Derivative(Theta3(x, y, z), z)",
+          "0",
+          "-chi*Derivative(Theta1(x, y, z), z)"
+        ],
+        [
+          "-chi*Derivative(Theta2(x, y, z), z)",
+          "chi*Derivative(Theta1(x, y, z), z)",
+          "0"
+        ]
+      ]
+    ],
+    "V": [
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "div_tau": [
+      [
+        "-chi*Derivative(Theta2(x, y, z), (z, 3))/2 + chi*Derivative(Theta3(x, y, z), (y, 3))/2 - chi*Derivative(Theta2(x, y, z), (x, 2), z)/2 - chi*Derivative(Theta2(x, y, z), (y, 2), z)/2 + chi*Derivative(Theta3(x, y, z), (x, 2), y)/2 + chi*Derivative(Theta3(x, y, z), y, (z, 2))/2"
+      ],
+      [
+        "chi*Derivative(Theta1(x, y, z), (z, 3))/2 - chi*Derivative(Theta3(x, y, z), (x, 3))/2 + chi*Derivative(Theta1(x, y, z), (x, 2), z)/2 + chi*Derivative(Theta1(x, y, z), (y, 2), z)/2 - chi*Derivative(Theta3(x, y, z), x, (y, 2))/2 - chi*Derivative(Theta3(x, y, z), x, (z, 2))/2"
+      ],
+      [
+        "-chi*Derivative(Theta1(x, y, z), (y, 3))/2 + chi*Derivative(Theta2(x, y, z), (x, 3))/2 - chi*Derivative(Theta1(x, y, z), (x, 2), y)/2 - chi*Derivative(Theta1(x, y, z), y, (z, 2))/2 + chi*Derivative(Theta2(x, y, z), x, (y, 2))/2 + chi*Derivative(Theta2(x, y, z), x, (z, 2))/2"
+      ]
+    ],
+    "literal_action_coefficient_four": "-chi*(Derivative(Theta1(x, y, z), x)**2 + Derivative(Theta1(x, y, z), y)**2 + Derivative(Theta1(x, y, z), z)**2 + Derivative(Theta2(x, y, z), x)**2 + Derivative(Theta2(x, y, z), y)**2 + Derivative(Theta2(x, y, z), z)**2 + Derivative(Theta3(x, y, z), x)**2 + Derivative(Theta3(x, y, z), y)**2 + Derivative(Theta3(x, y, z), z)**2)/2",
+    "mixed_density": "-chi*Derivative(Theta1(x, y, z), x)*Derivative(h12(x, y, z), z)/2 + chi*Derivative(Theta1(x, y, z), x)*Derivative(h13(x, y, z), y)/2 - chi*Derivative(Theta1(x, y, z), y)*Derivative(h22(x, y, z), z)/2 + chi*Derivative(Theta1(x, y, z), y)*Derivative(h23(x, y, z), y)/2 - chi*Derivative(Theta1(x, y, z), z)*Derivative(h23(x, y, z), z)/2 + chi*Derivative(Theta1(x, y, z), z)*Derivative(h33(x, y, z), y)/2 + chi*Derivative(Theta2(x, y, z), x)*Derivative(h11(x, y, z), z)/2 - chi*Derivative(Theta2(x, y, z), x)*Derivative(h13(x, y, z), x)/2 + chi*Derivative(Theta2(x, y, z), y)*Derivative(h12(x, y, z), z)/2 - chi*Derivative(Theta2(x, y, z), y)*Derivative(h23(x, y, z), x)/2 + chi*Derivative(Theta2(x, y, z), z)*Derivative(h13(x, y, z), z)/2 - chi*Derivative(Theta2(x, y, z), z)*Derivative(h33(x, y, z), x)/2 - chi*Derivative(Theta3(x, y, z), x)*Derivative(h11(x, y, z), y)/2 + chi*Derivative(Theta3(x, y, z), x)*Derivative(h12(x, y, z), x)/2 - chi*Derivative(Theta3(x, y, z), y)*Derivative(h12(x, y, z), y)/2 + chi*Derivative(Theta3(x, y, z), y)*Derivative(h22(x, y, z), x)/2 - chi*Derivative(Theta3(x, y, z), z)*Derivative(h13(x, y, z), y)/2 + chi*Derivative(Theta3(x, y, z), z)*Derivative(h23(x, y, z), x)/2",
+    "rho": [
+      [
+        "-chi*(Derivative(Theta1(x, y, z), (x, 2)) + Derivative(Theta1(x, y, z), (y, 2)) + Derivative(Theta1(x, y, z), (z, 2)))"
+      ],
+      [
+        "-chi*(Derivative(Theta2(x, y, z), (x, 2)) + Derivative(Theta2(x, y, z), (y, 2)) + Derivative(Theta2(x, y, z), (z, 2)))"
+      ],
+      [
+        "-chi*(Derivative(Theta3(x, y, z), (x, 2)) + Derivative(Theta3(x, y, z), (y, 2)) + Derivative(Theta3(x, y, z), (z, 2)))"
+      ]
+    ],
+    "tau_adjoint": [
+      [
+        "-chi*Derivative(Theta2(x, y, z), x, z) + chi*Derivative(Theta3(x, y, z), x, y)",
+        "-chi*Derivative(Theta3(x, y, z), (x, 2))/2 + chi*Derivative(Theta3(x, y, z), (y, 2))/2 + chi*Derivative(Theta1(x, y, z), x, z)/2 - chi*Derivative(Theta2(x, y, z), y, z)/2",
+        "chi*Derivative(Theta2(x, y, z), (x, 2))/2 - chi*Derivative(Theta2(x, y, z), (z, 2))/2 - chi*Derivative(Theta1(x, y, z), x, y)/2 + chi*Derivative(Theta3(x, y, z), y, z)/2"
+      ],
+      [
+        "-chi*Derivative(Theta3(x, y, z), (x, 2))/2 + chi*Derivative(Theta3(x, y, z), (y, 2))/2 + chi*Derivative(Theta1(x, y, z), x, z)/2 - chi*Derivative(Theta2(x, y, z), y, z)/2",
+        "chi*Derivative(Theta1(x, y, z), y, z) - chi*Derivative(Theta3(x, y, z), x, y)",
+        "-chi*Derivative(Theta1(x, y, z), (y, 2))/2 + chi*Derivative(Theta1(x, y, z), (z, 2))/2 + chi*Derivative(Theta2(x, y, z), x, y)/2 - chi*Derivative(Theta3(x, y, z), x, z)/2"
+      ],
+      [
+        "chi*Derivative(Theta2(x, y, z), (x, 2))/2 - chi*Derivative(Theta2(x, y, z), (z, 2))/2 - chi*Derivative(Theta1(x, y, z), x, y)/2 + chi*Derivative(Theta3(x, y, z), y, z)/2",
+        "-chi*Derivative(Theta1(x, y, z), (y, 2))/2 + chi*Derivative(Theta1(x, y, z), (z, 2))/2 + chi*Derivative(Theta2(x, y, z), x, y)/2 - chi*Derivative(Theta3(x, y, z), x, z)/2",
+        "-chi*Derivative(Theta1(x, y, z), y, z) + chi*Derivative(Theta2(x, y, z), x, z)"
+      ]
+    ],
+    "tau_literal": [
+      [
+        "-chi*Derivative(Theta2(x, y, z), x, z) + chi*Derivative(Theta3(x, y, z), x, y)",
+        "-chi*Derivative(Theta3(x, y, z), (x, 2))/2 + chi*Derivative(Theta3(x, y, z), (y, 2))/2 + chi*Derivative(Theta1(x, y, z), x, z)/2 - chi*Derivative(Theta2(x, y, z), y, z)/2",
+        "chi*Derivative(Theta2(x, y, z), (x, 2))/2 - chi*Derivative(Theta2(x, y, z), (z, 2))/2 - chi*Derivative(Theta1(x, y, z), x, y)/2 + chi*Derivative(Theta3(x, y, z), y, z)/2"
+      ],
+      [
+        "-chi*Derivative(Theta3(x, y, z), (x, 2))/2 + chi*Derivative(Theta3(x, y, z), (y, 2))/2 + chi*Derivative(Theta1(x, y, z), x, z)/2 - chi*Derivative(Theta2(x, y, z), y, z)/2",
+        "chi*Derivative(Theta1(x, y, z), y, z) - chi*Derivative(Theta3(x, y, z), x, y)",
+        "-chi*Derivative(Theta1(x, y, z), (y, 2))/2 + chi*Derivative(Theta1(x, y, z), (z, 2))/2 + chi*Derivative(Theta2(x, y, z), x, y)/2 - chi*Derivative(Theta3(x, y, z), x, z)/2"
+      ],
+      [
+        "chi*Derivative(Theta2(x, y, z), (x, 2))/2 - chi*Derivative(Theta2(x, y, z), (z, 2))/2 - chi*Derivative(Theta1(x, y, z), x, y)/2 + chi*Derivative(Theta3(x, y, z), y, z)/2",
+        "-chi*Derivative(Theta1(x, y, z), (y, 2))/2 + chi*Derivative(Theta1(x, y, z), (z, 2))/2 + chi*Derivative(Theta2(x, y, z), x, y)/2 - chi*Derivative(Theta3(x, y, z), x, z)/2",
+        "-chi*Derivative(Theta1(x, y, z), y, z) + chi*Derivative(Theta2(x, y, z), x, z)"
+      ]
+    ]
+  },
+  "negative_controls": {
+    "Fourier_half_norm_without_source_transversality": true,
+    "Fourier_non_Hermitian_complex_tensor_norm": true,
+    "local_flip_horizontal_G_image_sign": true,
+    "local_flip_metric_source_sign": true,
+    "local_freeze_metric_dependent_omega": true,
+    "local_mistake_action_order_four_for_metric_order_four": true,
+    "local_omit_metric_half_weight": true
+  },
+  "provenance": {
+    "test_one_omega_connection_quadratic_metric_feedback_v1.py": "0aae699568b9c5c2c58926aa45bb7e2608968ea66ee2d92cf7e87fe89760b6b1",
+    "verify_one_omega_connection_quadratic_metric_feedback_v1.py": "7b94987d38158f0dde23c7d518c5f96a1273417cb6ca877cac6224303d125cf4"
+  },
+  "schema": "holo.one-omega-connection-quadratic-metric-feedback.v1",
+  "source_structure": {
+    "W": [
+      [
+        "kappa_R*y_positive**2*F(x, y, z)*Derivative(U(x, y, z), x)"
+      ],
+      [
+        "kappa_R*y_positive**2*F(x, y, z)*Derivative(U(x, y, z), y)"
+      ],
+      [
+        "kappa_R*y_positive**2*F(x, y, z)*Derivative(U(x, y, z), z)"
+      ]
+    ],
+    "analytic_input": "F real compact smooth; U=g(|D|)F smooth from pinned Robin multiplier; W compact smooth, hence integral rho=0",
+    "rho": [
+      [
+        "kappa_R*y_positive**2*(Derivative(F(x, y, z), y)*Derivative(U(x, y, z), z) - Derivative(F(x, y, z), z)*Derivative(U(x, y, z), y))"
+      ],
+      [
+        "kappa_R*y_positive**2*(-Derivative(F(x, y, z), x)*Derivative(U(x, y, z), z) + Derivative(F(x, y, z), z)*Derivative(U(x, y, z), x))"
+      ],
+      [
+        "kappa_R*y_positive**2*(Derivative(F(x, y, z), x)*Derivative(U(x, y, z), y) - Derivative(F(x, y, z), y)*Derivative(U(x, y, z), x))"
+      ]
+    ]
+  },
+  "sources": {
+    "lemma_sha256": "aec6ee2f079bb761bda83b41948e4a3074d1c2b08f1c45191bd70c2ac3d7a5fb",
+    "lift_lemma_sha256": "8af2a8626df9fd665a721d203e30536396d85a83093a9352cfda4003f960561f",
+    "method": "pinned covariant formulas plus independent fresh local and Fourier algebra; no imported large model",
+    "physical_gates_inherited": false,
+    "upstreams": {
+      "one_omega_connection_current_covariant_variation_v1": {
+        "schema": "holo.one-omega-connection-current-covariant-variation.v1",
+        "sha256": "d2a1b7af2e9b43eacafdece6d26d30433e6c4fbdb0d46922bf7eace34b30f6de"
+      },
+      "one_omega_connection_horizontal_ward_v1": {
+        "schema": "holo.one-omega-connection-horizontal-ward.v1",
+        "sha256": "d26d2cf58092eecacebd1f8d7f34f8a35222cd1ef7ec7153f5f0675a7e7e1f89"
+      },
+      "one_omega_connection_localized_torque_lift_v1": {
+        "schema": "holo.one-omega-connection-localized-torque-lift.v1",
+        "sha256": "b16337522d149b97952c347286ad85e7203bbe7c8a5598b15c359811a80b708b"
+      }
+    }
+  },
+  "static_projection": {
+    "hypotheses": "Minkowski/cartesian background, T0=t, C0=C1=0, static continuation, G2=+rho, fixed first-order data and transverse rho",
+    "norm_bound": "||tau_C,spatial^(2)||\u00b2 >= ||rho||\u00b2/2; equality for the Poisson port; Hermitian spatial norm only",
+    "projection_from_Ward": [
+      [
+        "2*k1*(-k1*k2*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) - k1*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k2**2 + k3**2)*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2))/(k1**2 + k2**2 + k3**2)**2",
+        "(k1*(-k1*k2*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k3**2)*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2)) + k2*(-k1*k2*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) - k1*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k2**2 + k3**2)*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2)))/(k1**2 + k2**2 + k3**2)**2",
+        "(k1*(-k1*k3*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k2**2)*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2)) + k3*(-k1*k2*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) - k1*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k2**2 + k3**2)*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2)))/(k1**2 + k2**2 + k3**2)**2"
+      ],
+      [
+        "(k1*(-k1*k2*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k3**2)*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2)) + k2*(-k1*k2*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) - k1*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k2**2 + k3**2)*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2)))/(k1**2 + k2**2 + k3**2)**2",
+        "2*k2*(-k1*k2*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k3**2)*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2))/(k1**2 + k2**2 + k3**2)**2",
+        "(k2*(-k1*k3*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k2**2)*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2)) + k3*(-k1*k2*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k3**2)*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2)))/(k1**2 + k2**2 + k3**2)**2"
+      ],
+      [
+        "(k1*(-k1*k3*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k2**2)*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2)) + k3*(-k1*k2*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) - k1*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k2**2 + k3**2)*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2)))/(k1**2 + k2**2 + k3**2)**2",
+        "(k2*(-k1*k3*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k2**2)*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2)) + k3*(-k1*k2*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k3**2)*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2)))/(k1**2 + k2**2 + k3**2)**2",
+        "2*k3*(-k1*k3*(-k2*(I*rho_imag3 + rho_real3)/2 + k3*(I*rho_imag2 + rho_real2)/2) - k2*k3*(k1*(I*rho_imag3 + rho_real3)/2 - k3*(I*rho_imag1 + rho_real1)/2) + (k1**2 + k2**2)*(-k1*(I*rho_imag2 + rho_real2)/2 + k2*(I*rho_imag1 + rho_real1)/2))/(k1**2 + k2**2 + k3**2)**2"
+      ]
+    ],
+    "vector_projection": [
+      [
+        "2*k1*(k1*(-k1*k2*(I*Simag01 + Sreal01) - k1*k3*(I*Simag02 + Sreal02) + (k2**2 + k3**2)*(I*Simag00 + Sreal00)) + k2*(-k1*k2*(I*Simag11 + Sreal11) - k1*k3*(I*Simag12 + Sreal12) + (k2**2 + k3**2)*(I*Simag01 + Sreal01)) + k3*(-k1*k2*(I*Simag12 + Sreal12) - k1*k3*(I*Simag22 + Sreal22) + (k2**2 + k3**2)*(I*Simag02 + Sreal02)))/(k1**2 + k2**2 + k3**2)**2",
+        "(k1*(k1*(-k1*k2*(I*Simag00 + Sreal00) - k2*k3*(I*Simag02 + Sreal02) + (k1**2 + k3**2)*(I*Simag01 + Sreal01)) + k2*(-k1*k2*(I*Simag01 + Sreal01) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k3**2)*(I*Simag11 + Sreal11)) + k3*(-k1*k2*(I*Simag02 + Sreal02) - k2*k3*(I*Simag22 + Sreal22) + (k1**2 + k3**2)*(I*Simag12 + Sreal12))) + k2*(k1*(-k1*k2*(I*Simag01 + Sreal01) - k1*k3*(I*Simag02 + Sreal02) + (k2**2 + k3**2)*(I*Simag00 + Sreal00)) + k2*(-k1*k2*(I*Simag11 + Sreal11) - k1*k3*(I*Simag12 + Sreal12) + (k2**2 + k3**2)*(I*Simag01 + Sreal01)) + k3*(-k1*k2*(I*Simag12 + Sreal12) - k1*k3*(I*Simag22 + Sreal22) + (k2**2 + k3**2)*(I*Simag02 + Sreal02))))/(k1**2 + k2**2 + k3**2)**2",
+        "(k1*(k1*(-k1*k3*(I*Simag00 + Sreal00) - k2*k3*(I*Simag01 + Sreal01) + (k1**2 + k2**2)*(I*Simag02 + Sreal02)) + k2*(-k1*k3*(I*Simag01 + Sreal01) - k2*k3*(I*Simag11 + Sreal11) + (k1**2 + k2**2)*(I*Simag12 + Sreal12)) + k3*(-k1*k3*(I*Simag02 + Sreal02) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k2**2)*(I*Simag22 + Sreal22))) + k3*(k1*(-k1*k2*(I*Simag01 + Sreal01) - k1*k3*(I*Simag02 + Sreal02) + (k2**2 + k3**2)*(I*Simag00 + Sreal00)) + k2*(-k1*k2*(I*Simag11 + Sreal11) - k1*k3*(I*Simag12 + Sreal12) + (k2**2 + k3**2)*(I*Simag01 + Sreal01)) + k3*(-k1*k2*(I*Simag12 + Sreal12) - k1*k3*(I*Simag22 + Sreal22) + (k2**2 + k3**2)*(I*Simag02 + Sreal02))))/(k1**2 + k2**2 + k3**2)**2"
+      ],
+      [
+        "(k1*(k1*(-k1*k2*(I*Simag00 + Sreal00) - k2*k3*(I*Simag02 + Sreal02) + (k1**2 + k3**2)*(I*Simag01 + Sreal01)) + k2*(-k1*k2*(I*Simag01 + Sreal01) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k3**2)*(I*Simag11 + Sreal11)) + k3*(-k1*k2*(I*Simag02 + Sreal02) - k2*k3*(I*Simag22 + Sreal22) + (k1**2 + k3**2)*(I*Simag12 + Sreal12))) + k2*(k1*(-k1*k2*(I*Simag01 + Sreal01) - k1*k3*(I*Simag02 + Sreal02) + (k2**2 + k3**2)*(I*Simag00 + Sreal00)) + k2*(-k1*k2*(I*Simag11 + Sreal11) - k1*k3*(I*Simag12 + Sreal12) + (k2**2 + k3**2)*(I*Simag01 + Sreal01)) + k3*(-k1*k2*(I*Simag12 + Sreal12) - k1*k3*(I*Simag22 + Sreal22) + (k2**2 + k3**2)*(I*Simag02 + Sreal02))))/(k1**2 + k2**2 + k3**2)**2",
+        "2*k2*(k1*(-k1*k2*(I*Simag00 + Sreal00) - k2*k3*(I*Simag02 + Sreal02) + (k1**2 + k3**2)*(I*Simag01 + Sreal01)) + k2*(-k1*k2*(I*Simag01 + Sreal01) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k3**2)*(I*Simag11 + Sreal11)) + k3*(-k1*k2*(I*Simag02 + Sreal02) - k2*k3*(I*Simag22 + Sreal22) + (k1**2 + k3**2)*(I*Simag12 + Sreal12)))/(k1**2 + k2**2 + k3**2)**2",
+        "(k2*(k1*(-k1*k3*(I*Simag00 + Sreal00) - k2*k3*(I*Simag01 + Sreal01) + (k1**2 + k2**2)*(I*Simag02 + Sreal02)) + k2*(-k1*k3*(I*Simag01 + Sreal01) - k2*k3*(I*Simag11 + Sreal11) + (k1**2 + k2**2)*(I*Simag12 + Sreal12)) + k3*(-k1*k3*(I*Simag02 + Sreal02) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k2**2)*(I*Simag22 + Sreal22))) + k3*(k1*(-k1*k2*(I*Simag00 + Sreal00) - k2*k3*(I*Simag02 + Sreal02) + (k1**2 + k3**2)*(I*Simag01 + Sreal01)) + k2*(-k1*k2*(I*Simag01 + Sreal01) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k3**2)*(I*Simag11 + Sreal11)) + k3*(-k1*k2*(I*Simag02 + Sreal02) - k2*k3*(I*Simag22 + Sreal22) + (k1**2 + k3**2)*(I*Simag12 + Sreal12))))/(k1**2 + k2**2 + k3**2)**2"
+      ],
+      [
+        "(k1*(k1*(-k1*k3*(I*Simag00 + Sreal00) - k2*k3*(I*Simag01 + Sreal01) + (k1**2 + k2**2)*(I*Simag02 + Sreal02)) + k2*(-k1*k3*(I*Simag01 + Sreal01) - k2*k3*(I*Simag11 + Sreal11) + (k1**2 + k2**2)*(I*Simag12 + Sreal12)) + k3*(-k1*k3*(I*Simag02 + Sreal02) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k2**2)*(I*Simag22 + Sreal22))) + k3*(k1*(-k1*k2*(I*Simag01 + Sreal01) - k1*k3*(I*Simag02 + Sreal02) + (k2**2 + k3**2)*(I*Simag00 + Sreal00)) + k2*(-k1*k2*(I*Simag11 + Sreal11) - k1*k3*(I*Simag12 + Sreal12) + (k2**2 + k3**2)*(I*Simag01 + Sreal01)) + k3*(-k1*k2*(I*Simag12 + Sreal12) - k1*k3*(I*Simag22 + Sreal22) + (k2**2 + k3**2)*(I*Simag02 + Sreal02))))/(k1**2 + k2**2 + k3**2)**2",
+        "(k2*(k1*(-k1*k3*(I*Simag00 + Sreal00) - k2*k3*(I*Simag01 + Sreal01) + (k1**2 + k2**2)*(I*Simag02 + Sreal02)) + k2*(-k1*k3*(I*Simag01 + Sreal01) - k2*k3*(I*Simag11 + Sreal11) + (k1**2 + k2**2)*(I*Simag12 + Sreal12)) + k3*(-k1*k3*(I*Simag02 + Sreal02) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k2**2)*(I*Simag22 + Sreal22))) + k3*(k1*(-k1*k2*(I*Simag00 + Sreal00) - k2*k3*(I*Simag02 + Sreal02) + (k1**2 + k3**2)*(I*Simag01 + Sreal01)) + k2*(-k1*k2*(I*Simag01 + Sreal01) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k3**2)*(I*Simag11 + Sreal11)) + k3*(-k1*k2*(I*Simag02 + Sreal02) - k2*k3*(I*Simag22 + Sreal22) + (k1**2 + k3**2)*(I*Simag12 + Sreal12))))/(k1**2 + k2**2 + k3**2)**2",
+        "2*k3*(k1*(-k1*k3*(I*Simag00 + Sreal00) - k2*k3*(I*Simag01 + Sreal01) + (k1**2 + k2**2)*(I*Simag02 + Sreal02)) + k2*(-k1*k3*(I*Simag01 + Sreal01) - k2*k3*(I*Simag11 + Sreal11) + (k1**2 + k2**2)*(I*Simag12 + Sreal12)) + k3*(-k1*k3*(I*Simag02 + Sreal02) - k2*k3*(I*Simag12 + Sreal12) + (k1**2 + k2**2)*(I*Simag22 + Sreal22)))/(k1**2 + k2**2 + k3**2)**2"
+      ]
+    ]
+  }
+}
