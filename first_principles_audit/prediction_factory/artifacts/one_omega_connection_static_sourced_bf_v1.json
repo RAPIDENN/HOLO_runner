@@ -1,0 +1,1048 @@
+{
+  "calculation_digest": "e700958a098fcfa23dc974a8fc9cc7916c4d45e9ff49eeceb5d6dfbe27cb93ff",
+  "checks": {
+    "exterior_h_squared": true,
+    "exterior_spatial_Cartan_all_degrees": true,
+    "exterior_static_d_squared": true,
+    "exterior_trace_commutes_d": true,
+    "exterior_trace_commutes_h": true,
+    "material_conformal_kinetic_weight_cancels": true,
+    "material_conformal_normal_mixing_cancels": true,
+    "material_current_conservation_identity": true,
+    "material_current_from_literal_gauge_variation": true,
+    "material_harmonic_EL_from_literal_density": true,
+    "material_two_side_Robin_source_sign": true,
+    "norms_Laplace_moment_3_from_base_derivatives": true,
+    "norms_Laplace_moment_4_from_base_derivatives": true,
+    "norms_Laplace_moment_6_from_base_derivatives": true,
+    "norms_inverse_warp_BPS_derivative": true,
+    "norms_proper_conformal_measure_agree_3_11": true,
+    "norms_proper_conformal_measure_agree_3_13": true,
+    "norms_proper_conformal_measure_agree_3_14": true,
+    "norms_proper_conformal_measure_agree_3_19": true,
+    "norms_proper_conformal_measure_agree_3_21": true,
+    "norms_proper_conformal_measure_agree_3_22": true,
+    "norms_proper_conformal_measure_agree_3_25": true,
+    "norms_proper_conformal_measure_agree_3_26": true,
+    "norms_proper_conformal_measure_agree_3_28": true,
+    "norms_proper_conformal_measure_agree_3_7": true,
+    "norms_proper_conformal_measure_agree_4_15": true,
+    "norms_proper_conformal_measure_agree_4_23": true,
+    "norms_proper_conformal_measure_agree_4_27": true,
+    "norms_proper_conformal_measure_agree_4_29": true,
+    "norms_proper_conformal_measure_agree_4_30": true,
+    "norms_unitary_Fourier_low_frequency_constant": true,
+    "norms_weighted_B_exponent": true,
+    "norms_weighted_source_exponent": true,
+    "reconstruction_B_part_minus_sourced_equation": true,
+    "reconstruction_B_part_plus_sourced_equation": true,
+    "reconstruction_actual_B_part_alone_has_required_jump": true,
+    "reconstruction_actual_Hodge_Poisson_remainder_zero": true,
+    "reconstruction_actual_current_compatibility": true,
+    "reconstruction_closed_source_projection_identity": true,
+    "reconstruction_general_B_minus_sourced_equation": true,
+    "reconstruction_general_B_plus_sourced_equation": true,
+    "reconstruction_general_L_closed": true,
+    "reconstruction_general_boundary_compatibility": true,
+    "reconstruction_general_oriented_jump": true,
+    "reconstruction_source_closed": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BV_BFV_or_global_topology_closed": false,
+    "Einstein_or_embedding_equations_solved": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "actual_port_requires_no_closed_cutoff_correction": true,
+    "candidate_term_adopted_in_v5_2": false,
+    "chi_numerically_selected": false,
+    "full_N7": false,
+    "full_P4": false,
+    "full_nonlinear_continuation_proved": false,
+    "global_temporal_L2_or_physical_B_energy_proved": false,
+    "material_current_conservation_from_harmonic_EL": true,
+    "prescribed_port_order_two_sourced_BF_constructed": true,
+    "spatial_and_radial_auxiliary_graph_integrability_conditional": true,
+    "uniform_h_on_arbitrary_L2_at_p_zero": false,
+    "uniqueness_for_all_static_weighted_BF_fields": false
+  },
+  "model": {
+    "checks": {
+      "exterior_h_squared": true,
+      "exterior_spatial_Cartan_all_degrees": true,
+      "exterior_static_d_squared": true,
+      "exterior_trace_commutes_d": true,
+      "exterior_trace_commutes_h": true,
+      "material_conformal_kinetic_weight_cancels": true,
+      "material_conformal_normal_mixing_cancels": true,
+      "material_current_conservation_identity": true,
+      "material_current_from_literal_gauge_variation": true,
+      "material_harmonic_EL_from_literal_density": true,
+      "material_two_side_Robin_source_sign": true,
+      "norms_Laplace_moment_3_from_base_derivatives": true,
+      "norms_Laplace_moment_4_from_base_derivatives": true,
+      "norms_Laplace_moment_6_from_base_derivatives": true,
+      "norms_inverse_warp_BPS_derivative": true,
+      "norms_proper_conformal_measure_agree_3_11": true,
+      "norms_proper_conformal_measure_agree_3_13": true,
+      "norms_proper_conformal_measure_agree_3_14": true,
+      "norms_proper_conformal_measure_agree_3_19": true,
+      "norms_proper_conformal_measure_agree_3_21": true,
+      "norms_proper_conformal_measure_agree_3_22": true,
+      "norms_proper_conformal_measure_agree_3_25": true,
+      "norms_proper_conformal_measure_agree_3_26": true,
+      "norms_proper_conformal_measure_agree_3_28": true,
+      "norms_proper_conformal_measure_agree_3_7": true,
+      "norms_proper_conformal_measure_agree_4_15": true,
+      "norms_proper_conformal_measure_agree_4_23": true,
+      "norms_proper_conformal_measure_agree_4_27": true,
+      "norms_proper_conformal_measure_agree_4_29": true,
+      "norms_proper_conformal_measure_agree_4_30": true,
+      "norms_unitary_Fourier_low_frequency_constant": true,
+      "norms_weighted_B_exponent": true,
+      "norms_weighted_source_exponent": true,
+      "reconstruction_B_part_minus_sourced_equation": true,
+      "reconstruction_B_part_plus_sourced_equation": true,
+      "reconstruction_actual_B_part_alone_has_required_jump": true,
+      "reconstruction_actual_Hodge_Poisson_remainder_zero": true,
+      "reconstruction_actual_current_compatibility": true,
+      "reconstruction_closed_source_projection_identity": true,
+      "reconstruction_general_B_minus_sourced_equation": true,
+      "reconstruction_general_B_plus_sourced_equation": true,
+      "reconstruction_general_L_closed": true,
+      "reconstruction_general_boundary_compatibility": true,
+      "reconstruction_general_oriented_jump": true,
+      "reconstruction_source_closed": true
+    },
+    "decision": {
+      "B4": false,
+      "B5": false,
+      "BV_BFV_or_global_topology_closed": false,
+      "Einstein_or_embedding_equations_solved": false,
+      "N4_JUNCTION_BENDING_pass": false,
+      "actual_port_requires_no_closed_cutoff_correction": true,
+      "candidate_term_adopted_in_v5_2": false,
+      "chi_numerically_selected": false,
+      "full_N7": false,
+      "full_P4": false,
+      "full_nonlinear_continuation_proved": false,
+      "global_temporal_L2_or_physical_B_energy_proved": false,
+      "material_current_conservation_from_harmonic_EL": true,
+      "prescribed_port_order_two_sourced_BF_constructed": true,
+      "spatial_and_radial_auxiliary_graph_integrability_conditional": true,
+      "uniform_h_on_arbitrary_L2_at_p_zero": false,
+      "uniqueness_for_all_static_weighted_BF_fields": false
+    },
+    "exterior": {
+      "basis_count": 32,
+      "residuals": {
+        "h_squared": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "spatial_Cartan_all_degrees": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "static_d_squared": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "trace_commutes_d": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ],
+        "trace_commutes_h": [
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {},
+          {}
+        ]
+      },
+      "time_derivative_zero_but_dt_forms_retained": true
+    },
+    "material": {
+      "Euler_from_literal": [
+        [
+          "Z*psi_dd0_0 + Z*psi_dd1_0 + Z*psi_dd2_0 + Z*psi_dd3_0"
+        ],
+        [
+          "Z*psi_dd0_1 + Z*psi_dd1_1 + Z*psi_dd2_1 + Z*psi_dd3_1"
+        ],
+        [
+          "Z*psi_dd0_2 + Z*psi_dd1_2 + Z*psi_dd2_2 + Z*psi_dd3_2"
+        ]
+      ],
+      "Q_by_direction": [
+        [
+          [
+            "-Z*(-2*psi_1*psi_d0_2 + 2*psi_2*psi_d0_1)/2"
+          ],
+          [
+            "-Z*(2*psi_0*psi_d0_2 - 2*psi_2*psi_d0_0)/2"
+          ],
+          [
+            "-Z*(-2*psi_0*psi_d0_1 + 2*psi_1*psi_d0_0)/2"
+          ]
+        ],
+        [
+          [
+            "-Z*(-2*psi_1*psi_d1_2 + 2*psi_2*psi_d1_1)/2"
+          ],
+          [
+            "-Z*(2*psi_0*psi_d1_2 - 2*psi_2*psi_d1_0)/2"
+          ],
+          [
+            "-Z*(-2*psi_0*psi_d1_1 + 2*psi_1*psi_d1_0)/2"
+          ]
+        ],
+        [
+          [
+            "-Z*(-2*psi_1*psi_d2_2 + 2*psi_2*psi_d2_1)/2"
+          ],
+          [
+            "-Z*(2*psi_0*psi_d2_2 - 2*psi_2*psi_d2_0)/2"
+          ],
+          [
+            "-Z*(-2*psi_0*psi_d2_1 + 2*psi_1*psi_d2_0)/2"
+          ]
+        ],
+        [
+          [
+            "-Z*(-2*psi_1*psi_d3_2 + 2*psi_2*psi_d3_1)/2"
+          ],
+          [
+            "-Z*(2*psi_0*psi_d3_2 - 2*psi_2*psi_d3_0)/2"
+          ],
+          [
+            "-Z*(-2*psi_0*psi_d3_1 + 2*psi_1*psi_d3_0)/2"
+          ]
+        ]
+      ],
+      "Robin_normal_derivative": [
+        [
+          "(-gradF_0*kappa*y + kappa*phi_UV_0)/(2*Z)"
+        ],
+        [
+          "(-gradF_1*kappa*y + kappa*phi_UV_1)/(2*Z)"
+        ],
+        [
+          "(-gradF_2*kappa*y + kappa*phi_UV_2)/(2*Z)"
+        ]
+      ],
+      "divergence_Q": [
+        [
+          "Z*psi_1*psi_dd0_2 + Z*psi_1*psi_dd1_2 + Z*psi_1*psi_dd2_2 + Z*psi_1*psi_dd3_2 - Z*psi_2*psi_dd0_1 - Z*psi_2*psi_dd1_1 - Z*psi_2*psi_dd2_1 - Z*psi_2*psi_dd3_1"
+        ],
+        [
+          "-Z*psi_0*psi_dd0_2 - Z*psi_0*psi_dd1_2 - Z*psi_0*psi_dd2_2 - Z*psi_0*psi_dd3_2 + Z*psi_2*psi_dd0_0 + Z*psi_2*psi_dd1_0 + Z*psi_2*psi_dd2_0 + Z*psi_2*psi_dd3_0"
+        ],
+        [
+          "Z*psi_0*psi_dd0_1 + Z*psi_0*psi_dd1_1 + Z*psi_0*psi_dd2_1 + Z*psi_0*psi_dd3_1 - Z*psi_1*psi_dd0_0 - Z*psi_1*psi_dd1_0 - Z*psi_1*psi_dd2_0 - Z*psi_1*psi_dd3_0"
+        ]
+      ],
+      "first_jets_order_z_x1_x2_x3": [
+        [
+          [
+            "psi_d0_0"
+          ],
+          [
+            "psi_d0_1"
+          ],
+          [
+            "psi_d0_2"
+          ]
+        ],
+        [
+          [
+            "psi_d1_0"
+          ],
+          [
+            "psi_d1_1"
+          ],
+          [
+            "psi_d1_2"
+          ]
+        ],
+        [
+          [
+            "psi_d2_0"
+          ],
+          [
+            "psi_d2_1"
+          ],
+          [
+            "psi_d2_2"
+          ]
+        ],
+        [
+          [
+            "psi_d3_0"
+          ],
+          [
+            "psi_d3_1"
+          ],
+          [
+            "psi_d3_2"
+          ]
+        ]
+      ],
+      "generators": [
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "-1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "-1"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "1",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "-1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "gradF": [
+        [
+          "gradF_0"
+        ],
+        [
+          "gradF_1"
+        ],
+        [
+          "gradF_2"
+        ]
+      ],
+      "laplacian": [
+        [
+          "psi_dd0_0 + psi_dd1_0 + psi_dd2_0 + psi_dd3_0"
+        ],
+        [
+          "psi_dd0_1 + psi_dd1_1 + psi_dd2_1 + psi_dd3_1"
+        ],
+        [
+          "psi_dd0_2 + psi_dd1_2 + psi_dd2_2 + psi_dd3_2"
+        ]
+      ],
+      "literal_kinetic_density": "-Z*((-A0_0*psi_1 + A0_1*psi_0 + psi_d0_2)**2 + (A0_0*psi_2 - A0_2*psi_0 + psi_d0_1)**2 + (-A0_1*psi_2 + A0_2*psi_1 + psi_d0_0)**2 + (-A1_0*psi_1 + A1_1*psi_0 + psi_d1_2)**2 + (A1_0*psi_2 - A1_2*psi_0 + psi_d1_1)**2 + (-A1_1*psi_2 + A1_2*psi_1 + psi_d1_0)**2 + (-A2_0*psi_1 + A2_1*psi_0 + psi_d2_2)**2 + (A2_0*psi_2 - A2_2*psi_0 + psi_d2_1)**2 + (-A2_1*psi_2 + A2_2*psi_1 + psi_d2_0)**2 + (-A3_0*psi_1 + A3_1*psi_0 + psi_d3_2)**2 + (A3_0*psi_2 - A3_2*psi_0 + psi_d3_1)**2 + (-A3_1*psi_2 + A3_2*psi_1 + psi_d3_0)**2)/2",
+      "phi_UV": [
+        [
+          "phi_UV_0"
+        ],
+        [
+          "phi_UV_1"
+        ],
+        [
+          "phi_UV_2"
+        ]
+      ],
+      "psi": [
+        [
+          "psi_0"
+        ],
+        [
+          "psi_1"
+        ],
+        [
+          "psi_2"
+        ]
+      ],
+      "residuals": {
+        "conformal_kinetic_weight_cancels": "0",
+        "conformal_normal_mixing_cancels": [
+          [
+            "Omega**3*Z*(psi_1*(psi_d0_2 - 3*Omega_z*psi_2/(2*Omega))/Omega**3 - psi_2*(psi_d0_1 - 3*Omega_z*psi_1/(2*Omega))/Omega**3) - Z*(psi_1*psi_d0_2 - psi_2*psi_d0_1)"
+          ],
+          [
+            "Omega**3*Z*(-psi_0*(psi_d0_2 - 3*Omega_z*psi_2/(2*Omega))/Omega**3 + psi_2*(psi_d0_0 - 3*Omega_z*psi_0/(2*Omega))/Omega**3) - Z*(-psi_0*psi_d0_2 + psi_2*psi_d0_0)"
+          ],
+          [
+            "Omega**3*Z*(psi_0*(psi_d0_1 - 3*Omega_z*psi_1/(2*Omega))/Omega**3 - psi_1*(psi_d0_0 - 3*Omega_z*psi_0/(2*Omega))/Omega**3) - Z*(psi_0*psi_d0_1 - psi_1*psi_d0_0)"
+          ]
+        ],
+        "current_conservation_identity": [
+          [
+            "Z*psi_1*psi_dd0_2 + Z*psi_1*psi_dd1_2 + Z*psi_1*psi_dd2_2 + Z*psi_1*psi_dd3_2 - Z*psi_2*psi_dd0_1 - Z*psi_2*psi_dd1_1 - Z*psi_2*psi_dd2_1 - Z*psi_2*psi_dd3_1 - psi_1*(Z*psi_dd0_2 + Z*psi_dd1_2 + Z*psi_dd2_2 + Z*psi_dd3_2) + psi_2*(Z*psi_dd0_1 + Z*psi_dd1_1 + Z*psi_dd2_1 + Z*psi_dd3_1)"
+          ],
+          [
+            "-Z*psi_0*psi_dd0_2 - Z*psi_0*psi_dd1_2 - Z*psi_0*psi_dd2_2 - Z*psi_0*psi_dd3_2 + Z*psi_2*psi_dd0_0 + Z*psi_2*psi_dd1_0 + Z*psi_2*psi_dd2_0 + Z*psi_2*psi_dd3_0 + psi_0*(Z*psi_dd0_2 + Z*psi_dd1_2 + Z*psi_dd2_2 + Z*psi_dd3_2) - psi_2*(Z*psi_dd0_0 + Z*psi_dd1_0 + Z*psi_dd2_0 + Z*psi_dd3_0)"
+          ],
+          [
+            "Z*psi_0*psi_dd0_1 + Z*psi_0*psi_dd1_1 + Z*psi_0*psi_dd2_1 + Z*psi_0*psi_dd3_1 - Z*psi_1*psi_dd0_0 - Z*psi_1*psi_dd1_0 - Z*psi_1*psi_dd2_0 - Z*psi_1*psi_dd3_0 - psi_0*(Z*psi_dd0_1 + Z*psi_dd1_1 + Z*psi_dd2_1 + Z*psi_dd3_1) + psi_1*(Z*psi_dd0_0 + Z*psi_dd1_0 + Z*psi_dd2_0 + Z*psi_dd3_0)"
+          ]
+        ],
+        "current_from_literal_gauge_variation": [
+          [
+            [
+              "-Z*(-2*psi_1*psi_d0_2 + 2*psi_2*psi_d0_1)/2 - Z*(psi_1*psi_d0_2 - psi_2*psi_d0_1)"
+            ],
+            [
+              "-Z*(-psi_0*psi_d0_2 + psi_2*psi_d0_0) - Z*(2*psi_0*psi_d0_2 - 2*psi_2*psi_d0_0)/2"
+            ],
+            [
+              "-Z*(-2*psi_0*psi_d0_1 + 2*psi_1*psi_d0_0)/2 - Z*(psi_0*psi_d0_1 - psi_1*psi_d0_0)"
+            ]
+          ],
+          [
+            [
+              "-Z*(-2*psi_1*psi_d1_2 + 2*psi_2*psi_d1_1)/2 - Z*(psi_1*psi_d1_2 - psi_2*psi_d1_1)"
+            ],
+            [
+              "-Z*(-psi_0*psi_d1_2 + psi_2*psi_d1_0) - Z*(2*psi_0*psi_d1_2 - 2*psi_2*psi_d1_0)/2"
+            ],
+            [
+              "-Z*(-2*psi_0*psi_d1_1 + 2*psi_1*psi_d1_0)/2 - Z*(psi_0*psi_d1_1 - psi_1*psi_d1_0)"
+            ]
+          ],
+          [
+            [
+              "-Z*(-2*psi_1*psi_d2_2 + 2*psi_2*psi_d2_1)/2 - Z*(psi_1*psi_d2_2 - psi_2*psi_d2_1)"
+            ],
+            [
+              "-Z*(-psi_0*psi_d2_2 + psi_2*psi_d2_0) - Z*(2*psi_0*psi_d2_2 - 2*psi_2*psi_d2_0)/2"
+            ],
+            [
+              "-Z*(-2*psi_0*psi_d2_1 + 2*psi_1*psi_d2_0)/2 - Z*(psi_0*psi_d2_1 - psi_1*psi_d2_0)"
+            ]
+          ],
+          [
+            [
+              "-Z*(-2*psi_1*psi_d3_2 + 2*psi_2*psi_d3_1)/2 - Z*(psi_1*psi_d3_2 - psi_2*psi_d3_1)"
+            ],
+            [
+              "-Z*(-psi_0*psi_d3_2 + psi_2*psi_d3_0) - Z*(2*psi_0*psi_d3_2 - 2*psi_2*psi_d3_0)/2"
+            ],
+            [
+              "-Z*(-2*psi_0*psi_d3_1 + 2*psi_1*psi_d3_0)/2 - Z*(psi_0*psi_d3_1 - psi_1*psi_d3_0)"
+            ]
+          ]
+        ],
+        "harmonic_EL_from_literal_density": [
+          [
+            "Z*psi_dd0_0 + Z*psi_dd1_0 + Z*psi_dd2_0 + Z*psi_dd3_0 - Z*(psi_dd0_0 + psi_dd1_0 + psi_dd2_0 + psi_dd3_0)"
+          ],
+          [
+            "Z*psi_dd0_1 + Z*psi_dd1_1 + Z*psi_dd2_1 + Z*psi_dd3_1 - Z*(psi_dd0_1 + psi_dd1_1 + psi_dd2_1 + psi_dd3_1)"
+          ],
+          [
+            "Z*psi_dd0_2 + Z*psi_dd1_2 + Z*psi_dd2_2 + Z*psi_dd3_2 - Z*(psi_dd0_2 + psi_dd1_2 + psi_dd2_2 + psi_dd3_2)"
+          ]
+        ],
+        "two_side_Robin_source_sign": [
+          [
+            "2*Z*(phi_UV_1*(-gradF_2*kappa*y + kappa*phi_UV_2)/(2*Z) - phi_UV_2*(-gradF_1*kappa*y + kappa*phi_UV_1)/(2*Z)) - kappa*y*(gradF_1*phi_UV_2 - gradF_2*phi_UV_1)"
+          ],
+          [
+            "2*Z*(-phi_UV_0*(-gradF_2*kappa*y + kappa*phi_UV_2)/(2*Z) + phi_UV_2*(-gradF_0*kappa*y + kappa*phi_UV_0)/(2*Z)) - kappa*y*(-gradF_0*phi_UV_2 + gradF_2*phi_UV_0)"
+          ],
+          [
+            "2*Z*(phi_UV_0*(-gradF_1*kappa*y + kappa*phi_UV_1)/(2*Z) - phi_UV_1*(-gradF_0*kappa*y + kappa*phi_UV_0)/(2*Z)) - kappa*y*(gradF_0*phi_UV_1 - gradF_1*phi_UV_0)"
+          ]
+        ]
+      },
+      "rho_from_oriented_trace": [
+        [
+          "2*Z*(phi_UV_1*(-gradF_2*kappa*y + kappa*phi_UV_2)/(2*Z) - phi_UV_2*(-gradF_1*kappa*y + kappa*phi_UV_1)/(2*Z))"
+        ],
+        [
+          "2*Z*(-phi_UV_0*(-gradF_2*kappa*y + kappa*phi_UV_2)/(2*Z) + phi_UV_2*(-gradF_0*kappa*y + kappa*phi_UV_0)/(2*Z))"
+        ],
+        [
+          "2*Z*(phi_UV_0*(-gradF_1*kappa*y + kappa*phi_UV_1)/(2*Z) - phi_UV_1*(-gradF_0*kappa*y + kappa*phi_UV_0)/(2*Z))"
+        ]
+      ],
+      "second_diagonal_jets": [
+        [
+          [
+            "psi_dd0_0"
+          ],
+          [
+            "psi_dd0_1"
+          ],
+          [
+            "psi_dd0_2"
+          ]
+        ],
+        [
+          [
+            "psi_dd1_0"
+          ],
+          [
+            "psi_dd1_1"
+          ],
+          [
+            "psi_dd1_2"
+          ]
+        ],
+        [
+          [
+            "psi_dd2_0"
+          ],
+          [
+            "psi_dd2_1"
+          ],
+          [
+            "psi_dd2_2"
+          ]
+        ],
+        [
+          [
+            "psi_dd3_0"
+          ],
+          [
+            "psi_dd3_1"
+          ],
+          [
+            "psi_dd3_2"
+          ]
+        ]
+      ]
+    },
+    "negative_controls": {
+      "claim_unit_spatial_h_bound_at_zero": true,
+      "erase_dt_components_of_source": true,
+      "omit_general_cutoff_normal_term": true,
+      "omit_sourced_particular_solution": true,
+      "positive_h_for_B_part": true,
+      "reverse_material_Robin_source_sign": true,
+      "same_sign_source_on_both_oriented_halves": true,
+      "wrong_Lorentz_Hodge_sign": true
+    },
+    "negative_witnesses": {
+      "claim_unit_spatial_h_bound_at_zero": "3",
+      "erase_dt_components_of_source": {
+        "15": "J4_15(z)",
+        "23": "(xi1**2*J4_23(z) - xi1*xi3*J4_29(z) + xi2**2*J4_23(z) + xi2*xi3*J4_27(z) - I*xi3*Derivative(J4_15(z), z))/(xi1**2 + xi2**2 + xi3**2)",
+        "27": "(xi1**2*J4_27(z) + xi1*xi2*J4_29(z) + xi2*xi3*J4_23(z) + I*xi2*Derivative(J4_15(z), z) + xi3**2*J4_27(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "29": "(xi1*xi2*J4_27(z) - xi1*xi3*J4_23(z) - I*xi1*Derivative(J4_15(z), z) + xi2**2*J4_29(z) + xi3**2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "omit_general_cutoff_normal_term": {
+        "23": "-I*boundary_K_3*xi2*Derivative(f(z), z)/2 + I*boundary_K_5*xi1*Derivative(f(z), z)/2",
+        "27": "-I*boundary_K_3*xi3*Derivative(f(z), z)/2 + I*boundary_K_9*xi1*Derivative(f(z), z)/2",
+        "29": "-I*boundary_K_5*xi3*Derivative(f(z), z)/2 + I*boundary_K_9*xi2*Derivative(f(z), z)/2",
+        "30": "I*boundary_K_10*xi2*Derivative(f(z), z)/2 - I*boundary_K_12*xi1*Derivative(f(z), z)/2 - I*boundary_K_6*xi3*Derivative(f(z), z)/2"
+      },
+      "omit_sourced_particular_solution": {
+        "15": "J4_15(z)",
+        "23": "(xi1**2*J4_23(z) - xi1*xi3*J4_29(z) + xi2**2*J4_23(z) + xi2*xi3*J4_27(z) - I*xi3*Derivative(J4_15(z), z))/(xi1**2 + xi2**2 + xi3**2)",
+        "27": "(xi1**2*J4_27(z) + xi1*xi2*J4_29(z) + xi2*xi3*J4_23(z) + I*xi2*Derivative(J4_15(z), z) + xi3**2*J4_27(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "29": "(xi1*xi2*J4_27(z) - xi1*xi3*J4_23(z) - I*xi1*Derivative(J4_15(z), z) + xi2**2*J4_29(z) + xi3**2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "positive_h_for_B_part": {
+        "15": "2*J4_15(z)",
+        "23": "(2*xi1**2*J4_23(z) - 2*xi1*xi3*J4_29(z) + 2*xi2**2*J4_23(z) + 2*xi2*xi3*J4_27(z) - 2*I*xi3*Derivative(J4_15(z), z))/(xi1**2 + xi2**2 + xi3**2)",
+        "27": "(2*xi1**2*J4_27(z) + 2*xi1*xi2*J4_29(z) + 2*xi2*xi3*J4_23(z) + 2*I*xi2*Derivative(J4_15(z), z) + 2*xi3**2*J4_27(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "29": "(2*xi1*xi2*J4_27(z) - 2*xi1*xi3*J4_23(z) - 2*I*xi1*Derivative(J4_15(z), z) + 2*xi2**2*J4_29(z) + 2*xi3**2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "reverse_material_Robin_source_sign": {
+        "0": "2*gradF_1*kappa*phi_UV_2*y - 2*gradF_2*kappa*phi_UV_1*y"
+      },
+      "same_sign_source_on_both_oriented_halves": {
+        "15": "2*J4_15(z)",
+        "23": "(2*xi1**2*J4_23(z) - 2*xi1*xi3*J4_29(z) + 2*xi2**2*J4_23(z) + 2*xi2*xi3*J4_27(z) - 2*I*xi3*Derivative(J4_15(z), z))/(xi1**2 + xi2**2 + xi3**2)",
+        "27": "(2*xi1**2*J4_27(z) + 2*xi1*xi2*J4_29(z) + 2*xi2*xi3*J4_23(z) + 2*I*xi2*Derivative(J4_15(z), z) + 2*xi3**2*J4_27(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "29": "(2*xi1*xi2*J4_27(z) - 2*xi1*xi3*J4_23(z) - 2*I*xi1*Derivative(J4_15(z), z) + 2*xi2**2*J4_29(z) + 2*xi3**2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "wrong_Lorentz_Hodge_sign": {
+        "11": "-2*I*rho_hat*xi2/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "2*I*rho_hat*xi1/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "2*I*rho_hat*xi3/(xi1**2 + xi2**2 + xi3**2)"
+      }
+    },
+    "norms": {
+      "analytic_hypotheses": [
+        "F real C_c^infinity(R3)",
+        "psi=e^(-|D|z)y grad g(|D|)F",
+        "g(p)=kappa/(kappa+2Zp)",
+        "rho has zero mean by the pinned localized torque lemma",
+        "current products transformed after multiplication; no single-mode shortcut"
+      ],
+      "auxiliary_norm_convention": "five-dimensional positive component norm per unit coordinate time, no pullback to t=constant",
+      "form_component_weights": [
+        {
+          "degree": 3,
+          "mask": 7,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 3,
+          "mask": 11,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 3,
+          "mask": 19,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 3,
+          "mask": 13,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 3,
+          "mask": 21,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 3,
+          "mask": 25,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 3,
+          "mask": 14,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 3,
+          "mask": 22,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 3,
+          "mask": 26,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 3,
+          "mask": 28,
+          "weight": "1/Omega"
+        },
+        {
+          "degree": 4,
+          "mask": 15,
+          "weight": "Omega**(-3)"
+        },
+        {
+          "degree": 4,
+          "mask": 23,
+          "weight": "Omega**(-3)"
+        },
+        {
+          "degree": 4,
+          "mask": 27,
+          "weight": "Omega**(-3)"
+        },
+        {
+          "degree": 4,
+          "mask": 29,
+          "weight": "Omega**(-3)"
+        },
+        {
+          "degree": 4,
+          "mask": 30,
+          "weight": "Omega**(-3)"
+        }
+      ],
+      "homotopy_source_norm_bound": "norm_J4_L1**2/(2*pi**2) + norm_J4_L2**2",
+      "homotopy_unbounded_family": "xi=(epsilon,0,0), alpha=dx1: ||h alpha||^2=epsilon^-2; epsilon=1/2 violates unit bound by 3",
+      "laplace_moments": {
+        "3": "6/(positive_rate**4*positive_z**4)",
+        "4": "24/(positive_rate**5*positive_z**5)",
+        "6": "720/(positive_rate**7*positive_z**7)"
+      },
+      "low_frequency_integral_p_minus_two_R3": "4*pi",
+      "radial_decay_powers": {
+        "B_part_coefficient_L2_squared": "12",
+        "J4_L1": "6",
+        "J4_L2": "15/2",
+        "derivative_psi_L2": "7/2",
+        "psi_L2": "5/2",
+        "psi_Linfinity": "4",
+        "weighted_B_integrand_decay_power": "11",
+        "weighted_dB_integrand_decay_power": "12"
+      },
+      "residuals": {
+        "Laplace_moment_3_from_base_derivatives": "0",
+        "Laplace_moment_4_from_base_derivatives": "0",
+        "Laplace_moment_6_from_base_derivatives": "0",
+        "inverse_warp_BPS_derivative": "0",
+        "proper_conformal_measure_agree_3_11": "0",
+        "proper_conformal_measure_agree_3_13": "0",
+        "proper_conformal_measure_agree_3_14": "0",
+        "proper_conformal_measure_agree_3_19": "0",
+        "proper_conformal_measure_agree_3_21": "0",
+        "proper_conformal_measure_agree_3_22": "0",
+        "proper_conformal_measure_agree_3_25": "0",
+        "proper_conformal_measure_agree_3_26": "0",
+        "proper_conformal_measure_agree_3_28": "0",
+        "proper_conformal_measure_agree_3_7": "0",
+        "proper_conformal_measure_agree_4_15": "0",
+        "proper_conformal_measure_agree_4_23": "0",
+        "proper_conformal_measure_agree_4_27": "0",
+        "proper_conformal_measure_agree_4_29": "0",
+        "proper_conformal_measure_agree_4_30": "0",
+        "unitary_Fourier_low_frequency_constant": "0",
+        "weighted_B_exponent": "0",
+        "weighted_source_exponent": "0"
+      },
+      "warp_bound": "1+k exp(-a) z <= 1/Omega <= 1+k z, from 0<Omega<=1 and a>=0",
+      "weighted_radial_integrability": {
+        "B": true,
+        "dB": true
+      }
+    },
+    "reconstruction": {
+      "B_part_minus": {
+        "11": "-I*xi2*J4_15(z)/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "I*xi1*J4_15(z)/(xi1**2 + xi2**2 + xi3**2)",
+        "19": "(-I*xi2*J4_23(z) - I*xi3*J4_27(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "21": "(I*xi1*J4_23(z) - I*xi3*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "25": "(I*xi1*J4_27(z) + I*xi2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "I*xi3*J4_15(z)/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "B_part_plus": {
+        "11": "I*xi2*J4_15(z)/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "-I*xi1*J4_15(z)/(xi1**2 + xi2**2 + xi3**2)",
+        "19": "(I*xi2*J4_23(z) + I*xi3*J4_27(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "21": "(-I*xi1*J4_23(z) + I*xi3*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "25": "(-I*xi1*J4_27(z) - I*xi2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "-I*xi3*J4_15(z)/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "J_Sigma_actual_port": {
+        "11": "I*rho_hat*xi2/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "-I*rho_hat*xi1/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "-I*rho_hat*xi3/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "L_actual_port": {},
+      "Theta_hat_actual_port": "-rho_hat/(chi*(xi1**2 + xi2**2 + xi3**2))",
+      "actual_current_for_general_closed_source": {
+        "11": "2*I*xi2*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "-2*I*xi1*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "-2*I*xi3*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "actual_particular_jump": {
+        "11": "2*I*xi2*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "-2*I*xi1*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)",
+        "7": "-2*I*xi3*J4_15(0)/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "closed_source_minus": {
+        "15": "-J4_15(z)",
+        "23": "(-xi1**2*J4_23(z) + xi1*xi3*J4_29(z) - xi2**2*J4_23(z) - xi2*xi3*J4_27(z) + I*xi3*Derivative(J4_15(z), z))/(xi1**2 + xi2**2 + xi3**2)",
+        "27": "(-xi1**2*J4_27(z) - xi1*xi2*J4_29(z) - xi2*xi3*J4_23(z) - I*xi2*Derivative(J4_15(z), z) - xi3**2*J4_27(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "29": "(-xi1*xi2*J4_27(z) + xi1*xi3*J4_23(z) + I*xi1*Derivative(J4_15(z), z) - xi2**2*J4_29(z) - xi3**2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "closed_source_plus": {
+        "15": "J4_15(z)",
+        "23": "(xi1**2*J4_23(z) - xi1*xi3*J4_29(z) + xi2**2*J4_23(z) + xi2*xi3*J4_27(z) - I*xi3*Derivative(J4_15(z), z))/(xi1**2 + xi2**2 + xi3**2)",
+        "27": "(xi1**2*J4_27(z) + xi1*xi2*J4_29(z) + xi2*xi3*J4_23(z) + I*xi2*Derivative(J4_15(z), z) + xi3**2*J4_27(z))/(xi1**2 + xi2**2 + xi3**2)",
+        "29": "(xi1*xi2*J4_27(z) - xi1*xi3*J4_23(z) - I*xi1*Derivative(J4_15(z), z) + xi2**2*J4_29(z) + xi3**2*J4_29(z))/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "general_B_minus": {
+        "11": "(-I*boundary_K_3*xi1**2*xi3*f(z) - I*boundary_K_3*xi2**2*xi3*f(z) - I*boundary_K_3*xi3**3*f(z) + I*boundary_K_9*xi1**3*f(z) + I*boundary_K_9*xi1*xi2**2*f(z) + I*boundary_K_9*xi1*xi3**2*f(z) - 2*I*xi2*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "13": "(-I*boundary_K_5*xi1**2*xi3*f(z) - I*boundary_K_5*xi2**2*xi3*f(z) - I*boundary_K_5*xi3**3*f(z) + I*boundary_K_9*xi1**2*xi2*f(z) + I*boundary_K_9*xi2**3*f(z) + I*boundary_K_9*xi2*xi3**2*f(z) + 2*I*xi1*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "14": "I*boundary_K_10*xi2*f(z)/2 - I*boundary_K_12*xi1*f(z)/2 - I*boundary_K_6*xi3*f(z)/2",
+        "19": "(-boundary_K_3*xi2**2*Derivative(f(z), z) - boundary_K_3*xi3**2*Derivative(f(z), z) + boundary_K_5*xi1*xi2*Derivative(f(z), z) + boundary_K_9*xi1*xi3*Derivative(f(z), z) - 2*I*xi2*J4_23(z) - 2*I*xi3*J4_27(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "21": "(boundary_K_3*xi1*xi2*Derivative(f(z), z) - boundary_K_5*xi1**2*Derivative(f(z), z) - boundary_K_5*xi3**2*Derivative(f(z), z) + boundary_K_9*xi2*xi3*Derivative(f(z), z) + 2*I*xi1*J4_23(z) - 2*I*xi3*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "22": "(boundary_K_10*xi2*xi3*Derivative(f(z), z) - boundary_K_12*xi1*xi3*Derivative(f(z), z) - boundary_K_6*xi3**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "25": "(boundary_K_3*xi1*xi3*Derivative(f(z), z) + boundary_K_5*xi2*xi3*Derivative(f(z), z) - boundary_K_9*xi1**2*Derivative(f(z), z) - boundary_K_9*xi2**2*Derivative(f(z), z) + 2*I*xi1*J4_27(z) + 2*I*xi2*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "26": "(-boundary_K_10*xi2**2*Derivative(f(z), z) + boundary_K_12*xi1*xi2*Derivative(f(z), z) + boundary_K_6*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "28": "(boundary_K_10*xi1*xi2*Derivative(f(z), z) - boundary_K_12*xi1**2*Derivative(f(z), z) - boundary_K_6*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "7": "(-I*boundary_K_3*xi1**2*xi2*f(z) - I*boundary_K_3*xi2**3*f(z) - I*boundary_K_3*xi2*xi3**2*f(z) + I*boundary_K_5*xi1**3*f(z) + I*boundary_K_5*xi1*xi2**2*f(z) + I*boundary_K_5*xi1*xi3**2*f(z) + 2*I*xi3*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)"
+      },
+      "general_B_plus": {
+        "11": "(I*boundary_K_3*xi1**2*xi3*f(z) + I*boundary_K_3*xi2**2*xi3*f(z) + I*boundary_K_3*xi3**3*f(z) - I*boundary_K_9*xi1**3*f(z) - I*boundary_K_9*xi1*xi2**2*f(z) - I*boundary_K_9*xi1*xi3**2*f(z) + 2*I*xi2*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "13": "(I*boundary_K_5*xi1**2*xi3*f(z) + I*boundary_K_5*xi2**2*xi3*f(z) + I*boundary_K_5*xi3**3*f(z) - I*boundary_K_9*xi1**2*xi2*f(z) - I*boundary_K_9*xi2**3*f(z) - I*boundary_K_9*xi2*xi3**2*f(z) - 2*I*xi1*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "14": "-I*boundary_K_10*xi2*f(z)/2 + I*boundary_K_12*xi1*f(z)/2 + I*boundary_K_6*xi3*f(z)/2",
+        "19": "(boundary_K_3*xi2**2*Derivative(f(z), z) + boundary_K_3*xi3**2*Derivative(f(z), z) - boundary_K_5*xi1*xi2*Derivative(f(z), z) - boundary_K_9*xi1*xi3*Derivative(f(z), z) + 2*I*xi2*J4_23(z) + 2*I*xi3*J4_27(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "21": "(-boundary_K_3*xi1*xi2*Derivative(f(z), z) + boundary_K_5*xi1**2*Derivative(f(z), z) + boundary_K_5*xi3**2*Derivative(f(z), z) - boundary_K_9*xi2*xi3*Derivative(f(z), z) - 2*I*xi1*J4_23(z) + 2*I*xi3*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "22": "(-boundary_K_10*xi2*xi3*Derivative(f(z), z) + boundary_K_12*xi1*xi3*Derivative(f(z), z) + boundary_K_6*xi3**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "25": "(-boundary_K_3*xi1*xi3*Derivative(f(z), z) - boundary_K_5*xi2*xi3*Derivative(f(z), z) + boundary_K_9*xi1**2*Derivative(f(z), z) + boundary_K_9*xi2**2*Derivative(f(z), z) - 2*I*xi1*J4_27(z) - 2*I*xi2*J4_29(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "26": "(boundary_K_10*xi2**2*Derivative(f(z), z) - boundary_K_12*xi1*xi2*Derivative(f(z), z) - boundary_K_6*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "28": "(-boundary_K_10*xi1*xi2*Derivative(f(z), z) + boundary_K_12*xi1**2*Derivative(f(z), z) + boundary_K_6*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "7": "(I*boundary_K_3*xi1**2*xi2*f(z) + I*boundary_K_3*xi2**3*f(z) + I*boundary_K_3*xi2*xi3**2*f(z) - I*boundary_K_5*xi1**3*f(z) - I*boundary_K_5*xi1*xi2**2*f(z) - I*boundary_K_5*xi1*xi3**2*f(z) - 2*I*xi3*J4_15(z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)"
+      },
+      "general_closed_boundary_remainder": {
+        "11": "I*boundary_K_3*xi3 - I*boundary_K_9*xi1",
+        "13": "I*boundary_K_5*xi3 - I*boundary_K_9*xi2",
+        "14": "-I*boundary_K_10*xi2 + I*boundary_K_12*xi1 + I*boundary_K_6*xi3",
+        "7": "I*boundary_K_3*xi2 - I*boundary_K_5*xi1"
+      },
+      "general_compatible_boundary_current": {
+        "11": "(I*boundary_K_3*xi1**2*xi3 + I*boundary_K_3*xi2**2*xi3 + I*boundary_K_3*xi3**3 - I*boundary_K_9*xi1**3 - I*boundary_K_9*xi1*xi2**2 - I*boundary_K_9*xi1*xi3**2 + 2*I*xi2*J4_15(0))/(xi1**2 + xi2**2 + xi3**2)",
+        "13": "(I*boundary_K_5*xi1**2*xi3 + I*boundary_K_5*xi2**2*xi3 + I*boundary_K_5*xi3**3 - I*boundary_K_9*xi1**2*xi2 - I*boundary_K_9*xi2**3 - I*boundary_K_9*xi2*xi3**2 - 2*I*xi1*J4_15(0))/(xi1**2 + xi2**2 + xi3**2)",
+        "14": "-I*boundary_K_10*xi2 + I*boundary_K_12*xi1 + I*boundary_K_6*xi3",
+        "7": "(I*boundary_K_3*xi1**2*xi2 + I*boundary_K_3*xi2**3 + I*boundary_K_3*xi2*xi3**2 - I*boundary_K_5*xi1**3 - I*boundary_K_5*xi1*xi2**2 - I*boundary_K_5*xi1*xi3**2 - 2*I*xi3*J4_15(0))/(xi1**2 + xi2**2 + xi3**2)"
+      },
+      "general_cutoff_correction_plus": {
+        "11": "I*boundary_K_3*xi3*f(z)/2 - I*boundary_K_9*xi1*f(z)/2",
+        "13": "I*boundary_K_5*xi3*f(z)/2 - I*boundary_K_9*xi2*f(z)/2",
+        "14": "-I*boundary_K_10*xi2*f(z)/2 + I*boundary_K_12*xi1*f(z)/2 + I*boundary_K_6*xi3*f(z)/2",
+        "19": "(boundary_K_3*xi2**2*Derivative(f(z), z) + boundary_K_3*xi3**2*Derivative(f(z), z) - boundary_K_5*xi1*xi2*Derivative(f(z), z) - boundary_K_9*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "21": "(-boundary_K_3*xi1*xi2*Derivative(f(z), z) + boundary_K_5*xi1**2*Derivative(f(z), z) + boundary_K_5*xi3**2*Derivative(f(z), z) - boundary_K_9*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "22": "(-boundary_K_10*xi2*xi3*Derivative(f(z), z) + boundary_K_12*xi1*xi3*Derivative(f(z), z) + boundary_K_6*xi3**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "25": "(-boundary_K_3*xi1*xi3*Derivative(f(z), z) - boundary_K_5*xi2*xi3*Derivative(f(z), z) + boundary_K_9*xi1**2*Derivative(f(z), z) + boundary_K_9*xi2**2*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "26": "(boundary_K_10*xi2**2*Derivative(f(z), z) - boundary_K_12*xi1*xi2*Derivative(f(z), z) - boundary_K_6*xi2*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "28": "(-boundary_K_10*xi1*xi2*Derivative(f(z), z) + boundary_K_12*xi1**2*Derivative(f(z), z) + boundary_K_6*xi1*xi3*Derivative(f(z), z))/(2*xi1**2 + 2*xi2**2 + 2*xi3**2)",
+        "7": "I*boundary_K_3*xi2*f(z)/2 - I*boundary_K_5*xi1*f(z)/2"
+      },
+      "general_source_four_form": {
+        "15": "J4_15(z)",
+        "23": "J4_23(z)",
+        "27": "J4_27(z)",
+        "29": "J4_29(z)"
+      },
+      "residuals": {
+        "B_part_minus_sourced_equation": {},
+        "B_part_plus_sourced_equation": {},
+        "actual_B_part_alone_has_required_jump": {},
+        "actual_Hodge_Poisson_remainder_zero": {},
+        "actual_current_compatibility": {},
+        "closed_source_projection_identity": {},
+        "general_B_minus_sourced_equation": {},
+        "general_B_plus_sourced_equation": {},
+        "general_L_closed": {},
+        "general_boundary_compatibility": {},
+        "general_oriented_jump": {},
+        "source_closed": {}
+      },
+      "source_UV_jump": {
+        "15": "2*J4_15(0)"
+      }
+    },
+    "symbols": {
+      "Omega": "Omega",
+      "Z": "Z",
+      "a": "a",
+      "chi": "chi",
+      "f": "f(z)",
+      "k": "k",
+      "kappa": "kappa",
+      "p2": "xi1**2 + xi2**2 + xi3**2",
+      "r": "z",
+      "rho": "rho_hat",
+      "xi": [
+        "xi1",
+        "xi2",
+        "xi3"
+      ],
+      "y": "y",
+      "z": "z"
+    }
+  },
+  "negative_controls": {
+    "claim_unit_spatial_h_bound_at_zero": true,
+    "erase_dt_components_of_source": true,
+    "omit_general_cutoff_normal_term": true,
+    "omit_sourced_particular_solution": true,
+    "positive_h_for_B_part": true,
+    "reverse_material_Robin_source_sign": true,
+    "same_sign_source_on_both_oriented_halves": true,
+    "wrong_Lorentz_Hodge_sign": true
+  },
+  "provenance": {
+    "test_one_omega_connection_static_sourced_bf_v1.py": "ef618090215b91995eb258b51462e1239c58b6e333fd864384972a670a9051ee",
+    "verify_one_omega_connection_static_sourced_bf_v1.py": "9cdbcfbf1d961ede6d4f193fa8b3277f0f625447ed2bb0ca803926ac875d7d22"
+  },
+  "runtime": {
+    "sympy": "1.13.3"
+  },
+  "schema": "holo.one-omega-connection-static-sourced-bf.v1",
+  "sources": {
+    "base_candidate": {
+      "name": "one_omega_topological_so3_classical_v5_2_gate.json",
+      "sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b"
+    },
+    "exterior_backend": {
+      "name": "verify_one_omega_connection_affine_bf_reconstruction_v1.py",
+      "sha256": "08bac3c5737f4acd9d7d240930cb2f057f9045705cc57d72d0033140eed918ab"
+    },
+    "localized_torque": {
+      "name": "one_omega_connection_localized_torque_lift_v1.json",
+      "sha256": "b9d94ab321890be8733bf72dcb17221738d7375c1d8f47397dae23eab16378ee"
+    },
+    "note": {
+      "name": "one_omega_connection_static_sourced_bf_lemma_v1.md",
+      "sha256": "8f07d3ec6f64f471c15d3dac0d824200f9815f4710ad1f4ba32e0d782d6d9919"
+    },
+    "reused_backend_scope": "wedge, contraction, trace and serialization only; no RHP 1/s homotopy",
+    "upstream_global_gates_inherited": false
+  }
+}
