@@ -44,6 +44,7 @@ extendida; no se heredan los gates de la acción anterior.
 | [Torque localizado](one_omega_connection_localized_torque_lift_lemma_v1.md) | Fuente rho2=curl W con media cero; solución Theta L2 y de energía finita que cancela la compatibilidad a segundo orden. | 18 pruebas, 18 identidades / `2847769` |
 | [BF estático con fuente](one_omega_connection_static_sourced_bf_lemma_v1.md) | Reconstrucción de B2 con corriente material real y salto; normas auxiliares integradas en R3 y ambas mitades BPS. | 18 pruebas, 45 identidades / `2c700c7` |
 | [Forma cinética ADM](one_omega_connection_adm_kinetic_lemma_v1.md) | Sección suave E(h), Hessiana añadida semidefinida positiva de rango 3; sin velocidades de lapse/shift. Schur sólo cinético. | 17 pruebas, 40 checks / `f1b4762` |
+| [Carta vectorial temporal](one_omega_connection_vector_temporal_gauge_lemma_v1.md) | N_a=0 conserva todas las filas con fuentes compatibles; reconstrucción acotada uniformemente en q>=0 a s fijo en Re(s)>0. | 18 pruebas, 42 checks / `087d610` |
 
 Cada paquete incluye una nota analítica, verificador, pruebas y recibo JSON
 ligado a los bytes de sus fuentes. En estas entregas, `--write` y una
@@ -80,11 +81,14 @@ La representación Stieltjes con medida finita da una cota estricta
 
     Re(D_theta/s) >= Re(s)[2chi*b/(2b+chi)+chi*q²/|s|²] > 0.
 
-También se conserva el pivote del shift y se prueba que no es nulo.
-La reconstrucción de ese shift divide por q; la carta q=0 se calcula
-por separado y no se sustituye por un límite informal. No se obtiene una
-cota uniforme del campo reconstruido al acercarse a q=0 ni control del
-eje imaginario a partir de esta desigualdad.
+El pivote del shift no es nulo, pero su reconstrucción en H_a3=0 divide
+por q. La carta temporal N_a=0 resuelve esa limitación para la misma
+respuesta: U=qN+wH y Psi=theta-oH/2 dan H=U/w, sin dividir por q.
+Conserva el pivote (2B+chi)/4 y el determinante w² P_U S_Psi; a q=0
+coincide con la matriz directa diag(Bw²/2,chi*w²). Las cotas forzadas
+son uniformes en q>=0 a cada s fijo en Re(s)>0, con la compatibilidad
+f_N=(q/w)(f_H+o f_theta/2). Esto no proporciona control del eje
+imaginario, de todo |s|, ni una reconstrucción Sobolev global del bulk.
 
 Para el puerto estático localizado F, el material responde con
 U=g(|D|)F, g(p)=kappa/(kappa+2Zp). La fuente cuadrática real es
@@ -138,15 +142,24 @@ control físico de los resultados matemáticos de este índice.
 ## Refutación externa y siguiente auditoría
 
 Claudia ha reproducido independientemente el núcleo de la obstrucción y
-un segundo testigo no colineal (commit `5340e4d`). En nuestra revisión de
-su auditoría señalamos dos precisiones de alcance: ganancias diferentes
-no producen torque si los gradientes son paralelos, y la consecuencia
-original requiere salto B nulo/corriente intrínseca J_Sigma nula. Esas
-precisiones no cambian los testigos no colineales. La factorización
+un segundo testigo no colineal (commit `5340e4d`). Aceptó y registró las
+dos precisiones de alcance en `4c63343`: ganancias diferentes no producen
+torque si los gradientes son paralelos, y la consecuencia original
+requiere salto B nulo/corriente intrínseca J_Sigma nula. La factorización
 (g_B-g_A) grad F1×grad F2 expresa ambas posibilidades sin ambigüedad.
 
-La siguiente refutación acordada es la realización espectral de la energía
-escalar (`5acd2e1`), empezando por la medida, su masa, el desplazamiento del
-auxiliar beta y la equivalencia al operador completo. Las afirmaciones de
-ese lema conservan sus hipótesis mientras se contrasta por una vía
-independiente; una auditoría pendiente no equivale a un resultado favorable.
+En `d511efa` reconstruyó la ecuación maestra escalar desde sus ODEs bulk
+independientes. Eso contrasta el operador y las pesas relativas Omega^6
+frente a Omega^4. No fija por sí solo la normalización multiplicativa
+G ni el factor bilateral de la acción: esa auditoría canónica está en
+curso. La reducción escalar L3 conserva también una auditoría pendiente.
+
+La comprobación estática para todo q>0 usa los decimales congelados como
+racionales exactos y un margen positivo verificado de aproximadamente
+3.38e-16 en E0<=2(2+m0). No se identifica ese margen con igualdad por un
+matching histórico. Sustituir q>0 por q>delta excluiría momentos que la
+interfaz R1,3 permite y cambiaría el teorema; cualquier robustez frente
+a perturbaciones de parámetros requiere su propio análisis infrarrojo.
+
+Las auditorías de lectura no se cuentan como recomputaciones independientes.
+Una auditoría pendiente no equivale a un resultado favorable.

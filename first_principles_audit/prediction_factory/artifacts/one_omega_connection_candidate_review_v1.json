@@ -6,7 +6,10 @@
   },
   "external_refutation": {
     "core_obstruction_reported_confirmed_commit": "5340e4d",
-    "next": "independent audit of scalar spectral energy 5acd2e1",
+    "next": "canonical scalar normalization from literal action, then L3 reduction",
+    "scalar_canonical_normalization_audited": false,
+    "scalar_operator_and_relative_weights_commit": "d511efa",
+    "scope_corrections_accepted_commit": "4c63343",
     "scope_corrections_sent": [
       "parallel gradients can yield zero torque with unequal gains",
       "zero intrinsic current is required for original alignment conclusion"
@@ -142,6 +145,20 @@
       },
       "stem": "one_omega_connection_adm_kinetic_v1",
       "write_and_fresh_verify_observed_equal": true
+    },
+    {
+      "calculation_digest": "239525b874d065d21e2b1b0f9f5f62aa5a63b5fafd2210c6af468ee86cce79f7",
+      "local_commit": "087d610",
+      "observed_tests_passed": 18,
+      "receipt_checks": 42,
+      "sha256": {
+        "one_omega_connection_vector_temporal_gauge_lemma_v1.md": "264f0e9b6035364553a43b133b81f18d600e92f2383613544d0bf428f654badd",
+        "one_omega_connection_vector_temporal_gauge_v1.json": "08bc9a578c2bc8ed99a18a283af51dfb1f1ee09411e5d8fa1bc39f69c492ac17",
+        "test_one_omega_connection_vector_temporal_gauge_v1.py": "2fea93f2300591567232fde0a591b24706380453bb5c23b789e8072e97f12d73",
+        "verify_one_omega_connection_vector_temporal_gauge_v1.py": "4716cf0cd4b89bb2113a896cf01f296dd2ab96a8e4909d186307ba5e62f7c3c4"
+      },
+      "stem": "one_omega_connection_vector_temporal_gauge_v1",
+      "write_and_fresh_verify_observed_equal": true
     }
   ],
   "physical_gates_promoted": false,
@@ -163,7 +180,7 @@
     "global and nonlinear stability",
     "global BF topology and BV/BFV"
   ],
-  "review_note_sha256": "1d02fb5fc0e2ce4853fd49b6ee57ecada5fc5dedac2cebc29aa669875248453a",
+  "review_note_sha256": "fa595a6569d50696a68520a272a5d878617d261f1822407a12c388067c721be9",
   "schema": "holo.one-omega-connection-candidate-review.v1",
-  "snapshot_utc": "2026-09-08T05:01:35.695583+00:00"
+  "snapshot_utc": "2026-09-08T05:42:35.949942+00:00"
 }
