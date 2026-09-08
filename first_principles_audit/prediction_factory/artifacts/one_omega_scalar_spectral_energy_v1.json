@@ -1,0 +1,173 @@
+{
+  "calculation_digest": "f11d7f254f9630669efc1ce085f24d08fa7ac21a3a49a5643879a85a533f82c0",
+  "checks": {
+    "RHP_rotated_energy": true,
+    "TT_auxiliary_stationary_value": true,
+    "TT_measure_density_realization": true,
+    "beta_admissible_field_shift": true,
+    "coupling_norm_mass_sum": true,
+    "frozen_A_between_three_and_thirteen_fourths": true,
+    "frozen_Bstar_lower_bound": true,
+    "frozen_Einf_greater_than_three": true,
+    "kinetic_after_shift": true,
+    "kinetic_margin_two_b_over_three": true,
+    "local_EH_mass_sum": true,
+    "material_Robin_lapse_realization": true,
+    "rotated_energy_strictly_positive": true,
+    "static_Schur_order_independence": true,
+    "static_positive_completion": true,
+    "uniform_kinetic_relative_gap": true,
+    "weighted_Cauchy_threshold": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BF_global_and_embedding_sectors_closed": false,
+    "actual_scalar_response_has_positive_energy_realization_for_q_positive": true,
+    "complete_nonlinear_constraint_reduction": false,
+    "final_scalar_factor_has_no_RHP_zero_for_every_q_positive": true,
+    "formal_machine_checked_analysis": false,
+    "full_N7": false,
+    "full_P4": false,
+    "full_five_field_scalar_boundary_matrix_has_no_RHP_zero_for_q_positive": true,
+    "full_physical_mode_count": false,
+    "imaginary_axis_pole_limits_certified": false,
+    "negative_final_scalar_Schur_divided_by_s_strictly_positive_real": true,
+    "q_zero_scalar_certified": false
+  },
+  "model": {
+    "EH_scalar_unit": "zeta**2*(3*q**2 - 3*w**2) + 2*zeta*(q**2*(lapse - zeta) - q*shift*w)",
+    "RHP_energy": "sigma*(kinetic_norm*sigma**2 + kinetic_norm*tau**2 + potential_form)/(sigma**2 + tau**2)",
+    "TT_original": "lambda_T*rho_T*(zeta**2*(3*q**2 - 3*w**2) + 2*zeta*(q**2*(lapse - zeta) - q*shift*w))/(lambda_T + q**2 - w**2) + rho_T*(q**2*(lapse - zeta) - q*shift*w + zeta*(3*q**2 - 3*w**2))**2/(3*lambda_T + 3*q**2 - 3*w**2)",
+    "TT_realized": "2*rho_T*(q**2*(lapse - zeta) - q*shift*w)**2/(3*(2*lambda_T + 2*q**2 - 2*w**2)) + rho_T*(zeta**2*(3*q**2 - 3*w**2) + 2*zeta*(q**2*(lapse - zeta) - q*shift*w))",
+    "U": "q**2*(lapse - zeta) - q*shift*w",
+    "beta_original_after_shift": "sqrt(rho_beta)*(Y_beta + sqrt(rho_beta)*zeta)*(q**2*(lapse - zeta) - q*shift*w + zeta*(3*q**2 - 3*w**2))/3 + (Y_beta + sqrt(rho_beta)*zeta)**2*(-lambda_beta - q**2 + w**2)/2",
+    "beta_realized": "Y_beta**2*(-lambda_beta - q**2 + w**2)/2 + Y_beta*sqrt(rho_beta)*(-3*lambda_beta*zeta + q**2*(lapse - zeta) - q*shift*w)/3 - lambda_beta*rho_beta*zeta**2/2 + rho_beta*(zeta**2*(3*q**2 - 3*w**2) + 2*zeta*(q**2*(lapse - zeta) - q*shift*w))/6",
+    "checks": {
+      "RHP_rotated_energy": true,
+      "TT_auxiliary_stationary_value": true,
+      "TT_measure_density_realization": true,
+      "beta_admissible_field_shift": true,
+      "coupling_norm_mass_sum": true,
+      "frozen_A_between_three_and_thirteen_fourths": true,
+      "frozen_Bstar_lower_bound": true,
+      "frozen_Einf_greater_than_three": true,
+      "kinetic_after_shift": true,
+      "kinetic_margin_two_b_over_three": true,
+      "local_EH_mass_sum": true,
+      "material_Robin_lapse_realization": true,
+      "rotated_energy_strictly_positive": true,
+      "static_Schur_order_independence": true,
+      "static_positive_completion": true,
+      "uniform_kinetic_relative_gap": true,
+      "weighted_Cauchy_threshold": true
+    },
+    "exact_kinetic_gap": "2*b/3",
+    "kinetic_Cauchy_threshold": "Bstar/3 + 2*rho_T/3 + rho_beta/9",
+    "kinetic_diagonal": [
+      [
+        "3*Bstar",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "kinetic_matrix": [
+      [
+        "3*Bstar - Bstar**2/A",
+        "sqrt(6)*Bstar*sqrt(rho_T)/(3*A)",
+        "Bstar*sqrt(rho_beta)/(3*A)"
+      ],
+      [
+        "sqrt(6)*Bstar*sqrt(rho_T)/(3*A)",
+        "1 - 2*rho_T/(3*A)",
+        "-sqrt(6)*sqrt(rho_T)*sqrt(rho_beta)/(9*A)"
+      ],
+      [
+        "Bstar*sqrt(rho_beta)/(3*A)",
+        "-sqrt(6)*sqrt(rho_T)*sqrt(rho_beta)/(9*A)",
+        "1 - rho_beta/(9*A)"
+      ]
+    ],
+    "kinetic_rank_one_direction": [
+      [
+        "Bstar"
+      ],
+      [
+        "-sqrt(6)*sqrt(rho_T)/3"
+      ],
+      [
+        "-sqrt(rho_beta)/3"
+      ]
+    ],
+    "measure_conditions": {
+      "TT_first_moment_required": false,
+      "TT_mass": "m0",
+      "beta_first_moment": "beta",
+      "beta_mass": "Ns",
+      "mass_identity": "6*m0+Ns=6*C0"
+    },
+    "residuals": {
+      "RHP_rotated_energy": "0",
+      "TT_auxiliary_stationary_value": "0",
+      "TT_measure_density_realization": "0",
+      "beta_admissible_field_shift": "0",
+      "coupling_norm_mass_sum": "0",
+      "kinetic_after_shift": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "kinetic_margin_two_b_over_three": "0",
+      "local_EH_mass_sum": "0",
+      "material_Robin_lapse_realization": "0",
+      "static_Schur_order_independence": "0",
+      "static_positive_completion": "0",
+      "weighted_Cauchy_threshold": "0"
+    },
+    "scope": {
+      "all_frequencies_Re_s_positive": true,
+      "all_spatial_momenta_q_positive": true,
+      "finite_atoms_used_as_global_proof": false,
+      "formal_Hilbert_proof_objects_checked": false,
+      "q_zero_in_this_chart": false
+    },
+    "static_potential_completion": {
+      "cross": "lapse_interior*lapse_zeta/lapse_positive - zeta_interior",
+      "interior": "final_positive + lapse_interior**2/lapse_positive",
+      "last_Schur": "-unreduced_zeta_static - (lapse_interior*lapse_zeta/lapse_positive - zeta_interior)**2/(final_positive + lapse_interior**2/lapse_positive) + lapse_zeta**2/lapse_positive"
+    },
+    "u": "q**2*(lapse - zeta) - q*shift*w + zeta*(3*q**2 - 3*w**2)"
+  },
+  "provenance": {
+    "one_omega_scalar_spectral_energy_lemma_v1.md": "acfe9cb3c6b021ff987a8d6e363b2ce8ffc26bb3d8ae2d362bea058c71b3e432",
+    "test_one_omega_scalar_spectral_energy_v1.py": "2255adab27c811b83749b305460420afe6ccaea772fb13592410bd312d68ccf1",
+    "verify_one_omega_scalar_spectral_energy_v1.py": "73342c9664b5e84cc35c0bec7ec00a01f05c196f5b4459acf2b81bc2d54e99bf"
+  },
+  "schema": "holo.one-omega-scalar-spectral-energy.v1",
+  "sources": {
+    "constraint_static_receipt": "8ca7d81f1dcb645147d694d68fc32c0cc50483d67f2b7353caaecf31a22f190e",
+    "reviewed_proof": "acfe9cb3c6b021ff987a8d6e363b2ce8ffc26bb3d8ae2d362bea058c71b3e432"
+  }
+}
