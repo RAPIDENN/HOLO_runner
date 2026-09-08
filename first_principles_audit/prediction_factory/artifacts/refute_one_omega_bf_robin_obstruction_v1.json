@@ -1,0 +1,72 @@
+{
+  "attacks": {
+    "A1_contraction_identity_sum_out_Q_equals_minus_kappa_y_a_cross_phi": true,
+    "A2_conformal_mixing_has_no_torque": true,
+    "A3_no_a2_or_phi2_in_second_order_coefficient": true,
+    "A3_second_order_coefficient_is_a1_cross_phi1": true,
+    "A4_material_sector_flattens_exactly_in_conformal_frame": true,
+    "A5_decaying_mode_solves_flat_laplace": true,
+    "A5_outgoing_momentum_per_side_is_Z_p": true,
+    "A5_robin_gain_is_kappa_y_over_kappa_plus_2Zp": true,
+    "A6_codex_cross_coefficient_4y_sinx_sin2z_over_15": true,
+    "A6_codex_gains_one_third_one_fifth": true,
+    "A6_codex_residual_minus_four_fifths": true,
+    "A7_cross_vanishes_iff_gains_equal": true,
+    "A7_general_two_shell_identity": true,
+    "A7_independent_two_direction_witness_nonzero": true,
+    "A8_only_BF_differentiates_A": true,
+    "A8_robin_intrinsic_has_no_A_Sigma": true,
+    "A9_flat_first_order_connection_enters_P_only_at_second_order": true,
+    "N_noether_robin_variation_equals_torque_source": true
+  },
+  "calculation_digest": "c8309b2ec25206e6d00a6184a1cc1a6da9349a8dcc4c5440b30185975faff99d",
+  "claim_under_test": "literal v5.2 with kappa*y != 0: BF gluing + common A_Sigma + Robin row force a x phi_H = 0 on Sigma; eps^2 coefficient a1 x phi1; two-direction prescribed ports have no C2 continuation",
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "N7_pass": false,
+    "P4_full_same_action_pass": false,
+    "S_C_repair_adopted": false,
+    "any_literal_absorber_found": false,
+    "codex_witness_reproduced": true,
+    "new_independent_witness_found": true,
+    "obstruction_confirmed_by_independent_reconstruction": true
+  },
+  "general_statement": "for a = grad(F1 + F2) with gains g_A, g_B on the two shells, a1 x phi1 = (g_B - g_A) grad F1 x grad F2; it vanishes identically iff g_A = g_B iff |k_1| = |k_2|",
+  "independent_witness": {
+    "cross_component_z": "-4*y*sin(x)*sin(3*y_coord)/7",
+    "gains": [
+      "y/3",
+      "y/7"
+    ],
+    "lapse": "cos x + cos 3y (x and y tangential; cross component along z)"
+  },
+  "provenance": {
+    "elapsed_s": 0.4,
+    "generated_utc": "2026-09-08T04:52:03Z",
+    "generator": "refute_one_omega_bf_robin_obstruction_v1.py",
+    "generator_sha256": "bb0a2e704171861a892603dc3c6e3ec6c2246ab20333ddeef4b6c885cbf9fdd0",
+    "python": "3.13.5",
+    "sympy": "1.13.3"
+  },
+  "schema": "holo.refute-one-omega-bf-robin-obstruction.v1",
+  "sharpening": {
+    "consequence": "any completion that keeps (i) a flat BF connection glued with common A_Sigma and (ii) the explicit breaking (phi_H - y a) on Sigma inherits the condition. Repairs must either give the connection a source-carrying dynamics on Sigma (Codex's S_C proposal) or restrict the data class, and either changes the action or the admissible domain.",
+    "noether_reading": "delta_lambda L_R = -kappa y lambda.(a x phi_H) for delta phi_H = lambda x phi_H: the intrinsic Robin term is a source of internal SO(3) torque localized on Sigma, while the BF flux gluing with a common flat A_Sigma demands a source-free normal current. A flat BF connection cannot be coupled to a current with a brane source; the alignment a x phi_H = 0 is the price of soldering an internal triplet to the geometric acceleration through a gauged SO(3).",
+    "not_claimed": [
+      "inconsistency of every solution",
+      "complete Dirac rank",
+      "refutation of the fixed-direction N8 lift",
+      "that the two-mode lapse solves the coupled Einstein problem"
+    ]
+  },
+  "sources": {
+    "candidate_v5_2_artifact_sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b",
+    "codex_note_sha256": "db88d9f2d2f214face903a1a076ee0f2bd23db4359a5f48841adb187bb1040ac",
+    "codex_receipt_sha256": "61cb8ac8ac88bd9ff888118af0fedd6b95c4c694361958a436b6523ba78fe325",
+    "imported_from_codex": "nothing; rows re-pinned from the candidate artifact",
+    "pinned_rows_sha256": "8d722b4af170973f210f190a82cbd9de72140fa6fb9df7d88c38822e759c81bb"
+  },
+  "title": "Independent refutation attempt of the BF/Robin torque obstruction: verdict CONFIRMADA",
+  "verdict": "CONFIRMADA"
+}
