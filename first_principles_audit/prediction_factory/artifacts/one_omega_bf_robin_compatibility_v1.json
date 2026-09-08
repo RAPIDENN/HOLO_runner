@@ -1,0 +1,99 @@
+{
+  "calculation_digest": "7d49734cec2b0132f00707d854ae723299b076fc01bf7d29dc83c93e8239dcfb",
+  "checks": {
+    "Robin_outgoing_current_equals_minus_kappa_y_cross": true,
+    "alignment_map_Jacobian_rank_two_at_nonzero_aligned_point": true,
+    "alignment_map_Jacobian_rank_zero_at_origin": true,
+    "alignment_norm_is_frame_invariant_Gram_determinant": true,
+    "conformal_normal_mixing_has_zero_torque": true,
+    "decaying_halfline_mode_solves_linear_static_bulk_equation": true,
+    "each_single_direction_has_zero_torque": true,
+    "exact_conformal_kinetic_weight_is_one": true,
+    "exact_conformal_potential_weight_is_one": true,
+    "exact_finite_Robin_response_gain": true,
+    "exact_frozen_current_residual_minus_four_fifths": true,
+    "first_order_alignment_row_at_vacuum_vanishes": true,
+    "frozen_two_wave_number_gains_are_different": true,
+    "full_V4_amplitude_derivatives_zero_through_cubic": true,
+    "incorrect_common_gain_would_hide_the_obstruction": true,
+    "inner_product_trace_normalization": true,
+    "literal_Robin_has_no_intrinsic_connection_current": true,
+    "nonabelian_covariant_derivative_respects_common_gluing": true,
+    "normal_connection_current_from_literal_kinetic_density": true,
+    "second_order_corrections_cannot_change_coefficient": true,
+    "smooth_B_and_connection_gluing_cancels_current_jump": true,
+    "three_generators_antisymmetric": true,
+    "two_alignment_reducibility_relations": true,
+    "two_direction_cross_coefficient": true,
+    "two_outgoing_material_momenta_are_2Zpc": true,
+    "vacuum_second_order_coefficient_is_a1_cross_phi1": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "all_solutions_excluded_claimed": false,
+    "full_N2_Dirac_rank_computed": false,
+    "full_N4": false,
+    "full_N7": false,
+    "full_P4": false,
+    "necessary_BF_Robin_torque_alignment_derived": true,
+    "new_intrinsic_connection_current_adopted": false,
+    "repair_stability_certified": false,
+    "two_direction_prescribed_port_C2_obstruction_checked": true,
+    "unrestricted_nonlinear_material_port_promoted": false
+  },
+  "implementation": {
+    "test_sha256": "b6e2c3a8c3a0b3c0975650241bb1e286d368048833ece425897ec9f670d44db3",
+    "verifier_sha256": "75c8517db7ddfa44f0f507b3c9e3dc9030a959e5a8eeb2097846ddd37c29cebb"
+  },
+  "negative_controls": {
+    "claim_no_conformally_transported_material_current": true,
+    "flip_one_outgoing_current_sign": true,
+    "identify_normal_current_with_zero_off_shell": true,
+    "omit_Robin_acceleration_torque": true
+  },
+  "schema": "holo.one-omega-bf-robin-compatibility.v1",
+  "scope": {
+    "continuation_excluded": "C2 family with the displayed first-order data",
+    "fixed_direction_upstream_N8_lift_refuted": false,
+    "literal_v5_2_bulk_BF_flux_Robin_rows_retained": true,
+    "nonzero_kappa_y_required": true,
+    "perturbative_background": "a0=phi0=0",
+    "smooth_transported_common_B_and_A_traces": true,
+    "witness": "prescribed material port, not a coupled Einstein solution"
+  },
+  "sources": {
+    "BF_flux": "sum_eps s_eps*b_eps=0 with s_plus=1 and s_minus=-1",
+    "action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "candidate_sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b",
+    "connection_trace": "Trans_iota(A)=r*(Y^*A)*r^(-1)-(d r)*r^(-1)=A_Sigma",
+    "lemma_sha256": "b28a9e69f506ffc6102d9c07360d297fae1465342decb55b08ce4cc35fc5157c",
+    "literal_coefficients": {
+      "Robin_kappa_hat": "1.0",
+      "Robin_y_squared": "3.0",
+      "material_Z5_per_side": "1.0"
+    },
+    "source_gate_promotions_inherited": false
+  },
+  "witness": {
+    "cross_coefficient": [
+      "0",
+      "4*y*sin(x)*sin(2*z)/15",
+      "0"
+    ],
+    "material_gains": [
+      "1/3",
+      "1/5"
+    ],
+    "point_current_coefficient": [
+      "0",
+      "-4/5",
+      "0"
+    ],
+    "rank_of_alignment_map_only": {
+      "aligned_nonzero": 2,
+      "origin": 0
+    },
+    "source_lapse_first_order": "cos(x)+cos(2*z)"
+  }
+}
