@@ -1,0 +1,2491 @@
+{
+  "baseline": {
+    "literal_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "source_sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b"
+  },
+  "calculation_digest": "bec01c5249084ec3a5032da07ccb46d550fa6a772eb1b896a4030d3676881d70",
+  "checks": {
+    "Hodge_volume_and_metric_stress": true,
+    "T_variation_has_minus_NV_gradient": true,
+    "V_is_spatial": true,
+    "all_36_connection_entries": true,
+    "all_36_frame_rotation_entries": true,
+    "all_d_beta_coefficients_cancel": true,
+    "beta_from_khronon": true,
+    "connection_antisymmetric": true,
+    "current_three_form_sign": true,
+    "metric_boost_stress_factor": true,
+    "negative_control_freeze_frame_detected": true,
+    "negative_control_omit_metric_curl_detected": true,
+    "negative_control_reverse_E_T_sign_detected": true,
+    "negative_control_reverse_boost_sign_detected": true,
+    "negative_control_reverse_current_sign_detected": true,
+    "negative_control_rotate_frame_without_A_detected": true,
+    "negative_control_wrong_metric_adjoint_half_detected": true,
+    "normal_variation_from_lapse": true,
+    "omega_variation_contracts_to_J_and_V": true,
+    "point_orthonormal_frame": true,
+    "point_spatial_frame": true,
+    "point_unit_timelike_normal": true,
+    "product_rule_metric_and_T_adjoint": true,
+    "rotation_leaves_action_invariant": true,
+    "simultaneous_connection_rotation": true,
+    "varied_frame_normalization": true,
+    "varied_frame_orthogonality": true,
+    "varied_normal_normalization": true
+  },
+  "model": {
+    "Hodge_density_variation": "C0_01**2*chi*h_00/64 + C0_01**2*chi*h_11/144 + C0_01**2*chi*h_22/16 + C0_01**2*chi*h_33/16 - C0_01*C1_01*chi*h_01/36 - C0_01*C2_01*chi*h_02/4 - C0_01*C3_01*chi*h_03/4 + C0_02**2*chi*h_00/64 + C0_02**2*chi*h_11/144 + C0_02**2*chi*h_22/16 + C0_02**2*chi*h_33/16 - C0_02*C1_02*chi*h_01/36 - C0_02*C2_02*chi*h_02/4 - C0_02*C3_02*chi*h_03/4 + C0_12**2*chi*h_00/64 + C0_12**2*chi*h_11/144 + C0_12**2*chi*h_22/16 + C0_12**2*chi*h_33/16 - C0_12*C1_12*chi*h_01/36 - C0_12*C2_12*chi*h_02/4 - C0_12*C3_12*chi*h_03/4 + C1_01**2*chi*h_00/144 + C1_01**2*chi*h_11/324 - C1_01**2*chi*h_22/36 - C1_01**2*chi*h_33/36 + C1_01*C2_01*chi*h_12/9 + C1_01*C3_01*chi*h_13/9 + C1_02**2*chi*h_00/144 + C1_02**2*chi*h_11/324 - C1_02**2*chi*h_22/36 - C1_02**2*chi*h_33/36 + C1_02*C2_02*chi*h_12/9 + C1_02*C3_02*chi*h_13/9 + C1_12**2*chi*h_00/144 + C1_12**2*chi*h_11/324 - C1_12**2*chi*h_22/36 - C1_12**2*chi*h_33/36 + C1_12*C2_12*chi*h_12/9 + C1_12*C3_12*chi*h_13/9 + C2_01**2*chi*h_00/16 - C2_01**2*chi*h_11/36 + C2_01**2*chi*h_22/4 - C2_01**2*chi*h_33/4 + C2_01*C3_01*chi*h_23 + C2_02**2*chi*h_00/16 - C2_02**2*chi*h_11/36 + C2_02**2*chi*h_22/4 - C2_02**2*chi*h_33/4 + C2_02*C3_02*chi*h_23 + C2_12**2*chi*h_00/16 - C2_12**2*chi*h_11/36 + C2_12**2*chi*h_22/4 - C2_12**2*chi*h_33/4 + C2_12*C3_12*chi*h_23 + C3_01**2*chi*h_00/16 - C3_01**2*chi*h_11/36 - C3_01**2*chi*h_22/4 + C3_01**2*chi*h_33/4 + C3_02**2*chi*h_00/16 - C3_02**2*chi*h_11/36 - C3_02**2*chi*h_22/4 + C3_02**2*chi*h_33/4 + C3_12**2*chi*h_00/16 - C3_12**2*chi*h_11/36 - C3_12**2*chi*h_22/4 + C3_12**2*chi*h_33/4",
+    "J": [
+      [
+        [
+          "0",
+          "0",
+          "-3*C0_01*chi/32",
+          "-3*C0_02*chi/32"
+        ],
+        [
+          "0",
+          "0",
+          "-5*C0_01*chi/48",
+          "-5*C0_02*chi/48"
+        ],
+        [
+          "3*C0_01*chi/32",
+          "5*C0_01*chi/48",
+          "0",
+          "-C0_12*chi/4"
+        ],
+        [
+          "3*C0_02*chi/32",
+          "5*C0_02*chi/48",
+          "C0_12*chi/4",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0",
+          "C1_01*chi/24",
+          "C1_02*chi/24"
+        ],
+        [
+          "0",
+          "0",
+          "5*C1_01*chi/108",
+          "5*C1_02*chi/108"
+        ],
+        [
+          "-C1_01*chi/24",
+          "-5*C1_01*chi/108",
+          "0",
+          "C1_12*chi/9"
+        ],
+        [
+          "-C1_02*chi/24",
+          "-5*C1_02*chi/108",
+          "-C1_12*chi/9",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0",
+          "3*C2_01*chi/8",
+          "3*C2_02*chi/8"
+        ],
+        [
+          "0",
+          "0",
+          "5*C2_01*chi/12",
+          "5*C2_02*chi/12"
+        ],
+        [
+          "-3*C2_01*chi/8",
+          "-5*C2_01*chi/12",
+          "0",
+          "C2_12*chi"
+        ],
+        [
+          "-3*C2_02*chi/8",
+          "-5*C2_02*chi/12",
+          "-C2_12*chi",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0",
+          "3*C3_01*chi/8",
+          "3*C3_02*chi/8"
+        ],
+        [
+          "0",
+          "0",
+          "5*C3_01*chi/12",
+          "5*C3_02*chi/12"
+        ],
+        [
+          "-3*C3_01*chi/8",
+          "-5*C3_01*chi/12",
+          "0",
+          "C3_12*chi"
+        ],
+        [
+          "-3*C3_02*chi/8",
+          "-5*C3_02*chi/12",
+          "-C3_12*chi",
+          "0"
+        ]
+      ]
+    ],
+    "T_C": [
+      [
+        "C0_01**2*chi/32 + C0_02**2*chi/32 + C0_12**2*chi/32 + C1_01**2*chi/72 + C1_02**2*chi/72 + C1_12**2*chi/72 + C2_01**2*chi/8 + C2_02**2*chi/8 + C2_12**2*chi/8 + C3_01**2*chi/8 + C3_02**2*chi/8 + C3_12**2*chi/8",
+        "-C0_01*C1_01*chi/36 - C0_02*C1_02*chi/36 - C0_12*C1_12*chi/36",
+        "-C0_01*C2_01*chi/4 - C0_02*C2_02*chi/4 - C0_12*C2_12*chi/4",
+        "-C0_01*C3_01*chi/4 - C0_02*C3_02*chi/4 - C0_12*C3_12*chi/4"
+      ],
+      [
+        "-C0_01*C1_01*chi/36 - C0_02*C1_02*chi/36 - C0_12*C1_12*chi/36",
+        "C0_01**2*chi/72 + C0_02**2*chi/72 + C0_12**2*chi/72 + C1_01**2*chi/162 + C1_02**2*chi/162 + C1_12**2*chi/162 - C2_01**2*chi/18 - C2_02**2*chi/18 - C2_12**2*chi/18 - C3_01**2*chi/18 - C3_02**2*chi/18 - C3_12**2*chi/18",
+        "C1_01*C2_01*chi/9 + C1_02*C2_02*chi/9 + C1_12*C2_12*chi/9",
+        "C1_01*C3_01*chi/9 + C1_02*C3_02*chi/9 + C1_12*C3_12*chi/9"
+      ],
+      [
+        "-C0_01*C2_01*chi/4 - C0_02*C2_02*chi/4 - C0_12*C2_12*chi/4",
+        "C1_01*C2_01*chi/9 + C1_02*C2_02*chi/9 + C1_12*C2_12*chi/9",
+        "C0_01**2*chi/8 + C0_02**2*chi/8 + C0_12**2*chi/8 - C1_01**2*chi/18 - C1_02**2*chi/18 - C1_12**2*chi/18 + C2_01**2*chi/2 + C2_02**2*chi/2 + C2_12**2*chi/2 - C3_01**2*chi/2 - C3_02**2*chi/2 - C3_12**2*chi/2",
+        "C2_01*C3_01*chi + C2_02*C3_02*chi + C2_12*C3_12*chi"
+      ],
+      [
+        "-C0_01*C3_01*chi/4 - C0_02*C3_02*chi/4 - C0_12*C3_12*chi/4",
+        "C1_01*C3_01*chi/9 + C1_02*C3_02*chi/9 + C1_12*C3_12*chi/9",
+        "C2_01*C3_01*chi + C2_02*C3_02*chi + C2_12*C3_12*chi",
+        "C0_01**2*chi/8 + C0_02**2*chi/8 + C0_12**2*chi/8 - C1_01**2*chi/18 - C1_02**2*chi/18 - C1_12**2*chi/18 - C2_01**2*chi/2 - C2_02**2*chi/2 - C2_12**2*chi/2 + C3_01**2*chi/2 + C3_02**2*chi/2 + C3_12**2*chi/2"
+      ]
+    ],
+    "V": [
+      [
+        "3*C0_01*chi*kappa0_1/32 + 3*C0_02*chi*kappa0_2/32 - C1_01*chi*kappa1_1/24 - C1_02*chi*kappa1_2/24 - 3*C2_01*chi*kappa2_1/8 - 3*C2_02*chi*kappa2_2/8 - 3*C3_01*chi*kappa3_1/8 - 3*C3_02*chi*kappa3_2/8"
+      ],
+      [
+        "5*C0_01*chi*kappa0_1/48 + 5*C0_02*chi*kappa0_2/48 - 5*C1_01*chi*kappa1_1/108 - 5*C1_02*chi*kappa1_2/108 - 5*C2_01*chi*kappa2_1/12 - 5*C2_02*chi*kappa2_2/12 - 5*C3_01*chi*kappa3_1/12 - 5*C3_02*chi*kappa3_2/12"
+      ],
+      [
+        "-C0_01*chi*kappa0_0/4 + C0_12*chi*kappa0_2/4 + C1_01*chi*kappa1_0/9 - C1_12*chi*kappa1_2/9 + C2_01*chi*kappa2_0 - C2_12*chi*kappa2_2 + C3_01*chi*kappa3_0 - C3_12*chi*kappa3_2"
+      ],
+      [
+        "-C0_02*chi*kappa0_0/4 - C0_12*chi*kappa0_1/4 + C1_02*chi*kappa1_0/9 + C1_12*chi*kappa1_1/9 + C2_02*chi*kappa2_0 + C2_12*chi*kappa2_1 + C3_02*chi*kappa3_0 + C3_12*chi*kappa3_1"
+      ]
+    ],
+    "beta_khronon": [
+      [
+        "-3*N*df0/8 - 5*N*df1/12 - 15*h_00/128 - 17*h_01/96 - 5*h_11/96"
+      ],
+      [
+        "-N*df2 - 5*h_02/16 - h_12/8"
+      ],
+      [
+        "-N*df3 - 5*h_03/16 - h_13/8"
+      ]
+    ],
+    "checks": {
+      "Hodge_volume_and_metric_stress": true,
+      "T_variation_has_minus_NV_gradient": true,
+      "V_is_spatial": true,
+      "all_36_connection_entries": true,
+      "all_36_frame_rotation_entries": true,
+      "all_d_beta_coefficients_cancel": true,
+      "beta_from_khronon": true,
+      "connection_antisymmetric": true,
+      "current_three_form_sign": true,
+      "metric_boost_stress_factor": true,
+      "negative_control_freeze_frame_detected": true,
+      "negative_control_omit_metric_curl_detected": true,
+      "negative_control_reverse_E_T_sign_detected": true,
+      "negative_control_reverse_boost_sign_detected": true,
+      "negative_control_reverse_current_sign_detected": true,
+      "negative_control_rotate_frame_without_A_detected": true,
+      "negative_control_wrong_metric_adjoint_half_detected": true,
+      "normal_variation_from_lapse": true,
+      "omega_variation_contracts_to_J_and_V": true,
+      "point_orthonormal_frame": true,
+      "point_spatial_frame": true,
+      "point_unit_timelike_normal": true,
+      "product_rule_metric_and_T_adjoint": true,
+      "rotation_leaves_action_invariant": true,
+      "simultaneous_connection_rotation": true,
+      "varied_frame_normalization": true,
+      "varied_frame_orthogonality": true,
+      "varied_normal_normalization": true
+    },
+    "connection_variation": {
+      "delta_e": [
+        [
+          "5*beta0/8 + 3*h_00/64 + 5*h_01/96",
+          "5*beta1/8 + h_02/8",
+          "5*beta2/8 + h_03/8"
+        ],
+        [
+          "beta0/4 - h_01/48 - 5*h_11/216",
+          "beta1/4 - h_12/18",
+          "beta2/4 - h_13/18"
+        ],
+        [
+          "-3*h_02/16 - 5*h_12/24",
+          "-h_22/2",
+          "-h_23/2"
+        ],
+        [
+          "-3*h_03/16 - 5*h_13/24",
+          "-h_23/2",
+          "-h_33/2"
+        ]
+      ],
+      "direct": [
+        [
+          [
+            "0",
+            "-beta0*kappa0_1 + beta1*kappa0_0 - 3*dh0_02/16 - 5*dh1_02/24 + 3*dh2_00/16 + 5*dh2_01/24",
+            "-beta0*kappa0_2 + beta2*kappa0_0 - 3*dh0_03/16 - 5*dh1_03/24 + 3*dh3_00/16 + 5*dh3_01/24"
+          ],
+          [
+            "beta0*kappa0_1 - beta1*kappa0_0 + 3*dh0_02/16 + 5*dh1_02/24 - 3*dh2_00/16 - 5*dh2_01/24",
+            "0",
+            "-beta1*kappa0_2 + beta2*kappa0_1 - dh2_03/2 + dh3_02/2"
+          ],
+          [
+            "beta0*kappa0_2 - beta2*kappa0_0 + 3*dh0_03/16 + 5*dh1_03/24 - 3*dh3_00/16 - 5*dh3_01/24",
+            "beta1*kappa0_2 - beta2*kappa0_1 + dh2_03/2 - dh3_02/2",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-beta0*kappa1_1 + beta1*kappa1_0 - 3*dh0_12/16 - 5*dh1_12/24 + 3*dh2_01/16 + 5*dh2_11/24",
+            "-beta0*kappa1_2 + beta2*kappa1_0 - 3*dh0_13/16 - 5*dh1_13/24 + 3*dh3_01/16 + 5*dh3_11/24"
+          ],
+          [
+            "beta0*kappa1_1 - beta1*kappa1_0 + 3*dh0_12/16 + 5*dh1_12/24 - 3*dh2_01/16 - 5*dh2_11/24",
+            "0",
+            "-beta1*kappa1_2 + beta2*kappa1_1 - dh2_13/2 + dh3_12/2"
+          ],
+          [
+            "beta0*kappa1_2 - beta2*kappa1_0 + 3*dh0_13/16 + 5*dh1_13/24 - 3*dh3_01/16 - 5*dh3_11/24",
+            "beta1*kappa1_2 - beta2*kappa1_1 + dh2_13/2 - dh3_12/2",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-beta0*kappa2_1 + beta1*kappa2_0 - 3*dh0_22/16 - 5*dh1_22/24 + 3*dh2_02/16 + 5*dh2_12/24",
+            "-beta0*kappa2_2 + beta2*kappa2_0 - 3*dh0_23/16 - 5*dh1_23/24 + 3*dh3_02/16 + 5*dh3_12/24"
+          ],
+          [
+            "beta0*kappa2_1 - beta1*kappa2_0 + 3*dh0_22/16 + 5*dh1_22/24 - 3*dh2_02/16 - 5*dh2_12/24",
+            "0",
+            "-beta1*kappa2_2 + beta2*kappa2_1 - dh2_23/2 + dh3_22/2"
+          ],
+          [
+            "beta0*kappa2_2 - beta2*kappa2_0 + 3*dh0_23/16 + 5*dh1_23/24 - 3*dh3_02/16 - 5*dh3_12/24",
+            "beta1*kappa2_2 - beta2*kappa2_1 + dh2_23/2 - dh3_22/2",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-beta0*kappa3_1 + beta1*kappa3_0 - 3*dh0_23/16 - 5*dh1_23/24 + 3*dh2_03/16 + 5*dh2_13/24",
+            "-beta0*kappa3_2 + beta2*kappa3_0 - 3*dh0_33/16 - 5*dh1_33/24 + 3*dh3_03/16 + 5*dh3_13/24"
+          ],
+          [
+            "beta0*kappa3_1 - beta1*kappa3_0 + 3*dh0_23/16 + 5*dh1_23/24 - 3*dh2_03/16 - 5*dh2_13/24",
+            "0",
+            "-beta1*kappa3_2 + beta2*kappa3_1 - dh2_33/2 + dh3_23/2"
+          ],
+          [
+            "beta0*kappa3_2 - beta2*kappa3_0 + 3*dh0_33/16 + 5*dh1_33/24 - 3*dh3_03/16 - 5*dh3_13/24",
+            "beta1*kappa3_2 - beta2*kappa3_1 + dh2_33/2 - dh3_23/2",
+            "0"
+          ]
+        ]
+      ],
+      "frozen_frame": [
+        [
+          [
+            "9*dh0_00/128 + 5*dh0_01/32 + 25*dh0_11/288 + 15*h_00*kappa0_0/64 + 17*h_01*kappa0_0/48 - 3*h_02*omega0_01/8 - 3*h_03*omega0_02/8 + 5*h_11*kappa0_0/48 - 5*h_12*omega0_01/12 - 5*h_13*omega0_02/12",
+            "5*dh0_12/24 - 5*dh1_02/24 + 3*dh2_00/16 + 5*dh2_01/24 + 15*h_00*kappa0_1/64 + 9*h_00*omega0_01/64 + 17*h_01*kappa0_1/48 + 5*h_01*omega0_01/16 - 3*h_03*omega0_12/8 + 5*h_11*kappa0_1/48 + 25*h_11*omega0_01/144 - 5*h_13*omega0_12/12",
+            "5*dh0_13/24 - 5*dh1_03/24 + 3*dh3_00/16 + 5*dh3_01/24 + 15*h_00*kappa0_2/64 + 9*h_00*omega0_02/64 + 17*h_01*kappa0_2/48 + 5*h_01*omega0_02/16 + 3*h_02*omega0_12/8 + 5*h_11*kappa0_2/48 + 25*h_11*omega0_02/144 + 5*h_12*omega0_12/12"
+          ],
+          [
+            "3*dh0_02/8 + 5*dh0_12/24 + 5*dh1_02/24 - 3*dh2_00/16 - 5*dh2_01/24 + 5*h_02*kappa0_0/8 + h_12*kappa0_0/4 - h_22*omega0_01 - h_23*omega0_02",
+            "dh0_22/2 + 5*h_02*kappa0_1/8 + 3*h_02*omega0_01/8 + h_12*kappa0_1/4 + 5*h_12*omega0_01/12 - h_23*omega0_12",
+            "dh0_23/2 - dh2_03/2 + dh3_02/2 + 5*h_02*kappa0_2/8 + 3*h_02*omega0_02/8 + h_12*kappa0_2/4 + 5*h_12*omega0_02/12 + h_22*omega0_12"
+          ],
+          [
+            "3*dh0_03/8 + 5*dh0_13/24 + 5*dh1_03/24 - 3*dh3_00/16 - 5*dh3_01/24 + 5*h_03*kappa0_0/8 + h_13*kappa0_0/4 - h_23*omega0_01 - h_33*omega0_02",
+            "dh0_23/2 + dh2_03/2 - dh3_02/2 + 5*h_03*kappa0_1/8 + 3*h_03*omega0_01/8 + h_13*kappa0_1/4 + 5*h_13*omega0_01/12 - h_33*omega0_12",
+            "dh0_33/2 + 5*h_03*kappa0_2/8 + 3*h_03*omega0_02/8 + h_13*kappa0_2/4 + 5*h_13*omega0_02/12 + h_23*omega0_12"
+          ]
+        ],
+        [
+          [
+            "9*dh1_00/128 + 5*dh1_01/32 + 25*dh1_11/288 + 15*h_00*kappa1_0/64 + 17*h_01*kappa1_0/48 - 3*h_02*omega1_01/8 - 3*h_03*omega1_02/8 + 5*h_11*kappa1_0/48 - 5*h_12*omega1_01/12 - 5*h_13*omega1_02/12",
+            "-3*dh0_12/16 + 3*dh1_02/16 + 3*dh2_01/16 + 5*dh2_11/24 + 15*h_00*kappa1_1/64 + 9*h_00*omega1_01/64 + 17*h_01*kappa1_1/48 + 5*h_01*omega1_01/16 - 3*h_03*omega1_12/8 + 5*h_11*kappa1_1/48 + 25*h_11*omega1_01/144 - 5*h_13*omega1_12/12",
+            "-3*dh0_13/16 + 3*dh1_03/16 + 3*dh3_01/16 + 5*dh3_11/24 + 15*h_00*kappa1_2/64 + 9*h_00*omega1_02/64 + 17*h_01*kappa1_2/48 + 5*h_01*omega1_02/16 + 3*h_02*omega1_12/8 + 5*h_11*kappa1_2/48 + 25*h_11*omega1_02/144 + 5*h_12*omega1_12/12"
+          ],
+          [
+            "3*dh0_12/16 + 3*dh1_02/16 + 5*dh1_12/12 - 3*dh2_01/16 - 5*dh2_11/24 + 5*h_02*kappa1_0/8 + h_12*kappa1_0/4 - h_22*omega1_01 - h_23*omega1_02",
+            "dh1_22/2 + 5*h_02*kappa1_1/8 + 3*h_02*omega1_01/8 + h_12*kappa1_1/4 + 5*h_12*omega1_01/12 - h_23*omega1_12",
+            "dh1_23/2 - dh2_13/2 + dh3_12/2 + 5*h_02*kappa1_2/8 + 3*h_02*omega1_02/8 + h_12*kappa1_2/4 + 5*h_12*omega1_02/12 + h_22*omega1_12"
+          ],
+          [
+            "3*dh0_13/16 + 3*dh1_03/16 + 5*dh1_13/12 - 3*dh3_01/16 - 5*dh3_11/24 + 5*h_03*kappa1_0/8 + h_13*kappa1_0/4 - h_23*omega1_01 - h_33*omega1_02",
+            "dh1_23/2 + dh2_13/2 - dh3_12/2 + 5*h_03*kappa1_1/8 + 3*h_03*omega1_01/8 + h_13*kappa1_1/4 + 5*h_13*omega1_01/12 - h_33*omega1_12",
+            "dh1_33/2 + 5*h_03*kappa1_2/8 + 3*h_03*omega1_02/8 + h_13*kappa1_2/4 + 5*h_13*omega1_02/12 + h_23*omega1_12"
+          ]
+        ],
+        [
+          [
+            "9*dh2_00/128 + 5*dh2_01/32 + 25*dh2_11/288 + 15*h_00*kappa2_0/64 + 17*h_01*kappa2_0/48 - 3*h_02*omega2_01/8 - 3*h_03*omega2_02/8 + 5*h_11*kappa2_0/48 - 5*h_12*omega2_01/12 - 5*h_13*omega2_02/12",
+            "-3*dh0_22/16 - 5*dh1_22/24 + 3*dh2_02/8 + 5*dh2_12/12 + 15*h_00*kappa2_1/64 + 9*h_00*omega2_01/64 + 17*h_01*kappa2_1/48 + 5*h_01*omega2_01/16 - 3*h_03*omega2_12/8 + 5*h_11*kappa2_1/48 + 25*h_11*omega2_01/144 - 5*h_13*omega2_12/12",
+            "-3*dh0_23/16 - 5*dh1_23/24 + 3*dh2_03/16 + 5*dh2_13/24 + 3*dh3_02/16 + 5*dh3_12/24 + 15*h_00*kappa2_2/64 + 9*h_00*omega2_02/64 + 17*h_01*kappa2_2/48 + 5*h_01*omega2_02/16 + 3*h_02*omega2_12/8 + 5*h_11*kappa2_2/48 + 25*h_11*omega2_02/144 + 5*h_12*omega2_12/12"
+          ],
+          [
+            "3*dh0_22/16 + 5*dh1_22/24 + 5*h_02*kappa2_0/8 + h_12*kappa2_0/4 - h_22*omega2_01 - h_23*omega2_02",
+            "dh2_22/2 + 5*h_02*kappa2_1/8 + 3*h_02*omega2_01/8 + h_12*kappa2_1/4 + 5*h_12*omega2_01/12 - h_23*omega2_12",
+            "dh3_22/2 + 5*h_02*kappa2_2/8 + 3*h_02*omega2_02/8 + h_12*kappa2_2/4 + 5*h_12*omega2_02/12 + h_22*omega2_12"
+          ],
+          [
+            "3*dh0_23/16 + 5*dh1_23/24 + 3*dh2_03/16 + 5*dh2_13/24 - 3*dh3_02/16 - 5*dh3_12/24 + 5*h_03*kappa2_0/8 + h_13*kappa2_0/4 - h_23*omega2_01 - h_33*omega2_02",
+            "dh2_23 - dh3_22/2 + 5*h_03*kappa2_1/8 + 3*h_03*omega2_01/8 + h_13*kappa2_1/4 + 5*h_13*omega2_01/12 - h_33*omega2_12",
+            "dh2_33/2 + 5*h_03*kappa2_2/8 + 3*h_03*omega2_02/8 + h_13*kappa2_2/4 + 5*h_13*omega2_02/12 + h_23*omega2_12"
+          ]
+        ],
+        [
+          [
+            "9*dh3_00/128 + 5*dh3_01/32 + 25*dh3_11/288 + 15*h_00*kappa3_0/64 + 17*h_01*kappa3_0/48 - 3*h_02*omega3_01/8 - 3*h_03*omega3_02/8 + 5*h_11*kappa3_0/48 - 5*h_12*omega3_01/12 - 5*h_13*omega3_02/12",
+            "-3*dh0_23/16 - 5*dh1_23/24 + 3*dh2_03/16 + 5*dh2_13/24 + 3*dh3_02/16 + 5*dh3_12/24 + 15*h_00*kappa3_1/64 + 9*h_00*omega3_01/64 + 17*h_01*kappa3_1/48 + 5*h_01*omega3_01/16 - 3*h_03*omega3_12/8 + 5*h_11*kappa3_1/48 + 25*h_11*omega3_01/144 - 5*h_13*omega3_12/12",
+            "-3*dh0_33/16 - 5*dh1_33/24 + 3*dh3_03/8 + 5*dh3_13/12 + 15*h_00*kappa3_2/64 + 9*h_00*omega3_02/64 + 17*h_01*kappa3_2/48 + 5*h_01*omega3_02/16 + 3*h_02*omega3_12/8 + 5*h_11*kappa3_2/48 + 25*h_11*omega3_02/144 + 5*h_12*omega3_12/12"
+          ],
+          [
+            "3*dh0_23/16 + 5*dh1_23/24 - 3*dh2_03/16 - 5*dh2_13/24 + 3*dh3_02/16 + 5*dh3_12/24 + 5*h_02*kappa3_0/8 + h_12*kappa3_0/4 - h_22*omega3_01 - h_23*omega3_02",
+            "dh3_22/2 + 5*h_02*kappa3_1/8 + 3*h_02*omega3_01/8 + h_12*kappa3_1/4 + 5*h_12*omega3_01/12 - h_23*omega3_12",
+            "-dh2_33/2 + dh3_23 + 5*h_02*kappa3_2/8 + 3*h_02*omega3_02/8 + h_12*kappa3_2/4 + 5*h_12*omega3_02/12 + h_22*omega3_12"
+          ],
+          [
+            "3*dh0_33/16 + 5*dh1_33/24 + 5*h_03*kappa3_0/8 + h_13*kappa3_0/4 - h_23*omega3_01 - h_33*omega3_02",
+            "dh2_33/2 + 5*h_03*kappa3_1/8 + 3*h_03*omega3_01/8 + h_13*kappa3_1/4 + 5*h_13*omega3_01/12 - h_33*omega3_12",
+            "dh3_33/2 + 5*h_03*kappa3_2/8 + 3*h_03*omega3_02/8 + h_13*kappa3_2/4 + 5*h_13*omega3_02/12 + h_23*omega3_12"
+          ]
+        ]
+      ],
+      "reference": [
+        [
+          [
+            "0",
+            "-beta0*kappa0_1 + beta1*kappa0_0 - 3*dh0_02/16 - 5*dh1_02/24 + 3*dh2_00/16 + 5*dh2_01/24",
+            "-beta0*kappa0_2 + beta2*kappa0_0 - 3*dh0_03/16 - 5*dh1_03/24 + 3*dh3_00/16 + 5*dh3_01/24"
+          ],
+          [
+            "beta0*kappa0_1 - beta1*kappa0_0 + 3*dh0_02/16 + 5*dh1_02/24 - 3*dh2_00/16 - 5*dh2_01/24",
+            "0",
+            "-beta1*kappa0_2 + beta2*kappa0_1 - dh2_03/2 + dh3_02/2"
+          ],
+          [
+            "beta0*kappa0_2 - beta2*kappa0_0 + 3*dh0_03/16 + 5*dh1_03/24 - 3*dh3_00/16 - 5*dh3_01/24",
+            "beta1*kappa0_2 - beta2*kappa0_1 + dh2_03/2 - dh3_02/2",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-beta0*kappa1_1 + beta1*kappa1_0 - 3*dh0_12/16 - 5*dh1_12/24 + 3*dh2_01/16 + 5*dh2_11/24",
+            "-beta0*kappa1_2 + beta2*kappa1_0 - 3*dh0_13/16 - 5*dh1_13/24 + 3*dh3_01/16 + 5*dh3_11/24"
+          ],
+          [
+            "beta0*kappa1_1 - beta1*kappa1_0 + 3*dh0_12/16 + 5*dh1_12/24 - 3*dh2_01/16 - 5*dh2_11/24",
+            "0",
+            "-beta1*kappa1_2 + beta2*kappa1_1 - dh2_13/2 + dh3_12/2"
+          ],
+          [
+            "beta0*kappa1_2 - beta2*kappa1_0 + 3*dh0_13/16 + 5*dh1_13/24 - 3*dh3_01/16 - 5*dh3_11/24",
+            "beta1*kappa1_2 - beta2*kappa1_1 + dh2_13/2 - dh3_12/2",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-beta0*kappa2_1 + beta1*kappa2_0 - 3*dh0_22/16 - 5*dh1_22/24 + 3*dh2_02/16 + 5*dh2_12/24",
+            "-beta0*kappa2_2 + beta2*kappa2_0 - 3*dh0_23/16 - 5*dh1_23/24 + 3*dh3_02/16 + 5*dh3_12/24"
+          ],
+          [
+            "beta0*kappa2_1 - beta1*kappa2_0 + 3*dh0_22/16 + 5*dh1_22/24 - 3*dh2_02/16 - 5*dh2_12/24",
+            "0",
+            "-beta1*kappa2_2 + beta2*kappa2_1 - dh2_23/2 + dh3_22/2"
+          ],
+          [
+            "beta0*kappa2_2 - beta2*kappa2_0 + 3*dh0_23/16 + 5*dh1_23/24 - 3*dh3_02/16 - 5*dh3_12/24",
+            "beta1*kappa2_2 - beta2*kappa2_1 + dh2_23/2 - dh3_22/2",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-beta0*kappa3_1 + beta1*kappa3_0 - 3*dh0_23/16 - 5*dh1_23/24 + 3*dh2_03/16 + 5*dh2_13/24",
+            "-beta0*kappa3_2 + beta2*kappa3_0 - 3*dh0_33/16 - 5*dh1_33/24 + 3*dh3_03/16 + 5*dh3_13/24"
+          ],
+          [
+            "beta0*kappa3_1 - beta1*kappa3_0 + 3*dh0_23/16 + 5*dh1_23/24 - 3*dh2_03/16 - 5*dh2_13/24",
+            "0",
+            "-beta1*kappa3_2 + beta2*kappa3_1 - dh2_33/2 + dh3_23/2"
+          ],
+          [
+            "beta0*kappa3_2 - beta2*kappa3_0 + 3*dh0_33/16 + 5*dh1_33/24 - 3*dh3_03/16 - 5*dh3_13/24",
+            "beta1*kappa3_2 - beta2*kappa3_1 + dh2_33/2 - dh3_23/2",
+            "0"
+          ]
+        ]
+      ],
+      "residuals": [
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "rotation_direct": [
+        [
+          [
+            "0",
+            "drho0_01 - omega0_02*rho_12 + omega0_12*rho_02",
+            "drho0_02 + omega0_01*rho_12 - omega0_12*rho_01"
+          ],
+          [
+            "-drho0_01 + omega0_02*rho_12 - omega0_12*rho_02",
+            "0",
+            "drho0_12 - omega0_01*rho_02 + omega0_02*rho_01"
+          ],
+          [
+            "-drho0_02 - omega0_01*rho_12 + omega0_12*rho_01",
+            "-drho0_12 + omega0_01*rho_02 - omega0_02*rho_01",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "drho1_01 - omega1_02*rho_12 + omega1_12*rho_02",
+            "drho1_02 + omega1_01*rho_12 - omega1_12*rho_01"
+          ],
+          [
+            "-drho1_01 + omega1_02*rho_12 - omega1_12*rho_02",
+            "0",
+            "drho1_12 - omega1_01*rho_02 + omega1_02*rho_01"
+          ],
+          [
+            "-drho1_02 - omega1_01*rho_12 + omega1_12*rho_01",
+            "-drho1_12 + omega1_01*rho_02 - omega1_02*rho_01",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "drho2_01 - omega2_02*rho_12 + omega2_12*rho_02",
+            "drho2_02 + omega2_01*rho_12 - omega2_12*rho_01"
+          ],
+          [
+            "-drho2_01 + omega2_02*rho_12 - omega2_12*rho_02",
+            "0",
+            "drho2_12 - omega2_01*rho_02 + omega2_02*rho_01"
+          ],
+          [
+            "-drho2_02 - omega2_01*rho_12 + omega2_12*rho_01",
+            "-drho2_12 + omega2_01*rho_02 - omega2_02*rho_01",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "drho3_01 - omega3_02*rho_12 + omega3_12*rho_02",
+            "drho3_02 + omega3_01*rho_12 - omega3_12*rho_01"
+          ],
+          [
+            "-drho3_01 + omega3_02*rho_12 - omega3_12*rho_02",
+            "0",
+            "drho3_12 - omega3_01*rho_02 + omega3_02*rho_01"
+          ],
+          [
+            "-drho3_02 - omega3_01*rho_12 + omega3_12*rho_01",
+            "-drho3_12 + omega3_01*rho_02 - omega3_02*rho_01",
+            "0"
+          ]
+        ]
+      ],
+      "rotation_reference": [
+        [
+          [
+            "0",
+            "drho0_01 - omega0_02*rho_12 + omega0_12*rho_02",
+            "drho0_02 + omega0_01*rho_12 - omega0_12*rho_01"
+          ],
+          [
+            "-drho0_01 + omega0_02*rho_12 - omega0_12*rho_02",
+            "0",
+            "drho0_12 - omega0_01*rho_02 + omega0_02*rho_01"
+          ],
+          [
+            "-drho0_02 - omega0_01*rho_12 + omega0_12*rho_01",
+            "-drho0_12 + omega0_01*rho_02 - omega0_02*rho_01",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "drho1_01 - omega1_02*rho_12 + omega1_12*rho_02",
+            "drho1_02 + omega1_01*rho_12 - omega1_12*rho_01"
+          ],
+          [
+            "-drho1_01 + omega1_02*rho_12 - omega1_12*rho_02",
+            "0",
+            "drho1_12 - omega1_01*rho_02 + omega1_02*rho_01"
+          ],
+          [
+            "-drho1_02 - omega1_01*rho_12 + omega1_12*rho_01",
+            "-drho1_12 + omega1_01*rho_02 - omega1_02*rho_01",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "drho2_01 - omega2_02*rho_12 + omega2_12*rho_02",
+            "drho2_02 + omega2_01*rho_12 - omega2_12*rho_01"
+          ],
+          [
+            "-drho2_01 + omega2_02*rho_12 - omega2_12*rho_02",
+            "0",
+            "drho2_12 - omega2_01*rho_02 + omega2_02*rho_01"
+          ],
+          [
+            "-drho2_02 - omega2_01*rho_12 + omega2_12*rho_01",
+            "-drho2_12 + omega2_01*rho_02 - omega2_02*rho_01",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "drho3_01 - omega3_02*rho_12 + omega3_12*rho_02",
+            "drho3_02 + omega3_01*rho_12 - omega3_12*rho_01"
+          ],
+          [
+            "-drho3_01 + omega3_02*rho_12 - omega3_12*rho_02",
+            "0",
+            "drho3_12 - omega3_01*rho_02 + omega3_02*rho_01"
+          ],
+          [
+            "-drho3_02 - omega3_01*rho_12 + omega3_12*rho_01",
+            "-drho3_12 + omega3_01*rho_02 - omega3_02*rho_01",
+            "0"
+          ]
+        ]
+      ],
+      "rotation_residuals": [
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ]
+    },
+    "context": {
+      "C": [
+        [
+          [
+            "0",
+            "C0_01",
+            "C0_02"
+          ],
+          [
+            "-C0_01",
+            "0",
+            "C0_12"
+          ],
+          [
+            "-C0_02",
+            "-C0_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "C1_01",
+            "C1_02"
+          ],
+          [
+            "-C1_01",
+            "0",
+            "C1_12"
+          ],
+          [
+            "-C1_02",
+            "-C1_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "C2_01",
+            "C2_02"
+          ],
+          [
+            "-C2_01",
+            "0",
+            "C2_12"
+          ],
+          [
+            "-C2_02",
+            "-C2_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "C3_01",
+            "C3_02"
+          ],
+          [
+            "-C3_01",
+            "0",
+            "C3_12"
+          ],
+          [
+            "-C3_02",
+            "-C3_12",
+            "0"
+          ]
+        ]
+      ],
+      "N": "N",
+      "beta": [
+        [
+          "beta0"
+        ],
+        [
+          "beta1"
+        ],
+        [
+          "beta2"
+        ]
+      ],
+      "chi": "chi",
+      "dbeta": [
+        [
+          "dbeta0_0",
+          "dbeta0_1",
+          "dbeta0_2"
+        ],
+        [
+          "dbeta1_0",
+          "dbeta1_1",
+          "dbeta1_2"
+        ],
+        [
+          "dbeta2_0",
+          "dbeta2_1",
+          "dbeta2_2"
+        ],
+        [
+          "dbeta3_0",
+          "dbeta3_1",
+          "dbeta3_2"
+        ]
+      ],
+      "delta_A": [
+        [
+          [
+            "0",
+            "dA0_01",
+            "dA0_02"
+          ],
+          [
+            "-dA0_01",
+            "0",
+            "dA0_12"
+          ],
+          [
+            "-dA0_02",
+            "-dA0_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "dA1_01",
+            "dA1_02"
+          ],
+          [
+            "-dA1_01",
+            "0",
+            "dA1_12"
+          ],
+          [
+            "-dA1_02",
+            "-dA1_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "dA2_01",
+            "dA2_02"
+          ],
+          [
+            "-dA2_01",
+            "0",
+            "dA2_12"
+          ],
+          [
+            "-dA2_02",
+            "-dA2_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "dA3_01",
+            "dA3_02"
+          ],
+          [
+            "-dA3_01",
+            "0",
+            "dA3_12"
+          ],
+          [
+            "-dA3_02",
+            "-dA3_12",
+            "0"
+          ]
+        ]
+      ],
+      "df": [
+        [
+          "df0"
+        ],
+        [
+          "df1"
+        ],
+        [
+          "df2"
+        ],
+        [
+          "df3"
+        ]
+      ],
+      "dh": [
+        [
+          [
+            "dh0_00",
+            "dh0_01",
+            "dh0_02",
+            "dh0_03"
+          ],
+          [
+            "dh0_01",
+            "dh0_11",
+            "dh0_12",
+            "dh0_13"
+          ],
+          [
+            "dh0_02",
+            "dh0_12",
+            "dh0_22",
+            "dh0_23"
+          ],
+          [
+            "dh0_03",
+            "dh0_13",
+            "dh0_23",
+            "dh0_33"
+          ]
+        ],
+        [
+          [
+            "dh1_00",
+            "dh1_01",
+            "dh1_02",
+            "dh1_03"
+          ],
+          [
+            "dh1_01",
+            "dh1_11",
+            "dh1_12",
+            "dh1_13"
+          ],
+          [
+            "dh1_02",
+            "dh1_12",
+            "dh1_22",
+            "dh1_23"
+          ],
+          [
+            "dh1_03",
+            "dh1_13",
+            "dh1_23",
+            "dh1_33"
+          ]
+        ],
+        [
+          [
+            "dh2_00",
+            "dh2_01",
+            "dh2_02",
+            "dh2_03"
+          ],
+          [
+            "dh2_01",
+            "dh2_11",
+            "dh2_12",
+            "dh2_13"
+          ],
+          [
+            "dh2_02",
+            "dh2_12",
+            "dh2_22",
+            "dh2_23"
+          ],
+          [
+            "dh2_03",
+            "dh2_13",
+            "dh2_23",
+            "dh2_33"
+          ]
+        ],
+        [
+          [
+            "dh3_00",
+            "dh3_01",
+            "dh3_02",
+            "dh3_03"
+          ],
+          [
+            "dh3_01",
+            "dh3_11",
+            "dh3_12",
+            "dh3_13"
+          ],
+          [
+            "dh3_02",
+            "dh3_12",
+            "dh3_22",
+            "dh3_23"
+          ],
+          [
+            "dh3_03",
+            "dh3_13",
+            "dh3_23",
+            "dh3_33"
+          ]
+        ]
+      ],
+      "drho": [
+        [
+          [
+            "0",
+            "drho0_01",
+            "drho0_02"
+          ],
+          [
+            "-drho0_01",
+            "0",
+            "drho0_12"
+          ],
+          [
+            "-drho0_02",
+            "-drho0_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "drho1_01",
+            "drho1_02"
+          ],
+          [
+            "-drho1_01",
+            "0",
+            "drho1_12"
+          ],
+          [
+            "-drho1_02",
+            "-drho1_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "drho2_01",
+            "drho2_02"
+          ],
+          [
+            "-drho2_01",
+            "0",
+            "drho2_12"
+          ],
+          [
+            "-drho2_02",
+            "-drho2_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "drho3_01",
+            "drho3_02"
+          ],
+          [
+            "-drho3_01",
+            "0",
+            "drho3_12"
+          ],
+          [
+            "-drho3_02",
+            "-drho3_12",
+            "0"
+          ]
+        ]
+      ],
+      "frame": [
+        [
+          "3/8",
+          "0",
+          "0"
+        ],
+        [
+          "5/12",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "h": [
+        [
+          "h_00",
+          "h_01",
+          "h_02",
+          "h_03"
+        ],
+        [
+          "h_01",
+          "h_11",
+          "h_12",
+          "h_13"
+        ],
+        [
+          "h_02",
+          "h_12",
+          "h_22",
+          "h_23"
+        ],
+        [
+          "h_03",
+          "h_13",
+          "h_23",
+          "h_33"
+        ]
+      ],
+      "inverse_metric": [
+        [
+          "-1/4",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/9",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "kappa": [
+        [
+          "kappa0_0",
+          "kappa0_1",
+          "kappa0_2"
+        ],
+        [
+          "kappa1_0",
+          "kappa1_1",
+          "kappa1_2"
+        ],
+        [
+          "kappa2_0",
+          "kappa2_1",
+          "kappa2_2"
+        ],
+        [
+          "kappa3_0",
+          "kappa3_1",
+          "kappa3_2"
+        ]
+      ],
+      "metric": [
+        [
+          "-4",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "9",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "normal": [
+        [
+          "5/8"
+        ],
+        [
+          "1/4"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "omega": [
+        [
+          [
+            "0",
+            "omega0_01",
+            "omega0_02"
+          ],
+          [
+            "-omega0_01",
+            "0",
+            "omega0_12"
+          ],
+          [
+            "-omega0_02",
+            "-omega0_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "omega1_01",
+            "omega1_02"
+          ],
+          [
+            "-omega1_01",
+            "0",
+            "omega1_12"
+          ],
+          [
+            "-omega1_02",
+            "-omega1_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "omega2_01",
+            "omega2_02"
+          ],
+          [
+            "-omega2_01",
+            "0",
+            "omega2_12"
+          ],
+          [
+            "-omega2_02",
+            "-omega2_12",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "omega3_01",
+            "omega3_02"
+          ],
+          [
+            "-omega3_01",
+            "0",
+            "omega3_12"
+          ],
+          [
+            "-omega3_02",
+            "-omega3_12",
+            "0"
+          ]
+        ]
+      ],
+      "rho": [
+        [
+          "0",
+          "rho_01",
+          "rho_02"
+        ],
+        [
+          "-rho_01",
+          "0",
+          "rho_12"
+        ],
+        [
+          "-rho_02",
+          "-rho_12",
+          "0"
+        ]
+      ]
+    },
+    "current_density_variation": "C0_01*chi*dA0_01/4 + C0_02*chi*dA0_02/4 + C0_12*chi*dA0_12/4 - C1_01*chi*dA1_01/9 - C1_02*chi*dA1_02/9 - C1_12*chi*dA1_12/9 - C2_01*chi*dA2_01 - C2_02*chi*dA2_02 - C2_12*chi*dA2_12 - C3_01*chi*dA3_01 - C3_02*chi*dA3_02 - C3_12*chi*dA3_12",
+    "current_pairing": "C0_01*chi*dA0_01/4 + C0_02*chi*dA0_02/4 + C0_12*chi*dA0_12/4 - C1_01*chi*dA1_01/9 - C1_02*chi*dA1_02/9 - C1_12*chi*dA1_12/9 - C2_01*chi*dA2_01 - C2_02*chi*dA2_02 - C2_12*chi*dA2_12 - C3_01*chi*dA3_01 - C3_02*chi*dA3_02 - C3_12*chi*dA3_12",
+    "current_three_forms_per_unit_volume": [
+      {
+        "0,1,2": "-C3_01*chi",
+        "0,1,3": "C2_01*chi",
+        "0,2,3": "-C1_01*chi/9",
+        "1,2,3": "-C0_01*chi/4"
+      },
+      {
+        "0,1,2": "-C3_02*chi",
+        "0,1,3": "C2_02*chi",
+        "0,2,3": "-C1_02*chi/9",
+        "1,2,3": "-C0_02*chi/4"
+      },
+      {
+        "0,1,2": "-C3_12*chi",
+        "0,1,3": "C2_12*chi",
+        "0,2,3": "-C1_12*chi/9",
+        "1,2,3": "-C0_12*chi/4"
+      }
+    ],
+    "functional_adjoint": {
+      "E_T": "N(x0, x1, x2, x3)*Derivative(V0(x0, x1, x2, x3), x0) + N(x0, x1, x2, x3)*Derivative(V1(x0, x1, x2, x3), x1) + N(x0, x1, x2, x3)*Derivative(V2(x0, x1, x2, x3), x2) + N(x0, x1, x2, x3)*Derivative(V3(x0, x1, x2, x3), x3) + V0(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x0) + V1(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x1) + V2(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x2) + V3(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x3)",
+      "boundary_current": [
+        "-J001(x0, x1, x2, x3)*h01(x0, x1, x2, x3)/2 - J002(x0, x1, x2, x3)*h02(x0, x1, x2, x3)/2 - J003(x0, x1, x2, x3)*h03(x0, x1, x2, x3)/2 - J101(x0, x1, x2, x3)*h11(x0, x1, x2, x3)/2 - J102(x0, x1, x2, x3)*h12(x0, x1, x2, x3)/2 - J103(x0, x1, x2, x3)*h13(x0, x1, x2, x3)/2 - J201(x0, x1, x2, x3)*h12(x0, x1, x2, x3)/2 - J202(x0, x1, x2, x3)*h22(x0, x1, x2, x3)/2 - J203(x0, x1, x2, x3)*h23(x0, x1, x2, x3)/2 - J301(x0, x1, x2, x3)*h13(x0, x1, x2, x3)/2 - J302(x0, x1, x2, x3)*h23(x0, x1, x2, x3)/2 - J303(x0, x1, x2, x3)*h33(x0, x1, x2, x3)/2 - N(x0, x1, x2, x3)*V0(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)",
+        "J001(x0, x1, x2, x3)*h00(x0, x1, x2, x3)/2 - J012(x0, x1, x2, x3)*h02(x0, x1, x2, x3)/2 - J013(x0, x1, x2, x3)*h03(x0, x1, x2, x3)/2 + J101(x0, x1, x2, x3)*h01(x0, x1, x2, x3)/2 - J112(x0, x1, x2, x3)*h12(x0, x1, x2, x3)/2 - J113(x0, x1, x2, x3)*h13(x0, x1, x2, x3)/2 + J201(x0, x1, x2, x3)*h02(x0, x1, x2, x3)/2 - J212(x0, x1, x2, x3)*h22(x0, x1, x2, x3)/2 - J213(x0, x1, x2, x3)*h23(x0, x1, x2, x3)/2 + J301(x0, x1, x2, x3)*h03(x0, x1, x2, x3)/2 - J312(x0, x1, x2, x3)*h23(x0, x1, x2, x3)/2 - J313(x0, x1, x2, x3)*h33(x0, x1, x2, x3)/2 - N(x0, x1, x2, x3)*V1(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)",
+        "J002(x0, x1, x2, x3)*h00(x0, x1, x2, x3)/2 + J012(x0, x1, x2, x3)*h01(x0, x1, x2, x3)/2 - J023(x0, x1, x2, x3)*h03(x0, x1, x2, x3)/2 + J102(x0, x1, x2, x3)*h01(x0, x1, x2, x3)/2 + J112(x0, x1, x2, x3)*h11(x0, x1, x2, x3)/2 - J123(x0, x1, x2, x3)*h13(x0, x1, x2, x3)/2 + J202(x0, x1, x2, x3)*h02(x0, x1, x2, x3)/2 + J212(x0, x1, x2, x3)*h12(x0, x1, x2, x3)/2 - J223(x0, x1, x2, x3)*h23(x0, x1, x2, x3)/2 + J302(x0, x1, x2, x3)*h03(x0, x1, x2, x3)/2 + J312(x0, x1, x2, x3)*h13(x0, x1, x2, x3)/2 - J323(x0, x1, x2, x3)*h33(x0, x1, x2, x3)/2 - N(x0, x1, x2, x3)*V2(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)",
+        "J003(x0, x1, x2, x3)*h00(x0, x1, x2, x3)/2 + J013(x0, x1, x2, x3)*h01(x0, x1, x2, x3)/2 + J023(x0, x1, x2, x3)*h02(x0, x1, x2, x3)/2 + J103(x0, x1, x2, x3)*h01(x0, x1, x2, x3)/2 + J113(x0, x1, x2, x3)*h11(x0, x1, x2, x3)/2 + J123(x0, x1, x2, x3)*h12(x0, x1, x2, x3)/2 + J203(x0, x1, x2, x3)*h02(x0, x1, x2, x3)/2 + J213(x0, x1, x2, x3)*h12(x0, x1, x2, x3)/2 + J223(x0, x1, x2, x3)*h22(x0, x1, x2, x3)/2 + J303(x0, x1, x2, x3)*h03(x0, x1, x2, x3)/2 + J313(x0, x1, x2, x3)*h13(x0, x1, x2, x3)/2 + J323(x0, x1, x2, x3)*h23(x0, x1, x2, x3)/2 - N(x0, x1, x2, x3)*V3(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)"
+      ],
+      "metric_adjoint": [
+        [
+          "-Derivative(J001(x0, x1, x2, x3), x1) - Derivative(J002(x0, x1, x2, x3), x2) - Derivative(J003(x0, x1, x2, x3), x3)",
+          "Derivative(J001(x0, x1, x2, x3), x0)/2 - Derivative(J012(x0, x1, x2, x3), x2)/2 - Derivative(J013(x0, x1, x2, x3), x3)/2 - Derivative(J101(x0, x1, x2, x3), x1)/2 - Derivative(J102(x0, x1, x2, x3), x2)/2 - Derivative(J103(x0, x1, x2, x3), x3)/2",
+          "Derivative(J002(x0, x1, x2, x3), x0)/2 + Derivative(J012(x0, x1, x2, x3), x1)/2 - Derivative(J023(x0, x1, x2, x3), x3)/2 - Derivative(J201(x0, x1, x2, x3), x1)/2 - Derivative(J202(x0, x1, x2, x3), x2)/2 - Derivative(J203(x0, x1, x2, x3), x3)/2",
+          "Derivative(J003(x0, x1, x2, x3), x0)/2 + Derivative(J013(x0, x1, x2, x3), x1)/2 + Derivative(J023(x0, x1, x2, x3), x2)/2 - Derivative(J301(x0, x1, x2, x3), x1)/2 - Derivative(J302(x0, x1, x2, x3), x2)/2 - Derivative(J303(x0, x1, x2, x3), x3)/2"
+        ],
+        [
+          "Derivative(J001(x0, x1, x2, x3), x0)/2 - Derivative(J012(x0, x1, x2, x3), x2)/2 - Derivative(J013(x0, x1, x2, x3), x3)/2 - Derivative(J101(x0, x1, x2, x3), x1)/2 - Derivative(J102(x0, x1, x2, x3), x2)/2 - Derivative(J103(x0, x1, x2, x3), x3)/2",
+          "Derivative(J101(x0, x1, x2, x3), x0) - Derivative(J112(x0, x1, x2, x3), x2) - Derivative(J113(x0, x1, x2, x3), x3)",
+          "Derivative(J102(x0, x1, x2, x3), x0)/2 + Derivative(J112(x0, x1, x2, x3), x1)/2 - Derivative(J123(x0, x1, x2, x3), x3)/2 + Derivative(J201(x0, x1, x2, x3), x0)/2 - Derivative(J212(x0, x1, x2, x3), x2)/2 - Derivative(J213(x0, x1, x2, x3), x3)/2",
+          "Derivative(J103(x0, x1, x2, x3), x0)/2 + Derivative(J113(x0, x1, x2, x3), x1)/2 + Derivative(J123(x0, x1, x2, x3), x2)/2 + Derivative(J301(x0, x1, x2, x3), x0)/2 - Derivative(J312(x0, x1, x2, x3), x2)/2 - Derivative(J313(x0, x1, x2, x3), x3)/2"
+        ],
+        [
+          "Derivative(J002(x0, x1, x2, x3), x0)/2 + Derivative(J012(x0, x1, x2, x3), x1)/2 - Derivative(J023(x0, x1, x2, x3), x3)/2 - Derivative(J201(x0, x1, x2, x3), x1)/2 - Derivative(J202(x0, x1, x2, x3), x2)/2 - Derivative(J203(x0, x1, x2, x3), x3)/2",
+          "Derivative(J102(x0, x1, x2, x3), x0)/2 + Derivative(J112(x0, x1, x2, x3), x1)/2 - Derivative(J123(x0, x1, x2, x3), x3)/2 + Derivative(J201(x0, x1, x2, x3), x0)/2 - Derivative(J212(x0, x1, x2, x3), x2)/2 - Derivative(J213(x0, x1, x2, x3), x3)/2",
+          "Derivative(J202(x0, x1, x2, x3), x0) + Derivative(J212(x0, x1, x2, x3), x1) - Derivative(J223(x0, x1, x2, x3), x3)",
+          "Derivative(J203(x0, x1, x2, x3), x0)/2 + Derivative(J213(x0, x1, x2, x3), x1)/2 + Derivative(J223(x0, x1, x2, x3), x2)/2 + Derivative(J302(x0, x1, x2, x3), x0)/2 + Derivative(J312(x0, x1, x2, x3), x1)/2 - Derivative(J323(x0, x1, x2, x3), x3)/2"
+        ],
+        [
+          "Derivative(J003(x0, x1, x2, x3), x0)/2 + Derivative(J013(x0, x1, x2, x3), x1)/2 + Derivative(J023(x0, x1, x2, x3), x2)/2 - Derivative(J301(x0, x1, x2, x3), x1)/2 - Derivative(J302(x0, x1, x2, x3), x2)/2 - Derivative(J303(x0, x1, x2, x3), x3)/2",
+          "Derivative(J103(x0, x1, x2, x3), x0)/2 + Derivative(J113(x0, x1, x2, x3), x1)/2 + Derivative(J123(x0, x1, x2, x3), x2)/2 + Derivative(J301(x0, x1, x2, x3), x0)/2 - Derivative(J312(x0, x1, x2, x3), x2)/2 - Derivative(J313(x0, x1, x2, x3), x3)/2",
+          "Derivative(J203(x0, x1, x2, x3), x0)/2 + Derivative(J213(x0, x1, x2, x3), x1)/2 + Derivative(J223(x0, x1, x2, x3), x2)/2 + Derivative(J302(x0, x1, x2, x3), x0)/2 + Derivative(J312(x0, x1, x2, x3), x1)/2 - Derivative(J323(x0, x1, x2, x3), x3)/2",
+          "Derivative(J303(x0, x1, x2, x3), x0) + Derivative(J313(x0, x1, x2, x3), x1) + Derivative(J323(x0, x1, x2, x3), x2)"
+        ]
+      ],
+      "residual": "0",
+      "wrong_T_sign_residual": "2*N(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(V0(x0, x1, x2, x3), x0) + 2*N(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(V1(x0, x1, x2, x3), x1) + 2*N(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(V2(x0, x1, x2, x3), x2) + 2*N(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(V3(x0, x1, x2, x3), x3) + 2*V0(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x0) + 2*V1(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x1) + 2*V2(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x2) + 2*V3(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x3)",
+      "wrong_metric_half_residual": "-h00(x0, x1, x2, x3)*Derivative(J001(x0, x1, x2, x3), x1)/2 - h00(x0, x1, x2, x3)*Derivative(J002(x0, x1, x2, x3), x2)/2 - h00(x0, x1, x2, x3)*Derivative(J003(x0, x1, x2, x3), x3)/2 + h01(x0, x1, x2, x3)*Derivative(J001(x0, x1, x2, x3), x0)/2 - h01(x0, x1, x2, x3)*Derivative(J012(x0, x1, x2, x3), x2)/2 - h01(x0, x1, x2, x3)*Derivative(J013(x0, x1, x2, x3), x3)/2 - h01(x0, x1, x2, x3)*Derivative(J101(x0, x1, x2, x3), x1)/2 - h01(x0, x1, x2, x3)*Derivative(J102(x0, x1, x2, x3), x2)/2 - h01(x0, x1, x2, x3)*Derivative(J103(x0, x1, x2, x3), x3)/2 + h02(x0, x1, x2, x3)*Derivative(J002(x0, x1, x2, x3), x0)/2 + h02(x0, x1, x2, x3)*Derivative(J012(x0, x1, x2, x3), x1)/2 - h02(x0, x1, x2, x3)*Derivative(J023(x0, x1, x2, x3), x3)/2 - h02(x0, x1, x2, x3)*Derivative(J201(x0, x1, x2, x3), x1)/2 - h02(x0, x1, x2, x3)*Derivative(J202(x0, x1, x2, x3), x2)/2 - h02(x0, x1, x2, x3)*Derivative(J203(x0, x1, x2, x3), x3)/2 + h03(x0, x1, x2, x3)*Derivative(J003(x0, x1, x2, x3), x0)/2 + h03(x0, x1, x2, x3)*Derivative(J013(x0, x1, x2, x3), x1)/2 + h03(x0, x1, x2, x3)*Derivative(J023(x0, x1, x2, x3), x2)/2 - h03(x0, x1, x2, x3)*Derivative(J301(x0, x1, x2, x3), x1)/2 - h03(x0, x1, x2, x3)*Derivative(J302(x0, x1, x2, x3), x2)/2 - h03(x0, x1, x2, x3)*Derivative(J303(x0, x1, x2, x3), x3)/2 + h11(x0, x1, x2, x3)*Derivative(J101(x0, x1, x2, x3), x0)/2 - h11(x0, x1, x2, x3)*Derivative(J112(x0, x1, x2, x3), x2)/2 - h11(x0, x1, x2, x3)*Derivative(J113(x0, x1, x2, x3), x3)/2 + h12(x0, x1, x2, x3)*Derivative(J102(x0, x1, x2, x3), x0)/2 + h12(x0, x1, x2, x3)*Derivative(J112(x0, x1, x2, x3), x1)/2 - h12(x0, x1, x2, x3)*Derivative(J123(x0, x1, x2, x3), x3)/2 + h12(x0, x1, x2, x3)*Derivative(J201(x0, x1, x2, x3), x0)/2 - h12(x0, x1, x2, x3)*Derivative(J212(x0, x1, x2, x3), x2)/2 - h12(x0, x1, x2, x3)*Derivative(J213(x0, x1, x2, x3), x3)/2 + h13(x0, x1, x2, x3)*Derivative(J103(x0, x1, x2, x3), x0)/2 + h13(x0, x1, x2, x3)*Derivative(J113(x0, x1, x2, x3), x1)/2 + h13(x0, x1, x2, x3)*Derivative(J123(x0, x1, x2, x3), x2)/2 + h13(x0, x1, x2, x3)*Derivative(J301(x0, x1, x2, x3), x0)/2 - h13(x0, x1, x2, x3)*Derivative(J312(x0, x1, x2, x3), x2)/2 - h13(x0, x1, x2, x3)*Derivative(J313(x0, x1, x2, x3), x3)/2 + h22(x0, x1, x2, x3)*Derivative(J202(x0, x1, x2, x3), x0)/2 + h22(x0, x1, x2, x3)*Derivative(J212(x0, x1, x2, x3), x1)/2 - h22(x0, x1, x2, x3)*Derivative(J223(x0, x1, x2, x3), x3)/2 + h23(x0, x1, x2, x3)*Derivative(J203(x0, x1, x2, x3), x0)/2 + h23(x0, x1, x2, x3)*Derivative(J213(x0, x1, x2, x3), x1)/2 + h23(x0, x1, x2, x3)*Derivative(J223(x0, x1, x2, x3), x2)/2 + h23(x0, x1, x2, x3)*Derivative(J302(x0, x1, x2, x3), x0)/2 + h23(x0, x1, x2, x3)*Derivative(J312(x0, x1, x2, x3), x1)/2 - h23(x0, x1, x2, x3)*Derivative(J323(x0, x1, x2, x3), x3)/2 + h33(x0, x1, x2, x3)*Derivative(J303(x0, x1, x2, x3), x0)/2 + h33(x0, x1, x2, x3)*Derivative(J313(x0, x1, x2, x3), x1)/2 + h33(x0, x1, x2, x3)*Derivative(J323(x0, x1, x2, x3), x2)/2"
+    },
+    "negative_controls": {
+      "freeze_frame": [
+        [
+          [
+            "9*dh0_00/128 + 5*dh0_01/32 + 25*dh0_11/288 + 15*h_00*kappa0_0/64 + 17*h_01*kappa0_0/48 - 3*h_02*omega0_01/8 - 3*h_03*omega0_02/8 + 5*h_11*kappa0_0/48 - 5*h_12*omega0_01/12 - 5*h_13*omega0_02/12",
+            "beta0*kappa0_1 - beta1*kappa0_0 + 3*dh0_02/16 + 5*dh0_12/24 + 15*h_00*kappa0_1/64 + 9*h_00*omega0_01/64 + 17*h_01*kappa0_1/48 + 5*h_01*omega0_01/16 - 3*h_03*omega0_12/8 + 5*h_11*kappa0_1/48 + 25*h_11*omega0_01/144 - 5*h_13*omega0_12/12",
+            "beta0*kappa0_2 - beta2*kappa0_0 + 3*dh0_03/16 + 5*dh0_13/24 + 15*h_00*kappa0_2/64 + 9*h_00*omega0_02/64 + 17*h_01*kappa0_2/48 + 5*h_01*omega0_02/16 + 3*h_02*omega0_12/8 + 5*h_11*kappa0_2/48 + 25*h_11*omega0_02/144 + 5*h_12*omega0_12/12"
+          ],
+          [
+            "-beta0*kappa0_1 + beta1*kappa0_0 + 3*dh0_02/16 + 5*dh0_12/24 + 5*h_02*kappa0_0/8 + h_12*kappa0_0/4 - h_22*omega0_01 - h_23*omega0_02",
+            "dh0_22/2 + 5*h_02*kappa0_1/8 + 3*h_02*omega0_01/8 + h_12*kappa0_1/4 + 5*h_12*omega0_01/12 - h_23*omega0_12",
+            "beta1*kappa0_2 - beta2*kappa0_1 + dh0_23/2 + 5*h_02*kappa0_2/8 + 3*h_02*omega0_02/8 + h_12*kappa0_2/4 + 5*h_12*omega0_02/12 + h_22*omega0_12"
+          ],
+          [
+            "-beta0*kappa0_2 + beta2*kappa0_0 + 3*dh0_03/16 + 5*dh0_13/24 + 5*h_03*kappa0_0/8 + h_13*kappa0_0/4 - h_23*omega0_01 - h_33*omega0_02",
+            "-beta1*kappa0_2 + beta2*kappa0_1 + dh0_23/2 + 5*h_03*kappa0_1/8 + 3*h_03*omega0_01/8 + h_13*kappa0_1/4 + 5*h_13*omega0_01/12 - h_33*omega0_12",
+            "dh0_33/2 + 5*h_03*kappa0_2/8 + 3*h_03*omega0_02/8 + h_13*kappa0_2/4 + 5*h_13*omega0_02/12 + h_23*omega0_12"
+          ]
+        ],
+        [
+          [
+            "9*dh1_00/128 + 5*dh1_01/32 + 25*dh1_11/288 + 15*h_00*kappa1_0/64 + 17*h_01*kappa1_0/48 - 3*h_02*omega1_01/8 - 3*h_03*omega1_02/8 + 5*h_11*kappa1_0/48 - 5*h_12*omega1_01/12 - 5*h_13*omega1_02/12",
+            "beta0*kappa1_1 - beta1*kappa1_0 + 3*dh1_02/16 + 5*dh1_12/24 + 15*h_00*kappa1_1/64 + 9*h_00*omega1_01/64 + 17*h_01*kappa1_1/48 + 5*h_01*omega1_01/16 - 3*h_03*omega1_12/8 + 5*h_11*kappa1_1/48 + 25*h_11*omega1_01/144 - 5*h_13*omega1_12/12",
+            "beta0*kappa1_2 - beta2*kappa1_0 + 3*dh1_03/16 + 5*dh1_13/24 + 15*h_00*kappa1_2/64 + 9*h_00*omega1_02/64 + 17*h_01*kappa1_2/48 + 5*h_01*omega1_02/16 + 3*h_02*omega1_12/8 + 5*h_11*kappa1_2/48 + 25*h_11*omega1_02/144 + 5*h_12*omega1_12/12"
+          ],
+          [
+            "-beta0*kappa1_1 + beta1*kappa1_0 + 3*dh1_02/16 + 5*dh1_12/24 + 5*h_02*kappa1_0/8 + h_12*kappa1_0/4 - h_22*omega1_01 - h_23*omega1_02",
+            "dh1_22/2 + 5*h_02*kappa1_1/8 + 3*h_02*omega1_01/8 + h_12*kappa1_1/4 + 5*h_12*omega1_01/12 - h_23*omega1_12",
+            "beta1*kappa1_2 - beta2*kappa1_1 + dh1_23/2 + 5*h_02*kappa1_2/8 + 3*h_02*omega1_02/8 + h_12*kappa1_2/4 + 5*h_12*omega1_02/12 + h_22*omega1_12"
+          ],
+          [
+            "-beta0*kappa1_2 + beta2*kappa1_0 + 3*dh1_03/16 + 5*dh1_13/24 + 5*h_03*kappa1_0/8 + h_13*kappa1_0/4 - h_23*omega1_01 - h_33*omega1_02",
+            "-beta1*kappa1_2 + beta2*kappa1_1 + dh1_23/2 + 5*h_03*kappa1_1/8 + 3*h_03*omega1_01/8 + h_13*kappa1_1/4 + 5*h_13*omega1_01/12 - h_33*omega1_12",
+            "dh1_33/2 + 5*h_03*kappa1_2/8 + 3*h_03*omega1_02/8 + h_13*kappa1_2/4 + 5*h_13*omega1_02/12 + h_23*omega1_12"
+          ]
+        ],
+        [
+          [
+            "9*dh2_00/128 + 5*dh2_01/32 + 25*dh2_11/288 + 15*h_00*kappa2_0/64 + 17*h_01*kappa2_0/48 - 3*h_02*omega2_01/8 - 3*h_03*omega2_02/8 + 5*h_11*kappa2_0/48 - 5*h_12*omega2_01/12 - 5*h_13*omega2_02/12",
+            "beta0*kappa2_1 - beta1*kappa2_0 + 3*dh2_02/16 + 5*dh2_12/24 + 15*h_00*kappa2_1/64 + 9*h_00*omega2_01/64 + 17*h_01*kappa2_1/48 + 5*h_01*omega2_01/16 - 3*h_03*omega2_12/8 + 5*h_11*kappa2_1/48 + 25*h_11*omega2_01/144 - 5*h_13*omega2_12/12",
+            "beta0*kappa2_2 - beta2*kappa2_0 + 3*dh2_03/16 + 5*dh2_13/24 + 15*h_00*kappa2_2/64 + 9*h_00*omega2_02/64 + 17*h_01*kappa2_2/48 + 5*h_01*omega2_02/16 + 3*h_02*omega2_12/8 + 5*h_11*kappa2_2/48 + 25*h_11*omega2_02/144 + 5*h_12*omega2_12/12"
+          ],
+          [
+            "-beta0*kappa2_1 + beta1*kappa2_0 + 3*dh2_02/16 + 5*dh2_12/24 + 5*h_02*kappa2_0/8 + h_12*kappa2_0/4 - h_22*omega2_01 - h_23*omega2_02",
+            "dh2_22/2 + 5*h_02*kappa2_1/8 + 3*h_02*omega2_01/8 + h_12*kappa2_1/4 + 5*h_12*omega2_01/12 - h_23*omega2_12",
+            "beta1*kappa2_2 - beta2*kappa2_1 + dh2_23/2 + 5*h_02*kappa2_2/8 + 3*h_02*omega2_02/8 + h_12*kappa2_2/4 + 5*h_12*omega2_02/12 + h_22*omega2_12"
+          ],
+          [
+            "-beta0*kappa2_2 + beta2*kappa2_0 + 3*dh2_03/16 + 5*dh2_13/24 + 5*h_03*kappa2_0/8 + h_13*kappa2_0/4 - h_23*omega2_01 - h_33*omega2_02",
+            "-beta1*kappa2_2 + beta2*kappa2_1 + dh2_23/2 + 5*h_03*kappa2_1/8 + 3*h_03*omega2_01/8 + h_13*kappa2_1/4 + 5*h_13*omega2_01/12 - h_33*omega2_12",
+            "dh2_33/2 + 5*h_03*kappa2_2/8 + 3*h_03*omega2_02/8 + h_13*kappa2_2/4 + 5*h_13*omega2_02/12 + h_23*omega2_12"
+          ]
+        ],
+        [
+          [
+            "9*dh3_00/128 + 5*dh3_01/32 + 25*dh3_11/288 + 15*h_00*kappa3_0/64 + 17*h_01*kappa3_0/48 - 3*h_02*omega3_01/8 - 3*h_03*omega3_02/8 + 5*h_11*kappa3_0/48 - 5*h_12*omega3_01/12 - 5*h_13*omega3_02/12",
+            "beta0*kappa3_1 - beta1*kappa3_0 + 3*dh3_02/16 + 5*dh3_12/24 + 15*h_00*kappa3_1/64 + 9*h_00*omega3_01/64 + 17*h_01*kappa3_1/48 + 5*h_01*omega3_01/16 - 3*h_03*omega3_12/8 + 5*h_11*kappa3_1/48 + 25*h_11*omega3_01/144 - 5*h_13*omega3_12/12",
+            "beta0*kappa3_2 - beta2*kappa3_0 + 3*dh3_03/16 + 5*dh3_13/24 + 15*h_00*kappa3_2/64 + 9*h_00*omega3_02/64 + 17*h_01*kappa3_2/48 + 5*h_01*omega3_02/16 + 3*h_02*omega3_12/8 + 5*h_11*kappa3_2/48 + 25*h_11*omega3_02/144 + 5*h_12*omega3_12/12"
+          ],
+          [
+            "-beta0*kappa3_1 + beta1*kappa3_0 + 3*dh3_02/16 + 5*dh3_12/24 + 5*h_02*kappa3_0/8 + h_12*kappa3_0/4 - h_22*omega3_01 - h_23*omega3_02",
+            "dh3_22/2 + 5*h_02*kappa3_1/8 + 3*h_02*omega3_01/8 + h_12*kappa3_1/4 + 5*h_12*omega3_01/12 - h_23*omega3_12",
+            "beta1*kappa3_2 - beta2*kappa3_1 + dh3_23/2 + 5*h_02*kappa3_2/8 + 3*h_02*omega3_02/8 + h_12*kappa3_2/4 + 5*h_12*omega3_02/12 + h_22*omega3_12"
+          ],
+          [
+            "-beta0*kappa3_2 + beta2*kappa3_0 + 3*dh3_03/16 + 5*dh3_13/24 + 5*h_03*kappa3_0/8 + h_13*kappa3_0/4 - h_23*omega3_01 - h_33*omega3_02",
+            "-beta1*kappa3_2 + beta2*kappa3_1 + dh3_23/2 + 5*h_03*kappa3_1/8 + 3*h_03*omega3_01/8 + h_13*kappa3_1/4 + 5*h_13*omega3_01/12 - h_33*omega3_12",
+            "dh3_33/2 + 5*h_03*kappa3_2/8 + 3*h_03*omega3_02/8 + h_13*kappa3_2/4 + 5*h_13*omega3_02/12 + h_23*omega3_12"
+          ]
+        ]
+      ],
+      "omit_metric_curl": [
+        [
+          [
+            "0",
+            "-3*dh0_02/16 - 5*dh1_02/24 + 3*dh2_00/16 + 5*dh2_01/24",
+            "-3*dh0_03/16 - 5*dh1_03/24 + 3*dh3_00/16 + 5*dh3_01/24"
+          ],
+          [
+            "3*dh0_02/16 + 5*dh1_02/24 - 3*dh2_00/16 - 5*dh2_01/24",
+            "0",
+            "-dh2_03/2 + dh3_02/2"
+          ],
+          [
+            "3*dh0_03/16 + 5*dh1_03/24 - 3*dh3_00/16 - 5*dh3_01/24",
+            "dh2_03/2 - dh3_02/2",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-3*dh0_12/16 - 5*dh1_12/24 + 3*dh2_01/16 + 5*dh2_11/24",
+            "-3*dh0_13/16 - 5*dh1_13/24 + 3*dh3_01/16 + 5*dh3_11/24"
+          ],
+          [
+            "3*dh0_12/16 + 5*dh1_12/24 - 3*dh2_01/16 - 5*dh2_11/24",
+            "0",
+            "-dh2_13/2 + dh3_12/2"
+          ],
+          [
+            "3*dh0_13/16 + 5*dh1_13/24 - 3*dh3_01/16 - 5*dh3_11/24",
+            "dh2_13/2 - dh3_12/2",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-3*dh0_22/16 - 5*dh1_22/24 + 3*dh2_02/16 + 5*dh2_12/24",
+            "-3*dh0_23/16 - 5*dh1_23/24 + 3*dh3_02/16 + 5*dh3_12/24"
+          ],
+          [
+            "3*dh0_22/16 + 5*dh1_22/24 - 3*dh2_02/16 - 5*dh2_12/24",
+            "0",
+            "-dh2_23/2 + dh3_22/2"
+          ],
+          [
+            "3*dh0_23/16 + 5*dh1_23/24 - 3*dh3_02/16 - 5*dh3_12/24",
+            "dh2_23/2 - dh3_22/2",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-3*dh0_23/16 - 5*dh1_23/24 + 3*dh2_03/16 + 5*dh2_13/24",
+            "-3*dh0_33/16 - 5*dh1_33/24 + 3*dh3_03/16 + 5*dh3_13/24"
+          ],
+          [
+            "3*dh0_23/16 + 5*dh1_23/24 - 3*dh2_03/16 - 5*dh2_13/24",
+            "0",
+            "-dh2_33/2 + dh3_23/2"
+          ],
+          [
+            "3*dh0_33/16 + 5*dh1_33/24 - 3*dh3_03/16 - 5*dh3_13/24",
+            "dh2_33/2 - dh3_23/2",
+            "0"
+          ]
+        ]
+      ],
+      "reverse_E_T_sign": "2*N(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(V0(x0, x1, x2, x3), x0) + 2*N(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(V1(x0, x1, x2, x3), x1) + 2*N(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(V2(x0, x1, x2, x3), x2) + 2*N(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(V3(x0, x1, x2, x3), x3) + 2*V0(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x0) + 2*V1(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x1) + 2*V2(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x2) + 2*V3(x0, x1, x2, x3)*deltaT(x0, x1, x2, x3)*Derivative(N(x0, x1, x2, x3), x3)",
+      "reverse_boost_sign": [
+        [
+          [
+            "0",
+            "-2*beta0*kappa0_1 + 2*beta1*kappa0_0",
+            "-2*beta0*kappa0_2 + 2*beta2*kappa0_0"
+          ],
+          [
+            "2*beta0*kappa0_1 - 2*beta1*kappa0_0",
+            "0",
+            "-2*beta1*kappa0_2 + 2*beta2*kappa0_1"
+          ],
+          [
+            "2*beta0*kappa0_2 - 2*beta2*kappa0_0",
+            "2*beta1*kappa0_2 - 2*beta2*kappa0_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-2*beta0*kappa1_1 + 2*beta1*kappa1_0",
+            "-2*beta0*kappa1_2 + 2*beta2*kappa1_0"
+          ],
+          [
+            "2*beta0*kappa1_1 - 2*beta1*kappa1_0",
+            "0",
+            "-2*beta1*kappa1_2 + 2*beta2*kappa1_1"
+          ],
+          [
+            "2*beta0*kappa1_2 - 2*beta2*kappa1_0",
+            "2*beta1*kappa1_2 - 2*beta2*kappa1_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-2*beta0*kappa2_1 + 2*beta1*kappa2_0",
+            "-2*beta0*kappa2_2 + 2*beta2*kappa2_0"
+          ],
+          [
+            "2*beta0*kappa2_1 - 2*beta1*kappa2_0",
+            "0",
+            "-2*beta1*kappa2_2 + 2*beta2*kappa2_1"
+          ],
+          [
+            "2*beta0*kappa2_2 - 2*beta2*kappa2_0",
+            "2*beta1*kappa2_2 - 2*beta2*kappa2_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-2*beta0*kappa3_1 + 2*beta1*kappa3_0",
+            "-2*beta0*kappa3_2 + 2*beta2*kappa3_0"
+          ],
+          [
+            "2*beta0*kappa3_1 - 2*beta1*kappa3_0",
+            "0",
+            "-2*beta1*kappa3_2 + 2*beta2*kappa3_1"
+          ],
+          [
+            "2*beta0*kappa3_2 - 2*beta2*kappa3_0",
+            "2*beta1*kappa3_2 - 2*beta2*kappa3_1",
+            "0"
+          ]
+        ]
+      ],
+      "reverse_current_sign": "C0_01*chi*dA0_01/2 + C0_02*chi*dA0_02/2 + C0_12*chi*dA0_12/2 - 2*C1_01*chi*dA1_01/9 - 2*C1_02*chi*dA1_02/9 - 2*C1_12*chi*dA1_12/9 - 2*C2_01*chi*dA2_01 - 2*C2_02*chi*dA2_02 - 2*C2_12*chi*dA2_12 - 2*C3_01*chi*dA3_01 - 2*C3_02*chi*dA3_02 - 2*C3_12*chi*dA3_12",
+      "rotate_frame_without_A": "-C0_01*drho0_01/2 + C0_01*omega0_02*rho_12/2 - C0_01*omega0_12*rho_02/2 - C0_02*drho0_02/2 - C0_02*omega0_01*rho_12/2 + C0_02*omega0_12*rho_01/2 - C0_12*drho0_12/2 + C0_12*omega0_01*rho_02/2 - C0_12*omega0_02*rho_01/2 + 2*C1_01*drho1_01/9 - 2*C1_01*omega1_02*rho_12/9 + 2*C1_01*omega1_12*rho_02/9 + 2*C1_02*drho1_02/9 + 2*C1_02*omega1_01*rho_12/9 - 2*C1_02*omega1_12*rho_01/9 + 2*C1_12*drho1_12/9 - 2*C1_12*omega1_01*rho_02/9 + 2*C1_12*omega1_02*rho_01/9 + 2*C2_01*drho2_01 - 2*C2_01*omega2_02*rho_12 + 2*C2_01*omega2_12*rho_02 + 2*C2_02*drho2_02 + 2*C2_02*omega2_01*rho_12 - 2*C2_02*omega2_12*rho_01 + 2*C2_12*drho2_12 - 2*C2_12*omega2_01*rho_02 + 2*C2_12*omega2_02*rho_01 + 2*C3_01*drho3_01 - 2*C3_01*omega3_02*rho_12 + 2*C3_01*omega3_12*rho_02 + 2*C3_02*drho3_02 + 2*C3_02*omega3_01*rho_12 - 2*C3_02*omega3_12*rho_01 + 2*C3_12*drho3_12 - 2*C3_12*omega3_01*rho_02 + 2*C3_12*omega3_02*rho_01",
+      "wrong_metric_adjoint_half": "-h00(x0, x1, x2, x3)*Derivative(J001(x0, x1, x2, x3), x1)/2 - h00(x0, x1, x2, x3)*Derivative(J002(x0, x1, x2, x3), x2)/2 - h00(x0, x1, x2, x3)*Derivative(J003(x0, x1, x2, x3), x3)/2 + h01(x0, x1, x2, x3)*Derivative(J001(x0, x1, x2, x3), x0)/2 - h01(x0, x1, x2, x3)*Derivative(J012(x0, x1, x2, x3), x2)/2 - h01(x0, x1, x2, x3)*Derivative(J013(x0, x1, x2, x3), x3)/2 - h01(x0, x1, x2, x3)*Derivative(J101(x0, x1, x2, x3), x1)/2 - h01(x0, x1, x2, x3)*Derivative(J102(x0, x1, x2, x3), x2)/2 - h01(x0, x1, x2, x3)*Derivative(J103(x0, x1, x2, x3), x3)/2 + h02(x0, x1, x2, x3)*Derivative(J002(x0, x1, x2, x3), x0)/2 + h02(x0, x1, x2, x3)*Derivative(J012(x0, x1, x2, x3), x1)/2 - h02(x0, x1, x2, x3)*Derivative(J023(x0, x1, x2, x3), x3)/2 - h02(x0, x1, x2, x3)*Derivative(J201(x0, x1, x2, x3), x1)/2 - h02(x0, x1, x2, x3)*Derivative(J202(x0, x1, x2, x3), x2)/2 - h02(x0, x1, x2, x3)*Derivative(J203(x0, x1, x2, x3), x3)/2 + h03(x0, x1, x2, x3)*Derivative(J003(x0, x1, x2, x3), x0)/2 + h03(x0, x1, x2, x3)*Derivative(J013(x0, x1, x2, x3), x1)/2 + h03(x0, x1, x2, x3)*Derivative(J023(x0, x1, x2, x3), x2)/2 - h03(x0, x1, x2, x3)*Derivative(J301(x0, x1, x2, x3), x1)/2 - h03(x0, x1, x2, x3)*Derivative(J302(x0, x1, x2, x3), x2)/2 - h03(x0, x1, x2, x3)*Derivative(J303(x0, x1, x2, x3), x3)/2 + h11(x0, x1, x2, x3)*Derivative(J101(x0, x1, x2, x3), x0)/2 - h11(x0, x1, x2, x3)*Derivative(J112(x0, x1, x2, x3), x2)/2 - h11(x0, x1, x2, x3)*Derivative(J113(x0, x1, x2, x3), x3)/2 + h12(x0, x1, x2, x3)*Derivative(J102(x0, x1, x2, x3), x0)/2 + h12(x0, x1, x2, x3)*Derivative(J112(x0, x1, x2, x3), x1)/2 - h12(x0, x1, x2, x3)*Derivative(J123(x0, x1, x2, x3), x3)/2 + h12(x0, x1, x2, x3)*Derivative(J201(x0, x1, x2, x3), x0)/2 - h12(x0, x1, x2, x3)*Derivative(J212(x0, x1, x2, x3), x2)/2 - h12(x0, x1, x2, x3)*Derivative(J213(x0, x1, x2, x3), x3)/2 + h13(x0, x1, x2, x3)*Derivative(J103(x0, x1, x2, x3), x0)/2 + h13(x0, x1, x2, x3)*Derivative(J113(x0, x1, x2, x3), x1)/2 + h13(x0, x1, x2, x3)*Derivative(J123(x0, x1, x2, x3), x2)/2 + h13(x0, x1, x2, x3)*Derivative(J301(x0, x1, x2, x3), x0)/2 - h13(x0, x1, x2, x3)*Derivative(J312(x0, x1, x2, x3), x2)/2 - h13(x0, x1, x2, x3)*Derivative(J313(x0, x1, x2, x3), x3)/2 + h22(x0, x1, x2, x3)*Derivative(J202(x0, x1, x2, x3), x0)/2 + h22(x0, x1, x2, x3)*Derivative(J212(x0, x1, x2, x3), x1)/2 - h22(x0, x1, x2, x3)*Derivative(J223(x0, x1, x2, x3), x3)/2 + h23(x0, x1, x2, x3)*Derivative(J203(x0, x1, x2, x3), x0)/2 + h23(x0, x1, x2, x3)*Derivative(J213(x0, x1, x2, x3), x1)/2 + h23(x0, x1, x2, x3)*Derivative(J223(x0, x1, x2, x3), x2)/2 + h23(x0, x1, x2, x3)*Derivative(J302(x0, x1, x2, x3), x0)/2 + h23(x0, x1, x2, x3)*Derivative(J312(x0, x1, x2, x3), x1)/2 - h23(x0, x1, x2, x3)*Derivative(J323(x0, x1, x2, x3), x3)/2 + h33(x0, x1, x2, x3)*Derivative(J303(x0, x1, x2, x3), x0)/2 + h33(x0, x1, x2, x3)*Derivative(J313(x0, x1, x2, x3), x1)/2 + h33(x0, x1, x2, x3)*Derivative(J323(x0, x1, x2, x3), x2)/2"
+    },
+    "normal_variation": [
+      [
+        "5*N**2*((5*df0/4 + df1/2)/N + (25*h_00/64 + 5*h_01/16 + h_11/16)/N**2)/4 - N*df0"
+      ],
+      [
+        "-9*N**2*((5*df0/4 + df1/2)/N + (25*h_00/64 + 5*h_01/16 + h_11/16)/N**2)/8 - N*df1"
+      ],
+      [
+        "-N*df2"
+      ],
+      [
+        "-N*df3"
+      ]
+    ],
+    "omega_density_reference": "C0_01*beta0*chi*kappa0_1/4 - C0_01*beta1*chi*kappa0_0/4 + 3*C0_01*chi*dh0_02/64 + 5*C0_01*chi*dh1_02/96 - 3*C0_01*chi*dh2_00/64 - 5*C0_01*chi*dh2_01/96 + C0_02*beta0*chi*kappa0_2/4 - C0_02*beta2*chi*kappa0_0/4 + 3*C0_02*chi*dh0_03/64 + 5*C0_02*chi*dh1_03/96 - 3*C0_02*chi*dh3_00/64 - 5*C0_02*chi*dh3_01/96 + C0_12*beta1*chi*kappa0_2/4 - C0_12*beta2*chi*kappa0_1/4 + C0_12*chi*dh2_03/8 - C0_12*chi*dh3_02/8 - C1_01*beta0*chi*kappa1_1/9 + C1_01*beta1*chi*kappa1_0/9 - C1_01*chi*dh0_12/48 - 5*C1_01*chi*dh1_12/216 + C1_01*chi*dh2_01/48 + 5*C1_01*chi*dh2_11/216 - C1_02*beta0*chi*kappa1_2/9 + C1_02*beta2*chi*kappa1_0/9 - C1_02*chi*dh0_13/48 - 5*C1_02*chi*dh1_13/216 + C1_02*chi*dh3_01/48 + 5*C1_02*chi*dh3_11/216 - C1_12*beta1*chi*kappa1_2/9 + C1_12*beta2*chi*kappa1_1/9 - C1_12*chi*dh2_13/18 + C1_12*chi*dh3_12/18 - C2_01*beta0*chi*kappa2_1 + C2_01*beta1*chi*kappa2_0 - 3*C2_01*chi*dh0_22/16 - 5*C2_01*chi*dh1_22/24 + 3*C2_01*chi*dh2_02/16 + 5*C2_01*chi*dh2_12/24 - C2_02*beta0*chi*kappa2_2 + C2_02*beta2*chi*kappa2_0 - 3*C2_02*chi*dh0_23/16 - 5*C2_02*chi*dh1_23/24 + 3*C2_02*chi*dh3_02/16 + 5*C2_02*chi*dh3_12/24 - C2_12*beta1*chi*kappa2_2 + C2_12*beta2*chi*kappa2_1 - C2_12*chi*dh2_23/2 + C2_12*chi*dh3_22/2 - C3_01*beta0*chi*kappa3_1 + C3_01*beta1*chi*kappa3_0 - 3*C3_01*chi*dh0_23/16 - 5*C3_01*chi*dh1_23/24 + 3*C3_01*chi*dh2_03/16 + 5*C3_01*chi*dh2_13/24 - C3_02*beta0*chi*kappa3_2 + C3_02*beta2*chi*kappa3_0 - 3*C3_02*chi*dh0_33/16 - 5*C3_02*chi*dh1_33/24 + 3*C3_02*chi*dh3_03/16 + 5*C3_02*chi*dh3_13/24 - C3_12*beta1*chi*kappa3_2 + C3_12*beta2*chi*kappa3_1 - C3_12*chi*dh2_33/2 + C3_12*chi*dh3_23/2",
+    "omega_density_variation": "C0_01*beta0*chi*kappa0_1/4 - C0_01*beta1*chi*kappa0_0/4 + 3*C0_01*chi*dh0_02/64 + 5*C0_01*chi*dh1_02/96 - 3*C0_01*chi*dh2_00/64 - 5*C0_01*chi*dh2_01/96 + C0_02*beta0*chi*kappa0_2/4 - C0_02*beta2*chi*kappa0_0/4 + 3*C0_02*chi*dh0_03/64 + 5*C0_02*chi*dh1_03/96 - 3*C0_02*chi*dh3_00/64 - 5*C0_02*chi*dh3_01/96 + C0_12*beta1*chi*kappa0_2/4 - C0_12*beta2*chi*kappa0_1/4 + C0_12*chi*dh2_03/8 - C0_12*chi*dh3_02/8 - C1_01*beta0*chi*kappa1_1/9 + C1_01*beta1*chi*kappa1_0/9 - C1_01*chi*dh0_12/48 - 5*C1_01*chi*dh1_12/216 + C1_01*chi*dh2_01/48 + 5*C1_01*chi*dh2_11/216 - C1_02*beta0*chi*kappa1_2/9 + C1_02*beta2*chi*kappa1_0/9 - C1_02*chi*dh0_13/48 - 5*C1_02*chi*dh1_13/216 + C1_02*chi*dh3_01/48 + 5*C1_02*chi*dh3_11/216 - C1_12*beta1*chi*kappa1_2/9 + C1_12*beta2*chi*kappa1_1/9 - C1_12*chi*dh2_13/18 + C1_12*chi*dh3_12/18 - C2_01*beta0*chi*kappa2_1 + C2_01*beta1*chi*kappa2_0 - 3*C2_01*chi*dh0_22/16 - 5*C2_01*chi*dh1_22/24 + 3*C2_01*chi*dh2_02/16 + 5*C2_01*chi*dh2_12/24 - C2_02*beta0*chi*kappa2_2 + C2_02*beta2*chi*kappa2_0 - 3*C2_02*chi*dh0_23/16 - 5*C2_02*chi*dh1_23/24 + 3*C2_02*chi*dh3_02/16 + 5*C2_02*chi*dh3_12/24 - C2_12*beta1*chi*kappa2_2 + C2_12*beta2*chi*kappa2_1 - C2_12*chi*dh2_23/2 + C2_12*chi*dh3_22/2 - C3_01*beta0*chi*kappa3_1 + C3_01*beta1*chi*kappa3_0 - 3*C3_01*chi*dh0_23/16 - 5*C3_01*chi*dh1_23/24 + 3*C3_01*chi*dh2_03/16 + 5*C3_01*chi*dh2_13/24 - C3_02*beta0*chi*kappa3_2 + C3_02*beta2*chi*kappa3_0 - 3*C3_02*chi*dh0_33/16 - 5*C3_02*chi*dh1_33/24 + 3*C3_02*chi*dh3_03/16 + 5*C3_02*chi*dh3_13/24 - C3_12*beta1*chi*kappa3_2 + C3_12*beta2*chi*kappa3_1 - C3_12*chi*dh2_33/2 + C3_12*chi*dh3_23/2",
+    "residuals": {
+      "Hodge_volume_and_metric_stress": "0",
+      "T_variation_has_minus_NV_gradient": "0",
+      "V_is_spatial": "0",
+      "all_36_connection_entries": [
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "all_36_frame_rotation_entries": [
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "all_d_beta_coefficients_cancel": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "beta_from_khronon": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "connection_antisymmetric": [
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "current_three_form_sign": "0",
+      "metric_boost_stress_factor": "0",
+      "normal_variation_from_lapse": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "omega_variation_contracts_to_J_and_V": "0",
+      "point_orthonormal_frame": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "point_spatial_frame": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "point_unit_timelike_normal": "0",
+      "product_rule_metric_and_T_adjoint": "0",
+      "rotation_leaves_action_invariant": "0",
+      "simultaneous_connection_rotation": [
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "varied_frame_normalization": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "varied_frame_orthogonality": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "varied_normal_normalization": "0"
+    },
+    "tau_boost": [
+      [
+        "-15*C0_01*chi*kappa0_1/256 - 15*C0_02*chi*kappa0_2/256 + 5*C1_01*chi*kappa1_1/192 + 5*C1_02*chi*kappa1_2/192 + 15*C2_01*chi*kappa2_1/64 + 15*C2_02*chi*kappa2_2/64 + 15*C3_01*chi*kappa3_1/64 + 15*C3_02*chi*kappa3_2/64",
+        "-17*C0_01*chi*kappa0_1/384 - 17*C0_02*chi*kappa0_2/384 + 17*C1_01*chi*kappa1_1/864 + 17*C1_02*chi*kappa1_2/864 + 17*C2_01*chi*kappa2_1/96 + 17*C2_02*chi*kappa2_2/96 + 17*C3_01*chi*kappa3_1/96 + 17*C3_02*chi*kappa3_2/96",
+        "5*C0_01*chi*kappa0_0/64 - 5*C0_12*chi*kappa0_2/64 - 5*C1_01*chi*kappa1_0/144 + 5*C1_12*chi*kappa1_2/144 - 5*C2_01*chi*kappa2_0/16 + 5*C2_12*chi*kappa2_2/16 - 5*C3_01*chi*kappa3_0/16 + 5*C3_12*chi*kappa3_2/16",
+        "5*C0_02*chi*kappa0_0/64 + 5*C0_12*chi*kappa0_1/64 - 5*C1_02*chi*kappa1_0/144 - 5*C1_12*chi*kappa1_1/144 - 5*C2_02*chi*kappa2_0/16 - 5*C2_12*chi*kappa2_1/16 - 5*C3_02*chi*kappa3_0/16 - 5*C3_12*chi*kappa3_1/16"
+      ],
+      [
+        "-17*C0_01*chi*kappa0_1/384 - 17*C0_02*chi*kappa0_2/384 + 17*C1_01*chi*kappa1_1/864 + 17*C1_02*chi*kappa1_2/864 + 17*C2_01*chi*kappa2_1/96 + 17*C2_02*chi*kappa2_2/96 + 17*C3_01*chi*kappa3_1/96 + 17*C3_02*chi*kappa3_2/96",
+        "-5*C0_01*chi*kappa0_1/192 - 5*C0_02*chi*kappa0_2/192 + 5*C1_01*chi*kappa1_1/432 + 5*C1_02*chi*kappa1_2/432 + 5*C2_01*chi*kappa2_1/48 + 5*C2_02*chi*kappa2_2/48 + 5*C3_01*chi*kappa3_1/48 + 5*C3_02*chi*kappa3_2/48",
+        "C0_01*chi*kappa0_0/32 - C0_12*chi*kappa0_2/32 - C1_01*chi*kappa1_0/72 + C1_12*chi*kappa1_2/72 - C2_01*chi*kappa2_0/8 + C2_12*chi*kappa2_2/8 - C3_01*chi*kappa3_0/8 + C3_12*chi*kappa3_2/8",
+        "C0_02*chi*kappa0_0/32 + C0_12*chi*kappa0_1/32 - C1_02*chi*kappa1_0/72 - C1_12*chi*kappa1_1/72 - C2_02*chi*kappa2_0/8 - C2_12*chi*kappa2_1/8 - C3_02*chi*kappa3_0/8 - C3_12*chi*kappa3_1/8"
+      ],
+      [
+        "5*C0_01*chi*kappa0_0/64 - 5*C0_12*chi*kappa0_2/64 - 5*C1_01*chi*kappa1_0/144 + 5*C1_12*chi*kappa1_2/144 - 5*C2_01*chi*kappa2_0/16 + 5*C2_12*chi*kappa2_2/16 - 5*C3_01*chi*kappa3_0/16 + 5*C3_12*chi*kappa3_2/16",
+        "C0_01*chi*kappa0_0/32 - C0_12*chi*kappa0_2/32 - C1_01*chi*kappa1_0/72 + C1_12*chi*kappa1_2/72 - C2_01*chi*kappa2_0/8 + C2_12*chi*kappa2_2/8 - C3_01*chi*kappa3_0/8 + C3_12*chi*kappa3_2/8",
+        "0",
+        "0"
+      ],
+      [
+        "5*C0_02*chi*kappa0_0/64 + 5*C0_12*chi*kappa0_1/64 - 5*C1_02*chi*kappa1_0/144 - 5*C1_12*chi*kappa1_1/144 - 5*C2_02*chi*kappa2_0/16 - 5*C2_12*chi*kappa2_1/16 - 5*C3_02*chi*kappa3_0/16 - 5*C3_12*chi*kappa3_1/16",
+        "C0_02*chi*kappa0_0/32 + C0_12*chi*kappa0_1/32 - C1_02*chi*kappa1_0/72 - C1_12*chi*kappa1_1/72 - C2_02*chi*kappa2_0/8 - C2_12*chi*kappa2_1/8 - C3_02*chi*kappa3_0/8 - C3_12*chi*kappa3_1/8",
+        "0",
+        "0"
+      ]
+    ]
+  },
+  "proposal": {
+    "A_Sigma_independent": true,
+    "Q_comparison": "horizontal local identification",
+    "adopted": false,
+    "chi": "positive mass-squared symbol, no selected value",
+    "term": "-chi/2 integral <(A_Sigma-omega) wedge star_gamma(A_Sigma-omega)>"
+  },
+  "provenance": {
+    "one_omega_connection_current_covariant_variation_lemma_v1.md": "07a995c4058712f8611c9c8938640b1b6927d7265167c33e6e5af7da0cee64cc",
+    "one_omega_interface_connection_current_candidate_lemma_v1.md": "ab9745c81faf58e83fef2937b97f7de7e2c6f9ae3bce8bd3cf4fa8aeeb87966b",
+    "one_omega_projected_connection_linear_lemma_v1.md": "5eb335367c04c17930c42f18310b1750774088baafdff5906565232a3d40856a",
+    "test_one_omega_connection_current_covariant_variation_v1.py": "e121c638ad2ebabddbcfe183fb9d2495f9eace8a21671fbb15573ba98e425a95",
+    "verify_one_omega_connection_current_covariant_variation_v1.py": "74777e2ef61181d58da0c4cbe106b702b48c97db989f3f204796b9d91ebb3035"
+  },
+  "schema": "holo.one-omega-connection-current-covariant-variation.v1",
+  "scope": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "BF_global_quotient_closed": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "N7_LINEAR_REDUCTION_pass": false,
+    "P4_full_same_action_pass": false,
+    "all_36_spatial_connection_entries_checked": true,
+    "arbitrary_kappa_jets_are_a_stronger_point_identity_not_a_foliation_solution": true,
+    "candidate_adopted": false,
+    "exact_covariant_first_variation_checked": true,
+    "full_moving_gluing_chain_closed": false,
+    "global_reduction_of_differential_order_proved": false,
+    "metric_and_khronon_adjoint_checked": true,
+    "new_coefficient_selected": false,
+    "no_d_beta_in_horizontal_first_variation": true,
+    "nonlinear_stability_proved": false,
+    "normal_and_frame_not_frozen": true,
+    "positive_full_energy_proved": false
+  }
+}
