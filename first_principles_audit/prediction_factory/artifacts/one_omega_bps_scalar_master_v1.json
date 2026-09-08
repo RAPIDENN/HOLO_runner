@@ -1,0 +1,669 @@
+{
+  "ADM": {
+    "F_grad": "3*M5c*(-grad_zeta0**2 + grad_zeta1**2 + grad_zeta2**2 + grad_zeta3**2)*exp(2*A)/(2*Ap)",
+    "F_grad_UV": "-3*M5c*(-grad_zeta0**2 + grad_zeta1**2 + grad_zeta2**2 + grad_zeta3**2)*exp(G/(6*M5c))/(2*k)",
+    "F_grad_derivative": "-3*M5c*grad_zeta0**2*exp(2*A) + 3*M5c*grad_zeta1**2*exp(2*A) + 3*M5c*grad_zeta2**2*exp(2*A) + 3*M5c*grad_zeta3**2*exp(2*A) - 3*M5c*grad_zeta0*grad_zeta_p0*exp(2*A)/Ap + 3*M5c*grad_zeta1*grad_zeta_p1*exp(2*A)/Ap + 3*M5c*grad_zeta2*grad_zeta_p2*exp(2*A)/Ap + 3*M5c*grad_zeta3*grad_zeta_p3*exp(2*A)/Ap + 3*App*M5c*grad_zeta0**2*exp(2*A)/(2*Ap**2) - 3*App*M5c*grad_zeta1**2*exp(2*A)/(2*Ap**2) - 3*App*M5c*grad_zeta2**2*exp(2*A)/(2*Ap**2) - 3*App*M5c*grad_zeta3**2*exp(2*A)/(2*Ap**2)",
+    "F_rad": "24*Ap*M5c*zeta**2*exp(4*A)",
+    "F_rad_UV": "-24*M5c*k*zeta**2*exp(-G/(6*M5c))",
+    "F_rad_derivative": "96*Ap**2*M5c*zeta**2*exp(4*A) + 48*Ap*M5c*zeta*zeta_p*exp(4*A) + 24*App*M5c*zeta**2*exp(4*A)",
+    "K": [
+      [
+        "Ap + epsilon**2*(Ap*alpha**2 - alpha*hess_beta_00*exp(-2*A) - alpha*zeta_p - grad_beta0*grad_zeta0*exp(-2*A) - grad_beta1*grad_zeta1*exp(-2*A) - grad_beta2*grad_zeta2*exp(-2*A) - grad_beta3*grad_zeta3*exp(-2*A) - 2*hess_beta_00*zeta*exp(-2*A)) + epsilon*(-Ap*alpha + hess_beta_00*exp(-2*A) + zeta_p)",
+        "epsilon**2*(-alpha*hess_beta_01*exp(-2*A) - grad_beta0*grad_zeta1*exp(-2*A) - grad_beta1*grad_zeta0*exp(-2*A) - 2*hess_beta_01*zeta*exp(-2*A)) + epsilon*hess_beta_01*exp(-2*A)",
+        "epsilon**2*(-alpha*hess_beta_02*exp(-2*A) - grad_beta0*grad_zeta2*exp(-2*A) - grad_beta2*grad_zeta0*exp(-2*A) - 2*hess_beta_02*zeta*exp(-2*A)) + epsilon*hess_beta_02*exp(-2*A)",
+        "epsilon**2*(-alpha*hess_beta_03*exp(-2*A) - grad_beta0*grad_zeta3*exp(-2*A) - grad_beta3*grad_zeta0*exp(-2*A) - 2*hess_beta_03*zeta*exp(-2*A)) + epsilon*hess_beta_03*exp(-2*A)"
+      ],
+      [
+        "epsilon**2*(alpha*hess_beta_01*exp(-2*A) + grad_beta0*grad_zeta1*exp(-2*A) + grad_beta1*grad_zeta0*exp(-2*A) + 2*hess_beta_01*zeta*exp(-2*A)) - epsilon*hess_beta_01*exp(-2*A)",
+        "Ap + epsilon**2*(Ap*alpha**2 + alpha*hess_beta_11*exp(-2*A) - alpha*zeta_p + grad_beta0*grad_zeta0*exp(-2*A) + grad_beta1*grad_zeta1*exp(-2*A) - grad_beta2*grad_zeta2*exp(-2*A) - grad_beta3*grad_zeta3*exp(-2*A) + 2*hess_beta_11*zeta*exp(-2*A)) + epsilon*(-Ap*alpha - hess_beta_11*exp(-2*A) + zeta_p)",
+        "epsilon**2*(alpha*hess_beta_12*exp(-2*A) + grad_beta1*grad_zeta2*exp(-2*A) + grad_beta2*grad_zeta1*exp(-2*A) + 2*hess_beta_12*zeta*exp(-2*A)) - epsilon*hess_beta_12*exp(-2*A)",
+        "epsilon**2*(alpha*hess_beta_13*exp(-2*A) + grad_beta1*grad_zeta3*exp(-2*A) + grad_beta3*grad_zeta1*exp(-2*A) + 2*hess_beta_13*zeta*exp(-2*A)) - epsilon*hess_beta_13*exp(-2*A)"
+      ],
+      [
+        "epsilon**2*(alpha*hess_beta_02*exp(-2*A) + grad_beta0*grad_zeta2*exp(-2*A) + grad_beta2*grad_zeta0*exp(-2*A) + 2*hess_beta_02*zeta*exp(-2*A)) - epsilon*hess_beta_02*exp(-2*A)",
+        "epsilon**2*(alpha*hess_beta_12*exp(-2*A) + grad_beta1*grad_zeta2*exp(-2*A) + grad_beta2*grad_zeta1*exp(-2*A) + 2*hess_beta_12*zeta*exp(-2*A)) - epsilon*hess_beta_12*exp(-2*A)",
+        "Ap + epsilon**2*(Ap*alpha**2 + alpha*hess_beta_22*exp(-2*A) - alpha*zeta_p + grad_beta0*grad_zeta0*exp(-2*A) - grad_beta1*grad_zeta1*exp(-2*A) + grad_beta2*grad_zeta2*exp(-2*A) - grad_beta3*grad_zeta3*exp(-2*A) + 2*hess_beta_22*zeta*exp(-2*A)) + epsilon*(-Ap*alpha - hess_beta_22*exp(-2*A) + zeta_p)",
+        "epsilon**2*(alpha*hess_beta_23*exp(-2*A) + grad_beta2*grad_zeta3*exp(-2*A) + grad_beta3*grad_zeta2*exp(-2*A) + 2*hess_beta_23*zeta*exp(-2*A)) - epsilon*hess_beta_23*exp(-2*A)"
+      ],
+      [
+        "epsilon**2*(alpha*hess_beta_03*exp(-2*A) + grad_beta0*grad_zeta3*exp(-2*A) + grad_beta3*grad_zeta0*exp(-2*A) + 2*hess_beta_03*zeta*exp(-2*A)) - epsilon*hess_beta_03*exp(-2*A)",
+        "epsilon**2*(alpha*hess_beta_13*exp(-2*A) + grad_beta1*grad_zeta3*exp(-2*A) + grad_beta3*grad_zeta1*exp(-2*A) + 2*hess_beta_13*zeta*exp(-2*A)) - epsilon*hess_beta_13*exp(-2*A)",
+        "epsilon**2*(alpha*hess_beta_23*exp(-2*A) + grad_beta2*grad_zeta3*exp(-2*A) + grad_beta3*grad_zeta2*exp(-2*A) + 2*hess_beta_23*zeta*exp(-2*A)) - epsilon*hess_beta_23*exp(-2*A)",
+        "Ap + epsilon**2*(Ap*alpha**2 + alpha*hess_beta_33*exp(-2*A) - alpha*zeta_p + grad_beta0*grad_zeta0*exp(-2*A) - grad_beta1*grad_zeta1*exp(-2*A) - grad_beta2*grad_zeta2*exp(-2*A) + grad_beta3*grad_zeta3*exp(-2*A) + 2*hess_beta_33*zeta*exp(-2*A)) + epsilon*(-Ap*alpha - hess_beta_33*exp(-2*A) + zeta_p)"
+      ]
+    ],
+    "M4_bulk_squared": "M5c*(exp(a) - 1)/(a*k)",
+    "N": "alpha*epsilon + 1",
+    "R4": "epsilon**2*(6*grad_zeta0**2*exp(-2*A) - 6*grad_zeta1**2*exp(-2*A) - 6*grad_zeta2**2*exp(-2*A) - 6*grad_zeta3**2*exp(-2*A) - 12*hess_zeta_00*zeta*exp(-2*A) + 12*hess_zeta_11*zeta*exp(-2*A) + 12*hess_zeta_22*zeta*exp(-2*A) + 12*hess_zeta_33*zeta*exp(-2*A)) + epsilon*(6*hess_zeta_00*exp(-2*A) - 6*hess_zeta_11*exp(-2*A) - 6*hess_zeta_22*exp(-2*A) - 6*hess_zeta_33*exp(-2*A))",
+    "U": "G*Omega**2*k**2*exp(-G*Omega**2/(3*M5c))/2 - 6*M5c*k**2*exp(-G*Omega**2/(3*M5c))",
+    "UV_gradient_density": "3*M5c*(-grad_zeta0**2 + grad_zeta1**2 + grad_zeta2**2 + grad_zeta3**2)*exp(G/(6*M5c))/k",
+    "UV_mass_cancellation": "0",
+    "W": "3*M5c*k*exp(-G*Omega**2/(6*M5c))",
+    "X": "-grad_zeta0**2 + grad_zeta1**2 + grad_zeta2**2 + grad_zeta3**2",
+    "X_p": "-2*grad_zeta0*grad_zeta_p0 + 2*grad_zeta1*grad_zeta_p1 + 2*grad_zeta2*grad_zeta_p2 + 2*grad_zeta3*grad_zeta_p3",
+    "a_relation": "G/(6*M5c)",
+    "alpha_solution": "zeta_p/Ap",
+    "alpha_substitutions": {
+      "alpha": "zeta_p/Ap",
+      "grad_alpha0": "grad_zeta_p0/Ap",
+      "grad_alpha1": "grad_zeta_p1/Ap",
+      "grad_alpha2": "grad_zeta_p2/Ap",
+      "grad_alpha3": "grad_zeta_p3/Ap"
+    },
+    "background_acceleration": "3*App*M5c + G*Op**2",
+    "background_hamiltonian": "6*Ap**2*M5c + G*Omega**2*k**2*exp(-G*Omega**2/(3*M5c))/2 - G*Op**2/2 - 6*M5c*k**2*exp(-G*Omega**2/(3*M5c))",
+    "background_remainder": "-(zeta**2*(48*Ap**2*M5c + 24*App*M5c + 4*G*Omega**2*k**2*exp(-G*Omega**2/(3*M5c)) + 4*G*Op**2 - 48*M5c*k**2*exp(-G*Omega**2/(3*M5c))) + zeta*zeta_p*(24*Ap**2*M5c + 2*G*Omega**2*k**2*exp(-G*Omega**2/(3*M5c)) - 2*G*Op**2 - 24*M5c*k**2*exp(-G*Omega**2/(3*M5c)))/Ap)*exp(4*A) + (3*App*M5c + G*Op**2)*(-grad_zeta0**2 + grad_zeta1**2 + grad_zeta2**2 + grad_zeta3**2)*exp(2*A)/(2*Ap**2)",
+    "beta_hessian_norm": "hess_beta_00**2 - 2*hess_beta_01**2 - 2*hess_beta_02**2 - 2*hess_beta_03**2 + hess_beta_11**2 + 2*hess_beta_12**2 + 2*hess_beta_13**2 + hess_beta_22**2 + 2*hess_beta_23**2 + hess_beta_33**2",
+    "box_beta": "-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33",
+    "box_beta_solution": "(-hess_zeta_00 + hess_zeta_11 + hess_zeta_22 + hess_zeta_33)/Ap + G*Op**2*zeta_p*exp(2*A)/(3*Ap**2*M5c)",
+    "box_zeta": "-hess_zeta_00 + hess_zeta_11 + hess_zeta_22 + hess_zeta_33",
+    "bps_substitutions": {
+      "Ap": "-k*exp(-G*Omega**2/(6*M5c))",
+      "App": "-G*Omega**2*k**2*exp(-G*Omega**2/(3*M5c))/(3*M5c)",
+      "Op": "-Omega*k*exp(-G*Omega**2/(6*M5c))"
+    },
+    "checks": {
+      "BPS_Hamiltonian": true,
+      "BPS_acceleration": true,
+      "BPS_background_remainder": true,
+      "BPS_flow_ratio": true,
+      "UV_gradient_primitive": true,
+      "all_total_derivatives_retained": true,
+      "conformal_shift_trace": true,
+      "curvature_current_product_rule": true,
+      "extrinsic_invariant_from_matrix": true,
+      "intrinsic_density_explicit": true,
+      "inverse_conformal_metric": true,
+      "lapse_after_momentum_constraint": true,
+      "lapse_constraint_with_background_row": true,
+      "longitudinal_shift_vector_quadratic_Euler": true,
+      "master_BPS_friction": true,
+      "pump_in_conformal_radial_coordinate": true,
+      "radial_square_and_primitive": true,
+      "radially_constant_IR_conformal_EH_coefficient": true,
+      "shift_current_product_rule": true,
+      "two_sides_fixed_wall_mass_primitive": true
+    },
+    "conformal_EH_coefficient_residual": "0",
+    "covariant_shift_derivative": [
+      [
+        "-epsilon**2*(grad_beta0*grad_zeta0 + grad_beta1*grad_zeta1 + grad_beta2*grad_zeta2 + grad_beta3*grad_zeta3) + epsilon*hess_beta_00",
+        "-epsilon**2*(grad_beta0*grad_zeta1 + grad_beta1*grad_zeta0) + epsilon*hess_beta_01",
+        "-epsilon**2*(grad_beta0*grad_zeta2 + grad_beta2*grad_zeta0) + epsilon*hess_beta_02",
+        "-epsilon**2*(grad_beta0*grad_zeta3 + grad_beta3*grad_zeta0) + epsilon*hess_beta_03"
+      ],
+      [
+        "-epsilon**2*(grad_beta0*grad_zeta1 + grad_beta1*grad_zeta0) + epsilon*hess_beta_01",
+        "-epsilon**2*(grad_beta0*grad_zeta0 + grad_beta1*grad_zeta1 - grad_beta2*grad_zeta2 - grad_beta3*grad_zeta3) + epsilon*hess_beta_11",
+        "-epsilon**2*(grad_beta1*grad_zeta2 + grad_beta2*grad_zeta1) + epsilon*hess_beta_12",
+        "-epsilon**2*(grad_beta1*grad_zeta3 + grad_beta3*grad_zeta1) + epsilon*hess_beta_13"
+      ],
+      [
+        "-epsilon**2*(grad_beta0*grad_zeta2 + grad_beta2*grad_zeta0) + epsilon*hess_beta_02",
+        "-epsilon**2*(grad_beta1*grad_zeta2 + grad_beta2*grad_zeta1) + epsilon*hess_beta_12",
+        "-epsilon**2*(grad_beta0*grad_zeta0 - grad_beta1*grad_zeta1 + grad_beta2*grad_zeta2 - grad_beta3*grad_zeta3) + epsilon*hess_beta_22",
+        "-epsilon**2*(grad_beta2*grad_zeta3 + grad_beta3*grad_zeta2) + epsilon*hess_beta_23"
+      ],
+      [
+        "-epsilon**2*(grad_beta0*grad_zeta3 + grad_beta3*grad_zeta0) + epsilon*hess_beta_03",
+        "-epsilon**2*(grad_beta1*grad_zeta3 + grad_beta3*grad_zeta1) + epsilon*hess_beta_13",
+        "-epsilon**2*(grad_beta2*grad_zeta3 + grad_beta3*grad_zeta2) + epsilon*hess_beta_23",
+        "-epsilon**2*(grad_beta0*grad_zeta0 - grad_beta1*grad_zeta1 - grad_beta2*grad_zeta2 + grad_beta3*grad_zeta3) + epsilon*hess_beta_33"
+      ]
+    ],
+    "curvature_boundary_current": [
+      [
+        "3*M5c*grad_zeta0*(alpha + 2*zeta)*exp(2*A)"
+      ],
+      [
+        "-3*M5c*grad_zeta1*(alpha + 2*zeta)*exp(2*A)"
+      ],
+      [
+        "-3*M5c*grad_zeta2*(alpha + 2*zeta)*exp(2*A)"
+      ],
+      [
+        "-3*M5c*grad_zeta3*(alpha + 2*zeta)*exp(2*A)"
+      ]
+    ],
+    "gamma": [
+      [
+        "-(2*epsilon**2*zeta**2 + 2*epsilon*zeta + 1)*exp(2*A)",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(2*epsilon**2*zeta**2 + 2*epsilon*zeta + 1)*exp(2*A)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "(2*epsilon**2*zeta**2 + 2*epsilon*zeta + 1)*exp(2*A)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "(2*epsilon**2*zeta**2 + 2*epsilon*zeta + 1)*exp(2*A)"
+      ]
+    ],
+    "gamma_inverse": [
+      [
+        "-(2*epsilon**2*zeta**2 - 2*epsilon*zeta + 1)*exp(-2*A)",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "(2*epsilon**2*zeta**2 - 2*epsilon*zeta + 1)*exp(-2*A)",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "(2*epsilon**2*zeta**2 - 2*epsilon*zeta + 1)*exp(-2*A)",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "(2*epsilon**2*zeta**2 - 2*epsilon*zeta + 1)*exp(-2*A)"
+      ]
+    ],
+    "lapse_constraint": "12*Ap**2*M5c*alpha*exp(4*A) - 24*Ap**2*M5c*zeta*exp(4*A) - 3*Ap*M5c*hess_beta_00*exp(2*A) + 3*Ap*M5c*hess_beta_11*exp(2*A) + 3*Ap*M5c*hess_beta_22*exp(2*A) + 3*Ap*M5c*hess_beta_33*exp(2*A) - 12*Ap*M5c*zeta_p*exp(4*A) - 2*G*Omega**2*k**2*zeta*exp(4*A)*exp(-G*Omega**2/(3*M5c)) - G*Op**2*alpha*exp(4*A) + 2*G*Op**2*zeta*exp(4*A) + 3*M5c*hess_zeta_00*exp(2*A) - 3*M5c*hess_zeta_11*exp(2*A) - 3*M5c*hess_zeta_22*exp(2*A) - 3*M5c*hess_zeta_33*exp(2*A) + 24*M5c*k**2*zeta*exp(4*A)*exp(-G*Omega**2/(3*M5c))",
+    "lapse_constraint_background_reduced": "-12*Ap*M5c*(-Ap*alpha + zeta_p)*exp(4*A) + 3*Ap*M5c*(-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33)*exp(2*A) - G*Op**2*alpha*exp(4*A) - 3*M5c*(-hess_zeta_00 + hess_zeta_11 + hess_zeta_22 + hess_zeta_33)*exp(2*A)",
+    "master_equation": "(4*Ap*Omega*zeta_p*exp(2*A) - Omega*hess_zeta_00 + Omega*hess_zeta_11 + Omega*hess_zeta_22 + Omega*hess_zeta_33 + Omega*zeta_pp*exp(2*A) + 2*Op*zeta_p*exp(2*A))*exp(-2*A)/Omega",
+    "master_equation_BPS": "6*Ap*zeta_p + zeta_pp + (-hess_zeta_00 + hess_zeta_11 + hess_zeta_22 + hess_zeta_33)*exp(-2*A)",
+    "master_flux": "4*Ap*G*Omega**2*zeta_p*exp(4*A) + G*Omega**2*zeta_pp*exp(4*A) + G*Omega**2*(-hess_zeta_00 + hess_zeta_11 + hess_zeta_22 + hess_zeta_33)*exp(2*A) + 2*G*Omega*Op*zeta_p*exp(4*A)",
+    "momentum_constraint": "-Ap*alpha + zeta_p",
+    "momentum_vector": [
+      [
+        "-3*M5c*(-Ap*grad_alpha0 + grad_zeta_p0)*exp(2*A)"
+      ],
+      [
+        "3*M5c*(-Ap*grad_alpha1 + grad_zeta_p1)*exp(2*A)"
+      ],
+      [
+        "3*M5c*(-Ap*grad_alpha2 + grad_zeta_p2)*exp(2*A)"
+      ],
+      [
+        "3*M5c*(-Ap*grad_alpha3 + grad_zeta_p3)*exp(2*A)"
+      ]
+    ],
+    "pump_BPS_squared": "G*Omega**5",
+    "pump_squared": "G*Op**2*exp(3*A)/Ap**2",
+    "raw_L2": "6*Ap**2*M5c*alpha**2*exp(4*A) - 24*Ap**2*M5c*alpha*zeta*exp(4*A) + 48*Ap**2*M5c*zeta**2*exp(4*A) - 3*Ap*M5c*alpha*hess_beta_00*exp(2*A) + 3*Ap*M5c*alpha*hess_beta_11*exp(2*A) + 3*Ap*M5c*alpha*hess_beta_22*exp(2*A) + 3*Ap*M5c*alpha*hess_beta_33*exp(2*A) - 12*Ap*M5c*alpha*zeta_p*exp(4*A) + 6*Ap*M5c*grad_beta0*grad_zeta0*exp(2*A) - 6*Ap*M5c*grad_beta1*grad_zeta1*exp(2*A) - 6*Ap*M5c*grad_beta2*grad_zeta2*exp(2*A) - 6*Ap*M5c*grad_beta3*grad_zeta3*exp(2*A) + 6*Ap*M5c*hess_beta_00*zeta*exp(2*A) - 6*Ap*M5c*hess_beta_11*zeta*exp(2*A) - 6*Ap*M5c*hess_beta_22*zeta*exp(2*A) - 6*Ap*M5c*hess_beta_33*zeta*exp(2*A) + 48*Ap*M5c*zeta*zeta_p*exp(4*A) - 2*G*Omega**2*alpha*k**2*zeta*exp(4*A)*exp(-G*Omega**2/(3*M5c)) - 4*G*Omega**2*k**2*zeta**2*exp(4*A)*exp(-G*Omega**2/(3*M5c)) - G*Op**2*alpha**2*exp(4*A)/2 + 2*G*Op**2*alpha*zeta*exp(4*A) - 4*G*Op**2*zeta**2*exp(4*A) + 3*M5c*alpha*hess_zeta_00*exp(2*A) - 3*M5c*alpha*hess_zeta_11*exp(2*A) - 3*M5c*alpha*hess_zeta_22*exp(2*A) - 3*M5c*alpha*hess_zeta_33*exp(2*A) + 24*M5c*alpha*k**2*zeta*exp(4*A)*exp(-G*Omega**2/(3*M5c)) + 3*M5c*grad_zeta0**2*exp(2*A) - 3*M5c*grad_zeta1**2*exp(2*A) - 3*M5c*grad_zeta2**2*exp(2*A) - 3*M5c*grad_zeta3**2*exp(2*A) - M5c*hess_beta_00*hess_beta_11 - M5c*hess_beta_00*hess_beta_22 - M5c*hess_beta_00*hess_beta_33 + 3*M5c*hess_beta_00*zeta_p*exp(2*A) + M5c*hess_beta_01**2 + M5c*hess_beta_02**2 + M5c*hess_beta_03**2 + M5c*hess_beta_11*hess_beta_22 + M5c*hess_beta_11*hess_beta_33 - 3*M5c*hess_beta_11*zeta_p*exp(2*A) - M5c*hess_beta_12**2 - M5c*hess_beta_13**2 + M5c*hess_beta_22*hess_beta_33 - 3*M5c*hess_beta_22*zeta_p*exp(2*A) - M5c*hess_beta_23**2 - 3*M5c*hess_beta_33*zeta_p*exp(2*A) + 6*M5c*hess_zeta_00*zeta*exp(2*A) - 6*M5c*hess_zeta_11*zeta*exp(2*A) - 6*M5c*hess_zeta_22*zeta*exp(2*A) - 6*M5c*hess_zeta_33*zeta*exp(2*A) + 48*M5c*k**2*zeta**2*exp(4*A)*exp(-G*Omega**2/(3*M5c)) + 6*M5c*zeta_p**2*exp(4*A)",
+    "raw_intrinsic_L2": "3*M5c*alpha*hess_zeta_00*exp(2*A) - 3*M5c*alpha*hess_zeta_11*exp(2*A) - 3*M5c*alpha*hess_zeta_22*exp(2*A) - 3*M5c*alpha*hess_zeta_33*exp(2*A) + 3*M5c*grad_zeta0**2*exp(2*A) - 3*M5c*grad_zeta1**2*exp(2*A) - 3*M5c*grad_zeta2**2*exp(2*A) - 3*M5c*grad_zeta3**2*exp(2*A) + 6*M5c*hess_zeta_00*zeta*exp(2*A) - 6*M5c*hess_zeta_11*zeta*exp(2*A) - 6*M5c*hess_zeta_22*zeta*exp(2*A) - 6*M5c*hess_zeta_33*zeta*exp(2*A)",
+    "raw_radial_L2": "6*Ap**2*M5c*alpha**2*exp(4*A) - 24*Ap**2*M5c*alpha*zeta*exp(4*A) + 48*Ap**2*M5c*zeta**2*exp(4*A) - 12*Ap*M5c*alpha*zeta_p*exp(4*A) + 48*Ap*M5c*zeta*zeta_p*exp(4*A) - 2*G*Omega**2*alpha*k**2*zeta*exp(4*A)*exp(-G*Omega**2/(3*M5c)) - 4*G*Omega**2*k**2*zeta**2*exp(4*A)*exp(-G*Omega**2/(3*M5c)) - G*Op**2*alpha**2*exp(4*A)/2 + 2*G*Op**2*alpha*zeta*exp(4*A) - 4*G*Op**2*zeta**2*exp(4*A) + 24*M5c*alpha*k**2*zeta*exp(4*A)*exp(-G*Omega**2/(3*M5c)) + 48*M5c*k**2*zeta**2*exp(4*A)*exp(-G*Omega**2/(3*M5c)) + 6*M5c*zeta_p**2*exp(4*A)",
+    "raw_shift_L2": "-3*Ap*M5c*alpha*hess_beta_00*exp(2*A) + 3*Ap*M5c*alpha*hess_beta_11*exp(2*A) + 3*Ap*M5c*alpha*hess_beta_22*exp(2*A) + 3*Ap*M5c*alpha*hess_beta_33*exp(2*A) + 6*Ap*M5c*grad_beta0*grad_zeta0*exp(2*A) - 6*Ap*M5c*grad_beta1*grad_zeta1*exp(2*A) - 6*Ap*M5c*grad_beta2*grad_zeta2*exp(2*A) - 6*Ap*M5c*grad_beta3*grad_zeta3*exp(2*A) + 6*Ap*M5c*hess_beta_00*zeta*exp(2*A) - 6*Ap*M5c*hess_beta_11*zeta*exp(2*A) - 6*Ap*M5c*hess_beta_22*zeta*exp(2*A) - 6*Ap*M5c*hess_beta_33*zeta*exp(2*A) - M5c*hess_beta_00*hess_beta_11 - M5c*hess_beta_00*hess_beta_22 - M5c*hess_beta_00*hess_beta_33 + 3*M5c*hess_beta_00*zeta_p*exp(2*A) + M5c*hess_beta_01**2 + M5c*hess_beta_02**2 + M5c*hess_beta_03**2 + M5c*hess_beta_11*hess_beta_22 + M5c*hess_beta_11*hess_beta_33 - 3*M5c*hess_beta_11*zeta_p*exp(2*A) - M5c*hess_beta_12**2 - M5c*hess_beta_13**2 + M5c*hess_beta_22*hess_beta_33 - 3*M5c*hess_beta_22*zeta_p*exp(2*A) - M5c*hess_beta_23**2 - 3*M5c*hess_beta_33*zeta_p*exp(2*A)",
+    "reduced_L2": "-G*Op**2*(zeta_p**2*exp(4*A) + (-grad_zeta0**2 + grad_zeta1**2 + grad_zeta2**2 + grad_zeta3**2)*exp(2*A))/(2*Ap**2)",
+    "residuals": {
+      "BPS_Hamiltonian": "0",
+      "BPS_acceleration": "0",
+      "BPS_background_remainder": "0",
+      "BPS_flow_ratio": "0",
+      "UV_gradient_primitive": "0",
+      "all_total_derivatives_retained": "0",
+      "conformal_shift_trace": "0",
+      "curvature_current_product_rule": "0",
+      "extrinsic_invariant_from_matrix": "0",
+      "intrinsic_density_explicit": "0",
+      "inverse_conformal_metric": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "lapse_after_momentum_constraint": "0",
+      "lapse_constraint_with_background_row": "0",
+      "longitudinal_shift_vector_quadratic_Euler": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "master_BPS_friction": "0",
+      "pump_in_conformal_radial_coordinate": "0",
+      "radial_square_and_primitive": "0",
+      "radially_constant_IR_conformal_EH_coefficient": "0",
+      "shift_current_product_rule": "0",
+      "two_sides_fixed_wall_mass_primitive": "0"
+    },
+    "scalar_norm": "G*((a - 1)*exp(a) + 1)/(a**2*k)",
+    "scope": {
+      "P4": false,
+      "beta_reconstruction_at_null_or_zero_slice_momentum_certified": false,
+      "coefficient_identity": "UV gradient minus half bilateral scalar bulk norm equals 3*M4_bulk_squared; do not add an induced EH term twice",
+      "full_N7": false,
+      "momentum_constraint": "full one-form variation before longitudinal restriction; no division by slice momentum squared",
+      "scalar_physical_admissibility": false,
+      "shift_convention": "covariant N_mu=epsilon*partial_mu beta, without exp(2A)",
+      "slice_homogeneous_integration_function_fixed": true,
+      "wall": "only fixed comoving UV values and their explicit primitives; no bending or mixed brane Hessian"
+    },
+    "shift_boundary_current": [
+      [
+        "6*Ap*M5c*grad_beta0*zeta*exp(2*A) + M5c*(-grad_beta0*hess_beta_00 - grad_beta0*(-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33) + grad_beta1*hess_beta_01 + grad_beta2*hess_beta_02 + grad_beta3*hess_beta_03)/2"
+      ],
+      [
+        "-6*Ap*M5c*grad_beta1*zeta*exp(2*A) + M5c*(grad_beta0*hess_beta_01 - grad_beta1*hess_beta_11 + grad_beta1*(-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33) - grad_beta2*hess_beta_12 - grad_beta3*hess_beta_13)/2"
+      ],
+      [
+        "-6*Ap*M5c*grad_beta2*zeta*exp(2*A) + M5c*(grad_beta0*hess_beta_02 - grad_beta1*hess_beta_12 - grad_beta2*hess_beta_22 + grad_beta2*(-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33) - grad_beta3*hess_beta_23)/2"
+      ],
+      [
+        "-6*Ap*M5c*grad_beta3*zeta*exp(2*A) + M5c*(grad_beta0*hess_beta_03 - grad_beta1*hess_beta_13 - grad_beta2*hess_beta_23 - grad_beta3*hess_beta_33 + grad_beta3*(-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33))/2"
+      ]
+    ],
+    "sqrt_gamma": "(8*epsilon**2*zeta**2 + 4*epsilon*zeta + 1)*exp(4*A)",
+    "tangential_boundary_current": [
+      [
+        "6*Ap*M5c*grad_beta0*zeta*exp(2*A) + 3*M5c*grad_zeta0*(2*zeta + zeta_p/Ap)*exp(2*A) + M5c*(-grad_beta0*hess_beta_00 - grad_beta0*(-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33) + grad_beta1*hess_beta_01 + grad_beta2*hess_beta_02 + grad_beta3*hess_beta_03)/2"
+      ],
+      [
+        "-6*Ap*M5c*grad_beta1*zeta*exp(2*A) - 3*M5c*grad_zeta1*(2*zeta + zeta_p/Ap)*exp(2*A) + M5c*(grad_beta0*hess_beta_01 - grad_beta1*hess_beta_11 + grad_beta1*(-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33) - grad_beta2*hess_beta_12 - grad_beta3*hess_beta_13)/2"
+      ],
+      [
+        "-6*Ap*M5c*grad_beta2*zeta*exp(2*A) - 3*M5c*grad_zeta2*(2*zeta + zeta_p/Ap)*exp(2*A) + M5c*(grad_beta0*hess_beta_02 - grad_beta1*hess_beta_12 - grad_beta2*hess_beta_22 + grad_beta2*(-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33) - grad_beta3*hess_beta_23)/2"
+      ],
+      [
+        "-6*Ap*M5c*grad_beta3*zeta*exp(2*A) - 3*M5c*grad_zeta3*(2*zeta + zeta_p/Ap)*exp(2*A) + M5c*(grad_beta0*hess_beta_03 - grad_beta1*hess_beta_13 - grad_beta2*hess_beta_23 - grad_beta3*hess_beta_33 + grad_beta3*(-hess_beta_00 + hess_beta_11 + hess_beta_22 + hess_beta_33))/2"
+      ]
+    ],
+    "tangential_boundary_divergence": "6*Ap*M5c*grad_beta0*grad_zeta0*exp(2*A) - 6*Ap*M5c*grad_beta1*grad_zeta1*exp(2*A) - 6*Ap*M5c*grad_beta2*grad_zeta2*exp(2*A) - 6*Ap*M5c*grad_beta3*grad_zeta3*exp(2*A) + 6*Ap*M5c*hess_beta_00*zeta*exp(2*A) - 6*Ap*M5c*hess_beta_11*zeta*exp(2*A) - 6*Ap*M5c*hess_beta_22*zeta*exp(2*A) - 6*Ap*M5c*hess_beta_33*zeta*exp(2*A) + 6*M5c*grad_zeta0**2*exp(2*A) - 6*M5c*grad_zeta1**2*exp(2*A) - 6*M5c*grad_zeta2**2*exp(2*A) - 6*M5c*grad_zeta3**2*exp(2*A) - M5c*hess_beta_00*hess_beta_11 - M5c*hess_beta_00*hess_beta_22 - M5c*hess_beta_00*hess_beta_33 + M5c*hess_beta_01**2 + M5c*hess_beta_02**2 + M5c*hess_beta_03**2 + M5c*hess_beta_11*hess_beta_22 + M5c*hess_beta_11*hess_beta_33 - M5c*hess_beta_12**2 - M5c*hess_beta_13**2 + M5c*hess_beta_22*hess_beta_33 - M5c*hess_beta_23**2 + 6*M5c*hess_zeta_00*zeta*exp(2*A) - 6*M5c*hess_zeta_11*zeta*exp(2*A) - 6*M5c*hess_zeta_22*zeta*exp(2*A) - 6*M5c*hess_zeta_33*zeta*exp(2*A) + 3*M5c*grad_zeta0*grad_zeta_p0*exp(2*A)/Ap - 3*M5c*grad_zeta1*grad_zeta_p1*exp(2*A)/Ap - 3*M5c*grad_zeta2*grad_zeta_p2*exp(2*A)/Ap - 3*M5c*grad_zeta3*grad_zeta_p3*exp(2*A)/Ap + 3*M5c*hess_zeta_00*zeta_p*exp(2*A)/Ap - 3*M5c*hess_zeta_11*zeta_p*exp(2*A)/Ap - 3*M5c*hess_zeta_22*zeta_p*exp(2*A)/Ap - 3*M5c*hess_zeta_33*zeta_p*exp(2*A)/Ap",
+    "total_derivative_residual": "0",
+    "vector_shift_quadratic_Euler": [
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "wall_tension_L2": "-48*M5c*k*zeta**2*exp(-G/(6*M5c))"
+  },
+  "GN_rows": {
+    "background": {
+      "A_prime": "-k_inf*exp(-G*Omega_value**2/(6*M5c))",
+      "Omega_prime": "-Omega_value*k_inf*exp(-G*Omega_value**2/(6*M5c))"
+    },
+    "checks": {
+      "master_identity": true,
+      "null_cone_identity": true,
+      "space_momentum_constraint": true,
+      "time_momentum_constraint": true
+    },
+    "curvature": "-C/Omega_value + P",
+    "curvature_first": "-C*k_inf*exp(-G*Omega_value**2/(6*M5c))/Omega_value - C1/Omega_value + P1",
+    "identity_coefficients": {
+      "44_row": "1/(3*M5c)",
+      "D_momentum": "1",
+      "Omega_row": "-1/(G*Omega_value)",
+      "momentum": "-6*k_inf*exp(-G*Omega_value**2/(6*M5c))"
+    },
+    "master_operator": "-C*G*Omega_value*k_inf**2*exp(-G*Omega_value**2/(3*M5c))/(3*M5c) - C*W_freq**2*exp(-2*A_value)/Omega_value + 5*C*k_inf**2*exp(-G*Omega_value**2/(3*M5c))/Omega_value + C*q_mom**2*exp(-2*A_value)/Omega_value + 4*C1*k_inf*exp(-G*Omega_value**2/(6*M5c))/Omega_value - C2/Omega_value + P*W_freq**2*exp(-2*A_value) - P*q_mom**2*exp(-2*A_value) - 6*P1*k_inf*exp(-G*Omega_value**2/(6*M5c)) + P2",
+    "momentum_constraint": "-C*G*Omega_value*k_inf*exp(-G*Omega_value**2/(6*M5c))/(3*M5c) + P1",
+    "residuals": {
+      "master_identity": "0",
+      "null_cone_identity": "0",
+      "space_momentum_constraint": "0",
+      "time_momentum_constraint": "0"
+    },
+    "row_combination": "-C1*G*Omega_value*k_inf*exp(-G*Omega_value**2/(6*M5c))/(3*M5c) - Omega_value*k_inf*(C*G**2*Omega_value**2*k_inf*exp(-G*Omega_value**2/(6*M5c))/(9*M5c**2) - C*G*k_inf*exp(-G*Omega_value**2/(6*M5c))/(3*M5c))*exp(-G*Omega_value**2/(6*M5c)) + P2 - 6*k_inf*(-C*G*Omega_value*k_inf*exp(-G*Omega_value**2/(6*M5c))/(3*M5c) + P1)*exp(-G*Omega_value**2/(6*M5c)) + (-C*G**2*Omega_value**3*k_inf**2*exp(-G*Omega_value**2/(3*M5c))/(3*M5c) + 5*C*G*Omega_value*k_inf**2*exp(-G*Omega_value**2/(3*M5c)) + C1*G*Omega_value*k_inf*exp(-G*Omega_value**2/(6*M5c)) - 3*E1*M5c*W_freq**2*k_inf*exp(-G*Omega_value**2/(6*M5c)) + 3*E1*M5c*k_inf*q_mom**2*exp(-G*Omega_value**2/(6*M5c)) + 3*M5c*P*W_freq**2*exp(-2*A_value) - 3*M5c*P*q_mom**2*exp(-2*A_value) - 12*M5c*P1*k_inf*exp(-G*Omega_value**2/(6*M5c)))/(3*M5c) - (-2*C*G**3*Omega_value**4*k_inf**2*exp(-G*Omega_value**2/(3*M5c))/(9*M5c**2) + 13*C*G**2*Omega_value**2*k_inf**2*exp(-G*Omega_value**2/(3*M5c))/(3*M5c) + C*G*W_freq**2*exp(-2*A_value) - 5*C*G*k_inf**2*exp(-G*Omega_value**2/(3*M5c)) - C*G*q_mom**2*exp(-2*A_value) - 4*C1*G*k_inf*exp(-G*Omega_value**2/(6*M5c)) + C2*G - E1*G*Omega_value*W_freq**2*k_inf*exp(-G*Omega_value**2/(6*M5c)) + E1*G*Omega_value*k_inf*q_mom**2*exp(-G*Omega_value**2/(6*M5c)) - 4*G*Omega_value*P1*k_inf*exp(-G*Omega_value**2/(6*M5c)))/(G*Omega_value)",
+    "rows": {
+      "04": "-I*C*G*Omega_value*W_freq*k_inf*exp(-G*Omega_value**2/(6*M5c)) + 3*I*M5c*P1*W_freq",
+      "34": "I*C*G*Omega_value*k_inf*q_mom*exp(-G*Omega_value**2/(6*M5c)) - 3*I*M5c*P1*q_mom",
+      "44": "-C*G**2*Omega_value**3*k_inf**2*exp(-G*Omega_value**2/(3*M5c))/(3*M5c) + 5*C*G*Omega_value*k_inf**2*exp(-G*Omega_value**2/(3*M5c)) + C1*G*Omega_value*k_inf*exp(-G*Omega_value**2/(6*M5c)) - 3*E1*M5c*W_freq**2*k_inf*exp(-G*Omega_value**2/(6*M5c)) + 3*E1*M5c*k_inf*q_mom**2*exp(-G*Omega_value**2/(6*M5c)) + 3*M5c*P*W_freq**2*exp(-2*A_value) - 3*M5c*P*q_mom**2*exp(-2*A_value) - 12*M5c*P1*k_inf*exp(-G*Omega_value**2/(6*M5c))",
+      "Omega": "-2*C*G**3*Omega_value**4*k_inf**2*exp(-G*Omega_value**2/(3*M5c))/(9*M5c**2) + 13*C*G**2*Omega_value**2*k_inf**2*exp(-G*Omega_value**2/(3*M5c))/(3*M5c) + C*G*W_freq**2*exp(-2*A_value) - 5*C*G*k_inf**2*exp(-G*Omega_value**2/(3*M5c)) - C*G*q_mom**2*exp(-2*A_value) - 4*C1*G*k_inf*exp(-G*Omega_value**2/(6*M5c)) + C2*G - E1*G*Omega_value*W_freq**2*k_inf*exp(-G*Omega_value**2/(6*M5c)) + E1*G*Omega_value*k_inf*q_mom**2*exp(-G*Omega_value**2/(6*M5c)) - 4*G*Omega_value*P1*k_inf*exp(-G*Omega_value**2/(6*M5c))"
+    }
+  },
+  "action_compatibility": {
+    "candidate_connection_trace": "Trans_iota(A)=r*(Y^*A)*r^(-1)-(d r)*r^(-1)=A_Sigma",
+    "candidate_gauged_conformal_derivative": "P_eps_M=D_(A_eps,M)phi_eps+3*phi_eps*partial_M log(Omega_eps)/2",
+    "candidate_lambda_K": -0.5535068954004245,
+    "full_action_identity": false,
+    "identical_background_literals": {
+      "bulk_potential": true,
+      "full_V4": true,
+      "superpotential": true,
+      "wall_background": true
+    },
+    "legacy_scalar_sector_inherited": false,
+    "literal_comparisons": {
+      "BF": {
+        "candidate": "S_BF=sum_eps int_Meps <B_eps wedge F[A_eps]>, <X,Y>=-tr_3(XY)/2",
+        "old": null,
+        "relation": "new BF sector; no claim of edge-mode elimination"
+      },
+      "GHY": {
+        "candidate": "S_GHY=M5^3*sum_eps int_Sigma sqrt(-gamma)*Theta_eps for outward normals",
+        "old": "S_GHY=+M5^3*sum_(eps in {plus,minus}) int_Sigma sqrt(-gamma)*Theta_eps for outward spacelike normals",
+        "relation": "manual translation: same +M5^3 normalization and outward spacelike-normal convention"
+      },
+      "Robin": {
+        "candidate": "S_R_intrinsic=-kappa_hat/2*int_Sigma sqrt(-gamma)*h_mu_nu*(varphi_H^mu-y*a^mu)*(varphi_H^nu-y*a^nu)",
+        "old": "S_R=-kappa_hat*int_Sigma sqrt(-gamma)*delta_ab*(varphi^a-y*Acal^a)*(varphi^b-y*Acal^b)/2",
+        "relation": "intrinsic associated-vector trace glued by iota; its metric-dependent frame varies"
+      },
+      "bulk_derivative": {
+        "candidate": "S_bulk_gauged=sum_eps int_Meps sqrt(-g_eps)*[M5^3*R_eps/2-G*(nabla Omega_eps)^2/2-U(Omega_eps)-Z5*delta_ab*P_eps_M^a*P_eps^(b M)/2-Z5*M^2*Omega_eps^(-5)*V4(Omega_eps^(3/2)*|phi_eps|)]",
+        "old": "S_bulk=sum_(eps in {plus,minus}) int_Meps sqrt(-g)*[M5^3*R/2-G*(nabla Omega)^2/2-U(Omega)-Z5_per_side*P_M^a*P_a^M/2-Z5_per_side*M^2*Omega^(-5)*V4(Omega^(3/2)*r_phi)]",
+        "relation": "ordinary internal derivative replaced by the SO3 covariant derivative D_A"
+      },
+      "bulk_potential": {
+        "candidate": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+        "old": "U(Omega)=W_Omega^2/(2*G)-2*W^2/(3*M5^3)",
+        "relation": "exact string identity"
+      },
+      "foliation": {
+        "candidate": "S_fol_lower=Mb^2/2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]",
+        "old": "S_fol=Mb^2*int_Sigma sqrt(-gamma)*[Kcal_mu_nu*Kcal^mu_nu-lambda_K*Kcal^2+xi*Rcal+eta*a_mu*a^mu-B4_bar*Rcal^2/(16*k_infinity^2)]/2",
+        "relation": "manual translation: same displayed lower-order operators; lambda_K is changed"
+      },
+      "full_V4": {
+        "candidate": "V4(r)=r^4/(2*sqrt(1+r^4))",
+        "old": "V4(r)=r^4/(2*sqrt(1+r^4))",
+        "relation": "exact string identity"
+      },
+      "solid": {
+        "candidate": "S_X=0 and every bulk screen-clock term=0",
+        "old": "S_X=int_Sigma sqrt(-gamma)*[rho_X*(u^mu*partial_mu X^a)^2/2-mu_X*tr[(B-v^2*I)^2]/4-lambda_X*(tr(B-v^2*I))^2/8]",
+        "relation": "S_X removed; no elastic TT contact may be inherited"
+      },
+      "superpotential": {
+        "candidate": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+        "old": "W(Omega)=3*M5^3*k_infinity*exp[-G*Omega^2/(6*M5^3)]",
+        "relation": "exact string identity"
+      },
+      "wall_background": {
+        "candidate": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]",
+        "old": "S_wall0=-int_Sigma sqrt(-gamma)*[2*W(Omega_Sigma)+beta*(Omega_Sigma-1)^2/2]",
+        "relation": "exact string identity"
+      }
+    },
+    "old_lambda_K": 1.3107013790800848,
+    "only_shared_numeric_parameter_change_is_lambda_K": true,
+    "parameter_comparisons": {
+      "B4_bar": {
+        "candidate": 0.8,
+        "old": 0.8,
+        "status": "identical"
+      },
+      "M4_bulk_squared_selected_one_Omega_wall_value": {
+        "candidate": 1.107013790800849,
+        "old": 1.107013790800849,
+        "status": "identical"
+      },
+      "M5_cubed": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "Robin_kappa_hat": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "Robin_kappa_in_Mb_units": {
+        "candidate": 0.5,
+        "old": 0.5,
+        "status": "identical"
+      },
+      "Robin_y": {
+        "candidate": 1.7320508075688772,
+        "old": 1.7320508075688772,
+        "status": "identical"
+      },
+      "Robin_y_squared": {
+        "candidate": 3.0,
+        "old": 3.0,
+        "status": "identical"
+      },
+      "brane_Mb_squared": {
+        "candidate": 2.0,
+        "old": 2.0,
+        "status": "identical"
+      },
+      "brane_beta": {
+        "candidate": 2.0,
+        "old": 2.0,
+        "status": "identical"
+      },
+      "compensator_metric_G": {
+        "candidate": 1.2,
+        "old": 1.2,
+        "status": "identical"
+      },
+      "eta": {
+        "candidate": 3.107013790800849,
+        "old": 3.107013790800849,
+        "status": "identical"
+      },
+      "k_BF_trace_equivalent": {
+        "candidate": -0.5,
+        "old": null,
+        "status": "added"
+      },
+      "k_infinity": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "kappa_BF_inner_product": {
+        "candidate": 1.0,
+        "old": null,
+        "status": "added"
+      },
+      "lambda_K": {
+        "candidate": -0.5535068954004245,
+        "old": 1.3107013790800848,
+        "status": "changed"
+      },
+      "material_Z5_per_side": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "material_mass_M": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      },
+      "solid_lambda": {
+        "candidate": null,
+        "old": 1.0,
+        "status": "removed"
+      },
+      "solid_mu": {
+        "candidate": null,
+        "old": 1.0,
+        "status": "removed"
+      },
+      "solid_rho": {
+        "candidate": null,
+        "old": 1.0,
+        "status": "removed"
+      },
+      "solid_v": {
+        "candidate": null,
+        "old": 1.0,
+        "status": "removed"
+      },
+      "xi": {
+        "candidate": 1.0,
+        "old": 1.0,
+        "status": "identical"
+      }
+    },
+    "shared_parameter_changes": [
+      "lambda_K"
+    ]
+  },
+  "boundary": {
+    "A_prime_UV": "-k_inf*exp(-G/(6*M5c))",
+    "W_prime_UV": "-G*k_inf*exp(-G/(6*M5c))",
+    "W_second_UV": "-G*k_inf*(-G/(3*M5c) + 1)*exp(-G/(6*M5c))",
+    "action_in_Z_v": "-K_v*v_boundary**2/2 - 3*M5c*W_freq**2*Z**2*exp(G/(6*M5c))/k_inf + 3*M5c*Z**2*q_mom**2*exp(G/(6*M5c))/k_inf - Z**2*beta_wall/2 - beta_wall*v_boundary**2/(2*G) - Z*beta_wall*v_boundary/sqrt(G)",
+    "canonical_metric_force": "2*G*R_prime - 6*M5c*W_freq**2*Z*exp(G/(6*M5c))/k_inf + 6*M5c*Z*q_mom**2*exp(G/(6*M5c))/k_inf",
+    "canonical_scalar_force": "-D*beta_wall - 2*G*R_prime",
+    "checks": {
+      "canonical_master_plus_local_Z_contact": true,
+      "hamiltonian_fixes_d_Eprime_without_inverting_d": true,
+      "metric_force_from_canonical_momentum": true,
+      "null_cone_contact": true,
+      "scalar_force_from_canonical_momentum": true,
+      "symmetric_boundary_response": true
+    },
+    "d_Eprime_solution": "-G*R_prime/(3*M5c) - Z*(-W_freq**2 + q_mom**2)*exp(G/(6*M5c))/k_inf",
+    "quadratic_action": "D*(D*(-G*K_v - beta_wall) + G*K_v*Z)/2 + Z*(D*G*K_v + Z*(-G*K_v*k_inf - 6*M5c*W_freq**2*exp(G/(6*M5c)) + 6*M5c*q_mom**2*exp(G/(6*M5c)))/k_inf)/2",
+    "residuals": {
+      "canonical_master_plus_local_Z_contact": "0",
+      "hamiltonian_fixes_d_Eprime_without_inverting_d": "0",
+      "metric_force_from_canonical_momentum": "0",
+      "null_cone_contact": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "scalar_force_from_canonical_momentum": "0",
+      "symmetric_boundary_response": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "response_matrix": [
+      [
+        "(-G*K_v*k_inf - 6*M5c*W_freq**2*exp(G/(6*M5c)) + 6*M5c*q_mom**2*exp(G/(6*M5c)))/k_inf",
+        "G*K_v"
+      ],
+      [
+        "G*K_v",
+        "-G*K_v - beta_wall"
+      ]
+    ],
+    "scope": {
+      "bilateral_fixed_GN_boundary_data": true,
+      "complete_brane_ADM_khronon_tensor_constraints_assembled": false,
+      "full_N7": false,
+      "full_P4": false,
+      "moving_embedding_equations_certified": false,
+      "regular_kernel_computed_in_closed_form": false
+    }
+  },
+  "calculation_digest": "3d71a18b04fafcf0f9a935710e5a8663a2dff24df85d64eb9a583ed05db077c4",
+  "checks": {
+    "ADM_BPS_Hamiltonian": true,
+    "ADM_BPS_acceleration": true,
+    "ADM_BPS_background_remainder": true,
+    "ADM_BPS_flow_ratio": true,
+    "ADM_UV_gradient_primitive": true,
+    "ADM_all_total_derivatives_retained": true,
+    "ADM_conformal_shift_trace": true,
+    "ADM_curvature_current_product_rule": true,
+    "ADM_extrinsic_invariant_from_matrix": true,
+    "ADM_intrinsic_density_explicit": true,
+    "ADM_inverse_conformal_metric": true,
+    "ADM_lapse_after_momentum_constraint": true,
+    "ADM_lapse_constraint_with_background_row": true,
+    "ADM_longitudinal_shift_vector_quadratic_Euler": true,
+    "ADM_master_BPS_friction": true,
+    "ADM_pump_in_conformal_radial_coordinate": true,
+    "ADM_radial_square_and_primitive": true,
+    "ADM_radially_constant_IR_conformal_EH_coefficient": true,
+    "ADM_shift_current_product_rule": true,
+    "ADM_two_sides_fixed_wall_mass_primitive": true,
+    "GN_master_identity": true,
+    "GN_null_cone_identity": true,
+    "GN_space_momentum_constraint": true,
+    "GN_time_momentum_constraint": true,
+    "boundary_canonical_master_plus_local_Z_contact": true,
+    "boundary_hamiltonian_fixes_d_Eprime_without_inverting_d": true,
+    "boundary_metric_force_from_canonical_momentum": true,
+    "boundary_null_cone_contact": true,
+    "boundary_scalar_force_from_canonical_momentum": true,
+    "boundary_symmetric_boundary_response": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BF_edge_sector_certified": false,
+    "GN_constraint_identity_without_inverse_slice_wave_operator": true,
+    "all_quadratic_boundary_currents_retained": true,
+    "bulk_scalar_master_derived_from_radial_ADM": true,
+    "canonical_GN_scalar_boundary_response_derived": true,
+    "complete_candidate_linearization_certified": false,
+    "full_N7": false,
+    "full_P4": false,
+    "full_vector_and_tensor_boundary_projectors_assembled": false,
+    "global_spectrum_or_stability_certified": false,
+    "legacy_Robin_base_equivalence_certified": false,
+    "moving_embedding_equations_certified": false,
+    "physical_scalar_admissibility": false
+  },
+  "provenance": {
+    "one_omega_bps_scalar_master_rows_v1.py": "5b26078290b93bdefa81beb9ff02ac2efb19892356a807ff0507b9bc10a06944",
+    "test_one_omega_bps_scalar_master_v1.py": "60cb1368a92648cfb3dfc3146bb67e368399780c675e5a0baaeedc6eacb9b4f6",
+    "verify_one_omega_bps_scalar_master_v1.py": "75588e93e9831fd2ce89f14f5f6f35ef65cc89db469d50de8c7ed2ba45633dd1",
+    "verify_one_omega_topological_tt_closure_v1.py": "42cbc1ed21544bbdb0c7fd46074e389cf2d96c8d330d22c2fe89eaa28d8c1d77",
+    "verify_one_omega_topological_tt_compatibility_v1.py": "e0fb4175f2be8b18e636932362d8dcc91a1e934c522fa68c227e42ba9fa2a352"
+  },
+  "schema": "holo.one-omega-bps-scalar-master.v1",
+  "sources": {
+    "bulk_snapshot": "ea8b45c968056dda63fb4394d4395669b69d913adf94625b60a1804dc649777a",
+    "candidate": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b",
+    "candidate_action": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "old_charter": "b718cb68934a665cf0a7b89fafffcf2b9ebb2c0bb94c9386ff64f34d91a2e0ef"
+  }
+}
