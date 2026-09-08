@@ -1,0 +1,696 @@
+{
+  "calculation_digest": "0b23266375b1322035113ef2b44a0a74f790e27f00a49237f31d74c9ad652f49",
+  "checks": {
+    "H18_formal_opposite_Fourier_adjoint": true,
+    "PR_K0_excess_identity": true,
+    "PR_K0_strictly_positive": true,
+    "PR_Stieltjes_atom_s_m_real_part": true,
+    "PR_Stieltjes_atom_strictly_positive": true,
+    "PR_excess_reciprocal_sum_identity": true,
+    "PR_harmonic_positive_real_part_identity": true,
+    "PR_harmonic_real_part_strictly_positive": true,
+    "PR_homogeneous_free_theta_real_part": true,
+    "PR_homogeneous_not_limit_of_vector_Schur": true,
+    "PR_s_Keff_reciprocal_sum_identity": true,
+    "PR_scalar_increment_real_part_positive_for_q_nonzero": true,
+    "PR_zero_measure_branch_Keff_equals_K0": true,
+    "all_25_scalar_entries_change_only_zeta_zeta": true,
+    "all_324_added_entries_from_projected_C_density": true,
+    "all_324_homogeneous_added_entries_derived_directly": true,
+    "all_nine_three_scalar_entries_change_only_zeta_zeta": true,
+    "four_dimensional_gauge_space_1": true,
+    "four_dimensional_gauge_space_2": true,
+    "four_dimensional_gauge_space_3": true,
+    "four_dimensional_gauge_time": true,
+    "homogeneous_projected_connection_zero": true,
+    "lapse_shift_pivot_and_schur_numerators_unchanged": true,
+    "phi_and_Omega_no_direct_added_operator": true,
+    "scalar_chart_has_no_theta_mixing": true,
+    "scalar_material_and_Omega_pivots_unchanged": true,
+    "tensor_cross_adds_chi_q_squared": true,
+    "tensor_plus_adds_chi_q_squared": true,
+    "theta_longitudinal_decoupled": true,
+    "theta_longitudinal_free_denominator": true,
+    "vector_1_all_nine_entries": true,
+    "vector_1_determinant_factorization": true,
+    "vector_1_effective_theta_action": true,
+    "vector_1_shift_pivot_retained": true,
+    "vector_2_all_nine_entries": true,
+    "vector_2_determinant_factorization": true,
+    "vector_2_effective_theta_action": true,
+    "vector_2_shift_pivot_retained": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BF_boundary_domain_and_embeddings_completed": false,
+    "full_N2": false,
+    "full_N7": false,
+    "full_P4": false,
+    "homogeneous_added_block_derived_without_q_division": true,
+    "imaginary_axis_poles_or_global_modes_counted": false,
+    "new_action_adopted": false,
+    "new_chi_value_selected": false,
+    "new_scalar_and_tensor_RHP_denominators_nonzero": true,
+    "new_theta_channels_and_retained_shift_pivots_RHP_nonzero": true,
+    "nonlinear_torque_repair_completed": false,
+    "proposed_H18_linear_response_assembled": true,
+    "uniform_shift_reconstruction_at_q_zero_proved": false
+  },
+  "negative_controls": {
+    "drop_vector_shift_Schur_term": true,
+    "halve_tensor_connection_gradient": true,
+    "old_scalar_operator_reused_unchanged": true,
+    "omit_spatial_gauge_theta_compensation": true
+  },
+  "positive_real": {
+    "K0": "2*b*chi/(2*b + chi)",
+    "atom_real": "ell*sigma*(ell + q**2 + sigma**2 + tau**2)/(4*sigma**2*(ell + q**2) + (-ell - q**2 + sigma**2 + tau**2)**2)",
+    "excess": "2*chi**2*m*s/((2*b + chi)*(2*b + chi + 2*m))",
+    "real_reference": "(2*ux*(vx**2 + vy**2) + 4*vx*(ux**2 + uy**2))/((2*ux + vx)**2 + (2*uy + vy)**2)"
+  },
+  "provenance": {
+    "test_one_omega_connection_candidate_response_v1.py": "33ff5789c0b77da57fce1e8446659d14da86bef5a4452d0b9cb41c9a710e0daf",
+    "verify_one_omega_connection_candidate_response_v1.py": "59f42cfeec40ccff285e815fb023122587f4a614e7ca3e13d9e43e4d1315f17f"
+  },
+  "response": {
+    "B": "K_T*M5c/(q**2 - w**2) + Mb2",
+    "FT": "K_T*M5c + Mb2*(q**2*xi - w**2)",
+    "H3": [
+      [
+        "(-12*G*K_T*K_v*M5c*Z5*k_inf*p_material*q**4 - 6*G*K_T*K_v*M5c*k_inf*kappa_hat*q**4 + 12*G*K_v*M5c*Z5*p_material*q**6*exp(G/(6*M5c)) - 12*G*K_v*M5c*Z5*p_material*q**4*w**2*exp(G/(6*M5c)) + 6*G*K_v*M5c*kappa_hat*q**6*exp(G/(6*M5c)) - 6*G*K_v*M5c*kappa_hat*q**4*w**2*exp(G/(6*M5c)) + 18*G*K_v*Mb2*Z5*eta*k_inf*p_material*q**6 - 36*G*K_v*Mb2*Z5*eta*k_inf*p_material*q**4*w**2 + 18*G*K_v*Mb2*Z5*eta*k_inf*p_material*q**2*w**4 + 9*G*K_v*Mb2*eta*k_inf*kappa_hat*q**6 - 18*G*K_v*Mb2*eta*k_inf*kappa_hat*q**4*w**2 + 9*G*K_v*Mb2*eta*k_inf*kappa_hat*q**2*w**4 - 2*G*K_v*Z5*beta*k_inf*p_material*q**4 - 18*G*K_v*Z5*k_inf*kappa_hat*p_material*q**6*y**2 + 36*G*K_v*Z5*k_inf*kappa_hat*p_material*q**4*w**2*y**2 - 18*G*K_v*Z5*k_inf*kappa_hat*p_material*q**2*w**4*y**2 - G*K_v*beta*k_inf*kappa_hat*q**4 - 12*K_T*M5c*Z5*beta*k_inf*p_material*q**4 - 6*K_T*M5c*beta*k_inf*kappa_hat*q**4 + 12*M5c*Z5*beta*p_material*q**6*exp(G/(6*M5c)) - 12*M5c*Z5*beta*p_material*q**4*w**2*exp(G/(6*M5c)) + 6*M5c*beta*kappa_hat*q**6*exp(G/(6*M5c)) - 6*M5c*beta*kappa_hat*q**4*w**2*exp(G/(6*M5c)) + 18*Mb2*Z5*beta*eta*k_inf*p_material*q**6 - 36*Mb2*Z5*beta*eta*k_inf*p_material*q**4*w**2 + 18*Mb2*Z5*beta*eta*k_inf*p_material*q**2*w**4 + 9*Mb2*beta*eta*k_inf*kappa_hat*q**6 - 18*Mb2*beta*eta*k_inf*kappa_hat*q**4*w**2 + 9*Mb2*beta*eta*k_inf*kappa_hat*q**2*w**4 - 18*Z5*beta*k_inf*kappa_hat*p_material*q**6*y**2 + 36*Z5*beta*k_inf*kappa_hat*p_material*q**4*w**2*y**2 - 18*Z5*beta*k_inf*kappa_hat*p_material*q**2*w**4*y**2)/(18*G*K_v*Z5*k_inf*p_material*q**4 - 36*G*K_v*Z5*k_inf*p_material*q**2*w**2 + 18*G*K_v*Z5*k_inf*p_material*w**4 + 9*G*K_v*k_inf*kappa_hat*q**4 - 18*G*K_v*k_inf*kappa_hat*q**2*w**2 + 9*G*K_v*k_inf*kappa_hat*w**4 + 18*Z5*beta*k_inf*p_material*q**4 - 36*Z5*beta*k_inf*p_material*q**2*w**2 + 18*Z5*beta*k_inf*p_material*w**4 + 9*beta*k_inf*kappa_hat*q**4 - 18*beta*k_inf*kappa_hat*q**2*w**2 + 9*beta*k_inf*kappa_hat*w**4)",
+        "(6*G*K_T*K_v*M5c*k_inf*q**3*w - 6*G*K_v*M5c*q**5*w*exp(G/(6*M5c)) + 6*G*K_v*M5c*q**3*w**3*exp(G/(6*M5c)) + G*K_v*beta*k_inf*q**3*w + 6*K_T*M5c*beta*k_inf*q**3*w - 6*M5c*beta*q**5*w*exp(G/(6*M5c)) + 6*M5c*beta*q**3*w**3*exp(G/(6*M5c)))/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(6*G*K_T*K_v*M5c*k_inf*q**4 + 12*G*K_v*M5c*q**6*exp(G/(6*M5c)) - 30*G*K_v*M5c*q**4*w**2*exp(G/(6*M5c)) + 18*G*K_v*M5c*q**2*w**4*exp(G/(6*M5c)) + 18*G*K_v*Mb2*k_inf*q**6*xi - 36*G*K_v*Mb2*k_inf*q**4*w**2*xi + 18*G*K_v*Mb2*k_inf*q**2*w**4*xi - 2*G*K_v*beta*k_inf*q**4 + 3*G*K_v*beta*k_inf*q**2*w**2 + 6*K_T*M5c*beta*k_inf*q**4 + 12*M5c*beta*q**6*exp(G/(6*M5c)) - 30*M5c*beta*q**4*w**2*exp(G/(6*M5c)) + 18*M5c*beta*q**2*w**4*exp(G/(6*M5c)) + 18*Mb2*beta*k_inf*q**6*xi - 36*Mb2*beta*k_inf*q**4*w**2*xi + 18*Mb2*beta*k_inf*q**2*w**4*xi)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)"
+      ],
+      [
+        "(6*G*K_T*K_v*M5c*k_inf*q**3*w - 6*G*K_v*M5c*q**5*w*exp(G/(6*M5c)) + 6*G*K_v*M5c*q**3*w**3*exp(G/(6*M5c)) + G*K_v*beta*k_inf*q**3*w + 6*K_T*M5c*beta*k_inf*q**3*w - 6*M5c*beta*q**5*w*exp(G/(6*M5c)) + 6*M5c*beta*q**3*w**3*exp(G/(6*M5c)))/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(-6*G*K_T*K_v*M5c*k_inf*q**2*w**2 + 6*G*K_v*M5c*q**4*w**2*exp(G/(6*M5c)) - 6*G*K_v*M5c*q**2*w**4*exp(G/(6*M5c)) - 9*G*K_v*Mb2*k_inf*lambda_K*q**6 + 18*G*K_v*Mb2*k_inf*lambda_K*q**4*w**2 - 9*G*K_v*Mb2*k_inf*lambda_K*q**2*w**4 + 9*G*K_v*Mb2*k_inf*q**6 - 18*G*K_v*Mb2*k_inf*q**4*w**2 + 9*G*K_v*Mb2*k_inf*q**2*w**4 - G*K_v*beta*k_inf*q**2*w**2 - 6*K_T*M5c*beta*k_inf*q**2*w**2 + 6*M5c*beta*q**4*w**2*exp(G/(6*M5c)) - 6*M5c*beta*q**2*w**4*exp(G/(6*M5c)) - 9*Mb2*beta*k_inf*lambda_K*q**6 + 18*Mb2*beta*k_inf*lambda_K*q**4*w**2 - 9*Mb2*beta*k_inf*lambda_K*q**2*w**4 + 9*Mb2*beta*k_inf*q**6 - 18*Mb2*beta*k_inf*q**4*w**2 + 9*Mb2*beta*k_inf*q**2*w**4)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(-6*G*K_T*K_v*M5c*k_inf*q**3*w - 12*G*K_v*M5c*q**5*w*exp(G/(6*M5c)) + 30*G*K_v*M5c*q**3*w**3*exp(G/(6*M5c)) - 18*G*K_v*M5c*q*w**5*exp(G/(6*M5c)) - 27*G*K_v*Mb2*k_inf*lambda_K*q**5*w + 54*G*K_v*Mb2*k_inf*lambda_K*q**3*w**3 - 27*G*K_v*Mb2*k_inf*lambda_K*q*w**5 + 9*G*K_v*Mb2*k_inf*q**5*w - 18*G*K_v*Mb2*k_inf*q**3*w**3 + 9*G*K_v*Mb2*k_inf*q*w**5 + 2*G*K_v*beta*k_inf*q**3*w - 3*G*K_v*beta*k_inf*q*w**3 - 6*K_T*M5c*beta*k_inf*q**3*w - 12*M5c*beta*q**5*w*exp(G/(6*M5c)) + 30*M5c*beta*q**3*w**3*exp(G/(6*M5c)) - 18*M5c*beta*q*w**5*exp(G/(6*M5c)) - 27*Mb2*beta*k_inf*lambda_K*q**5*w + 54*Mb2*beta*k_inf*lambda_K*q**3*w**3 - 27*Mb2*beta*k_inf*lambda_K*q*w**5 + 9*Mb2*beta*k_inf*q**5*w - 18*Mb2*beta*k_inf*q**3*w**3 + 9*Mb2*beta*k_inf*q*w**5)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)"
+      ],
+      [
+        "(6*G*K_T*K_v*M5c*k_inf*q**4 + 12*G*K_v*M5c*q**6*exp(G/(6*M5c)) - 30*G*K_v*M5c*q**4*w**2*exp(G/(6*M5c)) + 18*G*K_v*M5c*q**2*w**4*exp(G/(6*M5c)) + 18*G*K_v*Mb2*k_inf*q**6*xi - 36*G*K_v*Mb2*k_inf*q**4*w**2*xi + 18*G*K_v*Mb2*k_inf*q**2*w**4*xi - 2*G*K_v*beta*k_inf*q**4 + 3*G*K_v*beta*k_inf*q**2*w**2 + 6*K_T*M5c*beta*k_inf*q**4 + 12*M5c*beta*q**6*exp(G/(6*M5c)) - 30*M5c*beta*q**4*w**2*exp(G/(6*M5c)) + 18*M5c*beta*q**2*w**4*exp(G/(6*M5c)) + 18*Mb2*beta*k_inf*q**6*xi - 36*Mb2*beta*k_inf*q**4*w**2*xi + 18*Mb2*beta*k_inf*q**2*w**4*xi)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(-6*G*K_T*K_v*M5c*k_inf*q**3*w - 12*G*K_v*M5c*q**5*w*exp(G/(6*M5c)) + 30*G*K_v*M5c*q**3*w**3*exp(G/(6*M5c)) - 18*G*K_v*M5c*q*w**5*exp(G/(6*M5c)) - 27*G*K_v*Mb2*k_inf*lambda_K*q**5*w + 54*G*K_v*Mb2*k_inf*lambda_K*q**3*w**3 - 27*G*K_v*Mb2*k_inf*lambda_K*q*w**5 + 9*G*K_v*Mb2*k_inf*q**5*w - 18*G*K_v*Mb2*k_inf*q**3*w**3 + 9*G*K_v*Mb2*k_inf*q*w**5 + 2*G*K_v*beta*k_inf*q**3*w - 3*G*K_v*beta*k_inf*q*w**3 - 6*K_T*M5c*beta*k_inf*q**3*w - 12*M5c*beta*q**5*w*exp(G/(6*M5c)) + 30*M5c*beta*q**3*w**3*exp(G/(6*M5c)) - 18*M5c*beta*q*w**5*exp(G/(6*M5c)) - 27*Mb2*beta*k_inf*lambda_K*q**5*w + 54*Mb2*beta*k_inf*lambda_K*q**3*w**3 - 27*Mb2*beta*k_inf*lambda_K*q*w**5 + 9*Mb2*beta*k_inf*q**5*w - 18*Mb2*beta*k_inf*q**3*w**3 + 9*Mb2*beta*k_inf*q*w**5)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(-9*B4bar*G*K_v*Mb2*q**8 + 18*B4bar*G*K_v*Mb2*q**6*w**2 - 9*B4bar*G*K_v*Mb2*q**4*w**4 - 9*B4bar*Mb2*beta*q**8 + 18*B4bar*Mb2*beta*q**6*w**2 - 9*B4bar*Mb2*beta*q**4*w**4 - 6*G*K_T*K_v*M5c*k_inf**2*q**4 + 24*G*K_v*M5c*k_inf*q**6*exp(G/(6*M5c)) - 96*G*K_v*M5c*k_inf*q**4*w**2*exp(G/(6*M5c)) + 126*G*K_v*M5c*k_inf*q**2*w**4*exp(G/(6*M5c)) - 54*G*K_v*M5c*k_inf*w**6*exp(G/(6*M5c)) - 81*G*K_v*Mb2*k_inf**2*lambda_K*q**4*w**2 + 162*G*K_v*Mb2*k_inf**2*lambda_K*q**2*w**4 - 81*G*K_v*Mb2*k_inf**2*lambda_K*w**6 + 18*G*K_v*Mb2*k_inf**2*q**6*xi - 36*G*K_v*Mb2*k_inf**2*q**4*w**2*xi + 27*G*K_v*Mb2*k_inf**2*q**4*w**2 + 18*G*K_v*Mb2*k_inf**2*q**2*w**4*xi - 54*G*K_v*Mb2*k_inf**2*q**2*w**4 + 27*G*K_v*Mb2*k_inf**2*w**6 - 4*G*K_v*beta*k_inf**2*q**4 + 12*G*K_v*beta*k_inf**2*q**2*w**2 - 9*G*K_v*beta*k_inf**2*w**4 - 18*G*K_v*chi*k_inf**2*q**6 + 36*G*K_v*chi*k_inf**2*q**4*w**2 - 18*G*K_v*chi*k_inf**2*q**2*w**4 - 6*K_T*M5c*beta*k_inf**2*q**4 + 24*M5c*beta*k_inf*q**6*exp(G/(6*M5c)) - 96*M5c*beta*k_inf*q**4*w**2*exp(G/(6*M5c)) + 126*M5c*beta*k_inf*q**2*w**4*exp(G/(6*M5c)) - 54*M5c*beta*k_inf*w**6*exp(G/(6*M5c)) - 81*Mb2*beta*k_inf**2*lambda_K*q**4*w**2 + 162*Mb2*beta*k_inf**2*lambda_K*q**2*w**4 - 81*Mb2*beta*k_inf**2*lambda_K*w**6 + 18*Mb2*beta*k_inf**2*q**6*xi - 36*Mb2*beta*k_inf**2*q**4*w**2*xi + 27*Mb2*beta*k_inf**2*q**4*w**2 + 18*Mb2*beta*k_inf**2*q**2*w**4*xi - 54*Mb2*beta*k_inf**2*q**2*w**4 + 27*Mb2*beta*k_inf**2*w**6 - 18*beta*chi*k_inf**2*q**6 + 36*beta*chi*k_inf**2*q**4*w**2 - 18*beta*chi*k_inf**2*q**2*w**4)/(9*G*K_v*k_inf**2*q**4 - 18*G*K_v*k_inf**2*q**2*w**2 + 9*G*K_v*k_inf**2*w**4 + 9*beta*k_inf**2*q**4 - 18*beta*k_inf**2*q**2*w**2 + 9*beta*k_inf**2*w**4)"
+      ]
+    ],
+    "H5": [
+      [
+        "(-G*K_v*k_inf*q**4 - 6*K_T*M5c*k_inf*q**4 + 6*M5c*q**6*exp(G/(6*M5c)) - 6*M5c*q**4*w**2*exp(G/(6*M5c)) + 9*Mb2*eta*k_inf*q**6 - 18*Mb2*eta*k_inf*q**4*w**2 + 9*Mb2*eta*k_inf*q**2*w**4 - 9*k_inf*kappa_hat*q**6*y**2 + 18*k_inf*kappa_hat*q**4*w**2*y**2 - 9*k_inf*kappa_hat*q**2*w**4*y**2)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(G*K_v*k_inf*q**3*w + 6*K_T*M5c*k_inf*q**3*w - 6*M5c*q**5*w*exp(G/(6*M5c)) + 6*M5c*q**3*w**3*exp(G/(6*M5c)))/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(-2*G*K_v*k_inf*q**4 + 3*G*K_v*k_inf*q**2*w**2 + 6*K_T*M5c*k_inf*q**4 + 12*M5c*q**6*exp(G/(6*M5c)) - 30*M5c*q**4*w**2*exp(G/(6*M5c)) + 18*M5c*q**2*w**4*exp(G/(6*M5c)) + 18*Mb2*k_inf*q**6*xi - 36*Mb2*k_inf*q**4*w**2*xi + 18*Mb2*k_inf*q**2*w**4*xi)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "G*K_v*q**2/(3*q**2 - 3*w**2)",
+        "-I*kappa_hat*q*y"
+      ],
+      [
+        "(G*K_v*k_inf*q**3*w + 6*K_T*M5c*k_inf*q**3*w - 6*M5c*q**5*w*exp(G/(6*M5c)) + 6*M5c*q**3*w**3*exp(G/(6*M5c)))/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(-G*K_v*k_inf*q**2*w**2 - 6*K_T*M5c*k_inf*q**2*w**2 + 6*M5c*q**4*w**2*exp(G/(6*M5c)) - 6*M5c*q**2*w**4*exp(G/(6*M5c)) - 9*Mb2*k_inf*lambda_K*q**6 + 18*Mb2*k_inf*lambda_K*q**4*w**2 - 9*Mb2*k_inf*lambda_K*q**2*w**4 + 9*Mb2*k_inf*q**6 - 18*Mb2*k_inf*q**4*w**2 + 9*Mb2*k_inf*q**2*w**4)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(2*G*K_v*k_inf*q**3*w - 3*G*K_v*k_inf*q*w**3 - 6*K_T*M5c*k_inf*q**3*w - 12*M5c*q**5*w*exp(G/(6*M5c)) + 30*M5c*q**3*w**3*exp(G/(6*M5c)) - 18*M5c*q*w**5*exp(G/(6*M5c)) - 27*Mb2*k_inf*lambda_K*q**5*w + 54*Mb2*k_inf*lambda_K*q**3*w**3 - 27*Mb2*k_inf*lambda_K*q*w**5 + 9*Mb2*k_inf*q**5*w - 18*Mb2*k_inf*q**3*w**3 + 9*Mb2*k_inf*q*w**5)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "-G*K_v*q*w/(3*q**2 - 3*w**2)",
+        "0"
+      ],
+      [
+        "(-2*G*K_v*k_inf*q**4 + 3*G*K_v*k_inf*q**2*w**2 + 6*K_T*M5c*k_inf*q**4 + 12*M5c*q**6*exp(G/(6*M5c)) - 30*M5c*q**4*w**2*exp(G/(6*M5c)) + 18*M5c*q**2*w**4*exp(G/(6*M5c)) + 18*Mb2*k_inf*q**6*xi - 36*Mb2*k_inf*q**4*w**2*xi + 18*Mb2*k_inf*q**2*w**4*xi)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(2*G*K_v*k_inf*q**3*w - 3*G*K_v*k_inf*q*w**3 - 6*K_T*M5c*k_inf*q**3*w - 12*M5c*q**5*w*exp(G/(6*M5c)) + 30*M5c*q**3*w**3*exp(G/(6*M5c)) - 18*M5c*q*w**5*exp(G/(6*M5c)) - 27*Mb2*k_inf*lambda_K*q**5*w + 54*Mb2*k_inf*lambda_K*q**3*w**3 - 27*Mb2*k_inf*lambda_K*q*w**5 + 9*Mb2*k_inf*q**5*w - 18*Mb2*k_inf*q**3*w**3 + 9*Mb2*k_inf*q*w**5)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(-9*B4bar*Mb2*q**8 + 18*B4bar*Mb2*q**6*w**2 - 9*B4bar*Mb2*q**4*w**4 - 4*G*K_v*k_inf**2*q**4 + 12*G*K_v*k_inf**2*q**2*w**2 - 9*G*K_v*k_inf**2*w**4 - 6*K_T*M5c*k_inf**2*q**4 + 24*M5c*k_inf*q**6*exp(G/(6*M5c)) - 96*M5c*k_inf*q**4*w**2*exp(G/(6*M5c)) + 126*M5c*k_inf*q**2*w**4*exp(G/(6*M5c)) - 54*M5c*k_inf*w**6*exp(G/(6*M5c)) - 81*Mb2*k_inf**2*lambda_K*q**4*w**2 + 162*Mb2*k_inf**2*lambda_K*q**2*w**4 - 81*Mb2*k_inf**2*lambda_K*w**6 + 18*Mb2*k_inf**2*q**6*xi - 36*Mb2*k_inf**2*q**4*w**2*xi + 27*Mb2*k_inf**2*q**4*w**2 + 18*Mb2*k_inf**2*q**2*w**4*xi - 54*Mb2*k_inf**2*q**2*w**4 + 27*Mb2*k_inf**2*w**6 - 18*chi*k_inf**2*q**6 + 36*chi*k_inf**2*q**4*w**2 - 18*chi*k_inf**2*q**2*w**4)/(9*k_inf**2*q**4 - 18*k_inf**2*q**2*w**2 + 9*k_inf**2*w**4)",
+        "(2*G*K_v*q**2 - 3*G*K_v*w**2)/(3*q**2 - 3*w**2)",
+        "0"
+      ],
+      [
+        "G*K_v*q**2/(3*q**2 - 3*w**2)",
+        "-G*K_v*q*w/(3*q**2 - 3*w**2)",
+        "(2*G*K_v*q**2 - 3*G*K_v*w**2)/(3*q**2 - 3*w**2)",
+        "-G*K_v - beta",
+        "0"
+      ],
+      [
+        "I*kappa_hat*q*y",
+        "0",
+        "0",
+        "0",
+        "-2*Z5*p_material - kappa_hat"
+      ]
+    ],
+    "L_C": "-amp_H11**2*chi*q**2/8 - amp_H12**2*chi*q**2/4 - amp_H13**2*chi*q**2/8 + amp_H13*chi*q**2*theta2/2 - amp_H22**2*chi*q**2/8 - amp_H23**2*chi*q**2/8 - amp_H23*chi*q**2*theta1/2 + amp_N1**2*chi*q**2/8 + amp_N1*chi*q*theta2*w/2 + amp_N2**2*chi*q**2/8 - amp_N2*chi*q*theta1*w/2 - chi*q**2*theta1**2/2 - chi*q**2*theta2**2/2 - chi*q**2*theta3**2/2 + chi*theta1**2*w**2/2 + chi*theta2**2*w**2/2 + chi*theta3**2*w**2/2",
+    "addition": [
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "chi*q**2/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi*q*w/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "chi*q**2/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q*w/2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi*q**2/2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2/4",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2/2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-chi*q*w/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2 + chi*w**2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "chi*q*w/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi*q**2/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2 + chi*w**2",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-chi*q**2 + chi*w**2"
+      ]
+    ],
+    "m": "K_T*M5c/(q**2 - w**2)",
+    "vectors": {
+      "1": {
+        "K_eff": "2*chi*(K_T*M5c/(q**2 - w**2) + Mb2)/(2*K_T*M5c/(q**2 - w**2) + 2*Mb2 + chi)",
+        "Schur": "(-2*K_T*M5c*chi*q**2 + 2*K_T*M5c*chi*w**2 - 2*Mb2*chi*q**4 + 4*Mb2*chi*q**2*w**2 - 2*Mb2*chi*w**4 - chi**2*q**4 + chi**2*q**2*w**2)/(2*K_T*M5c + 2*Mb2*q**2 - 2*Mb2*w**2 + chi*q**2 - chi*w**2)",
+        "block": [
+          [
+            "chi*q**2/4 + (K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "chi*q*w/2"
+          ],
+          [
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "-chi*q**2/4 + (K_T*M5c*w**2 + Mb2*q**2*w**2 - Mb2*w**4)/(2*q**2 - 2*w**2)",
+            "chi*q**2/2"
+          ],
+          [
+            "chi*q*w/2",
+            "chi*q**2/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "density": "chi*(-q**2*(-amp_H13/2 + theta2)**2 + (amp_N1*q/2 + theta2*w)**2)/2 + (amp_H13*w + amp_N1*q)**2*(K_T*M5c/(q**2 - w**2) + Mb2)/4",
+        "determinant_residual": "0",
+        "field_order": [
+          "N1",
+          "H13",
+          "theta2"
+        ],
+        "gauge_fixed": [
+          [
+            "chi*q**2/4 + (K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+            "chi*q*w/2"
+          ],
+          [
+            "chi*q*w/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "matrix_residual": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "pivot": "chi*q**2/4 + (K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+        "reference": [
+          [
+            "chi*q**2/4 + q**2*(K_T*M5c/(q**2 - w**2) + Mb2)/2",
+            "q*w*(K_T*M5c/(q**2 - w**2) + Mb2)/2",
+            "chi*q*w/2"
+          ],
+          [
+            "q*w*(K_T*M5c/(q**2 - w**2) + Mb2)/2",
+            "-chi*q**2/4 + w**2*(K_T*M5c/(q**2 - w**2) + Mb2)/2",
+            "chi*q**2/2"
+          ],
+          [
+            "chi*q*w/2",
+            "chi*q**2/2",
+            "chi*(-2*q**2 + 2*w**2)/2"
+          ]
+        ],
+        "reference_Schur": "-chi*q**2 + 2*chi*w**2*(K_T*M5c/(q**2 - w**2) + Mb2)/(2*K_T*M5c/(q**2 - w**2) + 2*Mb2 + chi)"
+      },
+      "2": {
+        "K_eff": "2*chi*(K_T*M5c/(q**2 - w**2) + Mb2)/(2*K_T*M5c/(q**2 - w**2) + 2*Mb2 + chi)",
+        "Schur": "(-2*K_T*M5c*chi*q**2 + 2*K_T*M5c*chi*w**2 - 2*Mb2*chi*q**4 + 4*Mb2*chi*q**2*w**2 - 2*Mb2*chi*w**4 - chi**2*q**4 + chi**2*q**2*w**2)/(2*K_T*M5c + 2*Mb2*q**2 - 2*Mb2*w**2 + chi*q**2 - chi*w**2)",
+        "block": [
+          [
+            "chi*q**2/4 + (K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "-chi*q*w/2"
+          ],
+          [
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "-chi*q**2/4 + (K_T*M5c*w**2 + Mb2*q**2*w**2 - Mb2*w**4)/(2*q**2 - 2*w**2)",
+            "-chi*q**2/2"
+          ],
+          [
+            "-chi*q*w/2",
+            "-chi*q**2/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "density": "chi*(-q**2*(amp_H23/2 + theta1)**2 + (-amp_N2*q/2 + theta1*w)**2)/2 + (amp_H23*w + amp_N2*q)**2*(K_T*M5c/(q**2 - w**2) + Mb2)/4",
+        "determinant_residual": "0",
+        "field_order": [
+          "N2",
+          "H23",
+          "theta1"
+        ],
+        "gauge_fixed": [
+          [
+            "chi*q**2/4 + (K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+            "-chi*q*w/2"
+          ],
+          [
+            "-chi*q*w/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "matrix_residual": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "pivot": "chi*q**2/4 + (K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+        "reference": [
+          [
+            "chi*q**2/4 + q**2*(K_T*M5c/(q**2 - w**2) + Mb2)/2",
+            "q*w*(K_T*M5c/(q**2 - w**2) + Mb2)/2",
+            "-chi*q*w/2"
+          ],
+          [
+            "q*w*(K_T*M5c/(q**2 - w**2) + Mb2)/2",
+            "-chi*q**2/4 + w**2*(K_T*M5c/(q**2 - w**2) + Mb2)/2",
+            "-chi*q**2/2"
+          ],
+          [
+            "-chi*q*w/2",
+            "-chi*q**2/2",
+            "chi*(-2*q**2 + 2*w**2)/2"
+          ]
+        ],
+        "reference_Schur": "-chi*q**2 + 2*chi*w**2*(K_T*M5c/(q**2 - w**2) + Mb2)/(2*K_T*M5c/(q**2 - w**2) + 2*Mb2 + chi)"
+      }
+    }
+  },
+  "schema": "holo.one-omega-connection-candidate-response.v1",
+  "scope": {
+    "frequency_domain": "Re(s)>0, w=i*s, selected BPS finite-energy IR branch",
+    "new_coefficient": "chi>0, mass dimension 2, no selected value",
+    "old_physical_domain_gates_inherited": false,
+    "scalar_analytic_input": "pinned strict positivity of -S_zeta/s for the selected original response",
+    "spatial_momentum": "q>0 per-mode proof and separate direct q=0 chart",
+    "tensor_kernel_analytic_input": "pinned finite-mass Stieltjes measure for m=M*K_T/(s\u00b2+q\u00b2)"
+  },
+  "sources": {
+    "lemma_sha256": "f78d97a347b8269913ee0fe0f47ee0fd6386cb32e4365c8a17de42a287ff45a5",
+    "source_physical_gate_promotions_inherited": false,
+    "upstream_analytic_results": "pinned verified lemmas, not re-proved by a finite matrix calculation",
+    "upstreams": {
+      "one_omega_interface_connection_current_candidate_v1": {
+        "schema": "holo.one-omega-interface-connection-current-candidate.v1",
+        "sha256": "e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e"
+      },
+      "one_omega_projected_connection_linear_v1": {
+        "schema": "holo.one-omega-projected-connection-linear.v1",
+        "sha256": "3e92a6ef617cd880bf0db936d9d2c260e2c0868c479aaddd3efbe7cace4f4a49"
+      },
+      "one_omega_scalar_shift_static_v1": {
+        "schema": "holo.one-omega-scalar-shift-static.v1",
+        "sha256": "8ca7d81f1dcb645147d694d68fc32c0cc50483d67f2b7353caaecf31a22f190e"
+      },
+      "one_omega_scalar_spectral_energy_v1": {
+        "schema": "holo.one-omega-scalar-spectral-energy.v1",
+        "sha256": "0589ffc81229a600d10b08fa158f938101a9f593415f0ab52bdac55bf6d052db"
+      },
+      "one_omega_topological_boundary_assembly_v1": {
+        "schema": "holo.one-omega-topological-boundary-assembly.v1",
+        "sha256": "c3c93cd779fe684329419012202d2cf697aee926efe5efbaee1cb0e47f781bce"
+      },
+      "one_omega_topological_sector_reduction_v1": {
+        "schema": "holo.one-omega-topological-sector-reduction.v1",
+        "sha256": "4fa7432924b429ce4d350d6b6f96ba92965ee57b2d979dbd0fa029c1d29874e3"
+      },
+      "one_omega_variational_dtn_v1": {
+        "schema": "holo.one-omega-variational-dtn.v1",
+        "sha256": "4ca0b1a1859610c6b3f472bf9704b83f23f1b740900ab387f844bcb985101095"
+      },
+      "one_omega_zero_momentum_linear_v1": {
+        "schema": "holo.one-omega-zero-momentum-linear.v1",
+        "sha256": "f2c83fa82a87353b01d43790ddfe73bd8e42febaca2a5554ddb8a5f5c6d96539"
+      }
+    }
+  }
+}
