@@ -1,0 +1,177 @@
+{
+  "calculation_digest": "a882a3752d4ceaa9c85605c918ffd31cb3c885e2ffe17a40b5f11f818d3d890c",
+  "checks": {
+    "complete_matrix_regrouping": true,
+    "endpoint_c_upper_negative": true,
+    "endpoint_c_zero_negative": true,
+    "exact_decimal_IR_margin_positive": true,
+    "exponential_cube_bound_less_than_two": true,
+    "lapse_pivot_after_shift": true,
+    "lapse_strict_frozen_margin": true,
+    "large_q_E_minus_two_P_negative": true,
+    "large_q_c_coefficient_negative": true,
+    "log_ten_less_than_231_over_100": true,
+    "positive_resolvent_atom": true,
+    "shift_pivot": true,
+    "shift_positive_real_rearrangement": true,
+    "shift_strict_frozen_margin": true,
+    "small_q_C_bound": true,
+    "small_q_P_lower_bound": true,
+    "small_q_TT_deficit_bound": true,
+    "small_q_determinant_negative": true,
+    "static_matrix_from_full_response": true,
+    "static_two_by_two_determinant": true,
+    "upper_endpoint_derivative": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BF_and_embedding_closed": false,
+    "all_four_eliminated_pivots_preserved_and_nonzero_in_RHP": true,
+    "final_dynamic_scalar_factor_has_no_RHP_zero": false,
+    "formal_machine_checked_analysis": false,
+    "full_N7": false,
+    "full_P4": false,
+    "full_physical_mode_count": false,
+    "lapse_after_shift_has_no_RHP_zero": true,
+    "q_zero_scalar_certified": false,
+    "shift_pivot_has_no_RHP_zero": true,
+    "static_final_scalar_Schur_strictly_negative": true,
+    "static_scalar_matrix_invertible_for_every_q_positive": true
+  },
+  "model": {
+    "Cauchy_atom_slack": "Q**2 + spectral_lambda",
+    "checks": {
+      "complete_matrix_regrouping": true,
+      "endpoint_c_upper_negative": true,
+      "endpoint_c_zero_negative": true,
+      "exact_decimal_IR_margin_positive": true,
+      "exponential_cube_bound_less_than_two": true,
+      "lapse_pivot_after_shift": true,
+      "lapse_strict_frozen_margin": true,
+      "large_q_E_minus_two_P_negative": true,
+      "large_q_c_coefficient_negative": true,
+      "log_ten_less_than_231_over_100": true,
+      "positive_resolvent_atom": true,
+      "shift_pivot": true,
+      "shift_positive_real_rearrangement": true,
+      "shift_strict_frozen_margin": true,
+      "small_q_C_bound": true,
+      "small_q_P_lower_bound": true,
+      "small_q_TT_deficit_bound": true,
+      "small_q_determinant_negative": true,
+      "static_matrix_from_full_response": true,
+      "static_two_by_two_determinant": true,
+      "upper_endpoint_derivative": true
+    },
+    "determinant_factorization": "det H5=PC*PD*HNN*Hnn_after_N*S_zeta",
+    "endpoint_certificates": {
+      "c_upper": {
+        "all_coefficients_strictly_negative": true,
+        "denominator": "3750000000000000*(Q + 2)*(2*Q + 1)",
+        "expression": "-(48568330979220376*Q**4 + 123420827448050940*Q**3 + 94796813991126986*Q**2 + 190211483345783505*Q - 18201379080084900)/(3750000000000000*(Q + 2)*(2*Q + 1))",
+        "numerator": "-48568330979220376*Q**4 - 123420827448050940*Q**3 - 94796813991126986*Q**2 - 190211483345783505*Q + 18201379080084900",
+        "positive_denominator": true,
+        "shifted_coefficients": [
+          "-48568330979220376",
+          "-714240799198695452/5",
+          "-3368429052107387264/25",
+          "-26633468036420913988/125",
+          "-1185009409344183336/625"
+        ]
+      },
+      "c_zero": {
+        "all_coefficients_strictly_negative": true,
+        "denominator": "625000000000000*(Q + 2)**2*(2*Q + 1)",
+        "expression": "-(6428055163203396*Q**5 + 31926248234415282*Q**4 + 54498193071211886*Q**3 + 58970351832360097*Q**2 + 65903827781927835*Q - 3210413724025470)/(625000000000000*(Q + 2)**2*(2*Q + 1))",
+        "numerator": "-6428055163203396*Q**5 - 31926248234415282*Q**4 - 54498193071211886*Q**3 - 58970351832360097*Q**2 - 65903827781927835*Q + 3210413724025470",
+        "positive_denominator": true,
+        "shifted_coefficients": [
+          "-6428055163203396",
+          "-35140275816016980",
+          "-339557489406491692/5",
+          "-1932491629985515342/25",
+          "-39731881480527736903/500",
+          "-50342845886714998977/12500"
+        ]
+      }
+    },
+    "endpoint_derivatives": {
+      "c_upper": "(1600000000000000*Q**3 + 800000000000000*Q**2 - 22714027581601698*Q - 12857013790800849)/(750000000000000*(2*Q + 1))",
+      "c_zero": "-(4000000000000000*Q*m + 4785972418398302*Q + 2000000000000000*m + 892986209199151)/(250000000000000*(2*Q + 1))"
+    },
+    "kernel_mass_identity": "Cinf=6*m0+Ns; exact integrals, not frozen rounded metadata",
+    "rational_IR_lower_margin": "3161/9355500000000000000",
+    "rational_log_witness": "1905009255977842962582956151/25600000000000000000000000000",
+    "residuals": {
+      "complete_matrix_regrouping": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "lapse_pivot_after_shift": "0",
+      "positive_resolvent_atom": "0",
+      "shift_pivot": "0",
+      "shift_positive_real_rearrangement": "0",
+      "static_matrix_from_full_response": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "static_two_by_two_determinant": "0",
+      "upper_endpoint_derivative": "0"
+    },
+    "resolvent_atom_positive_numerator": "sigma*(Q**2 + sigma**2 + spectral_lambda + tau**2)",
+    "scope": {
+      "dynamic_constraint_pivots": "Re(s)>0, q>0",
+      "final_dynamic_scalar_factor_certified": false,
+      "formal_Hilbert_space_proof_checking": false,
+      "q": "q>0",
+      "static": "s=0, exact finite-energy branch"
+    },
+    "small_q_determinant_upper_coefficient": "-4581/250",
+    "static_determinant": "-B*(E + c) + c*(4*E - 6*m - 12) + (2*m + 4)*(E - 2*m - 4)",
+    "static_matrix": [
+      [
+        "E + c",
+        "2*c + 2*m + 4"
+      ],
+      [
+        "2*c + 2*m + 4",
+        "-B + 4*c + 2*m + 4"
+      ]
+    ]
+  },
+  "provenance": {
+    "one_omega_scalar_shift_pivot_lemma_v1.md": "7524e53094aa71db8ff931506b00f027cd72ec8575c7a5aa56d17a719aef502e",
+    "one_omega_scalar_static_invertibility_lemma_v1.md": "a2903edae1873a9f61860ce6fa1c0ed61015885592275f2c54203553df929722",
+    "test_one_omega_scalar_shift_static_v1.py": "9b27db6b64f2feb8676bf9aa6305ea459cbb9aa7e9f38536e90c96a3fa600f1d",
+    "verify_one_omega_scalar_shift_static_v1.py": "93ae2fde6abc778fa0aa0cf24964bf080190b515d6fb6965c021340c74b55b84"
+  },
+  "schema": "holo.one-omega-scalar-shift-static.v1",
+  "sources": {
+    "candidate": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b",
+    "proofs": {
+      "one_omega_scalar_shift_pivot_lemma_v1.md": "7524e53094aa71db8ff931506b00f027cd72ec8575c7a5aa56d17a719aef502e",
+      "one_omega_scalar_static_invertibility_lemma_v1.md": "a2903edae1873a9f61860ce6fa1c0ed61015885592275f2c54203553df929722"
+    },
+    "variational": "4ca0b1a1859610c6b3f472bf9704b83f23f1b740900ab387f844bcb985101095"
+  }
+}
