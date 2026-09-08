@@ -5,31 +5,48 @@
     "unrelated_dirty_work_preserved": true
   },
   "external_refutation": {
+    "E44_identity_scope": "E44_UV = 3M*a0*boxEprime + 3M*boxP + G*a0*Rprime + (12M-G)*a0*C_m; bridge 20260908T061521Z",
     "core_obstruction_reported_confirmed_commit": "5340e4d",
-    "next": "canonical scalar normalization from literal action, then L3 reduction",
-    "scalar_canonical_normalization_audited": false,
+    "next": "independent audit of L3 sector reduction; full embedding variation remains open",
+    "scalar_ADM_momenta_and_currents_commit": "b088c5a",
+    "scalar_canonical_normalization_audited": true,
+    "scalar_canonical_review_type": "external literal derivation and independent manual comparison; root did not repeat its full generator",
     "scalar_operator_and_relative_weights_commit": "d511efa",
     "scope_corrections_accepted_commit": "4c63343",
     "scope_corrections_sent": [
       "parallel gradients can yield zero torque with unequal gains",
       "zero intrinsic current is required for original alignment conclusion"
-    ]
+    ],
+    "superseded_scalar_momenta_commit": "939c616"
   },
   "file_bytes_match_named_commits": true,
   "frozen_v5_2_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
   "full_Einstein_solution": false,
   "full_nonlinear_continuation": false,
+  "orientation_correction": {
+    "affected_chain_tests_passed": 164,
+    "boundary_row": "[b]=-J_Sigma",
+    "commit": "82fa15c",
+    "compatibility": "DJ_Sigma=[j4]",
+    "fresh_generation_and_verification_completed": true,
+    "literal_green": "+[b] wedge deltaA",
+    "note": "one_omega_connection_orientation_erratum_20260908.md",
+    "note_sha256": "20fb8afc4daa249ff90fcc0fd878713ce9b8c4812b01cea9d10cd77ac67625b4",
+    "port": "chi DeltaTheta=-rho",
+    "superseded_source_sign_receipts_preserved_in_git": true
+  },
   "packages": [
     {
-      "calculation_digest": "efce54c2d3938349c08b181c1788dee434fab0c46f459b94fb83c0aa0de772fd",
-      "local_commit": "0709673",
-      "observed_tests_passed": 14,
-      "receipt_checks": 16,
+      "calculation_digest": "f04f19124a888ccb20c045e1a6d0e5c3719c0d06f8e0ce49072dfc15376887bd",
+      "commit_before_orientation_correction": "0709673",
+      "local_commit": "82fa15c",
+      "observed_tests_passed": 18,
+      "receipt_checks": 26,
       "sha256": {
-        "one_omega_interface_connection_current_candidate_lemma_v1.md": "ab9745c81faf58e83fef2937b97f7de7e2c6f9ae3bce8bd3cf4fa8aeeb87966b",
-        "one_omega_interface_connection_current_candidate_v1.json": "e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e",
-        "test_one_omega_interface_connection_current_candidate_v1.py": "8068e5d36a207a39a23f2e3ecbf98f65718ed1a5fbb550de45dadaf0388abbe5",
-        "verify_one_omega_interface_connection_current_candidate_v1.py": "37c825b6ebcba5a84eb73611a296898f979a22380197d16791be25ee09a6fbad"
+        "one_omega_interface_connection_current_candidate_lemma_v1.md": "62520b01ce3dc19b89eac01f10286193a3e071df803dcfd433573b87638042b7",
+        "one_omega_interface_connection_current_candidate_v1.json": "e51d8d47ee97e20c6aea5aebb4680a65cba79254c2ea0a30fd6a88774b6535e8",
+        "test_one_omega_interface_connection_current_candidate_v1.py": "c34bbf123db959bd0a869f12c8685732b0fb53db981ccf39325d43c834f1a9f5",
+        "verify_one_omega_interface_connection_current_candidate_v1.py": "7b58450d546c4f0979d6303a6005ae7c3efde5d23f94353c00aec833f13d2d05"
       },
       "stem": "one_omega_interface_connection_current_candidate_v1",
       "write_and_fresh_verify_observed_equal": true
@@ -49,115 +66,137 @@
       "write_and_fresh_verify_observed_equal": true
     },
     {
-      "calculation_digest": "0b23266375b1322035113ef2b44a0a74f790e27f00a49237f31d74c9ad652f49",
-      "local_commit": "56a741a",
+      "calculation_digest": "577aa6ddcd28ec5898d689319021d09d41df1356c0d83d5b4e989a04c62be11d",
+      "commit_before_orientation_correction": "56a741a",
+      "local_commit": "82fa15c",
       "observed_tests_passed": 18,
       "receipt_checks": 38,
       "sha256": {
         "one_omega_connection_candidate_response_lemma_v1.md": "f78d97a347b8269913ee0fe0f47ee0fd6386cb32e4365c8a17de42a287ff45a5",
-        "one_omega_connection_candidate_response_v1.json": "273c4681f18c847d509f890621a263f6787bfac7e6b06614c864bf65f842bd36",
+        "one_omega_connection_candidate_response_v1.json": "724e8f84148047105b9a4d997c3cdd14c03eceaa665d98a8fb55cbe1852f9c74",
         "test_one_omega_connection_candidate_response_v1.py": "33ff5789c0b77da57fce1e8446659d14da86bef5a4452d0b9cb41c9a710e0daf",
-        "verify_one_omega_connection_candidate_response_v1.py": "59f42cfeec40ccff285e815fb023122587f4a614e7ca3e13d9e43e4d1315f17f"
+        "verify_one_omega_connection_candidate_response_v1.py": "86151e8f0c867ce9355bc4e43d638e8673039394bc70296d900407b53edba429"
       },
       "stem": "one_omega_connection_candidate_response_v1",
       "write_and_fresh_verify_observed_equal": true
     },
     {
-      "calculation_digest": "bec01c5249084ec3a5032da07ccb46d550fa6a772eb1b896a4030d3676881d70",
-      "local_commit": "f70a1d5",
+      "calculation_digest": "9b70a5789ceaf2a6321c59367ae2b82f06bdd103bf6ebe7b8e0621086b745221",
+      "commit_before_orientation_correction": "f70a1d5",
+      "local_commit": "82fa15c",
       "observed_tests_passed": 17,
       "receipt_checks": 28,
       "sha256": {
         "one_omega_connection_current_covariant_variation_lemma_v1.md": "07a995c4058712f8611c9c8938640b1b6927d7265167c33e6e5af7da0cee64cc",
-        "one_omega_connection_current_covariant_variation_v1.json": "664631af95ba89a0dadbf441d3ead9bd8c19f4ea8a9af53d377fc9b6f038348f",
+        "one_omega_connection_current_covariant_variation_v1.json": "d2a1b7af2e9b43eacafdece6d26d30433e6c4fbdb0d46922bf7eace34b30f6de",
         "test_one_omega_connection_current_covariant_variation_v1.py": "e121c638ad2ebabddbcfe183fb9d2495f9eace8a21671fbb15573ba98e425a95",
-        "verify_one_omega_connection_current_covariant_variation_v1.py": "74777e2ef61181d58da0c4cbe106b702b48c97db989f3f204796b9d91ebb3035"
+        "verify_one_omega_connection_current_covariant_variation_v1.py": "897847126eb9dd4c911ecbcdcdf54c1edf6e18119b476e1f5cb29211aa7b4ce2"
       },
       "stem": "one_omega_connection_current_covariant_variation_v1",
       "write_and_fresh_verify_observed_equal": true
     },
     {
-      "calculation_digest": "56843633a7dbd07987e6bb37744cfe14b8e571a5727cc1ee5878057531eacfba",
-      "local_commit": "3471dd8",
-      "observed_tests_passed": 18,
-      "receipt_checks": 29,
+      "calculation_digest": "385d6bfa1426099e12baf8981b5b83fa938848eee827f88036ec548252be3bbb",
+      "commit_before_orientation_correction": "3471dd8",
+      "local_commit": "82fa15c",
+      "observed_tests_passed": 20,
+      "receipt_checks": 36,
       "sha256": {
-        "one_omega_connection_affine_bf_reconstruction_lemma_v1.md": "359044f4bbbec42f7dc5eebf7f98f37d293378fa85394bba32beef95897827d6",
-        "one_omega_connection_affine_bf_reconstruction_v1.json": "090461dec6addd04229b7b5f50a97e607fd00930a8a083488800082c6ddf3fcf",
-        "test_one_omega_connection_affine_bf_reconstruction_v1.py": "06afc9894f65473ac852afd175eed936a3c49215cd4cc1094b547e2710a5f6e2",
-        "verify_one_omega_connection_affine_bf_reconstruction_v1.py": "08bac3c5737f4acd9d7d240930cb2f057f9045705cc57d72d0033140eed918ab"
+        "one_omega_connection_affine_bf_reconstruction_lemma_v1.md": "35f3f3b0d88f8b1cc004de48a3c9b25d6a42156c9fa7b467d79b24a662c76238",
+        "one_omega_connection_affine_bf_reconstruction_v1.json": "381b1158ea66d0432d8f83e6ab0c137c1d18348f593beffd58f9e2b26b212762",
+        "test_one_omega_connection_affine_bf_reconstruction_v1.py": "cbd0c864361eedb502b159359bf195dbc7b3ccdc040c972db5b317e8496d788f",
+        "verify_one_omega_connection_affine_bf_reconstruction_v1.py": "63bd12c8cbce0d759bd2766534c31b7ea55786a92161a7c8ec5982926ff0a93e"
       },
       "stem": "one_omega_connection_affine_bf_reconstruction_v1",
       "write_and_fresh_verify_observed_equal": true
     },
     {
-      "calculation_digest": "28d7b17abddd3df396f09d7252a062e74cf0f0c5338116f73efb6eac1980b3b6",
-      "local_commit": "2847769",
-      "observed_tests_passed": 18,
+      "calculation_digest": "8c551ed6911cc29edcb16fe3e2df3eecf69e03e29ae790dd49e3c234c8aa5dc2",
+      "commit_before_orientation_correction": "2847769",
+      "local_commit": "82fa15c",
+      "observed_tests_passed": 19,
       "receipt_checks": 18,
       "sha256": {
-        "one_omega_connection_localized_torque_lift_lemma_v1.md": "05bf29a3d486aa99288259502fb752babd85d1438bccdcb64df7b6b659dfeb46",
-        "one_omega_connection_localized_torque_lift_v1.json": "b9d94ab321890be8733bf72dcb17221738d7375c1d8f47397dae23eab16378ee",
-        "test_one_omega_connection_localized_torque_lift_v1.py": "b57ce5d8a1803b18b6ad81302dc64e5a2bd39ae33e3b3f1fe66c54df95b9ca52",
-        "verify_one_omega_connection_localized_torque_lift_v1.py": "0fc8cd6abced4cbfcaa52242a3e664fda9a45bcd8415f596c47ed0334af763a8"
+        "one_omega_connection_localized_torque_lift_lemma_v1.md": "8af2a8626df9fd665a721d203e30536396d85a83093a9352cfda4003f960561f",
+        "one_omega_connection_localized_torque_lift_v1.json": "b16337522d149b97952c347286ad85e7203bbe7c8a5598b15c359811a80b708b",
+        "test_one_omega_connection_localized_torque_lift_v1.py": "a47375a71298a7e06d81f63768a6fee52bb0b5a20b7bcd8f22e90d31df53944f",
+        "verify_one_omega_connection_localized_torque_lift_v1.py": "2ce1897bc9de8eb8bade75e1a73def775520f1d19ec77d34a8e4689121d69130"
       },
       "stem": "one_omega_connection_localized_torque_lift_v1",
       "write_and_fresh_verify_observed_equal": true
     },
     {
-      "calculation_digest": "50a3e2c96147d492038ec33f25d2430efb90ea959167cdcfa24add95ce29d4e3",
-      "local_commit": "37a5ac2",
+      "calculation_digest": "b9158f807505b069348993b24ce4a14cb19da8db401bfa30e9794236b9f3ed05",
+      "commit_before_orientation_correction": "37a5ac2",
+      "local_commit": "82fa15c",
       "observed_tests_passed": 17,
       "receipt_checks": 32,
       "sha256": {
         "one_omega_connection_horizontal_ward_lemma_v1.md": "6766dcacb59d9104aad83ce941ddef3d9c55c70d36339790440594487c31d14e",
-        "one_omega_connection_horizontal_ward_v1.json": "7720dab2e0225bddb70a6b8095c0ad16cc7de456fe73663a1bfb41cf4ea547c2",
+        "one_omega_connection_horizontal_ward_v1.json": "d26d2cf58092eecacebd1f8d7f34f8a35222cd1ef7ec7153f5f0675a7e7e1f89",
         "test_one_omega_connection_horizontal_ward_v1.py": "04422d209a700cfb481717e4ee189d912670e62d61dfe8f5253c52060acb560c",
-        "verify_one_omega_connection_horizontal_ward_v1.py": "6e4a81d1ab9b0fc175a711bd4d84b9441f9233700d9479ffdb61e3cca6c0687e"
+        "verify_one_omega_connection_horizontal_ward_v1.py": "9ffb0b041711c46eb98323e5530b4cc856ac4447fbb29db37337f31383ef0155"
       },
       "stem": "one_omega_connection_horizontal_ward_v1",
       "write_and_fresh_verify_observed_equal": true
     },
     {
-      "calculation_digest": "e700958a098fcfa23dc974a8fc9cc7916c4d45e9ff49eeceb5d6dfbe27cb93ff",
-      "local_commit": "2c700c7",
-      "observed_tests_passed": 18,
-      "receipt_checks": 45,
+      "calculation_digest": "45618345ff1ed68c583ed302c131c39f8a19bc22f8b47c7b23490f7e1e941e96",
+      "commit_before_orientation_correction": "2c700c7",
+      "local_commit": "82fa15c",
+      "observed_tests_passed": 20,
+      "receipt_checks": 53,
       "sha256": {
-        "one_omega_connection_static_sourced_bf_lemma_v1.md": "8f07d3ec6f64f471c15d3dac0d824200f9815f4710ad1f4ba32e0d782d6d9919",
-        "one_omega_connection_static_sourced_bf_v1.json": "6226662067e39a6408aa48de45522c02d1e887d14c8e96c9413669531c4878fb",
-        "test_one_omega_connection_static_sourced_bf_v1.py": "ef618090215b91995eb258b51462e1239c58b6e333fd864384972a670a9051ee",
-        "verify_one_omega_connection_static_sourced_bf_v1.py": "9cdbcfbf1d961ede6d4f193fa8b3277f0f625447ed2bb0ca803926ac875d7d22"
+        "one_omega_connection_static_sourced_bf_lemma_v1.md": "cc2148af504d8172c98a60e548a42aec505334fb2c05c19aa935c56db8f476f7",
+        "one_omega_connection_static_sourced_bf_v1.json": "c4a1a343a2296b265651642b6d4462df5005af6a6a22f3fb6aa8bcb1c54a48a5",
+        "test_one_omega_connection_static_sourced_bf_v1.py": "d5342f2584abb146acf990546cbc7b9060affef2ab2ebe413072c68bc2a398e7",
+        "verify_one_omega_connection_static_sourced_bf_v1.py": "bb13755b4786b30bb90fea4f59123883582e67517a9c40dfaee5eeedfe8a5f17"
       },
       "stem": "one_omega_connection_static_sourced_bf_v1",
       "write_and_fresh_verify_observed_equal": true
     },
     {
-      "calculation_digest": "bec9d04afc286cf375efa0665d96ddd47a10101d70cb2d2b00378fd20588fe49",
-      "local_commit": "f1b4762",
+      "calculation_digest": "c630444f664cd3be4f11cfeb5e4375d02ff8a67ad5048588bd550585d5076137",
+      "commit_before_orientation_correction": "f1b4762",
+      "local_commit": "82fa15c",
       "observed_tests_passed": 17,
       "receipt_checks": 40,
       "sha256": {
         "one_omega_connection_adm_kinetic_lemma_v1.md": "5d57ffa5829861d812253731f3c165ede8eba90cfc9d022aba6f9976471274f7",
-        "one_omega_connection_adm_kinetic_v1.json": "0399224623b4441ba8b04e37f149d4ffe6d54cfddc9831394cfee58a498a2533",
+        "one_omega_connection_adm_kinetic_v1.json": "b5277494f7fbf1d48053701a95bb0f828b72a647e530f12f426d45180295e9cd",
         "test_one_omega_connection_adm_kinetic_v1.py": "ea3c3a72507b8672253314454b0c4e603307643ddfebc1affe86c4f76ef374ce",
-        "verify_one_omega_connection_adm_kinetic_v1.py": "c792fbb0497a14d1d3e6f3f76d4d0ef57c90cc123c2d98e1ee290180ac32aa74"
+        "verify_one_omega_connection_adm_kinetic_v1.py": "e4c9a339e266cad1ed3b5ff2d9e9ac5331ac09580eb55447dc016365685f694f"
       },
       "stem": "one_omega_connection_adm_kinetic_v1",
       "write_and_fresh_verify_observed_equal": true
     },
     {
-      "calculation_digest": "239525b874d065d21e2b1b0f9f5f62aa5a63b5fafd2210c6af468ee86cce79f7",
-      "local_commit": "087d610",
+      "calculation_digest": "233e0aaf6a11252e2bbc2dcc6ccf465ddb39e6c2f1d4b1a6be5d1d9dbd4029b2",
+      "commit_before_orientation_correction": "087d610",
+      "local_commit": "82fa15c",
       "observed_tests_passed": 18,
       "receipt_checks": 42,
       "sha256": {
         "one_omega_connection_vector_temporal_gauge_lemma_v1.md": "264f0e9b6035364553a43b133b81f18d600e92f2383613544d0bf428f654badd",
-        "one_omega_connection_vector_temporal_gauge_v1.json": "08bc9a578c2bc8ed99a18a283af51dfb1f1ee09411e5d8fa1bc39f69c492ac17",
+        "one_omega_connection_vector_temporal_gauge_v1.json": "5bf57c798a188a8b8e0003d1bfdc793b06c53c4215523a7f314a447d638479e8",
         "test_one_omega_connection_vector_temporal_gauge_v1.py": "2fea93f2300591567232fde0a591b24706380453bb5c23b789e8072e97f12d73",
-        "verify_one_omega_connection_vector_temporal_gauge_v1.py": "4716cf0cd4b89bb2113a896cf01f296dd2ab96a8e4909d186307ba5e62f7c3c4"
+        "verify_one_omega_connection_vector_temporal_gauge_v1.py": "224407784db4e988b3ee914427515a2c679bda51470e8bc7dc5ef18efff25f49"
       },
       "stem": "one_omega_connection_vector_temporal_gauge_v1",
+      "write_and_fresh_verify_observed_equal": true
+    },
+    {
+      "calculation_digest": "bac4a7e74a720c92089cad9b0eb72f94d04b6ffcb1b0bbbc83666952c587fa2e",
+      "local_commit": "f2c277c",
+      "observed_tests_passed": 20,
+      "receipt_checks": 24,
+      "sha256": {
+        "one_omega_connection_quadratic_metric_feedback_lemma_v1.md": "aec6ee2f079bb761bda83b41948e4a3074d1c2b08f1c45191bd70c2ac3d7a5fb",
+        "one_omega_connection_quadratic_metric_feedback_v1.json": "118dd9812e1d58e88643a27d201dc547c0a13eb87c04fd850f4aa1c6c9d25208",
+        "test_one_omega_connection_quadratic_metric_feedback_v1.py": "0aae699568b9c5c2c58926aa45bb7e2608968ea66ee2d92cf7e87fe89760b6b1",
+        "verify_one_omega_connection_quadratic_metric_feedback_v1.py": "7b94987d38158f0dde23c7d518c5f96a1273417cb6ca877cac6224303d125cf4"
+      },
+      "stem": "one_omega_connection_quadratic_metric_feedback_v1",
       "write_and_fresh_verify_observed_equal": true
     }
   ],
@@ -180,7 +219,7 @@
     "global and nonlinear stability",
     "global BF topology and BV/BFV"
   ],
-  "review_note_sha256": "fa595a6569d50696a68520a272a5d878617d261f1822407a12c388067c721be9",
+  "review_note_sha256": "61e3b5563898e79370e0ff0b8755a0acb9116ad54a5bf970f8aedd6017c3b6d3",
   "schema": "holo.one-omega-connection-candidate-review.v1",
-  "snapshot_utc": "2026-09-08T05:42:35.949942+00:00"
+  "snapshot_utc": "2026-09-08T06:30:25.609364+00:00"
 }
