@@ -1,0 +1,109 @@
+{
+  "analytic_input": {
+    "localized_nonzero_source_lower_bound": "197/640",
+    "pointwise_grid_used_as_proof": false,
+    "solution_space": "unique L2 static Theta; H^m for every finite m and finite spatial energy",
+    "source_class": "rho2=curl(kappa*y\u00b2*F*grad(g(|D|)F)), F real C_c^infinity(R3)",
+    "zero_mean": "integration by parts of compact vector potential"
+  },
+  "calculation_digest": "28d7b17abddd3df396f09d7252a062e74cf0f0c5338116f73efb6eac1980b3b6",
+  "checks": {
+    "Coulomb_fundamental_solution_flux_is_positive_one": true,
+    "Coulomb_kernel_harmonic_away_from_source": true,
+    "Fourier_Poisson_multiplier_has_required_sign": true,
+    "actual_two_mode_compatibility_cancelled": true,
+    "actual_two_mode_source_positive_jump_sign": true,
+    "declared_four_form_jump_is_minus_outgoing_sum": true,
+    "energy_Parseval_factor": true,
+    "inherited_localized_source_bound_is_strictly_positive": true,
+    "nonabelian_commutator_not_assumed_zero": true,
+    "nonabelian_exponential_connection_flat_through_quartic_epsilon": true,
+    "nontrivial_lapse_geometry_not_set_to_flat_metric": true,
+    "periodic_energy_normalization": true,
+    "prescribed_lapse_projected_connection_all_36_entries_zero": true,
+    "second_order_source_independent_of_second_order_data": true,
+    "source_is_curl_of_compact_vector_potential": true,
+    "source_is_spatially_divergence_free": true,
+    "zero_mean_infrared_L2_bound": true,
+    "zero_mean_infrared_energy_bound": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "candidate_adopted": false,
+    "chi_selected": false,
+    "coupled_Einstein_solution": false,
+    "flat_A_trace_realization_by_exact_Maurer_Cartan": true,
+    "full_N4": false,
+    "full_N7": false,
+    "full_P4": false,
+    "full_sourced_B_bulk_lift": false,
+    "higher_order_continuation": false,
+    "localized_order_epsilon_squared_compatibility_lift": true,
+    "static_energy_is_global_time_action": false
+  },
+  "model": {
+    "Fourier_Theta": "-rho_hat/(chi*p**2)",
+    "low_L2": "4*pi*M1**2*R/chi**2",
+    "low_energy": "2*pi*M1**2*R**3/(3*chi)",
+    "periodic_Theta": [
+      [
+        "0"
+      ],
+      [
+        "-4*sin(x)*sin(2*z)/(25*chi)"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "periodic_source": [
+      [
+        "0"
+      ],
+      [
+        "4*sin(x)*sin(2*z)/5"
+      ],
+      [
+        "0"
+      ]
+    ],
+    "source": [
+      [
+        "kappa*y**2*(Fy*Uz - Fz*Uy)"
+      ],
+      [
+        "kappa*y**2*(-Fx*Uz + Fz*Ux)"
+      ],
+      [
+        "kappa*y**2*(Fx*Uy - Fy*Ux)"
+      ]
+    ]
+  },
+  "negative_controls": {
+    "assume_mean_zero_without_source_structure": true,
+    "drop_gradient_cross_source": true,
+    "flip_jump_orientation_only": true,
+    "omit_Maurer_Cartan_quadratic_correction": true,
+    "omit_second_wavenumber_in_periodic_gain": true,
+    "opposite_Poisson_sign": true
+  },
+  "provenance": {
+    "test_one_omega_connection_localized_torque_lift_v1.py": "b57ce5d8a1803b18b6ad81302dc64e5a2bd39ae33e3b3f1fe66c54df95b9ca52",
+    "verify_one_omega_connection_localized_torque_lift_v1.py": "0fc8cd6abced4cbfcaa52242a3e664fda9a45bcd8415f596c47ed0334af763a8"
+  },
+  "schema": "holo.one-omega-connection-localized-torque-lift.v1",
+  "sources": {
+    "artifacts": {
+      "one_omega_bf_robin_compatibility_v1": {
+        "sha256": "61cb8ac8ac88bd9ff888118af0fedd6b95c4c694361958a436b6523ba78fe325",
+        "source_gates_inherited": false
+      },
+      "one_omega_interface_connection_current_candidate_v1": {
+        "sha256": "e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e",
+        "source_gates_inherited": false
+      }
+    },
+    "lemma_sha256": "05bf29a3d486aa99288259502fb752babd85d1438bccdcb64df7b6b659dfeb46"
+  }
+}
