@@ -16,7 +16,7 @@ NOTE=HERE/'one_omega_bf_robin_compatibility_lemma_v1.md'
 TEST=HERE/'test_one_omega_bf_robin_compatibility_v1.py'
 OUTPUT=HERE/'artifacts/one_omega_bf_robin_compatibility_v1.json'
 CANDIDATE=HERE/'artifacts/one_omega_topological_so3_classical_v5_2_gate.json'
-NOTE_SHA256='b28a9e69f506ffc6102d9c07360d297fae1465342decb55b08ce4cc35fc5157c'
+NOTE_SHA256='db88d9f2d2f214face903a1a076ee0f2bd23db4359a5f48841adb187bb1040ac'
 CANDIDATE_SHA256='d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b'
 ACTION_SHA256='3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a'
 SCHEMA='holo.one-omega-bf-robin-compatibility.v1'
@@ -171,9 +171,39 @@ def derive_port():
     return dict(radial=radial,p=p,Z=Z,kappa=kappa,y=y,h=h,gain=gain,gains=gains,
                 x=x,z=z,a=a,phi=phi,cross=cross,point=point,frozen=frozen,checks=checks)
 
+def derive_localization():
+    r,u,t,R,kappa,Z=sp.symbols('r u t R kappa Z',positive=True)
+    poisson=u/(sp.pi**2*(u*u+r*r)**2)
+    mass=4*sp.pi*sp.integrate(r*r*poisson,(r,0,sp.oo))
+    majorant=u/(sp.pi**2*r**4)
+    difference=sp.factor(majorant-poisson)
+    expected_difference=u**3*(2*r*r+u*u)/(sp.pi**2*r**4*(r*r+u*u)**2)
+    tail=4*sp.pi*sp.integrate(r*r*majorant,(r,R,sp.oo))
+    mixture_tail=sp.integrate(kappa*sp.exp(-kappa*t)*tail.subs(u,2*Z*t),(t,0,sp.oo))
+    response_error=7*mixture_tail.subs({Z:1,kappa:1})
+    conservative_cross_error=56*sp.Rational(9,4)/(3*256)
+    cross_margin=sp.Rational(4,15)-conservative_cross_error
+    torque_margin=3*cross_margin
+    checks={
+        'Poisson_kernel_has_unit_R3_mass':sp.simplify(mass)==1,
+        'Poisson_tail_majorant_pointwise_positive':zero(difference-expected_difference) and expected_difference.is_positive is True,
+        'Poisson_tail_majorant_integral':zero(tail-4*u/(sp.pi*R)),
+        'resolvent_mixture_tail_bound':zero(mixture_tail-8*Z/(sp.pi*kappa*R)),
+        'localized_response_error_bound':zero(response_error-56/(sp.pi*R)),
+        'cutoff_uniform_source_bound_below_seven':sp.sqrt(5)+4<7,
+        'rational_pi_and_sqrt5_bounds':bool(sp.pi>3) and sp.Rational(9,4)**2>5,
+        'radius_256_cross_error_below_21_over_128':conservative_cross_error==sp.Rational(21,128),
+        'localized_cross_margin_197_over_1920':cross_margin==sp.Rational(197,1920),
+        'localized_current_margin_197_over_640_positive':torque_margin==sp.Rational(197,640) and torque_margin>0,
+    }
+    return dict(poisson=poisson,mass=mass,majorant=majorant,difference=difference,
+                r=r,u=u,R=R,kappa=kappa,Z=Z,tail=tail,mixture_tail=mixture_tail,
+                cross_margin=cross_margin,torque_margin=torque_margin,
+                checks={k:bool(v) for k,v in checks.items()})
+
 def build_payload():
-    source=load_sources();current=derive_current();second=derive_second_order();port=derive_port()
-    checks={**current['checks'],**second['checks'],**port['checks']}
+    source=load_sources();current=derive_current();second=derive_second_order();port=derive_port();local=derive_localization()
+    checks={**current['checks'],**second['checks'],**port['checks'],**local['checks']}
     negative={k:not zero(v) for k,v in current['negative'].items()}
     if not all(checks.values()) or not all(negative.values()):raise CompatibilityError('calculation failed')
     out={'schema':SCHEMA,'sources':source,
@@ -184,6 +214,9 @@ def build_payload():
                     'material_gains':[str(g) for g in port['gains']],
                     'cross_coefficient':[sp.sstr(v) for v in port['cross']],
                     'point_current_coefficient':[sp.sstr(v) for v in port['frozen']],
+                    'localized_cutoff_radius':256,
+                    'localized_current_lower_bound':str(local['torque_margin']),
+                    'localized_domain':'compact smooth prescribed lapse; spatial finite energy per instant',
                     'rank_of_alignment_map_only':{'origin':second['zero_rank'],'aligned_nonzero':second['aligned_rank']}},
          'scope':{'literal_v5_2_bulk_BF_flux_Robin_rows_retained':True,
                   'smooth_transported_common_B_and_A_traces':True,
@@ -194,6 +227,7 @@ def build_payload():
                   'fixed_direction_upstream_N8_lift_refuted':False},
          'decision':{'necessary_BF_Robin_torque_alignment_derived':True,
                      'two_direction_prescribed_port_C2_obstruction_checked':True,
+                     'localized_spatial_finite_energy_port_obstruction_checked':True,
                      'full_N2_Dirac_rank_computed':False,'full_N4':False,'full_N7':False,
                      'unrestricted_nonlinear_material_port_promoted':False,
                      'full_P4':False,'B4':False,'B5':False,

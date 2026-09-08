@@ -1,11 +1,15 @@
 {
-  "calculation_digest": "7d49734cec2b0132f00707d854ae723299b076fc01bf7d29dc83c93e8239dcfb",
+  "calculation_digest": "8594b588798c55ce312b3b31e2e3c6b4113b0272245853e94481870f52395ddf",
   "checks": {
+    "Poisson_kernel_has_unit_R3_mass": true,
+    "Poisson_tail_majorant_integral": true,
+    "Poisson_tail_majorant_pointwise_positive": true,
     "Robin_outgoing_current_equals_minus_kappa_y_cross": true,
     "alignment_map_Jacobian_rank_two_at_nonzero_aligned_point": true,
     "alignment_map_Jacobian_rank_zero_at_origin": true,
     "alignment_norm_is_frame_invariant_Gram_determinant": true,
     "conformal_normal_mixing_has_zero_torque": true,
+    "cutoff_uniform_source_bound_below_seven": true,
     "decaying_halfline_mode_solves_linear_static_bulk_equation": true,
     "each_single_direction_has_zero_torque": true,
     "exact_conformal_kinetic_weight_is_one": true,
@@ -18,8 +22,14 @@
     "incorrect_common_gain_would_hide_the_obstruction": true,
     "inner_product_trace_normalization": true,
     "literal_Robin_has_no_intrinsic_connection_current": true,
+    "localized_cross_margin_197_over_1920": true,
+    "localized_current_margin_197_over_640_positive": true,
+    "localized_response_error_bound": true,
     "nonabelian_covariant_derivative_respects_common_gluing": true,
     "normal_connection_current_from_literal_kinetic_density": true,
+    "radius_256_cross_error_below_21_over_128": true,
+    "rational_pi_and_sqrt5_bounds": true,
+    "resolvent_mixture_tail_bound": true,
     "second_order_corrections_cannot_change_coefficient": true,
     "smooth_B_and_connection_gluing_cancels_current_jump": true,
     "three_generators_antisymmetric": true,
@@ -36,6 +46,7 @@
     "full_N4": false,
     "full_N7": false,
     "full_P4": false,
+    "localized_spatial_finite_energy_port_obstruction_checked": true,
     "necessary_BF_Robin_torque_alignment_derived": true,
     "new_intrinsic_connection_current_adopted": false,
     "repair_stability_certified": false,
@@ -43,8 +54,8 @@
     "unrestricted_nonlinear_material_port_promoted": false
   },
   "implementation": {
-    "test_sha256": "b6e2c3a8c3a0b3c0975650241bb1e286d368048833ece425897ec9f670d44db3",
-    "verifier_sha256": "75c8517db7ddfa44f0f507b3c9e3dc9030a959e5a8eeb2097846ddd37c29cebb"
+    "test_sha256": "bb962ede713105ddb82818cc6d80ad5de30cae74eb3a7afc641ece2f8f00ee12",
+    "verifier_sha256": "bf17ac9ac506cb9a435cea5dd2bd9387ecf8d6dfe86be8ccd001d6e842493072"
   },
   "negative_controls": {
     "claim_no_conformally_transported_material_current": true,
@@ -67,7 +78,7 @@
     "action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
     "candidate_sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b",
     "connection_trace": "Trans_iota(A)=r*(Y^*A)*r^(-1)-(d r)*r^(-1)=A_Sigma",
-    "lemma_sha256": "b28a9e69f506ffc6102d9c07360d297fae1465342decb55b08ce4cc35fc5157c",
+    "lemma_sha256": "db88d9f2d2f214face903a1a076ee0f2bd23db4359a5f48841adb187bb1040ac",
     "literal_coefficients": {
       "Robin_kappa_hat": "1.0",
       "Robin_y_squared": "3.0",
@@ -81,6 +92,9 @@
       "4*y*sin(x)*sin(2*z)/15",
       "0"
     ],
+    "localized_current_lower_bound": "197/640",
+    "localized_cutoff_radius": 256,
+    "localized_domain": "compact smooth prescribed lapse; spatial finite energy per instant",
     "material_gains": [
       "1/3",
       "1/5"

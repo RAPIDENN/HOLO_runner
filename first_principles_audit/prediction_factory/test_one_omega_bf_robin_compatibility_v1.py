@@ -123,7 +123,7 @@ def test_alignment_Jacobian_rank_is_not_a_particle_or_Dirac_count():
 
 def test_receipt_recomputation_and_negative_scope(payload):
     assert gate.validate_payload(payload)==payload
-    assert len(payload['checks'])==26
+    assert len(payload['checks'])==36
     assert all(payload['checks'].values()) and all(payload['negative_controls'].values())
     assert payload['scope']['fixed_direction_upstream_N8_lift_refuted'] is False
     assert payload['decision']['all_solutions_excluded_claimed'] is False
@@ -151,3 +151,27 @@ def test_source_byte_changes_rejected(tmp_path):
 @pytest.mark.parametrize('raw',(b'{"a":1,"a":2}',b'{"a":NaN}',b'[]'))
 def test_strict_json(raw):
     with pytest.raises(gate.CompatibilityError):gate.read_json(raw)
+
+
+def test_localization_bound_is_strict_and_keeps_R3_normalization():
+    data=gate.derive_localization()
+    assert all(data['checks'].values())
+    u,r=data['u'],data['r']
+    # Independent substitution r=u tan(theta) integrates the radial probability.
+    theta=sp.Symbol('theta',nonnegative=True)
+    angular_density=4*sp.sin(theta)**2/sp.pi
+    assert sp.integrate(angular_density,(theta,0,sp.pi/2))==1
+    assert data['torque_margin']==sp.Rational(197,640)>0
+    assert sp.Rational(4,15)-sp.Rational(21,128)==data['cross_margin']
+    assert sp.factor(data['difference']).is_positive is True
+    # Omitting the 4*pi radial measure or the factor 2Z gives a different tail.
+    assert not gate.zero(data['mixture_tail']-4*data['Z']/(sp.pi*data['kappa']*data['R']))
+
+
+def test_Fourier_halfline_energy_and_L2_integrals_for_localized_data():
+    radial,p,c=sp.symbols('radial p c',positive=True)
+    h=c*sp.exp(-p*radial)
+    assert sp.integrate(sp.diff(h,radial)**2+p*p*h*h,(radial,0,sp.oo))==p*c*c
+    assert sp.integrate(h*h,(radial,0,sp.oo))==c*c/(2*p)
+    # For phi_hat=O(p), the radial L2 integrand including R3 measure is O(p^3).
+    assert sp.integrate(p**3,(p,0,1))==sp.Rational(1,4)
