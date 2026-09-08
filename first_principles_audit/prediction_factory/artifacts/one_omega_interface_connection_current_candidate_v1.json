@@ -1,0 +1,900 @@
+{
+  "baseline": {
+    "literal_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "source_sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b"
+  },
+  "calculation_digest": "efce54c2d3938349c08b181c1788dee434fab0c46f459b94fb83c0aa0de772fd",
+  "checks": {
+    "bulk_and_boundary_rows_give_DJ_plus_jumpj": true,
+    "channel_kinetic_coefficient_positive": true,
+    "current_sign_from_independent_density_variation": true,
+    "curvature_squared_current_zero_with_flat_jets": true,
+    "curvature_squared_first_variation_zero_on_flat_field": true,
+    "flat_theta_canonical_energy": true,
+    "flat_theta_full_energy_hessian": true,
+    "flat_theta_kinetic_matrix": true,
+    "geometry_mixing_is_nonzero": true,
+    "missing_boundary_current_detected": true,
+    "moving_geometry_cross_coefficient": true,
+    "positive_symbolic_chi": true,
+    "static_signed_source_absorbed": true,
+    "static_source_cell_energy": true,
+    "wrong_current_sign_detected": true,
+    "wrong_static_response_sign_detected": true
+  },
+  "decision": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "BF_global_quotient_closed": false,
+    "N2_CONSTRAINTS_pass": false,
+    "N3_CHARACTERISTICS_pass": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "N5_COUPLED_BVP_pass": false,
+    "N6_GLOBAL_STABILITY_pass": false,
+    "N7_LINEAR_REDUCTION_pass": false,
+    "P4_full_same_action_pass": false,
+    "candidate_adopted": false,
+    "candidate_current_variation_checked": true,
+    "complete_gravitational_khronon_energy_positive": false,
+    "complete_model_repair_proved": false,
+    "fixed_flat_geometry_channel_positive_principal_energy": true,
+    "full_B_field_or_coupled_solution_constructed": false,
+    "full_N7": false,
+    "global_energy_or_boundary_domain_proved": false,
+    "necessary_current_compatibility_checked": true,
+    "new_coefficient_selected": false,
+    "old_linear_response_unchanged": false,
+    "static_periodic_cell_source_response_checked": true
+  },
+  "model": {
+    "candidate_action_density": "-chi*sqrt_minus_gamma*((A0_0 - omega0_0)*(gamma_inv_00*(A0_0 - omega0_0) + gamma_inv_01*(A0_1 - omega0_1) + gamma_inv_02*(A0_2 - omega0_2) + gamma_inv_03*(A0_3 - omega0_3)) + (A0_1 - omega0_1)*(gamma_inv_01*(A0_0 - omega0_0) + gamma_inv_11*(A0_1 - omega0_1) + gamma_inv_12*(A0_2 - omega0_2) + gamma_inv_13*(A0_3 - omega0_3)) + (A0_2 - omega0_2)*(gamma_inv_02*(A0_0 - omega0_0) + gamma_inv_12*(A0_1 - omega0_1) + gamma_inv_22*(A0_2 - omega0_2) + gamma_inv_23*(A0_3 - omega0_3)) + (A0_3 - omega0_3)*(gamma_inv_03*(A0_0 - omega0_0) + gamma_inv_13*(A0_1 - omega0_1) + gamma_inv_23*(A0_2 - omega0_2) + gamma_inv_33*(A0_3 - omega0_3)) + (A1_0 - omega1_0)*(gamma_inv_00*(A1_0 - omega1_0) + gamma_inv_01*(A1_1 - omega1_1) + gamma_inv_02*(A1_2 - omega1_2) + gamma_inv_03*(A1_3 - omega1_3)) + (A1_1 - omega1_1)*(gamma_inv_01*(A1_0 - omega1_0) + gamma_inv_11*(A1_1 - omega1_1) + gamma_inv_12*(A1_2 - omega1_2) + gamma_inv_13*(A1_3 - omega1_3)) + (A1_2 - omega1_2)*(gamma_inv_02*(A1_0 - omega1_0) + gamma_inv_12*(A1_1 - omega1_1) + gamma_inv_22*(A1_2 - omega1_2) + gamma_inv_23*(A1_3 - omega1_3)) + (A1_3 - omega1_3)*(gamma_inv_03*(A1_0 - omega1_0) + gamma_inv_13*(A1_1 - omega1_1) + gamma_inv_23*(A1_2 - omega1_2) + gamma_inv_33*(A1_3 - omega1_3)) + (A2_0 - omega2_0)*(gamma_inv_00*(A2_0 - omega2_0) + gamma_inv_01*(A2_1 - omega2_1) + gamma_inv_02*(A2_2 - omega2_2) + gamma_inv_03*(A2_3 - omega2_3)) + (A2_1 - omega2_1)*(gamma_inv_01*(A2_0 - omega2_0) + gamma_inv_11*(A2_1 - omega2_1) + gamma_inv_12*(A2_2 - omega2_2) + gamma_inv_13*(A2_3 - omega2_3)) + (A2_2 - omega2_2)*(gamma_inv_02*(A2_0 - omega2_0) + gamma_inv_12*(A2_1 - omega2_1) + gamma_inv_22*(A2_2 - omega2_2) + gamma_inv_23*(A2_3 - omega2_3)) + (A2_3 - omega2_3)*(gamma_inv_03*(A2_0 - omega2_0) + gamma_inv_13*(A2_1 - omega2_1) + gamma_inv_23*(A2_2 - omega2_2) + gamma_inv_33*(A2_3 - omega2_3)))/2",
+    "checks": {
+      "bulk_and_boundary_rows_give_DJ_plus_jumpj": true,
+      "channel_kinetic_coefficient_positive": true,
+      "current_sign_from_independent_density_variation": true,
+      "curvature_squared_current_zero_with_flat_jets": true,
+      "curvature_squared_first_variation_zero_on_flat_field": true,
+      "flat_theta_canonical_energy": true,
+      "flat_theta_full_energy_hessian": true,
+      "flat_theta_kinetic_matrix": true,
+      "geometry_mixing_is_nonzero": true,
+      "missing_boundary_current_detected": true,
+      "moving_geometry_cross_coefficient": true,
+      "positive_symbolic_chi": true,
+      "static_signed_source_absorbed": true,
+      "static_source_cell_energy": true,
+      "wrong_current_sign_detected": true,
+      "wrong_static_response_sign_detected": true
+    },
+    "compatibility": "D_J_Sigma - j4_minus + j4_plus",
+    "current_pairing": "-A0_0*chi*deltaA0_0*gamma_inv_00*sqrt_minus_gamma - A0_0*chi*deltaA0_1*gamma_inv_01*sqrt_minus_gamma - A0_0*chi*deltaA0_2*gamma_inv_02*sqrt_minus_gamma - A0_0*chi*deltaA0_3*gamma_inv_03*sqrt_minus_gamma - A0_1*chi*deltaA0_0*gamma_inv_01*sqrt_minus_gamma - A0_1*chi*deltaA0_1*gamma_inv_11*sqrt_minus_gamma - A0_1*chi*deltaA0_2*gamma_inv_12*sqrt_minus_gamma - A0_1*chi*deltaA0_3*gamma_inv_13*sqrt_minus_gamma - A0_2*chi*deltaA0_0*gamma_inv_02*sqrt_minus_gamma - A0_2*chi*deltaA0_1*gamma_inv_12*sqrt_minus_gamma - A0_2*chi*deltaA0_2*gamma_inv_22*sqrt_minus_gamma - A0_2*chi*deltaA0_3*gamma_inv_23*sqrt_minus_gamma - A0_3*chi*deltaA0_0*gamma_inv_03*sqrt_minus_gamma - A0_3*chi*deltaA0_1*gamma_inv_13*sqrt_minus_gamma - A0_3*chi*deltaA0_2*gamma_inv_23*sqrt_minus_gamma - A0_3*chi*deltaA0_3*gamma_inv_33*sqrt_minus_gamma - A1_0*chi*deltaA1_0*gamma_inv_00*sqrt_minus_gamma - A1_0*chi*deltaA1_1*gamma_inv_01*sqrt_minus_gamma - A1_0*chi*deltaA1_2*gamma_inv_02*sqrt_minus_gamma - A1_0*chi*deltaA1_3*gamma_inv_03*sqrt_minus_gamma - A1_1*chi*deltaA1_0*gamma_inv_01*sqrt_minus_gamma - A1_1*chi*deltaA1_1*gamma_inv_11*sqrt_minus_gamma - A1_1*chi*deltaA1_2*gamma_inv_12*sqrt_minus_gamma - A1_1*chi*deltaA1_3*gamma_inv_13*sqrt_minus_gamma - A1_2*chi*deltaA1_0*gamma_inv_02*sqrt_minus_gamma - A1_2*chi*deltaA1_1*gamma_inv_12*sqrt_minus_gamma - A1_2*chi*deltaA1_2*gamma_inv_22*sqrt_minus_gamma - A1_2*chi*deltaA1_3*gamma_inv_23*sqrt_minus_gamma - A1_3*chi*deltaA1_0*gamma_inv_03*sqrt_minus_gamma - A1_3*chi*deltaA1_1*gamma_inv_13*sqrt_minus_gamma - A1_3*chi*deltaA1_2*gamma_inv_23*sqrt_minus_gamma - A1_3*chi*deltaA1_3*gamma_inv_33*sqrt_minus_gamma - A2_0*chi*deltaA2_0*gamma_inv_00*sqrt_minus_gamma - A2_0*chi*deltaA2_1*gamma_inv_01*sqrt_minus_gamma - A2_0*chi*deltaA2_2*gamma_inv_02*sqrt_minus_gamma - A2_0*chi*deltaA2_3*gamma_inv_03*sqrt_minus_gamma - A2_1*chi*deltaA2_0*gamma_inv_01*sqrt_minus_gamma - A2_1*chi*deltaA2_1*gamma_inv_11*sqrt_minus_gamma - A2_1*chi*deltaA2_2*gamma_inv_12*sqrt_minus_gamma - A2_1*chi*deltaA2_3*gamma_inv_13*sqrt_minus_gamma - A2_2*chi*deltaA2_0*gamma_inv_02*sqrt_minus_gamma - A2_2*chi*deltaA2_1*gamma_inv_12*sqrt_minus_gamma - A2_2*chi*deltaA2_2*gamma_inv_22*sqrt_minus_gamma - A2_2*chi*deltaA2_3*gamma_inv_23*sqrt_minus_gamma - A2_3*chi*deltaA2_0*gamma_inv_03*sqrt_minus_gamma - A2_3*chi*deltaA2_1*gamma_inv_13*sqrt_minus_gamma - A2_3*chi*deltaA2_2*gamma_inv_23*sqrt_minus_gamma - A2_3*chi*deltaA2_3*gamma_inv_33*sqrt_minus_gamma + chi*deltaA0_0*gamma_inv_00*omega0_0*sqrt_minus_gamma + chi*deltaA0_0*gamma_inv_01*omega0_1*sqrt_minus_gamma + chi*deltaA0_0*gamma_inv_02*omega0_2*sqrt_minus_gamma + chi*deltaA0_0*gamma_inv_03*omega0_3*sqrt_minus_gamma + chi*deltaA0_1*gamma_inv_01*omega0_0*sqrt_minus_gamma + chi*deltaA0_1*gamma_inv_11*omega0_1*sqrt_minus_gamma + chi*deltaA0_1*gamma_inv_12*omega0_2*sqrt_minus_gamma + chi*deltaA0_1*gamma_inv_13*omega0_3*sqrt_minus_gamma + chi*deltaA0_2*gamma_inv_02*omega0_0*sqrt_minus_gamma + chi*deltaA0_2*gamma_inv_12*omega0_1*sqrt_minus_gamma + chi*deltaA0_2*gamma_inv_22*omega0_2*sqrt_minus_gamma + chi*deltaA0_2*gamma_inv_23*omega0_3*sqrt_minus_gamma + chi*deltaA0_3*gamma_inv_03*omega0_0*sqrt_minus_gamma + chi*deltaA0_3*gamma_inv_13*omega0_1*sqrt_minus_gamma + chi*deltaA0_3*gamma_inv_23*omega0_2*sqrt_minus_gamma + chi*deltaA0_3*gamma_inv_33*omega0_3*sqrt_minus_gamma + chi*deltaA1_0*gamma_inv_00*omega1_0*sqrt_minus_gamma + chi*deltaA1_0*gamma_inv_01*omega1_1*sqrt_minus_gamma + chi*deltaA1_0*gamma_inv_02*omega1_2*sqrt_minus_gamma + chi*deltaA1_0*gamma_inv_03*omega1_3*sqrt_minus_gamma + chi*deltaA1_1*gamma_inv_01*omega1_0*sqrt_minus_gamma + chi*deltaA1_1*gamma_inv_11*omega1_1*sqrt_minus_gamma + chi*deltaA1_1*gamma_inv_12*omega1_2*sqrt_minus_gamma + chi*deltaA1_1*gamma_inv_13*omega1_3*sqrt_minus_gamma + chi*deltaA1_2*gamma_inv_02*omega1_0*sqrt_minus_gamma + chi*deltaA1_2*gamma_inv_12*omega1_1*sqrt_minus_gamma + chi*deltaA1_2*gamma_inv_22*omega1_2*sqrt_minus_gamma + chi*deltaA1_2*gamma_inv_23*omega1_3*sqrt_minus_gamma + chi*deltaA1_3*gamma_inv_03*omega1_0*sqrt_minus_gamma + chi*deltaA1_3*gamma_inv_13*omega1_1*sqrt_minus_gamma + chi*deltaA1_3*gamma_inv_23*omega1_2*sqrt_minus_gamma + chi*deltaA1_3*gamma_inv_33*omega1_3*sqrt_minus_gamma + chi*deltaA2_0*gamma_inv_00*omega2_0*sqrt_minus_gamma + chi*deltaA2_0*gamma_inv_01*omega2_1*sqrt_minus_gamma + chi*deltaA2_0*gamma_inv_02*omega2_2*sqrt_minus_gamma + chi*deltaA2_0*gamma_inv_03*omega2_3*sqrt_minus_gamma + chi*deltaA2_1*gamma_inv_01*omega2_0*sqrt_minus_gamma + chi*deltaA2_1*gamma_inv_11*omega2_1*sqrt_minus_gamma + chi*deltaA2_1*gamma_inv_12*omega2_2*sqrt_minus_gamma + chi*deltaA2_1*gamma_inv_13*omega2_3*sqrt_minus_gamma + chi*deltaA2_2*gamma_inv_02*omega2_0*sqrt_minus_gamma + chi*deltaA2_2*gamma_inv_12*omega2_1*sqrt_minus_gamma + chi*deltaA2_2*gamma_inv_22*omega2_2*sqrt_minus_gamma + chi*deltaA2_2*gamma_inv_23*omega2_3*sqrt_minus_gamma + chi*deltaA2_3*gamma_inv_03*omega2_0*sqrt_minus_gamma + chi*deltaA2_3*gamma_inv_13*omega2_1*sqrt_minus_gamma + chi*deltaA2_3*gamma_inv_23*omega2_2*sqrt_minus_gamma + chi*deltaA2_3*gamma_inv_33*omega2_3*sqrt_minus_gamma",
+    "current_three_forms": [
+      {
+        "0,1,2": "-chi*sqrt_minus_gamma*(gamma_inv_03*(A0_0 - omega0_0) + gamma_inv_13*(A0_1 - omega0_1) + gamma_inv_23*(A0_2 - omega0_2) + gamma_inv_33*(A0_3 - omega0_3))",
+        "0,1,3": "chi*sqrt_minus_gamma*(gamma_inv_02*(A0_0 - omega0_0) + gamma_inv_12*(A0_1 - omega0_1) + gamma_inv_22*(A0_2 - omega0_2) + gamma_inv_23*(A0_3 - omega0_3))",
+        "0,2,3": "-chi*sqrt_minus_gamma*(gamma_inv_01*(A0_0 - omega0_0) + gamma_inv_11*(A0_1 - omega0_1) + gamma_inv_12*(A0_2 - omega0_2) + gamma_inv_13*(A0_3 - omega0_3))",
+        "1,2,3": "chi*sqrt_minus_gamma*(gamma_inv_00*(A0_0 - omega0_0) + gamma_inv_01*(A0_1 - omega0_1) + gamma_inv_02*(A0_2 - omega0_2) + gamma_inv_03*(A0_3 - omega0_3))"
+      },
+      {
+        "0,1,2": "-chi*sqrt_minus_gamma*(gamma_inv_03*(A1_0 - omega1_0) + gamma_inv_13*(A1_1 - omega1_1) + gamma_inv_23*(A1_2 - omega1_2) + gamma_inv_33*(A1_3 - omega1_3))",
+        "0,1,3": "chi*sqrt_minus_gamma*(gamma_inv_02*(A1_0 - omega1_0) + gamma_inv_12*(A1_1 - omega1_1) + gamma_inv_22*(A1_2 - omega1_2) + gamma_inv_23*(A1_3 - omega1_3))",
+        "0,2,3": "-chi*sqrt_minus_gamma*(gamma_inv_01*(A1_0 - omega1_0) + gamma_inv_11*(A1_1 - omega1_1) + gamma_inv_12*(A1_2 - omega1_2) + gamma_inv_13*(A1_3 - omega1_3))",
+        "1,2,3": "chi*sqrt_minus_gamma*(gamma_inv_00*(A1_0 - omega1_0) + gamma_inv_01*(A1_1 - omega1_1) + gamma_inv_02*(A1_2 - omega1_2) + gamma_inv_03*(A1_3 - omega1_3))"
+      },
+      {
+        "0,1,2": "-chi*sqrt_minus_gamma*(gamma_inv_03*(A2_0 - omega2_0) + gamma_inv_13*(A2_1 - omega2_1) + gamma_inv_23*(A2_2 - omega2_2) + gamma_inv_33*(A2_3 - omega2_3))",
+        "0,1,3": "chi*sqrt_minus_gamma*(gamma_inv_02*(A2_0 - omega2_0) + gamma_inv_12*(A2_1 - omega2_1) + gamma_inv_22*(A2_2 - omega2_2) + gamma_inv_23*(A2_3 - omega2_3))",
+        "0,2,3": "-chi*sqrt_minus_gamma*(gamma_inv_01*(A2_0 - omega2_0) + gamma_inv_11*(A2_1 - omega2_1) + gamma_inv_12*(A2_2 - omega2_2) + gamma_inv_13*(A2_3 - omega2_3))",
+        "1,2,3": "chi*sqrt_minus_gamma*(gamma_inv_00*(A2_0 - omega2_0) + gamma_inv_01*(A2_1 - omega2_1) + gamma_inv_02*(A2_2 - omega2_2) + gamma_inv_03*(A2_3 - omega2_3))"
+      }
+    ],
+    "curvature_squared_first_variation": "F_01*alpha*deltaF_01 + F_02*alpha*deltaF_02 + F_03*alpha*deltaF_03 - F_12*alpha*deltaF_12 - F_13*alpha*deltaF_13 - F_23*alpha*deltaF_23",
+    "curvature_squared_principal_EL": [
+      [
+        "alpha*(D1F01 + D2F02 + D3F03)"
+      ],
+      [
+        "alpha*(-D0F01 - D2F12 - D3F13)"
+      ],
+      [
+        "alpha*(-D0F02 + D1F12 - D3F23)"
+      ],
+      [
+        "alpha*(-D0F03 + D1F13 + D2F23)"
+      ]
+    ],
+    "density_variation": "-chi*deltaA0_0*sqrt_minus_gamma*(2*gamma_inv_00*(A0_0 - omega0_0) + 2*gamma_inv_01*(A0_1 - omega0_1) + 2*gamma_inv_02*(A0_2 - omega0_2) + 2*gamma_inv_03*(A0_3 - omega0_3))/2 - chi*deltaA0_1*sqrt_minus_gamma*(2*gamma_inv_01*(A0_0 - omega0_0) + 2*gamma_inv_11*(A0_1 - omega0_1) + 2*gamma_inv_12*(A0_2 - omega0_2) + 2*gamma_inv_13*(A0_3 - omega0_3))/2 - chi*deltaA0_2*sqrt_minus_gamma*(2*gamma_inv_02*(A0_0 - omega0_0) + 2*gamma_inv_12*(A0_1 - omega0_1) + 2*gamma_inv_22*(A0_2 - omega0_2) + 2*gamma_inv_23*(A0_3 - omega0_3))/2 - chi*deltaA0_3*sqrt_minus_gamma*(2*gamma_inv_03*(A0_0 - omega0_0) + 2*gamma_inv_13*(A0_1 - omega0_1) + 2*gamma_inv_23*(A0_2 - omega0_2) + 2*gamma_inv_33*(A0_3 - omega0_3))/2 - chi*deltaA1_0*sqrt_minus_gamma*(2*gamma_inv_00*(A1_0 - omega1_0) + 2*gamma_inv_01*(A1_1 - omega1_1) + 2*gamma_inv_02*(A1_2 - omega1_2) + 2*gamma_inv_03*(A1_3 - omega1_3))/2 - chi*deltaA1_1*sqrt_minus_gamma*(2*gamma_inv_01*(A1_0 - omega1_0) + 2*gamma_inv_11*(A1_1 - omega1_1) + 2*gamma_inv_12*(A1_2 - omega1_2) + 2*gamma_inv_13*(A1_3 - omega1_3))/2 - chi*deltaA1_2*sqrt_minus_gamma*(2*gamma_inv_02*(A1_0 - omega1_0) + 2*gamma_inv_12*(A1_1 - omega1_1) + 2*gamma_inv_22*(A1_2 - omega1_2) + 2*gamma_inv_23*(A1_3 - omega1_3))/2 - chi*deltaA1_3*sqrt_minus_gamma*(2*gamma_inv_03*(A1_0 - omega1_0) + 2*gamma_inv_13*(A1_1 - omega1_1) + 2*gamma_inv_23*(A1_2 - omega1_2) + 2*gamma_inv_33*(A1_3 - omega1_3))/2 - chi*deltaA2_0*sqrt_minus_gamma*(2*gamma_inv_00*(A2_0 - omega2_0) + 2*gamma_inv_01*(A2_1 - omega2_1) + 2*gamma_inv_02*(A2_2 - omega2_2) + 2*gamma_inv_03*(A2_3 - omega2_3))/2 - chi*deltaA2_1*sqrt_minus_gamma*(2*gamma_inv_01*(A2_0 - omega2_0) + 2*gamma_inv_11*(A2_1 - omega2_1) + 2*gamma_inv_12*(A2_2 - omega2_2) + 2*gamma_inv_13*(A2_3 - omega2_3))/2 - chi*deltaA2_2*sqrt_minus_gamma*(2*gamma_inv_02*(A2_0 - omega2_0) + 2*gamma_inv_12*(A2_1 - omega2_1) + 2*gamma_inv_22*(A2_2 - omega2_2) + 2*gamma_inv_23*(A2_3 - omega2_3))/2 - chi*deltaA2_3*sqrt_minus_gamma*(2*gamma_inv_03*(A2_0 - omega2_0) + 2*gamma_inv_13*(A2_1 - omega2_1) + 2*gamma_inv_23*(A2_2 - omega2_2) + 2*gamma_inv_33*(A2_3 - omega2_3))/2",
+    "flat_theta_action": "-chi*(-dtheta0_0**2 + dtheta0_1**2 + dtheta0_2**2 + dtheta0_3**2 - dtheta1_0**2 + dtheta1_1**2 + dtheta1_2**2 + dtheta1_3**2 - dtheta2_0**2 + dtheta2_1**2 + dtheta2_2**2 + dtheta2_3**2)/2",
+    "flat_theta_energy": "chi*dtheta0_0**2/2 + chi*dtheta0_1**2/2 + chi*dtheta0_2**2/2 + chi*dtheta0_3**2/2 + chi*dtheta1_0**2/2 + chi*dtheta1_1**2/2 + chi*dtheta1_2**2/2 + chi*dtheta1_3**2/2 + chi*dtheta2_0**2/2 + chi*dtheta2_1**2/2 + chi*dtheta2_2**2/2 + chi*dtheta2_3**2/2",
+    "flat_theta_energy_hessian": [
+      [
+        "chi",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "chi",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "chi",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "chi",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "chi"
+      ]
+    ],
+    "flat_theta_kinetic": [
+      [
+        "chi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "chi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "chi"
+      ]
+    ],
+    "flat_theta_momenta": [
+      [
+        "chi*dtheta0_0"
+      ],
+      [
+        "chi*dtheta1_0"
+      ],
+      [
+        "chi*dtheta2_0"
+      ]
+    ],
+    "geometry_mixing": [
+      [
+        "chi",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "-chi",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "-chi",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-chi"
+      ]
+    ],
+    "moving_geometry_action_one_color": "-chi*((-delta_omega_0 - dtheta0_0)*(delta_omega_0 + dtheta0_0) + (delta_omega_1 + dtheta0_1)**2 + (delta_omega_2 + dtheta0_2)**2 + (delta_omega_3 + dtheta0_3)**2)/2",
+    "negative_controls": {
+      "freeze_geometry_connection_in_quadratic_action": [
+        [
+          "chi",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-chi",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-chi",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-chi"
+        ]
+      ],
+      "negative_chi_gives_negative_kinetic": [
+        [
+          "-chi",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-chi",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-chi"
+        ]
+      ],
+      "omit_intrinsic_current_from_boundary_row": "-D_J_Sigma",
+      "wrong_current_sign": "-2*A0_0*chi*deltaA0_0*gamma_inv_00*sqrt_minus_gamma - 2*A0_0*chi*deltaA0_1*gamma_inv_01*sqrt_minus_gamma - 2*A0_0*chi*deltaA0_2*gamma_inv_02*sqrt_minus_gamma - 2*A0_0*chi*deltaA0_3*gamma_inv_03*sqrt_minus_gamma - 2*A0_1*chi*deltaA0_0*gamma_inv_01*sqrt_minus_gamma - 2*A0_1*chi*deltaA0_1*gamma_inv_11*sqrt_minus_gamma - 2*A0_1*chi*deltaA0_2*gamma_inv_12*sqrt_minus_gamma - 2*A0_1*chi*deltaA0_3*gamma_inv_13*sqrt_minus_gamma - 2*A0_2*chi*deltaA0_0*gamma_inv_02*sqrt_minus_gamma - 2*A0_2*chi*deltaA0_1*gamma_inv_12*sqrt_minus_gamma - 2*A0_2*chi*deltaA0_2*gamma_inv_22*sqrt_minus_gamma - 2*A0_2*chi*deltaA0_3*gamma_inv_23*sqrt_minus_gamma - 2*A0_3*chi*deltaA0_0*gamma_inv_03*sqrt_minus_gamma - 2*A0_3*chi*deltaA0_1*gamma_inv_13*sqrt_minus_gamma - 2*A0_3*chi*deltaA0_2*gamma_inv_23*sqrt_minus_gamma - 2*A0_3*chi*deltaA0_3*gamma_inv_33*sqrt_minus_gamma - 2*A1_0*chi*deltaA1_0*gamma_inv_00*sqrt_minus_gamma - 2*A1_0*chi*deltaA1_1*gamma_inv_01*sqrt_minus_gamma - 2*A1_0*chi*deltaA1_2*gamma_inv_02*sqrt_minus_gamma - 2*A1_0*chi*deltaA1_3*gamma_inv_03*sqrt_minus_gamma - 2*A1_1*chi*deltaA1_0*gamma_inv_01*sqrt_minus_gamma - 2*A1_1*chi*deltaA1_1*gamma_inv_11*sqrt_minus_gamma - 2*A1_1*chi*deltaA1_2*gamma_inv_12*sqrt_minus_gamma - 2*A1_1*chi*deltaA1_3*gamma_inv_13*sqrt_minus_gamma - 2*A1_2*chi*deltaA1_0*gamma_inv_02*sqrt_minus_gamma - 2*A1_2*chi*deltaA1_1*gamma_inv_12*sqrt_minus_gamma - 2*A1_2*chi*deltaA1_2*gamma_inv_22*sqrt_minus_gamma - 2*A1_2*chi*deltaA1_3*gamma_inv_23*sqrt_minus_gamma - 2*A1_3*chi*deltaA1_0*gamma_inv_03*sqrt_minus_gamma - 2*A1_3*chi*deltaA1_1*gamma_inv_13*sqrt_minus_gamma - 2*A1_3*chi*deltaA1_2*gamma_inv_23*sqrt_minus_gamma - 2*A1_3*chi*deltaA1_3*gamma_inv_33*sqrt_minus_gamma - 2*A2_0*chi*deltaA2_0*gamma_inv_00*sqrt_minus_gamma - 2*A2_0*chi*deltaA2_1*gamma_inv_01*sqrt_minus_gamma - 2*A2_0*chi*deltaA2_2*gamma_inv_02*sqrt_minus_gamma - 2*A2_0*chi*deltaA2_3*gamma_inv_03*sqrt_minus_gamma - 2*A2_1*chi*deltaA2_0*gamma_inv_01*sqrt_minus_gamma - 2*A2_1*chi*deltaA2_1*gamma_inv_11*sqrt_minus_gamma - 2*A2_1*chi*deltaA2_2*gamma_inv_12*sqrt_minus_gamma - 2*A2_1*chi*deltaA2_3*gamma_inv_13*sqrt_minus_gamma - 2*A2_2*chi*deltaA2_0*gamma_inv_02*sqrt_minus_gamma - 2*A2_2*chi*deltaA2_1*gamma_inv_12*sqrt_minus_gamma - 2*A2_2*chi*deltaA2_2*gamma_inv_22*sqrt_minus_gamma - 2*A2_2*chi*deltaA2_3*gamma_inv_23*sqrt_minus_gamma - 2*A2_3*chi*deltaA2_0*gamma_inv_03*sqrt_minus_gamma - 2*A2_3*chi*deltaA2_1*gamma_inv_13*sqrt_minus_gamma - 2*A2_3*chi*deltaA2_2*gamma_inv_23*sqrt_minus_gamma - 2*A2_3*chi*deltaA2_3*gamma_inv_33*sqrt_minus_gamma + 2*chi*deltaA0_0*gamma_inv_00*omega0_0*sqrt_minus_gamma + 2*chi*deltaA0_0*gamma_inv_01*omega0_1*sqrt_minus_gamma + 2*chi*deltaA0_0*gamma_inv_02*omega0_2*sqrt_minus_gamma + 2*chi*deltaA0_0*gamma_inv_03*omega0_3*sqrt_minus_gamma + 2*chi*deltaA0_1*gamma_inv_01*omega0_0*sqrt_minus_gamma + 2*chi*deltaA0_1*gamma_inv_11*omega0_1*sqrt_minus_gamma + 2*chi*deltaA0_1*gamma_inv_12*omega0_2*sqrt_minus_gamma + 2*chi*deltaA0_1*gamma_inv_13*omega0_3*sqrt_minus_gamma + 2*chi*deltaA0_2*gamma_inv_02*omega0_0*sqrt_minus_gamma + 2*chi*deltaA0_2*gamma_inv_12*omega0_1*sqrt_minus_gamma + 2*chi*deltaA0_2*gamma_inv_22*omega0_2*sqrt_minus_gamma + 2*chi*deltaA0_2*gamma_inv_23*omega0_3*sqrt_minus_gamma + 2*chi*deltaA0_3*gamma_inv_03*omega0_0*sqrt_minus_gamma + 2*chi*deltaA0_3*gamma_inv_13*omega0_1*sqrt_minus_gamma + 2*chi*deltaA0_3*gamma_inv_23*omega0_2*sqrt_minus_gamma + 2*chi*deltaA0_3*gamma_inv_33*omega0_3*sqrt_minus_gamma + 2*chi*deltaA1_0*gamma_inv_00*omega1_0*sqrt_minus_gamma + 2*chi*deltaA1_0*gamma_inv_01*omega1_1*sqrt_minus_gamma + 2*chi*deltaA1_0*gamma_inv_02*omega1_2*sqrt_minus_gamma + 2*chi*deltaA1_0*gamma_inv_03*omega1_3*sqrt_minus_gamma + 2*chi*deltaA1_1*gamma_inv_01*omega1_0*sqrt_minus_gamma + 2*chi*deltaA1_1*gamma_inv_11*omega1_1*sqrt_minus_gamma + 2*chi*deltaA1_1*gamma_inv_12*omega1_2*sqrt_minus_gamma + 2*chi*deltaA1_1*gamma_inv_13*omega1_3*sqrt_minus_gamma + 2*chi*deltaA1_2*gamma_inv_02*omega1_0*sqrt_minus_gamma + 2*chi*deltaA1_2*gamma_inv_12*omega1_1*sqrt_minus_gamma + 2*chi*deltaA1_2*gamma_inv_22*omega1_2*sqrt_minus_gamma + 2*chi*deltaA1_2*gamma_inv_23*omega1_3*sqrt_minus_gamma + 2*chi*deltaA1_3*gamma_inv_03*omega1_0*sqrt_minus_gamma + 2*chi*deltaA1_3*gamma_inv_13*omega1_1*sqrt_minus_gamma + 2*chi*deltaA1_3*gamma_inv_23*omega1_2*sqrt_minus_gamma + 2*chi*deltaA1_3*gamma_inv_33*omega1_3*sqrt_minus_gamma + 2*chi*deltaA2_0*gamma_inv_00*omega2_0*sqrt_minus_gamma + 2*chi*deltaA2_0*gamma_inv_01*omega2_1*sqrt_minus_gamma + 2*chi*deltaA2_0*gamma_inv_02*omega2_2*sqrt_minus_gamma + 2*chi*deltaA2_0*gamma_inv_03*omega2_3*sqrt_minus_gamma + 2*chi*deltaA2_1*gamma_inv_01*omega2_0*sqrt_minus_gamma + 2*chi*deltaA2_1*gamma_inv_11*omega2_1*sqrt_minus_gamma + 2*chi*deltaA2_1*gamma_inv_12*omega2_2*sqrt_minus_gamma + 2*chi*deltaA2_1*gamma_inv_13*omega2_3*sqrt_minus_gamma + 2*chi*deltaA2_2*gamma_inv_02*omega2_0*sqrt_minus_gamma + 2*chi*deltaA2_2*gamma_inv_12*omega2_1*sqrt_minus_gamma + 2*chi*deltaA2_2*gamma_inv_22*omega2_2*sqrt_minus_gamma + 2*chi*deltaA2_2*gamma_inv_23*omega2_3*sqrt_minus_gamma + 2*chi*deltaA2_3*gamma_inv_03*omega2_0*sqrt_minus_gamma + 2*chi*deltaA2_3*gamma_inv_13*omega2_1*sqrt_minus_gamma + 2*chi*deltaA2_3*gamma_inv_23*omega2_2*sqrt_minus_gamma + 2*chi*deltaA2_3*gamma_inv_33*omega2_3*sqrt_minus_gamma",
+      "wrong_static_response_sign": "2*J0*sin(x)*sin(2*z)"
+    },
+    "residuals": {
+      "bulk_and_boundary_rows_give_DJ_plus_jumpj": "0",
+      "current_sign_from_independent_density_variation": "0",
+      "curvature_squared_current_zero_with_flat_jets": [
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "curvature_squared_first_variation_zero_on_flat_field": "0",
+      "flat_theta_canonical_energy": "0",
+      "flat_theta_full_energy_hessian": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "flat_theta_kinetic_matrix": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "moving_geometry_cross_coefficient": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "static_signed_source_absorbed": "0",
+      "static_source_cell_energy": "0"
+    },
+    "static_cell_energy": "pi**2*J0**2/(10*chi)",
+    "static_current_divergence": "-J0*sin(x)*sin(2*z)",
+    "static_energy_density": "chi*(4*J0**2*sin(x)**2*cos(2*z)**2/(25*chi**2) + J0**2*sin(2*z)**2*cos(x)**2/(25*chi**2))/2",
+    "static_source": "J0*sin(x)*sin(2*z)",
+    "static_theta_solution": "-J0*sin(x)*sin(2*z)/(5*chi)",
+    "symbols": {
+      "A": [
+        [
+          [
+            "A0_0"
+          ],
+          [
+            "A0_1"
+          ],
+          [
+            "A0_2"
+          ],
+          [
+            "A0_3"
+          ]
+        ],
+        [
+          [
+            "A1_0"
+          ],
+          [
+            "A1_1"
+          ],
+          [
+            "A1_2"
+          ],
+          [
+            "A1_3"
+          ]
+        ],
+        [
+          [
+            "A2_0"
+          ],
+          [
+            "A2_1"
+          ],
+          [
+            "A2_2"
+          ],
+          [
+            "A2_3"
+          ]
+        ]
+      ],
+      "F": {
+        "0,1": "F_01",
+        "0,2": "F_02",
+        "0,3": "F_03",
+        "1,2": "F_12",
+        "1,3": "F_13",
+        "2,3": "F_23"
+      },
+      "F_jets": {
+        "0,0,1": "D0F01",
+        "0,0,2": "D0F02",
+        "0,0,3": "D0F03",
+        "0,1,2": "D0F12",
+        "0,1,3": "D0F13",
+        "0,2,3": "D0F23",
+        "1,0,1": "D1F01",
+        "1,0,2": "D1F02",
+        "1,0,3": "D1F03",
+        "1,1,2": "D1F12",
+        "1,1,3": "D1F13",
+        "1,2,3": "D1F23",
+        "2,0,1": "D2F01",
+        "2,0,2": "D2F02",
+        "2,0,3": "D2F03",
+        "2,1,2": "D2F12",
+        "2,1,3": "D2F13",
+        "2,2,3": "D2F23",
+        "3,0,1": "D3F01",
+        "3,0,2": "D3F02",
+        "3,0,3": "D3F03",
+        "3,1,2": "D3F12",
+        "3,1,3": "D3F13",
+        "3,2,3": "D3F23"
+      },
+      "J0": "J0",
+      "chi": "chi",
+      "delta_A": [
+        [
+          [
+            "deltaA0_0"
+          ],
+          [
+            "deltaA0_1"
+          ],
+          [
+            "deltaA0_2"
+          ],
+          [
+            "deltaA0_3"
+          ]
+        ],
+        [
+          [
+            "deltaA1_0"
+          ],
+          [
+            "deltaA1_1"
+          ],
+          [
+            "deltaA1_2"
+          ],
+          [
+            "deltaA1_3"
+          ]
+        ],
+        [
+          [
+            "deltaA2_0"
+          ],
+          [
+            "deltaA2_1"
+          ],
+          [
+            "deltaA2_2"
+          ],
+          [
+            "deltaA2_3"
+          ]
+        ]
+      ],
+      "delta_F": {
+        "0,1": "deltaF_01",
+        "0,2": "deltaF_02",
+        "0,3": "deltaF_03",
+        "1,2": "deltaF_12",
+        "1,3": "deltaF_13",
+        "2,3": "deltaF_23"
+      },
+      "delta_omega": [
+        [
+          "delta_omega_0"
+        ],
+        [
+          "delta_omega_1"
+        ],
+        [
+          "delta_omega_2"
+        ],
+        [
+          "delta_omega_3"
+        ]
+      ],
+      "inverse_metric": [
+        [
+          "gamma_inv_00",
+          "gamma_inv_01",
+          "gamma_inv_02",
+          "gamma_inv_03"
+        ],
+        [
+          "gamma_inv_01",
+          "gamma_inv_11",
+          "gamma_inv_12",
+          "gamma_inv_13"
+        ],
+        [
+          "gamma_inv_02",
+          "gamma_inv_12",
+          "gamma_inv_22",
+          "gamma_inv_23"
+        ],
+        [
+          "gamma_inv_03",
+          "gamma_inv_13",
+          "gamma_inv_23",
+          "gamma_inv_33"
+        ]
+      ],
+      "omega": [
+        [
+          [
+            "omega0_0"
+          ],
+          [
+            "omega0_1"
+          ],
+          [
+            "omega0_2"
+          ],
+          [
+            "omega0_3"
+          ]
+        ],
+        [
+          [
+            "omega1_0"
+          ],
+          [
+            "omega1_1"
+          ],
+          [
+            "omega1_2"
+          ],
+          [
+            "omega1_3"
+          ]
+        ],
+        [
+          [
+            "omega2_0"
+          ],
+          [
+            "omega2_1"
+          ],
+          [
+            "omega2_2"
+          ],
+          [
+            "omega2_3"
+          ]
+        ]
+      ],
+      "theta_jets": [
+        [
+          [
+            "dtheta0_0"
+          ],
+          [
+            "dtheta0_1"
+          ],
+          [
+            "dtheta0_2"
+          ],
+          [
+            "dtheta0_3"
+          ]
+        ],
+        [
+          [
+            "dtheta1_0"
+          ],
+          [
+            "dtheta1_1"
+          ],
+          [
+            "dtheta1_2"
+          ],
+          [
+            "dtheta1_3"
+          ]
+        ],
+        [
+          [
+            "dtheta2_0"
+          ],
+          [
+            "dtheta2_1"
+          ],
+          [
+            "dtheta2_2"
+          ],
+          [
+            "dtheta2_3"
+          ]
+        ]
+      ],
+      "volume": "sqrt_minus_gamma",
+      "x": "x",
+      "z": "z"
+    }
+  },
+  "proposal": {
+    "A_Sigma_remains_independent": true,
+    "adopted_into_v5_2": false,
+    "chi": "strictly positive symbolic coefficient; no value selected",
+    "new_term": "S_C=-chi/2*integral_Sigma <(A_Sigma-omega) wedge star_gamma(A_Sigma-omega)>"
+  },
+  "provenance": {
+    "one_omega_interface_connection_current_candidate_lemma_v1.md": "ab9745c81faf58e83fef2937b97f7de7e2c6f9ae3bce8bd3cf4fa8aeeb87966b",
+    "test_one_omega_interface_connection_current_candidate_v1.py": "8068e5d36a207a39a23f2e3ecbf98f65718ed1a5fbb550de45dadaf0388abbe5",
+    "verify_one_omega_interface_connection_current_candidate_v1.py": "37c825b6ebcba5a84eb73611a296898f979a22380197d16791be25ee09a6fbad"
+  },
+  "schema": "holo.one-omega-interface-connection-current-candidate.v1"
+}
