@@ -1,0 +1,836 @@
+{
+  "bounds": {
+    "K0": "2*b*chi/(2*b + chi)",
+    "analytic_argument": "Re[s(2B+chi)]>=(2b+chi)sigma and Re[-Schur/s]>=sigma*(K0+chi*q\u00b2/r\u00b2), from pinned continuum proof",
+    "bounds": {
+      "absolute_Schur_lower_bound": "2*b*chi*r*sigma/(2*b + chi) + chi*q_nonnegative**2*sigma/r",
+      "forced_H_upper_bound": "4*abs_f_U/(sigma*(2*b + chi)) + 2*chi*r*(abs_f_Psi + 2*abs_f_U*chi*r**2/(sigma*(2*b + chi)))/(sigma*(2*b + chi)*(2*b*chi*r*sigma/(2*b + chi) + chi*q_nonnegative**2*sigma/r))",
+      "forced_Psi_upper_bound": "(abs_f_Psi + 2*abs_f_U*chi*r**2/(sigma*(2*b + chi)))/(2*b*chi*r*sigma/(2*b + chi) + chi*q_nonnegative**2*sigma/r)",
+      "forced_theta_upper_bound": "2*abs_f_U/(sigma*(2*b + chi)) + (abs_f_Psi + 2*abs_f_U*chi*r**2/(sigma*(2*b + chi)))*(chi*r/(sigma*(2*b + chi)) + 1)/(2*b*chi*r*sigma/(2*b + chi) + chi*q_nonnegative**2*sigma/r)",
+      "inverse_denominator": "r/(sigma*(2*b + chi))",
+      "inverse_w_denominator": "1/(sigma*(2*b + chi))"
+    },
+    "checks": {
+      "K0_strictly_positive": true,
+      "forced_Schur_lower_bound_strictly_positive": true,
+      "forced_bound_has_no_spatial_momentum_denominator_at_zero": true,
+      "reciprocal_bound_squared_gap_identity": true,
+      "reciprocal_bound_squared_gap_nonnegative": true,
+      "w_inverse_squared_bound": true
+    },
+    "d": "2*b + chi",
+    "hypotheses": "r=abs(s)>0, sigma=Re(s)>0, finite positive spectral measure; no first moment required",
+    "manifest_nonnegative_gap": "r**2*(imaginary_s_denominator**2 + nonnegative_PR_margin**2 + nonnegative_PR_margin*sigma*(4*b + 2*chi))/(sigma**2*(2*b + chi)**2*(imaginary_s_denominator**2 + (nonnegative_PR_margin + sigma*(2*b + chi))**2))",
+    "reciprocal_squared_gap": "-r**2/(imaginary_s_denominator**2 + (nonnegative_PR_margin + sigma*(2*b + chi))**2) + r**2/(sigma**2*(2*b + chi)**2)",
+    "symbols": {
+      "Y": "imaginary_s_denominator",
+      "b": "b",
+      "chi": "chi",
+      "margin": "nonnegative_PR_margin",
+      "q": "q_nonnegative",
+      "r": "r",
+      "sigma": "sigma"
+    }
+  },
+  "calculation_digest": "239525b874d065d21e2b1b0f9f5f62aa5a63b5fafd2210c6af468ee86cce79f7",
+  "checks": {
+    "all_324_direct_homogeneous_added_entries": true,
+    "all_four_source_gauge_vectors_are_null": true,
+    "bound_K0_strictly_positive": true,
+    "bound_forced_Schur_lower_bound_strictly_positive": true,
+    "bound_forced_bound_has_no_spatial_momentum_denominator_at_zero": true,
+    "bound_reciprocal_bound_squared_gap_identity": true,
+    "bound_reciprocal_bound_squared_gap_nonnegative": true,
+    "bound_w_inverse_squared_bound": true,
+    "vector_1_all_three_forced_rows": true,
+    "vector_1_chart_determinant": true,
+    "vector_1_coupling_to_all_other_H18_fields": true,
+    "vector_1_determinant_with_chart_and_pivot": true,
+    "vector_1_direct_homogeneous_source_comparison": true,
+    "vector_1_direct_q_zero_determinant": true,
+    "vector_1_direct_q_zero_matrix": true,
+    "vector_1_force_covector": true,
+    "vector_1_forced_reconstruction": true,
+    "vector_1_gauge_matches_horizontal_H18_compensation": true,
+    "vector_1_gauge_null": true,
+    "vector_1_invariant_map_annihilates_gauge": true,
+    "vector_1_mixed_entry": true,
+    "vector_1_q_zero_factorization": true,
+    "vector_1_retained_pivot": true,
+    "vector_1_schur": true,
+    "vector_1_ward_row": true,
+    "vector_2_all_three_forced_rows": true,
+    "vector_2_chart_determinant": true,
+    "vector_2_coupling_to_all_other_H18_fields": true,
+    "vector_2_determinant_with_chart_and_pivot": true,
+    "vector_2_direct_homogeneous_source_comparison": true,
+    "vector_2_direct_q_zero_determinant": true,
+    "vector_2_direct_q_zero_matrix": true,
+    "vector_2_force_covector": true,
+    "vector_2_forced_reconstruction": true,
+    "vector_2_gauge_matches_horizontal_H18_compensation": true,
+    "vector_2_gauge_null": true,
+    "vector_2_invariant_map_annihilates_gauge": true,
+    "vector_2_mixed_entry": true,
+    "vector_2_q_zero_factorization": true,
+    "vector_2_retained_pivot": true,
+    "vector_2_schur": true,
+    "vector_2_ward_row": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BF_boundary_domain_and_embeddings_completed": false,
+    "all_forces_without_Ward_compatibility_solvable": false,
+    "chi_value_selected": false,
+    "compatible_forced_response_has_q_uniform_coefficients_at_fixed_RHP_s": true,
+    "direct_q_zero_pivot_and_chart_determinant_preserved": true,
+    "full_N4": false,
+    "full_N7": false,
+    "full_P4": false,
+    "global_Sobolev_gauge_reconstruction_proved": false,
+    "new_action_adopted": false,
+    "old_H_zero_chart_formula_modified": false,
+    "regular_temporal_vector_chart_for_selected_H18": true,
+    "uniform_bound_as_s_approaches_zero_or_imaginary_axis": false
+  },
+  "negative_controls": {
+    "contaminated_Ward_entry": true,
+    "omit_retained_pivot_q_zero": true,
+    "vector_1_incompatible_force": true,
+    "vector_1_omit_horizontal_compensation": true,
+    "vector_2_incompatible_force": true,
+    "vector_2_omit_horizontal_compensation": true
+  },
+  "provenance": {
+    "test_one_omega_connection_vector_temporal_gauge_v1.py": "2fea93f2300591567232fde0a591b24706380453bb5c23b789e8072e97f12d73",
+    "verify_one_omega_connection_vector_temporal_gauge_v1.py": "4716cf0cd4b89bb2113a896cf01f296dd2ab96a8e4909d186307ba5e62f7c3c4"
+  },
+  "response": {
+    "kernel_coordinate": {
+      "K_T": "(B_response - Mb2)*(q**2 - w**2)/M5c"
+    },
+    "kernel_coordinate_domain": "M>0 and z=q\u00b2-w\u00b2=s\u00b2+q\u00b2 != 0 in Re(s)>0; algebraic coordinate only",
+    "sectors": {
+      "1": {
+        "Schur": "(-2*B_response*chi*q**2 + 2*B_response*chi*w**2 - chi**2*q**2)/(2*B_response + chi)",
+        "block": [
+          [
+            "B_response*q**2/2 + chi*q**2/4",
+            "B_response*q*w/2",
+            "chi*q*w/2"
+          ],
+          [
+            "B_response*q*w/2",
+            "B_response*w**2/2 - chi*q**2/4",
+            "chi*q**2/2"
+          ],
+          [
+            "chi*q*w/2",
+            "chi*q**2/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "chart": [
+          [
+            "1/w",
+            "0"
+          ],
+          [
+            "1/(2*w)",
+            "1"
+          ]
+        ],
+        "checks": {
+          "all_three_forced_rows": true,
+          "chart_determinant": true,
+          "coupling_to_all_other_H18_fields": true,
+          "determinant_with_chart_and_pivot": true,
+          "direct_homogeneous_source_comparison": true,
+          "direct_q_zero_determinant": true,
+          "direct_q_zero_matrix": true,
+          "force_covector": true,
+          "forced_reconstruction": true,
+          "gauge_matches_horizontal_H18_compensation": true,
+          "gauge_null": true,
+          "invariant_map_annihilates_gauge": true,
+          "mixed_entry": true,
+          "q_zero_factorization": true,
+          "retained_pivot": true,
+          "schur": true,
+          "ward_row": true
+        },
+        "compatible_force": [
+          [
+            "f_U*q"
+          ],
+          [
+            "-f_Psi/2 + f_U*w"
+          ],
+          [
+            "f_Psi"
+          ]
+        ],
+        "direct_q_zero_raw": [
+          [
+            "-K_T*M5c/2 - Mb2*s**2/2",
+            "0"
+          ],
+          [
+            "0",
+            "-chi*s**2"
+          ]
+        ],
+        "field_order": [
+          "N1",
+          "H13",
+          "theta2"
+        ],
+        "force_symbols": [
+          "f_U",
+          "f_Psi"
+        ],
+        "full_forced_residual": [
+          [
+            "0"
+          ],
+          [
+            "(2*B_response*Psi*chi*q**2 - 2*B_response*Psi*chi*w**2 + 2*B_response*f_Psi + Psi*chi**2*q**2 + chi*f_Psi - 2*chi*f_U*w)/(4*B_response + 2*chi)"
+          ],
+          [
+            "(-2*B_response*Psi*chi*q**2 + 2*B_response*Psi*chi*w**2 - 2*B_response*f_Psi - Psi*chi**2*q**2 - chi*f_Psi + 2*chi*f_U*w)/(2*B_response + chi)"
+          ]
+        ],
+        "gauge": [
+          [
+            "-I*w"
+          ],
+          [
+            "I*q"
+          ],
+          [
+            "I*q/2"
+          ]
+        ],
+        "invariant_map": [
+          [
+            "q",
+            "w",
+            "0"
+          ],
+          [
+            "0",
+            "-1/2",
+            "1"
+          ]
+        ],
+        "orientation": 1,
+        "original_solution": [
+          [
+            "0"
+          ],
+          [
+            "(-2*Psi*chi*w + 4*f_U)/(2*B_response*w + chi*w)"
+          ],
+          [
+            "(2*B_response*Psi*w + 2*f_U)/(2*B_response*w + chi*w)"
+          ]
+        ],
+        "pivot": "B_response/2 + chi/4",
+        "q_zero_retained": [
+          [
+            "B_response*w**2/2",
+            "0"
+          ],
+          [
+            "0",
+            "chi*w**2"
+          ]
+        ],
+        "raw_H18_block": [
+          [
+            "chi*q**2/4 + (K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "chi*q*w/2"
+          ],
+          [
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "-chi*q**2/4 + (K_T*M5c*w**2 + Mb2*q**2*w**2 - Mb2*w**4)/(2*q**2 - 2*w**2)",
+            "chi*q**2/2"
+          ],
+          [
+            "chi*q*w/2",
+            "chi*q**2/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "remaining_row": "(-2*B_response*Psi*chi*q**2 + 2*B_response*Psi*chi*w**2 - 2*B_response*f_Psi - Psi*chi**2*q**2 - chi*f_Psi + 2*chi*f_U*w)/(2*B_response + chi)",
+        "residuals": {
+          "all_three_forced_rows": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "chart_determinant": "0",
+          "coupling_to_all_other_H18_fields": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "determinant_with_chart_and_pivot": "0",
+          "direct_homogeneous_source_comparison": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "direct_q_zero_determinant": "0",
+          "direct_q_zero_matrix": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "force_covector": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "forced_reconstruction": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "gauge_matches_horizontal_H18_compensation": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "gauge_null": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "invariant_map_annihilates_gauge": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "mixed_entry": "0",
+          "q_zero_factorization": "0",
+          "retained_pivot": "0",
+          "schur": "0",
+          "ward_row": [
+            [
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        },
+        "response_symbols": [
+          "U",
+          "Psi"
+        ],
+        "retained": [
+          [
+            "B_response*w**2/2 - chi*q**2/4",
+            "chi*q**2/2"
+          ],
+          [
+            "chi*q**2/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "transformed": [
+          [
+            "B_response/2 + chi/4",
+            "chi*w/2"
+          ],
+          [
+            "chi*w/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ]
+      },
+      "2": {
+        "Schur": "(-2*B_response*chi*q**2 + 2*B_response*chi*w**2 - chi**2*q**2)/(2*B_response + chi)",
+        "block": [
+          [
+            "B_response*q**2/2 + chi*q**2/4",
+            "B_response*q*w/2",
+            "-chi*q*w/2"
+          ],
+          [
+            "B_response*q*w/2",
+            "B_response*w**2/2 - chi*q**2/4",
+            "-chi*q**2/2"
+          ],
+          [
+            "-chi*q*w/2",
+            "-chi*q**2/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "chart": [
+          [
+            "1/w",
+            "0"
+          ],
+          [
+            "-1/(2*w)",
+            "1"
+          ]
+        ],
+        "checks": {
+          "all_three_forced_rows": true,
+          "chart_determinant": true,
+          "coupling_to_all_other_H18_fields": true,
+          "determinant_with_chart_and_pivot": true,
+          "direct_homogeneous_source_comparison": true,
+          "direct_q_zero_determinant": true,
+          "direct_q_zero_matrix": true,
+          "force_covector": true,
+          "forced_reconstruction": true,
+          "gauge_matches_horizontal_H18_compensation": true,
+          "gauge_null": true,
+          "invariant_map_annihilates_gauge": true,
+          "mixed_entry": true,
+          "q_zero_factorization": true,
+          "retained_pivot": true,
+          "schur": true,
+          "ward_row": true
+        },
+        "compatible_force": [
+          [
+            "f_U*q"
+          ],
+          [
+            "f_Psi/2 + f_U*w"
+          ],
+          [
+            "f_Psi"
+          ]
+        ],
+        "direct_q_zero_raw": [
+          [
+            "-K_T*M5c/2 - Mb2*s**2/2",
+            "0"
+          ],
+          [
+            "0",
+            "-chi*s**2"
+          ]
+        ],
+        "field_order": [
+          "N2",
+          "H23",
+          "theta1"
+        ],
+        "force_symbols": [
+          "f_U",
+          "f_Psi"
+        ],
+        "full_forced_residual": [
+          [
+            "0"
+          ],
+          [
+            "(-2*B_response*Psi*chi*q**2 + 2*B_response*Psi*chi*w**2 - 2*B_response*f_Psi - Psi*chi**2*q**2 - chi*f_Psi - 2*chi*f_U*w)/(4*B_response + 2*chi)"
+          ],
+          [
+            "(-2*B_response*Psi*chi*q**2 + 2*B_response*Psi*chi*w**2 - 2*B_response*f_Psi - Psi*chi**2*q**2 - chi*f_Psi - 2*chi*f_U*w)/(2*B_response + chi)"
+          ]
+        ],
+        "gauge": [
+          [
+            "-I*w"
+          ],
+          [
+            "I*q"
+          ],
+          [
+            "-I*q/2"
+          ]
+        ],
+        "invariant_map": [
+          [
+            "q",
+            "w",
+            "0"
+          ],
+          [
+            "0",
+            "1/2",
+            "1"
+          ]
+        ],
+        "orientation": -1,
+        "original_solution": [
+          [
+            "0"
+          ],
+          [
+            "(2*Psi*chi*w + 4*f_U)/(2*B_response*w + chi*w)"
+          ],
+          [
+            "(2*B_response*Psi*w - 2*f_U)/(2*B_response*w + chi*w)"
+          ]
+        ],
+        "pivot": "B_response/2 + chi/4",
+        "q_zero_retained": [
+          [
+            "B_response*w**2/2",
+            "0"
+          ],
+          [
+            "0",
+            "chi*w**2"
+          ]
+        ],
+        "raw_H18_block": [
+          [
+            "chi*q**2/4 + (K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "-chi*q*w/2"
+          ],
+          [
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "-chi*q**2/4 + (K_T*M5c*w**2 + Mb2*q**2*w**2 - Mb2*w**4)/(2*q**2 - 2*w**2)",
+            "-chi*q**2/2"
+          ],
+          [
+            "-chi*q*w/2",
+            "-chi*q**2/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "remaining_row": "(-2*B_response*Psi*chi*q**2 + 2*B_response*Psi*chi*w**2 - 2*B_response*f_Psi - Psi*chi**2*q**2 - chi*f_Psi - 2*chi*f_U*w)/(2*B_response + chi)",
+        "residuals": {
+          "all_three_forced_rows": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "chart_determinant": "0",
+          "coupling_to_all_other_H18_fields": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "determinant_with_chart_and_pivot": "0",
+          "direct_homogeneous_source_comparison": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "direct_q_zero_determinant": "0",
+          "direct_q_zero_matrix": [
+            [
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0"
+            ]
+          ],
+          "force_covector": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "forced_reconstruction": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "gauge_matches_horizontal_H18_compensation": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "gauge_null": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "invariant_map_annihilates_gauge": [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          "mixed_entry": "0",
+          "q_zero_factorization": "0",
+          "retained_pivot": "0",
+          "schur": "0",
+          "ward_row": [
+            [
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        },
+        "response_symbols": [
+          "U",
+          "Psi"
+        ],
+        "retained": [
+          [
+            "B_response*w**2/2 - chi*q**2/4",
+            "-chi*q**2/2"
+          ],
+          [
+            "-chi*q**2/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ],
+        "transformed": [
+          [
+            "B_response/2 + chi/4",
+            "-chi*w/2"
+          ],
+          [
+            "-chi*w/2",
+            "-chi*q**2 + chi*w**2"
+          ]
+        ]
+      }
+    }
+  },
+  "schema": "holo.one-omega-connection-vector-temporal-gauge.v1",
+  "scope": {
+    "analytic_proof": "pinned finite-measure continuum lemma; exact algebra is not a sampled spectral proof",
+    "domain": "Re(s)>0, w=i*s, q>=0, fixed propagation axis and selected finite-energy response",
+    "forcing": "all three rows retained through the exact source Ward condition",
+    "source_recomputation": "fresh H18 from H15 plus literal projected C density; independent direct homogeneous H15",
+    "uniformity": "q-independent coefficient bounds at fixed s or compact RHP subsets"
+  },
+  "sources": {
+    "H18_transitive_sources": {
+      "lemma_sha256": "f78d97a347b8269913ee0fe0f47ee0fd6386cb32e4365c8a17de42a287ff45a5",
+      "source_physical_gate_promotions_inherited": false,
+      "upstream_analytic_results": "pinned verified lemmas, not re-proved by a finite matrix calculation",
+      "upstreams": {
+        "one_omega_interface_connection_current_candidate_v1": {
+          "schema": "holo.one-omega-interface-connection-current-candidate.v1",
+          "sha256": "e14bba98d1c9d6976c1ed2f6c902d9a603e7f20a09796c2dddc9c31095331a1e"
+        },
+        "one_omega_projected_connection_linear_v1": {
+          "schema": "holo.one-omega-projected-connection-linear.v1",
+          "sha256": "3e92a6ef617cd880bf0db936d9d2c260e2c0868c479aaddd3efbe7cace4f4a49"
+        },
+        "one_omega_scalar_shift_static_v1": {
+          "schema": "holo.one-omega-scalar-shift-static.v1",
+          "sha256": "8ca7d81f1dcb645147d694d68fc32c0cc50483d67f2b7353caaecf31a22f190e"
+        },
+        "one_omega_scalar_spectral_energy_v1": {
+          "schema": "holo.one-omega-scalar-spectral-energy.v1",
+          "sha256": "0589ffc81229a600d10b08fa158f938101a9f593415f0ab52bdac55bf6d052db"
+        },
+        "one_omega_topological_boundary_assembly_v1": {
+          "schema": "holo.one-omega-topological-boundary-assembly.v1",
+          "sha256": "c3c93cd779fe684329419012202d2cf697aee926efe5efbaee1cb0e47f781bce"
+        },
+        "one_omega_topological_sector_reduction_v1": {
+          "schema": "holo.one-omega-topological-sector-reduction.v1",
+          "sha256": "4fa7432924b429ce4d350d6b6f96ba92965ee57b2d979dbd0fa029c1d29874e3"
+        },
+        "one_omega_variational_dtn_v1": {
+          "schema": "holo.one-omega-variational-dtn.v1",
+          "sha256": "4ca0b1a1859610c6b3f472bf9704b83f23f1b740900ab387f844bcb985101095"
+        },
+        "one_omega_zero_momentum_linear_v1": {
+          "schema": "holo.one-omega-zero-momentum-linear.v1",
+          "sha256": "f2c83fa82a87353b01d43790ddfe73bd8e42febaca2a5554ddb8a5f5c6d96539"
+        }
+      }
+    },
+    "analytic_input": "finite positive spectral measure and RHP proof in pinned H18 lemma",
+    "lemma_sha256": "264f0e9b6035364553a43b133b81f18d600e92f2383613544d0bf428f654badd",
+    "physical_gates_inherited": false,
+    "upstream_lemmas": {
+      "one_omega_connection_candidate_response_lemma_v1.md": "f78d97a347b8269913ee0fe0f47ee0fd6386cb32e4365c8a17de42a287ff45a5",
+      "one_omega_connection_horizontal_ward_lemma_v1.md": "6766dcacb59d9104aad83ce941ddef3d9c55c70d36339790440594487c31d14e",
+      "one_omega_zero_momentum_linear_lemma_v1.md": "7f1129dd5b9b066ba1cafb20dcacac8a8a6d025586b16a172704bc98b1215d4f"
+    },
+    "upstreams": {
+      "one_omega_connection_candidate_response_v1": {
+        "schema": "holo.one-omega-connection-candidate-response.v1",
+        "sha256": "273c4681f18c847d509f890621a263f6787bfac7e6b06614c864bf65f842bd36"
+      },
+      "one_omega_connection_horizontal_ward_v1": {
+        "schema": "holo.one-omega-connection-horizontal-ward.v1",
+        "sha256": "7720dab2e0225bddb70a6b8095c0ad16cc7de456fe73663a1bfb41cf4ea547c2"
+      },
+      "one_omega_zero_momentum_linear_v1": {
+        "schema": "holo.one-omega-zero-momentum-linear.v1",
+        "sha256": "f2c83fa82a87353b01d43790ddfe73bd8e42febaca2a5554ddb8a5f5c6d96539"
+      }
+    }
+  }
+}
