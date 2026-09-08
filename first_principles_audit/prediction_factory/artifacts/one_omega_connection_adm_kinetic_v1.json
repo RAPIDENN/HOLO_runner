@@ -1,0 +1,3431 @@
+{
+  "calculation_digest": "bec9d04afc286cf375efa0665d96ddd47a10101d70cb2d2b00378fd20588fe49",
+  "checks": {
+    "ADM_inverse_all_16_entries": true,
+    "ADM_metric_exact_shear_congruence": true,
+    "Gram_prefactor_bound_to_literal_Hodge": true,
+    "Lorentzian_Hodge_exact_temporal_square": true,
+    "SPD_Cholesky_volume": true,
+    "Sylvester_derivative_all_9_entries": true,
+    "all_81_kinetic_Hessian_entries_match_Gram": true,
+    "anisotropic_hdot12_color3_coefficient": true,
+    "anisotropic_mixed_kinetic_entry": true,
+    "finite_SPD_curve_matches_Sylvester": true,
+    "finite_SPD_curve_nonzero_time_connection": true,
+    "four_lapse_shift_velocity_rows_zero": true,
+    "inverse_root_derivative_all_9_entries": true,
+    "isotropic_frame_velocity_decouples": true,
+    "kernel_coordinates_have_identity_minor": true,
+    "lower_Gamma_spatial_all_27_entries": true,
+    "lower_Gamma_time_all_9_entries": true,
+    "metric_velocity_Schur_is_exactly_zero": true,
+    "negative_control_assume_h_and_hdot_commute_in_finite_curve_detected": true,
+    "negative_control_freeze_E_violates_connection_antisymmetry_detected": true,
+    "negative_control_omit_metric_velocity_mixing_detected": true,
+    "negative_control_omit_nonisotropic_velocity_cross_block_detected": true,
+    "negative_control_reverse_temporal_Hodge_sign_detected": true,
+    "negative_temporal_Hodge_mutant_detected": true,
+    "no_lapse_or_shift_velocities_in_lower_Gamma": true,
+    "nonzero_orientation_minor": true,
+    "omega_time_equals_skew_frame_velocity": true,
+    "omega_time_is_antisymmetric": true,
+    "omega_time_with_shift_curl": true,
+    "positive_kinetic_prefactor": true,
+    "positive_literal_Hodge_prefactor": true,
+    "positive_orientation_block": true,
+    "positive_orientation_minor_value": true,
+    "principal_root_anisotropic_coefficient": true,
+    "quadratic_form_is_exact_squared_norm": true,
+    "rotating_family_exact_inverse_root_diagonal": true,
+    "rotating_family_orthogonal": true,
+    "six_dimensional_kernel_is_explicit": true,
+    "unit_determinant_ADM_shear": true,
+    "varied_frame_orthonormality": true
+  },
+  "model": {
+    "anisotropic_Hessian": [
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "kinetic_prefactor/144",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-kinetic_prefactor/12"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "kinetic_prefactor/144",
+        "0",
+        "0",
+        "kinetic_prefactor/12",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "kinetic_prefactor/3600",
+        "-kinetic_prefactor/60",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-kinetic_prefactor/60",
+        "kinetic_prefactor",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "kinetic_prefactor/12",
+        "0",
+        "0",
+        "kinetic_prefactor",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "-kinetic_prefactor/12",
+        "0",
+        "0",
+        "0",
+        "0",
+        "kinetic_prefactor"
+      ]
+    ],
+    "checks": {
+      "ADM_inverse_all_16_entries": true,
+      "ADM_metric_exact_shear_congruence": true,
+      "Gram_prefactor_bound_to_literal_Hodge": true,
+      "Lorentzian_Hodge_exact_temporal_square": true,
+      "SPD_Cholesky_volume": true,
+      "Sylvester_derivative_all_9_entries": true,
+      "all_81_kinetic_Hessian_entries_match_Gram": true,
+      "anisotropic_hdot12_color3_coefficient": true,
+      "anisotropic_mixed_kinetic_entry": true,
+      "finite_SPD_curve_matches_Sylvester": true,
+      "finite_SPD_curve_nonzero_time_connection": true,
+      "four_lapse_shift_velocity_rows_zero": true,
+      "inverse_root_derivative_all_9_entries": true,
+      "isotropic_frame_velocity_decouples": true,
+      "kernel_coordinates_have_identity_minor": true,
+      "lower_Gamma_spatial_all_27_entries": true,
+      "lower_Gamma_time_all_9_entries": true,
+      "metric_velocity_Schur_is_exactly_zero": true,
+      "negative_control_assume_h_and_hdot_commute_in_finite_curve_detected": true,
+      "negative_control_freeze_E_violates_connection_antisymmetry_detected": true,
+      "negative_control_omit_metric_velocity_mixing_detected": true,
+      "negative_control_omit_nonisotropic_velocity_cross_block_detected": true,
+      "negative_control_reverse_temporal_Hodge_sign_detected": true,
+      "negative_temporal_Hodge_mutant_detected": true,
+      "no_lapse_or_shift_velocities_in_lower_Gamma": true,
+      "nonzero_orientation_minor": true,
+      "omega_time_equals_skew_frame_velocity": true,
+      "omega_time_is_antisymmetric": true,
+      "omega_time_with_shift_curl": true,
+      "positive_kinetic_prefactor": true,
+      "positive_literal_Hodge_prefactor": true,
+      "positive_orientation_block": true,
+      "positive_orientation_minor_value": true,
+      "principal_root_anisotropic_coefficient": true,
+      "quadratic_form_is_exact_squared_norm": true,
+      "rotating_family_exact_inverse_root_diagonal": true,
+      "rotating_family_orthogonal": true,
+      "six_dimensional_kernel_is_explicit": true,
+      "unit_determinant_ADM_shear": true,
+      "varied_frame_orthonormality": true
+    },
+    "connection": {
+      "coords": [
+        "t",
+        "x",
+        "y",
+        "z"
+      ],
+      "covariant_shift": [
+        [
+          "h11(t, x, y, z)*shift1(t, x, y, z) + h12(t, x, y, z)*shift2(t, x, y, z) + h13(t, x, y, z)*shift3(t, x, y, z)"
+        ],
+        [
+          "h12(t, x, y, z)*shift1(t, x, y, z) + h22(t, x, y, z)*shift2(t, x, y, z) + h23(t, x, y, z)*shift3(t, x, y, z)"
+        ],
+        [
+          "h13(t, x, y, z)*shift1(t, x, y, z) + h23(t, x, y, z)*shift2(t, x, y, z) + h33(t, x, y, z)*shift3(t, x, y, z)"
+        ]
+      ],
+      "forbidden_velocities": [
+        "Derivative(lapse(t, x, y, z), t)",
+        "Derivative(shift1(t, x, y, z), t)",
+        "Derivative(shift2(t, x, y, z), t)",
+        "Derivative(shift3(t, x, y, z), t)"
+      ],
+      "h": [
+        [
+          "h11(t, x, y, z)",
+          "h12(t, x, y, z)",
+          "h13(t, x, y, z)"
+        ],
+        [
+          "h12(t, x, y, z)",
+          "h22(t, x, y, z)",
+          "h23(t, x, y, z)"
+        ],
+        [
+          "h13(t, x, y, z)",
+          "h23(t, x, y, z)",
+          "h33(t, x, y, z)"
+        ]
+      ],
+      "lapse": "lapse(t, x, y, z)",
+      "lower_Gamma": [
+        [
+          [
+            "Derivative(h11(t, x, y, z), t)/2",
+            "h11(t, x, y, z)*Derivative(shift1(t, x, y, z), y)/2 - h12(t, x, y, z)*Derivative(shift1(t, x, y, z), x)/2 + h12(t, x, y, z)*Derivative(shift2(t, x, y, z), y)/2 + h13(t, x, y, z)*Derivative(shift3(t, x, y, z), y)/2 - h22(t, x, y, z)*Derivative(shift2(t, x, y, z), x)/2 - h23(t, x, y, z)*Derivative(shift3(t, x, y, z), x)/2 + shift1(t, x, y, z)*Derivative(h11(t, x, y, z), y)/2 - shift1(t, x, y, z)*Derivative(h12(t, x, y, z), x)/2 + shift2(t, x, y, z)*Derivative(h12(t, x, y, z), y)/2 - shift2(t, x, y, z)*Derivative(h22(t, x, y, z), x)/2 + shift3(t, x, y, z)*Derivative(h13(t, x, y, z), y)/2 - shift3(t, x, y, z)*Derivative(h23(t, x, y, z), x)/2 + Derivative(h12(t, x, y, z), t)/2",
+            "h11(t, x, y, z)*Derivative(shift1(t, x, y, z), z)/2 + h12(t, x, y, z)*Derivative(shift2(t, x, y, z), z)/2 - h13(t, x, y, z)*Derivative(shift1(t, x, y, z), x)/2 + h13(t, x, y, z)*Derivative(shift3(t, x, y, z), z)/2 - h23(t, x, y, z)*Derivative(shift2(t, x, y, z), x)/2 - h33(t, x, y, z)*Derivative(shift3(t, x, y, z), x)/2 + shift1(t, x, y, z)*Derivative(h11(t, x, y, z), z)/2 - shift1(t, x, y, z)*Derivative(h13(t, x, y, z), x)/2 + shift2(t, x, y, z)*Derivative(h12(t, x, y, z), z)/2 - shift2(t, x, y, z)*Derivative(h23(t, x, y, z), x)/2 + shift3(t, x, y, z)*Derivative(h13(t, x, y, z), z)/2 - shift3(t, x, y, z)*Derivative(h33(t, x, y, z), x)/2 + Derivative(h13(t, x, y, z), t)/2"
+          ],
+          [
+            "-h11(t, x, y, z)*Derivative(shift1(t, x, y, z), y)/2 + h12(t, x, y, z)*Derivative(shift1(t, x, y, z), x)/2 - h12(t, x, y, z)*Derivative(shift2(t, x, y, z), y)/2 - h13(t, x, y, z)*Derivative(shift3(t, x, y, z), y)/2 + h22(t, x, y, z)*Derivative(shift2(t, x, y, z), x)/2 + h23(t, x, y, z)*Derivative(shift3(t, x, y, z), x)/2 - shift1(t, x, y, z)*Derivative(h11(t, x, y, z), y)/2 + shift1(t, x, y, z)*Derivative(h12(t, x, y, z), x)/2 - shift2(t, x, y, z)*Derivative(h12(t, x, y, z), y)/2 + shift2(t, x, y, z)*Derivative(h22(t, x, y, z), x)/2 - shift3(t, x, y, z)*Derivative(h13(t, x, y, z), y)/2 + shift3(t, x, y, z)*Derivative(h23(t, x, y, z), x)/2 + Derivative(h12(t, x, y, z), t)/2",
+            "Derivative(h22(t, x, y, z), t)/2",
+            "h12(t, x, y, z)*Derivative(shift1(t, x, y, z), z)/2 - h13(t, x, y, z)*Derivative(shift1(t, x, y, z), y)/2 + h22(t, x, y, z)*Derivative(shift2(t, x, y, z), z)/2 - h23(t, x, y, z)*Derivative(shift2(t, x, y, z), y)/2 + h23(t, x, y, z)*Derivative(shift3(t, x, y, z), z)/2 - h33(t, x, y, z)*Derivative(shift3(t, x, y, z), y)/2 + shift1(t, x, y, z)*Derivative(h12(t, x, y, z), z)/2 - shift1(t, x, y, z)*Derivative(h13(t, x, y, z), y)/2 + shift2(t, x, y, z)*Derivative(h22(t, x, y, z), z)/2 - shift2(t, x, y, z)*Derivative(h23(t, x, y, z), y)/2 + shift3(t, x, y, z)*Derivative(h23(t, x, y, z), z)/2 - shift3(t, x, y, z)*Derivative(h33(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), t)/2"
+          ],
+          [
+            "-h11(t, x, y, z)*Derivative(shift1(t, x, y, z), z)/2 - h12(t, x, y, z)*Derivative(shift2(t, x, y, z), z)/2 + h13(t, x, y, z)*Derivative(shift1(t, x, y, z), x)/2 - h13(t, x, y, z)*Derivative(shift3(t, x, y, z), z)/2 + h23(t, x, y, z)*Derivative(shift2(t, x, y, z), x)/2 + h33(t, x, y, z)*Derivative(shift3(t, x, y, z), x)/2 - shift1(t, x, y, z)*Derivative(h11(t, x, y, z), z)/2 + shift1(t, x, y, z)*Derivative(h13(t, x, y, z), x)/2 - shift2(t, x, y, z)*Derivative(h12(t, x, y, z), z)/2 + shift2(t, x, y, z)*Derivative(h23(t, x, y, z), x)/2 - shift3(t, x, y, z)*Derivative(h13(t, x, y, z), z)/2 + shift3(t, x, y, z)*Derivative(h33(t, x, y, z), x)/2 + Derivative(h13(t, x, y, z), t)/2",
+            "-h12(t, x, y, z)*Derivative(shift1(t, x, y, z), z)/2 + h13(t, x, y, z)*Derivative(shift1(t, x, y, z), y)/2 - h22(t, x, y, z)*Derivative(shift2(t, x, y, z), z)/2 + h23(t, x, y, z)*Derivative(shift2(t, x, y, z), y)/2 - h23(t, x, y, z)*Derivative(shift3(t, x, y, z), z)/2 + h33(t, x, y, z)*Derivative(shift3(t, x, y, z), y)/2 - shift1(t, x, y, z)*Derivative(h12(t, x, y, z), z)/2 + shift1(t, x, y, z)*Derivative(h13(t, x, y, z), y)/2 - shift2(t, x, y, z)*Derivative(h22(t, x, y, z), z)/2 + shift2(t, x, y, z)*Derivative(h23(t, x, y, z), y)/2 - shift3(t, x, y, z)*Derivative(h23(t, x, y, z), z)/2 + shift3(t, x, y, z)*Derivative(h33(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), t)/2",
+            "Derivative(h33(t, x, y, z), t)/2"
+          ]
+        ],
+        [
+          [
+            "Derivative(h11(t, x, y, z), x)/2",
+            "Derivative(h11(t, x, y, z), y)/2",
+            "Derivative(h11(t, x, y, z), z)/2"
+          ],
+          [
+            "-Derivative(h11(t, x, y, z), y)/2 + Derivative(h12(t, x, y, z), x)",
+            "Derivative(h22(t, x, y, z), x)/2",
+            "Derivative(h12(t, x, y, z), z)/2 - Derivative(h13(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), x)/2"
+          ],
+          [
+            "-Derivative(h11(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), x)",
+            "-Derivative(h12(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), x)/2",
+            "Derivative(h33(t, x, y, z), x)/2"
+          ]
+        ],
+        [
+          [
+            "Derivative(h11(t, x, y, z), y)/2",
+            "Derivative(h12(t, x, y, z), y) - Derivative(h22(t, x, y, z), x)/2",
+            "Derivative(h12(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), y)/2 - Derivative(h23(t, x, y, z), x)/2"
+          ],
+          [
+            "Derivative(h22(t, x, y, z), x)/2",
+            "Derivative(h22(t, x, y, z), y)/2",
+            "Derivative(h22(t, x, y, z), z)/2"
+          ],
+          [
+            "-Derivative(h12(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), x)/2",
+            "-Derivative(h22(t, x, y, z), z)/2 + Derivative(h23(t, x, y, z), y)",
+            "Derivative(h33(t, x, y, z), y)/2"
+          ]
+        ],
+        [
+          [
+            "Derivative(h11(t, x, y, z), z)/2",
+            "Derivative(h12(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), y)/2 - Derivative(h23(t, x, y, z), x)/2",
+            "Derivative(h13(t, x, y, z), z) - Derivative(h33(t, x, y, z), x)/2"
+          ],
+          [
+            "Derivative(h12(t, x, y, z), z)/2 - Derivative(h13(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), x)/2",
+            "Derivative(h22(t, x, y, z), z)/2",
+            "Derivative(h23(t, x, y, z), z) - Derivative(h33(t, x, y, z), y)/2"
+          ],
+          [
+            "Derivative(h33(t, x, y, z), x)/2",
+            "Derivative(h33(t, x, y, z), y)/2",
+            "Derivative(h33(t, x, y, z), z)/2"
+          ]
+        ]
+      ],
+      "residuals": {
+        "lower_Gamma_spatial_all_27_entries": [
+          [
+            [
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          [
+            [
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          [
+            [
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0"
+            ]
+          ]
+        ],
+        "lower_Gamma_time_all_9_entries": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "no_lapse_or_shift_velocities_in_lower_Gamma": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      "shift": [
+        [
+          "shift1(t, x, y, z)"
+        ],
+        [
+          "shift2(t, x, y, z)"
+        ],
+        [
+          "shift3(t, x, y, z)"
+        ]
+      ],
+      "shift_curl": [
+        [
+          "0",
+          "h11(t, x, y, z)*Derivative(shift1(t, x, y, z), y) - h12(t, x, y, z)*Derivative(shift1(t, x, y, z), x) + h12(t, x, y, z)*Derivative(shift2(t, x, y, z), y) + h13(t, x, y, z)*Derivative(shift3(t, x, y, z), y) - h22(t, x, y, z)*Derivative(shift2(t, x, y, z), x) - h23(t, x, y, z)*Derivative(shift3(t, x, y, z), x) + shift1(t, x, y, z)*Derivative(h11(t, x, y, z), y) - shift1(t, x, y, z)*Derivative(h12(t, x, y, z), x) + shift2(t, x, y, z)*Derivative(h12(t, x, y, z), y) - shift2(t, x, y, z)*Derivative(h22(t, x, y, z), x) + shift3(t, x, y, z)*Derivative(h13(t, x, y, z), y) - shift3(t, x, y, z)*Derivative(h23(t, x, y, z), x)",
+          "h11(t, x, y, z)*Derivative(shift1(t, x, y, z), z) + h12(t, x, y, z)*Derivative(shift2(t, x, y, z), z) - h13(t, x, y, z)*Derivative(shift1(t, x, y, z), x) + h13(t, x, y, z)*Derivative(shift3(t, x, y, z), z) - h23(t, x, y, z)*Derivative(shift2(t, x, y, z), x) - h33(t, x, y, z)*Derivative(shift3(t, x, y, z), x) + shift1(t, x, y, z)*Derivative(h11(t, x, y, z), z) - shift1(t, x, y, z)*Derivative(h13(t, x, y, z), x) + shift2(t, x, y, z)*Derivative(h12(t, x, y, z), z) - shift2(t, x, y, z)*Derivative(h23(t, x, y, z), x) + shift3(t, x, y, z)*Derivative(h13(t, x, y, z), z) - shift3(t, x, y, z)*Derivative(h33(t, x, y, z), x)"
+        ],
+        [
+          "-h11(t, x, y, z)*Derivative(shift1(t, x, y, z), y) + h12(t, x, y, z)*Derivative(shift1(t, x, y, z), x) - h12(t, x, y, z)*Derivative(shift2(t, x, y, z), y) - h13(t, x, y, z)*Derivative(shift3(t, x, y, z), y) + h22(t, x, y, z)*Derivative(shift2(t, x, y, z), x) + h23(t, x, y, z)*Derivative(shift3(t, x, y, z), x) - shift1(t, x, y, z)*Derivative(h11(t, x, y, z), y) + shift1(t, x, y, z)*Derivative(h12(t, x, y, z), x) - shift2(t, x, y, z)*Derivative(h12(t, x, y, z), y) + shift2(t, x, y, z)*Derivative(h22(t, x, y, z), x) - shift3(t, x, y, z)*Derivative(h13(t, x, y, z), y) + shift3(t, x, y, z)*Derivative(h23(t, x, y, z), x)",
+          "0",
+          "h12(t, x, y, z)*Derivative(shift1(t, x, y, z), z) - h13(t, x, y, z)*Derivative(shift1(t, x, y, z), y) + h22(t, x, y, z)*Derivative(shift2(t, x, y, z), z) - h23(t, x, y, z)*Derivative(shift2(t, x, y, z), y) + h23(t, x, y, z)*Derivative(shift3(t, x, y, z), z) - h33(t, x, y, z)*Derivative(shift3(t, x, y, z), y) + shift1(t, x, y, z)*Derivative(h12(t, x, y, z), z) - shift1(t, x, y, z)*Derivative(h13(t, x, y, z), y) + shift2(t, x, y, z)*Derivative(h22(t, x, y, z), z) - shift2(t, x, y, z)*Derivative(h23(t, x, y, z), y) + shift3(t, x, y, z)*Derivative(h23(t, x, y, z), z) - shift3(t, x, y, z)*Derivative(h33(t, x, y, z), y)"
+        ],
+        [
+          "-h11(t, x, y, z)*Derivative(shift1(t, x, y, z), z) - h12(t, x, y, z)*Derivative(shift2(t, x, y, z), z) + h13(t, x, y, z)*Derivative(shift1(t, x, y, z), x) - h13(t, x, y, z)*Derivative(shift3(t, x, y, z), z) + h23(t, x, y, z)*Derivative(shift2(t, x, y, z), x) + h33(t, x, y, z)*Derivative(shift3(t, x, y, z), x) - shift1(t, x, y, z)*Derivative(h11(t, x, y, z), z) + shift1(t, x, y, z)*Derivative(h13(t, x, y, z), x) - shift2(t, x, y, z)*Derivative(h12(t, x, y, z), z) + shift2(t, x, y, z)*Derivative(h23(t, x, y, z), x) - shift3(t, x, y, z)*Derivative(h13(t, x, y, z), z) + shift3(t, x, y, z)*Derivative(h33(t, x, y, z), x)",
+          "-h12(t, x, y, z)*Derivative(shift1(t, x, y, z), z) + h13(t, x, y, z)*Derivative(shift1(t, x, y, z), y) - h22(t, x, y, z)*Derivative(shift2(t, x, y, z), z) + h23(t, x, y, z)*Derivative(shift2(t, x, y, z), y) - h23(t, x, y, z)*Derivative(shift3(t, x, y, z), z) + h33(t, x, y, z)*Derivative(shift3(t, x, y, z), y) - shift1(t, x, y, z)*Derivative(h12(t, x, y, z), z) + shift1(t, x, y, z)*Derivative(h13(t, x, y, z), y) - shift2(t, x, y, z)*Derivative(h22(t, x, y, z), z) + shift2(t, x, y, z)*Derivative(h23(t, x, y, z), y) - shift3(t, x, y, z)*Derivative(h23(t, x, y, z), z) + shift3(t, x, y, z)*Derivative(h33(t, x, y, z), y)",
+          "0"
+        ]
+      ],
+      "spatial_reference": [
+        [
+          [
+            "Derivative(h11(t, x, y, z), x)/2",
+            "Derivative(h11(t, x, y, z), y)/2",
+            "Derivative(h11(t, x, y, z), z)/2"
+          ],
+          [
+            "-Derivative(h11(t, x, y, z), y)/2 + Derivative(h12(t, x, y, z), x)",
+            "Derivative(h22(t, x, y, z), x)/2",
+            "Derivative(h12(t, x, y, z), z)/2 - Derivative(h13(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), x)/2"
+          ],
+          [
+            "-Derivative(h11(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), x)",
+            "-Derivative(h12(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), x)/2",
+            "Derivative(h33(t, x, y, z), x)/2"
+          ]
+        ],
+        [
+          [
+            "Derivative(h11(t, x, y, z), y)/2",
+            "Derivative(h12(t, x, y, z), y) - Derivative(h22(t, x, y, z), x)/2",
+            "Derivative(h12(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), y)/2 - Derivative(h23(t, x, y, z), x)/2"
+          ],
+          [
+            "Derivative(h22(t, x, y, z), x)/2",
+            "Derivative(h22(t, x, y, z), y)/2",
+            "Derivative(h22(t, x, y, z), z)/2"
+          ],
+          [
+            "-Derivative(h12(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), x)/2",
+            "-Derivative(h22(t, x, y, z), z)/2 + Derivative(h23(t, x, y, z), y)",
+            "Derivative(h33(t, x, y, z), y)/2"
+          ]
+        ],
+        [
+          [
+            "Derivative(h11(t, x, y, z), z)/2",
+            "Derivative(h12(t, x, y, z), z)/2 + Derivative(h13(t, x, y, z), y)/2 - Derivative(h23(t, x, y, z), x)/2",
+            "Derivative(h13(t, x, y, z), z) - Derivative(h33(t, x, y, z), x)/2"
+          ],
+          [
+            "Derivative(h12(t, x, y, z), z)/2 - Derivative(h13(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), x)/2",
+            "Derivative(h22(t, x, y, z), z)/2",
+            "Derivative(h23(t, x, y, z), z) - Derivative(h33(t, x, y, z), y)/2"
+          ],
+          [
+            "Derivative(h33(t, x, y, z), x)/2",
+            "Derivative(h33(t, x, y, z), y)/2",
+            "Derivative(h33(t, x, y, z), z)/2"
+          ]
+        ]
+      ],
+      "time_reference": [
+        [
+          "Derivative(h11(t, x, y, z), t)/2",
+          "h11(t, x, y, z)*Derivative(shift1(t, x, y, z), y)/2 - h12(t, x, y, z)*Derivative(shift1(t, x, y, z), x)/2 + h12(t, x, y, z)*Derivative(shift2(t, x, y, z), y)/2 + h13(t, x, y, z)*Derivative(shift3(t, x, y, z), y)/2 - h22(t, x, y, z)*Derivative(shift2(t, x, y, z), x)/2 - h23(t, x, y, z)*Derivative(shift3(t, x, y, z), x)/2 + shift1(t, x, y, z)*Derivative(h11(t, x, y, z), y)/2 - shift1(t, x, y, z)*Derivative(h12(t, x, y, z), x)/2 + shift2(t, x, y, z)*Derivative(h12(t, x, y, z), y)/2 - shift2(t, x, y, z)*Derivative(h22(t, x, y, z), x)/2 + shift3(t, x, y, z)*Derivative(h13(t, x, y, z), y)/2 - shift3(t, x, y, z)*Derivative(h23(t, x, y, z), x)/2 + Derivative(h12(t, x, y, z), t)/2",
+          "h11(t, x, y, z)*Derivative(shift1(t, x, y, z), z)/2 + h12(t, x, y, z)*Derivative(shift2(t, x, y, z), z)/2 - h13(t, x, y, z)*Derivative(shift1(t, x, y, z), x)/2 + h13(t, x, y, z)*Derivative(shift3(t, x, y, z), z)/2 - h23(t, x, y, z)*Derivative(shift2(t, x, y, z), x)/2 - h33(t, x, y, z)*Derivative(shift3(t, x, y, z), x)/2 + shift1(t, x, y, z)*Derivative(h11(t, x, y, z), z)/2 - shift1(t, x, y, z)*Derivative(h13(t, x, y, z), x)/2 + shift2(t, x, y, z)*Derivative(h12(t, x, y, z), z)/2 - shift2(t, x, y, z)*Derivative(h23(t, x, y, z), x)/2 + shift3(t, x, y, z)*Derivative(h13(t, x, y, z), z)/2 - shift3(t, x, y, z)*Derivative(h33(t, x, y, z), x)/2 + Derivative(h13(t, x, y, z), t)/2"
+        ],
+        [
+          "-h11(t, x, y, z)*Derivative(shift1(t, x, y, z), y)/2 + h12(t, x, y, z)*Derivative(shift1(t, x, y, z), x)/2 - h12(t, x, y, z)*Derivative(shift2(t, x, y, z), y)/2 - h13(t, x, y, z)*Derivative(shift3(t, x, y, z), y)/2 + h22(t, x, y, z)*Derivative(shift2(t, x, y, z), x)/2 + h23(t, x, y, z)*Derivative(shift3(t, x, y, z), x)/2 - shift1(t, x, y, z)*Derivative(h11(t, x, y, z), y)/2 + shift1(t, x, y, z)*Derivative(h12(t, x, y, z), x)/2 - shift2(t, x, y, z)*Derivative(h12(t, x, y, z), y)/2 + shift2(t, x, y, z)*Derivative(h22(t, x, y, z), x)/2 - shift3(t, x, y, z)*Derivative(h13(t, x, y, z), y)/2 + shift3(t, x, y, z)*Derivative(h23(t, x, y, z), x)/2 + Derivative(h12(t, x, y, z), t)/2",
+          "Derivative(h22(t, x, y, z), t)/2",
+          "h12(t, x, y, z)*Derivative(shift1(t, x, y, z), z)/2 - h13(t, x, y, z)*Derivative(shift1(t, x, y, z), y)/2 + h22(t, x, y, z)*Derivative(shift2(t, x, y, z), z)/2 - h23(t, x, y, z)*Derivative(shift2(t, x, y, z), y)/2 + h23(t, x, y, z)*Derivative(shift3(t, x, y, z), z)/2 - h33(t, x, y, z)*Derivative(shift3(t, x, y, z), y)/2 + shift1(t, x, y, z)*Derivative(h12(t, x, y, z), z)/2 - shift1(t, x, y, z)*Derivative(h13(t, x, y, z), y)/2 + shift2(t, x, y, z)*Derivative(h22(t, x, y, z), z)/2 - shift2(t, x, y, z)*Derivative(h23(t, x, y, z), y)/2 + shift3(t, x, y, z)*Derivative(h23(t, x, y, z), z)/2 - shift3(t, x, y, z)*Derivative(h33(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), t)/2"
+        ],
+        [
+          "-h11(t, x, y, z)*Derivative(shift1(t, x, y, z), z)/2 - h12(t, x, y, z)*Derivative(shift2(t, x, y, z), z)/2 + h13(t, x, y, z)*Derivative(shift1(t, x, y, z), x)/2 - h13(t, x, y, z)*Derivative(shift3(t, x, y, z), z)/2 + h23(t, x, y, z)*Derivative(shift2(t, x, y, z), x)/2 + h33(t, x, y, z)*Derivative(shift3(t, x, y, z), x)/2 - shift1(t, x, y, z)*Derivative(h11(t, x, y, z), z)/2 + shift1(t, x, y, z)*Derivative(h13(t, x, y, z), x)/2 - shift2(t, x, y, z)*Derivative(h12(t, x, y, z), z)/2 + shift2(t, x, y, z)*Derivative(h23(t, x, y, z), x)/2 - shift3(t, x, y, z)*Derivative(h13(t, x, y, z), z)/2 + shift3(t, x, y, z)*Derivative(h33(t, x, y, z), x)/2 + Derivative(h13(t, x, y, z), t)/2",
+          "-h12(t, x, y, z)*Derivative(shift1(t, x, y, z), z)/2 + h13(t, x, y, z)*Derivative(shift1(t, x, y, z), y)/2 - h22(t, x, y, z)*Derivative(shift2(t, x, y, z), z)/2 + h23(t, x, y, z)*Derivative(shift2(t, x, y, z), y)/2 - h23(t, x, y, z)*Derivative(shift3(t, x, y, z), z)/2 + h33(t, x, y, z)*Derivative(shift3(t, x, y, z), y)/2 - shift1(t, x, y, z)*Derivative(h12(t, x, y, z), z)/2 + shift1(t, x, y, z)*Derivative(h13(t, x, y, z), y)/2 - shift2(t, x, y, z)*Derivative(h22(t, x, y, z), z)/2 + shift2(t, x, y, z)*Derivative(h23(t, x, y, z), y)/2 - shift3(t, x, y, z)*Derivative(h23(t, x, y, z), z)/2 + shift3(t, x, y, z)*Derivative(h33(t, x, y, z), y)/2 + Derivative(h23(t, x, y, z), t)/2",
+          "Derivative(h33(t, x, y, z), t)/2"
+        ]
+      ]
+    },
+    "gram": {
+      "Gram_factor": [
+        [
+          "-L0_0",
+          "-L0_1",
+          "-L0_2",
+          "-L0_3",
+          "-L0_4",
+          "-L0_5",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "-L1_0",
+          "-L1_1",
+          "-L1_2",
+          "-L1_3",
+          "-L1_4",
+          "-L1_5",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "-L2_0",
+          "-L2_1",
+          "-L2_2",
+          "-L2_3",
+          "-L2_4",
+          "-L2_5",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "Hessian": [
+        [
+          "kinetic_prefactor*(2*L0_0**2 + 2*L1_0**2 + 2*L2_0**2)/2",
+          "kinetic_prefactor*(2*L0_0*L0_1 + 2*L1_0*L1_1 + 2*L2_0*L2_1)/2",
+          "kinetic_prefactor*(2*L0_0*L0_2 + 2*L1_0*L1_2 + 2*L2_0*L2_2)/2",
+          "kinetic_prefactor*(2*L0_0*L0_3 + 2*L1_0*L1_3 + 2*L2_0*L2_3)/2",
+          "kinetic_prefactor*(2*L0_0*L0_4 + 2*L1_0*L1_4 + 2*L2_0*L2_4)/2",
+          "kinetic_prefactor*(2*L0_0*L0_5 + 2*L1_0*L1_5 + 2*L2_0*L2_5)/2",
+          "-L0_0*kinetic_prefactor",
+          "-L1_0*kinetic_prefactor",
+          "-L2_0*kinetic_prefactor"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_1 + 2*L1_0*L1_1 + 2*L2_0*L2_1)/2",
+          "kinetic_prefactor*(2*L0_1**2 + 2*L1_1**2 + 2*L2_1**2)/2",
+          "kinetic_prefactor*(2*L0_1*L0_2 + 2*L1_1*L1_2 + 2*L2_1*L2_2)/2",
+          "kinetic_prefactor*(2*L0_1*L0_3 + 2*L1_1*L1_3 + 2*L2_1*L2_3)/2",
+          "kinetic_prefactor*(2*L0_1*L0_4 + 2*L1_1*L1_4 + 2*L2_1*L2_4)/2",
+          "kinetic_prefactor*(2*L0_1*L0_5 + 2*L1_1*L1_5 + 2*L2_1*L2_5)/2",
+          "-L0_1*kinetic_prefactor",
+          "-L1_1*kinetic_prefactor",
+          "-L2_1*kinetic_prefactor"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_2 + 2*L1_0*L1_2 + 2*L2_0*L2_2)/2",
+          "kinetic_prefactor*(2*L0_1*L0_2 + 2*L1_1*L1_2 + 2*L2_1*L2_2)/2",
+          "kinetic_prefactor*(2*L0_2**2 + 2*L1_2**2 + 2*L2_2**2)/2",
+          "kinetic_prefactor*(2*L0_2*L0_3 + 2*L1_2*L1_3 + 2*L2_2*L2_3)/2",
+          "kinetic_prefactor*(2*L0_2*L0_4 + 2*L1_2*L1_4 + 2*L2_2*L2_4)/2",
+          "kinetic_prefactor*(2*L0_2*L0_5 + 2*L1_2*L1_5 + 2*L2_2*L2_5)/2",
+          "-L0_2*kinetic_prefactor",
+          "-L1_2*kinetic_prefactor",
+          "-L2_2*kinetic_prefactor"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_3 + 2*L1_0*L1_3 + 2*L2_0*L2_3)/2",
+          "kinetic_prefactor*(2*L0_1*L0_3 + 2*L1_1*L1_3 + 2*L2_1*L2_3)/2",
+          "kinetic_prefactor*(2*L0_2*L0_3 + 2*L1_2*L1_3 + 2*L2_2*L2_3)/2",
+          "kinetic_prefactor*(2*L0_3**2 + 2*L1_3**2 + 2*L2_3**2)/2",
+          "kinetic_prefactor*(2*L0_3*L0_4 + 2*L1_3*L1_4 + 2*L2_3*L2_4)/2",
+          "kinetic_prefactor*(2*L0_3*L0_5 + 2*L1_3*L1_5 + 2*L2_3*L2_5)/2",
+          "-L0_3*kinetic_prefactor",
+          "-L1_3*kinetic_prefactor",
+          "-L2_3*kinetic_prefactor"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_4 + 2*L1_0*L1_4 + 2*L2_0*L2_4)/2",
+          "kinetic_prefactor*(2*L0_1*L0_4 + 2*L1_1*L1_4 + 2*L2_1*L2_4)/2",
+          "kinetic_prefactor*(2*L0_2*L0_4 + 2*L1_2*L1_4 + 2*L2_2*L2_4)/2",
+          "kinetic_prefactor*(2*L0_3*L0_4 + 2*L1_3*L1_4 + 2*L2_3*L2_4)/2",
+          "kinetic_prefactor*(2*L0_4**2 + 2*L1_4**2 + 2*L2_4**2)/2",
+          "kinetic_prefactor*(2*L0_4*L0_5 + 2*L1_4*L1_5 + 2*L2_4*L2_5)/2",
+          "-L0_4*kinetic_prefactor",
+          "-L1_4*kinetic_prefactor",
+          "-L2_4*kinetic_prefactor"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_5 + 2*L1_0*L1_5 + 2*L2_0*L2_5)/2",
+          "kinetic_prefactor*(2*L0_1*L0_5 + 2*L1_1*L1_5 + 2*L2_1*L2_5)/2",
+          "kinetic_prefactor*(2*L0_2*L0_5 + 2*L1_2*L1_5 + 2*L2_2*L2_5)/2",
+          "kinetic_prefactor*(2*L0_3*L0_5 + 2*L1_3*L1_5 + 2*L2_3*L2_5)/2",
+          "kinetic_prefactor*(2*L0_4*L0_5 + 2*L1_4*L1_5 + 2*L2_4*L2_5)/2",
+          "kinetic_prefactor*(2*L0_5**2 + 2*L1_5**2 + 2*L2_5**2)/2",
+          "-L0_5*kinetic_prefactor",
+          "-L1_5*kinetic_prefactor",
+          "-L2_5*kinetic_prefactor"
+        ],
+        [
+          "-L0_0*kinetic_prefactor",
+          "-L0_1*kinetic_prefactor",
+          "-L0_2*kinetic_prefactor",
+          "-L0_3*kinetic_prefactor",
+          "-L0_4*kinetic_prefactor",
+          "-L0_5*kinetic_prefactor",
+          "kinetic_prefactor",
+          "0",
+          "0"
+        ],
+        [
+          "-L1_0*kinetic_prefactor",
+          "-L1_1*kinetic_prefactor",
+          "-L1_2*kinetic_prefactor",
+          "-L1_3*kinetic_prefactor",
+          "-L1_4*kinetic_prefactor",
+          "-L1_5*kinetic_prefactor",
+          "0",
+          "kinetic_prefactor",
+          "0"
+        ],
+        [
+          "-L2_0*kinetic_prefactor",
+          "-L2_1*kinetic_prefactor",
+          "-L2_2*kinetic_prefactor",
+          "-L2_3*kinetic_prefactor",
+          "-L2_4*kinetic_prefactor",
+          "-L2_5*kinetic_prefactor",
+          "0",
+          "0",
+          "kinetic_prefactor"
+        ]
+      ],
+      "L": [
+        [
+          "L0_0",
+          "L0_1",
+          "L0_2",
+          "L0_3",
+          "L0_4",
+          "L0_5"
+        ],
+        [
+          "L1_0",
+          "L1_1",
+          "L1_2",
+          "L1_3",
+          "L1_4",
+          "L1_5"
+        ],
+        [
+          "L2_0",
+          "L2_1",
+          "L2_2",
+          "L2_3",
+          "L2_4",
+          "L2_5"
+        ]
+      ],
+      "density": "kinetic_prefactor*((-B0 - L0_0*v0 - L0_1*v1 - L0_2*v2 - L0_3*v3 - L0_4*v4 - L0_5*v5 + q0)**2 + (-B1 - L1_0*v0 - L1_1*v1 - L1_2*v2 - L1_3*v3 - L1_4*v4 - L1_5*v5 + q1)**2 + (-B2 - L2_0*v0 - L2_1*v1 - L2_2*v2 - L2_3*v3 - L2_4*v4 - L2_5*v5 + q2)**2)/2",
+      "extended_Hessian": [
+        [
+          "kinetic_prefactor*(2*L0_0**2 + 2*L1_0**2 + 2*L2_0**2)/2",
+          "kinetic_prefactor*(2*L0_0*L0_1 + 2*L1_0*L1_1 + 2*L2_0*L2_1)/2",
+          "kinetic_prefactor*(2*L0_0*L0_2 + 2*L1_0*L1_2 + 2*L2_0*L2_2)/2",
+          "kinetic_prefactor*(2*L0_0*L0_3 + 2*L1_0*L1_3 + 2*L2_0*L2_3)/2",
+          "kinetic_prefactor*(2*L0_0*L0_4 + 2*L1_0*L1_4 + 2*L2_0*L2_4)/2",
+          "kinetic_prefactor*(2*L0_0*L0_5 + 2*L1_0*L1_5 + 2*L2_0*L2_5)/2",
+          "-L0_0*kinetic_prefactor",
+          "-L1_0*kinetic_prefactor",
+          "-L2_0*kinetic_prefactor",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_1 + 2*L1_0*L1_1 + 2*L2_0*L2_1)/2",
+          "kinetic_prefactor*(2*L0_1**2 + 2*L1_1**2 + 2*L2_1**2)/2",
+          "kinetic_prefactor*(2*L0_1*L0_2 + 2*L1_1*L1_2 + 2*L2_1*L2_2)/2",
+          "kinetic_prefactor*(2*L0_1*L0_3 + 2*L1_1*L1_3 + 2*L2_1*L2_3)/2",
+          "kinetic_prefactor*(2*L0_1*L0_4 + 2*L1_1*L1_4 + 2*L2_1*L2_4)/2",
+          "kinetic_prefactor*(2*L0_1*L0_5 + 2*L1_1*L1_5 + 2*L2_1*L2_5)/2",
+          "-L0_1*kinetic_prefactor",
+          "-L1_1*kinetic_prefactor",
+          "-L2_1*kinetic_prefactor",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_2 + 2*L1_0*L1_2 + 2*L2_0*L2_2)/2",
+          "kinetic_prefactor*(2*L0_1*L0_2 + 2*L1_1*L1_2 + 2*L2_1*L2_2)/2",
+          "kinetic_prefactor*(2*L0_2**2 + 2*L1_2**2 + 2*L2_2**2)/2",
+          "kinetic_prefactor*(2*L0_2*L0_3 + 2*L1_2*L1_3 + 2*L2_2*L2_3)/2",
+          "kinetic_prefactor*(2*L0_2*L0_4 + 2*L1_2*L1_4 + 2*L2_2*L2_4)/2",
+          "kinetic_prefactor*(2*L0_2*L0_5 + 2*L1_2*L1_5 + 2*L2_2*L2_5)/2",
+          "-L0_2*kinetic_prefactor",
+          "-L1_2*kinetic_prefactor",
+          "-L2_2*kinetic_prefactor",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_3 + 2*L1_0*L1_3 + 2*L2_0*L2_3)/2",
+          "kinetic_prefactor*(2*L0_1*L0_3 + 2*L1_1*L1_3 + 2*L2_1*L2_3)/2",
+          "kinetic_prefactor*(2*L0_2*L0_3 + 2*L1_2*L1_3 + 2*L2_2*L2_3)/2",
+          "kinetic_prefactor*(2*L0_3**2 + 2*L1_3**2 + 2*L2_3**2)/2",
+          "kinetic_prefactor*(2*L0_3*L0_4 + 2*L1_3*L1_4 + 2*L2_3*L2_4)/2",
+          "kinetic_prefactor*(2*L0_3*L0_5 + 2*L1_3*L1_5 + 2*L2_3*L2_5)/2",
+          "-L0_3*kinetic_prefactor",
+          "-L1_3*kinetic_prefactor",
+          "-L2_3*kinetic_prefactor",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_4 + 2*L1_0*L1_4 + 2*L2_0*L2_4)/2",
+          "kinetic_prefactor*(2*L0_1*L0_4 + 2*L1_1*L1_4 + 2*L2_1*L2_4)/2",
+          "kinetic_prefactor*(2*L0_2*L0_4 + 2*L1_2*L1_4 + 2*L2_2*L2_4)/2",
+          "kinetic_prefactor*(2*L0_3*L0_4 + 2*L1_3*L1_4 + 2*L2_3*L2_4)/2",
+          "kinetic_prefactor*(2*L0_4**2 + 2*L1_4**2 + 2*L2_4**2)/2",
+          "kinetic_prefactor*(2*L0_4*L0_5 + 2*L1_4*L1_5 + 2*L2_4*L2_5)/2",
+          "-L0_4*kinetic_prefactor",
+          "-L1_4*kinetic_prefactor",
+          "-L2_4*kinetic_prefactor",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "kinetic_prefactor*(2*L0_0*L0_5 + 2*L1_0*L1_5 + 2*L2_0*L2_5)/2",
+          "kinetic_prefactor*(2*L0_1*L0_5 + 2*L1_1*L1_5 + 2*L2_1*L2_5)/2",
+          "kinetic_prefactor*(2*L0_2*L0_5 + 2*L1_2*L1_5 + 2*L2_2*L2_5)/2",
+          "kinetic_prefactor*(2*L0_3*L0_5 + 2*L1_3*L1_5 + 2*L2_3*L2_5)/2",
+          "kinetic_prefactor*(2*L0_4*L0_5 + 2*L1_4*L1_5 + 2*L2_4*L2_5)/2",
+          "kinetic_prefactor*(2*L0_5**2 + 2*L1_5**2 + 2*L2_5**2)/2",
+          "-L0_5*kinetic_prefactor",
+          "-L1_5*kinetic_prefactor",
+          "-L2_5*kinetic_prefactor",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-L0_0*kinetic_prefactor",
+          "-L0_1*kinetic_prefactor",
+          "-L0_2*kinetic_prefactor",
+          "-L0_3*kinetic_prefactor",
+          "-L0_4*kinetic_prefactor",
+          "-L0_5*kinetic_prefactor",
+          "kinetic_prefactor",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-L1_0*kinetic_prefactor",
+          "-L1_1*kinetic_prefactor",
+          "-L1_2*kinetic_prefactor",
+          "-L1_3*kinetic_prefactor",
+          "-L1_4*kinetic_prefactor",
+          "-L1_5*kinetic_prefactor",
+          "0",
+          "kinetic_prefactor",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "-L2_0*kinetic_prefactor",
+          "-L2_1*kinetic_prefactor",
+          "-L2_2*kinetic_prefactor",
+          "-L2_3*kinetic_prefactor",
+          "-L2_4*kinetic_prefactor",
+          "-L2_5*kinetic_prefactor",
+          "0",
+          "0",
+          "kinetic_prefactor",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "kernel": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "L0_0",
+          "L0_1",
+          "L0_2",
+          "L0_3",
+          "L0_4",
+          "L0_5"
+        ],
+        [
+          "L1_0",
+          "L1_1",
+          "L1_2",
+          "L1_3",
+          "L1_4",
+          "L1_5"
+        ],
+        [
+          "L2_0",
+          "L2_1",
+          "L2_2",
+          "L2_3",
+          "L2_4",
+          "L2_5"
+        ]
+      ],
+      "kinetic_Schur": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "metric_velocities": [
+        [
+          "v0"
+        ],
+        [
+          "v1"
+        ],
+        [
+          "v2"
+        ],
+        [
+          "v3"
+        ],
+        [
+          "v4"
+        ],
+        [
+          "v5"
+        ]
+      ],
+      "orientation_block": [
+        [
+          "kinetic_prefactor",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "kinetic_prefactor",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "kinetic_prefactor"
+        ]
+      ],
+      "orientation_quasivelocities": [
+        [
+          "q0"
+        ],
+        [
+          "q1"
+        ],
+        [
+          "q2"
+        ]
+      ],
+      "prefactor": "kinetic_prefactor",
+      "quadratic_form": "dq0*(-L0_0*dv0*kinetic_prefactor - L0_1*dv1*kinetic_prefactor - L0_2*dv2*kinetic_prefactor - L0_3*dv3*kinetic_prefactor - L0_4*dv4*kinetic_prefactor - L0_5*dv5*kinetic_prefactor + dq0*kinetic_prefactor) + dq1*(-L1_0*dv0*kinetic_prefactor - L1_1*dv1*kinetic_prefactor - L1_2*dv2*kinetic_prefactor - L1_3*dv3*kinetic_prefactor - L1_4*dv4*kinetic_prefactor - L1_5*dv5*kinetic_prefactor + dq1*kinetic_prefactor) + dq2*(-L2_0*dv0*kinetic_prefactor - L2_1*dv1*kinetic_prefactor - L2_2*dv2*kinetic_prefactor - L2_3*dv3*kinetic_prefactor - L2_4*dv4*kinetic_prefactor - L2_5*dv5*kinetic_prefactor + dq2*kinetic_prefactor) + dv0*(-L0_0*dq0*kinetic_prefactor - L1_0*dq1*kinetic_prefactor - L2_0*dq2*kinetic_prefactor + dv0*kinetic_prefactor*(2*L0_0**2 + 2*L1_0**2 + 2*L2_0**2)/2 + dv1*kinetic_prefactor*(2*L0_0*L0_1 + 2*L1_0*L1_1 + 2*L2_0*L2_1)/2 + dv2*kinetic_prefactor*(2*L0_0*L0_2 + 2*L1_0*L1_2 + 2*L2_0*L2_2)/2 + dv3*kinetic_prefactor*(2*L0_0*L0_3 + 2*L1_0*L1_3 + 2*L2_0*L2_3)/2 + dv4*kinetic_prefactor*(2*L0_0*L0_4 + 2*L1_0*L1_4 + 2*L2_0*L2_4)/2 + dv5*kinetic_prefactor*(2*L0_0*L0_5 + 2*L1_0*L1_5 + 2*L2_0*L2_5)/2) + dv1*(-L0_1*dq0*kinetic_prefactor - L1_1*dq1*kinetic_prefactor - L2_1*dq2*kinetic_prefactor + dv0*kinetic_prefactor*(2*L0_0*L0_1 + 2*L1_0*L1_1 + 2*L2_0*L2_1)/2 + dv1*kinetic_prefactor*(2*L0_1**2 + 2*L1_1**2 + 2*L2_1**2)/2 + dv2*kinetic_prefactor*(2*L0_1*L0_2 + 2*L1_1*L1_2 + 2*L2_1*L2_2)/2 + dv3*kinetic_prefactor*(2*L0_1*L0_3 + 2*L1_1*L1_3 + 2*L2_1*L2_3)/2 + dv4*kinetic_prefactor*(2*L0_1*L0_4 + 2*L1_1*L1_4 + 2*L2_1*L2_4)/2 + dv5*kinetic_prefactor*(2*L0_1*L0_5 + 2*L1_1*L1_5 + 2*L2_1*L2_5)/2) + dv2*(-L0_2*dq0*kinetic_prefactor - L1_2*dq1*kinetic_prefactor - L2_2*dq2*kinetic_prefactor + dv0*kinetic_prefactor*(2*L0_0*L0_2 + 2*L1_0*L1_2 + 2*L2_0*L2_2)/2 + dv1*kinetic_prefactor*(2*L0_1*L0_2 + 2*L1_1*L1_2 + 2*L2_1*L2_2)/2 + dv2*kinetic_prefactor*(2*L0_2**2 + 2*L1_2**2 + 2*L2_2**2)/2 + dv3*kinetic_prefactor*(2*L0_2*L0_3 + 2*L1_2*L1_3 + 2*L2_2*L2_3)/2 + dv4*kinetic_prefactor*(2*L0_2*L0_4 + 2*L1_2*L1_4 + 2*L2_2*L2_4)/2 + dv5*kinetic_prefactor*(2*L0_2*L0_5 + 2*L1_2*L1_5 + 2*L2_2*L2_5)/2) + dv3*(-L0_3*dq0*kinetic_prefactor - L1_3*dq1*kinetic_prefactor - L2_3*dq2*kinetic_prefactor + dv0*kinetic_prefactor*(2*L0_0*L0_3 + 2*L1_0*L1_3 + 2*L2_0*L2_3)/2 + dv1*kinetic_prefactor*(2*L0_1*L0_3 + 2*L1_1*L1_3 + 2*L2_1*L2_3)/2 + dv2*kinetic_prefactor*(2*L0_2*L0_3 + 2*L1_2*L1_3 + 2*L2_2*L2_3)/2 + dv3*kinetic_prefactor*(2*L0_3**2 + 2*L1_3**2 + 2*L2_3**2)/2 + dv4*kinetic_prefactor*(2*L0_3*L0_4 + 2*L1_3*L1_4 + 2*L2_3*L2_4)/2 + dv5*kinetic_prefactor*(2*L0_3*L0_5 + 2*L1_3*L1_5 + 2*L2_3*L2_5)/2) + dv4*(-L0_4*dq0*kinetic_prefactor - L1_4*dq1*kinetic_prefactor - L2_4*dq2*kinetic_prefactor + dv0*kinetic_prefactor*(2*L0_0*L0_4 + 2*L1_0*L1_4 + 2*L2_0*L2_4)/2 + dv1*kinetic_prefactor*(2*L0_1*L0_4 + 2*L1_1*L1_4 + 2*L2_1*L2_4)/2 + dv2*kinetic_prefactor*(2*L0_2*L0_4 + 2*L1_2*L1_4 + 2*L2_2*L2_4)/2 + dv3*kinetic_prefactor*(2*L0_3*L0_4 + 2*L1_3*L1_4 + 2*L2_3*L2_4)/2 + dv4*kinetic_prefactor*(2*L0_4**2 + 2*L1_4**2 + 2*L2_4**2)/2 + dv5*kinetic_prefactor*(2*L0_4*L0_5 + 2*L1_4*L1_5 + 2*L2_4*L2_5)/2) + dv5*(-L0_5*dq0*kinetic_prefactor - L1_5*dq1*kinetic_prefactor - L2_5*dq2*kinetic_prefactor + dv0*kinetic_prefactor*(2*L0_0*L0_5 + 2*L1_0*L1_5 + 2*L2_0*L2_5)/2 + dv1*kinetic_prefactor*(2*L0_1*L0_5 + 2*L1_1*L1_5 + 2*L2_1*L2_5)/2 + dv2*kinetic_prefactor*(2*L0_2*L0_5 + 2*L1_2*L1_5 + 2*L2_2*L2_5)/2 + dv3*kinetic_prefactor*(2*L0_3*L0_5 + 2*L1_3*L1_5 + 2*L2_3*L2_5)/2 + dv4*kinetic_prefactor*(2*L0_4*L0_5 + 2*L1_4*L1_5 + 2*L2_4*L2_5)/2 + dv5*kinetic_prefactor*(2*L0_5**2 + 2*L1_5**2 + 2*L2_5**2)/2)",
+      "residuals": {
+        "all_81_kinetic_Hessian_entries_match_Gram": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "four_lapse_shift_velocity_rows_zero": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "kernel_coordinates_have_identity_minor": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "metric_velocity_Schur_is_exactly_zero": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "nonzero_orientation_minor": "0",
+        "positive_orientation_block": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "quadratic_form_is_exact_squared_norm": "0",
+        "six_dimensional_kernel_is_explicit": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "spatial_offset": [
+        [
+          "B0"
+        ],
+        [
+          "B1"
+        ],
+        [
+          "B2"
+        ]
+      ],
+      "squared_norm": "L0_0**2*dv0**2*kinetic_prefactor + 2*L0_0*L0_1*dv0*dv1*kinetic_prefactor + 2*L0_0*L0_2*dv0*dv2*kinetic_prefactor + 2*L0_0*L0_3*dv0*dv3*kinetic_prefactor + 2*L0_0*L0_4*dv0*dv4*kinetic_prefactor + 2*L0_0*L0_5*dv0*dv5*kinetic_prefactor - 2*L0_0*dq0*dv0*kinetic_prefactor + L0_1**2*dv1**2*kinetic_prefactor + 2*L0_1*L0_2*dv1*dv2*kinetic_prefactor + 2*L0_1*L0_3*dv1*dv3*kinetic_prefactor + 2*L0_1*L0_4*dv1*dv4*kinetic_prefactor + 2*L0_1*L0_5*dv1*dv5*kinetic_prefactor - 2*L0_1*dq0*dv1*kinetic_prefactor + L0_2**2*dv2**2*kinetic_prefactor + 2*L0_2*L0_3*dv2*dv3*kinetic_prefactor + 2*L0_2*L0_4*dv2*dv4*kinetic_prefactor + 2*L0_2*L0_5*dv2*dv5*kinetic_prefactor - 2*L0_2*dq0*dv2*kinetic_prefactor + L0_3**2*dv3**2*kinetic_prefactor + 2*L0_3*L0_4*dv3*dv4*kinetic_prefactor + 2*L0_3*L0_5*dv3*dv5*kinetic_prefactor - 2*L0_3*dq0*dv3*kinetic_prefactor + L0_4**2*dv4**2*kinetic_prefactor + 2*L0_4*L0_5*dv4*dv5*kinetic_prefactor - 2*L0_4*dq0*dv4*kinetic_prefactor + L0_5**2*dv5**2*kinetic_prefactor - 2*L0_5*dq0*dv5*kinetic_prefactor + L1_0**2*dv0**2*kinetic_prefactor + 2*L1_0*L1_1*dv0*dv1*kinetic_prefactor + 2*L1_0*L1_2*dv0*dv2*kinetic_prefactor + 2*L1_0*L1_3*dv0*dv3*kinetic_prefactor + 2*L1_0*L1_4*dv0*dv4*kinetic_prefactor + 2*L1_0*L1_5*dv0*dv5*kinetic_prefactor - 2*L1_0*dq1*dv0*kinetic_prefactor + L1_1**2*dv1**2*kinetic_prefactor + 2*L1_1*L1_2*dv1*dv2*kinetic_prefactor + 2*L1_1*L1_3*dv1*dv3*kinetic_prefactor + 2*L1_1*L1_4*dv1*dv4*kinetic_prefactor + 2*L1_1*L1_5*dv1*dv5*kinetic_prefactor - 2*L1_1*dq1*dv1*kinetic_prefactor + L1_2**2*dv2**2*kinetic_prefactor + 2*L1_2*L1_3*dv2*dv3*kinetic_prefactor + 2*L1_2*L1_4*dv2*dv4*kinetic_prefactor + 2*L1_2*L1_5*dv2*dv5*kinetic_prefactor - 2*L1_2*dq1*dv2*kinetic_prefactor + L1_3**2*dv3**2*kinetic_prefactor + 2*L1_3*L1_4*dv3*dv4*kinetic_prefactor + 2*L1_3*L1_5*dv3*dv5*kinetic_prefactor - 2*L1_3*dq1*dv3*kinetic_prefactor + L1_4**2*dv4**2*kinetic_prefactor + 2*L1_4*L1_5*dv4*dv5*kinetic_prefactor - 2*L1_4*dq1*dv4*kinetic_prefactor + L1_5**2*dv5**2*kinetic_prefactor - 2*L1_5*dq1*dv5*kinetic_prefactor + L2_0**2*dv0**2*kinetic_prefactor + 2*L2_0*L2_1*dv0*dv1*kinetic_prefactor + 2*L2_0*L2_2*dv0*dv2*kinetic_prefactor + 2*L2_0*L2_3*dv0*dv3*kinetic_prefactor + 2*L2_0*L2_4*dv0*dv4*kinetic_prefactor + 2*L2_0*L2_5*dv0*dv5*kinetic_prefactor - 2*L2_0*dq2*dv0*kinetic_prefactor + L2_1**2*dv1**2*kinetic_prefactor + 2*L2_1*L2_2*dv1*dv2*kinetic_prefactor + 2*L2_1*L2_3*dv1*dv3*kinetic_prefactor + 2*L2_1*L2_4*dv1*dv4*kinetic_prefactor + 2*L2_1*L2_5*dv1*dv5*kinetic_prefactor - 2*L2_1*dq2*dv1*kinetic_prefactor + L2_2**2*dv2**2*kinetic_prefactor + 2*L2_2*L2_3*dv2*dv3*kinetic_prefactor + 2*L2_2*L2_4*dv2*dv4*kinetic_prefactor + 2*L2_2*L2_5*dv2*dv5*kinetic_prefactor - 2*L2_2*dq2*dv2*kinetic_prefactor + L2_3**2*dv3**2*kinetic_prefactor + 2*L2_3*L2_4*dv3*dv4*kinetic_prefactor + 2*L2_3*L2_5*dv3*dv5*kinetic_prefactor - 2*L2_3*dq2*dv3*kinetic_prefactor + L2_4**2*dv4**2*kinetic_prefactor + 2*L2_4*L2_5*dv4*dv5*kinetic_prefactor - 2*L2_4*dq2*dv4*kinetic_prefactor + L2_5**2*dv5**2*kinetic_prefactor - 2*L2_5*dq2*dv5*kinetic_prefactor + dq0**2*kinetic_prefactor + dq1**2*kinetic_prefactor + dq2**2*kinetic_prefactor"
+    },
+    "hodge": {
+      "ADM_density": "-N*chi*l1*l2*l3*((l2**(-2) + l32**2/(l2**2*l3**2))*(C2_1**2 + C2_2**2 + C2_3**2) + 2*(-l21/(l1*l2**2) - l32*(-l2*l31 + l21*l32)/(l1*l2**2*l3**2))*(C1_1*C2_1 + C1_2*C2_2 + C1_3*C2_3) + (C1_1**2 + C1_2**2 + C1_3**2)*(l1**(-2) + l21**2/(l1**2*l2**2) + (-l2*l31 + l21*l32)**2/(l1**2*l2**2*l3**2)) + (C3_1**2 + C3_2**2 + C3_3**2)/l3**2 - 2*l32*(C2_1*C3_1 + C2_2*C3_2 + C2_3*C3_3)/(l2*l3**2) + 2*(-l2*l31 + l21*l32)*(C1_1*C3_1 + C1_2*C3_2 + C1_3*C3_3)/(l1*l2*l3**2))/2 + chi*l1*l2*l3*((C0_1 - C1_1*shift1 - C2_1*shift2 - C3_1*shift3)**2 + (C0_2 - C1_2*shift1 - C2_2*shift2 - C3_2*shift3)**2 + (C0_3 - C1_3*shift1 - C2_3*shift2 - C3_3*shift3)**2)/(2*N)",
+      "C": [
+        [
+          [
+            "C0_1"
+          ],
+          [
+            "C0_2"
+          ],
+          [
+            "C0_3"
+          ]
+        ],
+        [
+          [
+            "C1_1"
+          ],
+          [
+            "C1_2"
+          ],
+          [
+            "C1_3"
+          ]
+        ],
+        [
+          [
+            "C2_1"
+          ],
+          [
+            "C2_2"
+          ],
+          [
+            "C2_3"
+          ]
+        ],
+        [
+          [
+            "C3_1"
+          ],
+          [
+            "C3_2"
+          ],
+          [
+            "C3_3"
+          ]
+        ]
+      ],
+      "N": "N",
+      "chi": "chi",
+      "cholesky": [
+        [
+          "l1",
+          "0",
+          "0"
+        ],
+        [
+          "l21",
+          "l2",
+          "0"
+        ],
+        [
+          "l31",
+          "l32",
+          "l3"
+        ]
+      ],
+      "density": "-N*chi*l1*l2*l3*((l3**(-2) - shift3**2/N**2)*(C3_1**2 + C3_2**2 + C3_3**2) + 2*(-l32/(l2*l3**2) - shift2*shift3/N**2)*(C2_1*C3_1 + C2_2*C3_2 + C2_3*C3_3) + 2*((-l2*l31 + l21*l32)/(l1*l2*l3**2) - shift1*shift3/N**2)*(C1_1*C3_1 + C1_2*C3_2 + C1_3*C3_3) + (C1_1**2 + C1_2**2 + C1_3**2)*(l1**(-2) + l21**2/(l1**2*l2**2) + (-l2*l31 + l21*l32)**2/(l1**2*l2**2*l3**2) - shift1**2/N**2) + (C2_1**2 + C2_2**2 + C2_3**2)*(l2**(-2) + l32**2/(l2**2*l3**2) - shift2**2/N**2) + 2*(C1_1*C2_1 + C1_2*C2_2 + C1_3*C2_3)*(-l21/(l1*l2**2) - l32*(-l2*l31 + l21*l32)/(l1*l2**2*l3**2) - shift1*shift2/N**2) + 2*shift1*(C0_1*C1_1 + C0_2*C1_2 + C0_3*C1_3)/N**2 + 2*shift2*(C0_1*C2_1 + C0_2*C2_2 + C0_3*C2_3)/N**2 + 2*shift3*(C0_1*C3_1 + C0_2*C3_2 + C0_3*C3_3)/N**2 - (C0_1**2 + C0_2**2 + C0_3**2)/N**2)/2",
+      "h": [
+        [
+          "l1**2",
+          "l1*l21",
+          "l1*l31"
+        ],
+        [
+          "l1*l21",
+          "l2**2 + l21**2",
+          "l2*l32 + l21*l31"
+        ],
+        [
+          "l1*l31",
+          "l2*l32 + l21*l31",
+          "l3**2 + l31**2 + l32**2"
+        ]
+      ],
+      "inverse_h": [
+        [
+          "l1**(-2) + l21**2/(l1**2*l2**2) + (-l2*l31 + l21*l32)**2/(l1**2*l2**2*l3**2)",
+          "-l21/(l1*l2**2) - l32*(-l2*l31 + l21*l32)/(l1*l2**2*l3**2)",
+          "(-l2*l31 + l21*l32)/(l1*l2*l3**2)"
+        ],
+        [
+          "-l21/(l1*l2**2) - l32*(-l2*l31 + l21*l32)/(l1*l2**2*l3**2)",
+          "l2**(-2) + l32**2/(l2**2*l3**2)",
+          "-l32/(l2*l3**2)"
+        ],
+        [
+          "(-l2*l31 + l21*l32)/(l1*l2*l3**2)",
+          "-l32/(l2*l3**2)",
+          "l3**(-2)"
+        ]
+      ],
+      "inverse_metric": [
+        [
+          "-1/N**2",
+          "shift1/N**2",
+          "shift2/N**2",
+          "shift3/N**2"
+        ],
+        [
+          "shift1/N**2",
+          "l1**(-2) + l21**2/(l1**2*l2**2) + (-l2*l31 + l21*l32)**2/(l1**2*l2**2*l3**2) - shift1**2/N**2",
+          "-l21/(l1*l2**2) - l32*(-l2*l31 + l21*l32)/(l1*l2**2*l3**2) - shift1*shift2/N**2",
+          "(-l2*l31 + l21*l32)/(l1*l2*l3**2) - shift1*shift3/N**2"
+        ],
+        [
+          "shift2/N**2",
+          "-l21/(l1*l2**2) - l32*(-l2*l31 + l21*l32)/(l1*l2**2*l3**2) - shift1*shift2/N**2",
+          "l2**(-2) + l32**2/(l2**2*l3**2) - shift2**2/N**2",
+          "-l32/(l2*l3**2) - shift2*shift3/N**2"
+        ],
+        [
+          "shift3/N**2",
+          "(-l2*l31 + l21*l32)/(l1*l2*l3**2) - shift1*shift3/N**2",
+          "-l32/(l2*l3**2) - shift2*shift3/N**2",
+          "l3**(-2) - shift3**2/N**2"
+        ]
+      ],
+      "metric": [
+        [
+          "-N**2 + shift1*(l1**2*shift1 + l1*l21*shift2 + l1*l31*shift3) + shift2*(l1*l21*shift1 + shift2*(l2**2 + l21**2) + shift3*(l2*l32 + l21*l31)) + shift3*(l1*l31*shift1 + shift2*(l2*l32 + l21*l31) + shift3*(l3**2 + l31**2 + l32**2))",
+          "l1**2*shift1 + l1*l21*shift2 + l1*l31*shift3",
+          "l1*l21*shift1 + shift2*(l2**2 + l21**2) + shift3*(l2*l32 + l21*l31)",
+          "l1*l31*shift1 + shift2*(l2*l32 + l21*l31) + shift3*(l3**2 + l31**2 + l32**2)"
+        ],
+        [
+          "l1**2*shift1 + l1*l21*shift2 + l1*l31*shift3",
+          "l1**2",
+          "l1*l21",
+          "l1*l31"
+        ],
+        [
+          "l1*l21*shift1 + shift2*(l2**2 + l21**2) + shift3*(l2*l32 + l21*l31)",
+          "l1*l21",
+          "l2**2 + l21**2",
+          "l2*l32 + l21*l31"
+        ],
+        [
+          "l1*l31*shift1 + shift2*(l2*l32 + l21*l31) + shift3*(l3**2 + l31**2 + l32**2)",
+          "l1*l31",
+          "l2*l32 + l21*l31",
+          "l3**2 + l31**2 + l32**2"
+        ]
+      ],
+      "residuals": {
+        "ADM_inverse_all_16_entries": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "ADM_metric_exact_shear_congruence": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "Lorentzian_Hodge_exact_temporal_square": "0",
+        "SPD_Cholesky_volume": "0",
+        "unit_determinant_ADM_shear": "0"
+      },
+      "shift": [
+        [
+          "shift1"
+        ],
+        [
+          "shift2"
+        ],
+        [
+          "shift3"
+        ]
+      ],
+      "sqrt_h": "l1*l2*l3",
+      "temporal_combination": [
+        [
+          "C0_1 - C1_1*shift1 - C2_1*shift2 - C3_1*shift3"
+        ],
+        [
+          "C0_2 - C1_2*shift1 - C2_2*shift2 - C3_2*shift3"
+        ],
+        [
+          "C0_3 - C1_3*shift1 - C2_3*shift2 - C3_3*shift3"
+        ]
+      ],
+      "volume": "N*l1*l2*l3"
+    },
+    "literal_Hodge_prefactor": "chi*l1*l2*l3/N",
+    "negative_controls": {
+      "assume_h_and_hdot_commute_in_finite_curve": [
+        [
+          "0",
+          "9",
+          "0"
+        ],
+        [
+          "-9",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "freeze_E_violates_connection_antisymmetry": [
+        [
+          "hdot11/a1**2",
+          "hdot12/(a1*a2)",
+          "hdot13/(a1*a3)"
+        ],
+        [
+          "hdot12/(a1*a2)",
+          "hdot22/a2**2",
+          "hdot23/(a2*a3)"
+        ],
+        [
+          "hdot13/(a1*a3)",
+          "hdot23/(a2*a3)",
+          "hdot33/a3**2"
+        ]
+      ],
+      "omit_metric_velocity_mixing": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1/60"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1/12",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1/12",
+          "0",
+          "0"
+        ]
+      ],
+      "omit_nonisotropic_velocity_cross_block": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-kinetic_prefactor/12"
+        ],
+        [
+          "0",
+          "kinetic_prefactor/12",
+          "0"
+        ],
+        [
+          "-kinetic_prefactor/60",
+          "0",
+          "0"
+        ]
+      ],
+      "reverse_temporal_Hodge_sign": [
+        [
+          "-kinetic_prefactor",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-kinetic_prefactor",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "-kinetic_prefactor"
+        ]
+      ]
+    },
+    "residuals": {
+      "ADM_inverse_all_16_entries": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "ADM_metric_exact_shear_congruence": [
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "Gram_prefactor_bound_to_literal_Hodge": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "Lorentzian_Hodge_exact_temporal_square": "0",
+      "SPD_Cholesky_volume": "0",
+      "Sylvester_derivative_all_9_entries": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "all_81_kinetic_Hessian_entries_match_Gram": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "anisotropic_hdot12_color3_coefficient": "0",
+      "anisotropic_mixed_kinetic_entry": "0",
+      "finite_SPD_curve_matches_Sylvester": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "finite_SPD_curve_nonzero_time_connection": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "four_lapse_shift_velocity_rows_zero": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "inverse_root_derivative_all_9_entries": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "isotropic_frame_velocity_decouples": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "kernel_coordinates_have_identity_minor": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "lower_Gamma_spatial_all_27_entries": [
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "lower_Gamma_time_all_9_entries": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "metric_velocity_Schur_is_exactly_zero": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "no_lapse_or_shift_velocities_in_lower_Gamma": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "nonzero_orientation_minor": "0",
+      "omega_time_equals_skew_frame_velocity": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "omega_time_is_antisymmetric": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "omega_time_with_shift_curl": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "positive_orientation_block": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "principal_root_anisotropic_coefficient": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "quadratic_form_is_exact_squared_norm": "0",
+      "rotating_family_exact_inverse_root_diagonal": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "rotating_family_orthogonal": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "six_dimensional_kernel_is_explicit": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "unit_determinant_ADM_shear": "0",
+      "varied_frame_orthonormality": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    "section": {
+      "E": [
+        [
+          "1/a1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1/a2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1/a3"
+        ]
+      ],
+      "Edot": [
+        [
+          "-hdot11/(2*a1**3)",
+          "-hdot12/(a1**2*a2 + a1*a2**2)",
+          "-hdot13/(a1**2*a3 + a1*a3**2)"
+        ],
+        [
+          "-hdot12/(a1**2*a2 + a1*a2**2)",
+          "-hdot22/(2*a2**3)",
+          "-hdot23/(a2**2*a3 + a2*a3**2)"
+        ],
+        [
+          "-hdot13/(a1**2*a3 + a1*a3**2)",
+          "-hdot23/(a2**2*a3 + a2*a3**2)",
+          "-hdot33/(2*a3**3)"
+        ]
+      ],
+      "L_E": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "(-a2 + a3)/(2*a2**2*a3 + 2*a2*a3**2)"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "(a1 - a3)/(2*a1**2*a3 + 2*a1*a3**2)",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "(-a1 + a2)/(2*a1**2*a2 + 2*a1*a2**2)",
+          "0",
+          "0"
+        ]
+      ],
+      "L_E_at_1_2_3": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "1/60"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "-1/12",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1/12",
+          "0",
+          "0"
+        ]
+      ],
+      "L_colors": [
+        [
+          "(-a2*hdot23 + a3*hdot23)/(2*a2**2*a3 + 2*a2*a3**2)"
+        ],
+        [
+          "(a1*hdot13 - a3*hdot13)/(2*a1**2*a3 + 2*a1*a3**2)"
+        ],
+        [
+          "(-a1*hdot12 + a2*hdot12)/(2*a1**2*a2 + 2*a1*a2**2)"
+        ]
+      ],
+      "L_matrix": [
+        [
+          "0",
+          "(-a1*hdot12 + a2*hdot12)/(2*a1**2*a2 + 2*a1*a2**2)",
+          "(-a1*hdot13 + a3*hdot13)/(2*a1**2*a3 + 2*a1*a3**2)"
+        ],
+        [
+          "(a1*hdot12 - a2*hdot12)/(2*a1**2*a2 + 2*a1*a2**2)",
+          "0",
+          "(-a2*hdot23 + a3*hdot23)/(2*a2**2*a3 + 2*a2*a3**2)"
+        ],
+        [
+          "(a1*hdot13 - a3*hdot13)/(2*a1**2*a3 + 2*a1*a3**2)",
+          "(a2*hdot23 - a3*hdot23)/(2*a2**2*a3 + 2*a2*a3**2)",
+          "0"
+        ]
+      ],
+      "Sdot": [
+        [
+          "hdot11/(2*a1)",
+          "hdot12/(a1 + a2)",
+          "hdot13/(a1 + a3)"
+        ],
+        [
+          "hdot12/(a1 + a2)",
+          "hdot22/(2*a2)",
+          "hdot23/(a2 + a3)"
+        ],
+        [
+          "hdot13/(a1 + a3)",
+          "hdot23/(a2 + a3)",
+          "hdot33/(2*a3)"
+        ]
+      ],
+      "a": [
+        "a1",
+        "a2",
+        "a3"
+      ],
+      "curve": {
+        "E": [
+          [
+            "sin(curve_time)**2/2 + cos(curve_time)**2",
+            "sin(curve_time)*cos(curve_time)/2",
+            "0"
+          ],
+          [
+            "sin(curve_time)*cos(curve_time)/2",
+            "sin(curve_time)**2 + cos(curve_time)**2/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/3"
+          ]
+        ],
+        "E0": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1/3"
+          ]
+        ],
+        "Edot0": [
+          [
+            "0",
+            "1/2",
+            "0"
+          ],
+          [
+            "1/2",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "h": [
+          [
+            "4*sin(curve_time)**2 + cos(curve_time)**2",
+            "-3*sin(curve_time)*cos(curve_time)",
+            "0"
+          ],
+          [
+            "-3*sin(curve_time)*cos(curve_time)",
+            "sin(curve_time)**2 + 4*cos(curve_time)**2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "9"
+          ]
+        ],
+        "h0": [
+          [
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "4",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "9"
+          ]
+        ],
+        "hdot0": [
+          [
+            "0",
+            "-3",
+            "0"
+          ],
+          [
+            "-3",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "omega0": [
+          [
+            "0",
+            "-1/4",
+            "0"
+          ],
+          [
+            "1/4",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "parameter": "curve_time",
+        "rotation": [
+          [
+            "cos(curve_time)",
+            "-sin(curve_time)",
+            "0"
+          ],
+          [
+            "sin(curve_time)",
+            "cos(curve_time)",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "frame_rotation": [
+        [
+          "-hdot11/(2*a1**2)",
+          "-a1*hdot12/(a1**2*a2 + a1*a2**2)",
+          "-a1*hdot13/(a1**2*a3 + a1*a3**2)"
+        ],
+        [
+          "-a2*hdot12/(a1**2*a2 + a1*a2**2)",
+          "-hdot22/(2*a2**2)",
+          "-a2*hdot23/(a2**2*a3 + a2*a3**2)"
+        ],
+        [
+          "-a3*hdot13/(a1**2*a3 + a1*a3**2)",
+          "-a3*hdot23/(a2**2*a3 + a2*a3**2)",
+          "-hdot33/(2*a3**2)"
+        ]
+      ],
+      "h": [
+        [
+          "a1**2",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "a2**2",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "a3**2"
+        ]
+      ],
+      "hdot": [
+        [
+          "hdot11",
+          "hdot12",
+          "hdot13"
+        ],
+        [
+          "hdot12",
+          "hdot22",
+          "hdot23"
+        ],
+        [
+          "hdot13",
+          "hdot23",
+          "hdot33"
+        ]
+      ],
+      "negative_controls": {
+        "assume_h_and_hdot_commute_in_finite_curve": [
+          [
+            "0",
+            "9",
+            "0"
+          ],
+          [
+            "-9",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "freeze_E_violates_connection_antisymmetry": [
+          [
+            "hdot11/a1**2",
+            "hdot12/(a1*a2)",
+            "hdot13/(a1*a3)"
+          ],
+          [
+            "hdot12/(a1*a2)",
+            "hdot22/a2**2",
+            "hdot23/(a2*a3)"
+          ],
+          [
+            "hdot13/(a1*a3)",
+            "hdot23/(a2*a3)",
+            "hdot33/a3**2"
+          ]
+        ],
+        "omit_metric_velocity_mixing": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1/60"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "-1/12",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1/12",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "omega_time": [
+        [
+          "0",
+          "(a1*curl12 - a1*hdot12 + a2*curl12 + a2*hdot12)/(2*a1**2*a2 + 2*a1*a2**2)",
+          "(a1*curl13 - a1*hdot13 + a3*curl13 + a3*hdot13)/(2*a1**2*a3 + 2*a1*a3**2)"
+        ],
+        [
+          "(-a1*curl12 + a1*hdot12 - a2*curl12 - a2*hdot12)/(2*a1**2*a2 + 2*a1*a2**2)",
+          "0",
+          "(a2*curl23 - a2*hdot23 + a3*curl23 + a3*hdot23)/(2*a2**2*a3 + 2*a2*a3**2)"
+        ],
+        [
+          "(-a1*curl13 + a1*hdot13 - a3*curl13 - a3*hdot13)/(2*a1**2*a3 + 2*a1*a3**2)",
+          "(-a2*curl23 + a2*hdot23 - a3*curl23 - a3*hdot23)/(2*a2**2*a3 + 2*a2*a3**2)",
+          "0"
+        ]
+      ],
+      "residuals": {
+        "Sylvester_derivative_all_9_entries": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "anisotropic_hdot12_color3_coefficient": "0",
+        "finite_SPD_curve_matches_Sylvester": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "finite_SPD_curve_nonzero_time_connection": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "inverse_root_derivative_all_9_entries": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "isotropic_frame_velocity_decouples": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "omega_time_equals_skew_frame_velocity": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "omega_time_is_antisymmetric": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "omega_time_with_shift_curl": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "principal_root_anisotropic_coefficient": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "rotating_family_exact_inverse_root_diagonal": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "rotating_family_orthogonal": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "varied_frame_orthonormality": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "shift_curl": [
+        [
+          "0",
+          "curl12",
+          "curl13"
+        ],
+        [
+          "-curl12",
+          "0",
+          "curl23"
+        ],
+        [
+          "-curl13",
+          "-curl23",
+          "0"
+        ]
+      ],
+      "velocities": [
+        [
+          "hdot11"
+        ],
+        [
+          "hdot22"
+        ],
+        [
+          "hdot33"
+        ],
+        [
+          "hdot12"
+        ],
+        [
+          "hdot13"
+        ],
+        [
+          "hdot23"
+        ]
+      ]
+    }
+  },
+  "proposal": {
+    "A_independent_of_omega": true,
+    "adopted": false,
+    "chi": "positive mass-squared symbol, no selected value"
+  },
+  "provenance": {
+    "one_omega_connection_adm_kinetic_lemma_v1.md": "5d57ffa5829861d812253731f3c165ede8eba90cfc9d022aba6f9976471274f7",
+    "test_one_omega_connection_adm_kinetic_v1.py": "ea3c3a72507b8672253314454b0c4e603307643ddfebc1affe86c4f76ef374ce",
+    "verify_one_omega_connection_adm_kinetic_v1.py": "c792fbb0497a14d1d3e6f3f76d4d0ef57c90cc123c2d98e1ee290180ac32aa74"
+  },
+  "schema": "holo.one-omega-connection-adm-kinetic.v1",
+  "scope": {
+    "B4_pass": false,
+    "B5_pass": false,
+    "BF_global_quotient_closed": false,
+    "Hessian_is_PSD_rank_three_in_nine_metric_and_orientation_velocities": true,
+    "N4_JUNCTION_BENDING_pass": false,
+    "N7_LINEAR_REDUCTION_pass": false,
+    "P4_full_same_action_pass": false,
+    "Schur_is_only_a_kinetic_velocity_Schur": true,
+    "candidate_adopted": false,
+    "chi_selected": false,
+    "complete_gravitational_reduced_energy_positive": false,
+    "full_Dirac_mode_count": false,
+    "global_unitary_gauge_proved": false,
+    "horizontal_field_space_transport_assumed_integrable": false,
+    "lapse_and_shift_velocities_absent_from_added_term": true,
+    "local_unitary_chart_only": true,
+    "nonlinear_stability_proved": false,
+    "orientation_field_algebraically_eliminated": false,
+    "smooth_metric_dependent_frame_section_required": true
+  },
+  "sources": {
+    "Ward_receipt_sha256": "7720dab2e0225bddb70a6b8095c0ad16cc7de456fe73663a1bfb41cf4ea547c2",
+    "lemma_sha256": "5d57ffa5829861d812253731f3c165ede8eba90cfc9d022aba6f9976471274f7",
+    "source_gates_inherited": false
+  }
+}
