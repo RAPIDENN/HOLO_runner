@@ -1,0 +1,724 @@
+{
+  "calculation_digest": "457c4f74d313173aa9199bcaa2c11303de1448b0a346141ca362f5db87909306",
+  "checks": {
+    "energy_TT_Green_real_part": true,
+    "energy_material_Robin_real_part": true,
+    "energy_radicand_imaginary_part": true,
+    "energy_scalar_G_factor_explicit": true,
+    "energy_scalar_pivot_real_part": true,
+    "energy_square_root_radicand_positive_when_imaginary_zero": true,
+    "energy_strict_TT_positive_real": true,
+    "energy_strict_material_Robin_real_part": true,
+    "energy_strict_scalar_pivot_positive_real": true,
+    "energy_strict_tensor_positive_real": true,
+    "energy_strict_vector_positive_real": true,
+    "energy_tensor_denominator_real_part": true,
+    "energy_vector_denominator_real_part": true,
+    "energy_vector_is_tensor_at_xi_one": true,
+    "sector_left_elimination_determinant_one": true,
+    "sector_right_elimination_determinant_one": true,
+    "sector_scalar_block_factorization": true,
+    "sector_scalar_elimination_pivots": true,
+    "sector_tensor_cross": true,
+    "sector_tensor_plus": true,
+    "sector_three_variable_action_equals_Schur": true,
+    "sector_vector_1": true,
+    "sector_vector_2": true,
+    "sector_vector_q_nonzero_gauge_entry": true,
+    "sector_vector_q_zero_alternate_gauge_entry": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BF_edge_and_embedding_sectors_certified": false,
+    "all_Q_zero_scalar_cases_certified": false,
+    "complete_physical_constraint_reduction_certified": false,
+    "full_N7": false,
+    "full_P4": false,
+    "global_DtN_existence_and_holomorphy_certified": false,
+    "material_and_Omega_pivots_nonzero_under_Green_hypotheses": true,
+    "remaining_scalar_RHP_determinant_certified_nonzero": false,
+    "scalar_five_to_three_reduction_preserves_pivots": true,
+    "tensor_vector_denominators_nonzero_under_Green_hypotheses": true
+  },
+  "negative_controls": {
+    "missing_conjugate_destroys_nonnegative_density": true,
+    "missing_temporal_energy_loses_strictness": true,
+    "reversed_radial_sign_fails_positive_real": true
+  },
+  "positive_real": {
+    "GKv": "G*(2*Iq*(q**2 + (sigma + I*tau)**2) + 2*Iv)/R0_squared",
+    "KT": "(2*Ir + 2*Iw*(q**2 + (sigma + I*tau)**2))/H0_squared",
+    "Kv": "(2*Iq*(q**2 + (sigma + I*tau)**2) + 2*Iv)/R0_squared",
+    "Pv": "G*(2*Iq*(q**2 + (sigma + I*tau)**2) + 2*Iv)/R0_squared + beta",
+    "checks": {
+      "TT_Green_real_part": true,
+      "material_Robin_real_part": true,
+      "radicand_imaginary_part": true,
+      "scalar_G_factor_explicit": true,
+      "scalar_pivot_real_part": true,
+      "square_root_radicand_positive_when_imaginary_zero": true,
+      "strict_TT_positive_real": true,
+      "strict_material_Robin_real_part": true,
+      "strict_scalar_pivot_positive_real": true,
+      "strict_tensor_positive_real": true,
+      "strict_vector_positive_real": true,
+      "tensor_denominator_real_part": true,
+      "vector_denominator_real_part": true,
+      "vector_is_tensor_at_xi_one": true
+    },
+    "expected_KT_over_s": "2*sigma*(Iw + (Ir + Iw*q**2)/(sigma**2 + tau**2))/H0_squared",
+    "expected_Pv_over_s": "2*G*sigma*(Iq + (Iq*q**2 + Iv)/(sigma**2 + tau**2))/R0_squared + beta*sigma/(sigma**2 + tau**2)",
+    "expected_material": "2*Z5*u + kappa_hat",
+    "expected_tensor_over_s": "Mb2*sigma*(q**2*xi/(sigma**2 + tau**2) + 1) + 2*M5c*sigma*(Iw + (Ir + Iw*q**2)/(sigma**2 + tau**2))/H0_squared",
+    "expected_vector_over_s": "Mb2*sigma*(q**2/(sigma**2 + tau**2) + 1) + 2*M5c*sigma*(Iw + (Ir + Iw*q**2)/(sigma**2 + tau**2))/H0_squared",
+    "material_denominator": "2*Z5*(u + I*v) + kappa_hat",
+    "negative_controls": {
+      "missing_conjugate_destroys_nonnegative_density": true,
+      "missing_temporal_energy_loses_strictness": true,
+      "reversed_radial_sign_fails_positive_real": true
+    },
+    "p": "u + I*v",
+    "p_branch_compatibility": [
+      [
+        "-q**2 - sigma**2 + tau**2 + u**2 - v**2"
+      ],
+      [
+        "-2*sigma*tau + 2*u*v"
+      ]
+    ],
+    "p_squared": "q**2 + (sigma + I*tau)**2",
+    "real_KT_over_s": "2*sigma*(Ir + Iw*q**2 + Iw*sigma**2 + Iw*tau**2)/(H0_squared*(sigma**2 + tau**2))",
+    "real_Pv_over_s": "sigma*(2*G*Iq*q**2 + 2*G*Iq*sigma**2 + 2*G*Iq*tau**2 + 2*G*Iv + R0_squared*beta)/(R0_squared*(sigma**2 + tau**2))",
+    "real_material": "2*Z5*u + kappa_hat",
+    "real_tensor_over_s": "sigma*(H0_squared*Mb2*q**2*xi + H0_squared*Mb2*sigma**2 + H0_squared*Mb2*tau**2 + 2*Ir*M5c + 2*Iw*M5c*q**2 + 2*Iw*M5c*sigma**2 + 2*Iw*M5c*tau**2)/(H0_squared*(sigma**2 + tau**2))",
+    "real_vector_over_s": "sigma*(H0_squared*Mb2*q**2 + H0_squared*Mb2*sigma**2 + H0_squared*Mb2*tau**2 + 2*Ir*M5c + 2*Iw*M5c*q**2 + 2*Iw*M5c*sigma**2 + 2*Iw*M5c*tau**2)/(H0_squared*(sigma**2 + tau**2))",
+    "residuals": {
+      "TT_Green_real_part": "0",
+      "material_Robin_real_part": "0",
+      "radicand_imaginary_part": "0",
+      "scalar_G_factor_explicit": "0",
+      "scalar_pivot_real_part": "0",
+      "tensor_denominator_real_part": "0",
+      "vector_denominator_real_part": "0",
+      "vector_is_tensor_at_xi_one": "0"
+    },
+    "s": "sigma + I*tau",
+    "s_modulus_squared": "sigma**2 + tau**2",
+    "scope": {
+      "BF_sector_certified": false,
+      "TT_integrals": "Ir>=0, Iw>0, H0_squared>0; finite Green integrals and vanishing IR flux",
+      "actual_kernel_constructed": false,
+      "conditional_consequence": "the displayed tensor/vector denominators, scalar pivot and material Robin denominator are nonzero in this half-plane wherever the assumed Green representation exists",
+      "embedding_sector_certified": false,
+      "finite_witnesses_promote_global_physics": false,
+      "full_scalar_stability": false,
+      "global_DtN_existence_proved": false,
+      "global_DtN_holomorphy_proved": false,
+      "half_plane": "Re(s)=sigma>0; q real and nonnegative; p chosen with Re(p)>0",
+      "normalization": "KT=-2H_prime(0)/H(0), Kv=-2R_prime(0)/R(0); G remains explicit in Pv=G*Kv+beta",
+      "scalar_integrals": "Iv>=0,Iq>=0,R0_squared>0; weights normalized by their UV G; beta>0 supplies strictness even at zero abstract integrals"
+    },
+    "tensor_denominator": "Mb2*(q**2*xi + (sigma + I*tau)**2) + M5c*(2*Ir + 2*Iw*(q**2 + (sigma + I*tau)**2))/H0_squared",
+    "vector_denominator": "Mb2*(q**2 + (sigma + I*tau)**2) + M5c*(2*Ir + 2*Iw*(q**2 + (sigma + I*tau)**2))/H0_squared",
+    "witnesses": {
+      "missing_conjugate": {
+        "correct_energy": "1",
+        "derivative": "I",
+        "wrong_energy": "-1"
+      },
+      "missing_temporal_energy": {
+        "correct_Re_KT_over_s": "2",
+        "substitutions": {
+          "H0_squared": "1",
+          "Ir": "0",
+          "Iw": "1",
+          "q": "0",
+          "sigma": "1",
+          "tau": "0"
+        },
+        "wrong_Re_KT_over_s": "0"
+      },
+      "reversed_radial_sign": {
+        "correct_Re_KT_over_s": "6",
+        "substitutions": {
+          "H0_squared": "1",
+          "Ir": "2",
+          "Iw": "1",
+          "q": "0",
+          "sigma": "1",
+          "tau": "0"
+        },
+        "wrong_Re_KT_over_s": "-2"
+      }
+    }
+  },
+  "provenance": {
+    "one_omega_positive_real_energy_v1.py": "3ea55668a5342837dc185d40de2d871c658e43375224b196fa1b1a6206704c12",
+    "test_one_omega_topological_sector_reduction_v1.py": "b17fb1e3b6151f12b07d957613182f1005f3e581965d93249d29380069a15c2b",
+    "verify_one_omega_topological_boundary_assembly_v1.py": "13f366199e5166e35cb5112ca02d6fbd8e2e0a99e99a01e559eec3629972847a",
+    "verify_one_omega_topological_sector_reduction_v1.py": "40230026f03a5945b7c230c0de9feec18646b95876c32cd2e6d08838687b1b7d"
+  },
+  "schema": "holo.one-omega-topological-sector-reduction.v1",
+  "sector_model": {
+    "Delta_beta": "G*K_v*beta/(G*K_v + beta)",
+    "F_tensor": "K_T*M5c + Mb2*(q**2*xi - w**2)",
+    "F_vector": "K_T*M5c + Mb2*(q**2 - w**2)",
+    "L3": "-G*K_v*beta*(zeta + (q**2*(lapse - zeta) - q*shift3*w)/(3*q**2 - 3*w**2))**2/(2*(G*K_v + beta)) - K_T*M5c*(q**2*(lapse - zeta) - q*shift3*w)**2/((q**2 - w**2)*(3*q**2 - 3*w**2)) + 3*M5c*(q**2 - w**2)*(zeta + (q**2*(lapse - zeta) - q*shift3*w)/(3*q**2 - 3*w**2))**2*exp(G/(6*M5c))/k_inf + Mb2*(-B4bar*q**4*zeta**2/k_inf**2 + lapse**2*q**2*(eta - 2*Z5*kappa_hat*p_material*y**2/(Mb2*(2*Z5*p_material + kappa_hat))) + q**2*shift3**2*(1 - lambda_K) + q*shift3*w*zeta*(2 - 6*lambda_K) + w**2*zeta**2*(3 - 9*lambda_K) + xi*(4*lapse*q**2*zeta + 2*q**2*zeta**2))/2",
+    "L3_contact": "3*M5c*(q**2 - w**2)*(zeta + (q**2*(lapse - zeta) - q*shift3*w)/(3*q**2 - 3*w**2))**2*exp(G/(6*M5c))/k_inf",
+    "L3_load": "-G*K_v*beta*(zeta + (q**2*(lapse - zeta) - q*shift3*w)/(3*q**2 - 3*w**2))**2/(2*(G*K_v + beta))",
+    "L3_local": "Mb2*(-B4bar*q**4*zeta**2/k_inf**2 + lapse**2*q**2*(eta - 2*Z5*kappa_hat*p_material*y**2/(Mb2*(2*Z5*p_material + kappa_hat))) + q**2*shift3**2*(1 - lambda_K) + q*shift3*w*zeta*(2 - 6*lambda_K) + w**2*zeta**2*(3 - 9*lambda_K) + xi*(4*lapse*q**2*zeta + 2*q**2*zeta**2))/2",
+    "L3_tensor": "-K_T*M5c*(q**2*(lapse - zeta) - q*shift3*w)**2/((q**2 - w**2)*(3*q**2 - 3*w**2))",
+    "P_Omega": "G*K_v + beta",
+    "P_material": "2*Z5*p_material + kappa_hat",
+    "Pi_R": "2*Z5*kappa_hat*p_material*y**2/(2*Z5*p_material + kappa_hat)",
+    "checks": {
+      "left_elimination_determinant_one": true,
+      "right_elimination_determinant_one": true,
+      "scalar_block_factorization": true,
+      "scalar_elimination_pivots": true,
+      "tensor_cross": true,
+      "tensor_plus": true,
+      "three_variable_action_equals_Schur": true,
+      "vector_1": true,
+      "vector_2": true,
+      "vector_q_nonzero_gauge_entry": true,
+      "vector_q_zero_alternate_gauge_entry": true
+    },
+    "determinant_identity": "det(H5)=(G*K_v+beta)*(kappa_hat+2*Z5*p_material)*det(H3)",
+    "frequency": "w",
+    "left_elimination": [
+      [
+        "1",
+        "0",
+        "0",
+        "G*K_v*q**2/((3*q**2 - 3*w**2)*(G*K_v + beta))",
+        "-I*kappa_hat*q*y/(2*Z5*p_material + kappa_hat)"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "-G*K_v*q*w/((3*q**2 - 3*w**2)*(G*K_v + beta))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "(2*G*K_v*q**2 - 3*G*K_v*w**2)/((3*q**2 - 3*w**2)*(G*K_v + beta))",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "p_squared": "q**2 - w**2",
+    "pivot_block": [
+      [
+        "-G*K_v - beta",
+        "0"
+      ],
+      [
+        "0",
+        "-2*Z5*p_material - kappa_hat"
+      ]
+    ],
+    "q": "q",
+    "residuals": {
+      "left_elimination_determinant_one": "0",
+      "right_elimination_determinant_one": "0",
+      "scalar_block_factorization": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "scalar_elimination_pivots": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "tensor_cross": "0",
+      "tensor_plus": "0",
+      "three_variable_action_equals_Schur": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "vector_1": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "vector_2": [
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "vector_q_nonzero_gauge_entry": "0",
+      "vector_q_zero_alternate_gauge_entry": "0"
+    },
+    "right_elimination": [
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1",
+        "0",
+        "0"
+      ],
+      [
+        "G*K_v*q**2/((3*q**2 - 3*w**2)*(G*K_v + beta))",
+        "-G*K_v*q*w/((3*q**2 - 3*w**2)*(G*K_v + beta))",
+        "(2*G*K_v*q**2 - 3*G*K_v*w**2)/((3*q**2 - 3*w**2)*(G*K_v + beta))",
+        "1",
+        "0"
+      ],
+      [
+        "I*kappa_hat*q*y/(2*Z5*p_material + kappa_hat)",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "scalar_3x3": [
+      [
+        "(-12*G*K_T*K_v*M5c*Z5*k_inf*p_material*q**4 - 6*G*K_T*K_v*M5c*k_inf*kappa_hat*q**4 + 12*G*K_v*M5c*Z5*p_material*q**6*exp(G/(6*M5c)) - 12*G*K_v*M5c*Z5*p_material*q**4*w**2*exp(G/(6*M5c)) + 6*G*K_v*M5c*kappa_hat*q**6*exp(G/(6*M5c)) - 6*G*K_v*M5c*kappa_hat*q**4*w**2*exp(G/(6*M5c)) + 18*G*K_v*Mb2*Z5*eta*k_inf*p_material*q**6 - 36*G*K_v*Mb2*Z5*eta*k_inf*p_material*q**4*w**2 + 18*G*K_v*Mb2*Z5*eta*k_inf*p_material*q**2*w**4 + 9*G*K_v*Mb2*eta*k_inf*kappa_hat*q**6 - 18*G*K_v*Mb2*eta*k_inf*kappa_hat*q**4*w**2 + 9*G*K_v*Mb2*eta*k_inf*kappa_hat*q**2*w**4 - 2*G*K_v*Z5*beta*k_inf*p_material*q**4 - 18*G*K_v*Z5*k_inf*kappa_hat*p_material*q**6*y**2 + 36*G*K_v*Z5*k_inf*kappa_hat*p_material*q**4*w**2*y**2 - 18*G*K_v*Z5*k_inf*kappa_hat*p_material*q**2*w**4*y**2 - G*K_v*beta*k_inf*kappa_hat*q**4 - 12*K_T*M5c*Z5*beta*k_inf*p_material*q**4 - 6*K_T*M5c*beta*k_inf*kappa_hat*q**4 + 12*M5c*Z5*beta*p_material*q**6*exp(G/(6*M5c)) - 12*M5c*Z5*beta*p_material*q**4*w**2*exp(G/(6*M5c)) + 6*M5c*beta*kappa_hat*q**6*exp(G/(6*M5c)) - 6*M5c*beta*kappa_hat*q**4*w**2*exp(G/(6*M5c)) + 18*Mb2*Z5*beta*eta*k_inf*p_material*q**6 - 36*Mb2*Z5*beta*eta*k_inf*p_material*q**4*w**2 + 18*Mb2*Z5*beta*eta*k_inf*p_material*q**2*w**4 + 9*Mb2*beta*eta*k_inf*kappa_hat*q**6 - 18*Mb2*beta*eta*k_inf*kappa_hat*q**4*w**2 + 9*Mb2*beta*eta*k_inf*kappa_hat*q**2*w**4 - 18*Z5*beta*k_inf*kappa_hat*p_material*q**6*y**2 + 36*Z5*beta*k_inf*kappa_hat*p_material*q**4*w**2*y**2 - 18*Z5*beta*k_inf*kappa_hat*p_material*q**2*w**4*y**2)/(18*G*K_v*Z5*k_inf*p_material*q**4 - 36*G*K_v*Z5*k_inf*p_material*q**2*w**2 + 18*G*K_v*Z5*k_inf*p_material*w**4 + 9*G*K_v*k_inf*kappa_hat*q**4 - 18*G*K_v*k_inf*kappa_hat*q**2*w**2 + 9*G*K_v*k_inf*kappa_hat*w**4 + 18*Z5*beta*k_inf*p_material*q**4 - 36*Z5*beta*k_inf*p_material*q**2*w**2 + 18*Z5*beta*k_inf*p_material*w**4 + 9*beta*k_inf*kappa_hat*q**4 - 18*beta*k_inf*kappa_hat*q**2*w**2 + 9*beta*k_inf*kappa_hat*w**4)",
+        "(6*G*K_T*K_v*M5c*k_inf*q**3*w - 6*G*K_v*M5c*q**5*w*exp(G/(6*M5c)) + 6*G*K_v*M5c*q**3*w**3*exp(G/(6*M5c)) + G*K_v*beta*k_inf*q**3*w + 6*K_T*M5c*beta*k_inf*q**3*w - 6*M5c*beta*q**5*w*exp(G/(6*M5c)) + 6*M5c*beta*q**3*w**3*exp(G/(6*M5c)))/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(6*G*K_T*K_v*M5c*k_inf*q**4 + 12*G*K_v*M5c*q**6*exp(G/(6*M5c)) - 30*G*K_v*M5c*q**4*w**2*exp(G/(6*M5c)) + 18*G*K_v*M5c*q**2*w**4*exp(G/(6*M5c)) + 18*G*K_v*Mb2*k_inf*q**6*xi - 36*G*K_v*Mb2*k_inf*q**4*w**2*xi + 18*G*K_v*Mb2*k_inf*q**2*w**4*xi - 2*G*K_v*beta*k_inf*q**4 + 3*G*K_v*beta*k_inf*q**2*w**2 + 6*K_T*M5c*beta*k_inf*q**4 + 12*M5c*beta*q**6*exp(G/(6*M5c)) - 30*M5c*beta*q**4*w**2*exp(G/(6*M5c)) + 18*M5c*beta*q**2*w**4*exp(G/(6*M5c)) + 18*Mb2*beta*k_inf*q**6*xi - 36*Mb2*beta*k_inf*q**4*w**2*xi + 18*Mb2*beta*k_inf*q**2*w**4*xi)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)"
+      ],
+      [
+        "(6*G*K_T*K_v*M5c*k_inf*q**3*w - 6*G*K_v*M5c*q**5*w*exp(G/(6*M5c)) + 6*G*K_v*M5c*q**3*w**3*exp(G/(6*M5c)) + G*K_v*beta*k_inf*q**3*w + 6*K_T*M5c*beta*k_inf*q**3*w - 6*M5c*beta*q**5*w*exp(G/(6*M5c)) + 6*M5c*beta*q**3*w**3*exp(G/(6*M5c)))/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(-6*G*K_T*K_v*M5c*k_inf*q**2*w**2 + 6*G*K_v*M5c*q**4*w**2*exp(G/(6*M5c)) - 6*G*K_v*M5c*q**2*w**4*exp(G/(6*M5c)) - 9*G*K_v*Mb2*k_inf*lambda_K*q**6 + 18*G*K_v*Mb2*k_inf*lambda_K*q**4*w**2 - 9*G*K_v*Mb2*k_inf*lambda_K*q**2*w**4 + 9*G*K_v*Mb2*k_inf*q**6 - 18*G*K_v*Mb2*k_inf*q**4*w**2 + 9*G*K_v*Mb2*k_inf*q**2*w**4 - G*K_v*beta*k_inf*q**2*w**2 - 6*K_T*M5c*beta*k_inf*q**2*w**2 + 6*M5c*beta*q**4*w**2*exp(G/(6*M5c)) - 6*M5c*beta*q**2*w**4*exp(G/(6*M5c)) - 9*Mb2*beta*k_inf*lambda_K*q**6 + 18*Mb2*beta*k_inf*lambda_K*q**4*w**2 - 9*Mb2*beta*k_inf*lambda_K*q**2*w**4 + 9*Mb2*beta*k_inf*q**6 - 18*Mb2*beta*k_inf*q**4*w**2 + 9*Mb2*beta*k_inf*q**2*w**4)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(-6*G*K_T*K_v*M5c*k_inf*q**3*w - 12*G*K_v*M5c*q**5*w*exp(G/(6*M5c)) + 30*G*K_v*M5c*q**3*w**3*exp(G/(6*M5c)) - 18*G*K_v*M5c*q*w**5*exp(G/(6*M5c)) - 27*G*K_v*Mb2*k_inf*lambda_K*q**5*w + 54*G*K_v*Mb2*k_inf*lambda_K*q**3*w**3 - 27*G*K_v*Mb2*k_inf*lambda_K*q*w**5 + 9*G*K_v*Mb2*k_inf*q**5*w - 18*G*K_v*Mb2*k_inf*q**3*w**3 + 9*G*K_v*Mb2*k_inf*q*w**5 + 2*G*K_v*beta*k_inf*q**3*w - 3*G*K_v*beta*k_inf*q*w**3 - 6*K_T*M5c*beta*k_inf*q**3*w - 12*M5c*beta*q**5*w*exp(G/(6*M5c)) + 30*M5c*beta*q**3*w**3*exp(G/(6*M5c)) - 18*M5c*beta*q*w**5*exp(G/(6*M5c)) - 27*Mb2*beta*k_inf*lambda_K*q**5*w + 54*Mb2*beta*k_inf*lambda_K*q**3*w**3 - 27*Mb2*beta*k_inf*lambda_K*q*w**5 + 9*Mb2*beta*k_inf*q**5*w - 18*Mb2*beta*k_inf*q**3*w**3 + 9*Mb2*beta*k_inf*q*w**5)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)"
+      ],
+      [
+        "(6*G*K_T*K_v*M5c*k_inf*q**4 + 12*G*K_v*M5c*q**6*exp(G/(6*M5c)) - 30*G*K_v*M5c*q**4*w**2*exp(G/(6*M5c)) + 18*G*K_v*M5c*q**2*w**4*exp(G/(6*M5c)) + 18*G*K_v*Mb2*k_inf*q**6*xi - 36*G*K_v*Mb2*k_inf*q**4*w**2*xi + 18*G*K_v*Mb2*k_inf*q**2*w**4*xi - 2*G*K_v*beta*k_inf*q**4 + 3*G*K_v*beta*k_inf*q**2*w**2 + 6*K_T*M5c*beta*k_inf*q**4 + 12*M5c*beta*q**6*exp(G/(6*M5c)) - 30*M5c*beta*q**4*w**2*exp(G/(6*M5c)) + 18*M5c*beta*q**2*w**4*exp(G/(6*M5c)) + 18*Mb2*beta*k_inf*q**6*xi - 36*Mb2*beta*k_inf*q**4*w**2*xi + 18*Mb2*beta*k_inf*q**2*w**4*xi)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(-6*G*K_T*K_v*M5c*k_inf*q**3*w - 12*G*K_v*M5c*q**5*w*exp(G/(6*M5c)) + 30*G*K_v*M5c*q**3*w**3*exp(G/(6*M5c)) - 18*G*K_v*M5c*q*w**5*exp(G/(6*M5c)) - 27*G*K_v*Mb2*k_inf*lambda_K*q**5*w + 54*G*K_v*Mb2*k_inf*lambda_K*q**3*w**3 - 27*G*K_v*Mb2*k_inf*lambda_K*q*w**5 + 9*G*K_v*Mb2*k_inf*q**5*w - 18*G*K_v*Mb2*k_inf*q**3*w**3 + 9*G*K_v*Mb2*k_inf*q*w**5 + 2*G*K_v*beta*k_inf*q**3*w - 3*G*K_v*beta*k_inf*q*w**3 - 6*K_T*M5c*beta*k_inf*q**3*w - 12*M5c*beta*q**5*w*exp(G/(6*M5c)) + 30*M5c*beta*q**3*w**3*exp(G/(6*M5c)) - 18*M5c*beta*q*w**5*exp(G/(6*M5c)) - 27*Mb2*beta*k_inf*lambda_K*q**5*w + 54*Mb2*beta*k_inf*lambda_K*q**3*w**3 - 27*Mb2*beta*k_inf*lambda_K*q*w**5 + 9*Mb2*beta*k_inf*q**5*w - 18*Mb2*beta*k_inf*q**3*w**3 + 9*Mb2*beta*k_inf*q*w**5)/(9*G*K_v*k_inf*q**4 - 18*G*K_v*k_inf*q**2*w**2 + 9*G*K_v*k_inf*w**4 + 9*beta*k_inf*q**4 - 18*beta*k_inf*q**2*w**2 + 9*beta*k_inf*w**4)",
+        "(-9*B4bar*G*K_v*Mb2*q**8 + 18*B4bar*G*K_v*Mb2*q**6*w**2 - 9*B4bar*G*K_v*Mb2*q**4*w**4 - 9*B4bar*Mb2*beta*q**8 + 18*B4bar*Mb2*beta*q**6*w**2 - 9*B4bar*Mb2*beta*q**4*w**4 - 6*G*K_T*K_v*M5c*k_inf**2*q**4 + 24*G*K_v*M5c*k_inf*q**6*exp(G/(6*M5c)) - 96*G*K_v*M5c*k_inf*q**4*w**2*exp(G/(6*M5c)) + 126*G*K_v*M5c*k_inf*q**2*w**4*exp(G/(6*M5c)) - 54*G*K_v*M5c*k_inf*w**6*exp(G/(6*M5c)) - 81*G*K_v*Mb2*k_inf**2*lambda_K*q**4*w**2 + 162*G*K_v*Mb2*k_inf**2*lambda_K*q**2*w**4 - 81*G*K_v*Mb2*k_inf**2*lambda_K*w**6 + 18*G*K_v*Mb2*k_inf**2*q**6*xi - 36*G*K_v*Mb2*k_inf**2*q**4*w**2*xi + 27*G*K_v*Mb2*k_inf**2*q**4*w**2 + 18*G*K_v*Mb2*k_inf**2*q**2*w**4*xi - 54*G*K_v*Mb2*k_inf**2*q**2*w**4 + 27*G*K_v*Mb2*k_inf**2*w**6 - 4*G*K_v*beta*k_inf**2*q**4 + 12*G*K_v*beta*k_inf**2*q**2*w**2 - 9*G*K_v*beta*k_inf**2*w**4 - 6*K_T*M5c*beta*k_inf**2*q**4 + 24*M5c*beta*k_inf*q**6*exp(G/(6*M5c)) - 96*M5c*beta*k_inf*q**4*w**2*exp(G/(6*M5c)) + 126*M5c*beta*k_inf*q**2*w**4*exp(G/(6*M5c)) - 54*M5c*beta*k_inf*w**6*exp(G/(6*M5c)) - 81*Mb2*beta*k_inf**2*lambda_K*q**4*w**2 + 162*Mb2*beta*k_inf**2*lambda_K*q**2*w**4 - 81*Mb2*beta*k_inf**2*lambda_K*w**6 + 18*Mb2*beta*k_inf**2*q**6*xi - 36*Mb2*beta*k_inf**2*q**4*w**2*xi + 27*Mb2*beta*k_inf**2*q**4*w**2 + 18*Mb2*beta*k_inf**2*q**2*w**4*xi - 54*Mb2*beta*k_inf**2*q**2*w**4 + 27*Mb2*beta*k_inf**2*w**6)/(9*G*K_v*k_inf**2*q**4 - 18*G*K_v*k_inf**2*q**2*w**2 + 9*G*K_v*k_inf**2*w**4 + 9*beta*k_inf**2*q**4 - 18*beta*k_inf**2*q**2*w**2 + 9*beta*k_inf**2*w**4)"
+      ]
+    ],
+    "scalar_5x5": [
+      [
+        "(-G*K_v*k_inf*q**4 - 6*K_T*M5c*k_inf*q**4 + 6*M5c*q**6*exp(G/(6*M5c)) - 6*M5c*q**4*w**2*exp(G/(6*M5c)) + 9*Mb2*eta*k_inf*q**6 - 18*Mb2*eta*k_inf*q**4*w**2 + 9*Mb2*eta*k_inf*q**2*w**4 - 9*k_inf*kappa_hat*q**6*y**2 + 18*k_inf*kappa_hat*q**4*w**2*y**2 - 9*k_inf*kappa_hat*q**2*w**4*y**2)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(G*K_v*k_inf*q**3*w + 6*K_T*M5c*k_inf*q**3*w - 6*M5c*q**5*w*exp(G/(6*M5c)) + 6*M5c*q**3*w**3*exp(G/(6*M5c)))/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(-2*G*K_v*k_inf*q**4 + 3*G*K_v*k_inf*q**2*w**2 + 6*K_T*M5c*k_inf*q**4 + 12*M5c*q**6*exp(G/(6*M5c)) - 30*M5c*q**4*w**2*exp(G/(6*M5c)) + 18*M5c*q**2*w**4*exp(G/(6*M5c)) + 18*Mb2*k_inf*q**6*xi - 36*Mb2*k_inf*q**4*w**2*xi + 18*Mb2*k_inf*q**2*w**4*xi)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "G*K_v*q**2/(3*q**2 - 3*w**2)",
+        "-I*kappa_hat*q*y"
+      ],
+      [
+        "(G*K_v*k_inf*q**3*w + 6*K_T*M5c*k_inf*q**3*w - 6*M5c*q**5*w*exp(G/(6*M5c)) + 6*M5c*q**3*w**3*exp(G/(6*M5c)))/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(-G*K_v*k_inf*q**2*w**2 - 6*K_T*M5c*k_inf*q**2*w**2 + 6*M5c*q**4*w**2*exp(G/(6*M5c)) - 6*M5c*q**2*w**4*exp(G/(6*M5c)) - 9*Mb2*k_inf*lambda_K*q**6 + 18*Mb2*k_inf*lambda_K*q**4*w**2 - 9*Mb2*k_inf*lambda_K*q**2*w**4 + 9*Mb2*k_inf*q**6 - 18*Mb2*k_inf*q**4*w**2 + 9*Mb2*k_inf*q**2*w**4)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(2*G*K_v*k_inf*q**3*w - 3*G*K_v*k_inf*q*w**3 - 6*K_T*M5c*k_inf*q**3*w - 12*M5c*q**5*w*exp(G/(6*M5c)) + 30*M5c*q**3*w**3*exp(G/(6*M5c)) - 18*M5c*q*w**5*exp(G/(6*M5c)) - 27*Mb2*k_inf*lambda_K*q**5*w + 54*Mb2*k_inf*lambda_K*q**3*w**3 - 27*Mb2*k_inf*lambda_K*q*w**5 + 9*Mb2*k_inf*q**5*w - 18*Mb2*k_inf*q**3*w**3 + 9*Mb2*k_inf*q*w**5)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "-G*K_v*q*w/(3*q**2 - 3*w**2)",
+        "0"
+      ],
+      [
+        "(-2*G*K_v*k_inf*q**4 + 3*G*K_v*k_inf*q**2*w**2 + 6*K_T*M5c*k_inf*q**4 + 12*M5c*q**6*exp(G/(6*M5c)) - 30*M5c*q**4*w**2*exp(G/(6*M5c)) + 18*M5c*q**2*w**4*exp(G/(6*M5c)) + 18*Mb2*k_inf*q**6*xi - 36*Mb2*k_inf*q**4*w**2*xi + 18*Mb2*k_inf*q**2*w**4*xi)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(2*G*K_v*k_inf*q**3*w - 3*G*K_v*k_inf*q*w**3 - 6*K_T*M5c*k_inf*q**3*w - 12*M5c*q**5*w*exp(G/(6*M5c)) + 30*M5c*q**3*w**3*exp(G/(6*M5c)) - 18*M5c*q*w**5*exp(G/(6*M5c)) - 27*Mb2*k_inf*lambda_K*q**5*w + 54*Mb2*k_inf*lambda_K*q**3*w**3 - 27*Mb2*k_inf*lambda_K*q*w**5 + 9*Mb2*k_inf*q**5*w - 18*Mb2*k_inf*q**3*w**3 + 9*Mb2*k_inf*q*w**5)/(9*k_inf*q**4 - 18*k_inf*q**2*w**2 + 9*k_inf*w**4)",
+        "(-9*B4bar*Mb2*q**8 + 18*B4bar*Mb2*q**6*w**2 - 9*B4bar*Mb2*q**4*w**4 - 4*G*K_v*k_inf**2*q**4 + 12*G*K_v*k_inf**2*q**2*w**2 - 9*G*K_v*k_inf**2*w**4 - 6*K_T*M5c*k_inf**2*q**4 + 24*M5c*k_inf*q**6*exp(G/(6*M5c)) - 96*M5c*k_inf*q**4*w**2*exp(G/(6*M5c)) + 126*M5c*k_inf*q**2*w**4*exp(G/(6*M5c)) - 54*M5c*k_inf*w**6*exp(G/(6*M5c)) - 81*Mb2*k_inf**2*lambda_K*q**4*w**2 + 162*Mb2*k_inf**2*lambda_K*q**2*w**4 - 81*Mb2*k_inf**2*lambda_K*w**6 + 18*Mb2*k_inf**2*q**6*xi - 36*Mb2*k_inf**2*q**4*w**2*xi + 27*Mb2*k_inf**2*q**4*w**2 + 18*Mb2*k_inf**2*q**2*w**4*xi - 54*Mb2*k_inf**2*q**2*w**4 + 27*Mb2*k_inf**2*w**6)/(9*k_inf**2*q**4 - 18*k_inf**2*q**2*w**2 + 9*k_inf**2*w**4)",
+        "(2*G*K_v*q**2 - 3*G*K_v*w**2)/(3*q**2 - 3*w**2)",
+        "0"
+      ],
+      [
+        "G*K_v*q**2/(3*q**2 - 3*w**2)",
+        "-G*K_v*q*w/(3*q**2 - 3*w**2)",
+        "(2*G*K_v*q**2 - 3*G*K_v*w**2)/(3*q**2 - 3*w**2)",
+        "-G*K_v - beta",
+        "0"
+      ],
+      [
+        "I*kappa_hat*q*y",
+        "0",
+        "0",
+        "0",
+        "-2*Z5*p_material - kappa_hat"
+      ]
+    ],
+    "scalar_U": "q**2*(lapse - zeta) - q*shift3*w",
+    "scalar_Z": "zeta + (q**2*(lapse - zeta) - q*shift3*w)/(3*q**2 - 3*w**2)",
+    "scalar_action_reference": [
+      [
+        "-G*K_v*beta*q**4/((3*q**2 - 3*w**2)**2*(G*K_v + beta)) - 2*K_T*M5c*q**4/((q**2 - w**2)*(3*q**2 - 3*w**2)) + 6*M5c*q**4*(q**2 - w**2)*exp(G/(6*M5c))/(k_inf*(3*q**2 - 3*w**2)**2) + Mb2*q**2*(eta - 2*Z5*kappa_hat*p_material*y**2/(Mb2*(2*Z5*p_material + kappa_hat)))",
+        "G*K_v*beta*q**3*w/((3*q**2 - 3*w**2)**2*(G*K_v + beta)) + 2*K_T*M5c*q**3*w/((q**2 - w**2)*(3*q**2 - 3*w**2)) - 6*M5c*q**3*w*(q**2 - w**2)*exp(G/(6*M5c))/(k_inf*(3*q**2 - 3*w**2)**2)",
+        "-G*K_v*beta*q**2*(-q**2/(3*q**2 - 3*w**2) + 1)/((3*q**2 - 3*w**2)*(G*K_v + beta)) + 2*K_T*M5c*q**4/((q**2 - w**2)*(3*q**2 - 3*w**2)) + 6*M5c*q**2*(q**2 - w**2)*(-q**2/(3*q**2 - 3*w**2) + 1)*exp(G/(6*M5c))/(k_inf*(3*q**2 - 3*w**2)) + 2*Mb2*q**2*xi"
+      ],
+      [
+        "G*K_v*beta*q**3*w/((3*q**2 - 3*w**2)**2*(G*K_v + beta)) + 2*K_T*M5c*q**3*w/((q**2 - w**2)*(3*q**2 - 3*w**2)) - 6*M5c*q**3*w*(q**2 - w**2)*exp(G/(6*M5c))/(k_inf*(3*q**2 - 3*w**2)**2)",
+        "-G*K_v*beta*q**2*w**2/((3*q**2 - 3*w**2)**2*(G*K_v + beta)) - 2*K_T*M5c*q**2*w**2/((q**2 - w**2)*(3*q**2 - 3*w**2)) + 6*M5c*q**2*w**2*(q**2 - w**2)*exp(G/(6*M5c))/(k_inf*(3*q**2 - 3*w**2)**2) + Mb2*q**2*(1 - lambda_K)",
+        "G*K_v*beta*q*w*(-q**2/(3*q**2 - 3*w**2) + 1)/((3*q**2 - 3*w**2)*(G*K_v + beta)) - 2*K_T*M5c*q**3*w/((q**2 - w**2)*(3*q**2 - 3*w**2)) - 6*M5c*q*w*(q**2 - w**2)*(-q**2/(3*q**2 - 3*w**2) + 1)*exp(G/(6*M5c))/(k_inf*(3*q**2 - 3*w**2)) + Mb2*q*w*(2 - 6*lambda_K)/2"
+      ],
+      [
+        "-G*K_v*beta*q**2*(-q**2/(3*q**2 - 3*w**2) + 1)/((3*q**2 - 3*w**2)*(G*K_v + beta)) + 2*K_T*M5c*q**4/((q**2 - w**2)*(3*q**2 - 3*w**2)) + 6*M5c*q**2*(q**2 - w**2)*(-q**2/(3*q**2 - 3*w**2) + 1)*exp(G/(6*M5c))/(k_inf*(3*q**2 - 3*w**2)) + 2*Mb2*q**2*xi",
+        "G*K_v*beta*q*w*(-q**2/(3*q**2 - 3*w**2) + 1)/((3*q**2 - 3*w**2)*(G*K_v + beta)) - 2*K_T*M5c*q**3*w/((q**2 - w**2)*(3*q**2 - 3*w**2)) - 6*M5c*q*w*(q**2 - w**2)*(-q**2/(3*q**2 - 3*w**2) + 1)*exp(G/(6*M5c))/(k_inf*(3*q**2 - 3*w**2)) + Mb2*q*w*(2 - 6*lambda_K)/2",
+        "-G*K_v*beta*(-2*q**2/(3*q**2 - 3*w**2) + 2)*(-q**2/(3*q**2 - 3*w**2) + 1)/(2*(G*K_v + beta)) - 2*K_T*M5c*q**4/((q**2 - w**2)*(3*q**2 - 3*w**2)) + 3*M5c*(q**2 - w**2)*(-2*q**2/(3*q**2 - 3*w**2) + 2)*(-q**2/(3*q**2 - 3*w**2) + 1)*exp(G/(6*M5c))/k_inf + Mb2*(-2*B4bar*q**4/k_inf**2 + 4*q**2*xi + 2*w**2*(3 - 9*lambda_K))/2"
+      ]
+    ],
+    "scalar_field_order": [
+      "n",
+      "N3",
+      "zeta",
+      "Omega_trace",
+      "phi3_trace"
+    ],
+    "scalar_fields": [
+      [
+        "lapse"
+      ],
+      [
+        "shift3"
+      ],
+      [
+        "zeta"
+      ],
+      [
+        "Omega_trace"
+      ],
+      [
+        "phi3_trace"
+      ]
+    ],
+    "scalar_injection": [
+      [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "1",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "2",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "scope": {
+      "B4": false,
+      "B5": false,
+      "BF_edge_or_embedding_sector_certified": false,
+      "full_N7": false,
+      "full_P4": false,
+      "full_physical_mode_count_certified": false,
+      "pivots_discarded_as_unphysical": false,
+      "projectors_require_q_squared_minus_frequency_squared_nonzero": true,
+      "remaining_scalar_determinant_nonzero_in_RHP": false,
+      "scalar_gauge_patch_requires_q_nonzero": true,
+      "scalar_q_zero_alternate_reduction_certified": false,
+      "tensor_vector_RHP_result_requires_regular_energy_kernel_hypotheses": true
+    },
+    "tensor_cross": "-K_T*M5c/2 - Mb2*q**2*xi/2 + Mb2*w**2/2",
+    "tensor_plus": "(-9*B4bar*Mb2*q**4 - 4*G*K_v*k_inf**2 - 24*K_T*M5c*k_inf**2 + 24*M5c*k_inf*q**2*exp(G/(6*M5c)) - 24*M5c*k_inf*w**2*exp(G/(6*M5c)) - 36*Mb2*k_inf**2*lambda_K*w**2 + 36*Mb2*k_inf**2*w**2)/(72*k_inf**2) - (-9*B4bar*Mb2*q**4 - 4*G*K_v*k_inf**2 + 12*K_T*M5c*k_inf**2 + 24*M5c*k_inf*q**2*exp(G/(6*M5c)) - 24*M5c*k_inf*w**2*exp(G/(6*M5c)) - 36*Mb2*k_inf**2*lambda_K*w**2 + 36*Mb2*k_inf**2*q**2*xi)/(72*k_inf**2)",
+    "vector_blocks": {
+      "1": {
+        "field_order": [
+          "N1",
+          "H13",
+          "vphi1"
+        ],
+        "matrix": [
+          [
+            "(K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "0"
+          ],
+          [
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "(K_T*M5c*w**2 + Mb2*q**2*w**2 - Mb2*w**4)/(2*q**2 - 2*w**2)",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-2*Z5*p_material - kappa_hat"
+          ]
+        ],
+        "reference": [
+          [
+            "q**2*(K_T*M5c + Mb2*(q**2 - w**2))/(2*q**2 - 2*w**2)",
+            "q*w*(K_T*M5c + Mb2*(q**2 - w**2))/(2*q**2 - 2*w**2)",
+            "0"
+          ],
+          [
+            "q*w*(K_T*M5c + Mb2*(q**2 - w**2))/(2*q**2 - 2*w**2)",
+            "w**2*(K_T*M5c + Mb2*(q**2 - w**2))/(2*q**2 - 2*w**2)",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-2*Z5*p_material - kappa_hat"
+          ]
+        ],
+        "residual": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "2": {
+        "field_order": [
+          "N2",
+          "H23",
+          "vphi2"
+        ],
+        "matrix": [
+          [
+            "(K_T*M5c*q**2 + Mb2*q**4 - Mb2*q**2*w**2)/(2*q**2 - 2*w**2)",
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "0"
+          ],
+          [
+            "(K_T*M5c*q*w + Mb2*q**3*w - Mb2*q*w**3)/(2*q**2 - 2*w**2)",
+            "(K_T*M5c*w**2 + Mb2*q**2*w**2 - Mb2*w**4)/(2*q**2 - 2*w**2)",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-2*Z5*p_material - kappa_hat"
+          ]
+        ],
+        "reference": [
+          [
+            "q**2*(K_T*M5c + Mb2*(q**2 - w**2))/(2*q**2 - 2*w**2)",
+            "q*w*(K_T*M5c + Mb2*(q**2 - w**2))/(2*q**2 - 2*w**2)",
+            "0"
+          ],
+          [
+            "q*w*(K_T*M5c + Mb2*(q**2 - w**2))/(2*q**2 - 2*w**2)",
+            "w**2*(K_T*M5c + Mb2*(q**2 - w**2))/(2*q**2 - 2*w**2)",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-2*Z5*p_material - kappa_hat"
+          ]
+        ],
+        "residual": [
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      }
+    }
+  },
+  "sources": {
+    "boundary_assembly": "c3c93cd779fe684329419012202d2cf697aee926efe5efbaee1cb0e47f781bce"
+  }
+}
