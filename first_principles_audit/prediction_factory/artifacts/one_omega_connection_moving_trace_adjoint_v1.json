@@ -1,0 +1,1001 @@
+{
+  "BF_adjoint": {
+    "BF_chart_complements": "A0_1*bminus_dual0_2*eta_minus_3 - A0_1*bminus_dual0_3*eta_minus_2 - A0_1*bplus_dual0_2*eta_plus_3 + A0_1*bplus_dual0_3*eta_plus_2 - A0_2*bminus_dual0_1*eta_minus_3 + A0_2*bminus_dual0_3*eta_minus_1 + A0_2*bplus_dual0_1*eta_plus_3 - A0_2*bplus_dual0_3*eta_plus_1 + A0_3*bminus_dual0_1*eta_minus_2 - A0_3*bminus_dual0_2*eta_minus_1 - A0_3*bplus_dual0_1*eta_plus_2 + A0_3*bplus_dual0_2*eta_plus_1 + A1_1*bminus_dual1_2*eta_minus_3 - A1_1*bminus_dual1_3*eta_minus_2 - A1_1*bplus_dual1_2*eta_plus_3 + A1_1*bplus_dual1_3*eta_plus_2 - A1_2*bminus_dual1_1*eta_minus_3 + A1_2*bminus_dual1_3*eta_minus_1 + A1_2*bplus_dual1_1*eta_plus_3 - A1_2*bplus_dual1_3*eta_plus_1 + A1_3*bminus_dual1_1*eta_minus_2 - A1_3*bminus_dual1_2*eta_minus_1 - A1_3*bplus_dual1_1*eta_plus_2 + A1_3*bplus_dual1_2*eta_plus_1 + A2_1*bminus_dual2_2*eta_minus_3 - A2_1*bminus_dual2_3*eta_minus_2 - A2_1*bplus_dual2_2*eta_plus_3 + A2_1*bplus_dual2_3*eta_plus_2 - A2_2*bminus_dual2_1*eta_minus_3 + A2_2*bminus_dual2_3*eta_minus_1 + A2_2*bplus_dual2_1*eta_plus_3 - A2_2*bplus_dual2_3*eta_plus_1 + A2_3*bminus_dual2_1*eta_minus_2 - A2_3*bminus_dual2_2*eta_minus_1 - A2_3*bplus_dual2_1*eta_plus_2 + A2_3*bplus_dual2_2*eta_plus_1 + A3_1*bminus_dual3_2*eta_minus_3 - A3_1*bminus_dual3_3*eta_minus_2 - A3_1*bplus_dual3_2*eta_plus_3 + A3_1*bplus_dual3_3*eta_plus_2 - A3_2*bminus_dual3_1*eta_minus_3 + A3_2*bminus_dual3_3*eta_minus_1 + A3_2*bplus_dual3_1*eta_plus_3 - A3_2*bplus_dual3_3*eta_plus_1 + A3_3*bminus_dual3_1*eta_minus_2 - A3_3*bminus_dual3_2*eta_minus_1 - A3_3*bplus_dual3_1*eta_plus_2 + A3_3*bplus_dual3_2*eta_plus_1 - An_minus_1*bminus_dual0_1*df_0 - An_minus_1*bminus_dual1_1*df_1 - An_minus_1*bminus_dual2_1*df_2 - An_minus_1*bminus_dual3_1*df_3 - An_minus_2*bminus_dual0_2*df_0 - An_minus_2*bminus_dual1_2*df_1 - An_minus_2*bminus_dual2_2*df_2 - An_minus_2*bminus_dual3_2*df_3 - An_minus_3*bminus_dual0_3*df_0 - An_minus_3*bminus_dual1_3*df_1 - An_minus_3*bminus_dual2_3*df_2 - An_minus_3*bminus_dual3_3*df_3 + An_plus_1*bplus_dual0_1*df_0 + An_plus_1*bplus_dual1_1*df_1 + An_plus_1*bplus_dual2_1*df_2 + An_plus_1*bplus_dual3_1*df_3 + An_plus_2*bplus_dual0_2*df_0 + An_plus_2*bplus_dual1_2*df_1 + An_plus_2*bplus_dual2_2*df_2 + An_plus_2*bplus_dual3_2*df_3 + An_plus_3*bplus_dual0_3*df_0 + An_plus_3*bplus_dual1_3*df_1 + An_plus_3*bplus_dual2_3*df_2 + An_plus_3*bplus_dual3_3*df_3 + bminus_dual0_1*deta_minus0_1 - bminus_dual0_1*dnA_minus0_1*f + bminus_dual0_2*deta_minus0_2 - bminus_dual0_2*dnA_minus0_2*f + bminus_dual0_3*deta_minus0_3 - bminus_dual0_3*dnA_minus0_3*f + bminus_dual1_1*deta_minus1_1 - bminus_dual1_1*dnA_minus1_1*f + bminus_dual1_2*deta_minus1_2 - bminus_dual1_2*dnA_minus1_2*f + bminus_dual1_3*deta_minus1_3 - bminus_dual1_3*dnA_minus1_3*f + bminus_dual2_1*deta_minus2_1 - bminus_dual2_1*dnA_minus2_1*f + bminus_dual2_2*deta_minus2_2 - bminus_dual2_2*dnA_minus2_2*f + bminus_dual2_3*deta_minus2_3 - bminus_dual2_3*dnA_minus2_3*f + bminus_dual3_1*deta_minus3_1 - bminus_dual3_1*dnA_minus3_1*f + bminus_dual3_2*deta_minus3_2 - bminus_dual3_2*dnA_minus3_2*f + bminus_dual3_3*deta_minus3_3 - bminus_dual3_3*dnA_minus3_3*f - bplus_dual0_1*deta_plus0_1 + bplus_dual0_1*dnA_plus0_1*f - bplus_dual0_2*deta_plus0_2 + bplus_dual0_2*dnA_plus0_2*f - bplus_dual0_3*deta_plus0_3 + bplus_dual0_3*dnA_plus0_3*f - bplus_dual1_1*deta_plus1_1 + bplus_dual1_1*dnA_plus1_1*f - bplus_dual1_2*deta_plus1_2 + bplus_dual1_2*dnA_plus1_2*f - bplus_dual1_3*deta_plus1_3 + bplus_dual1_3*dnA_plus1_3*f - bplus_dual2_1*deta_plus2_1 + bplus_dual2_1*dnA_plus2_1*f - bplus_dual2_2*deta_plus2_2 + bplus_dual2_2*dnA_plus2_2*f - bplus_dual2_3*deta_plus2_3 + bplus_dual2_3*dnA_plus2_3*f - bplus_dual3_1*deta_plus3_1 + bplus_dual3_1*dnA_plus3_1*f - bplus_dual3_2*deta_plus3_2 + bplus_dual3_2*dnA_plus3_2*f - bplus_dual3_3*deta_plus3_3 + bplus_dual3_3*dnA_plus3_3*f",
+    "orientation_coefficients": {
+      "boundary_jump_coefficient": "1",
+      "compatibility_current_coefficient": "1",
+      "required_B_jump_coefficient": "-1"
+    },
+    "pure_identification_common_part": "-A0_1*bminus_dual0_2*eta_rotation_3 + A0_1*bminus_dual0_3*eta_rotation_2 + A0_1*bplus_dual0_2*eta_rotation_3 - A0_1*bplus_dual0_3*eta_rotation_2 + A0_2*bminus_dual0_1*eta_rotation_3 - A0_2*bminus_dual0_3*eta_rotation_1 - A0_2*bplus_dual0_1*eta_rotation_3 + A0_2*bplus_dual0_3*eta_rotation_1 - A0_3*bminus_dual0_1*eta_rotation_2 + A0_3*bminus_dual0_2*eta_rotation_1 + A0_3*bplus_dual0_1*eta_rotation_2 - A0_3*bplus_dual0_2*eta_rotation_1 - A1_1*bminus_dual1_2*eta_rotation_3 + A1_1*bminus_dual1_3*eta_rotation_2 + A1_1*bplus_dual1_2*eta_rotation_3 - A1_1*bplus_dual1_3*eta_rotation_2 + A1_2*bminus_dual1_1*eta_rotation_3 - A1_2*bminus_dual1_3*eta_rotation_1 - A1_2*bplus_dual1_1*eta_rotation_3 + A1_2*bplus_dual1_3*eta_rotation_1 - A1_3*bminus_dual1_1*eta_rotation_2 + A1_3*bminus_dual1_2*eta_rotation_1 + A1_3*bplus_dual1_1*eta_rotation_2 - A1_3*bplus_dual1_2*eta_rotation_1 - A2_1*bminus_dual2_2*eta_rotation_3 + A2_1*bminus_dual2_3*eta_rotation_2 + A2_1*bplus_dual2_2*eta_rotation_3 - A2_1*bplus_dual2_3*eta_rotation_2 + A2_2*bminus_dual2_1*eta_rotation_3 - A2_2*bminus_dual2_3*eta_rotation_1 - A2_2*bplus_dual2_1*eta_rotation_3 + A2_2*bplus_dual2_3*eta_rotation_1 - A2_3*bminus_dual2_1*eta_rotation_2 + A2_3*bminus_dual2_2*eta_rotation_1 + A2_3*bplus_dual2_1*eta_rotation_2 - A2_3*bplus_dual2_2*eta_rotation_1 - A3_1*bminus_dual3_2*eta_rotation_3 + A3_1*bminus_dual3_3*eta_rotation_2 + A3_1*bplus_dual3_2*eta_rotation_3 - A3_1*bplus_dual3_3*eta_rotation_2 + A3_2*bminus_dual3_1*eta_rotation_3 - A3_2*bminus_dual3_3*eta_rotation_1 - A3_2*bplus_dual3_1*eta_rotation_3 + A3_2*bplus_dual3_3*eta_rotation_1 - A3_3*bminus_dual3_1*eta_rotation_2 + A3_3*bminus_dual3_2*eta_rotation_1 + A3_3*bplus_dual3_1*eta_rotation_2 - A3_3*bplus_dual3_2*eta_rotation_1 - bminus_dual0_1*deta_rotation0_1 - bminus_dual0_2*deta_rotation0_2 - bminus_dual0_3*deta_rotation0_3 - bminus_dual1_1*deta_rotation1_1 - bminus_dual1_2*deta_rotation1_2 - bminus_dual1_3*deta_rotation1_3 - bminus_dual2_1*deta_rotation2_1 - bminus_dual2_2*deta_rotation2_2 - bminus_dual2_3*deta_rotation2_3 - bminus_dual3_1*deta_rotation3_1 - bminus_dual3_2*deta_rotation3_2 - bminus_dual3_3*deta_rotation3_3 + bplus_dual0_1*deta_rotation0_1 + bplus_dual0_2*deta_rotation0_2 + bplus_dual0_3*deta_rotation0_3 + bplus_dual1_1*deta_rotation1_1 + bplus_dual1_2*deta_rotation1_2 + bplus_dual1_3*deta_rotation1_3 + bplus_dual2_1*deta_rotation2_1 + bplus_dual2_2*deta_rotation2_2 + bplus_dual2_3*deta_rotation2_3 + bplus_dual3_1*deta_rotation3_1 + bplus_dual3_2*deta_rotation3_2 + bplus_dual3_3*deta_rotation3_3",
+    "pure_identification_complements": "A0_1*bminus_dual0_2*eta_rotation_3 - A0_1*bminus_dual0_3*eta_rotation_2 - A0_1*bplus_dual0_2*eta_rotation_3 + A0_1*bplus_dual0_3*eta_rotation_2 - A0_2*bminus_dual0_1*eta_rotation_3 + A0_2*bminus_dual0_3*eta_rotation_1 + A0_2*bplus_dual0_1*eta_rotation_3 - A0_2*bplus_dual0_3*eta_rotation_1 + A0_3*bminus_dual0_1*eta_rotation_2 - A0_3*bminus_dual0_2*eta_rotation_1 - A0_3*bplus_dual0_1*eta_rotation_2 + A0_3*bplus_dual0_2*eta_rotation_1 + A1_1*bminus_dual1_2*eta_rotation_3 - A1_1*bminus_dual1_3*eta_rotation_2 - A1_1*bplus_dual1_2*eta_rotation_3 + A1_1*bplus_dual1_3*eta_rotation_2 - A1_2*bminus_dual1_1*eta_rotation_3 + A1_2*bminus_dual1_3*eta_rotation_1 + A1_2*bplus_dual1_1*eta_rotation_3 - A1_2*bplus_dual1_3*eta_rotation_1 + A1_3*bminus_dual1_1*eta_rotation_2 - A1_3*bminus_dual1_2*eta_rotation_1 - A1_3*bplus_dual1_1*eta_rotation_2 + A1_3*bplus_dual1_2*eta_rotation_1 + A2_1*bminus_dual2_2*eta_rotation_3 - A2_1*bminus_dual2_3*eta_rotation_2 - A2_1*bplus_dual2_2*eta_rotation_3 + A2_1*bplus_dual2_3*eta_rotation_2 - A2_2*bminus_dual2_1*eta_rotation_3 + A2_2*bminus_dual2_3*eta_rotation_1 + A2_2*bplus_dual2_1*eta_rotation_3 - A2_2*bplus_dual2_3*eta_rotation_1 + A2_3*bminus_dual2_1*eta_rotation_2 - A2_3*bminus_dual2_2*eta_rotation_1 - A2_3*bplus_dual2_1*eta_rotation_2 + A2_3*bplus_dual2_2*eta_rotation_1 + A3_1*bminus_dual3_2*eta_rotation_3 - A3_1*bminus_dual3_3*eta_rotation_2 - A3_1*bplus_dual3_2*eta_rotation_3 + A3_1*bplus_dual3_3*eta_rotation_2 - A3_2*bminus_dual3_1*eta_rotation_3 + A3_2*bminus_dual3_3*eta_rotation_1 + A3_2*bplus_dual3_1*eta_rotation_3 - A3_2*bplus_dual3_3*eta_rotation_1 + A3_3*bminus_dual3_1*eta_rotation_2 - A3_3*bminus_dual3_2*eta_rotation_1 - A3_3*bplus_dual3_1*eta_rotation_2 + A3_3*bplus_dual3_2*eta_rotation_1 + bminus_dual0_1*deta_rotation0_1 + bminus_dual0_2*deta_rotation0_2 + bminus_dual0_3*deta_rotation0_3 + bminus_dual1_1*deta_rotation1_1 + bminus_dual1_2*deta_rotation1_2 + bminus_dual1_3*deta_rotation1_3 + bminus_dual2_1*deta_rotation2_1 + bminus_dual2_2*deta_rotation2_2 + bminus_dual2_3*deta_rotation2_3 + bminus_dual3_1*deta_rotation3_1 + bminus_dual3_2*deta_rotation3_2 + bminus_dual3_3*deta_rotation3_3 - bplus_dual0_1*deta_rotation0_1 - bplus_dual0_2*deta_rotation0_2 - bplus_dual0_3*deta_rotation0_3 - bplus_dual1_1*deta_rotation1_1 - bplus_dual1_2*deta_rotation1_2 - bplus_dual1_3*deta_rotation1_3 - bplus_dual2_1*deta_rotation2_1 - bplus_dual2_2*deta_rotation2_2 - bplus_dual2_3*deta_rotation2_3 - bplus_dual3_1*deta_rotation3_1 - bplus_dual3_2*deta_rotation3_2 - bplus_dual3_3*deta_rotation3_3",
+    "rotation_boundary_divergence": "Qdual0_1*deta_rotation0_1 + Qdual0_2*deta_rotation0_2 + Qdual0_3*deta_rotation0_3 + Qdual1_1*deta_rotation1_1 + Qdual1_2*deta_rotation1_2 + Qdual1_3*deta_rotation1_3 + Qdual2_1*deta_rotation2_1 + Qdual2_2*deta_rotation2_2 + Qdual2_3*deta_rotation2_3 + Qdual3_1*deta_rotation3_1 + Qdual3_2*deta_rotation3_2 + Qdual3_3*deta_rotation3_3 + dQdual0_1*eta_rotation_1 + dQdual0_2*eta_rotation_2 + dQdual0_3*eta_rotation_3 + dQdual1_1*eta_rotation_1 + dQdual1_2*eta_rotation_2 + dQdual1_3*eta_rotation_3 + dQdual2_1*eta_rotation_1 + dQdual2_2*eta_rotation_2 + dQdual2_3*eta_rotation_3 + dQdual3_1*eta_rotation_1 + dQdual3_2*eta_rotation_2 + dQdual3_3*eta_rotation_3",
+    "rotation_interior": "-eta_rotation_1*(-A0_2*Qdual0_3 + A0_3*Qdual0_2 - A1_2*Qdual1_3 + A1_3*Qdual1_2 - A2_2*Qdual2_3 + A2_3*Qdual2_2 - A3_2*Qdual3_3 + A3_3*Qdual3_2 + dQdual0_1 + dQdual1_1 + dQdual2_1 + dQdual3_1)/2 + eta_rotation_1*(A0_2*Qdual0_3 - A0_3*Qdual0_2 + A1_2*Qdual1_3 - A1_3*Qdual1_2 + A2_2*Qdual2_3 - A2_3*Qdual2_2 + A3_2*Qdual3_3 - A3_3*Qdual3_2 - dQdual0_1 - dQdual1_1 - dQdual2_1 - dQdual3_1)/2 + eta_rotation_2*(-A0_1*Qdual0_3 + A0_3*Qdual0_1 - A1_1*Qdual1_3 + A1_3*Qdual1_1 - A2_1*Qdual2_3 + A2_3*Qdual2_1 - A3_1*Qdual3_3 + A3_3*Qdual3_1 - dQdual0_2 - dQdual1_2 - dQdual2_2 - dQdual3_2)/2 - eta_rotation_2*(A0_1*Qdual0_3 - A0_3*Qdual0_1 + A1_1*Qdual1_3 - A1_3*Qdual1_1 + A2_1*Qdual2_3 - A2_3*Qdual2_1 + A3_1*Qdual3_3 - A3_3*Qdual3_1 + dQdual0_2 + dQdual1_2 + dQdual2_2 + dQdual3_2)/2 - eta_rotation_3*(-A0_1*Qdual0_2 + A0_2*Qdual0_1 - A1_1*Qdual1_2 + A1_2*Qdual1_1 - A2_1*Qdual2_2 + A2_2*Qdual2_1 - A3_1*Qdual3_2 + A3_2*Qdual3_1 + dQdual0_3 + dQdual1_3 + dQdual2_3 + dQdual3_3)/2 + eta_rotation_3*(A0_1*Qdual0_2 - A0_2*Qdual0_1 + A1_1*Qdual1_2 - A1_2*Qdual1_1 + A2_1*Qdual2_2 - A2_2*Qdual2_1 + A3_1*Qdual3_2 - A3_2*Qdual3_1 - dQdual0_3 - dQdual1_3 - dQdual2_3 - dQdual3_3)/2",
+    "row_on_bulk_equations": [
+      [
+        "0",
+        "-DJ_3 - jminus_3 + jplus_3",
+        "DJ_2 + jminus_2 - jplus_2"
+      ],
+      [
+        "DJ_3 + jminus_3 - jplus_3",
+        "0",
+        "-DJ_1 - jminus_1 + jplus_1"
+      ],
+      [
+        "-DJ_2 - jminus_2 + jplus_2",
+        "DJ_1 + jminus_1 - jplus_1",
+        "0"
+      ]
+    ]
+  },
+  "Cayley_oracle": {
+    "An": [
+      [
+        "0",
+        "0",
+        "-z"
+      ],
+      [
+        "0",
+        "0",
+        "x"
+      ],
+      [
+        "z",
+        "-x",
+        "0"
+      ]
+    ],
+    "Fn": [
+      [
+        [
+          "0",
+          "-x**2 + z",
+          "0"
+        ],
+        [
+          "x**2 - z",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "0",
+          "-x*z - x"
+        ],
+        [
+          "0",
+          "0",
+          "-z**2 - 1"
+        ],
+        [
+          "x*z + x",
+          "z**2 + 1",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "-x**2*z",
+          "0"
+        ],
+        [
+          "x**2*z",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "-1",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "x*z + z",
+          "1"
+        ],
+        [
+          "-x*z - z",
+          "0",
+          "0"
+        ],
+        [
+          "-1",
+          "0",
+          "0"
+        ]
+      ]
+    ],
+    "f": "x*z + 1",
+    "r": [
+      [
+        "epsilon**2*(-x - 2*z)*(x + 2*z)/(2*(epsilon**2*(x + 2*z)**2/4 + 1)) + 1",
+        "epsilon*(x + 2*z)/(epsilon**2*(x + 2*z)**2/4 + 1)",
+        "0"
+      ],
+      [
+        "epsilon*(-x - 2*z)/(epsilon**2*(x + 2*z)**2/4 + 1)",
+        "epsilon**2*(-x - 2*z)*(x + 2*z)/(2*(epsilon**2*(x + 2*z)**2/4 + 1)) + 1",
+        "0"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "raw_trace": [
+      [
+        [
+          "0",
+          "x + z",
+          "x + 2*z"
+        ],
+        [
+          "-x - z",
+          "0",
+          "x**2 + 3*x*z + 1"
+        ],
+        [
+          "-x - 2*z",
+          "-x**2 - 3*x*z - 1",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "-1",
+          "-x**2*z - x - z**2"
+        ],
+        [
+          "1",
+          "0",
+          "t + x*z"
+        ],
+        [
+          "x**2*z + x + z**2",
+          "-t - x*z",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "z",
+          "0"
+        ],
+        [
+          "-z",
+          "0",
+          "x**2*z + 2*x*z**2 + x*z + 1"
+        ],
+        [
+          "0",
+          "-x**2*z - 2*x*z**2 - x*z - 1",
+          "0"
+        ]
+      ],
+      [
+        [
+          "0",
+          "x*z**2 + z - 2",
+          "x**2 + x*z - y"
+        ],
+        [
+          "-x*z**2 - z + 2",
+          "0",
+          "x**2"
+        ],
+        [
+          "-x**2 - x*z + y",
+          "-x**2",
+          "0"
+        ]
+      ]
+    ]
+  },
+  "SC_adjoint": {
+    "G": [
+      [
+        "0",
+        "chi*(-A0_1*Craised0_2 + A0_2*Craised0_1 - A1_1*Craised1_2 + A1_2*Craised1_1 - A2_1*Craised2_2 + A2_2*Craised2_1 - A3_1*Craised3_2 + A3_2*Craised3_1 + Craised0_3*Gamma_trace_0 + Craised1_3*Gamma_trace_1 + Craised2_3*Gamma_trace_2 + Craised3_3*Gamma_trace_3 + partial_mu_Craised0_3 + partial_mu_Craised1_3 + partial_mu_Craised2_3 + partial_mu_Craised3_3)",
+        "chi*(-A0_1*Craised0_3 + A0_3*Craised0_1 - A1_1*Craised1_3 + A1_3*Craised1_1 - A2_1*Craised2_3 + A2_3*Craised2_1 - A3_1*Craised3_3 + A3_3*Craised3_1 - Craised0_2*Gamma_trace_0 - Craised1_2*Gamma_trace_1 - Craised2_2*Gamma_trace_2 - Craised3_2*Gamma_trace_3 - partial_mu_Craised0_2 - partial_mu_Craised1_2 - partial_mu_Craised2_2 - partial_mu_Craised3_2)"
+      ],
+      [
+        "chi*(A0_1*Craised0_2 - A0_2*Craised0_1 + A1_1*Craised1_2 - A1_2*Craised1_1 + A2_1*Craised2_2 - A2_2*Craised2_1 + A3_1*Craised3_2 - A3_2*Craised3_1 - Craised0_3*Gamma_trace_0 - Craised1_3*Gamma_trace_1 - Craised2_3*Gamma_trace_2 - Craised3_3*Gamma_trace_3 - partial_mu_Craised0_3 - partial_mu_Craised1_3 - partial_mu_Craised2_3 - partial_mu_Craised3_3)",
+        "0",
+        "chi*(-A0_2*Craised0_3 + A0_3*Craised0_2 - A1_2*Craised1_3 + A1_3*Craised1_2 - A2_2*Craised2_3 + A2_3*Craised2_2 - A3_2*Craised3_3 + A3_3*Craised3_2 + Craised0_1*Gamma_trace_0 + Craised1_1*Gamma_trace_1 + Craised2_1*Gamma_trace_2 + Craised3_1*Gamma_trace_3 + partial_mu_Craised0_1 + partial_mu_Craised1_1 + partial_mu_Craised2_1 + partial_mu_Craised3_1)"
+      ],
+      [
+        "chi*(A0_1*Craised0_3 - A0_3*Craised0_1 + A1_1*Craised1_3 - A1_3*Craised1_1 + A2_1*Craised2_3 - A2_3*Craised2_1 + A3_1*Craised3_3 - A3_3*Craised3_1 + Craised0_2*Gamma_trace_0 + Craised1_2*Gamma_trace_1 + Craised2_2*Gamma_trace_2 + Craised3_2*Gamma_trace_3 + partial_mu_Craised0_2 + partial_mu_Craised1_2 + partial_mu_Craised2_2 + partial_mu_Craised3_2)",
+        "chi*(A0_2*Craised0_3 - A0_3*Craised0_2 + A1_2*Craised1_3 - A1_3*Craised1_2 + A2_2*Craised2_3 - A2_3*Craised2_2 + A3_2*Craised3_3 - A3_3*Craised3_2 - Craised0_1*Gamma_trace_0 - Craised1_1*Gamma_trace_1 - Craised2_1*Gamma_trace_2 - Craised3_1*Gamma_trace_3 - partial_mu_Craised0_1 - partial_mu_Craised1_1 - partial_mu_Craised2_1 - partial_mu_Craised3_1)",
+        "0"
+      ]
+    ],
+    "base_boundary_definition": "J^(alpha beta mu) h_common,alpha beta /2 - N V^mu intrinsic_delta_T",
+    "sides": {
+      "minus": {
+        "G_Lambda": "-chi*(-An_minus_1*f + eta_minus_1)*(-A0_2*Craised0_3 + A0_3*Craised0_2 - A1_2*Craised1_3 + A1_3*Craised1_2 - A2_2*Craised2_3 + A2_3*Craised2_2 - A3_2*Craised3_3 + A3_3*Craised3_2 + Craised0_1*Gamma_trace_0 + Craised1_1*Gamma_trace_1 + Craised2_1*Gamma_trace_2 + Craised3_1*Gamma_trace_3 + partial_mu_Craised0_1 + partial_mu_Craised1_1 + partial_mu_Craised2_1 + partial_mu_Craised3_1)/2 - chi*(An_minus_1*f - eta_minus_1)*(A0_2*Craised0_3 - A0_3*Craised0_2 + A1_2*Craised1_3 - A1_3*Craised1_2 + A2_2*Craised2_3 - A2_3*Craised2_2 + A3_2*Craised3_3 - A3_3*Craised3_2 - Craised0_1*Gamma_trace_0 - Craised1_1*Gamma_trace_1 - Craised2_1*Gamma_trace_2 - Craised3_1*Gamma_trace_3 - partial_mu_Craised0_1 - partial_mu_Craised1_1 - partial_mu_Craised2_1 - partial_mu_Craised3_1)/2 - chi*(-An_minus_2*f + eta_minus_2)*(A0_1*Craised0_3 - A0_3*Craised0_1 + A1_1*Craised1_3 - A1_3*Craised1_1 + A2_1*Craised2_3 - A2_3*Craised2_1 + A3_1*Craised3_3 - A3_3*Craised3_1 + Craised0_2*Gamma_trace_0 + Craised1_2*Gamma_trace_1 + Craised2_2*Gamma_trace_2 + Craised3_2*Gamma_trace_3 + partial_mu_Craised0_2 + partial_mu_Craised1_2 + partial_mu_Craised2_2 + partial_mu_Craised3_2)/2 - chi*(An_minus_2*f - eta_minus_2)*(-A0_1*Craised0_3 + A0_3*Craised0_1 - A1_1*Craised1_3 + A1_3*Craised1_1 - A2_1*Craised2_3 + A2_3*Craised2_1 - A3_1*Craised3_3 + A3_3*Craised3_1 - Craised0_2*Gamma_trace_0 - Craised1_2*Gamma_trace_1 - Craised2_2*Gamma_trace_2 - Craised3_2*Gamma_trace_3 - partial_mu_Craised0_2 - partial_mu_Craised1_2 - partial_mu_Craised2_2 - partial_mu_Craised3_2)/2 - chi*(-An_minus_3*f + eta_minus_3)*(-A0_1*Craised0_2 + A0_2*Craised0_1 - A1_1*Craised1_2 + A1_2*Craised1_1 - A2_1*Craised2_2 + A2_2*Craised2_1 - A3_1*Craised3_2 + A3_2*Craised3_1 + Craised0_3*Gamma_trace_0 + Craised1_3*Gamma_trace_1 + Craised2_3*Gamma_trace_2 + Craised3_3*Gamma_trace_3 + partial_mu_Craised0_3 + partial_mu_Craised1_3 + partial_mu_Craised2_3 + partial_mu_Craised3_3)/2 - chi*(An_minus_3*f - eta_minus_3)*(A0_1*Craised0_2 - A0_2*Craised0_1 + A1_1*Craised1_2 - A1_2*Craised1_1 + A2_1*Craised2_2 - A2_2*Craised2_1 + A3_1*Craised3_2 - A3_2*Craised3_1 - Craised0_3*Gamma_trace_0 - Craised1_3*Gamma_trace_1 - Craised2_3*Gamma_trace_2 - Craised3_3*Gamma_trace_3 - partial_mu_Craised0_3 - partial_mu_Craised1_3 - partial_mu_Craised2_3 - partial_mu_Craised3_3)/2",
+        "adjoint_interior": "E_T*intrinsic_delta_T - chi*(-An_minus_1*f + eta_minus_1)*(-A0_2*Craised0_3 + A0_3*Craised0_2 - A1_2*Craised1_3 + A1_3*Craised1_2 - A2_2*Craised2_3 + A2_3*Craised2_2 - A3_2*Craised3_3 + A3_3*Craised3_2 + Craised0_1*Gamma_trace_0 + Craised1_1*Gamma_trace_1 + Craised2_1*Gamma_trace_2 + Craised3_1*Gamma_trace_3 + partial_mu_Craised0_1 + partial_mu_Craised1_1 + partial_mu_Craised2_1 + partial_mu_Craised3_1)/2 - chi*(An_minus_1*f - eta_minus_1)*(A0_2*Craised0_3 - A0_3*Craised0_2 + A1_2*Craised1_3 - A1_3*Craised1_2 + A2_2*Craised2_3 - A2_3*Craised2_2 + A3_2*Craised3_3 - A3_3*Craised3_2 - Craised0_1*Gamma_trace_0 - Craised1_1*Gamma_trace_1 - Craised2_1*Gamma_trace_2 - Craised3_1*Gamma_trace_3 - partial_mu_Craised0_1 - partial_mu_Craised1_1 - partial_mu_Craised2_1 - partial_mu_Craised3_1)/2 - chi*(-An_minus_2*f + eta_minus_2)*(A0_1*Craised0_3 - A0_3*Craised0_1 + A1_1*Craised1_3 - A1_3*Craised1_1 + A2_1*Craised2_3 - A2_3*Craised2_1 + A3_1*Craised3_3 - A3_3*Craised3_1 + Craised0_2*Gamma_trace_0 + Craised1_2*Gamma_trace_1 + Craised2_2*Gamma_trace_2 + Craised3_2*Gamma_trace_3 + partial_mu_Craised0_2 + partial_mu_Craised1_2 + partial_mu_Craised2_2 + partial_mu_Craised3_2)/2 - chi*(An_minus_2*f - eta_minus_2)*(-A0_1*Craised0_3 + A0_3*Craised0_1 - A1_1*Craised1_3 + A1_3*Craised1_1 - A2_1*Craised2_3 + A2_3*Craised2_1 - A3_1*Craised3_3 + A3_3*Craised3_1 - Craised0_2*Gamma_trace_0 - Craised1_2*Gamma_trace_1 - Craised2_2*Gamma_trace_2 - Craised3_2*Gamma_trace_3 - partial_mu_Craised0_2 - partial_mu_Craised1_2 - partial_mu_Craised2_2 - partial_mu_Craised3_2)/2 - chi*(-An_minus_3*f + eta_minus_3)*(-A0_1*Craised0_2 + A0_2*Craised0_1 - A1_1*Craised1_2 + A1_2*Craised1_1 - A2_1*Craised2_2 + A2_2*Craised2_1 - A3_1*Craised3_2 + A3_2*Craised3_1 + Craised0_3*Gamma_trace_0 + Craised1_3*Gamma_trace_1 + Craised2_3*Gamma_trace_2 + Craised3_3*Gamma_trace_3 + partial_mu_Craised0_3 + partial_mu_Craised1_3 + partial_mu_Craised2_3 + partial_mu_Craised3_3)/2 - chi*(An_minus_3*f - eta_minus_3)*(A0_1*Craised0_2 - A0_2*Craised0_1 + A1_1*Craised1_2 - A1_2*Craised1_1 + A2_1*Craised2_2 - A2_2*Craised2_1 + A3_1*Craised3_2 - A3_2*Craised3_1 - Craised0_3*Gamma_trace_0 - Craised1_3*Gamma_trace_1 - Craised2_3*Gamma_trace_2 - Craised3_3*Gamma_trace_3 - partial_mu_Craised0_3 - partial_mu_Craised1_3 - partial_mu_Craised2_3 - partial_mu_Craised3_3)/2 - chi*(Craised0_1*deltaA_minus0_1 + Craised0_2*deltaA_minus0_2 + Craised0_3*deltaA_minus0_3 + Craised1_1*deltaA_minus1_1 + Craised1_2*deltaA_minus1_2 + Craised1_3*deltaA_minus1_3 + Craised2_1*deltaA_minus2_1 + Craised2_2*deltaA_minus2_2 + Craised2_3*deltaA_minus2_3 + Craised3_1*deltaA_minus3_1 + Craised3_2*deltaA_minus3_2 + Craised3_3*deltaA_minus3_3) + delta_g_minus_00*tau_contrav_00/2 + delta_g_minus_01*tau_contrav_01 + delta_g_minus_02*tau_contrav_02 + delta_g_minus_03*tau_contrav_03 + delta_g_minus_11*tau_contrav_11/2 + delta_g_minus_12*tau_contrav_12 + delta_g_minus_13*tau_contrav_13 + delta_g_minus_22*tau_contrav_22/2 + delta_g_minus_23*tau_contrav_23 + delta_g_minus_33*tau_contrav_33/2 + f*(K_minus_00*tau_contrav_00 + 2*K_minus_01*tau_contrav_01 + 2*K_minus_02*tau_contrav_02 + 2*K_minus_03*tau_contrav_03 + K_minus_11*tau_contrav_11 + 2*K_minus_12*tau_contrav_12 + 2*K_minus_13*tau_contrav_13 + K_minus_22*tau_contrav_22 + 2*K_minus_23*tau_contrav_23 + K_minus_33*tau_contrav_33 - chi*(-Craised0_1*(-A0_2*An_minus_3 + A0_3*An_minus_2 + dAn_minus0_1 - dnA_minus0_1)/2 + Craised0_1*(A0_2*An_minus_3 - A0_3*An_minus_2 - dAn_minus0_1 + dnA_minus0_1)/2 + Craised0_2*(-A0_1*An_minus_3 + A0_3*An_minus_1 - dAn_minus0_2 + dnA_minus0_2)/2 - Craised0_2*(A0_1*An_minus_3 - A0_3*An_minus_1 + dAn_minus0_2 - dnA_minus0_2)/2 - Craised0_3*(-A0_1*An_minus_2 + A0_2*An_minus_1 + dAn_minus0_3 - dnA_minus0_3)/2 + Craised0_3*(A0_1*An_minus_2 - A0_2*An_minus_1 - dAn_minus0_3 + dnA_minus0_3)/2 - Craised1_1*(-A1_2*An_minus_3 + A1_3*An_minus_2 + dAn_minus1_1 - dnA_minus1_1)/2 + Craised1_1*(A1_2*An_minus_3 - A1_3*An_minus_2 - dAn_minus1_1 + dnA_minus1_1)/2 + Craised1_2*(-A1_1*An_minus_3 + A1_3*An_minus_1 - dAn_minus1_2 + dnA_minus1_2)/2 - Craised1_2*(A1_1*An_minus_3 - A1_3*An_minus_1 + dAn_minus1_2 - dnA_minus1_2)/2 - Craised1_3*(-A1_1*An_minus_2 + A1_2*An_minus_1 + dAn_minus1_3 - dnA_minus1_3)/2 + Craised1_3*(A1_1*An_minus_2 - A1_2*An_minus_1 - dAn_minus1_3 + dnA_minus1_3)/2 - Craised2_1*(-A2_2*An_minus_3 + A2_3*An_minus_2 + dAn_minus2_1 - dnA_minus2_1)/2 + Craised2_1*(A2_2*An_minus_3 - A2_3*An_minus_2 - dAn_minus2_1 + dnA_minus2_1)/2 + Craised2_2*(-A2_1*An_minus_3 + A2_3*An_minus_1 - dAn_minus2_2 + dnA_minus2_2)/2 - Craised2_2*(A2_1*An_minus_3 - A2_3*An_minus_1 + dAn_minus2_2 - dnA_minus2_2)/2 - Craised2_3*(-A2_1*An_minus_2 + A2_2*An_minus_1 + dAn_minus2_3 - dnA_minus2_3)/2 + Craised2_3*(A2_1*An_minus_2 - A2_2*An_minus_1 - dAn_minus2_3 + dnA_minus2_3)/2 - Craised3_1*(-A3_2*An_minus_3 + A3_3*An_minus_2 + dAn_minus3_1 - dnA_minus3_1)/2 + Craised3_1*(A3_2*An_minus_3 - A3_3*An_minus_2 - dAn_minus3_1 + dnA_minus3_1)/2 + Craised3_2*(-A3_1*An_minus_3 + A3_3*An_minus_1 - dAn_minus3_2 + dnA_minus3_2)/2 - Craised3_2*(A3_1*An_minus_3 - A3_3*An_minus_1 + dAn_minus3_2 - dnA_minus3_2)/2 - Craised3_3*(-A3_1*An_minus_2 + A3_2*An_minus_1 + dAn_minus3_3 - dnA_minus3_3)/2 + Craised3_3*(A3_1*An_minus_2 - A3_2*An_minus_1 - dAn_minus3_3 + dnA_minus3_3)/2))",
+        "new_boundary": [
+          [
+            "-chi*(-Craised0_1*(-An_minus_1*f + eta_minus_1)/2 + Craised0_1*(An_minus_1*f - eta_minus_1)/2 - Craised0_2*(-An_minus_2*f + eta_minus_2)/2 + Craised0_2*(An_minus_2*f - eta_minus_2)/2 - Craised0_3*(-An_minus_3*f + eta_minus_3)/2 + Craised0_3*(An_minus_3*f - eta_minus_3)/2)"
+          ],
+          [
+            "-chi*(-Craised1_1*(-An_minus_1*f + eta_minus_1)/2 + Craised1_1*(An_minus_1*f - eta_minus_1)/2 - Craised1_2*(-An_minus_2*f + eta_minus_2)/2 + Craised1_2*(An_minus_2*f - eta_minus_2)/2 - Craised1_3*(-An_minus_3*f + eta_minus_3)/2 + Craised1_3*(An_minus_3*f - eta_minus_3)/2)"
+          ],
+          [
+            "-chi*(-Craised2_1*(-An_minus_1*f + eta_minus_1)/2 + Craised2_1*(An_minus_1*f - eta_minus_1)/2 - Craised2_2*(-An_minus_2*f + eta_minus_2)/2 + Craised2_2*(An_minus_2*f - eta_minus_2)/2 - Craised2_3*(-An_minus_3*f + eta_minus_3)/2 + Craised2_3*(An_minus_3*f - eta_minus_3)/2)"
+          ],
+          [
+            "-chi*(-Craised3_1*(-An_minus_1*f + eta_minus_1)/2 + Craised3_1*(An_minus_1*f - eta_minus_1)/2 - Craised3_2*(-An_minus_2*f + eta_minus_2)/2 + Craised3_2*(An_minus_2*f - eta_minus_2)/2 - Craised3_3*(-An_minus_3*f + eta_minus_3)/2 + Craised3_3*(An_minus_3*f - eta_minus_3)/2)"
+          ]
+        ],
+        "new_boundary_divergence": "-chi*(-Craised0_1*(-An_minus_1*df_0 - dAn_minus0_1*f + deta_minus0_1)/2 + Craised0_1*(An_minus_1*df_0 + dAn_minus0_1*f - deta_minus0_1)/2 - Craised0_2*(-An_minus_2*df_0 - dAn_minus0_2*f + deta_minus0_2)/2 + Craised0_2*(An_minus_2*df_0 + dAn_minus0_2*f - deta_minus0_2)/2 - Craised0_3*(-An_minus_3*df_0 - dAn_minus0_3*f + deta_minus0_3)/2 + Craised0_3*(An_minus_3*df_0 + dAn_minus0_3*f - deta_minus0_3)/2 - Craised1_1*(-An_minus_1*df_1 - dAn_minus1_1*f + deta_minus1_1)/2 + Craised1_1*(An_minus_1*df_1 + dAn_minus1_1*f - deta_minus1_1)/2 - Craised1_2*(-An_minus_2*df_1 - dAn_minus1_2*f + deta_minus1_2)/2 + Craised1_2*(An_minus_2*df_1 + dAn_minus1_2*f - deta_minus1_2)/2 - Craised1_3*(-An_minus_3*df_1 - dAn_minus1_3*f + deta_minus1_3)/2 + Craised1_3*(An_minus_3*df_1 + dAn_minus1_3*f - deta_minus1_3)/2 - Craised2_1*(-An_minus_1*df_2 - dAn_minus2_1*f + deta_minus2_1)/2 + Craised2_1*(An_minus_1*df_2 + dAn_minus2_1*f - deta_minus2_1)/2 - Craised2_2*(-An_minus_2*df_2 - dAn_minus2_2*f + deta_minus2_2)/2 + Craised2_2*(An_minus_2*df_2 + dAn_minus2_2*f - deta_minus2_2)/2 - Craised2_3*(-An_minus_3*df_2 - dAn_minus2_3*f + deta_minus2_3)/2 + Craised2_3*(An_minus_3*df_2 + dAn_minus2_3*f - deta_minus2_3)/2 - Craised3_1*(-An_minus_1*df_3 - dAn_minus3_1*f + deta_minus3_1)/2 + Craised3_1*(An_minus_1*df_3 + dAn_minus3_1*f - deta_minus3_1)/2 - Craised3_2*(-An_minus_2*df_3 - dAn_minus3_2*f + deta_minus3_2)/2 + Craised3_2*(An_minus_2*df_3 + dAn_minus3_2*f - deta_minus3_2)/2 - Craised3_3*(-An_minus_3*df_3 - dAn_minus3_3*f + deta_minus3_3)/2 + Craised3_3*(An_minus_3*df_3 + dAn_minus3_3*f - deta_minus3_3)/2 + Gamma_trace_0*(-Craised0_1*(-An_minus_1*f + eta_minus_1)/2 + Craised0_1*(An_minus_1*f - eta_minus_1)/2 - Craised0_2*(-An_minus_2*f + eta_minus_2)/2 + Craised0_2*(An_minus_2*f - eta_minus_2)/2 - Craised0_3*(-An_minus_3*f + eta_minus_3)/2 + Craised0_3*(An_minus_3*f - eta_minus_3)/2) + Gamma_trace_1*(-Craised1_1*(-An_minus_1*f + eta_minus_1)/2 + Craised1_1*(An_minus_1*f - eta_minus_1)/2 - Craised1_2*(-An_minus_2*f + eta_minus_2)/2 + Craised1_2*(An_minus_2*f - eta_minus_2)/2 - Craised1_3*(-An_minus_3*f + eta_minus_3)/2 + Craised1_3*(An_minus_3*f - eta_minus_3)/2) + Gamma_trace_2*(-Craised2_1*(-An_minus_1*f + eta_minus_1)/2 + Craised2_1*(An_minus_1*f - eta_minus_1)/2 - Craised2_2*(-An_minus_2*f + eta_minus_2)/2 + Craised2_2*(An_minus_2*f - eta_minus_2)/2 - Craised2_3*(-An_minus_3*f + eta_minus_3)/2 + Craised2_3*(An_minus_3*f - eta_minus_3)/2) + Gamma_trace_3*(-Craised3_1*(-An_minus_1*f + eta_minus_1)/2 + Craised3_1*(An_minus_1*f - eta_minus_1)/2 - Craised3_2*(-An_minus_2*f + eta_minus_2)/2 + Craised3_2*(An_minus_2*f - eta_minus_2)/2 - Craised3_3*(-An_minus_3*f + eta_minus_3)/2 + Craised3_3*(An_minus_3*f - eta_minus_3)/2) - partial_mu_Craised0_1*(-An_minus_1*f + eta_minus_1)/2 + partial_mu_Craised0_1*(An_minus_1*f - eta_minus_1)/2 - partial_mu_Craised0_2*(-An_minus_2*f + eta_minus_2)/2 + partial_mu_Craised0_2*(An_minus_2*f - eta_minus_2)/2 - partial_mu_Craised0_3*(-An_minus_3*f + eta_minus_3)/2 + partial_mu_Craised0_3*(An_minus_3*f - eta_minus_3)/2 - partial_mu_Craised1_1*(-An_minus_1*f + eta_minus_1)/2 + partial_mu_Craised1_1*(An_minus_1*f - eta_minus_1)/2 - partial_mu_Craised1_2*(-An_minus_2*f + eta_minus_2)/2 + partial_mu_Craised1_2*(An_minus_2*f - eta_minus_2)/2 - partial_mu_Craised1_3*(-An_minus_3*f + eta_minus_3)/2 + partial_mu_Craised1_3*(An_minus_3*f - eta_minus_3)/2 - partial_mu_Craised2_1*(-An_minus_1*f + eta_minus_1)/2 + partial_mu_Craised2_1*(An_minus_1*f - eta_minus_1)/2 - partial_mu_Craised2_2*(-An_minus_2*f + eta_minus_2)/2 + partial_mu_Craised2_2*(An_minus_2*f - eta_minus_2)/2 - partial_mu_Craised2_3*(-An_minus_3*f + eta_minus_3)/2 + partial_mu_Craised2_3*(An_minus_3*f - eta_minus_3)/2 - partial_mu_Craised3_1*(-An_minus_1*f + eta_minus_1)/2 + partial_mu_Craised3_1*(An_minus_1*f - eta_minus_1)/2 - partial_mu_Craised3_2*(-An_minus_2*f + eta_minus_2)/2 + partial_mu_Craised3_2*(An_minus_2*f - eta_minus_2)/2 - partial_mu_Craised3_3*(-An_minus_3*f + eta_minus_3)/2 + partial_mu_Craised3_3*(An_minus_3*f - eta_minus_3)/2)",
+        "normal_coefficient_before_eta_adjoint": "K_minus_00*tau_contrav_00 + 2*K_minus_01*tau_contrav_01 + 2*K_minus_02*tau_contrav_02 + 2*K_minus_03*tau_contrav_03 + K_minus_11*tau_contrav_11 + 2*K_minus_12*tau_contrav_12 + 2*K_minus_13*tau_contrav_13 + K_minus_22*tau_contrav_22 + 2*K_minus_23*tau_contrav_23 + K_minus_33*tau_contrav_33 - chi*(-Craised0_1*(-A0_2*An_minus_3 + A0_3*An_minus_2 + dAn_minus0_1 - dnA_minus0_1)/2 + Craised0_1*(A0_2*An_minus_3 - A0_3*An_minus_2 - dAn_minus0_1 + dnA_minus0_1)/2 + Craised0_2*(-A0_1*An_minus_3 + A0_3*An_minus_1 - dAn_minus0_2 + dnA_minus0_2)/2 - Craised0_2*(A0_1*An_minus_3 - A0_3*An_minus_1 + dAn_minus0_2 - dnA_minus0_2)/2 - Craised0_3*(-A0_1*An_minus_2 + A0_2*An_minus_1 + dAn_minus0_3 - dnA_minus0_3)/2 + Craised0_3*(A0_1*An_minus_2 - A0_2*An_minus_1 - dAn_minus0_3 + dnA_minus0_3)/2 - Craised1_1*(-A1_2*An_minus_3 + A1_3*An_minus_2 + dAn_minus1_1 - dnA_minus1_1)/2 + Craised1_1*(A1_2*An_minus_3 - A1_3*An_minus_2 - dAn_minus1_1 + dnA_minus1_1)/2 + Craised1_2*(-A1_1*An_minus_3 + A1_3*An_minus_1 - dAn_minus1_2 + dnA_minus1_2)/2 - Craised1_2*(A1_1*An_minus_3 - A1_3*An_minus_1 + dAn_minus1_2 - dnA_minus1_2)/2 - Craised1_3*(-A1_1*An_minus_2 + A1_2*An_minus_1 + dAn_minus1_3 - dnA_minus1_3)/2 + Craised1_3*(A1_1*An_minus_2 - A1_2*An_minus_1 - dAn_minus1_3 + dnA_minus1_3)/2 - Craised2_1*(-A2_2*An_minus_3 + A2_3*An_minus_2 + dAn_minus2_1 - dnA_minus2_1)/2 + Craised2_1*(A2_2*An_minus_3 - A2_3*An_minus_2 - dAn_minus2_1 + dnA_minus2_1)/2 + Craised2_2*(-A2_1*An_minus_3 + A2_3*An_minus_1 - dAn_minus2_2 + dnA_minus2_2)/2 - Craised2_2*(A2_1*An_minus_3 - A2_3*An_minus_1 + dAn_minus2_2 - dnA_minus2_2)/2 - Craised2_3*(-A2_1*An_minus_2 + A2_2*An_minus_1 + dAn_minus2_3 - dnA_minus2_3)/2 + Craised2_3*(A2_1*An_minus_2 - A2_2*An_minus_1 - dAn_minus2_3 + dnA_minus2_3)/2 - Craised3_1*(-A3_2*An_minus_3 + A3_3*An_minus_2 + dAn_minus3_1 - dnA_minus3_1)/2 + Craised3_1*(A3_2*An_minus_3 - A3_3*An_minus_2 - dAn_minus3_1 + dnA_minus3_1)/2 + Craised3_2*(-A3_1*An_minus_3 + A3_3*An_minus_1 - dAn_minus3_2 + dnA_minus3_2)/2 - Craised3_2*(A3_1*An_minus_3 - A3_3*An_minus_1 + dAn_minus3_2 - dnA_minus3_2)/2 - Craised3_3*(-A3_1*An_minus_2 + A3_2*An_minus_1 + dAn_minus3_3 - dnA_minus3_3)/2 + Craised3_3*(A3_1*An_minus_2 - A3_2*An_minus_1 - dAn_minus3_3 + dnA_minus3_3)/2)",
+        "raw_variation": "E_T*intrinsic_delta_T - chi*(-Craised0_1*(-A0_2*eta_minus_3 + A0_3*eta_minus_2 - An_minus_1*df_0 - deltaA_minus0_1 + deta_minus0_1 - dnA_minus0_1*f)/2 + Craised0_1*(A0_2*eta_minus_3 - A0_3*eta_minus_2 + An_minus_1*df_0 + deltaA_minus0_1 - deta_minus0_1 + dnA_minus0_1*f)/2 + Craised0_2*(-A0_1*eta_minus_3 + A0_3*eta_minus_1 + An_minus_2*df_0 + deltaA_minus0_2 - deta_minus0_2 + dnA_minus0_2*f)/2 - Craised0_2*(A0_1*eta_minus_3 - A0_3*eta_minus_1 - An_minus_2*df_0 - deltaA_minus0_2 + deta_minus0_2 - dnA_minus0_2*f)/2 - Craised0_3*(-A0_1*eta_minus_2 + A0_2*eta_minus_1 - An_minus_3*df_0 - deltaA_minus0_3 + deta_minus0_3 - dnA_minus0_3*f)/2 + Craised0_3*(A0_1*eta_minus_2 - A0_2*eta_minus_1 + An_minus_3*df_0 + deltaA_minus0_3 - deta_minus0_3 + dnA_minus0_3*f)/2 - Craised1_1*(-A1_2*eta_minus_3 + A1_3*eta_minus_2 - An_minus_1*df_1 - deltaA_minus1_1 + deta_minus1_1 - dnA_minus1_1*f)/2 + Craised1_1*(A1_2*eta_minus_3 - A1_3*eta_minus_2 + An_minus_1*df_1 + deltaA_minus1_1 - deta_minus1_1 + dnA_minus1_1*f)/2 + Craised1_2*(-A1_1*eta_minus_3 + A1_3*eta_minus_1 + An_minus_2*df_1 + deltaA_minus1_2 - deta_minus1_2 + dnA_minus1_2*f)/2 - Craised1_2*(A1_1*eta_minus_3 - A1_3*eta_minus_1 - An_minus_2*df_1 - deltaA_minus1_2 + deta_minus1_2 - dnA_minus1_2*f)/2 - Craised1_3*(-A1_1*eta_minus_2 + A1_2*eta_minus_1 - An_minus_3*df_1 - deltaA_minus1_3 + deta_minus1_3 - dnA_minus1_3*f)/2 + Craised1_3*(A1_1*eta_minus_2 - A1_2*eta_minus_1 + An_minus_3*df_1 + deltaA_minus1_3 - deta_minus1_3 + dnA_minus1_3*f)/2 - Craised2_1*(-A2_2*eta_minus_3 + A2_3*eta_minus_2 - An_minus_1*df_2 - deltaA_minus2_1 + deta_minus2_1 - dnA_minus2_1*f)/2 + Craised2_1*(A2_2*eta_minus_3 - A2_3*eta_minus_2 + An_minus_1*df_2 + deltaA_minus2_1 - deta_minus2_1 + dnA_minus2_1*f)/2 + Craised2_2*(-A2_1*eta_minus_3 + A2_3*eta_minus_1 + An_minus_2*df_2 + deltaA_minus2_2 - deta_minus2_2 + dnA_minus2_2*f)/2 - Craised2_2*(A2_1*eta_minus_3 - A2_3*eta_minus_1 - An_minus_2*df_2 - deltaA_minus2_2 + deta_minus2_2 - dnA_minus2_2*f)/2 - Craised2_3*(-A2_1*eta_minus_2 + A2_2*eta_minus_1 - An_minus_3*df_2 - deltaA_minus2_3 + deta_minus2_3 - dnA_minus2_3*f)/2 + Craised2_3*(A2_1*eta_minus_2 - A2_2*eta_minus_1 + An_minus_3*df_2 + deltaA_minus2_3 - deta_minus2_3 + dnA_minus2_3*f)/2 - Craised3_1*(-A3_2*eta_minus_3 + A3_3*eta_minus_2 - An_minus_1*df_3 - deltaA_minus3_1 + deta_minus3_1 - dnA_minus3_1*f)/2 + Craised3_1*(A3_2*eta_minus_3 - A3_3*eta_minus_2 + An_minus_1*df_3 + deltaA_minus3_1 - deta_minus3_1 + dnA_minus3_1*f)/2 + Craised3_2*(-A3_1*eta_minus_3 + A3_3*eta_minus_1 + An_minus_2*df_3 + deltaA_minus3_2 - deta_minus3_2 + dnA_minus3_2*f)/2 - Craised3_2*(A3_1*eta_minus_3 - A3_3*eta_minus_1 - An_minus_2*df_3 - deltaA_minus3_2 + deta_minus3_2 - dnA_minus3_2*f)/2 - Craised3_3*(-A3_1*eta_minus_2 + A3_2*eta_minus_1 - An_minus_3*df_3 - deltaA_minus3_3 + deta_minus3_3 - dnA_minus3_3*f)/2 + Craised3_3*(A3_1*eta_minus_2 - A3_2*eta_minus_1 + An_minus_3*df_3 + deltaA_minus3_3 - deta_minus3_3 + dnA_minus3_3*f)/2) + tau_contrav_00*(2*K_minus_00*f + delta_g_minus_00)/2 + tau_contrav_01*(2*K_minus_01*f + delta_g_minus_01) + tau_contrav_02*(2*K_minus_02*f + delta_g_minus_02) + tau_contrav_03*(2*K_minus_03*f + delta_g_minus_03) + tau_contrav_11*(2*K_minus_11*f + delta_g_minus_11)/2 + tau_contrav_12*(2*K_minus_12*f + delta_g_minus_12) + tau_contrav_13*(2*K_minus_13*f + delta_g_minus_13) + tau_contrav_22*(2*K_minus_22*f + delta_g_minus_22)/2 + tau_contrav_23*(2*K_minus_23*f + delta_g_minus_23) + tau_contrav_33*(2*K_minus_33*f + delta_g_minus_33)/2",
+        "total_boundary": [
+          [
+            "SC_base_Green_boundary_0 - chi*(-Craised0_1*(-An_minus_1*f + eta_minus_1)/2 + Craised0_1*(An_minus_1*f - eta_minus_1)/2 - Craised0_2*(-An_minus_2*f + eta_minus_2)/2 + Craised0_2*(An_minus_2*f - eta_minus_2)/2 - Craised0_3*(-An_minus_3*f + eta_minus_3)/2 + Craised0_3*(An_minus_3*f - eta_minus_3)/2)"
+          ],
+          [
+            "SC_base_Green_boundary_1 - chi*(-Craised1_1*(-An_minus_1*f + eta_minus_1)/2 + Craised1_1*(An_minus_1*f - eta_minus_1)/2 - Craised1_2*(-An_minus_2*f + eta_minus_2)/2 + Craised1_2*(An_minus_2*f - eta_minus_2)/2 - Craised1_3*(-An_minus_3*f + eta_minus_3)/2 + Craised1_3*(An_minus_3*f - eta_minus_3)/2)"
+          ],
+          [
+            "SC_base_Green_boundary_2 - chi*(-Craised2_1*(-An_minus_1*f + eta_minus_1)/2 + Craised2_1*(An_minus_1*f - eta_minus_1)/2 - Craised2_2*(-An_minus_2*f + eta_minus_2)/2 + Craised2_2*(An_minus_2*f - eta_minus_2)/2 - Craised2_3*(-An_minus_3*f + eta_minus_3)/2 + Craised2_3*(An_minus_3*f - eta_minus_3)/2)"
+          ],
+          [
+            "SC_base_Green_boundary_3 - chi*(-Craised3_1*(-An_minus_1*f + eta_minus_1)/2 + Craised3_1*(An_minus_1*f - eta_minus_1)/2 - Craised3_2*(-An_minus_2*f + eta_minus_2)/2 + Craised3_2*(An_minus_2*f - eta_minus_2)/2 - Craised3_3*(-An_minus_3*f + eta_minus_3)/2 + Craised3_3*(An_minus_3*f - eta_minus_3)/2)"
+          ]
+        ]
+      },
+      "plus": {
+        "G_Lambda": "-chi*(-An_plus_1*f + eta_plus_1)*(-A0_2*Craised0_3 + A0_3*Craised0_2 - A1_2*Craised1_3 + A1_3*Craised1_2 - A2_2*Craised2_3 + A2_3*Craised2_2 - A3_2*Craised3_3 + A3_3*Craised3_2 + Craised0_1*Gamma_trace_0 + Craised1_1*Gamma_trace_1 + Craised2_1*Gamma_trace_2 + Craised3_1*Gamma_trace_3 + partial_mu_Craised0_1 + partial_mu_Craised1_1 + partial_mu_Craised2_1 + partial_mu_Craised3_1)/2 - chi*(An_plus_1*f - eta_plus_1)*(A0_2*Craised0_3 - A0_3*Craised0_2 + A1_2*Craised1_3 - A1_3*Craised1_2 + A2_2*Craised2_3 - A2_3*Craised2_2 + A3_2*Craised3_3 - A3_3*Craised3_2 - Craised0_1*Gamma_trace_0 - Craised1_1*Gamma_trace_1 - Craised2_1*Gamma_trace_2 - Craised3_1*Gamma_trace_3 - partial_mu_Craised0_1 - partial_mu_Craised1_1 - partial_mu_Craised2_1 - partial_mu_Craised3_1)/2 - chi*(-An_plus_2*f + eta_plus_2)*(A0_1*Craised0_3 - A0_3*Craised0_1 + A1_1*Craised1_3 - A1_3*Craised1_1 + A2_1*Craised2_3 - A2_3*Craised2_1 + A3_1*Craised3_3 - A3_3*Craised3_1 + Craised0_2*Gamma_trace_0 + Craised1_2*Gamma_trace_1 + Craised2_2*Gamma_trace_2 + Craised3_2*Gamma_trace_3 + partial_mu_Craised0_2 + partial_mu_Craised1_2 + partial_mu_Craised2_2 + partial_mu_Craised3_2)/2 - chi*(An_plus_2*f - eta_plus_2)*(-A0_1*Craised0_3 + A0_3*Craised0_1 - A1_1*Craised1_3 + A1_3*Craised1_1 - A2_1*Craised2_3 + A2_3*Craised2_1 - A3_1*Craised3_3 + A3_3*Craised3_1 - Craised0_2*Gamma_trace_0 - Craised1_2*Gamma_trace_1 - Craised2_2*Gamma_trace_2 - Craised3_2*Gamma_trace_3 - partial_mu_Craised0_2 - partial_mu_Craised1_2 - partial_mu_Craised2_2 - partial_mu_Craised3_2)/2 - chi*(-An_plus_3*f + eta_plus_3)*(-A0_1*Craised0_2 + A0_2*Craised0_1 - A1_1*Craised1_2 + A1_2*Craised1_1 - A2_1*Craised2_2 + A2_2*Craised2_1 - A3_1*Craised3_2 + A3_2*Craised3_1 + Craised0_3*Gamma_trace_0 + Craised1_3*Gamma_trace_1 + Craised2_3*Gamma_trace_2 + Craised3_3*Gamma_trace_3 + partial_mu_Craised0_3 + partial_mu_Craised1_3 + partial_mu_Craised2_3 + partial_mu_Craised3_3)/2 - chi*(An_plus_3*f - eta_plus_3)*(A0_1*Craised0_2 - A0_2*Craised0_1 + A1_1*Craised1_2 - A1_2*Craised1_1 + A2_1*Craised2_2 - A2_2*Craised2_1 + A3_1*Craised3_2 - A3_2*Craised3_1 - Craised0_3*Gamma_trace_0 - Craised1_3*Gamma_trace_1 - Craised2_3*Gamma_trace_2 - Craised3_3*Gamma_trace_3 - partial_mu_Craised0_3 - partial_mu_Craised1_3 - partial_mu_Craised2_3 - partial_mu_Craised3_3)/2",
+        "adjoint_interior": "E_T*intrinsic_delta_T - chi*(-An_plus_1*f + eta_plus_1)*(-A0_2*Craised0_3 + A0_3*Craised0_2 - A1_2*Craised1_3 + A1_3*Craised1_2 - A2_2*Craised2_3 + A2_3*Craised2_2 - A3_2*Craised3_3 + A3_3*Craised3_2 + Craised0_1*Gamma_trace_0 + Craised1_1*Gamma_trace_1 + Craised2_1*Gamma_trace_2 + Craised3_1*Gamma_trace_3 + partial_mu_Craised0_1 + partial_mu_Craised1_1 + partial_mu_Craised2_1 + partial_mu_Craised3_1)/2 - chi*(An_plus_1*f - eta_plus_1)*(A0_2*Craised0_3 - A0_3*Craised0_2 + A1_2*Craised1_3 - A1_3*Craised1_2 + A2_2*Craised2_3 - A2_3*Craised2_2 + A3_2*Craised3_3 - A3_3*Craised3_2 - Craised0_1*Gamma_trace_0 - Craised1_1*Gamma_trace_1 - Craised2_1*Gamma_trace_2 - Craised3_1*Gamma_trace_3 - partial_mu_Craised0_1 - partial_mu_Craised1_1 - partial_mu_Craised2_1 - partial_mu_Craised3_1)/2 - chi*(-An_plus_2*f + eta_plus_2)*(A0_1*Craised0_3 - A0_3*Craised0_1 + A1_1*Craised1_3 - A1_3*Craised1_1 + A2_1*Craised2_3 - A2_3*Craised2_1 + A3_1*Craised3_3 - A3_3*Craised3_1 + Craised0_2*Gamma_trace_0 + Craised1_2*Gamma_trace_1 + Craised2_2*Gamma_trace_2 + Craised3_2*Gamma_trace_3 + partial_mu_Craised0_2 + partial_mu_Craised1_2 + partial_mu_Craised2_2 + partial_mu_Craised3_2)/2 - chi*(An_plus_2*f - eta_plus_2)*(-A0_1*Craised0_3 + A0_3*Craised0_1 - A1_1*Craised1_3 + A1_3*Craised1_1 - A2_1*Craised2_3 + A2_3*Craised2_1 - A3_1*Craised3_3 + A3_3*Craised3_1 - Craised0_2*Gamma_trace_0 - Craised1_2*Gamma_trace_1 - Craised2_2*Gamma_trace_2 - Craised3_2*Gamma_trace_3 - partial_mu_Craised0_2 - partial_mu_Craised1_2 - partial_mu_Craised2_2 - partial_mu_Craised3_2)/2 - chi*(-An_plus_3*f + eta_plus_3)*(-A0_1*Craised0_2 + A0_2*Craised0_1 - A1_1*Craised1_2 + A1_2*Craised1_1 - A2_1*Craised2_2 + A2_2*Craised2_1 - A3_1*Craised3_2 + A3_2*Craised3_1 + Craised0_3*Gamma_trace_0 + Craised1_3*Gamma_trace_1 + Craised2_3*Gamma_trace_2 + Craised3_3*Gamma_trace_3 + partial_mu_Craised0_3 + partial_mu_Craised1_3 + partial_mu_Craised2_3 + partial_mu_Craised3_3)/2 - chi*(An_plus_3*f - eta_plus_3)*(A0_1*Craised0_2 - A0_2*Craised0_1 + A1_1*Craised1_2 - A1_2*Craised1_1 + A2_1*Craised2_2 - A2_2*Craised2_1 + A3_1*Craised3_2 - A3_2*Craised3_1 - Craised0_3*Gamma_trace_0 - Craised1_3*Gamma_trace_1 - Craised2_3*Gamma_trace_2 - Craised3_3*Gamma_trace_3 - partial_mu_Craised0_3 - partial_mu_Craised1_3 - partial_mu_Craised2_3 - partial_mu_Craised3_3)/2 - chi*(Craised0_1*deltaA_plus0_1 + Craised0_2*deltaA_plus0_2 + Craised0_3*deltaA_plus0_3 + Craised1_1*deltaA_plus1_1 + Craised1_2*deltaA_plus1_2 + Craised1_3*deltaA_plus1_3 + Craised2_1*deltaA_plus2_1 + Craised2_2*deltaA_plus2_2 + Craised2_3*deltaA_plus2_3 + Craised3_1*deltaA_plus3_1 + Craised3_2*deltaA_plus3_2 + Craised3_3*deltaA_plus3_3) + delta_g_plus_00*tau_contrav_00/2 + delta_g_plus_01*tau_contrav_01 + delta_g_plus_02*tau_contrav_02 + delta_g_plus_03*tau_contrav_03 + delta_g_plus_11*tau_contrav_11/2 + delta_g_plus_12*tau_contrav_12 + delta_g_plus_13*tau_contrav_13 + delta_g_plus_22*tau_contrav_22/2 + delta_g_plus_23*tau_contrav_23 + delta_g_plus_33*tau_contrav_33/2 + f*(K_plus_00*tau_contrav_00 + 2*K_plus_01*tau_contrav_01 + 2*K_plus_02*tau_contrav_02 + 2*K_plus_03*tau_contrav_03 + K_plus_11*tau_contrav_11 + 2*K_plus_12*tau_contrav_12 + 2*K_plus_13*tau_contrav_13 + K_plus_22*tau_contrav_22 + 2*K_plus_23*tau_contrav_23 + K_plus_33*tau_contrav_33 - chi*(-Craised0_1*(-A0_2*An_plus_3 + A0_3*An_plus_2 + dAn_plus0_1 - dnA_plus0_1)/2 + Craised0_1*(A0_2*An_plus_3 - A0_3*An_plus_2 - dAn_plus0_1 + dnA_plus0_1)/2 + Craised0_2*(-A0_1*An_plus_3 + A0_3*An_plus_1 - dAn_plus0_2 + dnA_plus0_2)/2 - Craised0_2*(A0_1*An_plus_3 - A0_3*An_plus_1 + dAn_plus0_2 - dnA_plus0_2)/2 - Craised0_3*(-A0_1*An_plus_2 + A0_2*An_plus_1 + dAn_plus0_3 - dnA_plus0_3)/2 + Craised0_3*(A0_1*An_plus_2 - A0_2*An_plus_1 - dAn_plus0_3 + dnA_plus0_3)/2 - Craised1_1*(-A1_2*An_plus_3 + A1_3*An_plus_2 + dAn_plus1_1 - dnA_plus1_1)/2 + Craised1_1*(A1_2*An_plus_3 - A1_3*An_plus_2 - dAn_plus1_1 + dnA_plus1_1)/2 + Craised1_2*(-A1_1*An_plus_3 + A1_3*An_plus_1 - dAn_plus1_2 + dnA_plus1_2)/2 - Craised1_2*(A1_1*An_plus_3 - A1_3*An_plus_1 + dAn_plus1_2 - dnA_plus1_2)/2 - Craised1_3*(-A1_1*An_plus_2 + A1_2*An_plus_1 + dAn_plus1_3 - dnA_plus1_3)/2 + Craised1_3*(A1_1*An_plus_2 - A1_2*An_plus_1 - dAn_plus1_3 + dnA_plus1_3)/2 - Craised2_1*(-A2_2*An_plus_3 + A2_3*An_plus_2 + dAn_plus2_1 - dnA_plus2_1)/2 + Craised2_1*(A2_2*An_plus_3 - A2_3*An_plus_2 - dAn_plus2_1 + dnA_plus2_1)/2 + Craised2_2*(-A2_1*An_plus_3 + A2_3*An_plus_1 - dAn_plus2_2 + dnA_plus2_2)/2 - Craised2_2*(A2_1*An_plus_3 - A2_3*An_plus_1 + dAn_plus2_2 - dnA_plus2_2)/2 - Craised2_3*(-A2_1*An_plus_2 + A2_2*An_plus_1 + dAn_plus2_3 - dnA_plus2_3)/2 + Craised2_3*(A2_1*An_plus_2 - A2_2*An_plus_1 - dAn_plus2_3 + dnA_plus2_3)/2 - Craised3_1*(-A3_2*An_plus_3 + A3_3*An_plus_2 + dAn_plus3_1 - dnA_plus3_1)/2 + Craised3_1*(A3_2*An_plus_3 - A3_3*An_plus_2 - dAn_plus3_1 + dnA_plus3_1)/2 + Craised3_2*(-A3_1*An_plus_3 + A3_3*An_plus_1 - dAn_plus3_2 + dnA_plus3_2)/2 - Craised3_2*(A3_1*An_plus_3 - A3_3*An_plus_1 + dAn_plus3_2 - dnA_plus3_2)/2 - Craised3_3*(-A3_1*An_plus_2 + A3_2*An_plus_1 + dAn_plus3_3 - dnA_plus3_3)/2 + Craised3_3*(A3_1*An_plus_2 - A3_2*An_plus_1 - dAn_plus3_3 + dnA_plus3_3)/2))",
+        "new_boundary": [
+          [
+            "-chi*(-Craised0_1*(-An_plus_1*f + eta_plus_1)/2 + Craised0_1*(An_plus_1*f - eta_plus_1)/2 - Craised0_2*(-An_plus_2*f + eta_plus_2)/2 + Craised0_2*(An_plus_2*f - eta_plus_2)/2 - Craised0_3*(-An_plus_3*f + eta_plus_3)/2 + Craised0_3*(An_plus_3*f - eta_plus_3)/2)"
+          ],
+          [
+            "-chi*(-Craised1_1*(-An_plus_1*f + eta_plus_1)/2 + Craised1_1*(An_plus_1*f - eta_plus_1)/2 - Craised1_2*(-An_plus_2*f + eta_plus_2)/2 + Craised1_2*(An_plus_2*f - eta_plus_2)/2 - Craised1_3*(-An_plus_3*f + eta_plus_3)/2 + Craised1_3*(An_plus_3*f - eta_plus_3)/2)"
+          ],
+          [
+            "-chi*(-Craised2_1*(-An_plus_1*f + eta_plus_1)/2 + Craised2_1*(An_plus_1*f - eta_plus_1)/2 - Craised2_2*(-An_plus_2*f + eta_plus_2)/2 + Craised2_2*(An_plus_2*f - eta_plus_2)/2 - Craised2_3*(-An_plus_3*f + eta_plus_3)/2 + Craised2_3*(An_plus_3*f - eta_plus_3)/2)"
+          ],
+          [
+            "-chi*(-Craised3_1*(-An_plus_1*f + eta_plus_1)/2 + Craised3_1*(An_plus_1*f - eta_plus_1)/2 - Craised3_2*(-An_plus_2*f + eta_plus_2)/2 + Craised3_2*(An_plus_2*f - eta_plus_2)/2 - Craised3_3*(-An_plus_3*f + eta_plus_3)/2 + Craised3_3*(An_plus_3*f - eta_plus_3)/2)"
+          ]
+        ],
+        "new_boundary_divergence": "-chi*(-Craised0_1*(-An_plus_1*df_0 - dAn_plus0_1*f + deta_plus0_1)/2 + Craised0_1*(An_plus_1*df_0 + dAn_plus0_1*f - deta_plus0_1)/2 - Craised0_2*(-An_plus_2*df_0 - dAn_plus0_2*f + deta_plus0_2)/2 + Craised0_2*(An_plus_2*df_0 + dAn_plus0_2*f - deta_plus0_2)/2 - Craised0_3*(-An_plus_3*df_0 - dAn_plus0_3*f + deta_plus0_3)/2 + Craised0_3*(An_plus_3*df_0 + dAn_plus0_3*f - deta_plus0_3)/2 - Craised1_1*(-An_plus_1*df_1 - dAn_plus1_1*f + deta_plus1_1)/2 + Craised1_1*(An_plus_1*df_1 + dAn_plus1_1*f - deta_plus1_1)/2 - Craised1_2*(-An_plus_2*df_1 - dAn_plus1_2*f + deta_plus1_2)/2 + Craised1_2*(An_plus_2*df_1 + dAn_plus1_2*f - deta_plus1_2)/2 - Craised1_3*(-An_plus_3*df_1 - dAn_plus1_3*f + deta_plus1_3)/2 + Craised1_3*(An_plus_3*df_1 + dAn_plus1_3*f - deta_plus1_3)/2 - Craised2_1*(-An_plus_1*df_2 - dAn_plus2_1*f + deta_plus2_1)/2 + Craised2_1*(An_plus_1*df_2 + dAn_plus2_1*f - deta_plus2_1)/2 - Craised2_2*(-An_plus_2*df_2 - dAn_plus2_2*f + deta_plus2_2)/2 + Craised2_2*(An_plus_2*df_2 + dAn_plus2_2*f - deta_plus2_2)/2 - Craised2_3*(-An_plus_3*df_2 - dAn_plus2_3*f + deta_plus2_3)/2 + Craised2_3*(An_plus_3*df_2 + dAn_plus2_3*f - deta_plus2_3)/2 - Craised3_1*(-An_plus_1*df_3 - dAn_plus3_1*f + deta_plus3_1)/2 + Craised3_1*(An_plus_1*df_3 + dAn_plus3_1*f - deta_plus3_1)/2 - Craised3_2*(-An_plus_2*df_3 - dAn_plus3_2*f + deta_plus3_2)/2 + Craised3_2*(An_plus_2*df_3 + dAn_plus3_2*f - deta_plus3_2)/2 - Craised3_3*(-An_plus_3*df_3 - dAn_plus3_3*f + deta_plus3_3)/2 + Craised3_3*(An_plus_3*df_3 + dAn_plus3_3*f - deta_plus3_3)/2 + Gamma_trace_0*(-Craised0_1*(-An_plus_1*f + eta_plus_1)/2 + Craised0_1*(An_plus_1*f - eta_plus_1)/2 - Craised0_2*(-An_plus_2*f + eta_plus_2)/2 + Craised0_2*(An_plus_2*f - eta_plus_2)/2 - Craised0_3*(-An_plus_3*f + eta_plus_3)/2 + Craised0_3*(An_plus_3*f - eta_plus_3)/2) + Gamma_trace_1*(-Craised1_1*(-An_plus_1*f + eta_plus_1)/2 + Craised1_1*(An_plus_1*f - eta_plus_1)/2 - Craised1_2*(-An_plus_2*f + eta_plus_2)/2 + Craised1_2*(An_plus_2*f - eta_plus_2)/2 - Craised1_3*(-An_plus_3*f + eta_plus_3)/2 + Craised1_3*(An_plus_3*f - eta_plus_3)/2) + Gamma_trace_2*(-Craised2_1*(-An_plus_1*f + eta_plus_1)/2 + Craised2_1*(An_plus_1*f - eta_plus_1)/2 - Craised2_2*(-An_plus_2*f + eta_plus_2)/2 + Craised2_2*(An_plus_2*f - eta_plus_2)/2 - Craised2_3*(-An_plus_3*f + eta_plus_3)/2 + Craised2_3*(An_plus_3*f - eta_plus_3)/2) + Gamma_trace_3*(-Craised3_1*(-An_plus_1*f + eta_plus_1)/2 + Craised3_1*(An_plus_1*f - eta_plus_1)/2 - Craised3_2*(-An_plus_2*f + eta_plus_2)/2 + Craised3_2*(An_plus_2*f - eta_plus_2)/2 - Craised3_3*(-An_plus_3*f + eta_plus_3)/2 + Craised3_3*(An_plus_3*f - eta_plus_3)/2) - partial_mu_Craised0_1*(-An_plus_1*f + eta_plus_1)/2 + partial_mu_Craised0_1*(An_plus_1*f - eta_plus_1)/2 - partial_mu_Craised0_2*(-An_plus_2*f + eta_plus_2)/2 + partial_mu_Craised0_2*(An_plus_2*f - eta_plus_2)/2 - partial_mu_Craised0_3*(-An_plus_3*f + eta_plus_3)/2 + partial_mu_Craised0_3*(An_plus_3*f - eta_plus_3)/2 - partial_mu_Craised1_1*(-An_plus_1*f + eta_plus_1)/2 + partial_mu_Craised1_1*(An_plus_1*f - eta_plus_1)/2 - partial_mu_Craised1_2*(-An_plus_2*f + eta_plus_2)/2 + partial_mu_Craised1_2*(An_plus_2*f - eta_plus_2)/2 - partial_mu_Craised1_3*(-An_plus_3*f + eta_plus_3)/2 + partial_mu_Craised1_3*(An_plus_3*f - eta_plus_3)/2 - partial_mu_Craised2_1*(-An_plus_1*f + eta_plus_1)/2 + partial_mu_Craised2_1*(An_plus_1*f - eta_plus_1)/2 - partial_mu_Craised2_2*(-An_plus_2*f + eta_plus_2)/2 + partial_mu_Craised2_2*(An_plus_2*f - eta_plus_2)/2 - partial_mu_Craised2_3*(-An_plus_3*f + eta_plus_3)/2 + partial_mu_Craised2_3*(An_plus_3*f - eta_plus_3)/2 - partial_mu_Craised3_1*(-An_plus_1*f + eta_plus_1)/2 + partial_mu_Craised3_1*(An_plus_1*f - eta_plus_1)/2 - partial_mu_Craised3_2*(-An_plus_2*f + eta_plus_2)/2 + partial_mu_Craised3_2*(An_plus_2*f - eta_plus_2)/2 - partial_mu_Craised3_3*(-An_plus_3*f + eta_plus_3)/2 + partial_mu_Craised3_3*(An_plus_3*f - eta_plus_3)/2)",
+        "normal_coefficient_before_eta_adjoint": "K_plus_00*tau_contrav_00 + 2*K_plus_01*tau_contrav_01 + 2*K_plus_02*tau_contrav_02 + 2*K_plus_03*tau_contrav_03 + K_plus_11*tau_contrav_11 + 2*K_plus_12*tau_contrav_12 + 2*K_plus_13*tau_contrav_13 + K_plus_22*tau_contrav_22 + 2*K_plus_23*tau_contrav_23 + K_plus_33*tau_contrav_33 - chi*(-Craised0_1*(-A0_2*An_plus_3 + A0_3*An_plus_2 + dAn_plus0_1 - dnA_plus0_1)/2 + Craised0_1*(A0_2*An_plus_3 - A0_3*An_plus_2 - dAn_plus0_1 + dnA_plus0_1)/2 + Craised0_2*(-A0_1*An_plus_3 + A0_3*An_plus_1 - dAn_plus0_2 + dnA_plus0_2)/2 - Craised0_2*(A0_1*An_plus_3 - A0_3*An_plus_1 + dAn_plus0_2 - dnA_plus0_2)/2 - Craised0_3*(-A0_1*An_plus_2 + A0_2*An_plus_1 + dAn_plus0_3 - dnA_plus0_3)/2 + Craised0_3*(A0_1*An_plus_2 - A0_2*An_plus_1 - dAn_plus0_3 + dnA_plus0_3)/2 - Craised1_1*(-A1_2*An_plus_3 + A1_3*An_plus_2 + dAn_plus1_1 - dnA_plus1_1)/2 + Craised1_1*(A1_2*An_plus_3 - A1_3*An_plus_2 - dAn_plus1_1 + dnA_plus1_1)/2 + Craised1_2*(-A1_1*An_plus_3 + A1_3*An_plus_1 - dAn_plus1_2 + dnA_plus1_2)/2 - Craised1_2*(A1_1*An_plus_3 - A1_3*An_plus_1 + dAn_plus1_2 - dnA_plus1_2)/2 - Craised1_3*(-A1_1*An_plus_2 + A1_2*An_plus_1 + dAn_plus1_3 - dnA_plus1_3)/2 + Craised1_3*(A1_1*An_plus_2 - A1_2*An_plus_1 - dAn_plus1_3 + dnA_plus1_3)/2 - Craised2_1*(-A2_2*An_plus_3 + A2_3*An_plus_2 + dAn_plus2_1 - dnA_plus2_1)/2 + Craised2_1*(A2_2*An_plus_3 - A2_3*An_plus_2 - dAn_plus2_1 + dnA_plus2_1)/2 + Craised2_2*(-A2_1*An_plus_3 + A2_3*An_plus_1 - dAn_plus2_2 + dnA_plus2_2)/2 - Craised2_2*(A2_1*An_plus_3 - A2_3*An_plus_1 + dAn_plus2_2 - dnA_plus2_2)/2 - Craised2_3*(-A2_1*An_plus_2 + A2_2*An_plus_1 + dAn_plus2_3 - dnA_plus2_3)/2 + Craised2_3*(A2_1*An_plus_2 - A2_2*An_plus_1 - dAn_plus2_3 + dnA_plus2_3)/2 - Craised3_1*(-A3_2*An_plus_3 + A3_3*An_plus_2 + dAn_plus3_1 - dnA_plus3_1)/2 + Craised3_1*(A3_2*An_plus_3 - A3_3*An_plus_2 - dAn_plus3_1 + dnA_plus3_1)/2 + Craised3_2*(-A3_1*An_plus_3 + A3_3*An_plus_1 - dAn_plus3_2 + dnA_plus3_2)/2 - Craised3_2*(A3_1*An_plus_3 - A3_3*An_plus_1 + dAn_plus3_2 - dnA_plus3_2)/2 - Craised3_3*(-A3_1*An_plus_2 + A3_2*An_plus_1 + dAn_plus3_3 - dnA_plus3_3)/2 + Craised3_3*(A3_1*An_plus_2 - A3_2*An_plus_1 - dAn_plus3_3 + dnA_plus3_3)/2)",
+        "raw_variation": "E_T*intrinsic_delta_T - chi*(-Craised0_1*(-A0_2*eta_plus_3 + A0_3*eta_plus_2 - An_plus_1*df_0 - deltaA_plus0_1 + deta_plus0_1 - dnA_plus0_1*f)/2 + Craised0_1*(A0_2*eta_plus_3 - A0_3*eta_plus_2 + An_plus_1*df_0 + deltaA_plus0_1 - deta_plus0_1 + dnA_plus0_1*f)/2 + Craised0_2*(-A0_1*eta_plus_3 + A0_3*eta_plus_1 + An_plus_2*df_0 + deltaA_plus0_2 - deta_plus0_2 + dnA_plus0_2*f)/2 - Craised0_2*(A0_1*eta_plus_3 - A0_3*eta_plus_1 - An_plus_2*df_0 - deltaA_plus0_2 + deta_plus0_2 - dnA_plus0_2*f)/2 - Craised0_3*(-A0_1*eta_plus_2 + A0_2*eta_plus_1 - An_plus_3*df_0 - deltaA_plus0_3 + deta_plus0_3 - dnA_plus0_3*f)/2 + Craised0_3*(A0_1*eta_plus_2 - A0_2*eta_plus_1 + An_plus_3*df_0 + deltaA_plus0_3 - deta_plus0_3 + dnA_plus0_3*f)/2 - Craised1_1*(-A1_2*eta_plus_3 + A1_3*eta_plus_2 - An_plus_1*df_1 - deltaA_plus1_1 + deta_plus1_1 - dnA_plus1_1*f)/2 + Craised1_1*(A1_2*eta_plus_3 - A1_3*eta_plus_2 + An_plus_1*df_1 + deltaA_plus1_1 - deta_plus1_1 + dnA_plus1_1*f)/2 + Craised1_2*(-A1_1*eta_plus_3 + A1_3*eta_plus_1 + An_plus_2*df_1 + deltaA_plus1_2 - deta_plus1_2 + dnA_plus1_2*f)/2 - Craised1_2*(A1_1*eta_plus_3 - A1_3*eta_plus_1 - An_plus_2*df_1 - deltaA_plus1_2 + deta_plus1_2 - dnA_plus1_2*f)/2 - Craised1_3*(-A1_1*eta_plus_2 + A1_2*eta_plus_1 - An_plus_3*df_1 - deltaA_plus1_3 + deta_plus1_3 - dnA_plus1_3*f)/2 + Craised1_3*(A1_1*eta_plus_2 - A1_2*eta_plus_1 + An_plus_3*df_1 + deltaA_plus1_3 - deta_plus1_3 + dnA_plus1_3*f)/2 - Craised2_1*(-A2_2*eta_plus_3 + A2_3*eta_plus_2 - An_plus_1*df_2 - deltaA_plus2_1 + deta_plus2_1 - dnA_plus2_1*f)/2 + Craised2_1*(A2_2*eta_plus_3 - A2_3*eta_plus_2 + An_plus_1*df_2 + deltaA_plus2_1 - deta_plus2_1 + dnA_plus2_1*f)/2 + Craised2_2*(-A2_1*eta_plus_3 + A2_3*eta_plus_1 + An_plus_2*df_2 + deltaA_plus2_2 - deta_plus2_2 + dnA_plus2_2*f)/2 - Craised2_2*(A2_1*eta_plus_3 - A2_3*eta_plus_1 - An_plus_2*df_2 - deltaA_plus2_2 + deta_plus2_2 - dnA_plus2_2*f)/2 - Craised2_3*(-A2_1*eta_plus_2 + A2_2*eta_plus_1 - An_plus_3*df_2 - deltaA_plus2_3 + deta_plus2_3 - dnA_plus2_3*f)/2 + Craised2_3*(A2_1*eta_plus_2 - A2_2*eta_plus_1 + An_plus_3*df_2 + deltaA_plus2_3 - deta_plus2_3 + dnA_plus2_3*f)/2 - Craised3_1*(-A3_2*eta_plus_3 + A3_3*eta_plus_2 - An_plus_1*df_3 - deltaA_plus3_1 + deta_plus3_1 - dnA_plus3_1*f)/2 + Craised3_1*(A3_2*eta_plus_3 - A3_3*eta_plus_2 + An_plus_1*df_3 + deltaA_plus3_1 - deta_plus3_1 + dnA_plus3_1*f)/2 + Craised3_2*(-A3_1*eta_plus_3 + A3_3*eta_plus_1 + An_plus_2*df_3 + deltaA_plus3_2 - deta_plus3_2 + dnA_plus3_2*f)/2 - Craised3_2*(A3_1*eta_plus_3 - A3_3*eta_plus_1 - An_plus_2*df_3 - deltaA_plus3_2 + deta_plus3_2 - dnA_plus3_2*f)/2 - Craised3_3*(-A3_1*eta_plus_2 + A3_2*eta_plus_1 - An_plus_3*df_3 - deltaA_plus3_3 + deta_plus3_3 - dnA_plus3_3*f)/2 + Craised3_3*(A3_1*eta_plus_2 - A3_2*eta_plus_1 + An_plus_3*df_3 + deltaA_plus3_3 - deta_plus3_3 + dnA_plus3_3*f)/2) + tau_contrav_00*(2*K_plus_00*f + delta_g_plus_00)/2 + tau_contrav_01*(2*K_plus_01*f + delta_g_plus_01) + tau_contrav_02*(2*K_plus_02*f + delta_g_plus_02) + tau_contrav_03*(2*K_plus_03*f + delta_g_plus_03) + tau_contrav_11*(2*K_plus_11*f + delta_g_plus_11)/2 + tau_contrav_12*(2*K_plus_12*f + delta_g_plus_12) + tau_contrav_13*(2*K_plus_13*f + delta_g_plus_13) + tau_contrav_22*(2*K_plus_22*f + delta_g_plus_22)/2 + tau_contrav_23*(2*K_plus_23*f + delta_g_plus_23) + tau_contrav_33*(2*K_plus_33*f + delta_g_plus_33)/2",
+        "total_boundary": [
+          [
+            "SC_base_Green_boundary_0 - chi*(-Craised0_1*(-An_plus_1*f + eta_plus_1)/2 + Craised0_1*(An_plus_1*f - eta_plus_1)/2 - Craised0_2*(-An_plus_2*f + eta_plus_2)/2 + Craised0_2*(An_plus_2*f - eta_plus_2)/2 - Craised0_3*(-An_plus_3*f + eta_plus_3)/2 + Craised0_3*(An_plus_3*f - eta_plus_3)/2)"
+          ],
+          [
+            "SC_base_Green_boundary_1 - chi*(-Craised1_1*(-An_plus_1*f + eta_plus_1)/2 + Craised1_1*(An_plus_1*f - eta_plus_1)/2 - Craised1_2*(-An_plus_2*f + eta_plus_2)/2 + Craised1_2*(An_plus_2*f - eta_plus_2)/2 - Craised1_3*(-An_plus_3*f + eta_plus_3)/2 + Craised1_3*(An_plus_3*f - eta_plus_3)/2)"
+          ],
+          [
+            "SC_base_Green_boundary_2 - chi*(-Craised2_1*(-An_plus_1*f + eta_plus_1)/2 + Craised2_1*(An_plus_1*f - eta_plus_1)/2 - Craised2_2*(-An_plus_2*f + eta_plus_2)/2 + Craised2_2*(An_plus_2*f - eta_plus_2)/2 - Craised2_3*(-An_plus_3*f + eta_plus_3)/2 + Craised2_3*(An_plus_3*f - eta_plus_3)/2)"
+          ],
+          [
+            "SC_base_Green_boundary_3 - chi*(-Craised3_1*(-An_plus_1*f + eta_plus_1)/2 + Craised3_1*(An_plus_1*f - eta_plus_1)/2 - Craised3_2*(-An_plus_2*f + eta_plus_2)/2 + Craised3_2*(An_plus_2*f - eta_plus_2)/2 - Craised3_3*(-An_plus_3*f + eta_plus_3)/2 + Craised3_3*(An_plus_3*f - eta_plus_3)/2)"
+          ]
+        ]
+      }
+    }
+  },
+  "calculation_digest": "420782fbec2a0fe57ae6adca2ba980afc5e708604abbea79f95d05b6c52c9ca3",
+  "checks": {
+    "BF_BF_reparametrization_retains_both_face_complements": true,
+    "BF_pure_identification_trace_comes_from_finite_map": true,
+    "BF_pure_identification_variation_of_fixed_bulk_BF_is_zero": true,
+    "BF_rotation_row_as_bulk_and_interface_equation_combination": true,
+    "BF_rotation_three_form_IBP_with_nonabelian_connection": true,
+    "Cayley_Cayley_determinant_one": true,
+    "Cayley_Cayley_orthogonality": true,
+    "Cayley_literal_moving_connection_all_36_entries": true,
+    "SC_minus_SC_adjoint_including_G_and_boundary": true,
+    "SC_minus_one_intrinsic_action_from_common_traces": true,
+    "SC_plus_SC_adjoint_including_G_and_boundary": true,
+    "SC_plus_one_intrinsic_action_from_common_traces": true,
+    "eta_operator_first_order_eta_operator_full_adjoint": true,
+    "trace_extra_target_rotation_converts_eta_with_plus_sign": true,
+    "trace_minus_SO3_tangent_and_inverse_jets": true,
+    "trace_minus_all_16_metric_trace_entries": true,
+    "trace_minus_all_36_connection_trace_entries": true,
+    "trace_minus_paired_connection_trace": true,
+    "trace_minus_paired_metric_trace": true,
+    "trace_pinned_tangential_compensation_specialization_only": true,
+    "trace_plus_SO3_tangent_and_inverse_jets": true,
+    "trace_plus_all_16_metric_trace_entries": true,
+    "trace_plus_all_36_connection_trace_entries": true,
+    "trace_plus_paired_connection_trace": true,
+    "trace_plus_paired_metric_trace": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "BF_rotation_summand_and_chart_complements_checked": true,
+    "C1": false,
+    "N1": false,
+    "SC_adjoint_retains_G_Lambda_and_boundary": true,
+    "actual_normal_geometric_eta_operator_identified": false,
+    "common_BF_trace_part_is_entire_moving_BF_Green": false,
+    "complete_EH_GHY_moving_variation": false,
+    "complete_total_groupoid_Euler_identified": false,
+    "coupled_existence_proved": false,
+    "eta_is_new_independent_physical_degree_of_freedom": false,
+    "first_order_identification_operator_adjoint_checked": true,
+    "full_N4": false,
+    "full_N7": false,
+    "full_P4": false,
+    "global_admissible_embedding_space_constructed": false,
+    "moving_connection_and_metric_trace_maps_derived": true,
+    "new_action_adopted": false,
+    "normal_eta_inferred_from_tangential_sigma": false,
+    "paired_gluing_and_single_intrinsic_action_checked": true
+  },
+  "eta_operator": {
+    "boundary": [
+      [
+        "-f*(Gop_1*Sop0_1 + Gop_2*Sop0_2 + Gop_3*Sop0_3)"
+      ],
+      [
+        "-f*(Gop_1*Sop1_1 + Gop_2*Sop1_2 + Gop_3*Sop1_3)"
+      ],
+      [
+        "-f*(Gop_1*Sop2_1 + Gop_2*Sop2_2 + Gop_3*Sop2_3)"
+      ],
+      [
+        "-f*(Gop_1*Sop3_1 + Gop_2*Sop3_2 + Gop_3*Sop3_3)"
+      ]
+    ],
+    "eta_operator": [
+      [
+        "0",
+        "Rop_3*f + Sop0_3*df_0 + Sop1_3*df_1 + Sop2_3*df_2 + Sop3_3*df_3",
+        "-Rop_2*f - Sop0_2*df_0 - Sop1_2*df_1 - Sop2_2*df_2 - Sop3_2*df_3"
+      ],
+      [
+        "-Rop_3*f - Sop0_3*df_0 - Sop1_3*df_1 - Sop2_3*df_2 - Sop3_3*df_3",
+        "0",
+        "Rop_1*f + Sop0_1*df_0 + Sop1_1*df_1 + Sop2_1*df_2 + Sop3_1*df_3"
+      ],
+      [
+        "Rop_2*f + Sop0_2*df_0 + Sop1_2*df_1 + Sop2_2*df_2 + Sop3_2*df_3",
+        "-Rop_1*f - Sop0_1*df_0 - Sop1_1*df_1 - Sop2_1*df_2 - Sop3_1*df_3",
+        "0"
+      ]
+    ],
+    "local_normal_adjoint": "Gammaop_trace_0*(Gop_1*Sop0_1 + Gop_2*Sop0_2 + Gop_3*Sop0_3) + Gammaop_trace_1*(Gop_1*Sop1_1 + Gop_2*Sop1_2 + Gop_3*Sop1_3) + Gammaop_trace_2*(Gop_1*Sop2_1 + Gop_2*Sop2_2 + Gop_3*Sop2_3) + Gammaop_trace_3*(Gop_1*Sop3_1 + Gop_2*Sop3_2 + Gop_3*Sop3_3) - Gop_1*Rop_1 + Gop_1*dSop0_1 + Gop_1*dSop1_1 + Gop_1*dSop2_1 + Gop_1*dSop3_1 - Gop_2*Rop_2 + Gop_2*dSop0_2 + Gop_2*dSop1_2 + Gop_2*dSop2_2 + Gop_2*dSop3_2 - Gop_3*Rop_3 + Gop_3*dSop0_3 + Gop_3*dSop1_3 + Gop_3*dSop2_3 + Gop_3*dSop3_3 + Sop0_1*dGop0_1 + Sop0_2*dGop0_2 + Sop0_3*dGop0_3 + Sop1_1*dGop1_1 + Sop1_2*dGop1_2 + Sop1_3*dGop1_3 + Sop2_1*dGop2_1 + Sop2_2*dGop2_2 + Sop2_3*dGop2_3 + Sop3_1*dGop3_1 + Sop3_2*dGop3_2 + Sop3_3*dGop3_3",
+    "raw": "Gop_1*(-Rop_1*f - Sop0_1*df_0 - Sop1_1*df_1 - Sop2_1*df_2 - Sop3_1*df_3)/2 - Gop_1*(Rop_1*f + Sop0_1*df_0 + Sop1_1*df_1 + Sop2_1*df_2 + Sop3_1*df_3)/2 + Gop_2*(-Rop_2*f - Sop0_2*df_0 - Sop1_2*df_1 - Sop2_2*df_2 - Sop3_2*df_3)/2 - Gop_2*(Rop_2*f + Sop0_2*df_0 + Sop1_2*df_1 + Sop2_2*df_2 + Sop3_2*df_3)/2 + Gop_3*(-Rop_3*f - Sop0_3*df_0 - Sop1_3*df_1 - Sop2_3*df_2 - Sop3_3*df_3)/2 - Gop_3*(Rop_3*f + Sop0_3*df_0 + Sop1_3*df_1 + Sop2_3*df_2 + Sop3_3*df_3)/2"
+  },
+  "finite_trace": {
+    "minus": {
+      "Fn": [
+        [
+          [
+            "0",
+            "A0_1*An_minus_2 - A0_2*An_minus_1 - dAn_minus0_3 + dnA_minus0_3",
+            "A0_1*An_minus_3 - A0_3*An_minus_1 + dAn_minus0_2 - dnA_minus0_2"
+          ],
+          [
+            "-A0_1*An_minus_2 + A0_2*An_minus_1 + dAn_minus0_3 - dnA_minus0_3",
+            "0",
+            "A0_2*An_minus_3 - A0_3*An_minus_2 - dAn_minus0_1 + dnA_minus0_1"
+          ],
+          [
+            "-A0_1*An_minus_3 + A0_3*An_minus_1 - dAn_minus0_2 + dnA_minus0_2",
+            "-A0_2*An_minus_3 + A0_3*An_minus_2 + dAn_minus0_1 - dnA_minus0_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A1_1*An_minus_2 - A1_2*An_minus_1 - dAn_minus1_3 + dnA_minus1_3",
+            "A1_1*An_minus_3 - A1_3*An_minus_1 + dAn_minus1_2 - dnA_minus1_2"
+          ],
+          [
+            "-A1_1*An_minus_2 + A1_2*An_minus_1 + dAn_minus1_3 - dnA_minus1_3",
+            "0",
+            "A1_2*An_minus_3 - A1_3*An_minus_2 - dAn_minus1_1 + dnA_minus1_1"
+          ],
+          [
+            "-A1_1*An_minus_3 + A1_3*An_minus_1 - dAn_minus1_2 + dnA_minus1_2",
+            "-A1_2*An_minus_3 + A1_3*An_minus_2 + dAn_minus1_1 - dnA_minus1_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A2_1*An_minus_2 - A2_2*An_minus_1 - dAn_minus2_3 + dnA_minus2_3",
+            "A2_1*An_minus_3 - A2_3*An_minus_1 + dAn_minus2_2 - dnA_minus2_2"
+          ],
+          [
+            "-A2_1*An_minus_2 + A2_2*An_minus_1 + dAn_minus2_3 - dnA_minus2_3",
+            "0",
+            "A2_2*An_minus_3 - A2_3*An_minus_2 - dAn_minus2_1 + dnA_minus2_1"
+          ],
+          [
+            "-A2_1*An_minus_3 + A2_3*An_minus_1 - dAn_minus2_2 + dnA_minus2_2",
+            "-A2_2*An_minus_3 + A2_3*An_minus_2 + dAn_minus2_1 - dnA_minus2_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A3_1*An_minus_2 - A3_2*An_minus_1 - dAn_minus3_3 + dnA_minus3_3",
+            "A3_1*An_minus_3 - A3_3*An_minus_1 + dAn_minus3_2 - dnA_minus3_2"
+          ],
+          [
+            "-A3_1*An_minus_2 + A3_2*An_minus_1 + dAn_minus3_3 - dnA_minus3_3",
+            "0",
+            "A3_2*An_minus_3 - A3_3*An_minus_2 - dAn_minus3_1 + dnA_minus3_1"
+          ],
+          [
+            "-A3_1*An_minus_3 + A3_3*An_minus_1 - dAn_minus3_2 + dnA_minus3_2",
+            "-A3_2*An_minus_3 + A3_3*An_minus_2 + dAn_minus3_1 - dnA_minus3_1",
+            "0"
+          ]
+        ]
+      ],
+      "Lambda": [
+        [
+          "0",
+          "An_minus_3*f - eta_minus_3",
+          "-An_minus_2*f + eta_minus_2"
+        ],
+        [
+          "-An_minus_3*f + eta_minus_3",
+          "0",
+          "An_minus_1*f - eta_minus_1"
+        ],
+        [
+          "An_minus_2*f - eta_minus_2",
+          "-An_minus_1*f + eta_minus_1",
+          "0"
+        ]
+      ],
+      "glued_a": [
+        [
+          [
+            "0",
+            "a_common0_3",
+            "-a_common0_2"
+          ],
+          [
+            "-a_common0_3",
+            "0",
+            "a_common0_1"
+          ],
+          [
+            "a_common0_2",
+            "-a_common0_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "a_common1_3",
+            "-a_common1_2"
+          ],
+          [
+            "-a_common1_3",
+            "0",
+            "a_common1_1"
+          ],
+          [
+            "a_common1_2",
+            "-a_common1_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "a_common2_3",
+            "-a_common2_2"
+          ],
+          [
+            "-a_common2_3",
+            "0",
+            "a_common2_1"
+          ],
+          [
+            "a_common2_2",
+            "-a_common2_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "a_common3_3",
+            "-a_common3_2"
+          ],
+          [
+            "-a_common3_3",
+            "0",
+            "a_common3_1"
+          ],
+          [
+            "a_common3_2",
+            "-a_common3_1",
+            "0"
+          ]
+        ]
+      ],
+      "glued_h": [
+        [
+          "h_common_00",
+          "h_common_01",
+          "h_common_02",
+          "h_common_03"
+        ],
+        [
+          "h_common_01",
+          "h_common_11",
+          "h_common_12",
+          "h_common_13"
+        ],
+        [
+          "h_common_02",
+          "h_common_12",
+          "h_common_22",
+          "h_common_23"
+        ],
+        [
+          "h_common_03",
+          "h_common_13",
+          "h_common_23",
+          "h_common_33"
+        ]
+      ],
+      "induced_metric": [
+        [
+          "2*K_minus_00*f + delta_g_minus_00",
+          "2*K_minus_01*f + delta_g_minus_01",
+          "2*K_minus_02*f + delta_g_minus_02",
+          "2*K_minus_03*f + delta_g_minus_03"
+        ],
+        [
+          "2*K_minus_01*f + delta_g_minus_01",
+          "2*K_minus_11*f + delta_g_minus_11",
+          "2*K_minus_12*f + delta_g_minus_12",
+          "2*K_minus_13*f + delta_g_minus_13"
+        ],
+        [
+          "2*K_minus_02*f + delta_g_minus_02",
+          "2*K_minus_12*f + delta_g_minus_12",
+          "2*K_minus_22*f + delta_g_minus_22",
+          "2*K_minus_23*f + delta_g_minus_23"
+        ],
+        [
+          "2*K_minus_03*f + delta_g_minus_03",
+          "2*K_minus_13*f + delta_g_minus_13",
+          "2*K_minus_23*f + delta_g_minus_23",
+          "2*K_minus_33*f + delta_g_minus_33"
+        ]
+      ],
+      "raw_trace": [
+        [
+          [
+            "0",
+            "A0_1*eta_minus_2 - A0_2*eta_minus_1 + An_minus_3*df_0 + deltaA_minus0_3 - deta_minus0_3 + dnA_minus0_3*f",
+            "A0_1*eta_minus_3 - A0_3*eta_minus_1 - An_minus_2*df_0 - deltaA_minus0_2 + deta_minus0_2 - dnA_minus0_2*f"
+          ],
+          [
+            "-A0_1*eta_minus_2 + A0_2*eta_minus_1 - An_minus_3*df_0 - deltaA_minus0_3 + deta_minus0_3 - dnA_minus0_3*f",
+            "0",
+            "A0_2*eta_minus_3 - A0_3*eta_minus_2 + An_minus_1*df_0 + deltaA_minus0_1 - deta_minus0_1 + dnA_minus0_1*f"
+          ],
+          [
+            "-A0_1*eta_minus_3 + A0_3*eta_minus_1 + An_minus_2*df_0 + deltaA_minus0_2 - deta_minus0_2 + dnA_minus0_2*f",
+            "-A0_2*eta_minus_3 + A0_3*eta_minus_2 - An_minus_1*df_0 - deltaA_minus0_1 + deta_minus0_1 - dnA_minus0_1*f",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A1_1*eta_minus_2 - A1_2*eta_minus_1 + An_minus_3*df_1 + deltaA_minus1_3 - deta_minus1_3 + dnA_minus1_3*f",
+            "A1_1*eta_minus_3 - A1_3*eta_minus_1 - An_minus_2*df_1 - deltaA_minus1_2 + deta_minus1_2 - dnA_minus1_2*f"
+          ],
+          [
+            "-A1_1*eta_minus_2 + A1_2*eta_minus_1 - An_minus_3*df_1 - deltaA_minus1_3 + deta_minus1_3 - dnA_minus1_3*f",
+            "0",
+            "A1_2*eta_minus_3 - A1_3*eta_minus_2 + An_minus_1*df_1 + deltaA_minus1_1 - deta_minus1_1 + dnA_minus1_1*f"
+          ],
+          [
+            "-A1_1*eta_minus_3 + A1_3*eta_minus_1 + An_minus_2*df_1 + deltaA_minus1_2 - deta_minus1_2 + dnA_minus1_2*f",
+            "-A1_2*eta_minus_3 + A1_3*eta_minus_2 - An_minus_1*df_1 - deltaA_minus1_1 + deta_minus1_1 - dnA_minus1_1*f",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A2_1*eta_minus_2 - A2_2*eta_minus_1 + An_minus_3*df_2 + deltaA_minus2_3 - deta_minus2_3 + dnA_minus2_3*f",
+            "A2_1*eta_minus_3 - A2_3*eta_minus_1 - An_minus_2*df_2 - deltaA_minus2_2 + deta_minus2_2 - dnA_minus2_2*f"
+          ],
+          [
+            "-A2_1*eta_minus_2 + A2_2*eta_minus_1 - An_minus_3*df_2 - deltaA_minus2_3 + deta_minus2_3 - dnA_minus2_3*f",
+            "0",
+            "A2_2*eta_minus_3 - A2_3*eta_minus_2 + An_minus_1*df_2 + deltaA_minus2_1 - deta_minus2_1 + dnA_minus2_1*f"
+          ],
+          [
+            "-A2_1*eta_minus_3 + A2_3*eta_minus_1 + An_minus_2*df_2 + deltaA_minus2_2 - deta_minus2_2 + dnA_minus2_2*f",
+            "-A2_2*eta_minus_3 + A2_3*eta_minus_2 - An_minus_1*df_2 - deltaA_minus2_1 + deta_minus2_1 - dnA_minus2_1*f",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A3_1*eta_minus_2 - A3_2*eta_minus_1 + An_minus_3*df_3 + deltaA_minus3_3 - deta_minus3_3 + dnA_minus3_3*f",
+            "A3_1*eta_minus_3 - A3_3*eta_minus_1 - An_minus_2*df_3 - deltaA_minus3_2 + deta_minus3_2 - dnA_minus3_2*f"
+          ],
+          [
+            "-A3_1*eta_minus_2 + A3_2*eta_minus_1 - An_minus_3*df_3 - deltaA_minus3_3 + deta_minus3_3 - dnA_minus3_3*f",
+            "0",
+            "A3_2*eta_minus_3 - A3_3*eta_minus_2 + An_minus_1*df_3 + deltaA_minus3_1 - deta_minus3_1 + dnA_minus3_1*f"
+          ],
+          [
+            "-A3_1*eta_minus_3 + A3_3*eta_minus_1 + An_minus_2*df_3 + deltaA_minus3_2 - deta_minus3_2 + dnA_minus3_2*f",
+            "-A3_2*eta_minus_3 + A3_3*eta_minus_2 - An_minus_1*df_3 - deltaA_minus3_1 + deta_minus3_1 - dnA_minus3_1*f",
+            "0"
+          ]
+        ]
+      ]
+    },
+    "plus": {
+      "Fn": [
+        [
+          [
+            "0",
+            "A0_1*An_plus_2 - A0_2*An_plus_1 - dAn_plus0_3 + dnA_plus0_3",
+            "A0_1*An_plus_3 - A0_3*An_plus_1 + dAn_plus0_2 - dnA_plus0_2"
+          ],
+          [
+            "-A0_1*An_plus_2 + A0_2*An_plus_1 + dAn_plus0_3 - dnA_plus0_3",
+            "0",
+            "A0_2*An_plus_3 - A0_3*An_plus_2 - dAn_plus0_1 + dnA_plus0_1"
+          ],
+          [
+            "-A0_1*An_plus_3 + A0_3*An_plus_1 - dAn_plus0_2 + dnA_plus0_2",
+            "-A0_2*An_plus_3 + A0_3*An_plus_2 + dAn_plus0_1 - dnA_plus0_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A1_1*An_plus_2 - A1_2*An_plus_1 - dAn_plus1_3 + dnA_plus1_3",
+            "A1_1*An_plus_3 - A1_3*An_plus_1 + dAn_plus1_2 - dnA_plus1_2"
+          ],
+          [
+            "-A1_1*An_plus_2 + A1_2*An_plus_1 + dAn_plus1_3 - dnA_plus1_3",
+            "0",
+            "A1_2*An_plus_3 - A1_3*An_plus_2 - dAn_plus1_1 + dnA_plus1_1"
+          ],
+          [
+            "-A1_1*An_plus_3 + A1_3*An_plus_1 - dAn_plus1_2 + dnA_plus1_2",
+            "-A1_2*An_plus_3 + A1_3*An_plus_2 + dAn_plus1_1 - dnA_plus1_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A2_1*An_plus_2 - A2_2*An_plus_1 - dAn_plus2_3 + dnA_plus2_3",
+            "A2_1*An_plus_3 - A2_3*An_plus_1 + dAn_plus2_2 - dnA_plus2_2"
+          ],
+          [
+            "-A2_1*An_plus_2 + A2_2*An_plus_1 + dAn_plus2_3 - dnA_plus2_3",
+            "0",
+            "A2_2*An_plus_3 - A2_3*An_plus_2 - dAn_plus2_1 + dnA_plus2_1"
+          ],
+          [
+            "-A2_1*An_plus_3 + A2_3*An_plus_1 - dAn_plus2_2 + dnA_plus2_2",
+            "-A2_2*An_plus_3 + A2_3*An_plus_2 + dAn_plus2_1 - dnA_plus2_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A3_1*An_plus_2 - A3_2*An_plus_1 - dAn_plus3_3 + dnA_plus3_3",
+            "A3_1*An_plus_3 - A3_3*An_plus_1 + dAn_plus3_2 - dnA_plus3_2"
+          ],
+          [
+            "-A3_1*An_plus_2 + A3_2*An_plus_1 + dAn_plus3_3 - dnA_plus3_3",
+            "0",
+            "A3_2*An_plus_3 - A3_3*An_plus_2 - dAn_plus3_1 + dnA_plus3_1"
+          ],
+          [
+            "-A3_1*An_plus_3 + A3_3*An_plus_1 - dAn_plus3_2 + dnA_plus3_2",
+            "-A3_2*An_plus_3 + A3_3*An_plus_2 + dAn_plus3_1 - dnA_plus3_1",
+            "0"
+          ]
+        ]
+      ],
+      "Lambda": [
+        [
+          "0",
+          "An_plus_3*f - eta_plus_3",
+          "-An_plus_2*f + eta_plus_2"
+        ],
+        [
+          "-An_plus_3*f + eta_plus_3",
+          "0",
+          "An_plus_1*f - eta_plus_1"
+        ],
+        [
+          "An_plus_2*f - eta_plus_2",
+          "-An_plus_1*f + eta_plus_1",
+          "0"
+        ]
+      ],
+      "glued_a": [
+        [
+          [
+            "0",
+            "a_common0_3",
+            "-a_common0_2"
+          ],
+          [
+            "-a_common0_3",
+            "0",
+            "a_common0_1"
+          ],
+          [
+            "a_common0_2",
+            "-a_common0_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "a_common1_3",
+            "-a_common1_2"
+          ],
+          [
+            "-a_common1_3",
+            "0",
+            "a_common1_1"
+          ],
+          [
+            "a_common1_2",
+            "-a_common1_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "a_common2_3",
+            "-a_common2_2"
+          ],
+          [
+            "-a_common2_3",
+            "0",
+            "a_common2_1"
+          ],
+          [
+            "a_common2_2",
+            "-a_common2_1",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "a_common3_3",
+            "-a_common3_2"
+          ],
+          [
+            "-a_common3_3",
+            "0",
+            "a_common3_1"
+          ],
+          [
+            "a_common3_2",
+            "-a_common3_1",
+            "0"
+          ]
+        ]
+      ],
+      "glued_h": [
+        [
+          "h_common_00",
+          "h_common_01",
+          "h_common_02",
+          "h_common_03"
+        ],
+        [
+          "h_common_01",
+          "h_common_11",
+          "h_common_12",
+          "h_common_13"
+        ],
+        [
+          "h_common_02",
+          "h_common_12",
+          "h_common_22",
+          "h_common_23"
+        ],
+        [
+          "h_common_03",
+          "h_common_13",
+          "h_common_23",
+          "h_common_33"
+        ]
+      ],
+      "induced_metric": [
+        [
+          "2*K_plus_00*f + delta_g_plus_00",
+          "2*K_plus_01*f + delta_g_plus_01",
+          "2*K_plus_02*f + delta_g_plus_02",
+          "2*K_plus_03*f + delta_g_plus_03"
+        ],
+        [
+          "2*K_plus_01*f + delta_g_plus_01",
+          "2*K_plus_11*f + delta_g_plus_11",
+          "2*K_plus_12*f + delta_g_plus_12",
+          "2*K_plus_13*f + delta_g_plus_13"
+        ],
+        [
+          "2*K_plus_02*f + delta_g_plus_02",
+          "2*K_plus_12*f + delta_g_plus_12",
+          "2*K_plus_22*f + delta_g_plus_22",
+          "2*K_plus_23*f + delta_g_plus_23"
+        ],
+        [
+          "2*K_plus_03*f + delta_g_plus_03",
+          "2*K_plus_13*f + delta_g_plus_13",
+          "2*K_plus_23*f + delta_g_plus_23",
+          "2*K_plus_33*f + delta_g_plus_33"
+        ]
+      ],
+      "raw_trace": [
+        [
+          [
+            "0",
+            "A0_1*eta_plus_2 - A0_2*eta_plus_1 + An_plus_3*df_0 + deltaA_plus0_3 - deta_plus0_3 + dnA_plus0_3*f",
+            "A0_1*eta_plus_3 - A0_3*eta_plus_1 - An_plus_2*df_0 - deltaA_plus0_2 + deta_plus0_2 - dnA_plus0_2*f"
+          ],
+          [
+            "-A0_1*eta_plus_2 + A0_2*eta_plus_1 - An_plus_3*df_0 - deltaA_plus0_3 + deta_plus0_3 - dnA_plus0_3*f",
+            "0",
+            "A0_2*eta_plus_3 - A0_3*eta_plus_2 + An_plus_1*df_0 + deltaA_plus0_1 - deta_plus0_1 + dnA_plus0_1*f"
+          ],
+          [
+            "-A0_1*eta_plus_3 + A0_3*eta_plus_1 + An_plus_2*df_0 + deltaA_plus0_2 - deta_plus0_2 + dnA_plus0_2*f",
+            "-A0_2*eta_plus_3 + A0_3*eta_plus_2 - An_plus_1*df_0 - deltaA_plus0_1 + deta_plus0_1 - dnA_plus0_1*f",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A1_1*eta_plus_2 - A1_2*eta_plus_1 + An_plus_3*df_1 + deltaA_plus1_3 - deta_plus1_3 + dnA_plus1_3*f",
+            "A1_1*eta_plus_3 - A1_3*eta_plus_1 - An_plus_2*df_1 - deltaA_plus1_2 + deta_plus1_2 - dnA_plus1_2*f"
+          ],
+          [
+            "-A1_1*eta_plus_2 + A1_2*eta_plus_1 - An_plus_3*df_1 - deltaA_plus1_3 + deta_plus1_3 - dnA_plus1_3*f",
+            "0",
+            "A1_2*eta_plus_3 - A1_3*eta_plus_2 + An_plus_1*df_1 + deltaA_plus1_1 - deta_plus1_1 + dnA_plus1_1*f"
+          ],
+          [
+            "-A1_1*eta_plus_3 + A1_3*eta_plus_1 + An_plus_2*df_1 + deltaA_plus1_2 - deta_plus1_2 + dnA_plus1_2*f",
+            "-A1_2*eta_plus_3 + A1_3*eta_plus_2 - An_plus_1*df_1 - deltaA_plus1_1 + deta_plus1_1 - dnA_plus1_1*f",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A2_1*eta_plus_2 - A2_2*eta_plus_1 + An_plus_3*df_2 + deltaA_plus2_3 - deta_plus2_3 + dnA_plus2_3*f",
+            "A2_1*eta_plus_3 - A2_3*eta_plus_1 - An_plus_2*df_2 - deltaA_plus2_2 + deta_plus2_2 - dnA_plus2_2*f"
+          ],
+          [
+            "-A2_1*eta_plus_2 + A2_2*eta_plus_1 - An_plus_3*df_2 - deltaA_plus2_3 + deta_plus2_3 - dnA_plus2_3*f",
+            "0",
+            "A2_2*eta_plus_3 - A2_3*eta_plus_2 + An_plus_1*df_2 + deltaA_plus2_1 - deta_plus2_1 + dnA_plus2_1*f"
+          ],
+          [
+            "-A2_1*eta_plus_3 + A2_3*eta_plus_1 + An_plus_2*df_2 + deltaA_plus2_2 - deta_plus2_2 + dnA_plus2_2*f",
+            "-A2_2*eta_plus_3 + A2_3*eta_plus_2 - An_plus_1*df_2 - deltaA_plus2_1 + deta_plus2_1 - dnA_plus2_1*f",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "A3_1*eta_plus_2 - A3_2*eta_plus_1 + An_plus_3*df_3 + deltaA_plus3_3 - deta_plus3_3 + dnA_plus3_3*f",
+            "A3_1*eta_plus_3 - A3_3*eta_plus_1 - An_plus_2*df_3 - deltaA_plus3_2 + deta_plus3_2 - dnA_plus3_2*f"
+          ],
+          [
+            "-A3_1*eta_plus_2 + A3_2*eta_plus_1 - An_plus_3*df_3 - deltaA_plus3_3 + deta_plus3_3 - dnA_plus3_3*f",
+            "0",
+            "A3_2*eta_plus_3 - A3_3*eta_plus_2 + An_plus_1*df_3 + deltaA_plus3_1 - deta_plus3_1 + dnA_plus3_1*f"
+          ],
+          [
+            "-A3_1*eta_plus_3 + A3_3*eta_plus_1 + An_plus_2*df_3 + deltaA_plus3_2 - deta_plus3_2 + dnA_plus3_2*f",
+            "-A3_2*eta_plus_3 + A3_3*eta_plus_2 - An_plus_1*df_3 - deltaA_plus3_1 + deta_plus3_1 - dnA_plus3_1*f",
+            "0"
+          ]
+        ]
+      ]
+    }
+  },
+  "negative_controls": {
+    "BF_call_common_rotation_summand_full_eta_Euler": true,
+    "BF_omit_BF_chart_complements": true,
+    "BF_omit_rotation_boundary": true,
+    "SC_count_SC_once_per_bulk_face": true,
+    "SC_drop_G_Lambda": true,
+    "SC_drop_IBP_boundary": true,
+    "eta_operator_drop_df_in_identification": true,
+    "eta_operator_drop_operator_boundary": true,
+    "trace_freeze_both_bulk_metrics_with_distinct_K": true,
+    "trace_minus_omit_identification_Deta": true,
+    "trace_minus_omit_normal_connection_times_df": true,
+    "trace_plus_omit_identification_Deta": true,
+    "trace_plus_omit_normal_connection_times_df": true
+  },
+  "nondegenerate_witnesses": {
+    "mixed_curvature_nonzero": true,
+    "nonabelian_identification_commutator": true,
+    "nonconstant_normal_displacement": true,
+    "normal_connection_nonzero": true
+  },
+  "provenance": {
+    "test_one_omega_connection_moving_trace_adjoint_v1.py": "1bb8cc558813f95b6be4b7e20b1e8c610aabf208bd2f351f73e5b2aa6958f63d",
+    "verify_one_omega_connection_moving_trace_adjoint_v1.py": "4bbc777a9b01fc884daef354cd158e60f3c088317e7595abf74e3fa09fdbbe06"
+  },
+  "schema": "holo.one-omega-connection-moving-trace-adjoint.v1",
+  "scope": {
+    "BF": "common trace summand plus mandatory Eulerian chart complements, with corrected literal Stokes orientation",
+    "T": "intrinsic delta T is independent; a postulated bulk-clock pullback requires an additional chain rule",
+    "domain": "local smooth Gaussian collars and one common intrinsic trace, target frame horizontal",
+    "eta": "identification relative to horizontal target; normal geometric operator not inferred from tangential sigma_X"
+  },
+  "sources": {
+    "lemma_sha256": "3d2a3e1af0bf2da628acc364a16fa5f5cadc623cdd18dbcc02b09367be9971cf",
+    "physical_gates_inherited": false,
+    "source_formula_scope": "complete intrinsic SC variation and tangential Ward; no imported complete embedding map",
+    "upstreams": {
+      "one_omega_connection_current_covariant_variation_v1": {
+        "schema": "holo.one-omega-connection-current-covariant-variation.v1",
+        "sha256": "d2a1b7af2e9b43eacafdece6d26d30433e6c4fbdb0d46922bf7eace34b30f6de"
+      },
+      "one_omega_connection_horizontal_ward_v1": {
+        "schema": "holo.one-omega-connection-horizontal-ward.v1",
+        "sha256": "d26d2cf58092eecacebd1f8d7f34f8a35222cd1ef7ec7153f5f0675a7e7e1f89"
+      },
+      "one_omega_interface_connection_current_candidate_v1": {
+        "schema": "holo.one-omega-interface-connection-current-candidate.v1",
+        "sha256": "e51d8d47ee97e20c6aea5aebb4680a65cba79254c2ea0a30fd6a88774b6535e8"
+      }
+    }
+  }
+}
