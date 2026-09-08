@@ -1,0 +1,2415 @@
+{
+  "calculation_digest": "3a0b2b9f426235a9abe2b2a507f6f35765e42bae85a29b674a3fa5248bc17ecf",
+  "checks": {
+    "geometry_Ricci_symmetric": true,
+    "geometry_connection_torsion_zero": true,
+    "geometry_contracted_Gauss_independent_metric_jets": true,
+    "geometry_normal_Riemann_from_metric": true,
+    "paired_admissible_metric_trace_minus": true,
+    "paired_admissible_metric_trace_plus": true,
+    "paired_admissible_scalar_trace_minus": true,
+    "paired_admissible_scalar_trace_plus": true,
+    "paired_h0_is_mean_of_Eulerian_metric_traces": true,
+    "paired_normal_force_from_Green_equals_constraint_combination": true,
+    "paired_normal_force_from_Green_equals_tau_Kbar_minus_T_jump": true,
+    "paired_outward_pairing_gives_positive_pi_jump": true,
+    "paired_paired_variable_f_shape_currents_cancel": true,
+    "paired_scalar_minus_normal_Legendre_is_Tnn": true,
+    "paired_scalar_momenta_derived_from_literal_density": true,
+    "paired_scalar_moving_common_trace_form": true,
+    "paired_scalar_plus_normal_Legendre_is_Tnn": true,
+    "paired_wall_and_scalar_rows_retained": true,
+    "palatini_GHY_from_volume_inverse_and_metric_jet": true,
+    "palatini_Palatini_from_covariant_derivatives": true,
+    "palatini_all_normal_metric_variation_jets_cancel": true,
+    "palatini_metric_coefficient_reconstructs_Green": true,
+    "palatini_p_equals_minus_M_pi_over_two": true,
+    "shape_contracted_Jacobi_keeps_inverse_variation": true,
+    "shape_flat_variable_f_retains_boundary": true,
+    "shape_general_covariant_Gauss_reduction": true,
+    "shape_induced_K_derivative_from_normal_and_pullback": true,
+    "shape_induced_K_reference_from_Christoffel": true,
+    "shape_induced_determinant_volume_derivative": true,
+    "shape_induced_metric_from_immersion": true,
+    "shape_normal_orthogonal_to_immersion_at_order_one": true,
+    "shape_normal_unit_at_order_one": true,
+    "shape_normal_unit_at_order_zero": true,
+    "shape_retained_edge_divergence_is_minus_M_box": true,
+    "shape_shape_Legendre_from_independent_metric_jets": true,
+    "shape_uncontracted_Jacobi_from_metric_Riemann": true,
+    "shape_warped_Ric_nn_without_BPS": true,
+    "shape_warped_scalar_curvature_without_BPS": true,
+    "shape_warped_shape_cancels_a_prime": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "C1": false,
+    "Dirichlet_momentum_derived_from_Palatini_and_GHY": true,
+    "N1": false,
+    "N4_JUNCTION_BENDING_pass": false,
+    "P2": false,
+    "P3": false,
+    "P4": false,
+    "all_external_corner_variations_closed": false,
+    "bulk_Euler_terms_discarded_off_shell": false,
+    "full_N7": false,
+    "full_gauged_material_and_BF_moving_map_derived": false,
+    "global_functional_domain_or_solution_proved": false,
+    "independent_5D_immersion_metric_jets_checked": true,
+    "normal_constraint_coefficient_linked_to_action_variation": true,
+    "normal_shape_Green_identified_in_declared_chart": true,
+    "paired_scalar_wall_natural_rows_retained": true
+  },
+  "model": {
+    "checks": {
+      "geometry_Ricci_symmetric": true,
+      "geometry_connection_torsion_zero": true,
+      "geometry_contracted_Gauss_independent_metric_jets": true,
+      "geometry_normal_Riemann_from_metric": true,
+      "paired_admissible_metric_trace_minus": true,
+      "paired_admissible_metric_trace_plus": true,
+      "paired_admissible_scalar_trace_minus": true,
+      "paired_admissible_scalar_trace_plus": true,
+      "paired_h0_is_mean_of_Eulerian_metric_traces": true,
+      "paired_normal_force_from_Green_equals_constraint_combination": true,
+      "paired_normal_force_from_Green_equals_tau_Kbar_minus_T_jump": true,
+      "paired_outward_pairing_gives_positive_pi_jump": true,
+      "paired_paired_variable_f_shape_currents_cancel": true,
+      "paired_scalar_minus_normal_Legendre_is_Tnn": true,
+      "paired_scalar_momenta_derived_from_literal_density": true,
+      "paired_scalar_moving_common_trace_form": true,
+      "paired_scalar_plus_normal_Legendre_is_Tnn": true,
+      "paired_wall_and_scalar_rows_retained": true,
+      "palatini_GHY_from_volume_inverse_and_metric_jet": true,
+      "palatini_Palatini_from_covariant_derivatives": true,
+      "palatini_all_normal_metric_variation_jets_cancel": true,
+      "palatini_metric_coefficient_reconstructs_Green": true,
+      "palatini_p_equals_minus_M_pi_over_two": true,
+      "shape_contracted_Jacobi_keeps_inverse_variation": true,
+      "shape_flat_variable_f_retains_boundary": true,
+      "shape_general_covariant_Gauss_reduction": true,
+      "shape_induced_K_derivative_from_normal_and_pullback": true,
+      "shape_induced_K_reference_from_Christoffel": true,
+      "shape_induced_determinant_volume_derivative": true,
+      "shape_induced_metric_from_immersion": true,
+      "shape_normal_orthogonal_to_immersion_at_order_one": true,
+      "shape_normal_unit_at_order_one": true,
+      "shape_normal_unit_at_order_zero": true,
+      "shape_retained_edge_divergence_is_minus_M_box": true,
+      "shape_shape_Legendre_from_independent_metric_jets": true,
+      "shape_uncontracted_Jacobi_from_metric_Riemann": true,
+      "shape_warped_Ric_nn_without_BPS": true,
+      "shape_warped_scalar_curvature_without_BPS": true,
+      "shape_warped_shape_cancels_a_prime": true
+    },
+    "decision": {
+      "B4": false,
+      "B5": false,
+      "C1": false,
+      "Dirichlet_momentum_derived_from_Palatini_and_GHY": true,
+      "N1": false,
+      "N4_JUNCTION_BENDING_pass": false,
+      "P2": false,
+      "P3": false,
+      "P4": false,
+      "all_external_corner_variations_closed": false,
+      "bulk_Euler_terms_discarded_off_shell": false,
+      "full_N7": false,
+      "full_gauged_material_and_BF_moving_map_derived": false,
+      "global_functional_domain_or_solution_proved": false,
+      "independent_5D_immersion_metric_jets_checked": true,
+      "normal_constraint_coefficient_linked_to_action_variation": true,
+      "normal_shape_Green_identified_in_declared_chart": true,
+      "paired_scalar_wall_natural_rows_retained": true
+    },
+    "geometry": {
+      "R_bulk_from_metric": "2*K_00**2 + 2*K_00*K_11 + 2*K_00*K_22 + 2*K_00*K_33 - 6*K_01**2 - 6*K_02**2 - 6*K_03**2 + 2*K_11**2 - 2*K_11*K_22 - 2*K_11*K_33 + 6*K_12**2 + 6*K_13**2 + 2*K_22**2 - 2*K_22*K_33 + 6*K_23**2 + 2*K_33**2 + 2*normal_K_derivative_00 - 2*normal_K_derivative_11 - 2*normal_K_derivative_22 - 2*normal_K_derivative_33",
+      "R_gamma_from_tangential_metric_jets": "0",
+      "R_ninj_from_metric": [
+        [
+          "-K_00**2 + K_01**2 + K_02**2 + K_03**2 - normal_K_derivative_00",
+          "-K_00*K_01 + K_01*K_11 + K_02*K_12 + K_03*K_13 - normal_K_derivative_01",
+          "-K_00*K_02 + K_01*K_12 + K_02*K_22 + K_03*K_23 - normal_K_derivative_02",
+          "-K_00*K_03 + K_01*K_13 + K_02*K_23 + K_03*K_33 - normal_K_derivative_03"
+        ],
+        [
+          "-K_00*K_01 + K_01*K_11 + K_02*K_12 + K_03*K_13 - normal_K_derivative_01",
+          "-K_01**2 + K_11**2 + K_12**2 + K_13**2 - normal_K_derivative_11",
+          "-K_01*K_02 + K_11*K_12 + K_12*K_22 + K_13*K_23 - normal_K_derivative_12",
+          "-K_01*K_03 + K_11*K_13 + K_12*K_23 + K_13*K_33 - normal_K_derivative_13"
+        ],
+        [
+          "-K_00*K_02 + K_01*K_12 + K_02*K_22 + K_03*K_23 - normal_K_derivative_02",
+          "-K_01*K_02 + K_11*K_12 + K_12*K_22 + K_13*K_23 - normal_K_derivative_12",
+          "-K_02**2 + K_12**2 + K_22**2 + K_23**2 - normal_K_derivative_22",
+          "-K_02*K_03 + K_12*K_13 + K_22*K_23 + K_23*K_33 - normal_K_derivative_23"
+        ],
+        [
+          "-K_00*K_03 + K_01*K_13 + K_02*K_23 + K_03*K_33 - normal_K_derivative_03",
+          "-K_01*K_03 + K_11*K_13 + K_12*K_23 + K_13*K_33 - normal_K_derivative_13",
+          "-K_02*K_03 + K_12*K_13 + K_22*K_23 + K_23*K_33 - normal_K_derivative_23",
+          "-K_03**2 + K_13**2 + K_23**2 + K_33**2 - normal_K_derivative_33"
+        ]
+      ],
+      "Ric_nn_from_metric": "K_00**2 - 2*K_01**2 - 2*K_02**2 - 2*K_03**2 + K_11**2 + 2*K_12**2 + 2*K_13**2 + K_22**2 + 2*K_23**2 + K_33**2 + normal_K_derivative_00 - normal_K_derivative_11 - normal_K_derivative_22 - normal_K_derivative_33",
+      "christoffel": [
+        [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-K_00",
+            "-K_01",
+            "-K_02",
+            "-K_03"
+          ],
+          [
+            "0",
+            "-K_01",
+            "-K_11",
+            "-K_12",
+            "-K_13"
+          ],
+          [
+            "0",
+            "-K_02",
+            "-K_12",
+            "-K_22",
+            "-K_23"
+          ],
+          [
+            "0",
+            "-K_03",
+            "-K_13",
+            "-K_23",
+            "-K_33"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-K_00",
+            "-K_01",
+            "-K_02",
+            "-K_03"
+          ],
+          [
+            "-K_00",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "-K_01",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "-K_02",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "-K_03",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "K_01",
+            "K_11",
+            "K_12",
+            "K_13"
+          ],
+          [
+            "K_01",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "K_11",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "K_12",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "K_13",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "K_02",
+            "K_12",
+            "K_22",
+            "K_23"
+          ],
+          [
+            "K_02",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "K_12",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "K_22",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "K_23",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "K_03",
+            "K_13",
+            "K_23",
+            "K_33"
+          ],
+          [
+            "K_03",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "K_13",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "K_23",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "K_33",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "christoffel_normal_derivative": [
+        [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-normal_K_derivative_00",
+            "-normal_K_derivative_01",
+            "-normal_K_derivative_02",
+            "-normal_K_derivative_03"
+          ],
+          [
+            "0",
+            "-normal_K_derivative_01",
+            "-normal_K_derivative_11",
+            "-normal_K_derivative_12",
+            "-normal_K_derivative_13"
+          ],
+          [
+            "0",
+            "-normal_K_derivative_02",
+            "-normal_K_derivative_12",
+            "-normal_K_derivative_22",
+            "-normal_K_derivative_23"
+          ],
+          [
+            "0",
+            "-normal_K_derivative_03",
+            "-normal_K_derivative_13",
+            "-normal_K_derivative_23",
+            "-normal_K_derivative_33"
+          ]
+        ],
+        [
+          [
+            "0",
+            "-2*K_00**2 + 2*K_01**2 + 2*K_02**2 + 2*K_03**2 - normal_K_derivative_00",
+            "-2*K_00*K_01 + 2*K_01*K_11 + 2*K_02*K_12 + 2*K_03*K_13 - normal_K_derivative_01",
+            "-2*K_00*K_02 + 2*K_01*K_12 + 2*K_02*K_22 + 2*K_03*K_23 - normal_K_derivative_02",
+            "-2*K_00*K_03 + 2*K_01*K_13 + 2*K_02*K_23 + 2*K_03*K_33 - normal_K_derivative_03"
+          ],
+          [
+            "-2*K_00**2 + 2*K_01**2 + 2*K_02**2 + 2*K_03**2 - normal_K_derivative_00",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "-2*K_00*K_01 + 2*K_01*K_11 + 2*K_02*K_12 + 2*K_03*K_13 - normal_K_derivative_01",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "-2*K_00*K_02 + 2*K_01*K_12 + 2*K_02*K_22 + 2*K_03*K_23 - normal_K_derivative_02",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "-2*K_00*K_03 + 2*K_01*K_13 + 2*K_02*K_23 + 2*K_03*K_33 - normal_K_derivative_03",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "2*K_00*K_01 - 2*K_01*K_11 - 2*K_02*K_12 - 2*K_03*K_13 + normal_K_derivative_01",
+            "2*K_01**2 - 2*K_11**2 - 2*K_12**2 - 2*K_13**2 + normal_K_derivative_11",
+            "2*K_01*K_02 - 2*K_11*K_12 - 2*K_12*K_22 - 2*K_13*K_23 + normal_K_derivative_12",
+            "2*K_01*K_03 - 2*K_11*K_13 - 2*K_12*K_23 - 2*K_13*K_33 + normal_K_derivative_13"
+          ],
+          [
+            "2*K_00*K_01 - 2*K_01*K_11 - 2*K_02*K_12 - 2*K_03*K_13 + normal_K_derivative_01",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "2*K_01**2 - 2*K_11**2 - 2*K_12**2 - 2*K_13**2 + normal_K_derivative_11",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "2*K_01*K_02 - 2*K_11*K_12 - 2*K_12*K_22 - 2*K_13*K_23 + normal_K_derivative_12",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "2*K_01*K_03 - 2*K_11*K_13 - 2*K_12*K_23 - 2*K_13*K_33 + normal_K_derivative_13",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "2*K_00*K_02 - 2*K_01*K_12 - 2*K_02*K_22 - 2*K_03*K_23 + normal_K_derivative_02",
+            "2*K_01*K_02 - 2*K_11*K_12 - 2*K_12*K_22 - 2*K_13*K_23 + normal_K_derivative_12",
+            "2*K_02**2 - 2*K_12**2 - 2*K_22**2 - 2*K_23**2 + normal_K_derivative_22",
+            "2*K_02*K_03 - 2*K_12*K_13 - 2*K_22*K_23 - 2*K_23*K_33 + normal_K_derivative_23"
+          ],
+          [
+            "2*K_00*K_02 - 2*K_01*K_12 - 2*K_02*K_22 - 2*K_03*K_23 + normal_K_derivative_02",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "2*K_01*K_02 - 2*K_11*K_12 - 2*K_12*K_22 - 2*K_13*K_23 + normal_K_derivative_12",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "2*K_02**2 - 2*K_12**2 - 2*K_22**2 - 2*K_23**2 + normal_K_derivative_22",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "2*K_02*K_03 - 2*K_12*K_13 - 2*K_22*K_23 - 2*K_23*K_33 + normal_K_derivative_23",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        [
+          [
+            "0",
+            "2*K_00*K_03 - 2*K_01*K_13 - 2*K_02*K_23 - 2*K_03*K_33 + normal_K_derivative_03",
+            "2*K_01*K_03 - 2*K_11*K_13 - 2*K_12*K_23 - 2*K_13*K_33 + normal_K_derivative_13",
+            "2*K_02*K_03 - 2*K_12*K_13 - 2*K_22*K_23 - 2*K_23*K_33 + normal_K_derivative_23",
+            "2*K_03**2 - 2*K_13**2 - 2*K_23**2 - 2*K_33**2 + normal_K_derivative_33"
+          ],
+          [
+            "2*K_00*K_03 - 2*K_01*K_13 - 2*K_02*K_23 - 2*K_03*K_33 + normal_K_derivative_03",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "2*K_01*K_03 - 2*K_11*K_13 - 2*K_12*K_23 - 2*K_13*K_33 + normal_K_derivative_13",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "2*K_02*K_03 - 2*K_12*K_13 - 2*K_22*K_23 - 2*K_23*K_33 + normal_K_derivative_23",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "2*K_03**2 - 2*K_13**2 - 2*K_23**2 - 2*K_33**2 + normal_K_derivative_33",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      ],
+      "inverse": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "inverse_normal_jet": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-2*K_00",
+          "2*K_01",
+          "2*K_02",
+          "2*K_03"
+        ],
+        [
+          "0",
+          "2*K_01",
+          "-2*K_11",
+          "-2*K_12",
+          "-2*K_13"
+        ],
+        [
+          "0",
+          "2*K_02",
+          "-2*K_12",
+          "-2*K_22",
+          "-2*K_23"
+        ],
+        [
+          "0",
+          "2*K_03",
+          "-2*K_13",
+          "-2*K_23",
+          "-2*K_33"
+        ]
+      ],
+      "metric": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "metric_jet_family": "flat intrinsic slices; arbitrary symmetric K,L; no Einstein or BPS equations",
+      "metric_normal_jet": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "2*K_00",
+          "2*K_01",
+          "2*K_02",
+          "2*K_03"
+        ],
+        [
+          "0",
+          "2*K_01",
+          "2*K_11",
+          "2*K_12",
+          "2*K_13"
+        ],
+        [
+          "0",
+          "2*K_02",
+          "2*K_12",
+          "2*K_22",
+          "2*K_23"
+        ],
+        [
+          "0",
+          "2*K_03",
+          "2*K_13",
+          "2*K_23",
+          "2*K_33"
+        ]
+      ],
+      "metric_second_normal_jet": [
+        [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "2*normal_K_derivative_00",
+          "2*normal_K_derivative_01",
+          "2*normal_K_derivative_02",
+          "2*normal_K_derivative_03"
+        ],
+        [
+          "0",
+          "2*normal_K_derivative_01",
+          "2*normal_K_derivative_11",
+          "2*normal_K_derivative_12",
+          "2*normal_K_derivative_13"
+        ],
+        [
+          "0",
+          "2*normal_K_derivative_02",
+          "2*normal_K_derivative_12",
+          "2*normal_K_derivative_22",
+          "2*normal_K_derivative_23"
+        ],
+        [
+          "0",
+          "2*normal_K_derivative_03",
+          "2*normal_K_derivative_13",
+          "2*normal_K_derivative_23",
+          "2*normal_K_derivative_33"
+        ]
+      ],
+      "residuals": {
+        "Ricci_symmetric": [
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "connection_torsion_zero": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "contracted_Gauss_independent_metric_jets": "-K_00**2 + 2*K_00*K_11 + 2*K_00*K_22 + 2*K_00*K_33 - K_11**2 - 2*K_11*K_22 - 2*K_11*K_33 - K_22**2 - 2*K_22*K_33 - K_33**2 + (-K_00 + K_11 + K_22 + K_33)**2",
+        "normal_Riemann_from_metric": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "ricci": [
+        [
+          "K_00**2 - 2*K_01**2 - 2*K_02**2 - 2*K_03**2 + K_11**2 + 2*K_12**2 + 2*K_13**2 + K_22**2 + 2*K_23**2 + K_33**2 + normal_K_derivative_00 - normal_K_derivative_11 - normal_K_derivative_22 - normal_K_derivative_33",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-K_00**2 - K_00*K_11 - K_00*K_22 - K_00*K_33 + 2*K_01**2 + 2*K_02**2 + 2*K_03**2 - normal_K_derivative_00",
+          "-K_00*K_01 + K_01*K_11 - K_01*K_22 - K_01*K_33 + 2*K_02*K_12 + 2*K_03*K_13 - normal_K_derivative_01",
+          "-K_00*K_02 + 2*K_01*K_12 - K_02*K_11 + K_02*K_22 - K_02*K_33 + 2*K_03*K_23 - normal_K_derivative_02",
+          "-K_00*K_03 + 2*K_01*K_13 + 2*K_02*K_23 - K_03*K_11 - K_03*K_22 + K_03*K_33 - normal_K_derivative_03"
+        ],
+        [
+          "0",
+          "-K_00*K_01 + K_01*K_11 - K_01*K_22 - K_01*K_33 + 2*K_02*K_12 + 2*K_03*K_13 - normal_K_derivative_01",
+          "K_00*K_11 - 2*K_01**2 + K_11**2 - K_11*K_22 - K_11*K_33 + 2*K_12**2 + 2*K_13**2 - normal_K_derivative_11",
+          "K_00*K_12 - 2*K_01*K_02 + K_11*K_12 + K_12*K_22 - K_12*K_33 + 2*K_13*K_23 - normal_K_derivative_12",
+          "K_00*K_13 - 2*K_01*K_03 + K_11*K_13 + 2*K_12*K_23 - K_13*K_22 + K_13*K_33 - normal_K_derivative_13"
+        ],
+        [
+          "0",
+          "-K_00*K_02 + 2*K_01*K_12 - K_02*K_11 + K_02*K_22 - K_02*K_33 + 2*K_03*K_23 - normal_K_derivative_02",
+          "K_00*K_12 - 2*K_01*K_02 + K_11*K_12 + K_12*K_22 - K_12*K_33 + 2*K_13*K_23 - normal_K_derivative_12",
+          "K_00*K_22 - 2*K_02**2 - K_11*K_22 + 2*K_12**2 + K_22**2 - K_22*K_33 + 2*K_23**2 - normal_K_derivative_22",
+          "K_00*K_23 - 2*K_02*K_03 - K_11*K_23 + 2*K_12*K_13 + K_22*K_23 + K_23*K_33 - normal_K_derivative_23"
+        ],
+        [
+          "0",
+          "-K_00*K_03 + 2*K_01*K_13 + 2*K_02*K_23 - K_03*K_11 - K_03*K_22 + K_03*K_33 - normal_K_derivative_03",
+          "K_00*K_13 - 2*K_01*K_03 + K_11*K_13 + 2*K_12*K_23 - K_13*K_22 + K_13*K_33 - normal_K_derivative_13",
+          "K_00*K_23 - 2*K_02*K_03 - K_11*K_23 + 2*K_12*K_13 + K_22*K_23 + K_23*K_33 - normal_K_derivative_23",
+          "K_00*K_33 - 2*K_03**2 - K_11*K_33 + 2*K_13**2 - K_22*K_33 + 2*K_23**2 + K_33**2 - normal_K_derivative_33"
+        ]
+      ]
+    },
+    "negative_controls": {
+      "both_outward_normals_chosen_equal": true,
+      "discard_bulk_Euler_terms_off_shell": true,
+      "discard_scalar_natural_rows": true,
+      "double_count_EH_domain_transport": true,
+      "double_count_intrinsic_wall": true,
+      "freeze_both_bulk_metric_traces": true,
+      "freeze_inverse_in_shape_trace": true,
+      "omit_GHY_leaves_normal_metric_jets": true,
+      "omit_scalar_normal_Legendre_term": true,
+      "omit_variable_f_boundary_current": true,
+      "wrong_Israel_jump_sign": true
+    },
+    "negative_witnesses": {
+      "both_outward_normals_chosen_equal": "-K_minus_00*K_minus_11*M*f - K_minus_00*K_minus_22*M*f - K_minus_00*K_minus_33*M*f + K_minus_00*M*h_Sigma_11/2 + K_minus_00*M*h_Sigma_22/2 + K_minus_00*M*h_Sigma_33/2 + K_minus_01**2*M*f - K_minus_01*M*h_Sigma_01 + K_minus_02**2*M*f - K_minus_02*M*h_Sigma_02 + K_minus_03**2*M*f - K_minus_03*M*h_Sigma_03 + K_minus_11*K_minus_22*M*f + K_minus_11*K_minus_33*M*f + K_minus_11*M*h_Sigma_00/2 - K_minus_11*M*h_Sigma_22/2 - K_minus_11*M*h_Sigma_33/2 - K_minus_12**2*M*f + K_minus_12*M*h_Sigma_12 - K_minus_13**2*M*f + K_minus_13*M*h_Sigma_13 + K_minus_22*K_minus_33*M*f + K_minus_22*M*h_Sigma_00/2 - K_minus_22*M*h_Sigma_11/2 - K_minus_22*M*h_Sigma_33/2 - K_minus_23**2*M*f + K_minus_23*M*h_Sigma_23 + K_minus_33*M*h_Sigma_00/2 - K_minus_33*M*h_Sigma_11/2 - K_minus_33*M*h_Sigma_22/2 + K_plus_00*K_plus_11*M*f + K_plus_00*K_plus_22*M*f + K_plus_00*K_plus_33*M*f - K_plus_00*M*h_Sigma_11/2 - K_plus_00*M*h_Sigma_22/2 - K_plus_00*M*h_Sigma_33/2 - K_plus_01**2*M*f + K_plus_01*M*h_Sigma_01 - K_plus_02**2*M*f + K_plus_02*M*h_Sigma_02 - K_plus_03**2*M*f + K_plus_03*M*h_Sigma_03 - K_plus_11*K_plus_22*M*f - K_plus_11*K_plus_33*M*f - K_plus_11*M*h_Sigma_00/2 + K_plus_11*M*h_Sigma_22/2 + K_plus_11*M*h_Sigma_33/2 + K_plus_12**2*M*f - K_plus_12*M*h_Sigma_12 + K_plus_13**2*M*f - K_plus_13*M*h_Sigma_13 - K_plus_22*K_plus_33*M*f - K_plus_22*M*h_Sigma_00/2 + K_plus_22*M*h_Sigma_11/2 + K_plus_22*M*h_Sigma_33/2 + K_plus_23**2*M*f - K_plus_23*M*h_Sigma_23 - K_plus_33*M*h_Sigma_00/2 + K_plus_33*M*h_Sigma_11/2 + K_plus_33*M*h_Sigma_22/2 - f*(M*(-K_minus_00**2 + 2*K_minus_01**2 + 2*K_minus_02**2 + 2*K_minus_03**2 - K_minus_11**2 - 2*K_minus_12**2 - 2*K_minus_13**2 - K_minus_22**2 - 2*K_minus_23**2 - K_minus_33**2 - R_gamma + (-K_minus_00 + K_minus_11 + K_minus_22 + K_minus_33)**2)/2 + M*(-K_plus_00**2 + 2*K_plus_01**2 + 2*K_plus_02**2 + 2*K_plus_03**2 - K_plus_11**2 - 2*K_plus_12**2 - 2*K_plus_13**2 - K_plus_22**2 - 2*K_plus_23**2 - K_plus_33**2 - R_gamma + (-K_plus_00 + K_plus_11 + K_plus_22 + K_plus_33)**2)/2) + h_Sigma_00*(-M*(K_minus_11 + K_minus_22 + K_minus_33)/2 - M*(K_plus_11 + K_plus_22 + K_plus_33)/2) + 2*h_Sigma_01*(K_minus_01*M/2 + K_plus_01*M/2) + 2*h_Sigma_02*(K_minus_02*M/2 + K_plus_02*M/2) + 2*h_Sigma_03*(K_minus_03*M/2 + K_plus_03*M/2) + h_Sigma_11*(-M*(K_minus_00 - K_minus_22 - K_minus_33)/2 - M*(K_plus_00 - K_plus_22 - K_plus_33)/2) + 2*h_Sigma_12*(-K_minus_12*M/2 - K_plus_12*M/2) + 2*h_Sigma_13*(-K_minus_13*M/2 - K_plus_13*M/2) + h_Sigma_22*(-M*(K_minus_00 - K_minus_11 - K_minus_33)/2 - M*(K_plus_00 - K_plus_11 - K_plus_33)/2) + 2*h_Sigma_23*(-K_minus_23*M/2 - K_plus_23*M/2) + h_Sigma_33*(-M*(K_minus_00 - K_minus_11 - K_minus_22)/2 - M*(K_plus_00 - K_plus_11 - K_plus_22)/2)",
+      "discard_bulk_Euler_terms_off_shell": "-K_minus_00*bulk_metric_Euler_minus_00 + K_minus_00*bulk_metric_Euler_plus_00 + 2*K_minus_01*bulk_metric_Euler_minus_01 - 2*K_minus_01*bulk_metric_Euler_plus_01 + 2*K_minus_02*bulk_metric_Euler_minus_02 - 2*K_minus_02*bulk_metric_Euler_plus_02 + 2*K_minus_03*bulk_metric_Euler_minus_03 - 2*K_minus_03*bulk_metric_Euler_plus_03 - K_minus_11*bulk_metric_Euler_minus_11 + K_minus_11*bulk_metric_Euler_plus_11 - 2*K_minus_12*bulk_metric_Euler_minus_12 + 2*K_minus_12*bulk_metric_Euler_plus_12 - 2*K_minus_13*bulk_metric_Euler_minus_13 + 2*K_minus_13*bulk_metric_Euler_plus_13 - K_minus_22*bulk_metric_Euler_minus_22 + K_minus_22*bulk_metric_Euler_plus_22 - 2*K_minus_23*bulk_metric_Euler_minus_23 + 2*K_minus_23*bulk_metric_Euler_plus_23 - K_minus_33*bulk_metric_Euler_minus_33 + K_minus_33*bulk_metric_Euler_plus_33 + K_plus_00*bulk_metric_Euler_minus_00 - K_plus_00*bulk_metric_Euler_plus_00 - 2*K_plus_01*bulk_metric_Euler_minus_01 + 2*K_plus_01*bulk_metric_Euler_plus_01 - 2*K_plus_02*bulk_metric_Euler_minus_02 + 2*K_plus_02*bulk_metric_Euler_plus_02 - 2*K_plus_03*bulk_metric_Euler_minus_03 + 2*K_plus_03*bulk_metric_Euler_plus_03 + K_plus_11*bulk_metric_Euler_minus_11 - K_plus_11*bulk_metric_Euler_plus_11 + 2*K_plus_12*bulk_metric_Euler_minus_12 - 2*K_plus_12*bulk_metric_Euler_plus_12 + 2*K_plus_13*bulk_metric_Euler_minus_13 - 2*K_plus_13*bulk_metric_Euler_plus_13 + K_plus_22*bulk_metric_Euler_minus_22 - K_plus_22*bulk_metric_Euler_plus_22 + 2*K_plus_23*bulk_metric_Euler_minus_23 - 2*K_plus_23*bulk_metric_Euler_plus_23 + K_plus_33*bulk_metric_Euler_minus_33 - K_plus_33*bulk_metric_Euler_plus_33 - bulk_scalar_Euler_minus_0*v_minus_0 - bulk_scalar_Euler_minus_1*v_minus_1 - bulk_scalar_Euler_minus_2*v_minus_2 - bulk_scalar_Euler_minus_3*v_minus_3 - bulk_scalar_Euler_plus_0*v_plus_0 - bulk_scalar_Euler_plus_1*v_plus_1 - bulk_scalar_Euler_plus_2*v_plus_2 - bulk_scalar_Euler_plus_3*v_plus_3",
+      "discard_scalar_natural_rows": "delta_q_0*(-C_scalar_00*v_minus_0 + C_scalar_00*v_plus_0 - C_scalar_01*v_minus_1 + C_scalar_01*v_plus_1 - C_scalar_02*v_minus_2 + C_scalar_02*v_plus_2 - C_scalar_03*v_minus_3 + C_scalar_03*v_plus_3 + wall_q_Euler_0) + delta_q_1*(-C_scalar_01*v_minus_0 + C_scalar_01*v_plus_0 - C_scalar_11*v_minus_1 + C_scalar_11*v_plus_1 - C_scalar_12*v_minus_2 + C_scalar_12*v_plus_2 - C_scalar_13*v_minus_3 + C_scalar_13*v_plus_3 + wall_q_Euler_1) + delta_q_2*(-C_scalar_02*v_minus_0 + C_scalar_02*v_plus_0 - C_scalar_12*v_minus_1 + C_scalar_12*v_plus_1 - C_scalar_22*v_minus_2 + C_scalar_22*v_plus_2 - C_scalar_23*v_minus_3 + C_scalar_23*v_plus_3 + wall_q_Euler_2) + delta_q_3*(-C_scalar_03*v_minus_0 + C_scalar_03*v_plus_0 - C_scalar_13*v_minus_1 + C_scalar_13*v_plus_1 - C_scalar_23*v_minus_2 + C_scalar_23*v_plus_2 - C_scalar_33*v_minus_3 + C_scalar_33*v_plus_3 + wall_q_Euler_3)",
+      "double_count_EH_domain_transport": "M*f*(2*K_00**2 + 2*K_00*K_11 + 2*K_00*K_22 + 2*K_00*K_33 - 6*K_01**2 - 6*K_02**2 - 6*K_03**2 + 2*K_11**2 - 2*K_11*K_22 - 2*K_11*K_33 + 6*K_12**2 + 6*K_13**2 + 2*K_22**2 - 2*K_22*K_33 + 6*K_23**2 + 2*K_33**2 + 2*normal_K_derivative_00 - 2*normal_K_derivative_11 - 2*normal_K_derivative_22 - 2*normal_K_derivative_33)/2",
+      "double_count_intrinsic_wall": "E_T*delta_T_Sigma + delta_q_0*wall_q_Euler_0 + delta_q_1*wall_q_Euler_1 + delta_q_2*wall_q_Euler_2 + delta_q_3*wall_q_Euler_3 + h_Sigma_00*tau_00/2 - h_Sigma_01*tau_01 - h_Sigma_02*tau_02 - h_Sigma_03*tau_03 + h_Sigma_11*tau_11/2 + h_Sigma_12*tau_12 + h_Sigma_13*tau_13 + h_Sigma_22*tau_22/2 + h_Sigma_23*tau_23 + h_Sigma_33*tau_33/2",
+      "freeze_both_bulk_metric_traces": [
+        [
+          "2*f*(-K_minus_00 + K_plus_00)",
+          "2*f*(-K_minus_01 + K_plus_01)",
+          "2*f*(-K_minus_02 + K_plus_02)",
+          "2*f*(-K_minus_03 + K_plus_03)"
+        ],
+        [
+          "2*f*(-K_minus_01 + K_plus_01)",
+          "2*f*(-K_minus_11 + K_plus_11)",
+          "2*f*(-K_minus_12 + K_plus_12)",
+          "2*f*(-K_minus_13 + K_plus_13)"
+        ],
+        [
+          "2*f*(-K_minus_02 + K_plus_02)",
+          "2*f*(-K_minus_12 + K_plus_12)",
+          "2*f*(-K_minus_22 + K_plus_22)",
+          "2*f*(-K_minus_23 + K_plus_23)"
+        ],
+        [
+          "2*f*(-K_minus_03 + K_plus_03)",
+          "2*f*(-K_minus_13 + K_plus_13)",
+          "2*f*(-K_minus_23 + K_plus_23)",
+          "2*f*(-K_minus_33 + K_plus_33)"
+        ]
+      ],
+      "freeze_inverse_in_shape_trace": "2*K_00**2*f - 4*K_01**2*f - 4*K_02**2*f - 4*K_03**2*f + 2*K_11**2*f + 4*K_12**2*f + 4*K_13**2*f + 2*K_22**2*f + 4*K_23**2*f + 2*K_33**2*f",
+      "omit_GHY_leaves_normal_metric_jets": [
+        "M/2",
+        "0",
+        "0",
+        "0",
+        "-M/2",
+        "0",
+        "0",
+        "-M/2",
+        "0",
+        "-M/2"
+      ],
+      "omit_scalar_normal_Legendre_term": "delta_q_0*(-C_scalar_00*v_minus_0 + C_scalar_00*v_plus_0 - C_scalar_01*v_minus_1 + C_scalar_01*v_plus_1 - C_scalar_02*v_minus_2 + C_scalar_02*v_plus_2 - C_scalar_03*v_minus_3 + C_scalar_03*v_plus_3) + delta_q_1*(-C_scalar_01*v_minus_0 + C_scalar_01*v_plus_0 - C_scalar_11*v_minus_1 + C_scalar_11*v_plus_1 - C_scalar_12*v_minus_2 + C_scalar_12*v_plus_2 - C_scalar_13*v_minus_3 + C_scalar_13*v_plus_3) + delta_q_2*(-C_scalar_02*v_minus_0 + C_scalar_02*v_plus_0 - C_scalar_12*v_minus_1 + C_scalar_12*v_plus_1 - C_scalar_22*v_minus_2 + C_scalar_22*v_plus_2 - C_scalar_23*v_minus_3 + C_scalar_23*v_plus_3) + delta_q_3*(-C_scalar_03*v_minus_0 + C_scalar_03*v_plus_0 - C_scalar_13*v_minus_1 + C_scalar_13*v_plus_1 - C_scalar_23*v_minus_2 + C_scalar_23*v_plus_2 - C_scalar_33*v_minus_3 + C_scalar_33*v_plus_3) + f*(-v_minus_0*(C_scalar_00*v_minus_0 + C_scalar_01*v_minus_1 + C_scalar_02*v_minus_2 + C_scalar_03*v_minus_3)/2 - v_minus_1*(C_scalar_01*v_minus_0 + C_scalar_11*v_minus_1 + C_scalar_12*v_minus_2 + C_scalar_13*v_minus_3)/2 - v_minus_2*(C_scalar_02*v_minus_0 + C_scalar_12*v_minus_1 + C_scalar_22*v_minus_2 + C_scalar_23*v_minus_3)/2 - v_minus_3*(C_scalar_03*v_minus_0 + C_scalar_13*v_minus_1 + C_scalar_23*v_minus_2 + C_scalar_33*v_minus_3)/2 + v_plus_0*(C_scalar_00*v_plus_0 + C_scalar_01*v_plus_1 + C_scalar_02*v_plus_2 + C_scalar_03*v_plus_3)/2 + v_plus_1*(C_scalar_01*v_plus_0 + C_scalar_11*v_plus_1 + C_scalar_12*v_plus_2 + C_scalar_13*v_plus_3)/2 + v_plus_2*(C_scalar_02*v_plus_0 + C_scalar_12*v_plus_1 + C_scalar_22*v_plus_2 + C_scalar_23*v_plus_3)/2 + v_plus_3*(C_scalar_03*v_plus_0 + C_scalar_13*v_plus_1 + C_scalar_23*v_plus_2 + C_scalar_33*v_plus_3)/2) - f*(-V + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_minus_0*(C_scalar_00*v_minus_0 + C_scalar_01*v_minus_1 + C_scalar_02*v_minus_2 + C_scalar_03*v_minus_3)/2 - v_minus_1*(C_scalar_01*v_minus_0 + C_scalar_11*v_minus_1 + C_scalar_12*v_minus_2 + C_scalar_13*v_minus_3)/2 - v_minus_2*(C_scalar_02*v_minus_0 + C_scalar_12*v_minus_1 + C_scalar_22*v_minus_2 + C_scalar_23*v_minus_3)/2 - v_minus_3*(C_scalar_03*v_minus_0 + C_scalar_13*v_minus_1 + C_scalar_23*v_minus_2 + C_scalar_33*v_minus_3)/2) + f*(-V + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_plus_0*(C_scalar_00*v_plus_0 + C_scalar_01*v_plus_1 + C_scalar_02*v_plus_2 + C_scalar_03*v_plus_3)/2 - v_plus_1*(C_scalar_01*v_plus_0 + C_scalar_11*v_plus_1 + C_scalar_12*v_plus_2 + C_scalar_13*v_plus_3)/2 - v_plus_2*(C_scalar_02*v_plus_0 + C_scalar_12*v_plus_1 + C_scalar_22*v_plus_2 + C_scalar_23*v_plus_3)/2 - v_plus_3*(C_scalar_03*v_plus_0 + C_scalar_13*v_plus_1 + C_scalar_23*v_plus_2 + C_scalar_33*v_plus_3)/2) - (delta_q_0 - f*v_minus_0)*(-C_scalar_00*v_minus_0 - C_scalar_01*v_minus_1 - C_scalar_02*v_minus_2 - C_scalar_03*v_minus_3) + (delta_q_0 - f*v_plus_0)*(-C_scalar_00*v_plus_0 - C_scalar_01*v_plus_1 - C_scalar_02*v_plus_2 - C_scalar_03*v_plus_3) - (delta_q_1 - f*v_minus_1)*(-C_scalar_01*v_minus_0 - C_scalar_11*v_minus_1 - C_scalar_12*v_minus_2 - C_scalar_13*v_minus_3) + (delta_q_1 - f*v_plus_1)*(-C_scalar_01*v_plus_0 - C_scalar_11*v_plus_1 - C_scalar_12*v_plus_2 - C_scalar_13*v_plus_3) - (delta_q_2 - f*v_minus_2)*(-C_scalar_02*v_minus_0 - C_scalar_12*v_minus_1 - C_scalar_22*v_minus_2 - C_scalar_23*v_minus_3) + (delta_q_2 - f*v_plus_2)*(-C_scalar_02*v_plus_0 - C_scalar_12*v_plus_1 - C_scalar_22*v_plus_2 - C_scalar_23*v_plus_3) - (delta_q_3 - f*v_minus_3)*(-C_scalar_03*v_minus_0 - C_scalar_13*v_minus_1 - C_scalar_23*v_minus_2 - C_scalar_33*v_minus_3) + (delta_q_3 - f*v_plus_3)*(-C_scalar_03*v_plus_0 - C_scalar_13*v_plus_1 - C_scalar_23*v_plus_2 - C_scalar_33*v_plus_3)",
+      "omit_variable_f_boundary_current": "M*(-f_second_00 + f_second_11 + f_second_22 + f_second_33)",
+      "wrong_Israel_jump_sign": "C_scalar_00*delta_q_0*v_minus_0 - C_scalar_00*delta_q_0*v_plus_0 - C_scalar_00*f*v_minus_0**2/2 + C_scalar_00*f*v_plus_0**2/2 + C_scalar_01*delta_q_0*v_minus_1 - C_scalar_01*delta_q_0*v_plus_1 + C_scalar_01*delta_q_1*v_minus_0 - C_scalar_01*delta_q_1*v_plus_0 - C_scalar_01*f*v_minus_0*v_minus_1 + C_scalar_01*f*v_plus_0*v_plus_1 + C_scalar_02*delta_q_0*v_minus_2 - C_scalar_02*delta_q_0*v_plus_2 + C_scalar_02*delta_q_2*v_minus_0 - C_scalar_02*delta_q_2*v_plus_0 - C_scalar_02*f*v_minus_0*v_minus_2 + C_scalar_02*f*v_plus_0*v_plus_2 + C_scalar_03*delta_q_0*v_minus_3 - C_scalar_03*delta_q_0*v_plus_3 + C_scalar_03*delta_q_3*v_minus_0 - C_scalar_03*delta_q_3*v_plus_0 - C_scalar_03*f*v_minus_0*v_minus_3 + C_scalar_03*f*v_plus_0*v_plus_3 + C_scalar_11*delta_q_1*v_minus_1 - C_scalar_11*delta_q_1*v_plus_1 - C_scalar_11*f*v_minus_1**2/2 + C_scalar_11*f*v_plus_1**2/2 + C_scalar_12*delta_q_1*v_minus_2 - C_scalar_12*delta_q_1*v_plus_2 + C_scalar_12*delta_q_2*v_minus_1 - C_scalar_12*delta_q_2*v_plus_1 - C_scalar_12*f*v_minus_1*v_minus_2 + C_scalar_12*f*v_plus_1*v_plus_2 + C_scalar_13*delta_q_1*v_minus_3 - C_scalar_13*delta_q_1*v_plus_3 + C_scalar_13*delta_q_3*v_minus_1 - C_scalar_13*delta_q_3*v_plus_1 - C_scalar_13*f*v_minus_1*v_minus_3 + C_scalar_13*f*v_plus_1*v_plus_3 + C_scalar_22*delta_q_2*v_minus_2 - C_scalar_22*delta_q_2*v_plus_2 - C_scalar_22*f*v_minus_2**2/2 + C_scalar_22*f*v_plus_2**2/2 + C_scalar_23*delta_q_2*v_minus_3 - C_scalar_23*delta_q_2*v_plus_3 + C_scalar_23*delta_q_3*v_minus_2 - C_scalar_23*delta_q_3*v_plus_2 - C_scalar_23*f*v_minus_2*v_minus_3 + C_scalar_23*f*v_plus_2*v_plus_3 + C_scalar_33*delta_q_3*v_minus_3 - C_scalar_33*delta_q_3*v_plus_3 - C_scalar_33*f*v_minus_3**2/2 + C_scalar_33*f*v_plus_3**2/2 - K_minus_00*K_minus_11*M*f - K_minus_00*K_minus_22*M*f - K_minus_00*K_minus_33*M*f + K_minus_00*M*h_Sigma_11/2 + K_minus_00*M*h_Sigma_22/2 + K_minus_00*M*h_Sigma_33/2 + K_minus_01**2*M*f - K_minus_01*M*h_Sigma_01 + K_minus_02**2*M*f - K_minus_02*M*h_Sigma_02 + K_minus_03**2*M*f - K_minus_03*M*h_Sigma_03 + K_minus_11*K_minus_22*M*f + K_minus_11*K_minus_33*M*f + K_minus_11*M*h_Sigma_00/2 - K_minus_11*M*h_Sigma_22/2 - K_minus_11*M*h_Sigma_33/2 - K_minus_12**2*M*f + K_minus_12*M*h_Sigma_12 - K_minus_13**2*M*f + K_minus_13*M*h_Sigma_13 + K_minus_22*K_minus_33*M*f + K_minus_22*M*h_Sigma_00/2 - K_minus_22*M*h_Sigma_11/2 - K_minus_22*M*h_Sigma_33/2 - K_minus_23**2*M*f + K_minus_23*M*h_Sigma_23 + K_minus_33*M*h_Sigma_00/2 - K_minus_33*M*h_Sigma_11/2 - K_minus_33*M*h_Sigma_22/2 + K_plus_00*K_plus_11*M*f + K_plus_00*K_plus_22*M*f + K_plus_00*K_plus_33*M*f - K_plus_00*M*h_Sigma_11/2 - K_plus_00*M*h_Sigma_22/2 - K_plus_00*M*h_Sigma_33/2 - K_plus_01**2*M*f + K_plus_01*M*h_Sigma_01 - K_plus_02**2*M*f + K_plus_02*M*h_Sigma_02 - K_plus_03**2*M*f + K_plus_03*M*h_Sigma_03 - K_plus_11*K_plus_22*M*f - K_plus_11*K_plus_33*M*f - K_plus_11*M*h_Sigma_00/2 + K_plus_11*M*h_Sigma_22/2 + K_plus_11*M*h_Sigma_33/2 + K_plus_12**2*M*f - K_plus_12*M*h_Sigma_12 + K_plus_13**2*M*f - K_plus_13*M*h_Sigma_13 - K_plus_22*K_plus_33*M*f - K_plus_22*M*h_Sigma_00/2 + K_plus_22*M*h_Sigma_11/2 + K_plus_22*M*h_Sigma_33/2 + K_plus_23**2*M*f - K_plus_23*M*h_Sigma_23 - K_plus_33*M*h_Sigma_00/2 + K_plus_33*M*h_Sigma_11/2 + K_plus_33*M*h_Sigma_22/2 - delta_q_0*wall_q_Euler_0 + delta_q_0*(-C_scalar_00*v_minus_0 + C_scalar_00*v_plus_0 - C_scalar_01*v_minus_1 + C_scalar_01*v_plus_1 - C_scalar_02*v_minus_2 + C_scalar_02*v_plus_2 - C_scalar_03*v_minus_3 + C_scalar_03*v_plus_3 + wall_q_Euler_0) - delta_q_1*wall_q_Euler_1 + delta_q_1*(-C_scalar_01*v_minus_0 + C_scalar_01*v_plus_0 - C_scalar_11*v_minus_1 + C_scalar_11*v_plus_1 - C_scalar_12*v_minus_2 + C_scalar_12*v_plus_2 - C_scalar_13*v_minus_3 + C_scalar_13*v_plus_3 + wall_q_Euler_1) - delta_q_2*wall_q_Euler_2 + delta_q_2*(-C_scalar_02*v_minus_0 + C_scalar_02*v_plus_0 - C_scalar_12*v_minus_1 + C_scalar_12*v_plus_1 - C_scalar_22*v_minus_2 + C_scalar_22*v_plus_2 - C_scalar_23*v_minus_3 + C_scalar_23*v_plus_3 + wall_q_Euler_2) - delta_q_3*wall_q_Euler_3 + delta_q_3*(-C_scalar_03*v_minus_0 + C_scalar_03*v_plus_0 - C_scalar_13*v_minus_1 + C_scalar_13*v_plus_1 - C_scalar_23*v_minus_2 + C_scalar_23*v_plus_2 - C_scalar_33*v_minus_3 + C_scalar_33*v_plus_3 + wall_q_Euler_3) + f*(C_scalar_00*v_minus_0**2/2 - C_scalar_00*v_plus_0**2/2 + C_scalar_01*v_minus_0*v_minus_1 - C_scalar_01*v_plus_0*v_plus_1 + C_scalar_02*v_minus_0*v_minus_2 - C_scalar_02*v_plus_0*v_plus_2 + C_scalar_03*v_minus_0*v_minus_3 - C_scalar_03*v_plus_0*v_plus_3 + C_scalar_11*v_minus_1**2/2 - C_scalar_11*v_plus_1**2/2 + C_scalar_12*v_minus_1*v_minus_2 - C_scalar_12*v_plus_1*v_plus_2 + C_scalar_13*v_minus_1*v_minus_3 - C_scalar_13*v_plus_1*v_plus_3 + C_scalar_22*v_minus_2**2/2 - C_scalar_22*v_plus_2**2/2 + C_scalar_23*v_minus_2*v_minus_3 - C_scalar_23*v_plus_2*v_plus_3 + C_scalar_33*v_minus_3**2/2 - C_scalar_33*v_plus_3**2/2 - M*(-K_minus_00**2 + 2*K_minus_01**2 + 2*K_minus_02**2 + 2*K_minus_03**2 - K_minus_11**2 - 2*K_minus_12**2 - 2*K_minus_13**2 - K_minus_22**2 - 2*K_minus_23**2 - K_minus_33**2 - R_gamma + (-K_minus_00 + K_minus_11 + K_minus_22 + K_minus_33)**2)/2 + M*(-K_plus_00**2 + 2*K_plus_01**2 + 2*K_plus_02**2 + 2*K_plus_03**2 - K_plus_11**2 - 2*K_plus_12**2 - 2*K_plus_13**2 - K_plus_22**2 - 2*K_plus_23**2 - K_plus_33**2 - R_gamma + (-K_plus_00 + K_plus_11 + K_plus_22 + K_plus_33)**2)/2) - h_Sigma_00*tau_00/2 - h_Sigma_00*(M*(-K_minus_11 - K_minus_22 - K_minus_33 + K_plus_11 + K_plus_22 + K_plus_33) - tau_00)/2 + h_Sigma_01*tau_01 - h_Sigma_01*(-M*(-K_minus_01 + K_plus_01) + tau_01) + h_Sigma_02*tau_02 - h_Sigma_02*(-M*(-K_minus_02 + K_plus_02) + tau_02) + h_Sigma_03*tau_03 - h_Sigma_03*(-M*(-K_minus_03 + K_plus_03) + tau_03) - h_Sigma_11*tau_11/2 - h_Sigma_11*(M*(-K_minus_00 + K_minus_22 + K_minus_33 + K_plus_00 - K_plus_22 - K_plus_33) - tau_11)/2 - h_Sigma_12*tau_12 - h_Sigma_12*(M*(-K_minus_12 + K_plus_12) - tau_12) - h_Sigma_13*tau_13 - h_Sigma_13*(M*(-K_minus_13 + K_plus_13) - tau_13) - h_Sigma_22*tau_22/2 - h_Sigma_22*(M*(-K_minus_00 + K_minus_11 + K_minus_33 + K_plus_00 - K_plus_11 - K_plus_33) - tau_22)/2 - h_Sigma_23*tau_23 - h_Sigma_23*(M*(-K_minus_23 + K_plus_23) - tau_23) - h_Sigma_33*tau_33/2 - h_Sigma_33*(M*(-K_minus_00 + K_minus_11 + K_minus_22 + K_plus_00 - K_plus_11 - K_plus_22) - tau_33)/2"
+    },
+    "paired": {
+      "Green_common_traces": "-C_scalar_00*delta_q_0*v_minus_0 + C_scalar_00*delta_q_0*v_plus_0 + C_scalar_00*f*v_minus_0**2/2 - C_scalar_00*f*v_plus_0**2/2 - C_scalar_01*delta_q_0*v_minus_1 + C_scalar_01*delta_q_0*v_plus_1 - C_scalar_01*delta_q_1*v_minus_0 + C_scalar_01*delta_q_1*v_plus_0 + C_scalar_01*f*v_minus_0*v_minus_1 - C_scalar_01*f*v_plus_0*v_plus_1 - C_scalar_02*delta_q_0*v_minus_2 + C_scalar_02*delta_q_0*v_plus_2 - C_scalar_02*delta_q_2*v_minus_0 + C_scalar_02*delta_q_2*v_plus_0 + C_scalar_02*f*v_minus_0*v_minus_2 - C_scalar_02*f*v_plus_0*v_plus_2 - C_scalar_03*delta_q_0*v_minus_3 + C_scalar_03*delta_q_0*v_plus_3 - C_scalar_03*delta_q_3*v_minus_0 + C_scalar_03*delta_q_3*v_plus_0 + C_scalar_03*f*v_minus_0*v_minus_3 - C_scalar_03*f*v_plus_0*v_plus_3 - C_scalar_11*delta_q_1*v_minus_1 + C_scalar_11*delta_q_1*v_plus_1 + C_scalar_11*f*v_minus_1**2/2 - C_scalar_11*f*v_plus_1**2/2 - C_scalar_12*delta_q_1*v_minus_2 + C_scalar_12*delta_q_1*v_plus_2 - C_scalar_12*delta_q_2*v_minus_1 + C_scalar_12*delta_q_2*v_plus_1 + C_scalar_12*f*v_minus_1*v_minus_2 - C_scalar_12*f*v_plus_1*v_plus_2 - C_scalar_13*delta_q_1*v_minus_3 + C_scalar_13*delta_q_1*v_plus_3 - C_scalar_13*delta_q_3*v_minus_1 + C_scalar_13*delta_q_3*v_plus_1 + C_scalar_13*f*v_minus_1*v_minus_3 - C_scalar_13*f*v_plus_1*v_plus_3 - C_scalar_22*delta_q_2*v_minus_2 + C_scalar_22*delta_q_2*v_plus_2 + C_scalar_22*f*v_minus_2**2/2 - C_scalar_22*f*v_plus_2**2/2 - C_scalar_23*delta_q_2*v_minus_3 + C_scalar_23*delta_q_2*v_plus_3 - C_scalar_23*delta_q_3*v_minus_2 + C_scalar_23*delta_q_3*v_plus_2 + C_scalar_23*f*v_minus_2*v_minus_3 - C_scalar_23*f*v_plus_2*v_plus_3 - C_scalar_33*delta_q_3*v_minus_3 + C_scalar_33*delta_q_3*v_plus_3 + C_scalar_33*f*v_minus_3**2/2 - C_scalar_33*f*v_plus_3**2/2 + E_T*delta_T_Sigma + K_minus_00*K_minus_11*M*f + K_minus_00*K_minus_22*M*f + K_minus_00*K_minus_33*M*f - K_minus_00*M*h_Sigma_11/2 - K_minus_00*M*h_Sigma_22/2 - K_minus_00*M*h_Sigma_33/2 - K_minus_01**2*M*f + K_minus_01*M*h_Sigma_01 - K_minus_02**2*M*f + K_minus_02*M*h_Sigma_02 - K_minus_03**2*M*f + K_minus_03*M*h_Sigma_03 - K_minus_11*K_minus_22*M*f - K_minus_11*K_minus_33*M*f - K_minus_11*M*h_Sigma_00/2 + K_minus_11*M*h_Sigma_22/2 + K_minus_11*M*h_Sigma_33/2 + K_minus_12**2*M*f - K_minus_12*M*h_Sigma_12 + K_minus_13**2*M*f - K_minus_13*M*h_Sigma_13 - K_minus_22*K_minus_33*M*f - K_minus_22*M*h_Sigma_00/2 + K_minus_22*M*h_Sigma_11/2 + K_minus_22*M*h_Sigma_33/2 + K_minus_23**2*M*f - K_minus_23*M*h_Sigma_23 - K_minus_33*M*h_Sigma_00/2 + K_minus_33*M*h_Sigma_11/2 + K_minus_33*M*h_Sigma_22/2 - K_plus_00*K_plus_11*M*f - K_plus_00*K_plus_22*M*f - K_plus_00*K_plus_33*M*f + K_plus_00*M*h_Sigma_11/2 + K_plus_00*M*h_Sigma_22/2 + K_plus_00*M*h_Sigma_33/2 + K_plus_01**2*M*f - K_plus_01*M*h_Sigma_01 + K_plus_02**2*M*f - K_plus_02*M*h_Sigma_02 + K_plus_03**2*M*f - K_plus_03*M*h_Sigma_03 + K_plus_11*K_plus_22*M*f + K_plus_11*K_plus_33*M*f + K_plus_11*M*h_Sigma_00/2 - K_plus_11*M*h_Sigma_22/2 - K_plus_11*M*h_Sigma_33/2 - K_plus_12**2*M*f + K_plus_12*M*h_Sigma_12 - K_plus_13**2*M*f + K_plus_13*M*h_Sigma_13 + K_plus_22*K_plus_33*M*f + K_plus_22*M*h_Sigma_00/2 - K_plus_22*M*h_Sigma_11/2 - K_plus_22*M*h_Sigma_33/2 - K_plus_23**2*M*f + K_plus_23*M*h_Sigma_23 + K_plus_33*M*h_Sigma_00/2 - K_plus_33*M*h_Sigma_11/2 - K_plus_33*M*h_Sigma_22/2 + delta_q_0*wall_q_Euler_0 + delta_q_1*wall_q_Euler_1 + delta_q_2*wall_q_Euler_2 + delta_q_3*wall_q_Euler_3 + h_Sigma_00*tau_00/2 - h_Sigma_01*tau_01 - h_Sigma_02*tau_02 - h_Sigma_03*tau_03 + h_Sigma_11*tau_11/2 + h_Sigma_12*tau_12 + h_Sigma_13*tau_13 + h_Sigma_22*tau_22/2 + h_Sigma_23*tau_23 + h_Sigma_33*tau_33/2",
+      "Green_in_h0_chart": "-C_scalar_00*delta_q_0*v_minus_0 + C_scalar_00*delta_q_0*v_plus_0 + C_scalar_00*f*v_minus_0**2/2 - C_scalar_00*f*v_plus_0**2/2 - C_scalar_01*delta_q_0*v_minus_1 + C_scalar_01*delta_q_0*v_plus_1 - C_scalar_01*delta_q_1*v_minus_0 + C_scalar_01*delta_q_1*v_plus_0 + C_scalar_01*f*v_minus_0*v_minus_1 - C_scalar_01*f*v_plus_0*v_plus_1 - C_scalar_02*delta_q_0*v_minus_2 + C_scalar_02*delta_q_0*v_plus_2 - C_scalar_02*delta_q_2*v_minus_0 + C_scalar_02*delta_q_2*v_plus_0 + C_scalar_02*f*v_minus_0*v_minus_2 - C_scalar_02*f*v_plus_0*v_plus_2 - C_scalar_03*delta_q_0*v_minus_3 + C_scalar_03*delta_q_0*v_plus_3 - C_scalar_03*delta_q_3*v_minus_0 + C_scalar_03*delta_q_3*v_plus_0 + C_scalar_03*f*v_minus_0*v_minus_3 - C_scalar_03*f*v_plus_0*v_plus_3 - C_scalar_11*delta_q_1*v_minus_1 + C_scalar_11*delta_q_1*v_plus_1 + C_scalar_11*f*v_minus_1**2/2 - C_scalar_11*f*v_plus_1**2/2 - C_scalar_12*delta_q_1*v_minus_2 + C_scalar_12*delta_q_1*v_plus_2 - C_scalar_12*delta_q_2*v_minus_1 + C_scalar_12*delta_q_2*v_plus_1 + C_scalar_12*f*v_minus_1*v_minus_2 - C_scalar_12*f*v_plus_1*v_plus_2 - C_scalar_13*delta_q_1*v_minus_3 + C_scalar_13*delta_q_1*v_plus_3 - C_scalar_13*delta_q_3*v_minus_1 + C_scalar_13*delta_q_3*v_plus_1 + C_scalar_13*f*v_minus_1*v_minus_3 - C_scalar_13*f*v_plus_1*v_plus_3 - C_scalar_22*delta_q_2*v_minus_2 + C_scalar_22*delta_q_2*v_plus_2 + C_scalar_22*f*v_minus_2**2/2 - C_scalar_22*f*v_plus_2**2/2 - C_scalar_23*delta_q_2*v_minus_3 + C_scalar_23*delta_q_2*v_plus_3 - C_scalar_23*delta_q_3*v_minus_2 + C_scalar_23*delta_q_3*v_plus_2 + C_scalar_23*f*v_minus_2*v_minus_3 - C_scalar_23*f*v_plus_2*v_plus_3 - C_scalar_33*delta_q_3*v_minus_3 + C_scalar_33*delta_q_3*v_plus_3 + C_scalar_33*f*v_minus_3**2/2 - C_scalar_33*f*v_plus_3**2/2 + E_T*delta_T_Sigma - K_minus_00*M*h0_11/2 - K_minus_00*M*h0_22/2 - K_minus_00*M*h0_33/2 + K_minus_00*f*tau_00/2 + K_minus_01*M*h0_01 - K_minus_01*f*tau_01 + K_minus_02*M*h0_02 - K_minus_02*f*tau_02 + K_minus_03*M*h0_03 - K_minus_03*f*tau_03 - K_minus_11*M*h0_00/2 + K_minus_11*M*h0_22/2 + K_minus_11*M*h0_33/2 + K_minus_11*f*tau_11/2 - K_minus_12*M*h0_12 + K_minus_12*f*tau_12 - K_minus_13*M*h0_13 + K_minus_13*f*tau_13 - K_minus_22*M*h0_00/2 + K_minus_22*M*h0_11/2 + K_minus_22*M*h0_33/2 + K_minus_22*f*tau_22/2 - K_minus_23*M*h0_23 + K_minus_23*f*tau_23 - K_minus_33*M*h0_00/2 + K_minus_33*M*h0_11/2 + K_minus_33*M*h0_22/2 + K_minus_33*f*tau_33/2 + K_plus_00*M*h0_11/2 + K_plus_00*M*h0_22/2 + K_plus_00*M*h0_33/2 + K_plus_00*f*tau_00/2 - K_plus_01*M*h0_01 - K_plus_01*f*tau_01 - K_plus_02*M*h0_02 - K_plus_02*f*tau_02 - K_plus_03*M*h0_03 - K_plus_03*f*tau_03 + K_plus_11*M*h0_00/2 - K_plus_11*M*h0_22/2 - K_plus_11*M*h0_33/2 + K_plus_11*f*tau_11/2 + K_plus_12*M*h0_12 + K_plus_12*f*tau_12 + K_plus_13*M*h0_13 + K_plus_13*f*tau_13 + K_plus_22*M*h0_00/2 - K_plus_22*M*h0_11/2 - K_plus_22*M*h0_33/2 + K_plus_22*f*tau_22/2 + K_plus_23*M*h0_23 + K_plus_23*f*tau_23 + K_plus_33*M*h0_00/2 - K_plus_33*M*h0_11/2 - K_plus_33*M*h0_22/2 + K_plus_33*f*tau_33/2 + delta_q_0*wall_q_Euler_0 + delta_q_1*wall_q_Euler_1 + delta_q_2*wall_q_Euler_2 + delta_q_3*wall_q_Euler_3 + h0_00*tau_00/2 - h0_01*tau_01 - h0_02*tau_02 - h0_03*tau_03 + h0_11*tau_11/2 + h0_12*tau_12 + h0_13*tau_13 + h0_22*tau_22/2 + h0_23*tau_23 + h0_33*tau_33/2",
+      "Green_raw": "-C_scalar_00*delta_q_0*v_minus_0 + C_scalar_00*delta_q_0*v_plus_0 + C_scalar_00*f*v_minus_0**2/2 - C_scalar_00*f*v_plus_0**2/2 - C_scalar_01*delta_q_0*v_minus_1 + C_scalar_01*delta_q_0*v_plus_1 - C_scalar_01*delta_q_1*v_minus_0 + C_scalar_01*delta_q_1*v_plus_0 + C_scalar_01*f*v_minus_0*v_minus_1 - C_scalar_01*f*v_plus_0*v_plus_1 - C_scalar_02*delta_q_0*v_minus_2 + C_scalar_02*delta_q_0*v_plus_2 - C_scalar_02*delta_q_2*v_minus_0 + C_scalar_02*delta_q_2*v_plus_0 + C_scalar_02*f*v_minus_0*v_minus_2 - C_scalar_02*f*v_plus_0*v_plus_2 - C_scalar_03*delta_q_0*v_minus_3 + C_scalar_03*delta_q_0*v_plus_3 - C_scalar_03*delta_q_3*v_minus_0 + C_scalar_03*delta_q_3*v_plus_0 + C_scalar_03*f*v_minus_0*v_minus_3 - C_scalar_03*f*v_plus_0*v_plus_3 - C_scalar_11*delta_q_1*v_minus_1 + C_scalar_11*delta_q_1*v_plus_1 + C_scalar_11*f*v_minus_1**2/2 - C_scalar_11*f*v_plus_1**2/2 - C_scalar_12*delta_q_1*v_minus_2 + C_scalar_12*delta_q_1*v_plus_2 - C_scalar_12*delta_q_2*v_minus_1 + C_scalar_12*delta_q_2*v_plus_1 + C_scalar_12*f*v_minus_1*v_minus_2 - C_scalar_12*f*v_plus_1*v_plus_2 - C_scalar_13*delta_q_1*v_minus_3 + C_scalar_13*delta_q_1*v_plus_3 - C_scalar_13*delta_q_3*v_minus_1 + C_scalar_13*delta_q_3*v_plus_1 + C_scalar_13*f*v_minus_1*v_minus_3 - C_scalar_13*f*v_plus_1*v_plus_3 - C_scalar_22*delta_q_2*v_minus_2 + C_scalar_22*delta_q_2*v_plus_2 + C_scalar_22*f*v_minus_2**2/2 - C_scalar_22*f*v_plus_2**2/2 - C_scalar_23*delta_q_2*v_minus_3 + C_scalar_23*delta_q_2*v_plus_3 - C_scalar_23*delta_q_3*v_minus_2 + C_scalar_23*delta_q_3*v_plus_2 + C_scalar_23*f*v_minus_2*v_minus_3 - C_scalar_23*f*v_plus_2*v_plus_3 - C_scalar_33*delta_q_3*v_minus_3 + C_scalar_33*delta_q_3*v_plus_3 + C_scalar_33*f*v_minus_3**2/2 - C_scalar_33*f*v_plus_3**2/2 + E_T*delta_T_Sigma + K_minus_00*K_minus_11*M*f + K_minus_00*K_minus_22*M*f + K_minus_00*K_minus_33*M*f - K_minus_00*M*h_Sigma_11/2 - K_minus_00*M*h_Sigma_22/2 - K_minus_00*M*h_Sigma_33/2 - K_minus_01**2*M*f + K_minus_01*M*h_Sigma_01 - K_minus_02**2*M*f + K_minus_02*M*h_Sigma_02 - K_minus_03**2*M*f + K_minus_03*M*h_Sigma_03 - K_minus_11*K_minus_22*M*f - K_minus_11*K_minus_33*M*f - K_minus_11*M*h_Sigma_00/2 + K_minus_11*M*h_Sigma_22/2 + K_minus_11*M*h_Sigma_33/2 + K_minus_12**2*M*f - K_minus_12*M*h_Sigma_12 + K_minus_13**2*M*f - K_minus_13*M*h_Sigma_13 - K_minus_22*K_minus_33*M*f - K_minus_22*M*h_Sigma_00/2 + K_minus_22*M*h_Sigma_11/2 + K_minus_22*M*h_Sigma_33/2 + K_minus_23**2*M*f - K_minus_23*M*h_Sigma_23 - K_minus_33*M*h_Sigma_00/2 + K_minus_33*M*h_Sigma_11/2 + K_minus_33*M*h_Sigma_22/2 - K_plus_00*K_plus_11*M*f - K_plus_00*K_plus_22*M*f - K_plus_00*K_plus_33*M*f + K_plus_00*M*h_Sigma_11/2 + K_plus_00*M*h_Sigma_22/2 + K_plus_00*M*h_Sigma_33/2 + K_plus_01**2*M*f - K_plus_01*M*h_Sigma_01 + K_plus_02**2*M*f - K_plus_02*M*h_Sigma_02 + K_plus_03**2*M*f - K_plus_03*M*h_Sigma_03 + K_plus_11*K_plus_22*M*f + K_plus_11*K_plus_33*M*f + K_plus_11*M*h_Sigma_00/2 - K_plus_11*M*h_Sigma_22/2 - K_plus_11*M*h_Sigma_33/2 - K_plus_12**2*M*f + K_plus_12*M*h_Sigma_12 - K_plus_13**2*M*f + K_plus_13*M*h_Sigma_13 + K_plus_22*K_plus_33*M*f + K_plus_22*M*h_Sigma_00/2 - K_plus_22*M*h_Sigma_11/2 - K_plus_22*M*h_Sigma_33/2 - K_plus_23**2*M*f + K_plus_23*M*h_Sigma_23 + K_plus_33*M*h_Sigma_00/2 - K_plus_33*M*h_Sigma_11/2 - K_plus_33*M*h_Sigma_22/2 + delta_q_0*wall_q_Euler_0 + delta_q_1*wall_q_Euler_1 + delta_q_2*wall_q_Euler_2 + delta_q_3*wall_q_Euler_3 + h_Sigma_00*tau_00/2 - h_Sigma_01*tau_01 - h_Sigma_02*tau_02 - h_Sigma_03*tau_03 + h_Sigma_11*tau_11/2 + h_Sigma_12*tau_12 + h_Sigma_13*tau_13 + h_Sigma_22*tau_22/2 + h_Sigma_23*tau_23 + h_Sigma_33*tau_33/2",
+      "H_grav_minus": "M*(-K_minus_00**2 + 2*K_minus_01**2 + 2*K_minus_02**2 + 2*K_minus_03**2 - K_minus_11**2 - 2*K_minus_12**2 - 2*K_minus_13**2 - K_minus_22**2 - 2*K_minus_23**2 - K_minus_33**2 - R_gamma + (-K_minus_00 + K_minus_11 + K_minus_22 + K_minus_33)**2)/2",
+      "H_grav_plus": "M*(-K_plus_00**2 + 2*K_plus_01**2 + 2*K_plus_02**2 + 2*K_plus_03**2 - K_plus_11**2 - 2*K_plus_12**2 - 2*K_plus_13**2 - K_plus_22**2 - 2*K_plus_23**2 - K_plus_33**2 - R_gamma + (-K_plus_00 + K_plus_11 + K_plus_22 + K_plus_33)**2)/2",
+      "H_total_minus": "-C_scalar_00*t_0_0**2/2 + C_scalar_00*t_1_0**2/2 + C_scalar_00*t_2_0**2/2 + C_scalar_00*t_3_0**2/2 - C_scalar_00*v_minus_0**2/2 - C_scalar_01*t_0_0*t_0_1 + C_scalar_01*t_1_0*t_1_1 + C_scalar_01*t_2_0*t_2_1 + C_scalar_01*t_3_0*t_3_1 - C_scalar_01*v_minus_0*v_minus_1 - C_scalar_02*t_0_0*t_0_2 + C_scalar_02*t_1_0*t_1_2 + C_scalar_02*t_2_0*t_2_2 + C_scalar_02*t_3_0*t_3_2 - C_scalar_02*v_minus_0*v_minus_2 - C_scalar_03*t_0_0*t_0_3 + C_scalar_03*t_1_0*t_1_3 + C_scalar_03*t_2_0*t_2_3 + C_scalar_03*t_3_0*t_3_3 - C_scalar_03*v_minus_0*v_minus_3 - C_scalar_11*t_0_1**2/2 + C_scalar_11*t_1_1**2/2 + C_scalar_11*t_2_1**2/2 + C_scalar_11*t_3_1**2/2 - C_scalar_11*v_minus_1**2/2 - C_scalar_12*t_0_1*t_0_2 + C_scalar_12*t_1_1*t_1_2 + C_scalar_12*t_2_1*t_2_2 + C_scalar_12*t_3_1*t_3_2 - C_scalar_12*v_minus_1*v_minus_2 - C_scalar_13*t_0_1*t_0_3 + C_scalar_13*t_1_1*t_1_3 + C_scalar_13*t_2_1*t_2_3 + C_scalar_13*t_3_1*t_3_3 - C_scalar_13*v_minus_1*v_minus_3 - C_scalar_22*t_0_2**2/2 + C_scalar_22*t_1_2**2/2 + C_scalar_22*t_2_2**2/2 + C_scalar_22*t_3_2**2/2 - C_scalar_22*v_minus_2**2/2 - C_scalar_23*t_0_2*t_0_3 + C_scalar_23*t_1_2*t_1_3 + C_scalar_23*t_2_2*t_2_3 + C_scalar_23*t_3_2*t_3_3 - C_scalar_23*v_minus_2*v_minus_3 - C_scalar_33*t_0_3**2/2 + C_scalar_33*t_1_3**2/2 + C_scalar_33*t_2_3**2/2 + C_scalar_33*t_3_3**2/2 - C_scalar_33*v_minus_3**2/2 + M*(-K_minus_00**2 + 2*K_minus_01**2 + 2*K_minus_02**2 + 2*K_minus_03**2 - K_minus_11**2 - 2*K_minus_12**2 - 2*K_minus_13**2 - K_minus_22**2 - 2*K_minus_23**2 - K_minus_33**2 - R_gamma + (-K_minus_00 + K_minus_11 + K_minus_22 + K_minus_33)**2)/2 + V",
+      "H_total_plus": "-C_scalar_00*t_0_0**2/2 + C_scalar_00*t_1_0**2/2 + C_scalar_00*t_2_0**2/2 + C_scalar_00*t_3_0**2/2 - C_scalar_00*v_plus_0**2/2 - C_scalar_01*t_0_0*t_0_1 + C_scalar_01*t_1_0*t_1_1 + C_scalar_01*t_2_0*t_2_1 + C_scalar_01*t_3_0*t_3_1 - C_scalar_01*v_plus_0*v_plus_1 - C_scalar_02*t_0_0*t_0_2 + C_scalar_02*t_1_0*t_1_2 + C_scalar_02*t_2_0*t_2_2 + C_scalar_02*t_3_0*t_3_2 - C_scalar_02*v_plus_0*v_plus_2 - C_scalar_03*t_0_0*t_0_3 + C_scalar_03*t_1_0*t_1_3 + C_scalar_03*t_2_0*t_2_3 + C_scalar_03*t_3_0*t_3_3 - C_scalar_03*v_plus_0*v_plus_3 - C_scalar_11*t_0_1**2/2 + C_scalar_11*t_1_1**2/2 + C_scalar_11*t_2_1**2/2 + C_scalar_11*t_3_1**2/2 - C_scalar_11*v_plus_1**2/2 - C_scalar_12*t_0_1*t_0_2 + C_scalar_12*t_1_1*t_1_2 + C_scalar_12*t_2_1*t_2_2 + C_scalar_12*t_3_1*t_3_2 - C_scalar_12*v_plus_1*v_plus_2 - C_scalar_13*t_0_1*t_0_3 + C_scalar_13*t_1_1*t_1_3 + C_scalar_13*t_2_1*t_2_3 + C_scalar_13*t_3_1*t_3_3 - C_scalar_13*v_plus_1*v_plus_3 - C_scalar_22*t_0_2**2/2 + C_scalar_22*t_1_2**2/2 + C_scalar_22*t_2_2**2/2 + C_scalar_22*t_3_2**2/2 - C_scalar_22*v_plus_2**2/2 - C_scalar_23*t_0_2*t_0_3 + C_scalar_23*t_1_2*t_1_3 + C_scalar_23*t_2_2*t_2_3 + C_scalar_23*t_3_2*t_3_3 - C_scalar_23*v_plus_2*v_plus_3 - C_scalar_33*t_0_3**2/2 + C_scalar_33*t_1_3**2/2 + C_scalar_33*t_2_3**2/2 + C_scalar_33*t_3_3**2/2 - C_scalar_33*v_plus_3**2/2 + M*(-K_plus_00**2 + 2*K_plus_01**2 + 2*K_plus_02**2 + 2*K_plus_03**2 - K_plus_11**2 - 2*K_plus_12**2 - 2*K_plus_13**2 - K_plus_22**2 - 2*K_plus_23**2 - K_plus_33**2 - R_gamma + (-K_plus_00 + K_plus_11 + K_plus_22 + K_plus_33)**2)/2 + V",
+      "I": [
+        [
+          "-M*(-K_minus_11 - K_minus_22 - K_minus_33 + K_plus_11 + K_plus_22 + K_plus_33) - tau_00",
+          "-M*(-K_minus_01 + K_plus_01) - tau_01",
+          "-M*(-K_minus_02 + K_plus_02) - tau_02",
+          "-M*(-K_minus_03 + K_plus_03) - tau_03"
+        ],
+        [
+          "-M*(-K_minus_01 + K_plus_01) - tau_01",
+          "-M*(-K_minus_00 + K_minus_22 + K_minus_33 + K_plus_00 - K_plus_22 - K_plus_33) - tau_11",
+          "-M*(-K_minus_12 + K_plus_12) - tau_12",
+          "-M*(-K_minus_13 + K_plus_13) - tau_13"
+        ],
+        [
+          "-M*(-K_minus_02 + K_plus_02) - tau_02",
+          "-M*(-K_minus_12 + K_plus_12) - tau_12",
+          "-M*(-K_minus_00 + K_minus_11 + K_minus_33 + K_plus_00 - K_plus_11 - K_plus_33) - tau_22",
+          "-M*(-K_minus_23 + K_plus_23) - tau_23"
+        ],
+        [
+          "-M*(-K_minus_03 + K_plus_03) - tau_03",
+          "-M*(-K_minus_13 + K_plus_13) - tau_13",
+          "-M*(-K_minus_23 + K_plus_23) - tau_23",
+          "-M*(-K_minus_00 + K_minus_11 + K_minus_22 + K_plus_00 - K_plus_11 - K_plus_22) - tau_33"
+        ]
+      ],
+      "K_bar": [
+        [
+          "K_minus_00/2 + K_plus_00/2",
+          "K_minus_01/2 + K_plus_01/2",
+          "K_minus_02/2 + K_plus_02/2",
+          "K_minus_03/2 + K_plus_03/2"
+        ],
+        [
+          "K_minus_01/2 + K_plus_01/2",
+          "K_minus_11/2 + K_plus_11/2",
+          "K_minus_12/2 + K_plus_12/2",
+          "K_minus_13/2 + K_plus_13/2"
+        ],
+        [
+          "K_minus_02/2 + K_plus_02/2",
+          "K_minus_12/2 + K_plus_12/2",
+          "K_minus_22/2 + K_plus_22/2",
+          "K_minus_23/2 + K_plus_23/2"
+        ],
+        [
+          "K_minus_03/2 + K_plus_03/2",
+          "K_minus_13/2 + K_plus_13/2",
+          "K_minus_23/2 + K_plus_23/2",
+          "K_minus_33/2 + K_plus_33/2"
+        ]
+      ],
+      "R_scalar": [
+        [
+          "-C_scalar_00*v_minus_0 + C_scalar_00*v_plus_0 - C_scalar_01*v_minus_1 + C_scalar_01*v_plus_1 - C_scalar_02*v_minus_2 + C_scalar_02*v_plus_2 - C_scalar_03*v_minus_3 + C_scalar_03*v_plus_3 + wall_q_Euler_0"
+        ],
+        [
+          "-C_scalar_01*v_minus_0 + C_scalar_01*v_plus_0 - C_scalar_11*v_minus_1 + C_scalar_11*v_plus_1 - C_scalar_12*v_minus_2 + C_scalar_12*v_plus_2 - C_scalar_13*v_minus_3 + C_scalar_13*v_plus_3 + wall_q_Euler_1"
+        ],
+        [
+          "-C_scalar_02*v_minus_0 + C_scalar_02*v_plus_0 - C_scalar_12*v_minus_1 + C_scalar_12*v_plus_1 - C_scalar_22*v_minus_2 + C_scalar_22*v_plus_2 - C_scalar_23*v_minus_3 + C_scalar_23*v_plus_3 + wall_q_Euler_2"
+        ],
+        [
+          "-C_scalar_03*v_minus_0 + C_scalar_03*v_plus_0 - C_scalar_13*v_minus_1 + C_scalar_13*v_plus_1 - C_scalar_23*v_minus_2 + C_scalar_23*v_plus_2 - C_scalar_33*v_minus_3 + C_scalar_33*v_plus_3 + wall_q_Euler_3"
+        ]
+      ],
+      "T_nn_minus": "C_scalar_00*t_0_0**2/2 - C_scalar_00*t_1_0**2/2 - C_scalar_00*t_2_0**2/2 - C_scalar_00*t_3_0**2/2 + C_scalar_00*v_minus_0**2/2 + C_scalar_01*t_0_0*t_0_1 - C_scalar_01*t_1_0*t_1_1 - C_scalar_01*t_2_0*t_2_1 - C_scalar_01*t_3_0*t_3_1 + C_scalar_01*v_minus_0*v_minus_1 + C_scalar_02*t_0_0*t_0_2 - C_scalar_02*t_1_0*t_1_2 - C_scalar_02*t_2_0*t_2_2 - C_scalar_02*t_3_0*t_3_2 + C_scalar_02*v_minus_0*v_minus_2 + C_scalar_03*t_0_0*t_0_3 - C_scalar_03*t_1_0*t_1_3 - C_scalar_03*t_2_0*t_2_3 - C_scalar_03*t_3_0*t_3_3 + C_scalar_03*v_minus_0*v_minus_3 + C_scalar_11*t_0_1**2/2 - C_scalar_11*t_1_1**2/2 - C_scalar_11*t_2_1**2/2 - C_scalar_11*t_3_1**2/2 + C_scalar_11*v_minus_1**2/2 + C_scalar_12*t_0_1*t_0_2 - C_scalar_12*t_1_1*t_1_2 - C_scalar_12*t_2_1*t_2_2 - C_scalar_12*t_3_1*t_3_2 + C_scalar_12*v_minus_1*v_minus_2 + C_scalar_13*t_0_1*t_0_3 - C_scalar_13*t_1_1*t_1_3 - C_scalar_13*t_2_1*t_2_3 - C_scalar_13*t_3_1*t_3_3 + C_scalar_13*v_minus_1*v_minus_3 + C_scalar_22*t_0_2**2/2 - C_scalar_22*t_1_2**2/2 - C_scalar_22*t_2_2**2/2 - C_scalar_22*t_3_2**2/2 + C_scalar_22*v_minus_2**2/2 + C_scalar_23*t_0_2*t_0_3 - C_scalar_23*t_1_2*t_1_3 - C_scalar_23*t_2_2*t_2_3 - C_scalar_23*t_3_2*t_3_3 + C_scalar_23*v_minus_2*v_minus_3 + C_scalar_33*t_0_3**2/2 - C_scalar_33*t_1_3**2/2 - C_scalar_33*t_2_3**2/2 - C_scalar_33*t_3_3**2/2 + C_scalar_33*v_minus_3**2/2 - V",
+      "T_nn_plus": "C_scalar_00*t_0_0**2/2 - C_scalar_00*t_1_0**2/2 - C_scalar_00*t_2_0**2/2 - C_scalar_00*t_3_0**2/2 + C_scalar_00*v_plus_0**2/2 + C_scalar_01*t_0_0*t_0_1 - C_scalar_01*t_1_0*t_1_1 - C_scalar_01*t_2_0*t_2_1 - C_scalar_01*t_3_0*t_3_1 + C_scalar_01*v_plus_0*v_plus_1 + C_scalar_02*t_0_0*t_0_2 - C_scalar_02*t_1_0*t_1_2 - C_scalar_02*t_2_0*t_2_2 - C_scalar_02*t_3_0*t_3_2 + C_scalar_02*v_plus_0*v_plus_2 + C_scalar_03*t_0_0*t_0_3 - C_scalar_03*t_1_0*t_1_3 - C_scalar_03*t_2_0*t_2_3 - C_scalar_03*t_3_0*t_3_3 + C_scalar_03*v_plus_0*v_plus_3 + C_scalar_11*t_0_1**2/2 - C_scalar_11*t_1_1**2/2 - C_scalar_11*t_2_1**2/2 - C_scalar_11*t_3_1**2/2 + C_scalar_11*v_plus_1**2/2 + C_scalar_12*t_0_1*t_0_2 - C_scalar_12*t_1_1*t_1_2 - C_scalar_12*t_2_1*t_2_2 - C_scalar_12*t_3_1*t_3_2 + C_scalar_12*v_plus_1*v_plus_2 + C_scalar_13*t_0_1*t_0_3 - C_scalar_13*t_1_1*t_1_3 - C_scalar_13*t_2_1*t_2_3 - C_scalar_13*t_3_1*t_3_3 + C_scalar_13*v_plus_1*v_plus_3 + C_scalar_22*t_0_2**2/2 - C_scalar_22*t_1_2**2/2 - C_scalar_22*t_2_2**2/2 - C_scalar_22*t_3_2**2/2 + C_scalar_22*v_plus_2**2/2 + C_scalar_23*t_0_2*t_0_3 - C_scalar_23*t_1_2*t_1_3 - C_scalar_23*t_2_2*t_2_3 - C_scalar_23*t_3_2*t_3_3 + C_scalar_23*v_plus_2*v_plus_3 + C_scalar_33*t_0_3**2/2 - C_scalar_33*t_1_3**2/2 - C_scalar_33*t_2_3**2/2 - C_scalar_33*t_3_3**2/2 + C_scalar_33*v_plus_3**2/2 - V",
+      "bulk_Euler_f_coefficient_marker": "-K_minus_00*bulk_metric_Euler_minus_00 + K_minus_00*bulk_metric_Euler_plus_00 + 2*K_minus_01*bulk_metric_Euler_minus_01 - 2*K_minus_01*bulk_metric_Euler_plus_01 + 2*K_minus_02*bulk_metric_Euler_minus_02 - 2*K_minus_02*bulk_metric_Euler_plus_02 + 2*K_minus_03*bulk_metric_Euler_minus_03 - 2*K_minus_03*bulk_metric_Euler_plus_03 - K_minus_11*bulk_metric_Euler_minus_11 + K_minus_11*bulk_metric_Euler_plus_11 - 2*K_minus_12*bulk_metric_Euler_minus_12 + 2*K_minus_12*bulk_metric_Euler_plus_12 - 2*K_minus_13*bulk_metric_Euler_minus_13 + 2*K_minus_13*bulk_metric_Euler_plus_13 - K_minus_22*bulk_metric_Euler_minus_22 + K_minus_22*bulk_metric_Euler_plus_22 - 2*K_minus_23*bulk_metric_Euler_minus_23 + 2*K_minus_23*bulk_metric_Euler_plus_23 - K_minus_33*bulk_metric_Euler_minus_33 + K_minus_33*bulk_metric_Euler_plus_33 + K_plus_00*bulk_metric_Euler_minus_00 - K_plus_00*bulk_metric_Euler_plus_00 - 2*K_plus_01*bulk_metric_Euler_minus_01 + 2*K_plus_01*bulk_metric_Euler_plus_01 - 2*K_plus_02*bulk_metric_Euler_minus_02 + 2*K_plus_02*bulk_metric_Euler_plus_02 - 2*K_plus_03*bulk_metric_Euler_minus_03 + 2*K_plus_03*bulk_metric_Euler_plus_03 + K_plus_11*bulk_metric_Euler_minus_11 - K_plus_11*bulk_metric_Euler_plus_11 + 2*K_plus_12*bulk_metric_Euler_minus_12 - 2*K_plus_12*bulk_metric_Euler_plus_12 + 2*K_plus_13*bulk_metric_Euler_minus_13 - 2*K_plus_13*bulk_metric_Euler_plus_13 + K_plus_22*bulk_metric_Euler_minus_22 - K_plus_22*bulk_metric_Euler_plus_22 + 2*K_plus_23*bulk_metric_Euler_minus_23 - 2*K_plus_23*bulk_metric_Euler_plus_23 + K_plus_33*bulk_metric_Euler_minus_33 - K_plus_33*bulk_metric_Euler_plus_33 - bulk_scalar_Euler_minus_0*v_minus_0 - bulk_scalar_Euler_minus_1*v_minus_1 - bulk_scalar_Euler_minus_2*v_minus_2 - bulk_scalar_Euler_minus_3*v_minus_3 - bulk_scalar_Euler_plus_0*v_plus_0 - bulk_scalar_Euler_plus_1*v_plus_1 - bulk_scalar_Euler_plus_2*v_plus_2 - bulk_scalar_Euler_plus_3*v_plus_3",
+      "bulk_Euler_marker_scope": "independent Euler covectors paired with boundary values of admissible extensions; actual volume integrals remain in total variation and are not computed here",
+      "bulk_Euler_pairing_marker": "bulk_metric_Euler_minus_00*(-2*K_minus_00*f + h_Sigma_00) - 2*bulk_metric_Euler_minus_01*(-2*K_minus_01*f + h_Sigma_01) - 2*bulk_metric_Euler_minus_02*(-2*K_minus_02*f + h_Sigma_02) - 2*bulk_metric_Euler_minus_03*(-2*K_minus_03*f + h_Sigma_03) + bulk_metric_Euler_minus_11*(-2*K_minus_11*f + h_Sigma_11) + 2*bulk_metric_Euler_minus_12*(-2*K_minus_12*f + h_Sigma_12) + 2*bulk_metric_Euler_minus_13*(-2*K_minus_13*f + h_Sigma_13) + bulk_metric_Euler_minus_22*(-2*K_minus_22*f + h_Sigma_22) + 2*bulk_metric_Euler_minus_23*(-2*K_minus_23*f + h_Sigma_23) + bulk_metric_Euler_minus_33*(-2*K_minus_33*f + h_Sigma_33) + bulk_metric_Euler_plus_00*(-2*K_plus_00*f + h_Sigma_00) - 2*bulk_metric_Euler_plus_01*(-2*K_plus_01*f + h_Sigma_01) - 2*bulk_metric_Euler_plus_02*(-2*K_plus_02*f + h_Sigma_02) - 2*bulk_metric_Euler_plus_03*(-2*K_plus_03*f + h_Sigma_03) + bulk_metric_Euler_plus_11*(-2*K_plus_11*f + h_Sigma_11) + 2*bulk_metric_Euler_plus_12*(-2*K_plus_12*f + h_Sigma_12) + 2*bulk_metric_Euler_plus_13*(-2*K_plus_13*f + h_Sigma_13) + bulk_metric_Euler_plus_22*(-2*K_plus_22*f + h_Sigma_22) + 2*bulk_metric_Euler_plus_23*(-2*K_plus_23*f + h_Sigma_23) + bulk_metric_Euler_plus_33*(-2*K_plus_33*f + h_Sigma_33) + bulk_scalar_Euler_minus_0*(delta_q_0 - f*v_minus_0) + bulk_scalar_Euler_minus_1*(delta_q_1 - f*v_minus_1) + bulk_scalar_Euler_minus_2*(delta_q_2 - f*v_minus_2) + bulk_scalar_Euler_minus_3*(delta_q_3 - f*v_minus_3) + bulk_scalar_Euler_plus_0*(delta_q_0 - f*v_plus_0) + bulk_scalar_Euler_plus_1*(delta_q_1 - f*v_plus_1) + bulk_scalar_Euler_plus_2*(delta_q_2 - f*v_plus_2) + bulk_scalar_Euler_plus_3*(delta_q_3 - f*v_plus_3)",
+      "delta_g_bulk_minus": [
+        [
+          "-2*K_minus_00*f + h_Sigma_00",
+          "-2*K_minus_01*f + h_Sigma_01",
+          "-2*K_minus_02*f + h_Sigma_02",
+          "-2*K_minus_03*f + h_Sigma_03"
+        ],
+        [
+          "-2*K_minus_01*f + h_Sigma_01",
+          "-2*K_minus_11*f + h_Sigma_11",
+          "-2*K_minus_12*f + h_Sigma_12",
+          "-2*K_minus_13*f + h_Sigma_13"
+        ],
+        [
+          "-2*K_minus_02*f + h_Sigma_02",
+          "-2*K_minus_12*f + h_Sigma_12",
+          "-2*K_minus_22*f + h_Sigma_22",
+          "-2*K_minus_23*f + h_Sigma_23"
+        ],
+        [
+          "-2*K_minus_03*f + h_Sigma_03",
+          "-2*K_minus_13*f + h_Sigma_13",
+          "-2*K_minus_23*f + h_Sigma_23",
+          "-2*K_minus_33*f + h_Sigma_33"
+        ]
+      ],
+      "delta_g_bulk_plus": [
+        [
+          "-2*K_plus_00*f + h_Sigma_00",
+          "-2*K_plus_01*f + h_Sigma_01",
+          "-2*K_plus_02*f + h_Sigma_02",
+          "-2*K_plus_03*f + h_Sigma_03"
+        ],
+        [
+          "-2*K_plus_01*f + h_Sigma_01",
+          "-2*K_plus_11*f + h_Sigma_11",
+          "-2*K_plus_12*f + h_Sigma_12",
+          "-2*K_plus_13*f + h_Sigma_13"
+        ],
+        [
+          "-2*K_plus_02*f + h_Sigma_02",
+          "-2*K_plus_12*f + h_Sigma_12",
+          "-2*K_plus_22*f + h_Sigma_22",
+          "-2*K_plus_23*f + h_Sigma_23"
+        ],
+        [
+          "-2*K_plus_03*f + h_Sigma_03",
+          "-2*K_plus_13*f + h_Sigma_13",
+          "-2*K_plus_23*f + h_Sigma_23",
+          "-2*K_plus_33*f + h_Sigma_33"
+        ]
+      ],
+      "delta_q_bulk_minus": [
+        [
+          "delta_q_0 - f*v_minus_0"
+        ],
+        [
+          "delta_q_1 - f*v_minus_1"
+        ],
+        [
+          "delta_q_2 - f*v_minus_2"
+        ],
+        [
+          "delta_q_3 - f*v_minus_3"
+        ]
+      ],
+      "delta_q_bulk_plus": [
+        [
+          "delta_q_0 - f*v_plus_0"
+        ],
+        [
+          "delta_q_1 - f*v_plus_1"
+        ],
+        [
+          "delta_q_2 - f*v_plus_2"
+        ],
+        [
+          "delta_q_3 - f*v_plus_3"
+        ]
+      ],
+      "gravity_minus_face": "K_minus_01*M*h_Sigma_01 + K_minus_02*M*h_Sigma_02 + K_minus_03*M*h_Sigma_03 - K_minus_12*M*h_Sigma_12 - K_minus_13*M*h_Sigma_13 - K_minus_23*M*h_Sigma_23 - M*f*(-K_minus_00**2 + 2*K_minus_01**2 + 2*K_minus_02**2 + 2*K_minus_03**2 - K_minus_11**2 - 2*K_minus_12**2 - 2*K_minus_13**2 - K_minus_22**2 - 2*K_minus_23**2 - K_minus_33**2 - R_gamma + (-K_minus_00 + K_minus_11 + K_minus_22 + K_minus_33)**2)/2 - M*h_Sigma_00*(K_minus_11 + K_minus_22 + K_minus_33)/2 - M*h_Sigma_11*(K_minus_00 - K_minus_22 - K_minus_33)/2 - M*h_Sigma_22*(K_minus_00 - K_minus_11 - K_minus_33)/2 - M*h_Sigma_33*(K_minus_00 - K_minus_11 - K_minus_22)/2",
+      "gravity_plus_face": "-K_plus_01*M*h_Sigma_01 - K_plus_02*M*h_Sigma_02 - K_plus_03*M*h_Sigma_03 + K_plus_12*M*h_Sigma_12 + K_plus_13*M*h_Sigma_13 + K_plus_23*M*h_Sigma_23 + M*f*(-K_plus_00**2 + 2*K_plus_01**2 + 2*K_plus_02**2 + 2*K_plus_03**2 - K_plus_11**2 - 2*K_plus_12**2 - 2*K_plus_13**2 - K_plus_22**2 - 2*K_plus_23**2 - K_plus_33**2 - R_gamma + (-K_plus_00 + K_plus_11 + K_plus_22 + K_plus_33)**2)/2 + M*h_Sigma_00*(K_plus_11 + K_plus_22 + K_plus_33)/2 + M*h_Sigma_11*(K_plus_00 - K_plus_22 - K_plus_33)/2 + M*h_Sigma_22*(K_plus_00 - K_plus_11 - K_plus_33)/2 + M*h_Sigma_33*(K_plus_00 - K_plus_11 - K_plus_22)/2",
+      "gravity_total": "K_minus_00*K_minus_11*M*f + K_minus_00*K_minus_22*M*f + K_minus_00*K_minus_33*M*f - K_minus_00*M*h_Sigma_11/2 - K_minus_00*M*h_Sigma_22/2 - K_minus_00*M*h_Sigma_33/2 - K_minus_01**2*M*f + K_minus_01*M*h_Sigma_01 - K_minus_02**2*M*f + K_minus_02*M*h_Sigma_02 - K_minus_03**2*M*f + K_minus_03*M*h_Sigma_03 - K_minus_11*K_minus_22*M*f - K_minus_11*K_minus_33*M*f - K_minus_11*M*h_Sigma_00/2 + K_minus_11*M*h_Sigma_22/2 + K_minus_11*M*h_Sigma_33/2 + K_minus_12**2*M*f - K_minus_12*M*h_Sigma_12 + K_minus_13**2*M*f - K_minus_13*M*h_Sigma_13 - K_minus_22*K_minus_33*M*f - K_minus_22*M*h_Sigma_00/2 + K_minus_22*M*h_Sigma_11/2 + K_minus_22*M*h_Sigma_33/2 + K_minus_23**2*M*f - K_minus_23*M*h_Sigma_23 - K_minus_33*M*h_Sigma_00/2 + K_minus_33*M*h_Sigma_11/2 + K_minus_33*M*h_Sigma_22/2 - K_plus_00*K_plus_11*M*f - K_plus_00*K_plus_22*M*f - K_plus_00*K_plus_33*M*f + K_plus_00*M*h_Sigma_11/2 + K_plus_00*M*h_Sigma_22/2 + K_plus_00*M*h_Sigma_33/2 + K_plus_01**2*M*f - K_plus_01*M*h_Sigma_01 + K_plus_02**2*M*f - K_plus_02*M*h_Sigma_02 + K_plus_03**2*M*f - K_plus_03*M*h_Sigma_03 + K_plus_11*K_plus_22*M*f + K_plus_11*K_plus_33*M*f + K_plus_11*M*h_Sigma_00/2 - K_plus_11*M*h_Sigma_22/2 - K_plus_11*M*h_Sigma_33/2 - K_plus_12**2*M*f + K_plus_12*M*h_Sigma_12 - K_plus_13**2*M*f + K_plus_13*M*h_Sigma_13 + K_plus_22*K_plus_33*M*f + K_plus_22*M*h_Sigma_00/2 - K_plus_22*M*h_Sigma_11/2 - K_plus_22*M*h_Sigma_33/2 - K_plus_23**2*M*f + K_plus_23*M*h_Sigma_23 + K_plus_33*M*h_Sigma_00/2 - K_plus_33*M*h_Sigma_11/2 - K_plus_33*M*h_Sigma_22/2",
+      "h_Sigma_substitution": {
+        "h_Sigma_00": "2*f*(K_minus_00/2 + K_plus_00/2) + h0_00",
+        "h_Sigma_01": "2*f*(K_minus_01/2 + K_plus_01/2) + h0_01",
+        "h_Sigma_02": "2*f*(K_minus_02/2 + K_plus_02/2) + h0_02",
+        "h_Sigma_03": "2*f*(K_minus_03/2 + K_plus_03/2) + h0_03",
+        "h_Sigma_11": "2*f*(K_minus_11/2 + K_plus_11/2) + h0_11",
+        "h_Sigma_12": "2*f*(K_minus_12/2 + K_plus_12/2) + h0_12",
+        "h_Sigma_13": "2*f*(K_minus_13/2 + K_plus_13/2) + h0_13",
+        "h_Sigma_22": "2*f*(K_minus_22/2 + K_plus_22/2) + h0_22",
+        "h_Sigma_23": "2*f*(K_minus_23/2 + K_plus_23/2) + h0_23",
+        "h_Sigma_33": "2*f*(K_minus_33/2 + K_plus_33/2) + h0_33"
+      },
+      "normal_coefficient_from_action_Green": "C_scalar_00*v_minus_0**2/2 - C_scalar_00*v_plus_0**2/2 + C_scalar_01*v_minus_0*v_minus_1 - C_scalar_01*v_plus_0*v_plus_1 + C_scalar_02*v_minus_0*v_minus_2 - C_scalar_02*v_plus_0*v_plus_2 + C_scalar_03*v_minus_0*v_minus_3 - C_scalar_03*v_plus_0*v_plus_3 + C_scalar_11*v_minus_1**2/2 - C_scalar_11*v_plus_1**2/2 + C_scalar_12*v_minus_1*v_minus_2 - C_scalar_12*v_plus_1*v_plus_2 + C_scalar_13*v_minus_1*v_minus_3 - C_scalar_13*v_plus_1*v_plus_3 + C_scalar_22*v_minus_2**2/2 - C_scalar_22*v_plus_2**2/2 + C_scalar_23*v_minus_2*v_minus_3 - C_scalar_23*v_plus_2*v_plus_3 + C_scalar_33*v_minus_3**2/2 - C_scalar_33*v_plus_3**2/2 + K_minus_00*tau_00/2 - K_minus_01*tau_01 - K_minus_02*tau_02 - K_minus_03*tau_03 + K_minus_11*tau_11/2 + K_minus_12*tau_12 + K_minus_13*tau_13 + K_minus_22*tau_22/2 + K_minus_23*tau_23 + K_minus_33*tau_33/2 + K_plus_00*tau_00/2 - K_plus_01*tau_01 - K_plus_02*tau_02 - K_plus_03*tau_03 + K_plus_11*tau_11/2 + K_plus_12*tau_12 + K_plus_13*tau_13 + K_plus_22*tau_22/2 + K_plus_23*tau_23 + K_plus_33*tau_33/2",
+      "normal_force_tau_Kbar_minus_T_jump": "C_scalar_00*v_minus_0**2/2 - C_scalar_00*v_plus_0**2/2 + C_scalar_01*v_minus_0*v_minus_1 - C_scalar_01*v_plus_0*v_plus_1 + C_scalar_02*v_minus_0*v_minus_2 - C_scalar_02*v_plus_0*v_plus_2 + C_scalar_03*v_minus_0*v_minus_3 - C_scalar_03*v_plus_0*v_plus_3 + C_scalar_11*v_minus_1**2/2 - C_scalar_11*v_plus_1**2/2 + C_scalar_12*v_minus_1*v_minus_2 - C_scalar_12*v_plus_1*v_plus_2 + C_scalar_13*v_minus_1*v_minus_3 - C_scalar_13*v_plus_1*v_plus_3 + C_scalar_22*v_minus_2**2/2 - C_scalar_22*v_plus_2**2/2 + C_scalar_23*v_minus_2*v_minus_3 - C_scalar_23*v_plus_2*v_plus_3 + C_scalar_33*v_minus_3**2/2 - C_scalar_33*v_plus_3**2/2 + K_minus_00*tau_00/2 - K_minus_01*tau_01 - K_minus_02*tau_02 - K_minus_03*tau_03 + K_minus_11*tau_11/2 + K_minus_12*tau_12 + K_minus_13*tau_13 + K_minus_22*tau_22/2 + K_minus_23*tau_23 + K_minus_33*tau_33/2 + K_plus_00*tau_00/2 - K_plus_01*tau_01 - K_plus_02*tau_02 - K_plus_03*tau_03 + K_plus_11*tau_11/2 + K_plus_12*tau_12 + K_plus_13*tau_13 + K_plus_22*tau_22/2 + K_plus_23*tau_23 + K_plus_33*tau_33/2",
+      "outward_displacement": {
+        "minus": "f",
+        "plus": "-f"
+      },
+      "outward_normal_signs": {
+        "minus": 1,
+        "plus": -1
+      },
+      "p_grav_minus_common_lowered": [
+        [
+          "-M*(K_minus_11 + K_minus_22 + K_minus_33)/2",
+          "-K_minus_01*M/2",
+          "-K_minus_02*M/2",
+          "-K_minus_03*M/2"
+        ],
+        [
+          "-K_minus_01*M/2",
+          "-M*(K_minus_00 - K_minus_22 - K_minus_33)/2",
+          "-K_minus_12*M/2",
+          "-K_minus_13*M/2"
+        ],
+        [
+          "-K_minus_02*M/2",
+          "-K_minus_12*M/2",
+          "-M*(K_minus_00 - K_minus_11 - K_minus_33)/2",
+          "-K_minus_23*M/2"
+        ],
+        [
+          "-K_minus_03*M/2",
+          "-K_minus_13*M/2",
+          "-K_minus_23*M/2",
+          "-M*(K_minus_00 - K_minus_11 - K_minus_22)/2"
+        ]
+      ],
+      "p_grav_plus_common_lowered": [
+        [
+          "-M*(K_plus_11 + K_plus_22 + K_plus_33)/2",
+          "-K_plus_01*M/2",
+          "-K_plus_02*M/2",
+          "-K_plus_03*M/2"
+        ],
+        [
+          "-K_plus_01*M/2",
+          "-M*(K_plus_00 - K_plus_22 - K_plus_33)/2",
+          "-K_plus_12*M/2",
+          "-K_plus_13*M/2"
+        ],
+        [
+          "-K_plus_02*M/2",
+          "-K_plus_12*M/2",
+          "-M*(K_plus_00 - K_plus_11 - K_plus_33)/2",
+          "-K_plus_23*M/2"
+        ],
+        [
+          "-K_plus_03*M/2",
+          "-K_plus_13*M/2",
+          "-K_plus_23*M/2",
+          "-M*(K_plus_00 - K_plus_11 - K_plus_22)/2"
+        ]
+      ],
+      "p_scalar_minus": [
+        [
+          "-C_scalar_00*v_minus_0 - C_scalar_01*v_minus_1 - C_scalar_02*v_minus_2 - C_scalar_03*v_minus_3"
+        ],
+        [
+          "-C_scalar_01*v_minus_0 - C_scalar_11*v_minus_1 - C_scalar_12*v_minus_2 - C_scalar_13*v_minus_3"
+        ],
+        [
+          "-C_scalar_02*v_minus_0 - C_scalar_12*v_minus_1 - C_scalar_22*v_minus_2 - C_scalar_23*v_minus_3"
+        ],
+        [
+          "-C_scalar_03*v_minus_0 - C_scalar_13*v_minus_1 - C_scalar_23*v_minus_2 - C_scalar_33*v_minus_3"
+        ]
+      ],
+      "p_scalar_plus": [
+        [
+          "-C_scalar_00*v_plus_0 - C_scalar_01*v_plus_1 - C_scalar_02*v_plus_2 - C_scalar_03*v_plus_3"
+        ],
+        [
+          "-C_scalar_01*v_plus_0 - C_scalar_11*v_plus_1 - C_scalar_12*v_plus_2 - C_scalar_13*v_plus_3"
+        ],
+        [
+          "-C_scalar_02*v_plus_0 - C_scalar_12*v_plus_1 - C_scalar_22*v_plus_2 - C_scalar_23*v_plus_3"
+        ],
+        [
+          "-C_scalar_03*v_plus_0 - C_scalar_13*v_plus_1 - C_scalar_23*v_plus_2 - C_scalar_33*v_plus_3"
+        ]
+      ],
+      "pi_minus": [
+        [
+          "K_minus_11 + K_minus_22 + K_minus_33",
+          "K_minus_01",
+          "K_minus_02",
+          "K_minus_03"
+        ],
+        [
+          "K_minus_01",
+          "K_minus_00 - K_minus_22 - K_minus_33",
+          "K_minus_12",
+          "K_minus_13"
+        ],
+        [
+          "K_minus_02",
+          "K_minus_12",
+          "K_minus_00 - K_minus_11 - K_minus_33",
+          "K_minus_23"
+        ],
+        [
+          "K_minus_03",
+          "K_minus_13",
+          "K_minus_23",
+          "K_minus_00 - K_minus_11 - K_minus_22"
+        ]
+      ],
+      "pi_plus": [
+        [
+          "K_plus_11 + K_plus_22 + K_plus_33",
+          "K_plus_01",
+          "K_plus_02",
+          "K_plus_03"
+        ],
+        [
+          "K_plus_01",
+          "K_plus_00 - K_plus_22 - K_plus_33",
+          "K_plus_12",
+          "K_plus_13"
+        ],
+        [
+          "K_plus_02",
+          "K_plus_12",
+          "K_plus_00 - K_plus_11 - K_plus_33",
+          "K_plus_23"
+        ],
+        [
+          "K_plus_03",
+          "K_plus_13",
+          "K_plus_23",
+          "K_plus_00 - K_plus_11 - K_plus_22"
+        ]
+      ],
+      "residuals": {
+        "admissible_metric_trace_minus": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "admissible_metric_trace_plus": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "admissible_scalar_trace_minus": [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "admissible_scalar_trace_plus": [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "h0_is_mean_of_Eulerian_metric_traces": [
+          [
+            "-K_minus_00*f - K_plus_00*f + 2*f*(K_minus_00/2 + K_plus_00/2)",
+            "-K_minus_01*f - K_plus_01*f + 2*f*(K_minus_01/2 + K_plus_01/2)",
+            "-K_minus_02*f - K_plus_02*f + 2*f*(K_minus_02/2 + K_plus_02/2)",
+            "-K_minus_03*f - K_plus_03*f + 2*f*(K_minus_03/2 + K_plus_03/2)"
+          ],
+          [
+            "-K_minus_01*f - K_plus_01*f + 2*f*(K_minus_01/2 + K_plus_01/2)",
+            "-K_minus_11*f - K_plus_11*f + 2*f*(K_minus_11/2 + K_plus_11/2)",
+            "-K_minus_12*f - K_plus_12*f + 2*f*(K_minus_12/2 + K_plus_12/2)",
+            "-K_minus_13*f - K_plus_13*f + 2*f*(K_minus_13/2 + K_plus_13/2)"
+          ],
+          [
+            "-K_minus_02*f - K_plus_02*f + 2*f*(K_minus_02/2 + K_plus_02/2)",
+            "-K_minus_12*f - K_plus_12*f + 2*f*(K_minus_12/2 + K_plus_12/2)",
+            "-K_minus_22*f - K_plus_22*f + 2*f*(K_minus_22/2 + K_plus_22/2)",
+            "-K_minus_23*f - K_plus_23*f + 2*f*(K_minus_23/2 + K_plus_23/2)"
+          ],
+          [
+            "-K_minus_03*f - K_plus_03*f + 2*f*(K_minus_03/2 + K_plus_03/2)",
+            "-K_minus_13*f - K_plus_13*f + 2*f*(K_minus_13/2 + K_plus_13/2)",
+            "-K_minus_23*f - K_plus_23*f + 2*f*(K_minus_23/2 + K_plus_23/2)",
+            "-K_minus_33*f - K_plus_33*f + 2*f*(K_minus_33/2 + K_plus_33/2)"
+          ]
+        ],
+        "normal_force_from_Green_equals_constraint_combination": "K_minus_00*tau_00/2 - K_minus_01*tau_01 - K_minus_02*tau_02 - K_minus_03*tau_03 + K_minus_11*tau_11/2 + K_minus_12*tau_12 + K_minus_13*tau_13 + K_minus_22*tau_22/2 + K_minus_23*tau_23 + K_minus_33*tau_33/2 + K_plus_00*tau_00/2 - K_plus_01*tau_01 - K_plus_02*tau_02 - K_plus_03*tau_03 + K_plus_11*tau_11/2 + K_plus_12*tau_12 + K_plus_13*tau_13 + K_plus_22*tau_22/2 + K_plus_23*tau_23 + K_plus_33*tau_33/2 + M*(-K_minus_00**2 + 2*K_minus_01**2 + 2*K_minus_02**2 + 2*K_minus_03**2 - K_minus_11**2 - 2*K_minus_12**2 - 2*K_minus_13**2 - K_minus_22**2 - 2*K_minus_23**2 - K_minus_33**2 - R_gamma + (-K_minus_00 + K_minus_11 + K_minus_22 + K_minus_33)**2)/2 - M*(-K_plus_00**2 + 2*K_plus_01**2 + 2*K_plus_02**2 + 2*K_plus_03**2 - K_plus_11**2 - 2*K_plus_12**2 - 2*K_plus_13**2 - K_plus_22**2 - 2*K_plus_23**2 - K_plus_33**2 - R_gamma + (-K_plus_00 + K_plus_11 + K_plus_22 + K_plus_33)**2)/2 + (K_minus_00/2 + K_plus_00/2)*(-M*(-K_minus_11 - K_minus_22 - K_minus_33 + K_plus_11 + K_plus_22 + K_plus_33) - tau_00) + 2*(K_minus_01/2 + K_plus_01/2)*(M*(-K_minus_01 + K_plus_01) + tau_01) + 2*(K_minus_02/2 + K_plus_02/2)*(M*(-K_minus_02 + K_plus_02) + tau_02) + 2*(K_minus_03/2 + K_plus_03/2)*(M*(-K_minus_03 + K_plus_03) + tau_03) + (K_minus_11/2 + K_plus_11/2)*(-M*(-K_minus_00 + K_minus_22 + K_minus_33 + K_plus_00 - K_plus_22 - K_plus_33) - tau_11) + 2*(K_minus_12/2 + K_plus_12/2)*(-M*(-K_minus_12 + K_plus_12) - tau_12) + 2*(K_minus_13/2 + K_plus_13/2)*(-M*(-K_minus_13 + K_plus_13) - tau_13) + (K_minus_22/2 + K_plus_22/2)*(-M*(-K_minus_00 + K_minus_11 + K_minus_33 + K_plus_00 - K_plus_11 - K_plus_33) - tau_22) + 2*(K_minus_23/2 + K_plus_23/2)*(-M*(-K_minus_23 + K_plus_23) - tau_23) + (K_minus_33/2 + K_plus_33/2)*(-M*(-K_minus_00 + K_minus_11 + K_minus_22 + K_plus_00 - K_plus_11 - K_plus_22) - tau_33)",
+        "normal_force_from_Green_equals_tau_Kbar_minus_T_jump": "K_minus_00*tau_00/2 - K_minus_01*tau_01 - K_minus_02*tau_02 - K_minus_03*tau_03 + K_minus_11*tau_11/2 + K_minus_12*tau_12 + K_minus_13*tau_13 + K_minus_22*tau_22/2 + K_minus_23*tau_23 + K_minus_33*tau_33/2 + K_plus_00*tau_00/2 - K_plus_01*tau_01 - K_plus_02*tau_02 - K_plus_03*tau_03 + K_plus_11*tau_11/2 + K_plus_12*tau_12 + K_plus_13*tau_13 + K_plus_22*tau_22/2 + K_plus_23*tau_23 + K_plus_33*tau_33/2 - tau_00*(K_minus_00/2 + K_plus_00/2) + 2*tau_01*(K_minus_01/2 + K_plus_01/2) + 2*tau_02*(K_minus_02/2 + K_plus_02/2) + 2*tau_03*(K_minus_03/2 + K_plus_03/2) - tau_11*(K_minus_11/2 + K_plus_11/2) - 2*tau_12*(K_minus_12/2 + K_plus_12/2) - 2*tau_13*(K_minus_13/2 + K_plus_13/2) - tau_22*(K_minus_22/2 + K_plus_22/2) - 2*tau_23*(K_minus_23/2 + K_plus_23/2) - tau_33*(K_minus_33/2 + K_plus_33/2)",
+        "outward_pairing_gives_positive_pi_jump": "K_minus_00*K_minus_11*M*f + K_minus_00*K_minus_22*M*f + K_minus_00*K_minus_33*M*f - K_minus_00*M*h_Sigma_11/2 - K_minus_00*M*h_Sigma_22/2 - K_minus_00*M*h_Sigma_33/2 - K_minus_01**2*M*f + K_minus_01*M*h_Sigma_01 - K_minus_02**2*M*f + K_minus_02*M*h_Sigma_02 - K_minus_03**2*M*f + K_minus_03*M*h_Sigma_03 - K_minus_11*K_minus_22*M*f - K_minus_11*K_minus_33*M*f - K_minus_11*M*h_Sigma_00/2 + K_minus_11*M*h_Sigma_22/2 + K_minus_11*M*h_Sigma_33/2 + K_minus_12**2*M*f - K_minus_12*M*h_Sigma_12 + K_minus_13**2*M*f - K_minus_13*M*h_Sigma_13 - K_minus_22*K_minus_33*M*f - K_minus_22*M*h_Sigma_00/2 + K_minus_22*M*h_Sigma_11/2 + K_minus_22*M*h_Sigma_33/2 + K_minus_23**2*M*f - K_minus_23*M*h_Sigma_23 - K_minus_33*M*h_Sigma_00/2 + K_minus_33*M*h_Sigma_11/2 + K_minus_33*M*h_Sigma_22/2 - K_plus_00*K_plus_11*M*f - K_plus_00*K_plus_22*M*f - K_plus_00*K_plus_33*M*f + K_plus_00*M*h_Sigma_11/2 + K_plus_00*M*h_Sigma_22/2 + K_plus_00*M*h_Sigma_33/2 + K_plus_01**2*M*f - K_plus_01*M*h_Sigma_01 + K_plus_02**2*M*f - K_plus_02*M*h_Sigma_02 + K_plus_03**2*M*f - K_plus_03*M*h_Sigma_03 + K_plus_11*K_plus_22*M*f + K_plus_11*K_plus_33*M*f + K_plus_11*M*h_Sigma_00/2 - K_plus_11*M*h_Sigma_22/2 - K_plus_11*M*h_Sigma_33/2 - K_plus_12**2*M*f + K_plus_12*M*h_Sigma_12 - K_plus_13**2*M*f + K_plus_13*M*h_Sigma_13 + K_plus_22*K_plus_33*M*f + K_plus_22*M*h_Sigma_00/2 - K_plus_22*M*h_Sigma_11/2 - K_plus_22*M*h_Sigma_33/2 - K_plus_23**2*M*f + K_plus_23*M*h_Sigma_23 + K_plus_33*M*h_Sigma_00/2 - K_plus_33*M*h_Sigma_11/2 - K_plus_33*M*h_Sigma_22/2 - M*(h_Sigma_00*(-K_minus_11 - K_minus_22 - K_minus_33 + K_plus_11 + K_plus_22 + K_plus_33) + 2*h_Sigma_01*(K_minus_01 - K_plus_01) + 2*h_Sigma_02*(K_minus_02 - K_plus_02) + 2*h_Sigma_03*(K_minus_03 - K_plus_03) + h_Sigma_11*(-K_minus_00 + K_minus_22 + K_minus_33 + K_plus_00 - K_plus_22 - K_plus_33) + 2*h_Sigma_12*(-K_minus_12 + K_plus_12) + 2*h_Sigma_13*(-K_minus_13 + K_plus_13) + h_Sigma_22*(-K_minus_00 + K_minus_11 + K_minus_33 + K_plus_00 - K_plus_11 - K_plus_33) + 2*h_Sigma_23*(-K_minus_23 + K_plus_23) + h_Sigma_33*(-K_minus_00 + K_minus_11 + K_minus_22 + K_plus_00 - K_plus_11 - K_plus_22))/2 - f*(-M*(-K_minus_00**2 + 2*K_minus_01**2 + 2*K_minus_02**2 + 2*K_minus_03**2 - K_minus_11**2 - 2*K_minus_12**2 - 2*K_minus_13**2 - K_minus_22**2 - 2*K_minus_23**2 - K_minus_33**2 - R_gamma + (-K_minus_00 + K_minus_11 + K_minus_22 + K_minus_33)**2)/2 + M*(-K_plus_00**2 + 2*K_plus_01**2 + 2*K_plus_02**2 + 2*K_plus_03**2 - K_plus_11**2 - 2*K_plus_12**2 - 2*K_plus_13**2 - K_plus_22**2 - 2*K_plus_23**2 - K_plus_33**2 - R_gamma + (-K_plus_00 + K_plus_11 + K_plus_22 + K_plus_33)**2)/2)",
+        "paired_variable_f_shape_currents_cancel": [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "scalar_minus_normal_Legendre_is_Tnn": "-C_scalar_00*t_0_0**2/2 + C_scalar_00*t_1_0**2/2 + C_scalar_00*t_2_0**2/2 + C_scalar_00*t_3_0**2/2 - C_scalar_00*v_minus_0**2/2 - C_scalar_01*t_0_0*t_0_1 + C_scalar_01*t_1_0*t_1_1 + C_scalar_01*t_2_0*t_2_1 + C_scalar_01*t_3_0*t_3_1 - C_scalar_01*v_minus_0*v_minus_1 - C_scalar_02*t_0_0*t_0_2 + C_scalar_02*t_1_0*t_1_2 + C_scalar_02*t_2_0*t_2_2 + C_scalar_02*t_3_0*t_3_2 - C_scalar_02*v_minus_0*v_minus_2 - C_scalar_03*t_0_0*t_0_3 + C_scalar_03*t_1_0*t_1_3 + C_scalar_03*t_2_0*t_2_3 + C_scalar_03*t_3_0*t_3_3 - C_scalar_03*v_minus_0*v_minus_3 - C_scalar_11*t_0_1**2/2 + C_scalar_11*t_1_1**2/2 + C_scalar_11*t_2_1**2/2 + C_scalar_11*t_3_1**2/2 - C_scalar_11*v_minus_1**2/2 - C_scalar_12*t_0_1*t_0_2 + C_scalar_12*t_1_1*t_1_2 + C_scalar_12*t_2_1*t_2_2 + C_scalar_12*t_3_1*t_3_2 - C_scalar_12*v_minus_1*v_minus_2 - C_scalar_13*t_0_1*t_0_3 + C_scalar_13*t_1_1*t_1_3 + C_scalar_13*t_2_1*t_2_3 + C_scalar_13*t_3_1*t_3_3 - C_scalar_13*v_minus_1*v_minus_3 - C_scalar_22*t_0_2**2/2 + C_scalar_22*t_1_2**2/2 + C_scalar_22*t_2_2**2/2 + C_scalar_22*t_3_2**2/2 - C_scalar_22*v_minus_2**2/2 - C_scalar_23*t_0_2*t_0_3 + C_scalar_23*t_1_2*t_1_3 + C_scalar_23*t_2_2*t_2_3 + C_scalar_23*t_3_2*t_3_3 - C_scalar_23*v_minus_2*v_minus_3 - C_scalar_33*t_0_3**2/2 + C_scalar_33*t_1_3**2/2 + C_scalar_33*t_2_3**2/2 + C_scalar_33*t_3_3**2/2 - C_scalar_33*v_minus_3**2/2 + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_minus_0*(-C_scalar_00*v_minus_0 - C_scalar_01*v_minus_1 - C_scalar_02*v_minus_2 - C_scalar_03*v_minus_3) - v_minus_0*(C_scalar_00*v_minus_0 + C_scalar_01*v_minus_1 + C_scalar_02*v_minus_2 + C_scalar_03*v_minus_3)/2 - v_minus_1*(-C_scalar_01*v_minus_0 - C_scalar_11*v_minus_1 - C_scalar_12*v_minus_2 - C_scalar_13*v_minus_3) - v_minus_1*(C_scalar_01*v_minus_0 + C_scalar_11*v_minus_1 + C_scalar_12*v_minus_2 + C_scalar_13*v_minus_3)/2 - v_minus_2*(-C_scalar_02*v_minus_0 - C_scalar_12*v_minus_1 - C_scalar_22*v_minus_2 - C_scalar_23*v_minus_3) - v_minus_2*(C_scalar_02*v_minus_0 + C_scalar_12*v_minus_1 + C_scalar_22*v_minus_2 + C_scalar_23*v_minus_3)/2 - v_minus_3*(-C_scalar_03*v_minus_0 - C_scalar_13*v_minus_1 - C_scalar_23*v_minus_2 - C_scalar_33*v_minus_3) - v_minus_3*(C_scalar_03*v_minus_0 + C_scalar_13*v_minus_1 + C_scalar_23*v_minus_2 + C_scalar_33*v_minus_3)/2",
+        "scalar_momenta_derived_from_literal_density": [
+          [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ],
+          [
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ],
+            [
+              "0"
+            ]
+          ]
+        ],
+        "scalar_moving_common_trace_form": "-delta_q_0*(-C_scalar_00*v_minus_0 + C_scalar_00*v_plus_0 - C_scalar_01*v_minus_1 + C_scalar_01*v_plus_1 - C_scalar_02*v_minus_2 + C_scalar_02*v_plus_2 - C_scalar_03*v_minus_3 + C_scalar_03*v_plus_3) - delta_q_1*(-C_scalar_01*v_minus_0 + C_scalar_01*v_plus_0 - C_scalar_11*v_minus_1 + C_scalar_11*v_plus_1 - C_scalar_12*v_minus_2 + C_scalar_12*v_plus_2 - C_scalar_13*v_minus_3 + C_scalar_13*v_plus_3) - delta_q_2*(-C_scalar_02*v_minus_0 + C_scalar_02*v_plus_0 - C_scalar_12*v_minus_1 + C_scalar_12*v_plus_1 - C_scalar_22*v_minus_2 + C_scalar_22*v_plus_2 - C_scalar_23*v_minus_3 + C_scalar_23*v_plus_3) - delta_q_3*(-C_scalar_03*v_minus_0 + C_scalar_03*v_plus_0 - C_scalar_13*v_minus_1 + C_scalar_13*v_plus_1 - C_scalar_23*v_minus_2 + C_scalar_23*v_plus_2 - C_scalar_33*v_minus_3 + C_scalar_33*v_plus_3) + f*(-C_scalar_00*v_minus_0**2/2 + C_scalar_00*v_plus_0**2/2 - C_scalar_01*v_minus_0*v_minus_1 + C_scalar_01*v_plus_0*v_plus_1 - C_scalar_02*v_minus_0*v_minus_2 + C_scalar_02*v_plus_0*v_plus_2 - C_scalar_03*v_minus_0*v_minus_3 + C_scalar_03*v_plus_0*v_plus_3 - C_scalar_11*v_minus_1**2/2 + C_scalar_11*v_plus_1**2/2 - C_scalar_12*v_minus_1*v_minus_2 + C_scalar_12*v_plus_1*v_plus_2 - C_scalar_13*v_minus_1*v_minus_3 + C_scalar_13*v_plus_1*v_plus_3 - C_scalar_22*v_minus_2**2/2 + C_scalar_22*v_plus_2**2/2 - C_scalar_23*v_minus_2*v_minus_3 + C_scalar_23*v_plus_2*v_plus_3 - C_scalar_33*v_minus_3**2/2 + C_scalar_33*v_plus_3**2/2) + f*(-V + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_minus_0*(C_scalar_00*v_minus_0 + C_scalar_01*v_minus_1 + C_scalar_02*v_minus_2 + C_scalar_03*v_minus_3)/2 - v_minus_1*(C_scalar_01*v_minus_0 + C_scalar_11*v_minus_1 + C_scalar_12*v_minus_2 + C_scalar_13*v_minus_3)/2 - v_minus_2*(C_scalar_02*v_minus_0 + C_scalar_12*v_minus_1 + C_scalar_22*v_minus_2 + C_scalar_23*v_minus_3)/2 - v_minus_3*(C_scalar_03*v_minus_0 + C_scalar_13*v_minus_1 + C_scalar_23*v_minus_2 + C_scalar_33*v_minus_3)/2) - f*(-V + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_plus_0*(C_scalar_00*v_plus_0 + C_scalar_01*v_plus_1 + C_scalar_02*v_plus_2 + C_scalar_03*v_plus_3)/2 - v_plus_1*(C_scalar_01*v_plus_0 + C_scalar_11*v_plus_1 + C_scalar_12*v_plus_2 + C_scalar_13*v_plus_3)/2 - v_plus_2*(C_scalar_02*v_plus_0 + C_scalar_12*v_plus_1 + C_scalar_22*v_plus_2 + C_scalar_23*v_plus_3)/2 - v_plus_3*(C_scalar_03*v_plus_0 + C_scalar_13*v_plus_1 + C_scalar_23*v_plus_2 + C_scalar_33*v_plus_3)/2) + (delta_q_0 - f*v_minus_0)*(-C_scalar_00*v_minus_0 - C_scalar_01*v_minus_1 - C_scalar_02*v_minus_2 - C_scalar_03*v_minus_3) - (delta_q_0 - f*v_plus_0)*(-C_scalar_00*v_plus_0 - C_scalar_01*v_plus_1 - C_scalar_02*v_plus_2 - C_scalar_03*v_plus_3) + (delta_q_1 - f*v_minus_1)*(-C_scalar_01*v_minus_0 - C_scalar_11*v_minus_1 - C_scalar_12*v_minus_2 - C_scalar_13*v_minus_3) - (delta_q_1 - f*v_plus_1)*(-C_scalar_01*v_plus_0 - C_scalar_11*v_plus_1 - C_scalar_12*v_plus_2 - C_scalar_13*v_plus_3) + (delta_q_2 - f*v_minus_2)*(-C_scalar_02*v_minus_0 - C_scalar_12*v_minus_1 - C_scalar_22*v_minus_2 - C_scalar_23*v_minus_3) - (delta_q_2 - f*v_plus_2)*(-C_scalar_02*v_plus_0 - C_scalar_12*v_plus_1 - C_scalar_22*v_plus_2 - C_scalar_23*v_plus_3) + (delta_q_3 - f*v_minus_3)*(-C_scalar_03*v_minus_0 - C_scalar_13*v_minus_1 - C_scalar_23*v_minus_2 - C_scalar_33*v_minus_3) - (delta_q_3 - f*v_plus_3)*(-C_scalar_03*v_plus_0 - C_scalar_13*v_plus_1 - C_scalar_23*v_plus_2 - C_scalar_33*v_plus_3)",
+        "scalar_plus_normal_Legendre_is_Tnn": "-C_scalar_00*t_0_0**2/2 + C_scalar_00*t_1_0**2/2 + C_scalar_00*t_2_0**2/2 + C_scalar_00*t_3_0**2/2 - C_scalar_00*v_plus_0**2/2 - C_scalar_01*t_0_0*t_0_1 + C_scalar_01*t_1_0*t_1_1 + C_scalar_01*t_2_0*t_2_1 + C_scalar_01*t_3_0*t_3_1 - C_scalar_01*v_plus_0*v_plus_1 - C_scalar_02*t_0_0*t_0_2 + C_scalar_02*t_1_0*t_1_2 + C_scalar_02*t_2_0*t_2_2 + C_scalar_02*t_3_0*t_3_2 - C_scalar_02*v_plus_0*v_plus_2 - C_scalar_03*t_0_0*t_0_3 + C_scalar_03*t_1_0*t_1_3 + C_scalar_03*t_2_0*t_2_3 + C_scalar_03*t_3_0*t_3_3 - C_scalar_03*v_plus_0*v_plus_3 - C_scalar_11*t_0_1**2/2 + C_scalar_11*t_1_1**2/2 + C_scalar_11*t_2_1**2/2 + C_scalar_11*t_3_1**2/2 - C_scalar_11*v_plus_1**2/2 - C_scalar_12*t_0_1*t_0_2 + C_scalar_12*t_1_1*t_1_2 + C_scalar_12*t_2_1*t_2_2 + C_scalar_12*t_3_1*t_3_2 - C_scalar_12*v_plus_1*v_plus_2 - C_scalar_13*t_0_1*t_0_3 + C_scalar_13*t_1_1*t_1_3 + C_scalar_13*t_2_1*t_2_3 + C_scalar_13*t_3_1*t_3_3 - C_scalar_13*v_plus_1*v_plus_3 - C_scalar_22*t_0_2**2/2 + C_scalar_22*t_1_2**2/2 + C_scalar_22*t_2_2**2/2 + C_scalar_22*t_3_2**2/2 - C_scalar_22*v_plus_2**2/2 - C_scalar_23*t_0_2*t_0_3 + C_scalar_23*t_1_2*t_1_3 + C_scalar_23*t_2_2*t_2_3 + C_scalar_23*t_3_2*t_3_3 - C_scalar_23*v_plus_2*v_plus_3 - C_scalar_33*t_0_3**2/2 + C_scalar_33*t_1_3**2/2 + C_scalar_33*t_2_3**2/2 + C_scalar_33*t_3_3**2/2 - C_scalar_33*v_plus_3**2/2 + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_plus_0*(-C_scalar_00*v_plus_0 - C_scalar_01*v_plus_1 - C_scalar_02*v_plus_2 - C_scalar_03*v_plus_3) - v_plus_0*(C_scalar_00*v_plus_0 + C_scalar_01*v_plus_1 + C_scalar_02*v_plus_2 + C_scalar_03*v_plus_3)/2 - v_plus_1*(-C_scalar_01*v_plus_0 - C_scalar_11*v_plus_1 - C_scalar_12*v_plus_2 - C_scalar_13*v_plus_3) - v_plus_1*(C_scalar_01*v_plus_0 + C_scalar_11*v_plus_1 + C_scalar_12*v_plus_2 + C_scalar_13*v_plus_3)/2 - v_plus_2*(-C_scalar_02*v_plus_0 - C_scalar_12*v_plus_1 - C_scalar_22*v_plus_2 - C_scalar_23*v_plus_3) - v_plus_2*(C_scalar_02*v_plus_0 + C_scalar_12*v_plus_1 + C_scalar_22*v_plus_2 + C_scalar_23*v_plus_3)/2 - v_plus_3*(-C_scalar_03*v_plus_0 - C_scalar_13*v_plus_1 - C_scalar_23*v_plus_2 - C_scalar_33*v_plus_3) - v_plus_3*(C_scalar_03*v_plus_0 + C_scalar_13*v_plus_1 + C_scalar_23*v_plus_2 + C_scalar_33*v_plus_3)/2",
+        "wall_and_scalar_rows_retained": "-C_scalar_00*delta_q_0*v_minus_0 + C_scalar_00*delta_q_0*v_plus_0 + C_scalar_00*f*v_minus_0**2/2 - C_scalar_00*f*v_plus_0**2/2 - C_scalar_01*delta_q_0*v_minus_1 + C_scalar_01*delta_q_0*v_plus_1 - C_scalar_01*delta_q_1*v_minus_0 + C_scalar_01*delta_q_1*v_plus_0 + C_scalar_01*f*v_minus_0*v_minus_1 - C_scalar_01*f*v_plus_0*v_plus_1 - C_scalar_02*delta_q_0*v_minus_2 + C_scalar_02*delta_q_0*v_plus_2 - C_scalar_02*delta_q_2*v_minus_0 + C_scalar_02*delta_q_2*v_plus_0 + C_scalar_02*f*v_minus_0*v_minus_2 - C_scalar_02*f*v_plus_0*v_plus_2 - C_scalar_03*delta_q_0*v_minus_3 + C_scalar_03*delta_q_0*v_plus_3 - C_scalar_03*delta_q_3*v_minus_0 + C_scalar_03*delta_q_3*v_plus_0 + C_scalar_03*f*v_minus_0*v_minus_3 - C_scalar_03*f*v_plus_0*v_plus_3 - C_scalar_11*delta_q_1*v_minus_1 + C_scalar_11*delta_q_1*v_plus_1 + C_scalar_11*f*v_minus_1**2/2 - C_scalar_11*f*v_plus_1**2/2 - C_scalar_12*delta_q_1*v_minus_2 + C_scalar_12*delta_q_1*v_plus_2 - C_scalar_12*delta_q_2*v_minus_1 + C_scalar_12*delta_q_2*v_plus_1 + C_scalar_12*f*v_minus_1*v_minus_2 - C_scalar_12*f*v_plus_1*v_plus_2 - C_scalar_13*delta_q_1*v_minus_3 + C_scalar_13*delta_q_1*v_plus_3 - C_scalar_13*delta_q_3*v_minus_1 + C_scalar_13*delta_q_3*v_plus_1 + C_scalar_13*f*v_minus_1*v_minus_3 - C_scalar_13*f*v_plus_1*v_plus_3 - C_scalar_22*delta_q_2*v_minus_2 + C_scalar_22*delta_q_2*v_plus_2 + C_scalar_22*f*v_minus_2**2/2 - C_scalar_22*f*v_plus_2**2/2 - C_scalar_23*delta_q_2*v_minus_3 + C_scalar_23*delta_q_2*v_plus_3 - C_scalar_23*delta_q_3*v_minus_2 + C_scalar_23*delta_q_3*v_plus_2 + C_scalar_23*f*v_minus_2*v_minus_3 - C_scalar_23*f*v_plus_2*v_plus_3 - C_scalar_33*delta_q_3*v_minus_3 + C_scalar_33*delta_q_3*v_plus_3 + C_scalar_33*f*v_minus_3**2/2 - C_scalar_33*f*v_plus_3**2/2 + K_minus_00*K_minus_11*M*f + K_minus_00*K_minus_22*M*f + K_minus_00*K_minus_33*M*f - K_minus_00*M*h_Sigma_11/2 - K_minus_00*M*h_Sigma_22/2 - K_minus_00*M*h_Sigma_33/2 - K_minus_01**2*M*f + K_minus_01*M*h_Sigma_01 - K_minus_02**2*M*f + K_minus_02*M*h_Sigma_02 - K_minus_03**2*M*f + K_minus_03*M*h_Sigma_03 - K_minus_11*K_minus_22*M*f - K_minus_11*K_minus_33*M*f - K_minus_11*M*h_Sigma_00/2 + K_minus_11*M*h_Sigma_22/2 + K_minus_11*M*h_Sigma_33/2 + K_minus_12**2*M*f - K_minus_12*M*h_Sigma_12 + K_minus_13**2*M*f - K_minus_13*M*h_Sigma_13 - K_minus_22*K_minus_33*M*f - K_minus_22*M*h_Sigma_00/2 + K_minus_22*M*h_Sigma_11/2 + K_minus_22*M*h_Sigma_33/2 + K_minus_23**2*M*f - K_minus_23*M*h_Sigma_23 - K_minus_33*M*h_Sigma_00/2 + K_minus_33*M*h_Sigma_11/2 + K_minus_33*M*h_Sigma_22/2 - K_plus_00*K_plus_11*M*f - K_plus_00*K_plus_22*M*f - K_plus_00*K_plus_33*M*f + K_plus_00*M*h_Sigma_11/2 + K_plus_00*M*h_Sigma_22/2 + K_plus_00*M*h_Sigma_33/2 + K_plus_01**2*M*f - K_plus_01*M*h_Sigma_01 + K_plus_02**2*M*f - K_plus_02*M*h_Sigma_02 + K_plus_03**2*M*f - K_plus_03*M*h_Sigma_03 + K_plus_11*K_plus_22*M*f + K_plus_11*K_plus_33*M*f + K_plus_11*M*h_Sigma_00/2 - K_plus_11*M*h_Sigma_22/2 - K_plus_11*M*h_Sigma_33/2 - K_plus_12**2*M*f + K_plus_12*M*h_Sigma_12 - K_plus_13**2*M*f + K_plus_13*M*h_Sigma_13 + K_plus_22*K_plus_33*M*f + K_plus_22*M*h_Sigma_00/2 - K_plus_22*M*h_Sigma_11/2 - K_plus_22*M*h_Sigma_33/2 - K_plus_23**2*M*f + K_plus_23*M*h_Sigma_23 + K_plus_33*M*h_Sigma_00/2 - K_plus_33*M*h_Sigma_11/2 - K_plus_33*M*h_Sigma_22/2 + delta_q_0*wall_q_Euler_0 - delta_q_0*(-C_scalar_00*v_minus_0 + C_scalar_00*v_plus_0 - C_scalar_01*v_minus_1 + C_scalar_01*v_plus_1 - C_scalar_02*v_minus_2 + C_scalar_02*v_plus_2 - C_scalar_03*v_minus_3 + C_scalar_03*v_plus_3 + wall_q_Euler_0) + delta_q_1*wall_q_Euler_1 - delta_q_1*(-C_scalar_01*v_minus_0 + C_scalar_01*v_plus_0 - C_scalar_11*v_minus_1 + C_scalar_11*v_plus_1 - C_scalar_12*v_minus_2 + C_scalar_12*v_plus_2 - C_scalar_13*v_minus_3 + C_scalar_13*v_plus_3 + wall_q_Euler_1) + delta_q_2*wall_q_Euler_2 - delta_q_2*(-C_scalar_02*v_minus_0 + C_scalar_02*v_plus_0 - C_scalar_12*v_minus_1 + C_scalar_12*v_plus_1 - C_scalar_22*v_minus_2 + C_scalar_22*v_plus_2 - C_scalar_23*v_minus_3 + C_scalar_23*v_plus_3 + wall_q_Euler_2) + delta_q_3*wall_q_Euler_3 - delta_q_3*(-C_scalar_03*v_minus_0 + C_scalar_03*v_plus_0 - C_scalar_13*v_minus_1 + C_scalar_13*v_plus_1 - C_scalar_23*v_minus_2 + C_scalar_23*v_plus_2 - C_scalar_33*v_minus_3 + C_scalar_33*v_plus_3 + wall_q_Euler_3) - f*(C_scalar_00*v_minus_0**2/2 - C_scalar_00*v_plus_0**2/2 + C_scalar_01*v_minus_0*v_minus_1 - C_scalar_01*v_plus_0*v_plus_1 + C_scalar_02*v_minus_0*v_minus_2 - C_scalar_02*v_plus_0*v_plus_2 + C_scalar_03*v_minus_0*v_minus_3 - C_scalar_03*v_plus_0*v_plus_3 + C_scalar_11*v_minus_1**2/2 - C_scalar_11*v_plus_1**2/2 + C_scalar_12*v_minus_1*v_minus_2 - C_scalar_12*v_plus_1*v_plus_2 + C_scalar_13*v_minus_1*v_minus_3 - C_scalar_13*v_plus_1*v_plus_3 + C_scalar_22*v_minus_2**2/2 - C_scalar_22*v_plus_2**2/2 + C_scalar_23*v_minus_2*v_minus_3 - C_scalar_23*v_plus_2*v_plus_3 + C_scalar_33*v_minus_3**2/2 - C_scalar_33*v_plus_3**2/2 - M*(-K_minus_00**2 + 2*K_minus_01**2 + 2*K_minus_02**2 + 2*K_minus_03**2 - K_minus_11**2 - 2*K_minus_12**2 - 2*K_minus_13**2 - K_minus_22**2 - 2*K_minus_23**2 - K_minus_33**2 - R_gamma + (-K_minus_00 + K_minus_11 + K_minus_22 + K_minus_33)**2)/2 + M*(-K_plus_00**2 + 2*K_plus_01**2 + 2*K_plus_02**2 + 2*K_plus_03**2 - K_plus_11**2 - 2*K_plus_12**2 - 2*K_plus_13**2 - K_plus_22**2 - 2*K_plus_23**2 - K_plus_33**2 - R_gamma + (-K_plus_00 + K_plus_11 + K_plus_22 + K_plus_33)**2)/2) + h_Sigma_00*tau_00/2 + h_Sigma_00*(-M*(-K_minus_11 - K_minus_22 - K_minus_33 + K_plus_11 + K_plus_22 + K_plus_33) - tau_00)/2 - h_Sigma_01*tau_01 + h_Sigma_01*(M*(-K_minus_01 + K_plus_01) + tau_01) - h_Sigma_02*tau_02 + h_Sigma_02*(M*(-K_minus_02 + K_plus_02) + tau_02) - h_Sigma_03*tau_03 + h_Sigma_03*(M*(-K_minus_03 + K_plus_03) + tau_03) + h_Sigma_11*tau_11/2 + h_Sigma_11*(-M*(-K_minus_00 + K_minus_22 + K_minus_33 + K_plus_00 - K_plus_22 - K_plus_33) - tau_11)/2 + h_Sigma_12*tau_12 + h_Sigma_12*(-M*(-K_minus_12 + K_plus_12) - tau_12) + h_Sigma_13*tau_13 + h_Sigma_13*(-M*(-K_minus_13 + K_plus_13) - tau_13) + h_Sigma_22*tau_22/2 + h_Sigma_22*(-M*(-K_minus_00 + K_minus_11 + K_minus_33 + K_plus_00 - K_plus_11 - K_plus_33) - tau_22)/2 + h_Sigma_23*tau_23 + h_Sigma_23*(-M*(-K_minus_23 + K_plus_23) - tau_23) + h_Sigma_33*tau_33/2 + h_Sigma_33*(-M*(-K_minus_00 + K_minus_11 + K_minus_22 + K_plus_00 - K_plus_11 - K_plus_22) - tau_33)/2"
+      },
+      "scalar_Green_Legendre_form": "delta_q_0*(-C_scalar_00*v_minus_0 + C_scalar_00*v_plus_0 - C_scalar_01*v_minus_1 + C_scalar_01*v_plus_1 - C_scalar_02*v_minus_2 + C_scalar_02*v_plus_2 - C_scalar_03*v_minus_3 + C_scalar_03*v_plus_3) + delta_q_1*(-C_scalar_01*v_minus_0 + C_scalar_01*v_plus_0 - C_scalar_11*v_minus_1 + C_scalar_11*v_plus_1 - C_scalar_12*v_minus_2 + C_scalar_12*v_plus_2 - C_scalar_13*v_minus_3 + C_scalar_13*v_plus_3) + delta_q_2*(-C_scalar_02*v_minus_0 + C_scalar_02*v_plus_0 - C_scalar_12*v_minus_1 + C_scalar_12*v_plus_1 - C_scalar_22*v_minus_2 + C_scalar_22*v_plus_2 - C_scalar_23*v_minus_3 + C_scalar_23*v_plus_3) + delta_q_3*(-C_scalar_03*v_minus_0 + C_scalar_03*v_plus_0 - C_scalar_13*v_minus_1 + C_scalar_13*v_plus_1 - C_scalar_23*v_minus_2 + C_scalar_23*v_plus_2 - C_scalar_33*v_minus_3 + C_scalar_33*v_plus_3) - f*(-C_scalar_00*v_minus_0**2/2 + C_scalar_00*v_plus_0**2/2 - C_scalar_01*v_minus_0*v_minus_1 + C_scalar_01*v_plus_0*v_plus_1 - C_scalar_02*v_minus_0*v_minus_2 + C_scalar_02*v_plus_0*v_plus_2 - C_scalar_03*v_minus_0*v_minus_3 + C_scalar_03*v_plus_0*v_plus_3 - C_scalar_11*v_minus_1**2/2 + C_scalar_11*v_plus_1**2/2 - C_scalar_12*v_minus_1*v_minus_2 + C_scalar_12*v_plus_1*v_plus_2 - C_scalar_13*v_minus_1*v_minus_3 + C_scalar_13*v_plus_1*v_plus_3 - C_scalar_22*v_minus_2**2/2 + C_scalar_22*v_plus_2**2/2 - C_scalar_23*v_minus_2*v_minus_3 + C_scalar_23*v_plus_2*v_plus_3 - C_scalar_33*v_minus_3**2/2 + C_scalar_33*v_plus_3**2/2)",
+      "scalar_Green_from_moving_endpoints": "f*(-V + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_minus_0*(C_scalar_00*v_minus_0 + C_scalar_01*v_minus_1 + C_scalar_02*v_minus_2 + C_scalar_03*v_minus_3)/2 - v_minus_1*(C_scalar_01*v_minus_0 + C_scalar_11*v_minus_1 + C_scalar_12*v_minus_2 + C_scalar_13*v_minus_3)/2 - v_minus_2*(C_scalar_02*v_minus_0 + C_scalar_12*v_minus_1 + C_scalar_22*v_minus_2 + C_scalar_23*v_minus_3)/2 - v_minus_3*(C_scalar_03*v_minus_0 + C_scalar_13*v_minus_1 + C_scalar_23*v_minus_2 + C_scalar_33*v_minus_3)/2) - f*(-V + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_plus_0*(C_scalar_00*v_plus_0 + C_scalar_01*v_plus_1 + C_scalar_02*v_plus_2 + C_scalar_03*v_plus_3)/2 - v_plus_1*(C_scalar_01*v_plus_0 + C_scalar_11*v_plus_1 + C_scalar_12*v_plus_2 + C_scalar_13*v_plus_3)/2 - v_plus_2*(C_scalar_02*v_plus_0 + C_scalar_12*v_plus_1 + C_scalar_22*v_plus_2 + C_scalar_23*v_plus_3)/2 - v_plus_3*(C_scalar_03*v_plus_0 + C_scalar_13*v_plus_1 + C_scalar_23*v_plus_2 + C_scalar_33*v_plus_3)/2) + (delta_q_0 - f*v_minus_0)*(-C_scalar_00*v_minus_0 - C_scalar_01*v_minus_1 - C_scalar_02*v_minus_2 - C_scalar_03*v_minus_3) - (delta_q_0 - f*v_plus_0)*(-C_scalar_00*v_plus_0 - C_scalar_01*v_plus_1 - C_scalar_02*v_plus_2 - C_scalar_03*v_plus_3) + (delta_q_1 - f*v_minus_1)*(-C_scalar_01*v_minus_0 - C_scalar_11*v_minus_1 - C_scalar_12*v_minus_2 - C_scalar_13*v_minus_3) - (delta_q_1 - f*v_plus_1)*(-C_scalar_01*v_plus_0 - C_scalar_11*v_plus_1 - C_scalar_12*v_plus_2 - C_scalar_13*v_plus_3) + (delta_q_2 - f*v_minus_2)*(-C_scalar_02*v_minus_0 - C_scalar_12*v_minus_1 - C_scalar_22*v_minus_2 - C_scalar_23*v_minus_3) - (delta_q_2 - f*v_plus_2)*(-C_scalar_02*v_plus_0 - C_scalar_12*v_plus_1 - C_scalar_22*v_plus_2 - C_scalar_23*v_plus_3) + (delta_q_3 - f*v_minus_3)*(-C_scalar_03*v_minus_0 - C_scalar_13*v_minus_1 - C_scalar_23*v_minus_2 - C_scalar_33*v_minus_3) - (delta_q_3 - f*v_plus_3)*(-C_scalar_03*v_plus_0 - C_scalar_13*v_plus_1 - C_scalar_23*v_plus_2 - C_scalar_33*v_plus_3)",
+      "scalar_L_minus": "-V + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_minus_0*(C_scalar_00*v_minus_0 + C_scalar_01*v_minus_1 + C_scalar_02*v_minus_2 + C_scalar_03*v_minus_3)/2 - v_minus_1*(C_scalar_01*v_minus_0 + C_scalar_11*v_minus_1 + C_scalar_12*v_minus_2 + C_scalar_13*v_minus_3)/2 - v_minus_2*(C_scalar_02*v_minus_0 + C_scalar_12*v_minus_1 + C_scalar_22*v_minus_2 + C_scalar_23*v_minus_3)/2 - v_minus_3*(C_scalar_03*v_minus_0 + C_scalar_13*v_minus_1 + C_scalar_23*v_minus_2 + C_scalar_33*v_minus_3)/2",
+      "scalar_L_plus": "-V + t_0_0*(C_scalar_00*t_0_0 + C_scalar_01*t_0_1 + C_scalar_02*t_0_2 + C_scalar_03*t_0_3)/2 + t_0_1*(C_scalar_01*t_0_0 + C_scalar_11*t_0_1 + C_scalar_12*t_0_2 + C_scalar_13*t_0_3)/2 + t_0_2*(C_scalar_02*t_0_0 + C_scalar_12*t_0_1 + C_scalar_22*t_0_2 + C_scalar_23*t_0_3)/2 + t_0_3*(C_scalar_03*t_0_0 + C_scalar_13*t_0_1 + C_scalar_23*t_0_2 + C_scalar_33*t_0_3)/2 - t_1_0*(C_scalar_00*t_1_0 + C_scalar_01*t_1_1 + C_scalar_02*t_1_2 + C_scalar_03*t_1_3)/2 - t_1_1*(C_scalar_01*t_1_0 + C_scalar_11*t_1_1 + C_scalar_12*t_1_2 + C_scalar_13*t_1_3)/2 - t_1_2*(C_scalar_02*t_1_0 + C_scalar_12*t_1_1 + C_scalar_22*t_1_2 + C_scalar_23*t_1_3)/2 - t_1_3*(C_scalar_03*t_1_0 + C_scalar_13*t_1_1 + C_scalar_23*t_1_2 + C_scalar_33*t_1_3)/2 - t_2_0*(C_scalar_00*t_2_0 + C_scalar_01*t_2_1 + C_scalar_02*t_2_2 + C_scalar_03*t_2_3)/2 - t_2_1*(C_scalar_01*t_2_0 + C_scalar_11*t_2_1 + C_scalar_12*t_2_2 + C_scalar_13*t_2_3)/2 - t_2_2*(C_scalar_02*t_2_0 + C_scalar_12*t_2_1 + C_scalar_22*t_2_2 + C_scalar_23*t_2_3)/2 - t_2_3*(C_scalar_03*t_2_0 + C_scalar_13*t_2_1 + C_scalar_23*t_2_2 + C_scalar_33*t_2_3)/2 - t_3_0*(C_scalar_00*t_3_0 + C_scalar_01*t_3_1 + C_scalar_02*t_3_2 + C_scalar_03*t_3_3)/2 - t_3_1*(C_scalar_01*t_3_0 + C_scalar_11*t_3_1 + C_scalar_12*t_3_2 + C_scalar_13*t_3_3)/2 - t_3_2*(C_scalar_02*t_3_0 + C_scalar_12*t_3_1 + C_scalar_22*t_3_2 + C_scalar_23*t_3_3)/2 - t_3_3*(C_scalar_03*t_3_0 + C_scalar_13*t_3_1 + C_scalar_23*t_3_2 + C_scalar_33*t_3_3)/2 - v_plus_0*(C_scalar_00*v_plus_0 + C_scalar_01*v_plus_1 + C_scalar_02*v_plus_2 + C_scalar_03*v_plus_3)/2 - v_plus_1*(C_scalar_01*v_plus_0 + C_scalar_11*v_plus_1 + C_scalar_12*v_plus_2 + C_scalar_13*v_plus_3)/2 - v_plus_2*(C_scalar_02*v_plus_0 + C_scalar_12*v_plus_1 + C_scalar_22*v_plus_2 + C_scalar_23*v_plus_3)/2 - v_plus_3*(C_scalar_03*v_plus_0 + C_scalar_13*v_plus_1 + C_scalar_23*v_plus_2 + C_scalar_33*v_plus_3)/2",
+      "shape_edge_minus": [
+        [
+          "M*f_t"
+        ],
+        [
+          "-M*f_x"
+        ],
+        [
+          "-M*f_y"
+        ],
+        [
+          "-M*f_z"
+        ]
+      ],
+      "shape_edge_plus": [
+        [
+          "-M*f_t"
+        ],
+        [
+          "M*f_x"
+        ],
+        [
+          "M*f_y"
+        ],
+        [
+          "M*f_z"
+        ]
+      ],
+      "wall_variation_once": "E_T*delta_T_Sigma + delta_q_0*wall_q_Euler_0 + delta_q_1*wall_q_Euler_1 + delta_q_2*wall_q_Euler_2 + delta_q_3*wall_q_Euler_3 + h_Sigma_00*tau_00/2 - h_Sigma_01*tau_01 - h_Sigma_02*tau_02 - h_Sigma_03*tau_03 + h_Sigma_11*tau_11/2 + h_Sigma_12*tau_12 + h_Sigma_13*tau_13 + h_Sigma_22*tau_22/2 + h_Sigma_23*tau_23 + h_Sigma_33*tau_33/2"
+    },
+    "palatini": {
+      "EH_Palatini_current_normal": "K_00*M*h_00/2 - K_01*M*h_01 - K_02*M*h_02 - K_03*M*h_03 + K_11*M*h_11/2 + K_12*M*h_12 + K_13*M*h_13 + K_22*M*h_22/2 + K_23*M*h_23 + K_33*M*h_33/2 + M*normal_h_derivative_00/2 - M*normal_h_derivative_11/2 - M*normal_h_derivative_22/2 - M*normal_h_derivative_33/2",
+      "GHY_delta_k_from_metric_inverse_and_normal_jet": "-K_00*h_00 + 2*K_01*h_01 + 2*K_02*h_02 + 2*K_03*h_03 - K_11*h_11 - 2*K_12*h_12 - 2*K_13*h_13 - K_22*h_22 - 2*K_23*h_23 - K_33*h_33 - normal_h_derivative_00/2 + normal_h_derivative_11/2 + normal_h_derivative_22/2 + normal_h_derivative_33/2",
+      "GHY_variation_per_volume": "-K_00*M*h_00/2 - K_00*M*h_11/2 - K_00*M*h_22/2 - K_00*M*h_33/2 + 2*K_01*M*h_01 + 2*K_02*M*h_02 + 2*K_03*M*h_03 - K_11*M*h_00/2 - K_11*M*h_11/2 + K_11*M*h_22/2 + K_11*M*h_33/2 - 2*K_12*M*h_12 - 2*K_13*M*h_13 - K_22*M*h_00/2 + K_22*M*h_11/2 - K_22*M*h_22/2 + K_22*M*h_33/2 - 2*K_23*M*h_23 - K_33*M*h_00/2 + K_33*M*h_11/2 + K_33*M*h_22/2 - K_33*M*h_33/2 - M*normal_h_derivative_00/2 + M*normal_h_derivative_11/2 + M*normal_h_derivative_22/2 + M*normal_h_derivative_33/2",
+      "combined_boundary_variation": "-K_00*M*h_11/2 - K_00*M*h_22/2 - K_00*M*h_33/2 + K_01*M*h_01 + K_02*M*h_02 + K_03*M*h_03 - K_11*M*h_00/2 + K_11*M*h_22/2 + K_11*M*h_33/2 - K_12*M*h_12 - K_13*M*h_13 - K_22*M*h_00/2 + K_22*M*h_11/2 + K_22*M*h_33/2 - K_23*M*h_23 - K_33*M*h_00/2 + K_33*M*h_11/2 + K_33*M*h_22/2",
+      "covariant_divergence_h_normal": "-K_00*h_00 + 2*K_01*h_01 + 2*K_02*h_02 + 2*K_03*h_03 - K_11*h_11 - 2*K_12*h_12 - 2*K_13*h_13 - K_22*h_22 - 2*K_23*h_23 - K_33*h_33",
+      "gaussian_variation": "h_nn=h_ni=0 in the chosen local representative; h_ij and normal h_ij jets independent",
+      "normal_derivative_trace_h": "-2*K_00*h_00 + 4*K_01*h_01 + 4*K_02*h_02 + 4*K_03*h_03 - 2*K_11*h_11 - 4*K_12*h_12 - 4*K_13*h_13 - 2*K_22*h_22 - 4*K_23*h_23 - 2*K_33*h_33 - normal_h_derivative_00 + normal_h_derivative_11 + normal_h_derivative_22 + normal_h_derivative_33",
+      "normalization": "p is per invariant boundary volume, not a density; symmetric off-diagonal entries counted twice",
+      "p_from_independent_metric_coefficients": [
+        [
+          "-K_11*M/2 - K_22*M/2 - K_33*M/2",
+          "K_01*M/2",
+          "K_02*M/2",
+          "K_03*M/2"
+        ],
+        [
+          "K_01*M/2",
+          "-K_00*M/2 + K_22*M/2 + K_33*M/2",
+          "-K_12*M/2",
+          "-K_13*M/2"
+        ],
+        [
+          "K_02*M/2",
+          "-K_12*M/2",
+          "-K_00*M/2 + K_11*M/2 + K_33*M/2",
+          "-K_23*M/2"
+        ],
+        [
+          "K_03*M/2",
+          "-K_13*M/2",
+          "-K_23*M/2",
+          "-K_00*M/2 + K_11*M/2 + K_22*M/2"
+        ]
+      ],
+      "pi_contravariant": [
+        [
+          "K_11 + K_22 + K_33",
+          "-K_01",
+          "-K_02",
+          "-K_03"
+        ],
+        [
+          "-K_01",
+          "K_00 - K_22 - K_33",
+          "K_12",
+          "K_13"
+        ],
+        [
+          "-K_02",
+          "K_12",
+          "K_00 - K_11 - K_33",
+          "K_23"
+        ],
+        [
+          "-K_03",
+          "K_13",
+          "K_23",
+          "K_00 - K_11 - K_22"
+        ]
+      ],
+      "residuals": {
+        "GHY_from_volume_inverse_and_metric_jet": "-K_00*M*h_00/2 - K_00*M*h_11/2 - K_00*M*h_22/2 - K_00*M*h_33/2 + 2*K_01*M*h_01 + 2*K_02*M*h_02 + 2*K_03*M*h_03 - K_11*M*h_00/2 - K_11*M*h_11/2 + K_11*M*h_22/2 + K_11*M*h_33/2 - 2*K_12*M*h_12 - 2*K_13*M*h_13 - K_22*M*h_00/2 + K_22*M*h_11/2 - K_22*M*h_22/2 + K_22*M*h_33/2 - 2*K_23*M*h_23 - K_33*M*h_00/2 + K_33*M*h_11/2 + K_33*M*h_22/2 - K_33*M*h_33/2 - M*normal_h_derivative_00/2 + M*normal_h_derivative_11/2 + M*normal_h_derivative_22/2 + M*normal_h_derivative_33/2 - M*(-K_00*h_00 + 2*K_01*h_01 + 2*K_02*h_02 + 2*K_03*h_03 - K_11*h_11 - 2*K_12*h_12 - 2*K_13*h_13 - K_22*h_22 - 2*K_23*h_23 - K_33*h_33 - normal_h_derivative_00/2 + normal_h_derivative_11/2 + normal_h_derivative_22/2 + normal_h_derivative_33/2 + (-K_00 + K_11 + K_22 + K_33)*(-h_00 + h_11 + h_22 + h_33)/2)",
+        "Palatini_from_covariant_derivatives": "K_00*M*h_00/2 - K_01*M*h_01 - K_02*M*h_02 - K_03*M*h_03 + K_11*M*h_11/2 + K_12*M*h_12 + K_13*M*h_13 + K_22*M*h_22/2 + K_23*M*h_23 + K_33*M*h_33/2 + M*normal_h_derivative_00/2 - M*normal_h_derivative_11/2 - M*normal_h_derivative_22/2 - M*normal_h_derivative_33/2 - M*(K_00*h_00 - 2*K_01*h_01 - 2*K_02*h_02 - 2*K_03*h_03 + K_11*h_11 + 2*K_12*h_12 + 2*K_13*h_13 + K_22*h_22 + 2*K_23*h_23 + K_33*h_33 + normal_h_derivative_00 - normal_h_derivative_11 - normal_h_derivative_22 - normal_h_derivative_33)/2",
+        "all_normal_metric_variation_jets_cancel": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "metric_coefficient_reconstructs_Green": "-K_00*M*h_11/2 - K_00*M*h_22/2 - K_00*M*h_33/2 - K_11*M*h_00/2 + K_11*M*h_22/2 + K_11*M*h_33/2 - K_22*M*h_00/2 + K_22*M*h_11/2 + K_22*M*h_33/2 - K_33*M*h_00/2 + K_33*M*h_11/2 + K_33*M*h_22/2 - h_00*(-K_11*M/2 - K_22*M/2 - K_33*M/2) - h_11*(-K_00*M/2 + K_22*M/2 + K_33*M/2) - h_22*(-K_00*M/2 + K_11*M/2 + K_33*M/2) - h_33*(-K_00*M/2 + K_11*M/2 + K_22*M/2)",
+        "p_equals_minus_M_pi_over_two": [
+          [
+            "-K_11*M/2 - K_22*M/2 - K_33*M/2 + M*(K_11 + K_22 + K_33)/2",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "-K_00*M/2 + K_22*M/2 + K_33*M/2 + M*(K_00 - K_22 - K_33)/2",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "-K_00*M/2 + K_11*M/2 + K_33*M/2 + M*(K_00 - K_11 - K_33)/2",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "-K_00*M/2 + K_11*M/2 + K_22*M/2 + M*(K_00 - K_11 - K_22)/2"
+          ]
+        ]
+      }
+    },
+    "scope": {
+      "analytic_general_statement": "pinned lemma supplies covariant Palatini/Jacobi/Gauss reasoning",
+      "boundary": "compact support away from other boundaries or retained tangential currents; external corners not treated",
+      "finite_geometry_oracle": "homogeneous intrinsic metric jets with arbitrary symmetric K,L, not a general curved-slice computer proof",
+      "geometry": "smooth timelike common interface, spacelike unit normal, constant M; local Gaussian representative",
+      "material_limit": "gauged connection and dependent-frame trace adjoints must be added separately",
+      "variations": "one common displacement and common induced traces; bulk Eulerian variations adjusted by gluing",
+      "wall": "single intrinsic action without extra radial K dependence; complete metric and scalar/clock Euler coefficients"
+    },
+    "shape": {
+      "EH_domain_transport_once": "M*f*(2*K_00**2 + 2*K_00*K_11 + 2*K_00*K_22 + 2*K_00*K_33 - 6*K_01**2 - 6*K_02**2 - 6*K_03**2 + 2*K_11**2 - 2*K_11*K_22 - 2*K_11*K_33 + 6*K_12**2 + 6*K_13**2 + 2*K_22**2 - 2*K_22*K_33 + 6*K_23**2 + 2*K_33**2 + 2*normal_K_derivative_00 - 2*normal_K_derivative_11 - 2*normal_K_derivative_22 - 2*normal_K_derivative_33)/2",
+      "GHY_shape_variation": "-K_00**2*M*f - 2*K_00*K_11*M*f - 2*K_00*K_22*M*f - 2*K_00*K_33*M*f + 4*K_01**2*M*f + 4*K_02**2*M*f + 4*K_03**2*M*f - K_11**2*M*f + 2*K_11*K_22*M*f + 2*K_11*K_33*M*f - 4*K_12**2*M*f - 4*K_13**2*M*f - K_22**2*M*f + 2*K_22*K_33*M*f - 4*K_23**2*M*f - K_33**2*M*f - M*f*normal_K_derivative_00 + M*f*normal_K_derivative_11 + M*f*normal_K_derivative_22 + M*f*normal_K_derivative_33 + M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33",
+      "H_grav_metric_jet_family": "-K_00*K_11*M - K_00*K_22*M - K_00*K_33*M + K_01**2*M + K_02**2*M + K_03**2*M + K_11*K_22*M + K_11*K_33*M - K_12**2*M - K_13**2*M + K_22*K_33*M - K_23**2*M",
+      "box_f_Lorentzian": "-f_second_00 + f_second_11 + f_second_22 + f_second_33",
+      "direct_EH_GHY_shape": "-K_00*K_11*M*f - K_00*K_22*M*f - K_00*K_33*M*f + K_01**2*M*f + K_02**2*M*f + K_03**2*M*f + K_11*K_22*M*f + K_11*K_33*M*f - K_12**2*M*f - K_13**2*M*f + K_22*K_33*M*f - K_23**2*M*f + M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33",
+      "flat_shape": "M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33",
+      "general_covariant": {
+        "Gauss_substitution": {
+          "R_bulk_abstract": "K_00**2 - 2*K_01**2 - 2*K_02**2 - 2*K_03**2 + K_11**2 + 2*K_12**2 + 2*K_13**2 + K_22**2 + 2*K_23**2 + K_33**2 + R_gamma + 2*Ric_nn_abstract - (-K_00 + K_11 + K_22 + K_33)**2"
+        },
+        "H_grav": "M*(-K_00**2 + 2*K_01**2 + 2*K_02**2 + 2*K_03**2 - K_11**2 - 2*K_12**2 - 2*K_13**2 - K_22**2 - 2*K_23**2 - K_33**2 - R_gamma + (-K_00 + K_11 + K_22 + K_33)**2)/2",
+        "Jacobi_delta_k": "-f*(K_00**2 - 2*K_01**2 - 2*K_02**2 - 2*K_03**2 + K_11**2 + 2*K_12**2 + 2*K_13**2 + K_22**2 + 2*K_23**2 + K_33**2 + Ric_nn_abstract) + f_second_00 - f_second_11 - f_second_22 - f_second_33",
+        "after_Gauss": "-K_00*K_11*M*f - K_00*K_22*M*f - K_00*K_33*M*f + K_01**2*M*f + K_02**2*M*f + K_03**2*M*f + K_11*K_22*M*f + K_11*K_33*M*f - K_12**2*M*f - K_13**2*M*f + K_22*K_33*M*f - K_23**2*M*f + M*R_gamma*f/2 + M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33",
+        "basis": "general tensor proof in pinned lemma; independent Gaussian metric-jet witness above",
+        "before_Gauss": "M*R_bulk_abstract*f/2 + M*(f*(-K_00 + K_11 + K_22 + K_33)**2 - f*(K_00**2 - 2*K_01**2 - 2*K_02**2 - 2*K_03**2 + K_11**2 + 2*K_12**2 + 2*K_13**2 + K_22**2 + 2*K_23**2 + K_33**2 + Ric_nn_abstract) + f_second_00 - f_second_11 - f_second_22 - f_second_33)"
+      },
+      "immersion_tangent_first_order": [
+        [
+          "epsilon*f_t",
+          "epsilon*f_x",
+          "epsilon*f_y",
+          "epsilon*f_z"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "induced_K_first_variation": [
+        [
+          "f*normal_K_derivative_00 - f_second_00",
+          "f*normal_K_derivative_01 - f_second_01",
+          "f*normal_K_derivative_02 - f_second_02",
+          "f*normal_K_derivative_03 - f_second_03"
+        ],
+        [
+          "f*normal_K_derivative_01 - f_second_01",
+          "f*normal_K_derivative_11 - f_second_11",
+          "f*normal_K_derivative_12 - f_second_12",
+          "f*normal_K_derivative_13 - f_second_13"
+        ],
+        [
+          "f*normal_K_derivative_02 - f_second_02",
+          "f*normal_K_derivative_12 - f_second_12",
+          "f*normal_K_derivative_22 - f_second_22",
+          "f*normal_K_derivative_23 - f_second_23"
+        ],
+        [
+          "f*normal_K_derivative_03 - f_second_03",
+          "f*normal_K_derivative_13 - f_second_13",
+          "f*normal_K_derivative_23 - f_second_23",
+          "f*normal_K_derivative_33 - f_second_33"
+        ]
+      ],
+      "induced_K_reference": [
+        [
+          "K_00",
+          "K_01",
+          "K_02",
+          "K_03"
+        ],
+        [
+          "K_01",
+          "K_11",
+          "K_12",
+          "K_13"
+        ],
+        [
+          "K_02",
+          "K_12",
+          "K_22",
+          "K_23"
+        ],
+        [
+          "K_03",
+          "K_13",
+          "K_23",
+          "K_33"
+        ]
+      ],
+      "induced_metric_first_variation": [
+        [
+          "2*K_00*f",
+          "2*K_01*f",
+          "2*K_02*f",
+          "2*K_03*f"
+        ],
+        [
+          "2*K_01*f",
+          "2*K_11*f",
+          "2*K_12*f",
+          "2*K_13*f"
+        ],
+        [
+          "2*K_02*f",
+          "2*K_12*f",
+          "2*K_22*f",
+          "2*K_23*f"
+        ],
+        [
+          "2*K_03*f",
+          "2*K_13*f",
+          "2*K_23*f",
+          "2*K_33*f"
+        ]
+      ],
+      "normal_covector_first_order": [
+        [
+          "1"
+        ],
+        [
+          "-epsilon*f_t"
+        ],
+        [
+          "-epsilon*f_x"
+        ],
+        [
+          "-epsilon*f_y"
+        ],
+        [
+          "-epsilon*f_z"
+        ]
+      ],
+      "p_paired_with_shape": "-2*K_00*K_11*M*f - 2*K_00*K_22*M*f - 2*K_00*K_33*M*f + 2*K_01**2*M*f + 2*K_02**2*M*f + 2*K_03**2*M*f + 2*K_11*K_22*M*f + 2*K_11*K_33*M*f - 2*K_12**2*M*f - 2*K_13**2*M*f + 2*K_22*K_33*M*f - 2*K_23**2*M*f",
+      "residuals": {
+        "contracted_Jacobi_keeps_inverse_variation": "-2*K_00**2*f + 4*K_01**2*f + 4*K_02**2*f + 4*K_03**2*f - 2*K_11**2*f - 4*K_12**2*f - 4*K_13**2*f - 2*K_22**2*f - 4*K_23**2*f - 2*K_33**2*f - f*normal_K_derivative_00 + f*normal_K_derivative_11 + f*normal_K_derivative_22 + f*normal_K_derivative_33 + f*(2*K_00**2 - 4*K_01**2 - 4*K_02**2 - 4*K_03**2 + 2*K_11**2 + 4*K_12**2 + 4*K_13**2 + 2*K_22**2 + 4*K_23**2 + 2*K_33**2 + normal_K_derivative_00 - normal_K_derivative_11 - normal_K_derivative_22 - normal_K_derivative_33)",
+        "flat_variable_f_retains_boundary": "M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33 + M*(-f_second_00 + f_second_11 + f_second_22 + f_second_33)",
+        "general_covariant_Gauss_reduction": "-K_00*K_11*M*f - K_00*K_22*M*f - K_00*K_33*M*f - 2*K_00*f*(-K_11*M/2 - K_22*M/2 - K_33*M/2) - K_01**2*M*f - K_02**2*M*f - K_03**2*M*f + K_11*K_22*M*f + K_11*K_33*M*f - 2*K_11*f*(-K_00*M/2 + K_22*M/2 + K_33*M/2) + K_12**2*M*f + K_13**2*M*f + K_22*K_33*M*f - 2*K_22*f*(-K_00*M/2 + K_11*M/2 + K_33*M/2) + K_23**2*M*f - 2*K_33*f*(-K_00*M/2 + K_11*M/2 + K_22*M/2) + M*R_gamma*f/2 + M*f*(-K_00**2 + 2*K_01**2 + 2*K_02**2 + 2*K_03**2 - K_11**2 - 2*K_12**2 - 2*K_13**2 - K_22**2 - 2*K_23**2 - K_33**2 - R_gamma + (-K_00 + K_11 + K_22 + K_33)**2)/2 + M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33 + M*(-f_second_00 + f_second_11 + f_second_22 + f_second_33)",
+        "induced_K_derivative_from_normal_and_pullback": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "induced_K_reference_from_Christoffel": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "induced_determinant_volume_derivative": "-K_00*f + K_11*f + K_22*f + K_33*f - f*(-K_00 + K_11 + K_22 + K_33)",
+        "induced_metric_from_immersion": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "normal_orthogonal_to_immersion_at_order_one": [
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ],
+          [
+            "0"
+          ]
+        ],
+        "normal_unit_at_order_one": "0",
+        "normal_unit_at_order_zero": "0",
+        "retained_edge_divergence_is_minus_M_box": "M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33 + M*(-f_second_00 + f_second_11 + f_second_22 + f_second_33)",
+        "shape_Legendre_from_independent_metric_jets": "-K_00*K_11*M*f - K_00*K_22*M*f - K_00*K_33*M*f - 2*K_00*f*(-K_11*M/2 - K_22*M/2 - K_33*M/2) - K_01**2*M*f - K_02**2*M*f - K_03**2*M*f + K_11*K_22*M*f + K_11*K_33*M*f - 2*K_11*f*(-K_00*M/2 + K_22*M/2 + K_33*M/2) + K_12**2*M*f + K_13**2*M*f + K_22*K_33*M*f - 2*K_22*f*(-K_00*M/2 + K_11*M/2 + K_33*M/2) + K_23**2*M*f - 2*K_33*f*(-K_00*M/2 + K_11*M/2 + K_22*M/2) + M*f*(-K_00**2 + 2*K_01**2 + 2*K_02**2 + 2*K_03**2 - K_11**2 - 2*K_12**2 - 2*K_13**2 - K_22**2 - 2*K_23**2 - K_33**2 + (-K_00 + K_11 + K_22 + K_33)**2)/2 + M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33 + M*(-f_second_00 + f_second_11 + f_second_22 + f_second_33)",
+        "uncontracted_Jacobi_from_metric_Riemann": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "warped_Ric_nn_without_BPS": "0",
+        "warped_scalar_curvature_without_BPS": "0",
+        "warped_shape_cancels_a_prime": "M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33 + M*(-f_second_00 + f_second_11 + f_second_22 + f_second_33)"
+      },
+      "tangential_boundary_current": [
+        [
+          "M*f_t"
+        ],
+        [
+          "-M*f_x"
+        ],
+        [
+          "-M*f_y"
+        ],
+        [
+          "-M*f_z"
+        ]
+      ],
+      "tangential_boundary_divergence": "M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33",
+      "trace_K_first_variation_including_inverse": "-2*K_00**2*f + 4*K_01**2*f + 4*K_02**2*f + 4*K_03**2*f - 2*K_11**2*f - 4*K_12**2*f - 4*K_13**2*f - 2*K_22**2*f - 4*K_23**2*f - 2*K_33**2*f - f*normal_K_derivative_00 + f*normal_K_derivative_11 + f*normal_K_derivative_22 + f*normal_K_derivative_33 + f_second_00 - f_second_11 - f_second_22 - f_second_33",
+      "volume_first_variation_from_determinant": "-K_00*f + K_11*f + K_22*f + K_33*f",
+      "warped": {
+        "BPS_or_Einstein_equations_used": false,
+        "R_bulk": "-20*warp_a**2 - 8*warp_a_prime",
+        "Ric_nn": "-4*warp_a**2 - 4*warp_a_prime",
+        "a": "warp_a",
+        "a_prime": "warp_a_prime",
+        "shape": "6*M*f*warp_a**2 + M*f_second_00 - M*f_second_11 - M*f_second_22 - M*f_second_33",
+        "substitution": {
+          "K_00": "-warp_a",
+          "K_01": "0",
+          "K_02": "0",
+          "K_03": "0",
+          "K_11": "warp_a",
+          "K_12": "0",
+          "K_13": "0",
+          "K_22": "warp_a",
+          "K_23": "0",
+          "K_33": "warp_a",
+          "normal_K_derivative_00": "-2*warp_a**2 - warp_a_prime",
+          "normal_K_derivative_01": "0",
+          "normal_K_derivative_02": "0",
+          "normal_K_derivative_03": "0",
+          "normal_K_derivative_11": "2*warp_a**2 + warp_a_prime",
+          "normal_K_derivative_12": "0",
+          "normal_K_derivative_13": "0",
+          "normal_K_derivative_22": "2*warp_a**2 + warp_a_prime",
+          "normal_K_derivative_23": "0",
+          "normal_K_derivative_33": "2*warp_a**2 + warp_a_prime"
+        }
+      }
+    },
+    "symbols": {
+      "E_T": "E_T",
+      "K": [
+        [
+          "K_00",
+          "K_01",
+          "K_02",
+          "K_03"
+        ],
+        [
+          "K_01",
+          "K_11",
+          "K_12",
+          "K_13"
+        ],
+        [
+          "K_02",
+          "K_12",
+          "K_22",
+          "K_23"
+        ],
+        [
+          "K_03",
+          "K_13",
+          "K_23",
+          "K_33"
+        ]
+      ],
+      "K_minus": [
+        [
+          "K_minus_00",
+          "K_minus_01",
+          "K_minus_02",
+          "K_minus_03"
+        ],
+        [
+          "K_minus_01",
+          "K_minus_11",
+          "K_minus_12",
+          "K_minus_13"
+        ],
+        [
+          "K_minus_02",
+          "K_minus_12",
+          "K_minus_22",
+          "K_minus_23"
+        ],
+        [
+          "K_minus_03",
+          "K_minus_13",
+          "K_minus_23",
+          "K_minus_33"
+        ]
+      ],
+      "K_plus": [
+        [
+          "K_plus_00",
+          "K_plus_01",
+          "K_plus_02",
+          "K_plus_03"
+        ],
+        [
+          "K_plus_01",
+          "K_plus_11",
+          "K_plus_12",
+          "K_plus_13"
+        ],
+        [
+          "K_plus_02",
+          "K_plus_12",
+          "K_plus_22",
+          "K_plus_23"
+        ],
+        [
+          "K_plus_03",
+          "K_plus_13",
+          "K_plus_23",
+          "K_plus_33"
+        ]
+      ],
+      "L": [
+        [
+          "normal_K_derivative_00",
+          "normal_K_derivative_01",
+          "normal_K_derivative_02",
+          "normal_K_derivative_03"
+        ],
+        [
+          "normal_K_derivative_01",
+          "normal_K_derivative_11",
+          "normal_K_derivative_12",
+          "normal_K_derivative_13"
+        ],
+        [
+          "normal_K_derivative_02",
+          "normal_K_derivative_12",
+          "normal_K_derivative_22",
+          "normal_K_derivative_23"
+        ],
+        [
+          "normal_K_derivative_03",
+          "normal_K_derivative_13",
+          "normal_K_derivative_23",
+          "normal_K_derivative_33"
+        ]
+      ],
+      "M": "M",
+      "R_gamma": "R_gamma",
+      "ddf": [
+        [
+          "f_second_00",
+          "f_second_01",
+          "f_second_02",
+          "f_second_03"
+        ],
+        [
+          "f_second_01",
+          "f_second_11",
+          "f_second_12",
+          "f_second_13"
+        ],
+        [
+          "f_second_02",
+          "f_second_12",
+          "f_second_22",
+          "f_second_23"
+        ],
+        [
+          "f_second_03",
+          "f_second_13",
+          "f_second_23",
+          "f_second_33"
+        ]
+      ],
+      "delta_q": [
+        [
+          "delta_q_0"
+        ],
+        [
+          "delta_q_1"
+        ],
+        [
+          "delta_q_2"
+        ],
+        [
+          "delta_q_3"
+        ]
+      ],
+      "df": [
+        [
+          "f_t"
+        ],
+        [
+          "f_x"
+        ],
+        [
+          "f_y"
+        ],
+        [
+          "f_z"
+        ]
+      ],
+      "epsilon": "epsilon",
+      "f": "f",
+      "gamma": [
+        [
+          "-1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "h": [
+        [
+          "h_00",
+          "h_01",
+          "h_02",
+          "h_03"
+        ],
+        [
+          "h_01",
+          "h_11",
+          "h_12",
+          "h_13"
+        ],
+        [
+          "h_02",
+          "h_12",
+          "h_22",
+          "h_23"
+        ],
+        [
+          "h_03",
+          "h_13",
+          "h_23",
+          "h_33"
+        ]
+      ],
+      "h0": [
+        [
+          "h0_00",
+          "h0_01",
+          "h0_02",
+          "h0_03"
+        ],
+        [
+          "h0_01",
+          "h0_11",
+          "h0_12",
+          "h0_13"
+        ],
+        [
+          "h0_02",
+          "h0_12",
+          "h0_22",
+          "h0_23"
+        ],
+        [
+          "h0_03",
+          "h0_13",
+          "h0_23",
+          "h0_33"
+        ]
+      ],
+      "h_Sigma": [
+        [
+          "h_Sigma_00",
+          "h_Sigma_01",
+          "h_Sigma_02",
+          "h_Sigma_03"
+        ],
+        [
+          "h_Sigma_01",
+          "h_Sigma_11",
+          "h_Sigma_12",
+          "h_Sigma_13"
+        ],
+        [
+          "h_Sigma_02",
+          "h_Sigma_12",
+          "h_Sigma_22",
+          "h_Sigma_23"
+        ],
+        [
+          "h_Sigma_03",
+          "h_Sigma_13",
+          "h_Sigma_23",
+          "h_Sigma_33"
+        ]
+      ],
+      "hp": [
+        [
+          "normal_h_derivative_00",
+          "normal_h_derivative_01",
+          "normal_h_derivative_02",
+          "normal_h_derivative_03"
+        ],
+        [
+          "normal_h_derivative_01",
+          "normal_h_derivative_11",
+          "normal_h_derivative_12",
+          "normal_h_derivative_13"
+        ],
+        [
+          "normal_h_derivative_02",
+          "normal_h_derivative_12",
+          "normal_h_derivative_22",
+          "normal_h_derivative_23"
+        ],
+        [
+          "normal_h_derivative_03",
+          "normal_h_derivative_13",
+          "normal_h_derivative_23",
+          "normal_h_derivative_33"
+        ]
+      ],
+      "potential": "V",
+      "scalar_metric": [
+        [
+          "C_scalar_00",
+          "C_scalar_01",
+          "C_scalar_02",
+          "C_scalar_03"
+        ],
+        [
+          "C_scalar_01",
+          "C_scalar_11",
+          "C_scalar_12",
+          "C_scalar_13"
+        ],
+        [
+          "C_scalar_02",
+          "C_scalar_12",
+          "C_scalar_22",
+          "C_scalar_23"
+        ],
+        [
+          "C_scalar_03",
+          "C_scalar_13",
+          "C_scalar_23",
+          "C_scalar_33"
+        ]
+      ],
+      "tangent_scalar_jets": [
+        [
+          "t_0_0",
+          "t_0_1",
+          "t_0_2",
+          "t_0_3"
+        ],
+        [
+          "t_1_0",
+          "t_1_1",
+          "t_1_2",
+          "t_1_3"
+        ],
+        [
+          "t_2_0",
+          "t_2_1",
+          "t_2_2",
+          "t_2_3"
+        ],
+        [
+          "t_3_0",
+          "t_3_1",
+          "t_3_2",
+          "t_3_3"
+        ]
+      ],
+      "tau": [
+        [
+          "tau_00",
+          "tau_01",
+          "tau_02",
+          "tau_03"
+        ],
+        [
+          "tau_01",
+          "tau_11",
+          "tau_12",
+          "tau_13"
+        ],
+        [
+          "tau_02",
+          "tau_12",
+          "tau_22",
+          "tau_23"
+        ],
+        [
+          "tau_03",
+          "tau_13",
+          "tau_23",
+          "tau_33"
+        ]
+      ],
+      "v_minus": [
+        [
+          "v_minus_0"
+        ],
+        [
+          "v_minus_1"
+        ],
+        [
+          "v_minus_2"
+        ],
+        [
+          "v_minus_3"
+        ]
+      ],
+      "v_plus": [
+        [
+          "v_plus_0"
+        ],
+        [
+          "v_plus_1"
+        ],
+        [
+          "v_plus_2"
+        ],
+        [
+          "v_plus_3"
+        ]
+      ],
+      "vartheta": "delta_T_Sigma",
+      "wall_q_Euler": [
+        [
+          "wall_q_Euler_0"
+        ],
+        [
+          "wall_q_Euler_1"
+        ],
+        [
+          "wall_q_Euler_2"
+        ],
+        [
+          "wall_q_Euler_3"
+        ]
+      ]
+    }
+  },
+  "negative_controls": {
+    "both_outward_normals_chosen_equal": true,
+    "discard_bulk_Euler_terms_off_shell": true,
+    "discard_scalar_natural_rows": true,
+    "double_count_EH_domain_transport": true,
+    "double_count_intrinsic_wall": true,
+    "freeze_both_bulk_metric_traces": true,
+    "freeze_inverse_in_shape_trace": true,
+    "omit_GHY_leaves_normal_metric_jets": true,
+    "omit_scalar_normal_Legendre_term": true,
+    "omit_variable_f_boundary_current": true,
+    "wrong_Israel_jump_sign": true
+  },
+  "provenance": {
+    "test_one_omega_eh_ghy_moving_normal_green_v1.py": "ad6f4e563e8ee8bb6471e38ee9140d5a7b286f3c09415c7364d027171aebb176",
+    "verify_one_omega_eh_ghy_moving_normal_green_v1.py": "9a6290554e1ca798cfccb47577ad9c58a13ec88a10742974873cd005d2d6a93b"
+  },
+  "runtime": {
+    "sympy": "1.13.3"
+  },
+  "schema": "holo.one-omega-eh-ghy-moving-normal-green.v1",
+  "sources": {
+    "constraint_identity": {
+      "name": "one_omega_interface_constraint_identity_v1.json",
+      "sha256": "0065ad20c379a4899101155c4bd9f1c6214e08069e8085a6976c824544adc6af"
+    },
+    "literal_v5_2": {
+      "name": "one_omega_topological_so3_classical_v5_2_gate.json",
+      "sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b"
+    },
+    "moving_scalar": {
+      "name": "one_omega_moving_scalar_green_v1.json",
+      "sha256": "f68a40f079c14c5cd5c619297b853157e196ce80a47dce28c930ebd8234bdca0"
+    },
+    "note": {
+      "name": "one_omega_eh_ghy_moving_normal_green_lemma_v1.md",
+      "sha256": "b6ccfd42ac4046a204b334bccd17ca18a5d17b0a12a4f239d171a77e78b75c46"
+    },
+    "upstream_gates_inherited": false,
+    "upstream_theorem_used_as_momentum_oracle": false
+  }
+}
