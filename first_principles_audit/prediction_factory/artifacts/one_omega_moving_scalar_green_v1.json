@@ -1,0 +1,98 @@
+{
+  "calculation_digest": "4d04d5131e1495ff0d66a40ee19df03d2b06a6d02b0f14e00a90a96d3678a0f9",
+  "checks": {
+    "all_four_outward_Green_momenta": true,
+    "all_tangential_Lorentz_derivatives_retained": true,
+    "coordinate_field_metric_pullback": true,
+    "direct_pulled_density_equals_off_shell_Euler_Green": true,
+    "embedding_Euler_row_is_minus_E_times_velocity": true,
+    "explicit_coordinate_dependence_retained": true,
+    "four_common_material_trace_equations": true,
+    "literal_normal_conformal_derivative": true,
+    "material_trace_Green_pairing_invariant": true,
+    "nonconstant_field_metric_not_frozen": true,
+    "nonzero_bulk_Euler_not_imposed": true,
+    "normal_H_derivative_retains_Euler_times_velocity": true,
+    "normal_Hilbert_stress_is_L_minus_p_v": true,
+    "normal_Legendre_pairing_invariant": true,
+    "normal_momentum_covector_transform": true,
+    "two_sided_Green_and_normal_jump": true
+  },
+  "decision": {
+    "B4": false,
+    "B5": false,
+    "complete_ADM_Robin_frame_Euler_rows": false,
+    "complete_gravitational_moving_variation": false,
+    "full_N4": false,
+    "full_N7": false,
+    "full_P4": false,
+    "normal_scalar_Green_and_Legendre_identity_checked": true,
+    "two_sided_scalar_gluing_tangent_checked": true
+  },
+  "formulas": {
+    "C": [
+      [
+        "G + 9*Z*(phi1**2 + phi2**2 + phi3**2)/(4*Omega**2)",
+        "3*Z*phi1/(2*Omega)",
+        "3*Z*phi2/(2*Omega)",
+        "3*Z*phi3/(2*Omega)"
+      ],
+      [
+        "3*Z*phi1/(2*Omega)",
+        "Z",
+        "0",
+        "0"
+      ],
+      [
+        "3*Z*phi2/(2*Omega)",
+        "0",
+        "Z",
+        "0"
+      ],
+      [
+        "3*Z*phi3/(2*Omega)",
+        "0",
+        "0",
+        "Z"
+      ]
+    ],
+    "full_V": "Omega*Z*m**2*(phi1**2 + phi2**2 + phi3**2)**2/(2*sqrt(Omega**6*(phi1**2 + phi2**2 + phi3**2)**2 + 1)) + U(Omega)",
+    "material_trace_row": "p_minus-p_plus+ell_q",
+    "moving_density": "E.(Delta q-xi*q_prime)+d[p.Delta q+xi*(L-p.q_prime)]",
+    "normal_force": "-[T_nn] in common-normal orientation",
+    "p": [
+      "-v0*(G + 9*Z*(phi1**2 + phi2**2 + phi3**2)/(4*Omega**2)) - 3*Z*phi1*v1/(2*Omega) - 3*Z*phi2*v2/(2*Omega) - 3*Z*phi3*v3/(2*Omega)",
+      "-Z*v1 - 3*Z*phi1*v0/(2*Omega)",
+      "-Z*v2 - 3*Z*phi2*v0/(2*Omega)",
+      "-Z*v3 - 3*Z*phi3*v0/(2*Omega)"
+    ]
+  },
+  "implementation": {
+    "test_sha256": "42c26264ee1a3cd1ba3921b491a4931cd330983365e1567e076786e01989a88e",
+    "verifier_sha256": "647e4f8631a625eb947673a2c71a170ed3646602efd532d259871d11a915213b"
+  },
+  "negative_controls": {
+    "double_domain_transgression": true,
+    "frozen_bulk_generic_moving_gluing": true,
+    "omit_material_velocity_in_Euler": true,
+    "omit_mixed_Omega_momentum": true,
+    "replace_normal_Legendre_by_L": true,
+    "same_outward_incidence_on_both_sides": true
+  },
+  "schema": "holo.one-omega-moving-scalar-green.v1",
+  "scope": {
+    "common_trace_variations_required": true,
+    "exact_full_V4_normal_flux": true,
+    "moving_density_oracle": "generic nonlinear first-order density with two fields",
+    "off_shell": true,
+    "scalar_part_only": true,
+    "second_domain_transgression_added": false
+  },
+  "sources": {
+    "candidate_sha256": "d9d12e8bffb98b48c92476515f2a06cf582c4c072fedfe671949c2977208306b",
+    "exact_action_sha256": "3011119e8d50c2b17471b464afa7fdd74b0a73ecc1e7708a6c95e06c2901551a",
+    "lemma_sha256": "43e887eb8807605a9c62ad2202e9c6edcb03aa2bc2bc35e86f3e442abd0e511c",
+    "no_source_gate_promotions_inherited": true,
+    "reference_domain": "M_eps are fixed reference half-spaces; moving physical domains are pulled back in full by Y_eps, so the material variations include Lie_xi once and no separate i_xi L_5 term is added"
+  }
+}
